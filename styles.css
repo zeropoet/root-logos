@@ -71,6 +71,10 @@ a:focus-visible {
   letter-spacing: 0;
 }
 
+.mark-only {
+  width: 34px;
+}
+
 .site-nav {
   gap: 4px;
 }
@@ -214,13 +218,8 @@ h3 {
 }
 
 .site-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 26px clamp(18px, 4vw, 54px);
-  color: var(--muted);
+  min-height: 28px;
   border-top: 1px solid var(--line);
-  font-size: 0.9rem;
 }
 
 .article-page {
