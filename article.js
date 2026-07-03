@@ -121,24 +121,74 @@ const renderBlocks = (markdown) => {
   return blocks.join("\n");
 };
 
+const extractArticleHead = (markdown) => {
+  const lines = markdown.split("\n");
+  const remaining = [...lines];
+  const head = {};
+
+  while (remaining[0]?.trim() === "") {
+    remaining.shift();
+  }
+
+  if (remaining[0]?.trim().startsWith("# ")) {
+    head.kicker = remaining.shift().trim().slice(2);
+  }
+
+  while (remaining[0]?.trim() === "") {
+    remaining.shift();
+  }
+
+  if (remaining[0]?.trim().startsWith("## ")) {
+    head.title = remaining.shift().trim().slice(3);
+  }
+
+  while (remaining[0]?.trim() === "") {
+    remaining.shift();
+  }
+
+  if (remaining[0]?.trim().startsWith("### ")) {
+    head.deck = remaining.shift().trim().slice(4);
+  }
+
+  return {
+    head,
+    content: remaining.join("\n").trim(),
+  };
+};
+
 const renderArticle = (markdown) => {
   const { frontMatter, content } = stripFrontMatter(markdown);
-  const html = renderBlocks(content);
+  const { head, content: articleContent } = extractArticleHead(content);
+  const html = renderBlocks(articleContent);
   const title = frontMatter.title || "Living Statement";
   const number = frontMatter.number || "";
   const domain = frontMatter.domain || "Root Logos";
+  const label = frontMatter.label || (number ? `Living Statement ${number}` : "Archive Document");
+  const backLabel = frontMatter.backLabel || "Archive";
+  const backHref = frontMatter.backHref || "../index.html#statements";
+  const articleKicker = head.kicker || label;
+  const articleTitle = head.title || frontMatter.subtitle || title;
+  const articleDeck = head.deck || "";
 
-  document.title = number ? `Living Statement ${number} | Root Logos` : `${title} | Root Logos`;
+  document.title =
+    frontMatter.pageTitle || (number ? `Living Statement ${number} | Root Logos` : `${title} | Root Logos`);
 
   articleRoot.innerHTML = `
     <div class="article-shell">
       <aside class="article-meta" aria-label="Statement metadata">
-        <a class="archive-back" href="../index.html#statements">Archive</a>
-        <span>Living Statement ${escapeHtml(number)}</span>
+        <a class="archive-back" href="${escapeHtml(backHref)}">${escapeHtml(backLabel)}</a>
+        <span>${escapeHtml(label)}</span>
         <span>${escapeHtml(domain)}</span>
       </aside>
       <div class="article-body">
-        ${html}
+        <header class="article-head">
+          <p class="article-kicker">${inlineMarkdown(articleKicker)}</p>
+          <h1>${inlineMarkdown(articleTitle)}</h1>
+          ${articleDeck ? `<p class="article-deck">${inlineMarkdown(articleDeck)}</p>` : ""}
+        </header>
+        <div class="article-content">
+          ${html}
+        </div>
       </div>
     </div>
   `;
