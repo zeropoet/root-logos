@@ -15,6 +15,14 @@ Root Logos is a living archive of constitutional writings and durable institutio
 - `content/living-statement-001.md` through `content/living-statement-004.md` reserve canonical text slots.
 - `assets/` contains the mark and generated archive image.
 
+## Archive
+
+- `000` Root Logos: Archive Constitution
+- `001` Toward a Moral Constitution for Human-Machine Civilization
+- `002` The Invisible Substrate
+- `003` Constitutional Naturalization
+- `004` Participation Without Possession
+
 ## Publishing
 
 This repository is ready for GitHub Pages. The `CNAME` file points the site to `rootlogos.com`.
