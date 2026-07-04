@@ -496,12 +496,18 @@ main > .section-inner:first-child {
   .site-header {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding-block: 13px;
+    gap: 10px;
+    justify-items: start;
+    padding-block: 14px 12px;
   }
 
   .site-nav {
-    justify-content: space-between;
-    width: 100%;
+    gap: clamp(18px, 8vw, 30px);
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  .site-nav a {
+    padding: 4px 0;
   }
 }
