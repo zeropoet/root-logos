@@ -12,7 +12,7 @@ Root Logos is a living archive of constitutional writings and durable institutio
 - `article.js` renders canonical Markdown into article mastheads, metadata, and body copy.
 - `content/statements.json` is the statement index metadata.
 - `content/root-logos.md` is the archive constitution explaining why Living Statements exist.
-- `content/living-statement-001.md` through `content/living-statement-003.md` reserve canonical text slots.
+- `content/living-statement-001.md` through `content/living-statement-004.md` reserve canonical text slots.
 - `assets/` contains the mark and generated archive image.
 
 ## Publishing
