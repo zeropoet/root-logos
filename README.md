@@ -14,6 +14,7 @@ Root Logos is a living archive of constitutional writings and durable institutio
 - `content/root-logos.md` is the archive constitution explaining why Living Statements exist.
 - `content/living-statement-001.md` through `content/living-statement-004.md` reserve canonical text slots.
 - `content/constitutional-bridge-001.md` connects Living Statement 002 to Living Statement 003.
+- `content/constitutional-bridge-002.md` connects Living Statement 003 to Living Statement 004.
 - `assets/` contains the mark and generated archive image.
 
 ## Archive
@@ -23,6 +24,7 @@ Root Logos is a living archive of constitutional writings and durable institutio
 - `002` The Invisible Substrate
 - `CB-I` Participatory Sovereignty
 - `003` Constitutional Naturalization
+- `CB-II` Freedom Through Non-Possession
 - `004` Participation Without Possession
 
 ## Publishing
