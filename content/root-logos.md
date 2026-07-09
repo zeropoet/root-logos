@@ -4,8 +4,8 @@ pageTitle: "Root Logos | Archive Constitution"
 subtitle: "A Constitutional Substrate for Durable Institutions"
 domain: "Archive Constitution"
 label: "Archive Document"
-backLabel: "Constitution"
-backHref: "../index.html#constitution"
+backLabel: "Document"
+backHref: "../index.html#document"
 status: "Constitutional Substrate"
 ---
 
