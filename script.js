@@ -16,20 +16,49 @@ const typeLabels = {
   revision: "Revision",
 };
 
-const graphTiers = [
-  ["root-logos"],
-  ["logos-1", "logos-2", "logos-3"],
-  ["knowing", "participation", "observation", "freedom", "substrate", "coherence"],
-  ["living-statement-001", "living-statement-002", "living-statement-003", "living-statement-004"],
-  ["bridge-001", "bridge-002", "field-note-peace-home", "seed-topology-recorder", "seed-neuro-hug"],
-  ["export-mechanism", "export-packet", "revision-0.1"],
-];
+const networkTypeOrder = ["root", "logos", "vocabulary", "living-statement", "bridge", "field-note", "artifact-seed", "open-question", "export-system", "revision"];
+const networkTypeNames = {
+  root: "Source", logos: "Logoi", vocabulary: "Concepts", "living-statement": "Statements",
+  bridge: "Bridges", "field-note": "Notes", "artifact-seed": "Seeds", "open-question": "Questions",
+  "export-system": "Protocol", revision: "Revisions",
+};
 
 const setActiveLink = (id) => {
   navLinks.forEach((link) => {
     link.classList.toggle("is-active", link.hash === `#${id}`);
   });
 };
+
+const orientationPoints = [
+  { selector: "#top", label: "Entering the field" },
+  { selector: "#network", label: "Network / Relation made visible" },
+  ...Array.from(document.querySelectorAll(".doc-part[data-orientation]")).map((section) => ({
+    selector: `#${section.id}`,
+    label: section.dataset.orientation,
+  })),
+];
+
+const updateDocumentFlow = () => {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+  const bar = document.querySelector("#coherence-progress-bar");
+  if (bar) bar.style.transform = `scaleX(${progress})`;
+
+  const threshold = window.innerHeight * 0.38;
+  const current = orientationPoints
+    .map((point) => ({ ...point, element: document.querySelector(point.selector) }))
+    .filter((point) => point.element && point.element.getBoundingClientRect().top <= threshold)
+    .at(-1);
+  setText("#orientation-label", current?.label || "Entering the field");
+};
+
+document.querySelectorAll(".doc-part").forEach((part) => {
+  part.open = true;
+  part.querySelector("summary")?.addEventListener("click", (event) => event.preventDefault());
+});
+
+window.addEventListener("scroll", () => requestAnimationFrame(updateDocumentFlow), { passive: true });
+window.addEventListener("resize", updateDocumentFlow);
 
 if (sections.length) {
   const observer = new IntersectionObserver(
@@ -309,12 +338,27 @@ const renderExportPackets = (packets = []) => {
     list.innerHTML = packets.map(renderPacketPreview).join("");
   }
 
+  let reviewedPacket = null;
+  const validatePacket = (packet) => {
+    const required = ["export_id", "date", "status", "summary", "primary_update", "changes", "revision_entry"];
+    return required.filter((key) => !packet[key]);
+  };
+
   const review = () => {
     if (!input || !preview) {
       return;
     }
     try {
-      preview.innerHTML = renderPacketPreview(parsePacket(input.value));
+      reviewedPacket = parsePacket(input.value);
+      const missing = validatePacket(reviewedPacket);
+      preview.innerHTML = renderPacketPreview(reviewedPacket);
+      const status = document.querySelector("#import-status");
+      if (status) {
+        status.className = `import-status ${missing.length ? "is-error" : "is-valid"}`;
+        status.textContent = missing.length
+          ? `Contract incomplete · missing ${missing.join(", ")}`
+          : `Contract valid · ${reviewedPacket.export_id} is ready to stage`;
+      }
     } catch {
       preview.innerHTML = '<p class="export-error">This packet could not be parsed for review.</p>';
     }
@@ -328,7 +372,107 @@ const renderExportPackets = (packets = []) => {
   });
 
   document.querySelector("#review-export")?.addEventListener("click", review);
+  document.querySelector("#stage-export")?.addEventListener("click", () => {
+    review();
+    const status = document.querySelector("#import-status");
+    const missing = reviewedPacket ? validatePacket(reviewedPacket) : ["packet"];
+    if (!status || missing.length) return;
+    const changes = reviewedPacket.changes || {};
+    const count = asList(changes.added).length + asList(changes.modified).length + asList(changes.related).length;
+    status.className = "import-status is-staged";
+    status.textContent = `Update staged · ${count} graph operations proposed · published data unchanged`;
+  });
   review();
+};
+
+const renderNetwork = (nodes, edges, nodesById) => {
+  const canvas = document.querySelector("#network-canvas");
+  const stage = canvas?.parentElement;
+  const filters = document.querySelector("#network-filters");
+  if (!canvas || !stage || !filters) return;
+
+  const state = { activeTypes: new Set(networkTypeOrder), selected: "root-logos", points: [], raf: 0 };
+  const context = canvas.getContext("2d");
+
+  const inspect = (id) => {
+    state.selected = id;
+    const node = nodesById.get(id);
+    if (!node) return;
+    const relations = getRelations(id, edges, nodesById);
+    setText("#network-node-label", node.label || typeLabels[node.type]);
+    setText("#network-node-title", node.title);
+    setText("#network-node-summary", node.summary || node.definition);
+    document.querySelector("#network-node-meta").innerHTML = `
+      <div><dt>Class</dt><dd>${escapeHtml(networkTypeNames[node.type] || node.type)}</dd></div>
+      <div><dt>State</dt><dd>${escapeHtml(node.status || "Active")}</dd></div>
+      <div><dt>Degree</dt><dd>${relations.length} relations</dd></div>`;
+    document.querySelector("#network-node-relations").innerHTML = relations.slice(0, 8).map(({ edge, node: related }) => `
+      <button type="button" data-network-node="${escapeHtml(related.id)}">
+        <span>${escapeHtml(relationVerb(edge, id))}</span>${escapeHtml(related.title)}
+      </button>`).join("") || "<p>No immediate relations recorded.</p>";
+    document.querySelectorAll("[data-network-node]").forEach((button) => button.addEventListener("click", () => { inspect(button.dataset.networkNode); draw(); }));
+  };
+
+  const layout = (visible, width, height) => visible.map((node, index) => {
+    if (node.id === "root-logos") return { node, x: width / 2, y: height / 2, r: 13 };
+    const typeIndex = Math.max(0, networkTypeOrder.indexOf(node.type));
+    const peers = visible.filter((candidate) => candidate.type === node.type && candidate.id !== "root-logos");
+    const peerIndex = peers.findIndex((candidate) => candidate.id === node.id);
+    const angle = (peerIndex / Math.max(1, peers.length)) * Math.PI * 2 + typeIndex * 0.57;
+    const radius = Math.min(width, height) * (0.22 + (typeIndex % 4) * 0.065);
+    return { node, x: width / 2 + Math.cos(angle) * radius, y: height / 2 + Math.sin(angle) * radius, r: node.type === "logos" ? 9 : 6 };
+  });
+
+  const draw = () => {
+    const ratio = Math.min(2, window.devicePixelRatio || 1);
+    const width = stage.clientWidth;
+    const height = Math.max(540, Math.min(720, window.innerHeight * 0.72));
+    canvas.width = width * ratio; canvas.height = height * ratio;
+    canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
+    context.setTransform(ratio, 0, 0, ratio, 0, 0); context.clearRect(0, 0, width, height);
+    const visible = nodes.filter((node) => state.activeTypes.has(node.type));
+    state.points = layout(visible, width, height);
+    const pointById = new Map(state.points.map((point) => [point.node.id, point]));
+    const relatedIds = new Set(edges.filter((edge) => edge.from === state.selected || edge.to === state.selected).flatMap((edge) => [edge.from, edge.to]));
+    edges.forEach((edge) => {
+      const from = pointById.get(edge.from); const to = pointById.get(edge.to);
+      if (!from || !to) return;
+      const active = edge.from === state.selected || edge.to === state.selected;
+      context.beginPath(); context.moveTo(from.x, from.y); context.lineTo(to.x, to.y);
+      context.strokeStyle = active ? "rgba(255,255,255,.75)" : "rgba(255,255,255,.13)";
+      context.lineWidth = active ? 1.4 : 0.7; context.stroke();
+    });
+    state.points.forEach((point) => {
+      const selected = point.node.id === state.selected; const related = relatedIds.has(point.node.id);
+      context.beginPath(); context.arc(point.x, point.y, selected ? point.r + 5 : point.r, 0, Math.PI * 2);
+      context.fillStyle = selected ? "#fff" : related ? "#b9ffda" : "rgba(255,255,255,.62)"; context.fill();
+      if (selected || point.node.type === "root" || point.node.type === "logos") {
+        context.font = "11px SFMono-Regular, Menlo, monospace"; context.fillStyle = "rgba(255,255,255,.86)";
+        context.textAlign = "center"; context.fillText(point.node.label || point.node.title, point.x, point.y + 25);
+      }
+    });
+    document.querySelector("#network-empty").hidden = visible.length > 0;
+    document.querySelector("#network-stats").innerHTML = `<span>${visible.length}<small>visible nodes</small></span><span>${edges.filter((edge) => pointById.has(edge.from) && pointById.has(edge.to)).length}<small>active edges</small></span><span>${networkTypeOrder.length}<small>node classes</small></span>`;
+  };
+
+  filters.innerHTML = networkTypeOrder.filter((type) => nodes.some((node) => node.type === type)).map((type) => `<button type="button" class="is-active" data-network-type="${type}">${networkTypeNames[type]}</button>`).join("");
+  filters.addEventListener("click", (event) => {
+    const button = event.target.closest("button"); if (!button) return;
+    const type = button.dataset.networkType;
+    state.activeTypes.has(type) ? state.activeTypes.delete(type) : state.activeTypes.add(type);
+    button.classList.toggle("is-active", state.activeTypes.has(type)); draw();
+  });
+  canvas.addEventListener("click", (event) => {
+    const rect = canvas.getBoundingClientRect(); const x = event.clientX - rect.left; const y = event.clientY - rect.top;
+    const hit = state.points.find((point) => Math.hypot(point.x - x, point.y - y) < Math.max(14, point.r + 6));
+    if (hit) { inspect(hit.node.id); draw(); }
+  });
+  canvas.addEventListener("mousemove", (event) => {
+    const rect = canvas.getBoundingClientRect();
+    canvas.style.cursor = state.points.some((point) => Math.hypot(point.x - (event.clientX - rect.left), point.y - (event.clientY - rect.top)) < 16) ? "pointer" : "crosshair";
+  });
+  window.addEventListener("resize", () => { cancelAnimationFrame(state.raf); state.raf = requestAnimationFrame(draw); });
+  inspect(state.selected); draw();
 };
 
 const setText = (selector, value) => {
@@ -338,68 +482,27 @@ const setText = (selector, value) => {
   }
 };
 
-const renderGraph = (nodesById) => {
-  const board = document.querySelector("#graph-board");
-  if (!board) {
-    return;
-  }
+const renderRelationshipLedger = (edges, nodesById) => {
+  const summary = document.querySelector("#relationship-summary");
+  const records = document.querySelector("#relationship-records");
+  if (!summary || !records) return;
 
-  board.innerHTML = graphTiers
-    .map(
-      (tier, index) => `
-        <div class="graph-tier" data-tier="${index}">
-          ${tier
-            .map((id) => nodesById.get(id))
-            .filter(Boolean)
-            .map(
-              (node) => `
-                <button class="graph-node" type="button" data-node="${escapeHtml(node.id)}">
-                  <span>${escapeHtml(node.label || typeLabels[node.type])}</span>
-                  ${escapeHtml(node.title)}
-                </button>
-              `,
-            )
-            .join("")}
-        </div>
-      `,
-    )
+  const counts = edges.reduce((map, edge) => map.set(edge.type, (map.get(edge.type) || 0) + 1), new Map());
+  summary.innerHTML = [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([type, count]) => `<span><strong>${count}</strong>${escapeHtml(type)}</span>`)
     .join("");
-};
 
-const renderInspector = (node, edges, nodesById) => {
-  const title = document.querySelector("#node-title");
-  const description = document.querySelector("#node-description");
-  const meta = document.querySelector("#node-meta");
-  const relationships = document.querySelector("#node-relationships");
-
-  if (!node || !title || !description || !meta || !relationships) {
-    return;
-  }
-
-  const relations = getRelations(node.id, edges, nodesById);
-  title.textContent = node.title;
-  description.textContent = node.definition || node.summary || "";
-  meta.innerHTML = `
-    <div><dt>Type</dt><dd>${escapeHtml(typeLabels[node.type] || node.type)}</dd></div>
-    <div><dt>Status</dt><dd>${escapeHtml(node.status || "Active")}</dd></div>
-    ${node.answers ? `<div><dt>Answers</dt><dd>${escapeHtml(node.answers)}</dd></div>` : ""}
-  `;
-  relationships.innerHTML = relations.length
-    ? relations
-        .map(
-          ({ edge, node: related }) => `
-            <a href="${escapeHtml(slugHref(related))}">
-              <span>${escapeHtml(relationVerb(edge, node.id))}</span>
-              ${escapeHtml(related.title)}
-            </a>
-          `,
-        )
-        .join("")
-    : "<p>No relationships recorded yet.</p>";
-
-  document.querySelectorAll(".graph-node").forEach((button) => {
-    button.classList.toggle("is-selected", button.dataset.node === node.id);
-  });
+  records.innerHTML = edges.map((edge, index) => {
+    const from = nodesById.get(edge.from);
+    const to = nodesById.get(edge.to);
+    return `<article class="relationship-record">
+      <span class="relationship-number">${String(index + 1).padStart(2, "0")}</span>
+      <a href="${escapeHtml(slugHref(from))}">${escapeHtml(from.title)}</a>
+      <span class="relationship-verb">${escapeHtml(edge.type)}</span>
+      <a href="${escapeHtml(slugHref(to))}">${escapeHtml(to.title)}</a>
+    </article>`;
+  }).join("");
 };
 
 const scoreNode = (node, query) => {
@@ -475,6 +578,9 @@ const renderGraphSite = ({ meta, nodes, edges }) => {
   setText("#current-updated", meta.updated);
   setText("#current-status", meta.status);
   setText("#footer-maxim", meta.maxim);
+  setText("#pulse-nodes", nodes.length);
+  setText("#pulse-relations", edges.length);
+  setText("#pulse-revision", meta.revision);
 
   const root = nodesById.get("root-logos");
   if (root) {
@@ -513,15 +619,11 @@ const renderGraphSite = ({ meta, nodes, edges }) => {
     .map(renderRevision)
     .join("");
 
-  renderGraph(nodesById);
+  renderNetwork(nodes, edges, nodesById);
+  renderRelationshipLedger(edges, nodesById);
   renderInspector(root, edges, nodesById);
   renderSearch(nodes, edges, nodesById, "coherence");
-
-  document.querySelectorAll(".graph-node").forEach((button) => {
-    button.addEventListener("click", () => {
-      renderInspector(nodesById.get(button.dataset.node), edges, nodesById);
-    });
-  });
+  updateDocumentFlow();
 
   document.querySelector("#concept-search")?.addEventListener("input", (event) => {
     renderSearch(nodes, edges, nodesById, event.target.value.trim());

@@ -27,11 +27,10 @@
         <span>Root Logos</span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#document">Document</a>
-        <a href="#topology">Graph</a>
-        <a href="#exports">Exports</a>
-        <a href="#revision-0.1">Revisions</a>
+        <span class="orientation-label" id="orientation-label">Entering the field</span>
+        <a class="nav-return" href="#top">Root / 00</a>
       </nav>
+      <div class="coherence-progress" aria-hidden="true"><span id="coherence-progress-bar"></span></div>
     </header>
 
     <main id="top">
@@ -42,7 +41,11 @@
         <div class="home-copy">
           <p class="eyebrow">Current Revision</p>
           <h1 id="site-title">Root Logos</h1>
-          <p class="subtitle">Living Constitutional Grammar</p>
+          <p class="subtitle">A constitutional network for serious creation.</p>
+          <p class="home-declaration">
+            Ideas become nodes. Relationships become structure. Structure becomes
+            a field from which people, works, and institutions can be built.
+          </p>
         </div>
         <dl class="revision-stamp" aria-label="Current publication state">
           <div>
@@ -59,31 +62,64 @@
           </div>
         </dl>
         <nav class="home-actions" aria-label="Start points">
-          <a href="#document">Begin Reading</a>
+          <a href="#network">Enter the Network</a>
+          <a href="#document">Read the Constitution</a>
           <a href="#search">Search Concepts</a>
           <a href="#exports">Review Exports</a>
-          <a href="#revision-0.1">Revision History</a>
+          <a href="#revision-history">Revision History</a>
         </nav>
       </section>
 
       <section class="principle-strip" aria-label="Design principles">
-        <span>Constitution</span>
-        <span>Vocabulary</span>
-        <span>Relationship</span>
-        <span>Revision</span>
+        <span>Root / Principle</span>
+        <span>Node / Agency</span>
+        <span>Edge / Relation</span>
+        <span>Revision / Time</span>
+      </section>
+
+      <section class="network-section" id="network" aria-labelledby="network-title">
+        <header class="network-head section-inner">
+          <div>
+            <p class="eyebrow">Root Logos / Network Field</p>
+            <h2 id="network-title">Creation begins in relation.</h2>
+          </div>
+          <p>
+            This is not a map of finished things. It is a working field: a visible
+            account of what exists, what connects, and what is ready to become real.
+          </p>
+        </header>
+        <div class="network-interface section-inner">
+          <div class="network-toolbar">
+            <div class="network-stats" id="network-stats" aria-live="polite"></div>
+            <div class="network-filters" id="network-filters" aria-label="Filter network by node type"></div>
+          </div>
+          <div class="network-stage">
+            <canvas id="network-canvas" aria-label="Interactive map of the Root Logos constitutional network"></canvas>
+            <div class="network-empty" id="network-empty" hidden>No nodes match this field.</div>
+          </div>
+          <aside class="network-inspector" aria-live="polite">
+            <p class="entry-label" id="network-node-label">Constitutional Source</p>
+            <h3 id="network-node-title">Root Logos</h3>
+            <p id="network-node-summary">Select a node to trace its immediate field of relation.</p>
+            <dl class="node-meta" id="network-node-meta"></dl>
+            <div class="network-path" id="network-node-relations"></div>
+          </aside>
+        </div>
+        <a class="continuation-cue" href="#document">
+          <span>Continue through the field</span>
+          <small>The visual becomes language</small>
+        </a>
       </section>
 
       <section class="document-shell section-inner" id="document" aria-labelledby="document-title">
-        <aside class="document-index" aria-label="Document outline">
-          <p class="index-label">Root Logos</p>
-          <a href="#preface">Preface</a>
-          <a href="#architecture">Constitutional Grammar</a>
-          <a href="#vocabulary">Vocabulary</a>
-          <a href="#derived-documents">Derived Documents</a>
-          <a href="#topology">Relationships</a>
-          <a href="#exports">Exports</a>
-          <a href="#open-questions">Open Questions</a>
-          <a href="#revision-0.1">Revision 0.1</a>
+        <aside class="document-index" aria-label="Document pulse">
+          <p class="index-label">Living Field</p>
+          <p class="document-pulse-copy">One source moving through principle, vocabulary, work, relation, question, and time.</p>
+          <dl class="document-pulse" id="document-pulse">
+            <div><dt>Nodes</dt><dd id="pulse-nodes">—</dd></div>
+            <div><dt>Relations</dt><dd id="pulse-relations">—</dd></div>
+            <div><dt>Revision</dt><dd id="pulse-revision">—</dd></div>
+          </dl>
         </aside>
 
         <article class="living-document">
@@ -95,7 +131,7 @@
             </p>
           </header>
 
-          <details class="doc-part" id="preface" open>
+          <details class="doc-part" id="preface" data-orientation="Purpose" open>
             <summary>
               <span>Preface</span>
               <small>Purpose</small>
@@ -113,7 +149,7 @@
             </div>
           </details>
 
-          <details class="doc-part" id="architecture" open>
+          <details class="doc-part" id="architecture" data-orientation="Constitutional Grammar" open>
             <summary>
               <span>Part I - Constitutional Grammar</span>
               <small>Logoi</small>
@@ -129,7 +165,7 @@
             <div class="node-list" id="logos-list" aria-live="polite"></div>
           </details>
 
-          <details class="doc-part" id="vocabulary" open>
+          <details class="doc-part" id="vocabulary" data-orientation="Architectural Vocabulary" open>
             <summary>
               <span>Part II - Architectural Vocabulary</span>
               <small>Canonical terms</small>
@@ -137,7 +173,7 @@
             <div class="vocabulary-grid" id="vocabulary-list" aria-live="polite"></div>
           </details>
 
-          <details class="doc-part" id="derived-documents" open>
+          <details class="doc-part" id="derived-documents" data-orientation="Derived Work" open>
             <summary>
               <span>Part III - Derived Documents</span>
               <small>Statements, bridges, notes, seeds</small>
@@ -179,26 +215,28 @@
             </section>
           </details>
 
-          <details class="doc-part" id="relationships" open>
+          <details class="doc-part" id="relationships" data-orientation="Relations" open>
             <summary>
-              <span>Part IV - Constitutional Relationships</span>
-              <small>Knowledge graph</small>
+              <span>Part IV - Relationship Ledger</span>
+              <small>Canonical edge data</small>
             </summary>
-            <div class="relationship-panel" id="topology">
-              <div class="graph-board" id="graph-board" aria-label="Root Logos knowledge graph"></div>
-              <div class="node-inspector" aria-live="polite">
-                <p class="entry-label">Selected Node</p>
-                <h3 id="node-title">Root Logos</h3>
-                <p id="node-description">
-                  The canonical constitutional grammar from which every other document derives meaning.
+            <div class="relationship-ledger" id="relationship-ledger">
+              <div class="section-rule relationship-ledger-head">
+                <p class="entry-label">Document Record</p>
+                <h3>The network is the visual. This ledger is its constitutional record.</h3>
+                <p>
+                  Every visible connection in the Network Field resolves to an edge below.
+                  The document preserves the exact source, relation, and destination so the
+                  system remains inspectable beyond its interface.
                 </p>
-                <dl class="node-meta" id="node-meta"></dl>
-                <div class="relationship-list" id="node-relationships"></div>
+                <a class="ledger-network-link" href="#network">Open the Network Field</a>
               </div>
+              <div class="relationship-summary" id="relationship-summary" aria-live="polite"></div>
+              <div class="relationship-records" id="relationship-records" aria-live="polite"></div>
             </div>
           </details>
 
-          <details class="doc-part" id="search" open>
+          <details class="doc-part" id="search" data-orientation="Inquiry" open>
             <summary>
               <span>Search</span>
               <small>Concept first</small>
@@ -210,7 +248,7 @@
             </div>
           </details>
 
-          <details class="doc-part" id="exports" open>
+          <details class="doc-part" id="exports" data-orientation="Revision Protocol" open>
             <summary>
               <span>Export Mechanism</span>
               <small>Revision translation</small>
@@ -239,13 +277,15 @@
                 <div class="section-rule">
                   <p class="entry-label">Manual Import</p>
                   <h3 id="export-import-title">Review an Export Packet</h3>
-                  <p>Paste a YAML-like packet to preview its proposed constitutional changes.</p>
+                  <p>Paste a YAML-like packet, validate its contract, and stage its graph changes without altering the published constitution.</p>
                 </div>
                 <textarea id="export-input" spellcheck="false"></textarea>
                 <div class="export-actions">
                   <button type="button" id="load-sample-export">Load Sample</button>
-                  <button type="button" id="review-export">Review Packet</button>
+                  <button type="button" id="review-export">Validate Packet</button>
+                  <button type="button" id="stage-export">Stage Update</button>
                 </div>
+                <div class="import-status" id="import-status" aria-live="polite"></div>
                 <div class="export-preview" id="export-preview" aria-live="polite"></div>
               </section>
 
@@ -259,7 +299,7 @@
             </div>
           </details>
 
-          <details class="doc-part" id="open-questions" open>
+          <details class="doc-part" id="open-questions" data-orientation="Open Questions" open>
             <summary>
               <span>Open Questions</span>
               <small>Permanent unresolved inquiry</small>
@@ -267,7 +307,7 @@
             <div class="compact-list question-list" id="open-question-list"></div>
           </details>
 
-          <details class="doc-part revision-part" id="revision-0.1" open>
+          <details class="doc-part revision-part" id="revision-history" data-orientation="Time / Revision" open>
             <summary>
               <span>Appendix - Revision History</span>
               <small>Transparent evolution</small>

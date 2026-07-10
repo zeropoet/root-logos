@@ -2,11 +2,11 @@
   "meta": {
     "title": "Root Logos",
     "subtitle": "Living Constitutional Grammar",
-    "revision": "v0.1",
-    "revisionLabel": "Second Pass",
+    "revision": "v0.2",
+    "revisionLabel": "Network Pass",
     "updated": "July 2026",
     "status": "Living Document",
-    "maxim": "The objective is not to accumulate ideas. The objective is to cultivate coherence."
+    "maxim": "Creation becomes durable when relation can be seen, tested, and revised."
   },
   "nodes": [
     {
@@ -342,11 +342,49 @@
       "keywords": ["export", "packet", "proposal", "revision", "yaml", "import"]
     },
     {
+      "id": "network-node",
+      "type": "vocabulary",
+      "label": "Network Node",
+      "title": "Network Node",
+      "status": "Constitutional",
+      "summary": "A legible unit of agency, meaning, or work whose identity is strengthened by explicit relation.",
+      "definition": "A Network Node is a situated unit within Root Logos: an idea, person, practice, artifact, question, or institution that can declare what it is, what it needs, what it offers, and how it relates to the larger field.",
+      "keywords": ["network", "node", "agency", "relation", "creation", "field"]
+    },
+    {
+      "id": "network-creation",
+      "type": "logos",
+      "label": "Logos IV",
+      "title": "Network Creation",
+      "status": "Active",
+      "summary": "Serious creation proceeds by making units of agency and their relations visible enough to coordinate without capture.",
+      "definition": "Network creation is the deliberate formation of a living field in which nodes retain identity, relations carry meaning, and shared work can emerge without requiring a single possessing center.",
+      "answers": "How does coherent relation become generative structure?",
+      "keywords": ["network", "creation", "node", "coordination", "agency", "structure"]
+    },
+    {
+      "id": "revision-0.2",
+      "type": "revision",
+      "label": "Revision 0.2.0",
+      "title": "Network Creation Interface",
+      "status": "Current",
+      "summary": "Made the constitutional graph the primary public encounter and established network creation as an active Logos.",
+      "date": "July 2026",
+      "source_export": "RL-EXPORT-0002",
+      "added": ["Interactive network field", "Node-class filters", "Relation tracing", "Import contract validation", "Staged update preview", "Logos IV — Network Creation", "Ambient coherence progress", "Living document pulse"],
+      "modified": ["Homepage declaration", "Graph as primary site interface", "Export review workflow", "Public language of creation", "Section navigation into continuous document flow"],
+      "removed": ["Graph as a secondary document-only view"],
+      "relationships": ["Node -> Relation", "Relation -> Coordination", "Export Packet -> Staged Update", "Staged Update -> Published Revision"],
+      "reason": "Established Root Logos as a visible node system capable of supporting serious network creation in public.",
+      "notes": "The field shows what exists. Revision determines what endures.",
+      "keywords": ["network", "node", "interface", "creation", "import", "update"]
+    },
+    {
       "id": "revision-0.1",
       "type": "revision",
       "label": "Revision 0.1.0",
       "title": "Second Pass Constitutional Architecture",
-      "status": "Current",
+      "status": "Superseded",
       "summary": "Introduced the typed graph model, concept search, consistent node structures, export packets, and a clearer constitutional hierarchy.",
       "date": "July 2026",
       "source_export": "RL-EXPORT-0001",
@@ -363,6 +401,12 @@
     { "from": "root-logos", "to": "logos-1", "type": "contains" },
     { "from": "root-logos", "to": "logos-2", "type": "contains" },
     { "from": "root-logos", "to": "logos-3", "type": "contains" },
+    { "from": "root-logos", "to": "network-creation", "type": "contains" },
+    { "from": "network-creation", "to": "network-node", "type": "defines" },
+    { "from": "network-creation", "to": "participation", "type": "requires" },
+    { "from": "network-creation", "to": "coherence", "type": "selected by" },
+    { "from": "network-node", "to": "identity", "type": "retains" },
+    { "from": "network-node", "to": "seed-topology-recorder", "type": "recorded by" },
     { "from": "logos-1", "to": "knowing", "type": "defines" },
     { "from": "logos-1", "to": "observation", "type": "illuminates" },
     { "from": "logos-1", "to": "identity", "type": "illuminates" },
@@ -390,6 +434,9 @@
     { "from": "export-mechanism", "to": "root-logos", "type": "protects" },
     { "from": "export-mechanism", "to": "export-packet", "type": "generates" },
     { "from": "export-packet", "to": "revision-0.1", "type": "proposes" },
-    { "from": "revision-0.1", "to": "root-logos", "type": "modifies" }
+    { "from": "revision-0.1", "to": "root-logos", "type": "modifies" },
+    { "from": "export-packet", "to": "revision-0.2", "type": "proposes" },
+    { "from": "revision-0.2", "to": "root-logos", "type": "modifies" },
+    { "from": "revision-0.2", "to": "network-creation", "type": "establishes" }
   ]
 }
