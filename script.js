@@ -45,10 +45,10 @@ const updateDocumentFlow = () => {
   if (bar) bar.style.transform = `scaleX(${progress})`;
 
   const threshold = window.innerHeight * 0.38;
-  const current = orientationPoints
+  const visiblePoints = orientationPoints
     .map((point) => ({ ...point, element: document.querySelector(point.selector) }))
-    .filter((point) => point.element && point.element.getBoundingClientRect().top <= threshold)
-    .at(-1);
+    .filter((point) => point.element && point.element.getBoundingClientRect().top <= threshold);
+  const current = visiblePoints[visiblePoints.length - 1];
   setText("#orientation-label", current?.label || "Entering the field");
 };
 
@@ -393,6 +393,7 @@ const renderNetwork = (nodes, edges, nodesById) => {
 
   const state = { activeTypes: new Set(networkTypeOrder), selected: "root-logos", points: [], raf: 0 };
   const context = canvas.getContext("2d");
+  if (!context) return;
 
   const inspect = (id) => {
     state.selected = id;
@@ -621,7 +622,6 @@ const renderGraphSite = ({ meta, nodes, edges }) => {
 
   renderNetwork(nodes, edges, nodesById);
   renderRelationshipLedger(edges, nodesById);
-  renderInspector(root, edges, nodesById);
   renderSearch(nodes, edges, nodesById, "coherence");
   updateDocumentFlow();
 
@@ -648,12 +648,13 @@ Promise.all([
     renderGraphSite(graph);
     renderExportPackets(packets);
   })
-  .catch(() => {
+  .catch((error) => {
+    console.error("Root Logos initialization failed", error);
     const root = document.querySelector(".living-document");
     if (root) {
       root.insertAdjacentHTML(
         "afterbegin",
-        '<p class="article-loading">The constitutional graph could not be loaded.</p>',
+        '<p class="article-loading">The living document could not be initialized. Please refresh to try again.</p>',
       );
     }
   });
