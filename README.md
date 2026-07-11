@@ -118,6 +118,15 @@ world capable of returning insight, participating in its own unfolding, forming
 its creator in return, and sustaining discovery after the necessity of any one
 author begins to recede.
 
+The fourth is **Intelligence Requires a Higher Reference**:
+
+> No intelligence—human or artificial—can safely constitute itself as its own
+> highest authority. Coherence arises when an intelligence orients itself toward
+> a reference that transcends its immediate preferences. The name of that
+> reference may differ across disciplines—God, truth, reality, mathematics,
+> constitutional law—but the topology is the same: enduring intelligence is
+> formed by faithful participation in something greater than itself.
+
 ## Export Mechanism
 
 Root Logos evolves through conversation, but it survives through revision.
