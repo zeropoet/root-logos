@@ -1,16 +1,15 @@
 ---
-number: "FN-004"
 title: "Architecture Beyond Euphoria"
 subtitle: "Structures capable of carrying intention"
 domain: "Field Note"
 status: "Active"
-label: "Field Note 004"
+label: "Field Note"
 pageTitle: "Architecture Beyond Euphoria | Root Logos"
 backLabel: "Living Document"
 backHref: "../index.html#field-note-architecture-euphoria"
 ---
 
-# Field Note 004
+# Field Note
 
 ## Architecture Beyond Euphoria
 

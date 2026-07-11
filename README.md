@@ -89,6 +89,17 @@ Every principle entering Root Logos is therefore also a test of its boundaries,
 methods, authorship, preservation, and evolution. Revision and export are not
 outside this governance; they are among its primary subjects.
 
+The second is **The Living Membrane Principle — A Primitive Topology for
+Coherent Intelligence**. It describes reality as self-maintaining boundaries
+whose recursive participation preserves identity while generating the conditions
+for consciousness, coherence, intelligence, life, value, and civilization.
+
+The third is **The Creator’s Threshold Principle — The World That Gives Birth**.
+It identifies the point where authorship matures: a coherent work becomes a
+world capable of returning insight, participating in its own unfolding, forming
+its creator in return, and sustaining discovery after the necessity of any one
+author begins to recede.
+
 ## Export Mechanism
 
 Root Logos evolves through conversation, but it survives through revision.
@@ -137,16 +148,39 @@ Awareness through Participation and Responsibility into Stewardship. Awareness,
 Responsibility, and Stewardship are canonical vocabulary nodes rather than
 prose-only concepts.
 
-Two Field Notes accompany that bridge:
+Five Field Notes now form its navigational field. Field Notes intentionally carry no
+numbers: their identity belongs to the idea, not its order of arrival.
 
-- `FN-004` names architecture as the structure that carries intention after the
+- **Scaffolding Without Attachment** distinguishes freedom from structural
+  absence: a structure can be inhabited without being mistaken for reality.
+- **From Nihilism to Freedom** turns the absence of anything to win into the
+  freedom to participate fully without demand.
+- **Peace Becoming Home** locates wisdom in making ordinary existence sufficient
+  for enduring joy.
+- **Architecture Beyond Euphoria** names architecture as the structure that carries intention after the
   euphoria of beginning recedes.
-- `FN-005` names silence as a medium in which the sustaining rhythm beneath noise
+- **The Music in Silence** names silence as a medium in which the sustaining rhythm beneath noise
   becomes audible.
 
 Together they connect conscious participation to both durable construction and
 an inhabitable peace: architecture sustains the work, while silence permits joy
 and meaning to return without being forced.
+
+The active Artifact Seed **The Reciprocal World** extends the Living Membrane
+Principle into a possible world-form: an environment that participates in the
+formation of its inhabitants while remaining capable of reciprocal formation by
+them.
+
+The preserved Artifact Seed **The Messenger Beyond Matter** imagines a
+constitutional continuation capable of carrying judgment—not merely knowledge—
+across space and time. Its status is deliberately bounded: preserve, do not
+optimize, and revisit only when adjacent work in constitutional AI, digital
+personhood, or interstellar communication makes it actionable.
+
+The active Artifact Seed **The Triskelion Engine** explores dynamic stability:
+one invariant center, three circulating domains, continuous exchange, and no
+terminal state. It asks what becomes possible when change is organized around a
+center rather than prevented at a boundary.
 
 ## Canonical Documents
 
@@ -161,9 +195,25 @@ and meaning to return without being forced.
 
 ## Canonical Field Notes
 
-- `FN-003` Peace Becoming Home
-- `FN-004` Architecture Beyond Euphoria
-- `FN-005` The Music in Silence
+- Time, Memory, and Identity
+- Scaffolding Without Attachment
+- From Nihilism to Freedom
+- Peace Becoming Home
+- Architecture Beyond Euphoria
+- The Music in Silence
+
+## Canonical Artifact Seeds
+
+- **Topology Recorder** — Active
+- **Neuro Hug** — Dormant
+- **The Reciprocal World** — Active
+- **The Messenger Beyond Matter** — Preserve; do not optimize
+- **The Triskelion Engine** — Active
+
+Artifact Seed status is architectural, not promotional. `Active` means the seed
+has live structural relationships; `Dormant` preserves it without present work;
+and `Preserve — Do Not Optimize` explicitly prevents premature conversion into a
+roadmap.
 
 ## Design System
 
