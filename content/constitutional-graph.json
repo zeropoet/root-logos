@@ -32,6 +32,17 @@
       "keywords": ["knowing", "time", "memory", "identity", "observation", "consciousness"]
     },
     {
+      "id": "principle-reflexive-architecture",
+      "type": "architectural-principle",
+      "label": "Architectural Principle I",
+      "title": "The Reflexive Architecture Principle",
+      "status": "Constitutional",
+      "summary": "The grammar must remain subject to its own claims.",
+      "definition": "A coherent architecture does not stand outside the reality it describes. Its principles must act upon its own boundaries, methods, authorship, and evolution. When a statement enters Root Logos, it becomes not only an account of the world but a possible test of the architecture itself. No principle is complete until the structure that preserves it can withstand being governed by it.",
+      "answers": "Can the architecture withstand governance by the principles it preserves?",
+      "keywords": ["reflexivity", "architecture", "grammar", "governance", "authorship", "boundary", "revision", "coherence"]
+    },
+    {
       "id": "logos-2",
       "type": "logos",
       "label": "Logos II",
@@ -452,13 +463,13 @@
       "summary": "Established the transition from awareness through responsibility into stewardship as a constitutional bridge.",
       "date": "July 2026",
       "source_export": "RL-EXPORT-0003",
-      "added": ["Constitutional Bridge III — Conscious Participation", "Field Note 004 — Architecture Beyond Euphoria", "Field Note 005 — The Music in Silence", "Awareness vocabulary node", "Responsibility vocabulary node", "Stewardship vocabulary node", "Awareness → Participation → Responsibility → Stewardship sequence"],
-      "modified": ["Living document bridge and field-note layers", "Constitutional network", "Canonical document register"],
+      "added": ["The Reflexive Architecture Principle", "Architectural Principle node class", "Constitutional Bridge III — Conscious Participation", "Field Note 004 — Architecture Beyond Euphoria", "Field Note 005 — The Music in Silence", "Awareness vocabulary node", "Responsibility vocabulary node", "Stewardship vocabulary node", "Awareness → Participation → Responsibility → Stewardship sequence"],
+      "modified": ["Living document constitutional grammar, bridge, and field-note layers", "Constitutional network", "Canonical document register", "Revision and export self-governance"],
       "removed": [],
       "relationships": ["Awareness -> Conscious Participation", "Conscious Participation -> Participation", "Participation -> Stewardship", "Stewardship -> Coherence"],
       "reason": "Clarified that awareness becomes constitutionally consequential only through voluntary participation that accepts responsibility for increasing coherence.",
-      "notes": "Root Logos does not seek spectators. It seeks conscious participants capable of hearing the coherence already present beneath noise.",
-      "keywords": ["awareness", "participation", "responsibility", "stewardship", "bridge", "coherence", "silence", "peace"]
+      "notes": "Root Logos does not seek spectators. It seeks conscious participants capable of hearing the coherence already present beneath noise. The grammar remains subject to every claim it preserves.",
+      "keywords": ["awareness", "participation", "responsibility", "stewardship", "bridge", "coherence", "silence", "peace", "reflexivity", "architecture"]
     },
     {
       "id": "revision-0.1",
@@ -480,6 +491,11 @@
   ],
   "edges": [
     { "from": "root-logos", "to": "logos-1", "type": "contains" },
+    { "from": "root-logos", "to": "principle-reflexive-architecture", "type": "contains" },
+    { "from": "principle-reflexive-architecture", "to": "root-logos", "type": "governs" },
+    { "from": "principle-reflexive-architecture", "to": "revision-0.3", "type": "tests" },
+    { "from": "principle-reflexive-architecture", "to": "export-mechanism", "type": "constrains" },
+    { "from": "principle-reflexive-architecture", "to": "coherence", "type": "requires" },
     { "from": "root-logos", "to": "logos-2", "type": "contains" },
     { "from": "root-logos", "to": "logos-3", "type": "contains" },
     { "from": "root-logos", "to": "network-creation", "type": "contains" },

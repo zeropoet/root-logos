@@ -37,6 +37,7 @@ page. Current node types include:
 
 - `root`
 - `logos`
+- `architectural-principle`
 - `vocabulary`
 - `living-statement`
 - `bridge`
@@ -73,6 +74,20 @@ history without changing routes or managing an outline.
 
 The visual network and documentary ledger are deliberately different expressions
 of the same data: one supports perception; the other supports inspection.
+
+## Architectural Principles
+
+Architectural Principles are reflexive claims: they govern Root Logos itself as
+well as the reality it describes. They appear within the Constitutional Grammar
+and as a distinct node class in the Network Field.
+
+The first is **The Reflexive Architecture Principle**:
+
+> The grammar must remain subject to its own claims.
+
+Every principle entering Root Logos is therefore also a test of its boundaries,
+methods, authorship, preservation, and evolution. Revision and export are not
+outside this governance; they are among its primary subjects.
 
 ## Export Mechanism
 

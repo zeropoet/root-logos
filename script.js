@@ -6,6 +6,7 @@ const sections = navLinks
 const typeLabels = {
   root: "Layer 0",
   logos: "Logos",
+  "architectural-principle": "Architectural Principle",
   vocabulary: "Vocabulary",
   "living-statement": "Living Statement",
   bridge: "Bridge",
@@ -16,9 +17,9 @@ const typeLabels = {
   revision: "Revision",
 };
 
-const networkTypeOrder = ["root", "logos", "vocabulary", "living-statement", "bridge", "field-note", "artifact-seed", "open-question", "export-system", "revision"];
+const networkTypeOrder = ["root", "logos", "architectural-principle", "vocabulary", "living-statement", "bridge", "field-note", "artifact-seed", "open-question", "export-system", "revision"];
 const networkTypeNames = {
-  root: "Source", logos: "Logoi", vocabulary: "Concepts", "living-statement": "Statements",
+  root: "Source", logos: "Logoi", "architectural-principle": "Principles", vocabulary: "Concepts", "living-statement": "Statements",
   bridge: "Bridges", "field-note": "Notes", "artifact-seed": "Seeds", "open-question": "Questions",
   "export-system": "Protocol", revision: "Revisions",
 };
@@ -589,6 +590,10 @@ const renderGraphSite = ({ meta, nodes, edges }) => {
   }
 
   document.querySelector("#logos-list").innerHTML = byType("logos")
+    .map((node) => renderNodeCard(node, relationsFor(node)))
+    .join("");
+
+  document.querySelector("#architectural-principle-list").innerHTML = byType("architectural-principle")
     .map((node) => renderNodeCard(node, relationsFor(node)))
     .join("");
 
