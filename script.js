@@ -133,7 +133,6 @@ const renderNodeCard = (node, relations = []) => `
       }
     </dl>
     <div class="related-links">
-      ${node.url ? `<a href="${escapeHtml(node.url)}">Read Full Principle</a>` : ""}
       ${relations
         .slice(0, 4)
         .map(({ node: related }) => `<a href="${escapeHtml(slugHref(related))}">${escapeHtml(related.label || related.title)}</a>`)

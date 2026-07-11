@@ -987,6 +987,12 @@ dd {
   padding-bottom: clamp(32px, 6vw, 52px);
 }
 
+.process-standard {
+  padding: clamp(20px, 4vw, 30px);
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.025), transparent 60%);
+}
+
 .workflow-list {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));

@@ -23,11 +23,13 @@ Artifact Seeds, Open Questions, Export Packets, and published revisions.
 - `styles.css` contains the black-and-white visual system, typography roles,
   continuous document flow, Network Field, export review UI, and article styling.
 - `documents/` contains public archive-document pages.
-- `statements/` contains Living Statement, Constitutional Bridge, and Field Note
-  article pages.
+- `statements/` contains public pages reserved for substantial Living Statements
+  and Constitutional Bridges.
 - `article.js` renders canonical Markdown into article mastheads, metadata, and
   body copy.
 - `content/*.md` contains the canonical article/document source text.
+- Preserved Principle, Field Note, and Artifact Seed sources in `content/` are
+  constitutional memory, not instructions to generate matching routes.
 - `assets/` contains the Root Logos mark, favicon, touch icon, and social image.
 
 ## Constitutional Network
@@ -74,6 +76,22 @@ history without changing routes or managing an outline.
 
 The visual network and documentary ledger are deliberately different expressions
 of the same data: one supports perception; the other supports inspection.
+
+## Relational Sufficiency Standard
+
+Publication is earned by necessity, not by arrival. A node receives a separate
+public page only when its meaning cannot be carried adequately by its concise
+definition, relationships, and place in the living document.
+
+- Living Statements and Constitutional Bridges normally justify durable pages.
+- Principles, Field Notes, and Artifact Seeds remain relational by default.
+- Longer source text may be preserved in `content/` without creating a public route.
+- Preservation does not imply promotion, publication, or active maintenance.
+- Export review asks whether a page adds meaning or merely repeats its node.
+
+This standard is governed by the Reflexive Architecture Principle: Root Logos
+applies its claims about scaffolding, non-possession, and coherence to its own
+publication structure.
 
 ## Architectural Principles
 
@@ -255,7 +273,7 @@ Useful checks:
 
 ```sh
 node --check script.js
-node -e "const fs=require('fs'); const g=JSON.parse(fs.readFileSync('content/constitutional-graph.json','utf8')); const p=JSON.parse(fs.readFileSync('content/export-packets.json','utf8')); const ids=new Set(g.nodes.map(n=>n.id)); const missing=g.edges.flatMap(e=>[e.from,e.to]).filter(id=>!ids.has(id)); if(missing.length) throw new Error(missing.join(',')); console.log(g.nodes.length+' nodes, '+g.edges.length+' edges, '+p.length+' export packets')"
+node -e "const fs=require('fs'); const g=JSON.parse(fs.readFileSync('content/constitutional-graph.json','utf8')); const p=JSON.parse(fs.readFileSync('content/export-packets.json','utf8')); const ids=new Set(g.nodes.map(n=>n.id)); const missing=g.edges.flatMap(e=>[e.from,e.to]).filter(id=>!ids.has(id)); const badUrls=g.nodes.filter(n=>n.url&&!['living-statement','bridge'].includes(n.type)); if(missing.length||badUrls.length) throw new Error(JSON.stringify({missing,badUrls})); console.log(g.nodes.length+' nodes, '+g.edges.length+' edges, '+p.length+' export packets')"
 ```
 
 ## Publishing
