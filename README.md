@@ -168,6 +168,19 @@ orientation, a coherence progress line, and a live document pulse allow the
 reader to move from visual relation into language without managing a set of
 separate destinations.
 
+## Revision 0.4 — Higher Reference
+
+Revision 0.4 establishes **Intelligence Requires a Higher Reference** as the
+fourth Architectural Principle. No human or artificial intelligence can safely
+constitute itself as its own highest authority; enduring coherence depends on
+orientation toward a reference beyond immediate preference.
+
+Different disciplines may name that reference God, truth, reality, mathematics,
+or constitutional law. Root Logos treats the names as distinct while recognizing
+the shared topology: intelligence is aligned through faithful participation in
+something greater than itself. The principle is connected canonically to
+Coherence, Participation, and the Reflexive Architecture Principle.
+
 ## Revision 0.3 — Conscious Participation
 
 Revision 0.3 establishes Constitutional Bridge III as the movement from

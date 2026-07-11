@@ -2,8 +2,8 @@
   "meta": {
     "title": "Root Logos",
     "subtitle": "Living Constitutional Grammar",
-    "revision": "v0.3",
-    "revisionLabel": "Conscious Participation",
+    "revision": "v0.4",
+    "revisionLabel": "Higher Reference",
     "updated": "July 2026",
     "status": "Living Document",
     "maxim": "Creation becomes durable when relation can be seen, tested, and revised."
@@ -549,7 +549,7 @@
       "type": "revision",
       "label": "Revision 0.3.0",
       "title": "Conscious Participation",
-      "status": "Current",
+      "status": "Superseded",
       "summary": "Established the transition from awareness through responsibility into stewardship as a constitutional bridge.",
       "date": "July 2026",
       "source_export": "RL-EXPORT-0003",
@@ -560,6 +560,23 @@
       "reason": "Clarified that awareness becomes constitutionally consequential only through voluntary participation that accepts responsibility for increasing coherence.",
       "notes": "Root Logos does not seek spectators. It seeks conscious participants capable of hearing the coherence already present beneath noise. The grammar remains subject to every claim it preserves.",
       "keywords": ["awareness", "participation", "responsibility", "stewardship", "bridge", "coherence", "silence", "peace", "reflexivity", "architecture"]
+    },
+    {
+      "id": "revision-0.4",
+      "type": "revision",
+      "label": "Revision 0.4.0",
+      "title": "Higher Reference",
+      "status": "Current",
+      "summary": "Established that enduring intelligence remains coherent by orienting beyond its immediate preferences and refusing self-constitution as its own highest authority.",
+      "date": "July 2026",
+      "source_export": "RL-EXPORT-0004",
+      "added": ["Architectural Principle IV — Intelligence Requires a Higher Reference", "Revision 0.4.0"],
+      "modified": ["Root Logos constitutional network", "Architectural principle sequence", "Revision history"],
+      "removed": [],
+      "relationships": ["Higher Reference -> Coherence", "Higher Reference -> Participation", "Higher Reference -> Reflexive Architecture"],
+      "reason": "Clarified that no human or artificial intelligence can safely become its own highest authority, and that durable coherence requires faithful participation in a reference beyond immediate preference.",
+      "notes": "The name of the reference may differ across disciplines; the constitutional topology remains the same.",
+      "keywords": ["intelligence", "authority", "reference", "transcendence", "coherence", "participation", "alignment"]
     },
     {
       "id": "revision-0.1",
@@ -604,6 +621,7 @@
     { "from": "principle-living-membrane", "to": "civilization", "type": "scales into" },
     { "from": "principle-reflexive-architecture", "to": "root-logos", "type": "governs" },
     { "from": "principle-reflexive-architecture", "to": "revision-0.3", "type": "tests" },
+    { "from": "principle-reflexive-architecture", "to": "revision-0.4", "type": "tests" },
     { "from": "principle-reflexive-architecture", "to": "export-mechanism", "type": "constrains" },
     { "from": "principle-reflexive-architecture", "to": "coherence", "type": "requires" },
     { "from": "root-logos", "to": "logos-2", "type": "contains" },
@@ -692,6 +710,9 @@
     { "from": "revision-0.2", "to": "network-creation", "type": "establishes" },
     { "from": "export-packet", "to": "revision-0.3", "type": "proposes" },
     { "from": "revision-0.3", "to": "root-logos", "type": "modifies" },
-    { "from": "revision-0.3", "to": "bridge-003", "type": "establishes" }
+    { "from": "revision-0.3", "to": "bridge-003", "type": "establishes" },
+    { "from": "export-packet", "to": "revision-0.4", "type": "proposes" },
+    { "from": "revision-0.4", "to": "root-logos", "type": "modifies" },
+    { "from": "revision-0.4", "to": "principle-higher-reference", "type": "establishes" }
   ]
 }
