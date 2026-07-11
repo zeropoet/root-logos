@@ -23,7 +23,8 @@ Artifact Seeds, Open Questions, Export Packets, and published revisions.
 - `styles.css` contains the black-and-white visual system, typography roles,
   continuous document flow, Network Field, export review UI, and article styling.
 - `documents/` contains public archive-document pages.
-- `statements/` contains Living Statement and Constitutional Bridge article pages.
+- `statements/` contains Living Statement, Constitutional Bridge, and Field Note
+  article pages.
 - `article.js` renders canonical Markdown into article mastheads, metadata, and
   body copy.
 - `content/*.md` contains the canonical article/document source text.
@@ -46,7 +47,8 @@ page. Current node types include:
 - `revision`
 
 Edges describe relationships such as `contains`, `defines`, `supports`,
-`references`, `connects`, `questions`, `proposes`, and `modifies`.
+`references`, `connects`, `matures into`, `complements`, `proposes`, and
+`modifies`.
 
 This keeps the architecture ready for semantic search, relationship navigation,
 promotion history, AI-assisted editing, and future revision tooling. The JSON is
@@ -65,6 +67,8 @@ history without changing routes or managing an outline.
 - The document pulse reports the live node, relationship, and revision counts.
 - Constitutional parts remain open and continuous.
 - The Network Field is the only visual graph representation.
+- Selected-node details sit in a horizontal node horizon beneath the field so
+  topology retains the full available width.
 - The Relationship Ledger is the exact textual record of every canonical edge.
 
 The visual network and documentary ledger are deliberately different expressions
@@ -111,6 +115,24 @@ orientation, a coherence progress line, and a live document pulse allow the
 reader to move from visual relation into language without managing a set of
 separate destinations.
 
+## Revision 0.3 — Conscious Participation
+
+Revision 0.3 establishes Constitutional Bridge III as the movement from
+Awareness through Participation and Responsibility into Stewardship. Awareness,
+Responsibility, and Stewardship are canonical vocabulary nodes rather than
+prose-only concepts.
+
+Two Field Notes accompany that bridge:
+
+- `FN-004` names architecture as the structure that carries intention after the
+  euphoria of beginning recedes.
+- `FN-005` names silence as a medium in which the sustaining rhythm beneath noise
+  becomes audible.
+
+Together they connect conscious participation to both durable construction and
+an inhabitable peace: architecture sustains the work, while silence permits joy
+and meaning to return without being forced.
+
 ## Canonical Documents
 
 - `000` Root Logos
@@ -119,7 +141,14 @@ separate destinations.
 - `CB-I` Participatory Sovereignty
 - `003` Constitutional Naturalization
 - `CB-II` Freedom Through Non-Possession
+- `CB-III` Conscious Participation
 - `004` Participation Without Possession
+
+## Canonical Field Notes
+
+- `FN-003` Peace Becoming Home
+- `FN-004` Architecture Beyond Euphoria
+- `FN-005` The Music in Silence
 
 ## Design System
 

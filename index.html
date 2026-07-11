@@ -97,10 +97,12 @@
             <canvas id="network-canvas" aria-label="Interactive map of the Root Logos constitutional network"></canvas>
             <div class="network-empty" id="network-empty" hidden>No nodes match this field.</div>
           </div>
-          <aside class="network-inspector" aria-live="polite">
-            <p class="entry-label" id="network-node-label">Constitutional Source</p>
-            <h3 id="network-node-title">Root Logos</h3>
-            <p id="network-node-summary">Select a node to trace its immediate field of relation.</p>
+          <aside class="network-inspector" aria-live="polite" aria-label="Selected node details">
+            <div class="network-inspector-identity">
+              <p class="entry-label" id="network-node-label">Constitutional Source</p>
+              <h3 id="network-node-title">Root Logos</h3>
+            </div>
+            <p class="network-inspector-summary" id="network-node-summary">Select a node to trace its immediate field of relation.</p>
             <dl class="node-meta" id="network-node-meta"></dl>
             <div class="network-path" id="network-node-relations"></div>
           </aside>
