@@ -179,7 +179,11 @@ Typography roles:
 
 The brand mark is a framed constitutional grid with a central source axis and
 node structure. SVG is the source of truth; PNG fallbacks are generated for
-favicon, touch icon, and raster usage.
+favicon, touch icon, and raster usage. `assets/root-logos-mark-open.svg` preserves
+the node structure without the enclosing constitutional frame for contexts that
+need a more open or network-native expression;
+`assets/root-logos-mark-open-1024.png` is its transparent high-resolution raster
+counterpart. The original framed mark remains canonical and unchanged.
 
 ## Local Preview
 
