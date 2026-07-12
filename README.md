@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/root-logos-mark-open.svg" alt="Root Logos" width="160">
+  <img src="assets/root-logos-mark-open.svg" alt="Root Logos" width="240">
 </p>
 
 # Root Logos
