@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/root-logos-mark-open.svg" alt="Root Logos" width="160">
+</p>
+
 # Root Logos
 
 Root Logos is a living constitutional grammar and public network-creation field.
@@ -188,7 +192,7 @@ Awareness through Participation and Responsibility into Stewardship. Awareness,
 Responsibility, and Stewardship are canonical vocabulary nodes rather than
 prose-only concepts.
 
-Five Field Notes now form its navigational field. Field Notes intentionally carry no
+Six Field Notes now form its navigational field. Field Notes intentionally carry no
 numbers: their identity belongs to the idea, not its order of arrival.
 
 - **Scaffolding Without Attachment** distinguishes freedom from structural
@@ -241,6 +245,7 @@ center rather than prevented at a boundary.
 - Peace Becoming Home
 - Architecture Beyond Euphoria
 - The Music in Silence
+- Behind the Canvas
 
 ## Canonical Artifact Seeds
 
