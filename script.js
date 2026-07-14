@@ -394,6 +394,26 @@ const composeAttractorFragment = (packet) => [
   packet.destination?.canonical_url,
 ].filter(Boolean).join("\n\n");
 
+const materializeAttractorPackets = (archive) => {
+  if (Array.isArray(archive)) return archive;
+  const defaults = archive.defaults || {};
+  return (archive.packets || []).map((raw) => {
+    const [recognition, tension, reorientation, aperture] = Array.isArray(raw.fragment) ? raw.fragment : [];
+    return {
+      ...defaults,
+      ...raw,
+      scrutiny: { ...(defaults.scrutiny || {}), ...(raw.scrutiny || {}) },
+      release: { ...(defaults.release || {}), ...(raw.release || {}), not_before: raw.not_before || raw.release?.not_before },
+      source: raw.source || { node: raw.node, relations: raw.relations || [] },
+      fragment: Array.isArray(raw.fragment) ? { recognition, tension, reorientation, aperture } : raw.fragment,
+      destination: raw.destination || { canonical_url: `https://rootlogos.com/#${raw.node}` },
+      channel: { ...(defaults.channel || {}), ...(raw.channel || {}) },
+      integrity: { ...(defaults.integrity || {}), ...(raw.integrity || {}) },
+      publication: { ...(defaults.publication || {}), ...(raw.publication || {}) },
+    };
+  });
+};
+
 const renderAttractorPackets = (packets = [], nodesById = new Map()) => {
   const list = document.querySelector("#attractor-packet-list");
   if (!list) return;
@@ -532,6 +552,28 @@ const setText = (selector, value) => {
     element.textContent = value;
   }
 };
+
+const resolveCanonicalArrival = () => {
+  const id = decodeURIComponent(window.location.hash.slice(1));
+  const sectionIds = ["top", "network", "document", "search", "exports", "attractors", "open-questions", "revision-history"];
+  if (!id || sectionIds.includes(id)) return;
+  const target = document.getElementById(id);
+  if (!target) return;
+
+  document.querySelectorAll(".arrival-target").forEach((element) => element.classList.remove("arrival-target"));
+  target.closest("details")?.setAttribute("open", "");
+  target.classList.add("arrival-target");
+  target.setAttribute("tabindex", "-1");
+  const settleArrival = () => {
+    if (decodeURIComponent(window.location.hash.slice(1)) !== id) return;
+    target.scrollIntoView({ block: "start" });
+    target.focus({ preventScroll: true });
+  };
+  requestAnimationFrame(() => requestAnimationFrame(settleArrival));
+  [120, 360, 900].forEach((delay) => window.setTimeout(settleArrival, delay));
+};
+
+window.addEventListener("hashchange", resolveCanonicalArrival);
 
 const renderRelationshipLedger = (edges, nodesById) => {
   const summary = document.querySelector("#relationship-summary");
@@ -678,6 +720,7 @@ const renderGraphSite = ({ meta, nodes, edges }) => {
   renderRelationshipLedger(edges, nodesById);
   renderSearch(nodes, edges, nodesById, "coherence");
   updateDocumentFlow();
+  resolveCanonicalArrival();
 
   document.querySelector("#concept-search")?.addEventListener("input", (event) => {
     renderSearch(nodes, edges, nodesById, event.target.value.trim());
@@ -704,10 +747,11 @@ Promise.all([
     return response.json();
   }),
 ])
-  .then(([graph, packets, attractors]) => {
+  .then(([graph, packets, attractorArchive]) => {
     renderGraphSite(graph);
     renderExportPackets(packets);
-    renderAttractorPackets(attractors, new Map(graph.nodes.map((node) => [node.id, node])));
+    renderAttractorPackets(materializeAttractorPackets(attractorArchive), new Map(graph.nodes.map((node) => [node.id, node])));
+    resolveCanonicalArrival();
   })
   .catch((error) => {
     console.error("Root Logos initialization failed", error);

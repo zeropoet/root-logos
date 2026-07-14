@@ -315,8 +315,8 @@ source of authority and completion.
 
 The revision adds the Attractor Membrane, Gravitational Integrity Standard,
 Attractor Fragment, Attractor Packet, Return Path, and Channel Adapter as
-canonical nodes. It also adds a public provenance ledger, three founding
-eligible packets, and a guarded X adapter. Eligibility is earned through extreme
+canonical nodes. It also adds a public provenance ledger, 24 founding eligible
+packets, and a guarded X adapter. Eligibility is earned through extreme
 upstream scrutiny; cadence, publication, and archival closure then proceed
 autonomously without personal approval or browser control.
 

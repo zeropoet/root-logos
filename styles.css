@@ -31,7 +31,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -640,6 +640,27 @@ dd {
   gap: 10px;
   padding: clamp(20px, 4vw, 28px);
   background: rgb(255 255 255 / 100%);
+}
+
+.node-card.arrival-target,
+.compact-node.arrival-target {
+  position: relative;
+  outline: 2px solid var(--ink);
+  outline-offset: 8px;
+}
+
+.node-card.arrival-target::before,
+.compact-node.arrival-target::before {
+  content: "Canonical arrival";
+  position: absolute;
+  top: -30px;
+  right: 0;
+  padding: 4px 7px;
+  color: var(--paper);
+  background: var(--ink);
+  font: .62rem/1.4 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .canon-entry h3,

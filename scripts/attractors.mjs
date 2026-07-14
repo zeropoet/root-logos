@@ -13,6 +13,27 @@ const flags = new Set(process.argv.slice(4));
 
 const readJson = async (url) => JSON.parse(await readFile(url, "utf8"));
 
+const materializeArchive = (archive) => {
+  if (Array.isArray(archive)) return archive.map((packet) => ({ packet, raw: packet }));
+  const defaults = archive.defaults || {};
+  return (archive.packets || []).map((raw) => {
+    const [recognition, tension, reorientation, aperture] = Array.isArray(raw.fragment) ? raw.fragment : [];
+    const packet = {
+      ...defaults,
+      ...raw,
+      scrutiny: { ...(defaults.scrutiny || {}), ...(raw.scrutiny || {}) },
+      release: { ...(defaults.release || {}), ...(raw.release || {}), not_before: raw.not_before || raw.release?.not_before },
+      source: raw.source || { node: raw.node, relations: raw.relations || [] },
+      fragment: Array.isArray(raw.fragment) ? { recognition, tension, reorientation, aperture } : raw.fragment,
+      destination: raw.destination || { canonical_url: `https://rootlogos.com/#${raw.node}` },
+      channel: { ...(defaults.channel || {}), ...(raw.channel || {}) },
+      integrity: { ...(defaults.integrity || {}), ...(raw.integrity || {}) },
+      publication: { ...(defaults.publication || {}), ...(raw.publication || {}) },
+    };
+    return { packet, raw };
+  });
+};
+
 const composeFragment = (packet) => {
   const { recognition, tension, reorientation, aperture } = packet.fragment;
   return [recognition, tension, reorientation, aperture, packet.destination.canonical_url]
@@ -56,16 +77,18 @@ const validatePacket = (packet, nodesById) => {
 };
 
 const load = async () => {
-  const [packets, graph, policy] = await Promise.all([readJson(packetsPath), readJson(graphPath), readJson(policyPath)]);
+  const [archive, graph, policy] = await Promise.all([readJson(packetsPath), readJson(graphPath), readJson(policyPath)]);
   const nodesById = new Map(graph.nodes.map((node) => [node.id, node]));
-  const results = packets.map((packet) => validatePacket(packet, nodesById));
+  const entries = materializeArchive(archive);
+  const packets = entries.map(({ packet }) => packet);
+  const results = entries.map(({ packet, raw }) => ({ ...validatePacket(packet, nodesById), raw }));
   const renderings = new Map();
   results.forEach((result) => {
     const normalized = result.text.toLowerCase().replace(/\s+/g, " ").trim();
     if (renderings.has(normalized)) result.errors.push(`duplicates rendering of ${renderings.get(normalized)}`);
     else renderings.set(normalized, result.packet.attractor_id);
   });
-  return { packets, policy, results };
+  return { archive, packets, policy, results };
 };
 
 const findResult = (results) => {
@@ -108,7 +131,7 @@ const xAuthorization = (method, url) => {
   throw new Error("X user-context credentials are not configured.");
 };
 
-const publishToX = async (result, packets, { autonomous = false } = {}) => {
+const publishToX = async (result, archive, { autonomous = false } = {}) => {
   if (result.errors.length) throw new Error(result.errors.join("; "));
   if (result.packet.status !== "eligible") throw new Error("Packet has not earned constitutional eligibility.");
   if (!autonomous && !flags.has("--confirm")) throw new Error("Manual publication requires --confirm.");
@@ -134,7 +157,9 @@ const publishToX = async (result, packets, { autonomous = false } = {}) => {
     published_at: publishedAt,
   };
   result.packet.status = "emitted";
-  await writeFile(packetsPath, `${JSON.stringify(packets, null, 2)}\n`);
+  result.raw.status = "emitted";
+  result.raw.publication = result.packet.publication;
+  await writeFile(packetsPath, `${JSON.stringify(archive, null, 2)}\n`);
   process.stdout.write(`${result.packet.attractor_id} published and archived: ${result.packet.publication.external_url}\n`);
 };
 
@@ -150,7 +175,7 @@ const verifyXIdentity = async () => {
 };
 
 const main = async () => {
-  const { packets, policy, results } = await load();
+  const { archive, policy, results } = await load();
 
   if (command === "validate") {
     results.forEach(({ packet, text, errors }) => {
@@ -174,7 +199,7 @@ const main = async () => {
   }
 
   if (command === "publish-x") {
-    await publishToX(findResult(results), packets);
+    await publishToX(findResult(results), archive);
     return;
   }
 
@@ -190,7 +215,7 @@ const main = async () => {
       process.stdout.write("No constitutionally eligible fragment is due.\n");
       return;
     }
-    await publishToX(eligible[0], packets, { autonomous: true });
+    await publishToX(eligible[0], archive, { autonomous: true });
     return;
   }
 
