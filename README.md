@@ -13,7 +13,7 @@ and documentary record are views of the same constitutional network:
 Logoi, vocabulary, Living Statements, Constitutional Bridges, Field Notes,
 Artifact Seeds, Open Questions, Export Packets, and published revisions.
 
-The current constitution is **Revision 0.5 — Intelligence as Participation**.
+The current constitution is **Revision 0.6 — The Attractor Membrane**.
 Its direction is both expansive and compressive: the architecture names new
 distinctions when required, then seeks the smallest relational grammar capable
 of carrying them without doctrinal repetition.
@@ -27,6 +27,16 @@ of carrying them without doctrinal repetition.
   concepts, documents, relationships, questions, seeds, and revisions.
 - `content/export-packets.json` stores the accepted and proposed
   conversation-to-revision record.
+- `content/attractor-packets.json` stores proposed, eligible, and emitted
+  outward expressions with their source, relations, integrity review, return
+  path, channel, and external provenance.
+- `content/attractor-policy.json` defines the autonomous cadence, selection rule,
+  release requirements, and activation state.
+- `scripts/attractors.mjs` validates and prepares packets, selects the next due
+  eligible fragment, publishes it through the X adapter, and closes its archive
+  record.
+- `.github/workflows/attractor-release.yml` runs the autonomous release cycle
+  every Monday, Wednesday, and Friday at 10:17 AM Eastern.
 - `script.js` loads the graph and export packets, renders the continuous document,
   powers Network Field inspection, ambient orientation, concept search, the
   relationship ledger, packet validation, and staged update previews.
@@ -42,6 +52,8 @@ of carrying them without doctrinal repetition.
   reference to intelligence as participation.
 - `content/principle-generative-compression.md` preserves the reflexive principle
   that governs the constitution's movement from prose toward composable grammar.
+- `content/attractor-membrane.md` preserves the outward constitutional boundary,
+  fragment grammar, Gravitational Integrity Standard, and channel independence.
 - Preserved Principle, Field Note, and Artifact Seed sources in `content/` are
   constitutional memory, not instructions to generate matching routes.
 - `assets/` contains the Root Logos mark, favicon, touch icon, and social image.
@@ -196,6 +208,89 @@ The current browser workflow is intentionally non-destructive:
 4. Stage the proposed graph operations.
 5. Accept the change only through a reviewed repository revision.
 
+## The Attractor Membrane
+
+The ingest system gives Root Logos an inward movement:
+
+```text
+Experience → Observation → Archive → Export Packet → Constitutional Revision
+```
+
+Revision 0.6 establishes the corresponding outward movement:
+
+```text
+Canonical Node → Relations → Attractor Packet → Integrity Review
+→ Channel Adapter → Public Encounter → Return Path
+```
+
+An **Attractor Fragment** is a small, provenance-bearing expression generated
+from a canonical node and one or more of its relations. It is not a summary,
+advertisement, isolated aphorism, or replacement for the living document. Its
+movement is Recognition → Tension → Reorientation → Aperture.
+
+The **Gravitational Integrity Standard** requires source fidelity, relational
+incompleteness, constitutional integrity, and a precise return path. Platform
+metrics may be observed but never become the selecting authority for the
+constitution.
+
+### Attractor workflow
+
+Validate every packet and its graph references:
+
+```sh
+node scripts/attractors.mjs validate
+```
+
+Inspect any exact channel rendering during constitutional development:
+
+```sh
+node scripts/attractors.mjs prepare RL-ATTRACTOR-0001
+```
+
+Run one autonomous release cycle locally:
+
+```sh
+node scripts/attractors.mjs release-x
+```
+
+The scheduled workflow executes that same release command every Monday,
+Wednesday, and Friday at 10:17 AM Eastern. It selects the oldest due packet that
+has earned `eligible` status and passed all ten constitutional checks. No
+per-fragment personal approval occurs downstream.
+
+Manual publication remains available only as a diagnostic fallback:
+
+```sh
+node scripts/attractors.mjs publish-x RL-ATTRACTOR-0001 --confirm
+```
+
+The X adapter uses the official `POST /2/tweets` endpoint with an OAuth user
+access token. Durable unattended operation may use OAuth 1.0a user-context
+credentials; OAuth 2.0 bearer user access remains available for manual use. The
+adapter rejects ineligible, invalid, premature, or already-published packets. A
+successful response writes the external post ID, URL, and publication time back
+to the packet archive and changes its state to `emitted`. The workflow commits
+that provenance to the repository. The adapter also sends X's `made_with_ai`
+disclosure because the fragments are constitutionally co-generated. Real
+credentials belong only in repository secrets or the local environment; `.env`
+files are ignored.
+
+Autonomy remains dormant until `content/attractor-policy.json` is changed from
+`"enabled": false` to `"enabled": true`. This should happen only after the four
+X OAuth 1.0a secrets are configured and a conservative X spending limit is set:
+
+- `X_API_KEY`
+- `X_API_SECRET`
+- `X_ACCESS_TOKEN`
+- `X_ACCESS_TOKEN_SECRET`
+
+X currently requires an approved developer app and user-context authentication,
+and operates a pay-per-use API. Posts containing URLs may carry a different
+write price, so publication should be paired with a conservative spending limit
+in the Developer Console. See the official [Create Post](https://docs.x.com/x-api/posts/create-post),
+[authentication quickstart](https://docs.x.com/x-api/posts/manage-tweets/quickstart),
+and [pricing](https://docs.x.com/x-api/getting-started/pricing) documentation.
+
 ## Network Field
 
 Revision 0.2 makes the constitutional network the primary public encounter. The
@@ -210,6 +305,20 @@ The interface is intentionally continuous rather than route-like. Ambient
 orientation, a coherence progress line, and a live document pulse allow the
 reader to move from visual relation into language without managing a set of
 separate destinations.
+
+## Revision 0.6 — The Attractor Membrane
+
+Revision 0.6 completes the outward half of the constitutional circuit. Root
+Logos can now translate a canonical node and its relations into a small reviewed
+fragment for an external field while preserving the living document as the
+source of authority and completion.
+
+The revision adds the Attractor Membrane, Gravitational Integrity Standard,
+Attractor Fragment, Attractor Packet, Return Path, and Channel Adapter as
+canonical nodes. It also adds a public provenance ledger, three founding
+eligible packets, and a guarded X adapter. Eligibility is earned through extreme
+upstream scrutiny; cadence, publication, and archival closure then proceed
+autonomously without personal approval or browser control.
 
 ## Revision 0.5 — Intelligence as Participation
 

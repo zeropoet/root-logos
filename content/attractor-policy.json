@@ -1,0 +1,20 @@
+{
+  "enabled": false,
+  "mode": "autonomous",
+  "channel": "x",
+  "account": "rootlogos",
+  "timezone": "America/New_York",
+  "schedule": "Monday, Wednesday, and Friday at 10:17 AM",
+  "max_emissions_per_run": 1,
+  "selection": "oldest eligible not-before date, then attractor id",
+  "requires": {
+    "packet_status": "eligible",
+    "publication_status": "unpublished",
+    "all_integrity_checks": "passed",
+    "canonical_return_path": true,
+    "unique_rendering": true,
+    "source_revision_present": true
+  },
+  "platform_metrics_are_selection_authority": false,
+  "notes": "Set enabled to true only after repository secrets and X API credit limits are configured. Thereafter no per-fragment human approval is required."
+}

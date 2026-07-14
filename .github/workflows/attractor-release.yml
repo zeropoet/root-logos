@@ -1,0 +1,66 @@
+name: Attractor Release
+
+on:
+  schedule:
+    - cron: "17 10 * * 1,3,5"
+      timezone: "America/New_York"
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: "Verify credentials without posting, or run the release cycle"
+        required: true
+        default: "verify"
+        type: choice
+        options:
+          - verify
+          - release
+
+permissions:
+  contents: write
+
+concurrency:
+  group: attractor-release
+  cancel-in-progress: false
+
+jobs:
+  emit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      X_API_KEY: ${{ secrets.X_API_KEY }}
+      X_API_SECRET: ${{ secrets.X_API_SECRET }}
+      X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+      X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+      X_USER_ACCESS_TOKEN: ${{ secrets.X_USER_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate constitutional and attractor state
+        run: node scripts/attractors.mjs validate
+
+      - name: Emit the next constitutionally eligible fragment
+        if: github.event_name == 'schedule' || inputs.operation == 'release'
+        run: node scripts/attractors.mjs release-x
+
+      - name: Verify authenticated X identity without posting
+        if: github.event_name == 'workflow_dispatch' && inputs.operation == 'verify'
+        run: node scripts/attractors.mjs verify-x
+
+      - name: Preserve emission provenance
+        if: github.event_name == 'schedule' || inputs.operation == 'release'
+        run: |
+          if git diff --quiet -- content/attractor-packets.json; then
+            echo "No eligible fragment was emitted."
+            exit 0
+          fi
+          git config user.name "root-logos-attractor"
+          git config user.email "root-logos-attractor@users.noreply.github.com"
+          git add content/attractor-packets.json
+          git commit -m "Archive attractor emission"
+          git push

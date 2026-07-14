@@ -987,6 +987,113 @@ dd {
   padding-bottom: clamp(32px, 6vw, 52px);
 }
 
+.attractor-system {
+  display: grid;
+  gap: clamp(24px, 5vw, 40px);
+  padding-bottom: clamp(32px, 6vw, 52px);
+}
+
+.attractor-review,
+.attractor-ledger {
+  display: grid;
+  gap: 14px;
+}
+
+.attractor-card {
+  display: grid;
+  gap: 16px;
+  padding: clamp(20px, 4vw, 28px);
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+}
+
+.attractor-card header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: start;
+}
+
+.attractor-card h3 {
+  margin: 5px 0 0;
+  font: 400 var(--step-2)/1.25 var(--font-display);
+}
+
+.attractor-card header > span {
+  color: var(--soft);
+  font: var(--step--1)/1.5 var(--font-mono);
+  letter-spacing: .06em;
+}
+
+.attractor-card blockquote {
+  margin: 0;
+  padding: clamp(18px, 4vw, 26px);
+  border: 0;
+  border-left: 2px solid var(--ink);
+  background: rgba(0, 0, 0, .025);
+  font: var(--step-1)/1.65 var(--font-body);
+}
+
+.attractor-card dl {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.attractor-card dl div {
+  display: grid;
+  grid-template-columns: minmax(100px, .28fr) 1fr;
+  gap: 14px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.attractor-card dt,
+.attractor-card dd {
+  margin: 0;
+  font: var(--step--1)/1.5 var(--font-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.attractor-card dt { color: var(--soft); }
+.attractor-card dd { color: var(--ink); }
+.attractor-card dd a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.integrity-row,
+.attractor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.integrity-row span,
+.attractor-actions a {
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  color: var(--soft);
+  font: .66rem/1.4 var(--font-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.integrity-row span.is-passed { color: #165a35; border-color: #76b991; background: #f2fbf5; }
+.attractor-actions a { color: var(--ink); border-color: var(--line-strong); }
+.attractor-actions a:hover { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+
+.channel-boundary {
+  display: grid;
+  gap: 8px;
+  padding: clamp(18px, 4vw, 26px);
+  border: 1px dashed var(--line-strong);
+}
+
+.channel-boundary p:last-child {
+  max-width: 740px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .process-standard {
   padding: clamp(20px, 4vw, 30px);
   border: 1px solid var(--line-strong);
@@ -1580,6 +1687,11 @@ dd {
   .vocabulary-grid,
   .workflow-list,
   .document-index {
+    grid-template-columns: 1fr;
+  }
+
+  .attractor-card header,
+  .attractor-card dl div {
     grid-template-columns: 1fr;
   }
 

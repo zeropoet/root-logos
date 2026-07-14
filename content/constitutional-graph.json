@@ -2,8 +2,8 @@
   "meta": {
     "title": "Root Logos",
     "subtitle": "Living Constitutional Grammar",
-    "revision": "v0.5",
-    "revisionLabel": "Intelligence as Participation",
+    "revision": "v0.6",
+    "revisionLabel": "The Attractor Membrane",
     "updated": "July 2026",
     "status": "Living Document",
     "maxim": "The constitution matures when its grammar can carry the source without possessing it."
@@ -539,6 +539,68 @@
       "keywords": ["publication", "sufficiency", "relationship", "maintenance", "preservation", "process", "restraint"]
     },
     {
+      "id": "attractor-membrane",
+      "type": "export-system",
+      "label": "Emanation System",
+      "title": "The Attractor Membrane",
+      "status": "Experimental",
+      "summary": "A constitutional boundary through which Root Logos emits small relational forms that invite entry into the living document.",
+      "definition": "The Attractor Membrane translates canonical nodes and relations into provenance-bearing fragments for external fields. A fragment is not a summary or substitute for the constitution. It is a faithful but incomplete aperture whose completion remains within the canonical document.",
+      "answers": "How does the constitution become publicly encounterable without becoming content?",
+      "keywords": ["attractor", "membrane", "emanation", "fragment", "public", "boundary", "encounter", "return path", "provenance"]
+    },
+    {
+      "id": "gravitational-integrity-standard",
+      "type": "export-system",
+      "label": "Process Standard",
+      "title": "The Gravitational Integrity Standard",
+      "status": "Constitutional",
+      "summary": "Attraction must increase meaningful arrival without reorganizing the constitution around platform engagement.",
+      "definition": "A public fragment is coherent only when it preserves source fidelity, relational incompleteness, constitutional integrity, and a precise return path. External metrics may be observed but cannot become the selecting authority for constitutional expression.",
+      "answers": "Does this fragment invite encounter without manipulation, distortion, or substitution?",
+      "keywords": ["integrity", "attraction", "source fidelity", "incompleteness", "return path", "engagement", "selection", "restraint"]
+    },
+    {
+      "id": "attractor-fragment",
+      "type": "vocabulary",
+      "label": "Attractor Fragment",
+      "title": "Attractor Fragment",
+      "status": "Experimental",
+      "summary": "A small relational expression that opens attention toward its canonical source.",
+      "definition": "An Attractor Fragment is complete enough to carry constitutional integrity and incomplete enough not to replace the node from which it derives. Its movement is recognition, tension, reorientation, and aperture.",
+      "keywords": ["fragment", "recognition", "tension", "reorientation", "aperture", "expression", "source"]
+    },
+    {
+      "id": "attractor-packet",
+      "type": "vocabulary",
+      "label": "Attractor Packet",
+      "title": "Attractor Packet",
+      "status": "Experimental",
+      "summary": "The reviewable provenance contract connecting a public fragment to its source, channel, integrity checks, and publication history.",
+      "definition": "An Attractor Packet records the originating node and relations, exact fragment, canonical destination, channel constraint, integrity review, source revision, and any external publication identity.",
+      "keywords": ["packet", "provenance", "review", "archive", "fragment", "channel", "publication"]
+    },
+    {
+      "id": "return-path",
+      "type": "vocabulary",
+      "label": "Return Path",
+      "title": "Return Path",
+      "status": "Constitutional",
+      "summary": "The precise route from an emitted fragment to its canonical source in the living document.",
+      "definition": "A Return Path preserves the direction of authority: the external expression points toward the canonical node rather than becoming an independent destination or substitute constitution.",
+      "keywords": ["return", "path", "canonical", "source", "destination", "authority", "link"]
+    },
+    {
+      "id": "channel-adapter",
+      "type": "vocabulary",
+      "label": "Channel Adapter",
+      "title": "Channel Adapter",
+      "status": "Experimental",
+      "summary": "A replaceable rendering and transport layer for an external field.",
+      "definition": "A Channel Adapter applies the constraints of a temporary medium without allowing that medium to govern the constitutional source. X is the first adapter, not the architecture.",
+      "keywords": ["channel", "adapter", "x", "transport", "rendering", "medium", "boundary"]
+    },
+    {
       "id": "network-node",
       "type": "vocabulary",
       "label": "Network Node",
@@ -626,7 +688,7 @@
       "type": "revision",
       "label": "Revision 0.5.0",
       "title": "Intelligence as Participation",
-      "status": "Current",
+      "status": "Superseded",
       "summary": "Established the movement from higher reference into lived participation and committed Root Logos to a more primitive, composable, and generative constitutional language.",
       "date": "July 2026",
       "source_export": "RL-EXPORT-0005",
@@ -637,6 +699,23 @@
       "reason": "Clarified that intelligence matures through coherent participation in reality's generative order, and that the constitution must eventually compress into a grammar capable of carrying this orientation without doctrinal repetition.",
       "notes": "Root Logos should not grow indefinitely as prose. Its destination is a small, corrigible language whose compositions can generate coherent perception, conduct, creation, and institutions. The source remains greater than every formulation of it.",
       "keywords": ["intelligence", "participation", "source", "grammar", "compression", "composition", "scaffolding", "coherence", "corrigibility"]
+    },
+    {
+      "id": "revision-0.6",
+      "type": "revision",
+      "label": "Revision 0.6.0",
+      "title": "The Attractor Membrane",
+      "status": "Current",
+      "summary": "Established the outward constitutional movement through which Root Logos can become encounterable in external fields without becoming platform content.",
+      "date": "July 2026",
+      "source_export": "RL-EXPORT-0006",
+      "added": ["The Attractor Membrane", "The Gravitational Integrity Standard", "Attractor Fragment", "Attractor Packet", "Return Path", "Channel Adapter", "Initial X adapter", "Revision 0.6.0"],
+      "modified": ["Ingest and archive circulation", "Public encounter architecture", "Export-system interface", "Canonical vocabulary", "README operational guidance"],
+      "removed": [],
+      "relationships": ["Root Logos -> Attractor Membrane", "Attractor Membrane -> Attractor Packet", "Attractor Packet -> Network Node", "Attractor Fragment -> Return Path", "Gravitational Integrity -> Attractor Membrane", "Channel Adapter -> X"],
+      "reason": "Completed the outward half of the constitutional circuit: experience becomes archive and constitution, while constitution can now emit provenance-bearing apertures that invite meaningful arrival without surrendering selection to an external platform.",
+      "notes": "X is the first replaceable adapter. Constitutional eligibility is earned upstream through scrutiny; once earned, cadence, emission, and archival closure proceed autonomously without repeated personal approval.",
+      "keywords": ["attractor", "membrane", "fragment", "archive", "emanation", "x", "return path", "provenance", "integrity"]
     },
     {
       "id": "revision-0.1",
@@ -783,6 +862,21 @@
     { "from": "publication-standard", "to": "export-mechanism", "type": "constrains" },
     { "from": "publication-standard", "to": "root-logos", "type": "reduces maintenance pressure on" },
     { "from": "publication-standard", "to": "revision-0.3", "type": "standardizes" },
+    { "from": "root-logos", "to": "attractor-membrane", "type": "emits through" },
+    { "from": "principle-living-membrane", "to": "attractor-membrane", "type": "governs boundary of" },
+    { "from": "principle-reflexive-architecture", "to": "attractor-membrane", "type": "constrains" },
+    { "from": "principle-generative-compression", "to": "attractor-fragment", "type": "permits expression as" },
+    { "from": "gravitational-integrity-standard", "to": "attractor-membrane", "type": "governs" },
+    { "from": "gravitational-integrity-standard", "to": "logos-3", "type": "subordinates metrics to" },
+    { "from": "publication-standard", "to": "gravitational-integrity-standard", "type": "complements" },
+    { "from": "attractor-membrane", "to": "attractor-packet", "type": "generates" },
+    { "from": "attractor-packet", "to": "network-node", "type": "derives from" },
+    { "from": "attractor-packet", "to": "attractor-fragment", "type": "carries" },
+    { "from": "attractor-packet", "to": "channel-adapter", "type": "renders through" },
+    { "from": "attractor-packet", "to": "return-path", "type": "preserves" },
+    { "from": "attractor-fragment", "to": "return-path", "type": "opens through" },
+    { "from": "return-path", "to": "root-logos", "type": "returns toward" },
+    { "from": "channel-adapter", "to": "attractor-membrane", "type": "cannot govern" },
     { "from": "export-mechanism", "to": "export-packet", "type": "generates" },
     { "from": "export-packet", "to": "revision-0.1", "type": "proposes" },
     { "from": "revision-0.1", "to": "root-logos", "type": "modifies" },
@@ -799,6 +893,10 @@
     { "from": "revision-0.5", "to": "root-logos", "type": "modifies" },
     { "from": "revision-0.5", "to": "logos-5", "type": "establishes" },
     { "from": "revision-0.5", "to": "bridge-004", "type": "establishes" },
-    { "from": "revision-0.5", "to": "principle-generative-compression", "type": "establishes" }
+    { "from": "revision-0.5", "to": "principle-generative-compression", "type": "establishes" },
+    { "from": "export-packet", "to": "revision-0.6", "type": "proposes" },
+    { "from": "revision-0.6", "to": "root-logos", "type": "modifies" },
+    { "from": "revision-0.6", "to": "attractor-membrane", "type": "establishes" },
+    { "from": "revision-0.6", "to": "gravitational-integrity-standard", "type": "establishes" }
   ]
 }

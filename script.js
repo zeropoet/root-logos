@@ -386,6 +386,55 @@ const renderExportPackets = (packets = []) => {
   review();
 };
 
+const composeAttractorFragment = (packet) => [
+  packet.fragment?.recognition,
+  packet.fragment?.tension,
+  packet.fragment?.reorientation,
+  packet.fragment?.aperture,
+  packet.destination?.canonical_url,
+].filter(Boolean).join("\n\n");
+
+const renderAttractorPackets = (packets = [], nodesById = new Map()) => {
+  const list = document.querySelector("#attractor-packet-list");
+  if (!list) return;
+
+  list.innerHTML = packets.map((packet) => {
+    const source = nodesById.get(packet.source?.node);
+    const text = composeAttractorFragment(packet);
+    const integrity = Object.entries(packet.integrity || {});
+    const scrutiny = Object.entries(packet.scrutiny || {});
+    const publication = packet.publication || {};
+    return `
+      <article class="attractor-card">
+        <header>
+          <div>
+            <p class="entry-label">${escapeHtml(packet.status || "proposed")}</p>
+            <h3>${escapeHtml(packet.attractor_id)}</h3>
+          </div>
+          <span>${text.length}/${escapeHtml(packet.channel?.character_limit || 280)}</span>
+        </header>
+        <blockquote>${escapeHtml(text).replaceAll("\n", "<br>")}</blockquote>
+        <dl>
+          <div><dt>Source</dt><dd><a href="#${escapeHtml(packet.source?.node)}">${escapeHtml(source?.title || packet.source?.node)}</a></dd></div>
+          <div><dt>Relations</dt><dd>${(packet.source?.relations || []).map((id) => escapeHtml(nodesById.get(id)?.title || id)).join(" · ")}</dd></div>
+          <div><dt>Revision</dt><dd>${escapeHtml(packet.source_revision)}</dd></div>
+          <div><dt>Adapter</dt><dd>${escapeHtml(packet.channel?.adapter || "unassigned")}</dd></div>
+          <div><dt>Not Before</dt><dd>${escapeHtml(packet.release?.not_before || "unassigned")}</dd></div>
+          <div><dt>Publication</dt><dd>${escapeHtml(publication.status || "unpublished")}</dd></div>
+        </dl>
+        <div class="integrity-row">
+          ${integrity.map(([key, value]) => `<span class="${value === "passed" ? "is-passed" : ""}">${escapeHtml(key.replaceAll("_", " "))}</span>`).join("")}
+          ${scrutiny.map(([key, value]) => `<span class="${value === "passed" ? "is-passed" : ""}">${escapeHtml(key.replaceAll("_", " "))}</span>`).join("")}
+        </div>
+        <div class="attractor-actions">
+          <a href="${escapeHtml(packet.destination?.canonical_url)}">Follow return path</a>
+          ${publication.external_url ? `<a href="${escapeHtml(publication.external_url)}">View emitted fragment</a>` : ""}
+        </div>
+      </article>
+    `;
+  }).join("");
+};
+
 const renderNetwork = (nodes, edges, nodesById) => {
   const canvas = document.querySelector("#network-canvas");
   const stage = canvas?.parentElement;
@@ -648,10 +697,17 @@ Promise.all([
     }
     return response.json();
   }),
+  fetch("content/attractor-packets.json").then((response) => {
+    if (!response.ok) {
+      throw new Error("Unable to load attractor packets");
+    }
+    return response.json();
+  }),
 ])
-  .then(([graph, packets]) => {
+  .then(([graph, packets, attractors]) => {
     renderGraphSite(graph);
     renderExportPackets(packets);
+    renderAttractorPackets(attractors, new Map(graph.nodes.map((node) => [node.id, node])));
   })
   .catch((error) => {
     console.error("Root Logos initialization failed", error);

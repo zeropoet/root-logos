@@ -154,6 +154,28 @@ The source remains greater than the constitution.
 
 The constitution becomes a grammar for participation in it.
 
+## The Outward Membrane
+
+What becomes coherent within the constitution must be capable of encounter
+beyond it.
+
+Root Logos therefore moves in two directions. Experience enters through
+observation, archive, and revision. Constitutional relation moves outward
+through small provenance-bearing fragments that invite attention back toward
+their canonical source.
+
+These fragments are not independent publications. They are apertures in an
+Attractor Membrane: temporary forms through which the living document becomes
+perceptible within another field without reorganizing itself around that field.
+
+Every outward expression must remain traceable to a node, its relations, and the
+revision from which it emerged. It must preserve a return path. Its integrity is
+measured by fidelity and meaningful arrival rather than reach.
+
+The constitution receives without capture.
+
+The membrane emits without possession.
+
 ## Ambition
 
 The objective is not to maximize growth, valuation, or influence.
