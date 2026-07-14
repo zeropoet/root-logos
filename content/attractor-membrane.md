@@ -32,6 +32,14 @@ Every fragment is preserved within an Attractor Packet. The packet records its s
 
 This provenance prevents temporary expressions from becoming detached doctrine.
 
+## Public Rendering and Canonical Arrival
+
+The public expression is deliberately smaller than its packet. The X adapter releases only the four movements of the fragment—Recognition, Tension, Reorientation, and Aperture—followed by the canonical Root Logos URL. Packet identity, source relations, scrutiny results, constitutional revision, scheduling state, and publication provenance remain in the archive. They govern the expression without becoming part of its rhetoric.
+
+The return path identifies a constitutional node, not merely a page. When followed, the living document resolves that generated node, opens the structure containing it, brings it into view, and marks it as the Canonical arrival for that browser navigation.
+
+The arrival state is local and transient. It is not a person-level designation, a shared mark, or an analytics event. It records nothing about the reader. “Canonical” names the authority of the destination; “arrival” names the temporary orientation of one encounter.
+
 ## The Gravitational Integrity Standard
 
 A fragment may pass through the membrane only when four conditions hold:
@@ -64,3 +72,5 @@ and archival closure. Failure stops the emission; it never relaxes the standard.
 Autonomous publication does not transfer authority to the platform.
 
 The archive remembers every emission. The living document remains the source.
+
+The founding autonomous cycle contains 24 eligible fragments scheduled Monday, Wednesday, and Friday at 10:17 AM Eastern from July 15 through September 7, 2026. Every packet passed six upstream scrutiny checks and the four Gravitational Integrity checks before entering the release queue.

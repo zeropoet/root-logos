@@ -29,7 +29,8 @@ of carrying them without doctrinal repetition.
   conversation-to-revision record.
 - `content/attractor-packets.json` stores proposed, eligible, and emitted
   outward expressions with their source, relations, integrity review, return
-  path, channel, and external provenance.
+  path, channel, and external provenance. Its compact v2 archive currently
+  carries a 24-fragment founding cycle.
 - `content/attractor-policy.json` defines the autonomous cadence, selection rule,
   release requirements, and activation state.
 - `scripts/attractors.mjs` validates and prepares packets, selects the next due
@@ -39,7 +40,8 @@ of carrying them without doctrinal repetition.
   every Monday, Wednesday, and Friday at 10:17 AM Eastern.
 - `script.js` loads the graph and export packets, renders the continuous document,
   powers Network Field inspection, ambient orientation, concept search, the
-  relationship ledger, packet validation, and staged update previews.
+  relationship ledger, packet validation, staged update previews, and
+  session-local canonical arrivals for fragment return paths.
 - `styles.css` contains the black-and-white visual system, typography roles,
   continuous document flow, Network Field, export review UI, and article styling.
 - `documents/` contains public archive-document pages.
@@ -233,6 +235,26 @@ incompleteness, constitutional integrity, and a precise return path. Platform
 metrics may be observed but never become the selecting authority for the
 constitution.
 
+### Public rendering contract
+
+The X adapter publishes only:
+
+1. the packet's four-part fragment — Recognition, Tension, Reorientation, and
+   Aperture — separated into readable paragraphs; and
+2. the canonical `https://rootlogos.com/#<node-id>` return path.
+
+The Attractor ID, source node, supporting relations, six scrutiny results, four
+Gravitational Integrity results, constitutional revision, schedule, channel
+configuration, and publication state remain in the Root Logos archive. They are
+provenance, not post copy.
+
+When a reader follows the return path, the browser waits for the generated node,
+opens any enclosing document structure, brings the node into view, and marks it
+as the **Canonical arrival**. This marker belongs only to that visitor's current
+browser navigation. It is not persisted, transmitted, counted, or shared across
+visitors; “canonical” names the authoritative destination, not a recorded user
+event.
+
 ### Attractor workflow
 
 Validate every packet and its graph references:
@@ -255,7 +277,8 @@ node scripts/attractors.mjs release-x
 
 The scheduled workflow executes that same release command every Monday,
 Wednesday, and Friday at 10:17 AM Eastern. It selects the oldest due packet that
-has earned `eligible` status and passed all ten constitutional checks. No
+has earned `eligible` status, passed all six upstream scrutiny checks, and
+passed all four Gravitational Integrity checks. No
 per-fragment personal approval occurs downstream.
 
 Manual publication remains available only as a diagnostic fallback:
@@ -275,9 +298,9 @@ disclosure because the fragments are constitutionally co-generated. Real
 credentials belong only in repository secrets or the local environment; `.env`
 files are ignored.
 
-Autonomy remains dormant until `content/attractor-policy.json` is changed from
-`"enabled": false` to `"enabled": true`. This should happen only after the four
-X OAuth 1.0a secrets are configured and a conservative X spending limit is set:
+Autonomy is active in `content/attractor-policy.json`. It was enabled only after
+the four X OAuth 1.0a secrets authenticated as `@rootlogos` and a conservative X
+spending limit was funded:
 
 - `X_API_KEY`
 - `X_API_SECRET`
@@ -318,7 +341,10 @@ Attractor Fragment, Attractor Packet, Return Path, and Channel Adapter as
 canonical nodes. It also adds a public provenance ledger, 24 founding eligible
 packets, and a guarded X adapter. Eligibility is earned through extreme
 upstream scrutiny; cadence, publication, and archival closure then proceed
-autonomously without personal approval or browser control.
+autonomously without personal approval or browser control. The founding cycle
+runs Monday, Wednesday, and Friday at 10:17 AM Eastern from July 15 through
+September 7, 2026. Each public rendering contains only its fragment and
+canonical return URL; its full provenance remains in the constitutional archive.
 
 ## Revision 0.5 — Intelligence as Participation
 

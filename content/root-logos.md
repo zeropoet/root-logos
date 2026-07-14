@@ -172,6 +172,13 @@ Every outward expression must remain traceable to a node, its relations, and the
 revision from which it emerged. It must preserve a return path. Its integrity is
 measured by fidelity and meaningful arrival rather than reach.
 
+Only the fragment and its return path cross the public boundary. The packet's
+identity, relations, scrutiny, revision, schedule, and publication record remain
+within the archive. When the return path is followed, the destination is marked
+as a canonical arrival only within that reader's present browser navigation. No
+arrival state is attached to the person, shared between readers, or written back
+into the constitution.
+
 The constitution receives without capture.
 
 The membrane emits without possession.
