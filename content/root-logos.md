@@ -23,7 +23,8 @@ A few become companies.
 
 Almost none retain coherence as they grow.
 
-Root Logos exists to study why.
+Root Logos exists to study why—and to discover the smallest living grammar
+capable of carrying what endures into new forms.
 
 It is not a philosophy in search of followers, nor a business in search of markets. It is a constitutional substrate for discovering, testing, and preserving ideas that continue to demonstrate coherence over time.
 
@@ -125,6 +126,34 @@ Novelty is abundant.
 
 Endurance is rare.
 
+## From Constitution to Grammar
+
+A constitution must initially speak in declarations.
+
+Discoveries require names. Names require definitions. Definitions require
+relations that can be inspected, tested, and revised.
+
+But the accumulation of declarations is not the final form of Root Logos.
+
+As the architecture matures, repeated statements should resolve into primitive,
+composable relations. The documents preserve the path by which a discovery
+became legible. The grammar preserves what is required to generate coherent
+perception, conduct, creation, and institutions beyond the document.
+
+This is generative compression.
+
+It is not the removal of complexity for elegance. It is the discovery of a
+smaller structure capable of faithfully regenerating complexity without losing
+orientation, difference, or the capacity for correction.
+
+Root Logos therefore expands when reality discloses a distinction the grammar
+cannot carry, and contracts when a more primitive composition can preserve that
+distinction without repetition.
+
+The source remains greater than the constitution.
+
+The constitution becomes a grammar for participation in it.
+
 ## Ambition
 
 The objective is not to maximize growth, valuation, or influence.
@@ -139,10 +168,15 @@ It has merely persisted.
 
 ## The Purpose
 
-Root Logos exists to cultivate durable institutions.
+Root Logos exists to cultivate coherent participation from which durable
+institutions may arise.
 
-It provides a constitutional process through which observations become principles, principles become institutions, and institutions generate sustainable value without losing sight of why they were created.
+It provides a constitutional process through which observations become
+relations, relations become grammar, grammar becomes living practice, and living
+practice gives rise to works and institutions without losing its orientation.
 
 Its ambition is not to predict the future.
 
-Its ambition is to build structures capable of remaining coherent within it.
+Its ambition is to build structures capable of remaining coherent within it—and
+to let those structures recede when their work has been carried into the life of
+the grammar.

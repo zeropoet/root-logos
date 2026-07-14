@@ -4,13 +4,19 @@
 
 # Root Logos
 
-Root Logos is a living constitutional grammar and public network-creation field.
+Root Logos is a living, corrigible constitutional grammar for composing coherent
+participation in reality.
 
 The site is not organized as a blog, feed, dashboard, or publication archive.
 It is one continuously readable, versioned knowledge system whose public surface
 and documentary record are views of the same constitutional network:
 Logoi, vocabulary, Living Statements, Constitutional Bridges, Field Notes,
 Artifact Seeds, Open Questions, Export Packets, and published revisions.
+
+The current constitution is **Revision 0.5 — Intelligence as Participation**.
+Its direction is both expansive and compressive: the architecture names new
+distinctions when required, then seeks the smallest relational grammar capable
+of carrying them without doctrinal repetition.
 
 ## Current Shape
 
@@ -19,8 +25,8 @@ Artifact Seeds, Open Questions, Export Packets, and published revisions.
   questions, and revision history.
 - `content/constitutional-graph.json` is the typed graph that defines canonical
   concepts, documents, relationships, questions, seeds, and revisions.
-- `content/export-packets.json` stores proposed conversation-to-revision export
-  packets.
+- `content/export-packets.json` stores the accepted and proposed
+  conversation-to-revision record.
 - `script.js` loads the graph and export packets, renders the continuous document,
   powers Network Field inspection, ambient orientation, concept search, the
   relationship ledger, packet validation, and staged update previews.
@@ -32,6 +38,10 @@ Artifact Seeds, Open Questions, Export Packets, and published revisions.
 - `article.js` renders canonical Markdown into article mastheads, metadata, and
   body copy.
 - `content/*.md` contains the canonical article/document source text.
+- `content/constitutional-bridge-004.md` carries the lived movement from higher
+  reference to intelligence as participation.
+- `content/principle-generative-compression.md` preserves the reflexive principle
+  that governs the constitution's movement from prose toward composable grammar.
 - Preserved Principle, Field Note, and Artifact Seed sources in `content/` are
   constitutional memory, not instructions to generate matching routes.
 - `assets/` contains the Root Logos mark, favicon, touch icon, and social image.
@@ -131,6 +141,35 @@ The fourth is **Intelligence Requires a Higher Reference**:
 > constitutional law—but the topology is the same: enduring intelligence is
 > formed by faithful participation in something greater than itself.
 
+The fifth is **The Generative Compression Principle — When the Constitution
+Becomes Grammar**. It commits Root Logos to becoming more primitive, composable,
+and generative as it matures. Constitutional compression is not abbreviation:
+it is the discovery of a smaller relational structure from which coherent forms
+can be regenerated without losing orientation or corrigibility.
+
+## Generative Grammar
+
+Root Logos is not intended to grow indefinitely as constitutional prose.
+Documents preserve the path of discovery, while the grammar identifies the
+primitive relations that can carry those discoveries into new contexts.
+
+The emerging constitutional language includes identity, boundary, observation,
+knowing, reference, participation, coherence, value, selection, stewardship,
+creation, and release. Logoi define generative compositions among these
+primitives. Living Statements test their ethical consequences. Constitutional
+Bridges preserve meaningful transitions. Architectural Principles require the
+system to undergo the same movement it describes.
+
+Revision 0.5 establishes a central composition:
+
+```text
+Living Intelligence = Higher Reference + Sustained Attention + Coherent Participation
+```
+
+The expression is directional rather than computational. It states that
+intelligence becomes durable when knowing is oriented beyond immediate
+preference and enacted through corrigible participation in reality.
+
 ## Export Mechanism
 
 Root Logos evolves through conversation, but it survives through revision.
@@ -171,6 +210,26 @@ The interface is intentionally continuous rather than route-like. Ambient
 orientation, a coherence progress line, and a live document pulse allow the
 reader to move from visual relation into language without managing a set of
 separate destinations.
+
+## Revision 0.5 — Intelligence as Participation
+
+Revision 0.5 establishes **Logos V — Intelligence as Participation** as the
+movement through which higher reference becomes lived intelligence. Intelligence
+is no longer treated only as acquired information or a faculty possessed by an
+individual; it is understood as the capacity to participate coherently in the
+generative order of reality.
+
+**Constitutional Bridge IV — From Reference to Participation** preserves the
+developmental movement from attention and honest practice through inner
+reorganization into constitutional expression. It also preserves the necessary
+safeguard: proximity to the source never confers possession of the source, and
+every expression remains corrigible through evidence, relation, consequence,
+and time.
+
+**The Generative Compression Principle** applies the discovery reflexively.
+Root Logos must eventually carry its commitments through a smaller composable
+grammar rather than requiring continuous doctrinal declaration. Its documents
+remain constitutional memory; unnecessary scaffolding is expected to recede.
 
 ## Revision 0.4 — Higher Reference
 
@@ -236,6 +295,7 @@ center rather than prevented at a boundary.
 - `CB-II` Freedom Through Non-Possession
 - `CB-III` Conscious Participation
 - `004` Participation Without Possession
+- `CB-IV` From Reference to Participation
 
 ## Canonical Field Notes
 
