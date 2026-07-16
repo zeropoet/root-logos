@@ -1874,19 +1874,6 @@ body::before {
   padding-block: clamp(72px, 12vw, 142px) clamp(46px, 7vw, 76px);
 }
 
-.home-panel::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: clamp(36px, 7vw, 90px);
-  right: clamp(-170px, -8vw, -70px);
-  width: min(54vw, 690px);
-  aspect-ratio: 1;
-  opacity: .055;
-  background: url("assets/root-logos-mark-open.svg") center / contain no-repeat;
-  transform: rotate(45deg);
-}
-
 .home-mark {
   display: grid;
   place-items: center;
@@ -2216,12 +2203,6 @@ body::before {
   .home-panel {
     grid-template-columns: 1fr;
     padding-top: 52px;
-  }
-
-  .home-panel::before {
-    top: 25%;
-    right: -45%;
-    width: 105vw;
   }
 
   .home-mark {
