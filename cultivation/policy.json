@@ -49,6 +49,24 @@
     "minimum_source_fidelity": 3,
     "minimum_corrigibility": 3
   },
+  "memory": {
+    "semantic_fingerprint_fields": ["kind", "nodes", "claim", "proposed_question"],
+    "reconsider_after_cycles": 8,
+    "reconsider_when": ["evidence changed", "policy changed", "incubation elapsed"],
+    "repeat_without_change": "deprioritize"
+  },
+  "novelty": {
+    "scale": [0, 1, 2, 3, 4],
+    "low_yield_maximum": 1,
+    "dormancy_after_consecutive_low_yield_cycles": 3,
+    "dimensions": ["new_hypothesis", "changed_evidence", "new_question", "new_method_pressure"]
+  },
+  "dormancy": {
+    "wake_on_canonical_change": true,
+    "wake_on_policy_change": true,
+    "manual_force_allowed": true,
+    "scheduled_cycles_skip_unchanged_dormant_sources": true
+  },
   "judgment": {
     "minimum_total_for_autonomous_acceptance": 20,
     "requires_valid_operations": true,

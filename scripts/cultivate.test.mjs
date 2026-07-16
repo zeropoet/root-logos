@@ -18,7 +18,8 @@ await Promise.all([
 await Promise.all([
   cp(new URL("scripts/cultivate.mjs", sourceRoot), join(sandbox, "scripts", "cultivate.mjs")),
   cp(new URL("content/", sourceRoot), join(sandbox, "content"), { recursive: true }),
-  cp(new URL("cultivation/policy.json", sourceRoot), join(sandbox, "cultivation", "policy.json"))
+  cp(new URL("cultivation/policy.json", sourceRoot), join(sandbox, "cultivation", "policy.json")),
+  cp(new URL("cultivation/memory.json", sourceRoot), join(sandbox, "cultivation", "memory.json"))
 ]);
 
 await writeFile(join(sandbox, "cultivation", "state.json"), `${JSON.stringify({
@@ -125,6 +126,59 @@ const automaticId = automaticState.history.at(-1).cultivation_id;
 const automaticCycle = JSON.parse(await readFile(join(sandbox, "cultivation", "cycles", `${automaticId}.json`), "utf8"));
 assert.ok(["implemented", "autonomously-rejected", "completed-no-proposal"].includes(automaticCycle.status));
 assert.ok(automaticCycle.events.some(({ type }) => type === "proposal-written"));
+const cultivationMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
+assert.ok(Object.keys(cultivationMemory.hypotheses).length >= 3);
+assert.equal(cultivationMemory.novelty.history.length, 1);
+assert.ok(automaticCycle.selected_finding.reconsideration.fingerprint);
+
+succeeds("cycle", "--lens", "generative-compression");
+const repeatedState = JSON.parse(await readFile(join(sandbox, "cultivation", "state.json"), "utf8"));
+const repeatedId = repeatedState.history.at(-1).cultivation_id;
+const repeatedCycle = JSON.parse(await readFile(join(sandbox, "cultivation", "cycles", `${repeatedId}.json`), "utf8"));
+assert.notEqual(repeatedCycle.selected_finding.reconsideration.fingerprint, automaticCycle.selected_finding.reconsideration.fingerprint);
+const suppressedOriginal = repeatedCycle.findings.find(({ reconsideration }) => reconsideration.fingerprint === automaticCycle.selected_finding.reconsideration.fingerprint);
+assert.equal(suppressedOriginal.reconsideration.eligible, false);
+assert.equal(suppressedOriginal.reconsideration.reason, "unchanged-repeat");
+
+const exhaustionMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
+for (const finding of repeatedCycle.findings) {
+  exhaustionMemory.hypotheses[finding.reconsideration.fingerprint] = {
+    fingerprint: finding.reconsideration.fingerprint,
+    kind: finding.kind,
+    nodes: finding.nodes,
+    claim: finding.claim,
+    evidence_hash: finding.reconsideration.evidence_hash,
+    policy_hash: repeatedCycle.policy_hash,
+    first_cycle: repeatedId,
+    last_cycle: repeatedId,
+    last_cycle_index: Number(repeatedId.split("-").at(-1)),
+    considerations: 1,
+    status: "autonomously-rejected"
+  };
+}
+exhaustionMemory.novelty.consecutive_low_yield_cycles = 2;
+await writeFile(join(sandbox, "cultivation", "memory.json"), `${JSON.stringify(exhaustionMemory, null, 2)}\n`);
+succeeds("cycle", "--lens", "generative-compression");
+const dormantState = JSON.parse(await readFile(join(sandbox, "cultivation", "state.json"), "utf8"));
+const dormantCycleId = dormantState.history.at(-1).cultivation_id;
+const dormantCycle = JSON.parse(await readFile(join(sandbox, "cultivation", "cycles", `${dormantCycleId}.json`), "utf8"));
+assert.equal(dormantCycle.status, "completed-no-proposal");
+const earnedDormancy = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
+assert.equal(earnedDormancy.dormancy.active, true);
+assert.equal(earnedDormancy.method_observations.at(-1).type, "meta-refactoring-proposal");
+const historyBeforeDormantCycle = dormantState.history.length;
+assert.match(succeeds("cycle"), /remains dormant/);
+const skippedState = JSON.parse(await readFile(join(sandbox, "cultivation", "state.json"), "utf8"));
+assert.equal(skippedState.history.length, historyBeforeDormantCycle);
+succeeds("cycle", "--force");
+const forcedState = JSON.parse(await readFile(join(sandbox, "cultivation", "state.json"), "utf8"));
+assert.equal(forcedState.history.length, historyBeforeDormantCycle + 1);
+const awakenedMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
+assert.equal(awakenedMemory.dormancy.wake_history.at(-1).reason, "manual-force");
+
+succeeds("rebuild-memory");
+const rebuiltMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
+assert.ok(Object.keys(rebuiltMemory.hypotheses).length >= 4);
 
 succeeds("validate");
 process.stdout.write("PASS cultivation lifecycle, drift boundary, adversarial self-judgment, autonomous refactoring, scheduled-cycle entry point, lineage, and human escalation.\n");

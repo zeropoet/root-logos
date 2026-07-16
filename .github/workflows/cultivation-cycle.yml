@@ -35,7 +35,12 @@ jobs:
           node-version: 22
 
       - name: Run one bounded cultivation cycle
-        run: node scripts/cultivate.mjs cycle
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            node scripts/cultivate.mjs cycle --force
+          else
+            node scripts/cultivate.mjs cycle
+          fi
 
       - name: Validate cultivation lineage
         run: node scripts/cultivate.mjs validate
@@ -47,7 +52,7 @@ jobs:
         run: |
           git config user.name "root-logos-cultivator[bot]"
           git config user.email "root-logos-cultivator[bot]@users.noreply.github.com"
-          git add cultivation/state.json cultivation/cycles content/constitutional-graph.json
+          git add cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json
           if git diff --cached --quiet; then
             echo "No cultivation state changed."
             exit 0

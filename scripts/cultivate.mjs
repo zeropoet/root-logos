@@ -5,12 +5,14 @@ import { createHash } from "node:crypto";
 
 const root = new URL("../", import.meta.url);
 const stateUrl = new URL("cultivation/state.json", root);
+const memoryUrl = new URL("cultivation/memory.json", root);
 const policyUrl = new URL("cultivation/policy.json", root);
 const graphUrl = new URL("content/constitutional-graph.json", root);
 const exportsUrl = new URL("content/export-packets.json", root);
 const cyclesUrl = new URL("cultivation/cycles/", root);
 const policiesUrl = new URL("cultivation/policies/", root);
 const command = process.argv[2] || "status";
+const flags = new Set(process.argv.slice(3));
 const requestedLens = process.argv.includes("--lens") ? process.argv[process.argv.indexOf("--lens") + 1] : null;
 const flagValue = (flag) => process.argv.includes(flag) ? process.argv[process.argv.indexOf(flag) + 1] : null;
 
@@ -44,6 +46,19 @@ const chooseLens = (policy, state) => {
 };
 
 const normalizedKeywords = (node) => new Set((node.keywords || []).map((word) => word.toLowerCase()));
+const normalizedText = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+const findingFingerprint = (finding) => digest({
+  kind: finding.kind,
+  nodes: [...(finding.nodes || [])].sort(),
+  claim: normalizedText(finding.claim),
+  proposed_question: normalizedText(finding.proposed_question)
+});
+const findingEvidenceHash = (finding) => digest({
+  evidence: finding.evidence || [],
+  existing_path: finding.existing_path || null,
+  relation_count: finding.relation_count ?? null,
+  operations: finding.proposed_operations || []
+});
 const hasEdge = (edges, left, right) => edges.some((edge) =>
   (edge.from === left && edge.to === right) || (edge.from === right && edge.to === left));
 
@@ -134,10 +149,62 @@ const searchQuestionPressure = (graph) => {
   }).sort((a, b) => a.relation_count - b.relation_count || a.nodes[0].localeCompare(b.nodes[0]));
 };
 
+const searchGenerativeCompression = (graph) => {
+  const eligible = graph.nodes.filter(({ type }) => !["revision", "root"].includes(type));
+  const groups = new Map();
+  for (const node of eligible) {
+    const words = [...normalizedKeywords(node)].sort();
+    for (let left = 0; left < words.length; left += 1) {
+      for (let right = left + 1; right < words.length; right += 1) {
+        const key = `${words[left]}|${words[right]}`;
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(node);
+      }
+    }
+  }
+  return [...groups.entries()]
+    .filter(([, nodes]) => nodes.length >= 3)
+    .map(([key, nodes]) => {
+      const primitives = key.split("|");
+      const selected = nodes.slice(0, 6);
+      return {
+        kind: "generative-compression",
+        nodes: selected.map(({ id }) => id),
+        titles: selected.map(({ title }) => title),
+        shared_keywords: primitives,
+        recurrence_count: nodes.length,
+        evidence: selected.map(({ title, summary, definition }) => `${title}: ${summary || definition}`),
+        claim: `${primitives.join(" + ")} recurs across ${nodes.length} constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.`,
+        proposed_question: `Can ${primitives[0]} and ${primitives[1]} be composed as a primitive relation that regenerates these ${nodes.length} appearances without collapsing their differences?`,
+        proposed_test: "Name the distinctions each occurrence contributes, then test whether one directional composition can regenerate all of them without deleting orientation, uncertainty, or corrigibility."
+      };
+    })
+    .sort((a, b) => b.recurrence_count - a.recurrence_count || a.shared_keywords.join().localeCompare(b.shared_keywords.join()));
+};
+
+const searchReflexiveTests = (graph) => {
+  const chamber = graph.nodes.find(({ id }) => id === "cultivation-chamber");
+  if (!chamber) return [];
+  return graph.nodes
+    .filter(({ type }) => type === "architectural-principle")
+    .filter((principle) => !hasEdge(graph.edges, chamber.id, principle.id))
+    .map((principle) => ({
+      kind: "reflexive-test",
+      nodes: [chamber.id, principle.id],
+      titles: [chamber.title, principle.title],
+      shared_keywords: [...normalizedKeywords(principle)].filter((word) => normalizedKeywords(chamber).has(word)).sort(),
+      evidence: [chamber.definition, principle.definition],
+      claim: `${principle.title} is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.`,
+      proposed_question: `What observable failure would show that the Cultivation Chamber violates ${principle.title}?`,
+      proposed_test: `Apply ${principle.id} to one complete cultivation cycle and identify a falsifiable invariant, a failure signal, and a required correction.`,
+      proposed_operations: [{ operation: "add-edge", from: chamber.id, to: principle.id, type: "tests itself through" }]
+    }));
+};
+
 const search = (graph, lens) => {
   if (lens.id === "question-pressure") return searchQuestionPressure(graph);
-  // Compression and reflexive lenses begin from the same measurable gaps, but
-  // their prompt changes the interpretation and evaluation of the evidence.
+  if (lens.id === "generative-compression") return searchGenerativeCompression(graph);
+  if (lens.id === "reflexive-test") return searchReflexiveTests(graph);
   return searchRelationalGaps(graph, lens.minimum_shared_keywords || 4);
 };
 
@@ -155,6 +222,42 @@ const score = (candidate, graph) => {
     : 0;
   const dimensions = { source_fidelity, relational_gain, compression, testability, corrigibility, novelty_without_drift };
   return { dimensions, total: Object.values(dimensions).reduce((sum, value) => sum + value, 0) };
+};
+
+const assessReconsideration = (finding, memory, policy, state) => {
+  const fingerprint = findingFingerprint(finding);
+  const evidenceHash = findingEvidenceHash(finding);
+  const previous = memory.hypotheses[fingerprint];
+  const cycleIndex = state.history.length + 1;
+  if (!previous) return { fingerprint, evidence_hash: evidenceHash, eligible: true, reason: "new-hypothesis", novelty: 4 };
+  if (previous.evidence_hash !== evidenceHash) return { fingerprint, evidence_hash: evidenceHash, eligible: true, reason: "evidence-changed", novelty: 3 };
+  if (previous.policy_hash !== digest(policy)) return { fingerprint, evidence_hash: evidenceHash, eligible: true, reason: "policy-changed", novelty: 2 };
+  if (cycleIndex - previous.last_cycle_index >= policy.memory.reconsider_after_cycles) {
+    return { fingerprint, evidence_hash: evidenceHash, eligible: true, reason: "incubation-elapsed", novelty: 1 };
+  }
+  return { fingerprint, evidence_hash: evidenceHash, eligible: false, reason: "unchanged-repeat", novelty: 0 };
+};
+
+const rememberHypothesis = (memory, cycle, finding, status) => {
+  if (!finding?.reconsideration?.fingerprint) return;
+  const fingerprint = finding.reconsideration.fingerprint;
+  const previous = memory.hypotheses[fingerprint];
+  memory.hypotheses[fingerprint] = {
+    fingerprint,
+    kind: finding.kind,
+    nodes: finding.nodes || [],
+    claim: finding.claim,
+    proposed_question: finding.proposed_question || null,
+    evidence_hash: finding.reconsideration.evidence_hash,
+    policy_hash: cycle.policy_hash,
+    first_cycle: previous?.first_cycle || cycle.cultivation_id,
+    last_cycle: cycle.cultivation_id,
+    last_cycle_index: Number(cycle.cultivation_id.split("-").at(-1)),
+    considerations: (previous?.considerations || 0) + 1,
+    status,
+    last_novelty_reason: finding.reconsideration.reason,
+    last_evaluation: finding.evaluation || null
+  };
 };
 
 const validateOperations = (operations, graph) => {
@@ -250,7 +353,7 @@ const loadActive = async (state) => {
   return readJson(cycleUrl(state.active_cycle));
 };
 
-const step = async (state, policy) => {
+const step = async (state, policy, memory) => {
   if (state.status === "paused") throw new Error("Cultivation is paused. Run resume before stepping.");
   const cycle = await loadActive(state);
   const graph = await readJson(graphUrl);
@@ -263,17 +366,26 @@ const step = async (state, policy) => {
     cycle.phase = "searched";
     appendEvent(cycle, "constitutional-search-completed", { findings: cycle.findings.length });
   } else if (cycle.phase === "searched") {
-    cycle.findings = cycle.findings.map((finding) => ({ ...finding, evaluation: score(finding, graph) }))
+    cycle.findings = cycle.findings.map((finding) => ({
+      ...finding,
+      reconsideration: assessReconsideration(finding, memory, policy, state),
+      evaluation: score(finding, graph)
+    }))
       .sort((a, b) => b.evaluation.total - a.evaluation.total || a.rank - b.rank);
     cycle.selected_finding = cycle.findings.find((finding) =>
+      finding.reconsideration.eligible &&
       finding.evaluation.total >= policy.evaluation.minimum_total_for_proposal &&
       finding.evaluation.dimensions.source_fidelity >= policy.evaluation.minimum_source_fidelity &&
       finding.evaluation.dimensions.corrigibility >= policy.evaluation.minimum_corrigibility) || null;
     cycle.phase = "evaluated";
-    appendEvent(cycle, "findings-evaluated", { selected: cycle.selected_finding?.nodes || null });
+    appendEvent(cycle, "findings-evaluated", {
+      selected: cycle.selected_finding?.nodes || null,
+      suppressed_repeats: cycle.findings.filter(({ reconsideration }) => !reconsideration.eligible).length
+    });
   } else if (cycle.phase === "evaluated") {
     if (!cycle.selected_finding) {
       cycle.status = "completed-no-proposal";
+      cycle.novelty = { score: 0, reason: "no-eligible-hypothesis" };
     } else {
       const finding = cycle.selected_finding;
       const operations = validateOperations(finding.proposed_operations, graph);
@@ -292,6 +404,12 @@ const step = async (state, policy) => {
         human_decision_required: true,
         canonical_mutation_performed: false
       };
+      cycle.novelty = {
+        score: finding.reconsideration.novelty,
+        reason: finding.reconsideration.reason,
+        fingerprint: finding.reconsideration.fingerprint
+      };
+      rememberHypothesis(memory, cycle, finding, "proposed");
       cycle.status = "awaiting-human-review";
     }
     cycle.phase = "proposed";
@@ -300,7 +418,7 @@ const step = async (state, policy) => {
     state.active_cycle = null;
     state.status = "idle";
   } else throw new Error(`Cycle cannot step from phase ${cycle.phase}.`);
-  await Promise.all([save(cycleUrl(cycle.cultivation_id), cycle), save(stateUrl, state)]);
+  await Promise.all([save(cycleUrl(cycle.cultivation_id), cycle), save(stateUrl, state), save(memoryUrl, memory)]);
   process.stdout.write(`${cycle.cultivation_id}: ${cycle.phase} (${cycle.status}).\n`);
   if (cycle.proposal) process.stdout.write(`${cycle.proposal.summary}\n`);
 };
@@ -333,7 +451,7 @@ const resume = async (state) => {
   process.stdout.write(`${cycle.cultivation_id} resumed at ${cycle.phase}${changed ? " with recorded source drift" : ""}.\n`);
 };
 
-const review = async (state) => {
+const review = async (state, memory) => {
   const id = process.argv[3];
   const decision = process.argv[4];
   const reviewer = flagValue("--by");
@@ -345,14 +463,15 @@ const review = async (state) => {
   cycle.human_review = { decision, reviewer, note, at: new Date().toISOString() };
   cycle.status = decision === "accept" ? "accepted-for-revision" : "rejected";
   cycle.proposal.status = cycle.status;
+  rememberHypothesis(memory, cycle, cycle.selected_finding, cycle.status);
   appendEvent(cycle, "human-review-recorded", { decision, reviewer });
   const history = state.history.find((entry) => entry.cultivation_id === id);
   if (history) history.status = cycle.status;
-  await Promise.all([save(cycleUrl(id), cycle), save(stateUrl, state)]);
+  await Promise.all([save(cycleUrl(id), cycle), save(stateUrl, state), save(memoryUrl, memory)]);
   process.stdout.write(`${id} ${cycle.status}; canonical sources unchanged.\n`);
 };
 
-const autonomousJudge = async (state, policy, idOverride = null) => {
+const autonomousJudge = async (state, policy, memory, idOverride = null) => {
   const id = idOverride || process.argv[3];
   if (!id) throw new Error("Usage: judge <cultivation-id>");
   const cycle = await readJson(cycleUrl(id));
@@ -367,6 +486,7 @@ const autonomousJudge = async (state, policy, idOverride = null) => {
   cycle.proposal.operations = cycle.autonomous_judgment.operations;
   cycle.status = cycle.autonomous_judgment.decision === "accept" ? "autonomously-accepted" : "autonomously-rejected";
   cycle.proposal.status = cycle.status;
+  rememberHypothesis(memory, cycle, cycle.selected_finding, cycle.status);
   appendEvent(cycle, "autonomous-judgment-recorded", {
     decision: cycle.autonomous_judgment.decision,
     risk: cycle.autonomous_judgment.risk,
@@ -374,11 +494,11 @@ const autonomousJudge = async (state, policy, idOverride = null) => {
   });
   const history = state.history.find((entry) => entry.cultivation_id === id);
   if (history) history.status = cycle.status;
-  await Promise.all([save(cycleUrl(id), cycle), save(stateUrl, state)]);
+  await Promise.all([save(cycleUrl(id), cycle), save(stateUrl, state), save(memoryUrl, memory)]);
   process.stdout.write(`${id} ${cycle.status}: ${cycle.autonomous_judgment.reason}\n`);
 };
 
-const applyAccepted = async (state, idOverride = null) => {
+const applyAccepted = async (state, memory, idOverride = null) => {
   const id = idOverride || process.argv[3];
   if (!id) throw new Error("Usage: apply <cultivation-id>");
   const cycle = await readJson(cycleUrl(id));
@@ -407,36 +527,128 @@ const applyAccepted = async (state, idOverride = null) => {
   };
   cycle.status = "implemented";
   cycle.proposal.status = "implemented";
+  rememberHypothesis(memory, cycle, cycle.selected_finding, "implemented");
   appendEvent(cycle, "accepted-proposal-applied", { before: before.combined, after: after.combined });
   const history = state.history.find((entry) => entry.cultivation_id === id);
   if (history) history.status = cycle.status;
-  await Promise.all([save(cycleUrl(id), cycle), save(stateUrl, state)]);
+  await Promise.all([save(cycleUrl(id), cycle), save(stateUrl, state), save(memoryUrl, memory)]);
   process.stdout.write(`${id} applied ${operations.length} canonical operation${operations.length === 1 ? "" : "s"}; lineage archived.\n`);
 };
 
-const runCycle = async (state, policy) => {
+const recordCycleYield = async (memory, cycle, policy) => {
+  const score = cycle.novelty?.score ?? 0;
+  memory.novelty.last_score = score;
+  memory.novelty.history.push({
+    cultivation_id: cycle.cultivation_id,
+    score,
+    reason: cycle.novelty?.reason || "unknown",
+    status: cycle.status,
+    at: new Date().toISOString()
+  });
+  if (score <= policy.novelty.low_yield_maximum) memory.novelty.consecutive_low_yield_cycles += 1;
+  else memory.novelty.consecutive_low_yield_cycles = 0;
+  const current = await sourceSnapshot();
+  if (memory.novelty.consecutive_low_yield_cycles >= policy.novelty.dormancy_after_consecutive_low_yield_cycles) {
+    memory.dormancy = {
+      ...memory.dormancy,
+      active: true,
+      entered_at: new Date().toISOString(),
+      reason: `${memory.novelty.consecutive_low_yield_cycles} consecutive low-yield cycles`,
+      source_snapshot: { combined: current.combined, policy: digest(policy) }
+    };
+    memory.method_observations.push({
+      type: "meta-refactoring-proposal",
+      cultivation_id: cycle.cultivation_id,
+      at: new Date().toISOString(),
+      status: "proposed-for-human-review",
+      evidence: memory.novelty.history.slice(-policy.novelty.dormancy_after_consecutive_low_yield_cycles),
+      proposal: "The active inquiry methods have reached diminishing returns. Review candidate ranking, evidence extraction, and proposal grammar before increasing cadence or adding synthetic novelty."
+    });
+  }
+  await save(memoryUrl, memory);
+};
+
+const rebuildHypothesisMemory = async (memory) => {
+  const files = (await readdir(cyclesUrl)).filter((name) => name.endsWith(".json")).sort();
+  const hypotheses = {};
+  for (const file of files) {
+    const cycle = await readJson(new URL(file, cyclesUrl));
+    const finding = cycle.selected_finding;
+    if (!finding) continue;
+    const fingerprint = finding.reconsideration?.fingerprint || findingFingerprint(finding);
+    const previous = hypotheses[fingerprint];
+    hypotheses[fingerprint] = {
+      fingerprint,
+      kind: finding.kind,
+      nodes: finding.nodes || [],
+      claim: finding.claim,
+      proposed_question: finding.proposed_question || null,
+      evidence_hash: finding.reconsideration?.evidence_hash || findingEvidenceHash(finding),
+      policy_hash: cycle.autonomous_judgment?.policy_hash || cycle.policy_hash,
+      first_cycle: previous?.first_cycle || cycle.cultivation_id,
+      last_cycle: cycle.cultivation_id,
+      last_cycle_index: Number(cycle.cultivation_id.split("-").at(-1)),
+      considerations: (previous?.considerations || 0) + 1,
+      status: cycle.status,
+      last_novelty_reason: finding.reconsideration?.reason || "historical-import",
+      last_evaluation: finding.evaluation || null
+    };
+  }
+  memory.hypotheses = hypotheses;
+  await save(memoryUrl, memory);
+  process.stdout.write(`Rebuilt hypothesis memory from ${files.length} cycles: ${Object.keys(hypotheses).length} distinct hypotheses.\n`);
+};
+
+const runCycle = async (state, policy, memory) => {
   if (state.active_cycle) throw new Error(`Cannot start an automatic cycle while ${state.active_cycle} is active.`);
+  const current = await sourceSnapshot();
+  const force = flags.has("--force");
+  if (memory.dormancy.active) {
+    const sourceChanged = memory.dormancy.source_snapshot?.combined !== current.combined;
+    const policyChanged = memory.dormancy.source_snapshot?.policy !== digest(policy);
+    if (!sourceChanged && !policyChanged && !force) {
+      process.stdout.write(`Cultivation remains dormant: ${memory.dormancy.reason}. No source or policy change earned a wake event.\n`);
+      return;
+    }
+    memory.dormancy.wake_history.push({
+      at: new Date().toISOString(),
+      reason: force ? "manual-force" : policyChanged ? "policy-changed" : "canonical-source-changed"
+    });
+    memory.dormancy.active = false;
+    memory.dormancy.entered_at = null;
+    memory.dormancy.reason = null;
+    memory.novelty.consecutive_low_yield_cycles = 0;
+    await save(memoryUrl, memory);
+  }
   const id = `RL-CULT-${String(state.next_cycle).padStart(4, "0")}`;
   await start(state, policy);
-  for (let phase = 0; phase < 4; phase += 1) await step(state, policy);
+  for (let phase = 0; phase < 4; phase += 1) await step(state, policy, memory);
   let cycle = await readJson(cycleUrl(id));
   if (cycle.status !== "awaiting-human-review") {
+    await recordCycleYield(memory, cycle, policy);
     process.stdout.write(`${id} completed without an autonomously judgeable proposal.\n`);
     return;
   }
-  await autonomousJudge(state, policy, id);
+  await autonomousJudge(state, policy, memory, id);
   cycle = await readJson(cycleUrl(id));
   if (cycle.status === "autonomously-accepted") {
-    await applyAccepted(state, id);
+    await applyAccepted(state, memory, id);
+    cycle = await readJson(cycleUrl(id));
     process.stdout.write(`${id} completed with an autonomous low-risk refactoring.\n`);
   } else {
     process.stdout.write(`${id} completed with a preserved autonomous rejection.\n`);
   }
+  await recordCycleYield(memory, cycle, policy);
 };
 
-const validate = async (state, policy) => {
+const validate = async (state, policy, memory) => {
   const errors = [];
   if (state.version !== 1) errors.push("unsupported state version");
+  if (memory.version !== 1) errors.push("unsupported memory version");
+  for (const [fingerprint, hypothesis] of Object.entries(memory.hypotheses || {})) {
+    if (fingerprint !== hypothesis.fingerprint) errors.push(`hypothesis memory key mismatch: ${fingerprint}`);
+    if (!hypothesis.last_cycle) errors.push(`hypothesis memory lacks last cycle: ${fingerprint}`);
+  }
   const files = (await readdir(cyclesUrl)).filter((name) => name.endsWith(".json")).sort();
   for (const file of files) {
     const cycle = await readJson(new URL(file, cyclesUrl));
@@ -454,25 +666,26 @@ const validate = async (state, policy) => {
     cycle.events.forEach((event, index) => {
       if (event.sequence !== index + 1) errors.push(`${file}: non-contiguous event sequence`);
     });
-    if (cycle.proposal?.canonical_mutation_performed !== false) errors.push(`${file}: proposal lacks non-mutation boundary`);
+    if (cycle.proposal && cycle.proposal.canonical_mutation_performed !== false) errors.push(`${file}: proposal lacks non-mutation boundary`);
   }
   if (errors.length) throw new Error(errors.join("\n"));
   process.stdout.write(`PASS cultivation state; ${files.length} cycle archive${files.length === 1 ? "" : "s"} verified.\n`);
 };
 
 const main = async () => {
-  const [state, policy] = await Promise.all([readJson(stateUrl), readJson(policyUrl)]);
+  const [state, policy, memory] = await Promise.all([readJson(stateUrl), readJson(policyUrl), readJson(memoryUrl)]);
   if (command === "start") return start(state, policy);
-  if (command === "step") return step(state, policy);
+  if (command === "step") return step(state, policy, memory);
   if (command === "pause") return pause(state);
   if (command === "resume") return resume(state);
-  if (command === "validate") return validate(state, policy);
-  if (command === "review") return review(state);
-  if (command === "judge") return autonomousJudge(state, policy);
-  if (command === "apply") return applyAccepted(state);
-  if (command === "cycle") return runCycle(state, policy);
+  if (command === "validate") return validate(state, policy, memory);
+  if (command === "review") return review(state, memory);
+  if (command === "judge") return autonomousJudge(state, policy, memory);
+  if (command === "apply") return applyAccepted(state, memory);
+  if (command === "cycle") return runCycle(state, policy, memory);
+  if (command === "rebuild-memory") return rebuildHypothesisMemory(memory);
   if (command === "status") {
-    process.stdout.write(`${state.status}; active=${state.active_cycle || "none"}; completed=${state.history.length}; next=${state.next_cycle}\n`);
+    process.stdout.write(`${state.status}; active=${state.active_cycle || "none"}; completed=${state.history.length}; next=${state.next_cycle}; hypotheses=${Object.keys(memory.hypotheses).length}; dormant=${memory.dormancy.active}\n`);
     return;
   }
   throw new Error(`Unknown command: ${command}`);

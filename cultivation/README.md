@@ -7,8 +7,9 @@ authority.
 Its cycle is:
 
 ```text
-Canonical memory → Self-prompt → Structural search → Hypotheses
-→ Evidence → Evaluation → Human threshold → Proposed revision
+Canonical memory → Self-prompt → Distinct search method → Hypotheses
+→ Memory comparison → Evidence → Evaluation → Adversarial judgment
+→ Refactor / Escalate / Reject / Sleep
 ```
 
 The engine is deliberately resumable. Every transition is written to
@@ -16,6 +17,12 @@ The engine is deliberately resumable. Every transition is written to
 `cultivation/cycles/`. Historical policies remain content-addressed in
 `cultivation/policies/`, so old judgment lineage survives policy evolution. A process can stop after any command and continue later
 without relying on chat memory.
+
+`cultivation/memory.json` is the chamber's cross-cycle memory. It assigns a
+semantic fingerprint and evidence fingerprint to each considered hypothesis,
+records its disposition, and prevents unchanged rejected ideas from returning
+as novelty. A finding earns reconsideration only when evidence changes, policy
+changes, or its configured incubation interval elapses.
 
 ## Commands
 
@@ -27,6 +34,7 @@ node scripts/cultivate.mjs resume
 node scripts/cultivate.mjs status
 node scripts/cultivate.mjs validate
 node scripts/cultivate.mjs cycle
+node scripts/cultivate.mjs rebuild-memory
 node scripts/cultivate.mjs judge RL-CULT-0005
 node scripts/cultivate.mjs review RL-CULT-0003 accept --by "human name" --note "reason"
 node scripts/cultivate.mjs apply RL-CULT-0003
@@ -52,6 +60,10 @@ judgment, and applies an accepted low-risk refactoring when eligible. It is the
 entry point used by automation; every underlying phase remains independently
 resumable for manual work.
 
+`rebuild-memory` deterministically reconstructs semantic hypothesis memory from
+the append-only cycle archive. It is intended for migrations and audits; normal
+cycles update memory incrementally.
+
 ## Automatic triggers
 
 The Cultivation Chamber re-interrogates Root Logos under three conditions:
@@ -66,6 +78,32 @@ Automation is serialized so two cycles cannot cultivate the same source state
 concurrently. The workflow commits cycle memory and any authorized refactoring
 back to `main`. GitHub does not recursively trigger workflows from pushes made
 with its workflow token, preventing self-amplifying audit loops.
+
+## Novelty and dormancy
+
+Every completed automatic cycle receives a novelty score. Three consecutive
+low-yield cycles cause the chamber to:
+
+- enter dormancy against the exact source and policy snapshot;
+- preserve a meta-refactoring proposal about the exhausted inquiry method;
+- skip periodic wakeups while that snapshot remains unchanged; and
+- wake when canonical evidence changes, policy changes, or a human manually
+  dispatches a forced cycle.
+
+Dormancy is an earned conclusion, not a failure. It prevents the system from
+manufacturing activity when no new distinction has been found.
+
+The four inquiry lenses now have distinct search behavior: relational gaps use
+graph distance, question pressure measures integration and affinity, generative
+compression searches recurring primitive pairs across three or more nodes, and
+reflexive testing applies untested architectural principles back to the chamber.
+
+## Future runtime
+
+The chamber is intentionally filesystem-backed today, but its constitutional
+boundary is portable. See `future-runtime.md` for the post-build server model: a
+sleeping worker, signed site-originated observations, an append-only ingestion
+queue, deterministic wake conditions, and the same policy and lineage gates.
 
 The lifecycle regression test runs in a temporary copy and does not touch the
 real chamber state:
