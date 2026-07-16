@@ -58,6 +58,46 @@ paths:
         "202": { description: Accepted and optionally queued for wake }
         "401": { description: Invalid or stale signature }
         "422": { description: Invalid observation envelope }
+  /v1/public/intake:
+    post:
+      operationId: offerPublicObservation
+      description: Validates, rate-limits, server-signs, and journals an unreviewed public observation without waking cultivation.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/PublicObservation" }
+      responses:
+        "202": { description: Observation preserved outside constitutional memory }
+        "403": { description: Origin not permitted }
+        "422": { description: Invalid observation }
+        "429": { description: Intake rate limit reached }
+  /v1/admin/intake:
+    get:
+      operationId: listIntake
+      security: [{ adminBearer: [] }]
+      responses:
+        "200": { description: Immutable observations with classification history }
+        "401": { description: Administrator credential required }
+  /v1/admin/intake/{eventId}/classify:
+    post:
+      operationId: classifyObservation
+      security: [{ adminBearer: [] }]
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Classification" }
+      responses:
+        "202": { description: Classification appended and eligible wake queued }
+        "401": { description: Administrator credential required }
+        "404": { description: Observation not found }
+        "422": { description: Invalid classification }
   /v1/commands/wake:
     post:
       operationId: wakeCultivation
@@ -68,6 +108,28 @@ components:
   securitySchemes:
     adminBearer: { type: http, scheme: bearer }
   schemas:
+    PublicObservation:
+      type: object
+      required: [observation, source_type, consent]
+      properties:
+        observation: { type: string, minLength: 20, maxLength: 6000 }
+        context: { type: string, maxLength: 2000 }
+        relation: { type: string, maxLength: 500 }
+        source_type:
+          type: string
+          enum: [lived-experience, research, dialogue, artifact, other]
+        attribution: { type: string, maxLength: 120 }
+        consent: { type: boolean, const: true }
+        website: { type: string, description: Bot-trap field; must remain empty. }
+    Classification:
+      type: object
+      required: [status, reviewer, note]
+      properties:
+        status:
+          type: string
+          enum: [hold, rejected, admissible, promoted]
+        reviewer: { type: string }
+        note: { type: string }
     ObservationEnvelope:
       type: object
       required: [event_id, occurred_at, source_surface, authenticated_producer, payload_type, schema_version, consent_classification, retention_classification, provenance_signature, constitutional_relevance]

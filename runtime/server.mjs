@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import http from "node:http";
-import { createHmac, timingSafeEqual } from "node:crypto";
+import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
 import { appendFile, mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import { spawn } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -100,12 +100,65 @@ export const createRuntime = async (options = {}) => {
   await atomicJson(runtimeStatePath, runtimeState);
 
   const knownEvents = new Set();
+  const observations = new Map();
+  const classifications = new Map();
   try {
     for (const line of (await readFile(journalPath, "utf8")).split("\n").filter(Boolean)) {
       const record = JSON.parse(line);
-      if (record.type === "observation-accepted") knownEvents.add(record.event.event_id);
+      if (record.type === "observation-accepted") {
+        knownEvents.add(record.event.event_id);
+        observations.set(record.event.event_id, record);
+      }
+      if (record.type === "observation-classified") {
+        if (!classifications.has(record.event_id)) classifications.set(record.event_id, []);
+        classifications.get(record.event_id).push(record);
+      }
     }
   } catch (error) { if (error.code !== "ENOENT") throw error; }
+
+  const publicRateLimits = new Map();
+  const rateLimit = (req) => {
+    const forwarded = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "unknown").split(",")[0].trim();
+    const identity = createHmac("sha256", intakeSecret || "unconfigured").update(forwarded).digest("hex").slice(0, 20);
+    const now = Date.now();
+    const recent = (publicRateLimits.get(identity) || []).filter((timestamp) => now - timestamp < 60 * 60 * 1000);
+    if (recent.length >= 3) return false;
+    recent.push(now);
+    publicRateLimits.set(identity, recent);
+    return true;
+  };
+
+  const publicObservation = (body) => {
+    const errors = [];
+    const observation = String(body?.observation || "").trim();
+    const context = String(body?.context || "").trim();
+    const relation = String(body?.relation || "").trim();
+    const sourceType = String(body?.source_type || "").trim();
+    const attribution = String(body?.attribution || "Anonymous").trim();
+    if (observation.length < 20 || observation.length > 6000) errors.push("observation must be between 20 and 6000 characters");
+    if (context.length > 2000) errors.push("context must be 2000 characters or fewer");
+    if (relation.length > 500) errors.push("relation must be 500 characters or fewer");
+    if (attribution.length > 120) errors.push("attribution must be 120 characters or fewer");
+    if (!["lived-experience", "research", "dialogue", "artifact", "other"].includes(sourceType)) errors.push("source_type is invalid");
+    if (body?.consent !== true) errors.push("consent is required");
+    return { errors, payload: { observation, context, relation, source_type: sourceType, attribution } };
+  };
+
+  const currentIntake = () => [...observations.values()].map((record) => {
+    const history = classifications.get(record.event.event_id) || [];
+    const latest = history.at(-1);
+    return {
+      event_id: record.event.event_id,
+      received_at: record.received_at,
+      occurred_at: record.event.occurred_at,
+      source_surface: record.event.source_surface,
+      payload: record.event.payload,
+      consent_classification: record.event.consent_classification,
+      retention_classification: record.event.retention_classification,
+      status: latest?.status || record.event.constitutional_relevance,
+      classification_history: history
+    };
+  }).sort((a, b) => b.received_at.localeCompare(a.received_at));
 
   let workerPromise = null;
   const saveRuntimeState = () => atomicJson(runtimeStatePath, runtimeState);
@@ -184,7 +237,8 @@ export const createRuntime = async (options = {}) => {
       novelty: memory.novelty,
       hypothesis_count: Object.keys(memory.hypotheses || {}).length,
       policy: { version: policy.version, constitutional_revision: policy.constitutional_revision, mode: policy.mode },
-      intake_count: knownEvents.size
+      intake_count: knownEvents.size,
+      intake_pending: currentIntake().filter(({ status }) => status === "unreviewed" || status === "hold").length
     };
   };
 
@@ -210,6 +264,10 @@ export const createRuntime = async (options = {}) => {
       }
       const cycleMatch = req.method === "GET" && url.pathname.match(/^\/v1\/cycles\/(RL-CULT-\d{4,})$/);
       if (cycleMatch) return send(res, 200, publicCycle(await readJson(join(root, "cultivation", "cycles", `${cycleMatch[1]}.json`))), cors);
+      if (req.method === "GET" && url.pathname === "/v1/admin/intake") {
+        if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
+        return send(res, 200, { observations: currentIntake() }, cors);
+      }
 
       let raw = "";
       for await (const chunk of req) {
@@ -227,9 +285,59 @@ export const createRuntime = async (options = {}) => {
         const record = { type: "observation-accepted", received_at: iso(), event };
         await appendRecord(record);
         knownEvents.add(event.event_id);
+        observations.set(event.event_id, record);
         const wakes = ["admissible", "promoted"].includes(event.constitutional_relevance);
         if (wakes) await enqueue({ id: `event:${event.event_id}`, kind: "admissible-observation", event_id: event.event_id, accepted_at: record.received_at });
         return send(res, 202, { accepted: true, duplicate: false, event_id: event.event_id, wake_queued: wakes }, cors);
+      }
+      if (req.method === "POST" && url.pathname === "/v1/public/intake") {
+        if (origin !== allowedOrigin && allowedOrigin !== "*") return send(res, 403, { error: "origin not permitted" }, cors);
+        if (!intakeSecret) return send(res, 503, { error: "intake is not configured" }, cors);
+        const body = JSON.parse(raw);
+        if (String(body.website || "").trim()) return send(res, 202, { accepted: true, status: "unreviewed" }, cors);
+        if (!rateLimit(req)) return send(res, 429, { error: "intake limit reached; please return later" }, { ...cors, "retry-after": "3600" });
+        const { errors, payload } = publicObservation(body);
+        if (errors.length) return send(res, 422, { error: "invalid observation", details: errors }, cors);
+        const eventId = `RL-OBS-${new Date().toISOString().slice(0, 10).replaceAll("-", "")}-${randomUUID().slice(0, 8).toUpperCase()}`;
+        const occurredAt = iso();
+        const provenance = createHmac("sha256", intakeSecret).update(`${eventId}.${occurredAt}.${JSON.stringify(payload)}`).digest("hex");
+        const event = {
+          event_id: eventId,
+          occurred_at: occurredAt,
+          source_surface: "rootlogos.com/public-membrane",
+          authenticated_producer: "public-web-submission",
+          payload_type: "offered-observation",
+          schema_version: "1",
+          payload,
+          consent_classification: "explicit-public-intake-consent",
+          retention_classification: "review-pending",
+          provenance_signature: `server-hmac:${provenance}`,
+          constitutional_relevance: "unreviewed"
+        };
+        const record = { type: "observation-accepted", received_at: occurredAt, event };
+        await appendRecord(record);
+        knownEvents.add(eventId);
+        observations.set(eventId, record);
+        return send(res, 202, { accepted: true, event_id: eventId, status: "unreviewed", wake_queued: false }, cors);
+      }
+      const classifyMatch = req.method === "POST" && url.pathname.match(/^\/v1\/admin\/intake\/([^/]+)\/classify$/);
+      if (classifyMatch) {
+        if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
+        const eventId = decodeURIComponent(classifyMatch[1]);
+        if (!observations.has(eventId)) return send(res, 404, { error: "observation not found" }, cors);
+        const body = JSON.parse(raw);
+        const status = String(body.status || "");
+        const reviewer = String(body.reviewer || "").trim();
+        const note = String(body.note || "").trim();
+        if (!["hold", "rejected", "admissible", "promoted"].includes(status)) return send(res, 422, { error: "invalid classification" }, cors);
+        if (!reviewer || !note) return send(res, 422, { error: "reviewer and note are required" }, cors);
+        const classification = { type: "observation-classified", event_id: eventId, status, reviewer, note, at: iso() };
+        await appendRecord(classification);
+        if (!classifications.has(eventId)) classifications.set(eventId, []);
+        classifications.get(eventId).push(classification);
+        const wakes = status === "admissible" || status === "promoted";
+        if (wakes) await enqueue({ id: `classification:${eventId}:${classification.at}`, kind: "admissible-observation", event_id: eventId, accepted_at: classification.at });
+        return send(res, 202, { accepted: true, event_id: eventId, status, wake_queued: wakes }, cors);
       }
       if (req.method === "POST" && url.pathname === "/v1/commands/wake") {
         if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);

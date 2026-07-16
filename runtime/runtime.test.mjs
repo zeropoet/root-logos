@@ -33,6 +33,31 @@ try {
   assert.equal(status.policy.constitutional_revision, "v0.7");
   assert.equal(status.intake_count, 0);
 
+  const publicOffer = await fetch(`${base}/v1/public/intake`, { method: "POST", body: JSON.stringify({
+    observation: "A public observation remains outside the constitution until it earns admission.",
+    context: "Runtime boundary test", relation: "The Living Membrane Principle",
+    source_type: "dialogue", attribution: "Runtime Test", consent: true, website: ""
+  }), headers: { "content-type": "application/json", origin: "https://rootlogos.com", "x-forwarded-for": "192.0.2.40" } });
+  assert.equal(publicOffer.status, 202);
+  const publicReceipt = await publicOffer.json();
+  assert.match(publicReceipt.event_id, /^RL-OBS-/);
+  assert.equal(publicReceipt.status, "unreviewed");
+  assert.equal(publicReceipt.wake_queued, false);
+  assert.deepEqual(calls, []);
+
+  const deniedIntake = await fetch(`${base}/v1/admin/intake`);
+  assert.equal(deniedIntake.status, 401);
+  const adminIntake = await fetch(`${base}/v1/admin/intake`, { headers: { authorization: `Bearer ${admin}` } }).then((response) => response.json());
+  assert.equal(adminIntake.observations.length, 1);
+  assert.equal(adminIntake.observations[0].status, "unreviewed");
+  const classified = await fetch(`${base}/v1/admin/intake/${publicReceipt.event_id}/classify`, { method: "POST", body: JSON.stringify({
+    status: "admissible", reviewer: "Test Steward", note: "Relevant, attributable, and safe for cultivation."
+  }), headers: { authorization: `Bearer ${admin}`, "content-type": "application/json" } });
+  assert.equal(classified.status, 202);
+  assert.equal((await classified.json()).wake_queued, true);
+  await runtime.waitForIdle();
+  assert.deepEqual(calls, [["cycle"]]);
+
   const event = {
     event_id: "evt-001", occurred_at: new Date().toISOString(), source_surface: "rootlogos.com",
     authenticated_producer: "site-test", payload_type: "reflection", schema_version: "1",
@@ -49,7 +74,7 @@ try {
   assert.equal(accepted.status, 202);
   assert.equal((await accepted.json()).wake_queued, true);
   await runtime.waitForIdle();
-  assert.deepEqual(calls, [["cycle"]]);
+  assert.deepEqual(calls, [["cycle"], ["cycle"]]);
 
   const duplicate = await fetch(`${base}/v1/intake`, { method: "POST", body: raw, headers: {
     "content-type": "application/json", "x-rootlogos-timestamp": timestamp, "x-rootlogos-signature": signature
@@ -68,7 +93,7 @@ try {
   const journal = await readFile(join(sandbox, "data", "intake.jsonl"), "utf8");
   assert.match(journal, /observation-accepted/);
   assert.match(journal, /wake-completed/);
-  process.stdout.write("PASS signed intake, replay protection, wake serialization, inspection API, and human command boundary.\n");
+  process.stdout.write("PASS public membrane, immutable receipts, steward classification, signed intake, replay protection, serialized wakes, and human command boundary.\n");
 } finally {
   await new Promise((resolveClose) => server.close(resolveClose));
 }

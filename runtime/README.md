@@ -28,11 +28,22 @@ Send it in `X-Rootlogos-Signature` with the same ISO timestamp in
 `X-Rootlogos-Timestamp`. Timestamps older than five minutes are rejected.
 Human wake commands use `Authorization: Bearer <ROOT_LOGOS_ADMIN_TOKEN>`.
 
+The public site never receives either secret. `POST /v1/public/intake`
+validates a bounded observation, rate-limits its network source, signs its
+provenance on the server, and journals it as `unreviewed`. The private
+Antechamber uses the administrator credential in volatile page memory only;
+refreshing or closing the page forgets it.
+
 ## Authority and publication
 
 Admissible or promoted observations queue one serialized cultivation wake.
 Unreviewed and rejected observations are journaled without waking. Incoming
 payloads never become canonical memory merely by arrival.
+
+A steward may append `hold`, `rejected`, `admissible`, or `promoted`
+classification events through `/v1/admin/intake/:eventId/classify`. The source
+observation is never rewritten. Only `admissible` and `promoted`
+classifications queue cultivation.
 
 `ROOT_LOGOS_GIT_PUBLISH=0` is the safe deployment default. Set it to `1` only
 after the server has a narrow GitHub deploy credential and branch publication

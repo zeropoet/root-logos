@@ -21,6 +21,9 @@ const app = {
   latest: null,
   selectedNode: null,
   selectedProposal: null,
+  adminToken: null,
+  observations: [],
+  selectedObservation: null,
   filter: "all"
 };
 
@@ -106,6 +109,129 @@ const renderPresence = () => {
   $("#phase-resolution-detail").textContent = running ? "Serialized inquiry" : "No wake condition";
   $("#intake-count").textContent = String(app.runtime.intake_count || 0).padStart(2, "0");
   $("#memory-count-large").textContent = String(app.runtime.hypothesis_count || Object.keys(app.memory?.hypotheses || {}).length).padStart(2, "0");
+};
+
+const submitObservation = async (form) => {
+  const button = $("button[type='submit']", form);
+  const status = $("#observation-status");
+  const data = new FormData(form);
+  const payload = {
+    observation: data.get("observation"),
+    context: data.get("context"),
+    relation: data.get("relation"),
+    source_type: data.get("source_type"),
+    attribution: data.get("attribution") || "Anonymous",
+    consent: data.get("consent") === "on",
+    website: data.get("website")
+  };
+  button.disabled = true;
+  status.className = "";
+  status.textContent = "The membrane is receiving and signing this observation…";
+  try {
+    const response = await fetch(`${RUNTIME}/v1/public/intake`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.details?.join(" · ") || result.error || "The observation could not cross the membrane.");
+    status.className = "is-success";
+    status.textContent = result.event_id
+      ? `Received as ${result.event_id}. It remains unreviewed and has not awakened cultivation.`
+      : "Received. It remains outside constitutional memory.";
+    form.reset();
+    if (result.event_id) {
+      app.runtime.intake_count = (app.runtime.intake_count || 0) + 1;
+      app.runtime.intake_pending = (app.runtime.intake_pending || 0) + 1;
+      $("#intake-count").textContent = String(app.runtime.intake_count).padStart(2, "0");
+    }
+  } catch (error) {
+    status.className = "is-error";
+    status.textContent = error.message;
+  } finally {
+    button.disabled = false;
+  }
+};
+
+const adminRequest = async (path, options = {}) => {
+  const response = await fetch(`${RUNTIME}${path}`, {
+    ...options,
+    headers: { authorization: `Bearer ${app.adminToken}`, "content-type": "application/json", ...(options.headers || {}) }
+  });
+  const result = await response.json();
+  if (!response.ok) throw Object.assign(new Error(result.error || "The Antechamber refused this request."), { status: response.status });
+  return result;
+};
+
+const loadAntechamber = async () => {
+  const result = await adminRequest("/v1/admin/intake");
+  app.observations = result.observations || [];
+  $("#antechamber-auth").hidden = true;
+  $("#antechamber-workspace").hidden = false;
+  renderIntakeQueue();
+};
+
+const renderIntakeQueue = () => {
+  const pending = app.observations.filter(({ status }) => status === "unreviewed" || status === "hold").length;
+  $("#pending-count").textContent = String(pending).padStart(2, "0");
+  $("#intake-queue").innerHTML = app.observations.map((item) => `<button class="queue-item ${app.selectedObservation?.event_id === item.event_id ? "is-active" : ""}" type="button" data-observation="${escapeHtml(item.event_id)}">
+    <span><b>${escapeHtml(item.event_id)}</b><i>${escapeHtml(sentence(item.status))}</i></span>
+    <p>${escapeHtml(String(item.payload?.observation || "").slice(0, 165))}${String(item.payload?.observation || "").length > 165 ? "…" : ""}</p>
+  </button>`).join("") || `<p class="memory-loading">No observations have arrived.</p>`;
+  if (!app.selectedObservation && app.observations[0]) selectObservation(app.observations[0].event_id);
+};
+
+const selectObservation = (id) => {
+  const item = app.observations.find(({ event_id: eventId }) => eventId === id);
+  if (!item) return;
+  app.selectedObservation = item;
+  $$(".queue-item").forEach((button) => button.classList.toggle("is-active", button.dataset.observation === id));
+  const payload = item.payload || {};
+  const history = item.classification_history || [];
+  $("#intake-review").innerHTML = `
+    <header><div><p class="micro-label">${escapeHtml(shortDate(item.received_at))} / ${escapeHtml(payload.source_type || "observation")}</p><h3>${escapeHtml(item.event_id)}</h3></div><span class="intake-status">${escapeHtml(sentence(item.status))}</span></header>
+    <p class="observation-body">${escapeHtml(payload.observation || "")}</p>
+    <div class="observation-context">
+      <div><p class="micro-label">Context</p><p>${escapeHtml(payload.context || "Not supplied")}</p></div>
+      <div><p class="micro-label">Possible relation</p><p>${escapeHtml(payload.relation || "Not supplied")}</p></div>
+      <div><p class="micro-label">Attribution</p><p>${escapeHtml(payload.attribution || "Anonymous")}</p></div>
+      <div><p class="micro-label">Prior classifications</p><p>${history.length ? escapeHtml(history.map(({ status, reviewer }) => `${sentence(status)} — ${reviewer}`).join(" · ")) : "None"}</p></div>
+    </div>
+    <form class="classification-form" id="classification-form">
+      <div class="classification-actions field-wide" aria-label="Classification">
+        ${["hold", "rejected", "admissible", "promoted"].map((status) => `<button type="button" data-classification="${status}">${sentence(status)}</button>`).join("")}
+      </div>
+      <label class="form-field"><span>Reviewer <i>required</i></span><input name="reviewer" required placeholder="Attributable steward name"></label>
+      <label class="form-field"><span>Reason <i>required</i></span><textarea name="note" required placeholder="Why has this disposition been earned?"></textarea></label>
+      <input type="hidden" name="status">
+      <div class="classification-submit field-wide"><button type="submit">Record disposition</button><p role="status">Admissible or promoted observations wake cultivation. Hold and rejection do not.</p></div>
+    </form>`;
+};
+
+const classifyObservation = async (form) => {
+  const data = new FormData(form);
+  const status = data.get("status");
+  const message = $(".classification-submit p", form);
+  if (!status) {
+    message.textContent = "Choose a disposition before recording judgment.";
+    return;
+  }
+  const button = $("button[type='submit']", form);
+  button.disabled = true;
+  message.textContent = "Writing an immutable classification event…";
+  try {
+    const result = await adminRequest(`/v1/admin/intake/${encodeURIComponent(app.selectedObservation.event_id)}/classify`, {
+      method: "POST",
+      body: JSON.stringify({ status, reviewer: data.get("reviewer"), note: data.get("note") })
+    });
+    message.textContent = result.wake_queued ? "Disposition preserved. A serialized cultivation wake has been queued." : "Disposition preserved. The chamber remains asleep.";
+    app.selectedObservation = null;
+    await loadAntechamber();
+  } catch (error) {
+    message.textContent = error.message;
+  } finally {
+    button.disabled = false;
+  }
 };
 
 const renderLatestCycle = () => {
@@ -362,9 +488,57 @@ const bindInterface = () => {
     const card = event.target.closest("[data-proposal]");
     if (card) selectProposal(card.dataset.proposal);
   });
+  $("#observation-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    submitObservation(event.currentTarget);
+  });
+  $("#open-antechamber").addEventListener("click", () => {
+    $("#antechamber").hidden = false;
+    document.body.style.overflow = "hidden";
+    $(app.adminToken ? "#antechamber-title" : "#steward-token").focus();
+    if (app.adminToken) loadAntechamber().catch(() => { app.adminToken = null; $("#antechamber-auth").hidden = false; });
+  });
+  $$('[data-close-antechamber]').forEach((element) => element.addEventListener("click", () => {
+    $("#antechamber").hidden = true;
+    document.body.style.overflow = "";
+  }));
+  $("#unlock-antechamber").addEventListener("click", async () => {
+    const input = $("#steward-token");
+    const status = $("#antechamber-auth-status");
+    app.adminToken = input.value.trim();
+    status.textContent = "Verifying steward authority…";
+    try {
+      await loadAntechamber();
+      input.value = "";
+      status.textContent = "";
+    } catch (error) {
+      app.adminToken = null;
+      status.textContent = error.status === 401 ? "The steward credential was not recognized." : error.message;
+    }
+  });
+  $("#steward-token").addEventListener("keydown", (event) => { if (event.key === "Enter") $("#unlock-antechamber").click(); });
+  $("#intake-queue").addEventListener("click", (event) => {
+    const item = event.target.closest("[data-observation]");
+    if (item) selectObservation(item.dataset.observation);
+  });
+  $("#intake-review").addEventListener("click", (event) => {
+    const option = event.target.closest("[data-classification]");
+    if (!option) return;
+    $$("[data-classification]", $("#intake-review")).forEach((button) => button.classList.toggle("is-selected", button === option));
+    $("input[name='status']", $("#classification-form")).value = option.dataset.classification;
+  });
+  $("#intake-review").addEventListener("submit", (event) => {
+    if (event.target.id !== "classification-form") return;
+    event.preventDefault();
+    classifyObservation(event.target);
+  });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !$("#cycle-drawer").hidden) {
       $("#cycle-drawer").hidden = true;
+      document.body.style.overflow = "";
+    }
+    if (event.key === "Escape" && !$("#antechamber").hidden) {
+      $("#antechamber").hidden = true;
       document.body.style.overflow = "";
     }
   });

@@ -83,3 +83,9 @@ secrets. Mutation is split into two separately authenticated paths:
 The interface contract is recorded in `runtime/openapi.yaml`. The new Root
 Logos UI should depend on that contract rather than reading repository JSON
 directly.
+
+The public membrane and private Antechamber now implement the first complete
+admission path. Public arrivals are bounded, rate-limited, signed by the server,
+and preserved as `unreviewed`. Steward classifications are appended rather
+than substituted. Only an attributable `admissible` or `promoted`
+classification may queue a wake.

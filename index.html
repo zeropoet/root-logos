@@ -230,7 +230,80 @@
             <strong id="intake-count">0</strong>
             <p>observations preserved</p>
             <div><span class="state-signal"></span><span>Signed membrane online</span></div>
+            <button class="text-action antechamber-open" type="button" id="open-antechamber">Enter the private Antechamber <span>↗</span></button>
           </aside>
+        </div>
+
+        <div class="observation-instrument">
+          <header>
+            <p class="coordinate">Public membrane / Offer an observation</p>
+            <h3>Bring reality into contact<br><em>with the grammar.</em></h3>
+            <p>This is not a request for agreement, content, or instruction. Offer something observed that may place pressure upon an existing distinction.</p>
+          </header>
+          <form id="observation-form">
+            <label class="form-field field-wide">
+              <span>Observation <i>required</i></span>
+              <textarea name="observation" minlength="20" maxlength="6000" required placeholder="What have you observed that Root Logos may need to encounter?"></textarea>
+            </label>
+            <label class="form-field">
+              <span>What gave rise to it?</span>
+              <textarea name="context" maxlength="2000" placeholder="Lived circumstance, research, conversation, or encounter"></textarea>
+            </label>
+            <label class="form-field">
+              <span>Where might it apply?</span>
+              <textarea name="relation" maxlength="500" placeholder="A principle, open question, or existing structure"></textarea>
+            </label>
+            <label class="form-field">
+              <span>Source character <i>required</i></span>
+              <select name="source_type" required>
+                <option value="">Choose one</option>
+                <option value="lived-experience">Lived experience</option>
+                <option value="research">Research</option>
+                <option value="dialogue">Dialogue</option>
+                <option value="artifact">Artifact or creative work</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label class="form-field">
+              <span>Attribution</span>
+              <input name="attribution" maxlength="120" placeholder="Name, pseudonym, or Anonymous">
+            </label>
+            <label class="form-field intake-honeypot" aria-hidden="true" tabindex="-1"><span>Website</span><input name="website" autocomplete="off" tabindex="-1"></label>
+            <label class="consent-field field-wide">
+              <input type="checkbox" name="consent" required>
+              <span>I understand this observation will be preserved in an immutable review journal. Arrival does not imply agreement, admission, authorship, or constitutional change.</span>
+            </label>
+            <div class="form-submit field-wide">
+              <button type="submit"><span>Offer observation</span><i>Cross the outer membrane</i></button>
+              <p id="observation-status" role="status" aria-live="polite">Every accepted arrival receives a durable receipt and begins as unreviewed.</p>
+            </div>
+          </form>
+        </div>
+
+        <div class="antechamber" id="antechamber" hidden>
+          <div class="antechamber-scrim" data-close-antechamber></div>
+          <section role="dialog" aria-modal="true" aria-labelledby="antechamber-title">
+            <button type="button" class="drawer-close" data-close-antechamber aria-label="Close Antechamber">×</button>
+            <header>
+              <p class="coordinate">Private steward surface</p>
+              <h2 id="antechamber-title">The Antechamber</h2>
+              <p>Arrival is witnessed here before it can become pressure within cultivation.</p>
+            </header>
+            <div class="antechamber-auth" id="antechamber-auth">
+              <label class="form-field"><span>Steward credential</span><input type="password" id="steward-token" autocomplete="current-password" placeholder="Enter the private administrator token"></label>
+              <button type="button" id="unlock-antechamber">Open the review boundary</button>
+              <p id="antechamber-auth-status" role="status"></p>
+            </div>
+            <div class="antechamber-workspace" id="antechamber-workspace" hidden>
+              <aside>
+                <div class="antechamber-count"><span id="pending-count">00</span><small>awaiting<br>admissibility</small></div>
+                <div class="intake-queue" id="intake-queue"></div>
+              </aside>
+              <article class="intake-review" id="intake-review">
+                <p class="micro-label">Select an arrival to begin review</p>
+              </article>
+            </div>
+          </section>
         </div>
 
         <div class="resonant-foreshadow">
