@@ -13,7 +13,7 @@ and documentary record are views of the same constitutional network:
 Logoi, vocabulary, Living Statements, Constitutional Bridges, Field Notes,
 Artifact Seeds, Open Questions, Export Packets, and published revisions.
 
-The current constitution is **Revision 0.7 — The Cultivation Chamber**.
+The current constitution is **Revision 0.8 — The Resonant Chamber**.
 Its direction is both expansive and compressive: the architecture names new
 distinctions when required, then seeks the smallest relational grammar capable
 of carrying them without doctrinal repetition.
@@ -22,8 +22,8 @@ of carrying them without doctrinal repetition.
 
 - `index.html` renders the public Root Logos observatory: the constitutional
   Field, live Cultivation Chamber, semantic Memory, human Threshold, signed
-  Intake membrane, and the silent architectural position reserved for the
-  future Resonant Chamber.
+  Intake membrane, Living Observatory, and the constitutional position from
+  which the future Resonant Chamber will become audible.
 - `content/constitutional-graph.json` is the typed graph that defines canonical
   concepts, documents, relationships, questions, seeds, and revisions.
 - `content/export-packets.json` stores the accepted and proposed
@@ -65,6 +65,9 @@ of carrying them without doctrinal repetition.
   that governs the constitution's movement from prose toward composable grammar.
 - `content/attractor-membrane.md` preserves the outward constitutional boundary,
   fragment grammar, Gravitational Integrity Standard, and channel independence.
+- `content/resonant-chamber.md` establishes sound as a constitutional pillar:
+  temporal relation governed by source fidelity, epistemic legibility,
+  non-coercion, consent, accessibility, dynamic restraint, and return paths.
 - Preserved Principle, Field Note, and Artifact Seed sources in `content/` are
   constitutional memory, not instructions to generate matching routes.
 - `assets/` contains the Root Logos mark, favicon, touch icon, and social image.

@@ -2,8 +2,8 @@
   "meta": {
     "title": "Root Logos",
     "subtitle": "Living Constitutional Grammar",
-    "revision": "v0.7",
-    "revisionLabel": "The Cultivation Chamber",
+    "revision": "v0.8",
+    "revisionLabel": "The Resonant Chamber",
     "updated": "July 2026",
     "status": "Living Document",
     "maxim": "The constitution matures when its grammar can carry the source without possessing it."
@@ -939,6 +939,67 @@
       ]
     },
     {
+      "id": "resonant-chamber",
+      "type": "export-system",
+      "label": "Resonant System",
+      "title": "The Resonant Chamber",
+      "status": "Constitutional",
+      "summary": "The constitutional pillar through which relation, inquiry, memory, judgment, pressure, and silence become audible through time.",
+      "definition": "The Resonant Chamber is a live, inspectable compositional grammar derived from the constitutional graph and runtime. It translates relations into temporal behavior without becoming a soundtrack, emotional state machine, or simulated personality. Every audible event preserves a return path to its source and transformation rule; epistemic difference, silence, consent, accessibility, non-coercion, and human authority remain constitutional constraints.",
+      "answers": "How can the architecture become audible without sound becoming hidden authority or a substitute for meaning?",
+      "keywords": [
+        "sound",
+        "resonance",
+        "composition",
+        "voice",
+        "time",
+        "relation",
+        "silence",
+        "polyphony",
+        "traceability",
+        "consent",
+        "accessibility"
+      ]
+    },
+    {
+      "id": "principle-resonant-integrity",
+      "type": "architectural-principle",
+      "label": "Architectural Principle VI",
+      "title": "The Resonant Integrity Principle",
+      "status": "Constitutional",
+      "summary": "Sound may deepen encounter only when its source, transformation, epistemic status, and affective power remain inspectable and non-coercive.",
+      "definition": "A sounding may represent Root Logos only when it preserves source fidelity, epistemic legibility, relational necessity, non-coercion, consent and accessibility, dynamic restraint, and a return path. Beauty is not evidence; dissonance is not failure; silence is not absence. The composition must reveal relation without manufacturing authority.",
+      "answers": "When does generative sound remain a faithful constitutional expression rather than atmosphere or manipulation?",
+      "keywords": [
+        "resonant integrity",
+        "source fidelity",
+        "epistemic legibility",
+        "non-coercion",
+        "consent",
+        "accessibility",
+        "restraint",
+        "return path",
+        "sound"
+      ]
+    },
+    {
+      "id": "constitutional-voice",
+      "type": "vocabulary",
+      "label": "Constitutional Vocabulary",
+      "title": "Constitutional Voice",
+      "status": "Constitutional",
+      "summary": "The temporal expression of inspectable relations, not the simulation of a speaker or personality.",
+      "definition": "A Constitutional Voice is the audible relation among what Root Logos preserves, questions, receives, remembers, judges, and leaves silent. It may be polyphonic and generative, but it cannot imply sentience, emotion, or authority unsupported by the constitution.",
+      "keywords": [
+        "voice",
+        "temporal expression",
+        "relation",
+        "polyphony",
+        "sound",
+        "non-personification"
+      ]
+    },
+    {
       "id": "attractor-membrane",
       "type": "export-system",
       "label": "Emanation System",
@@ -1347,7 +1408,7 @@
       "type": "revision",
       "label": "Revision 0.7.0",
       "title": "The Cultivation Chamber",
-      "status": "Current",
+      "status": "Superseded",
       "summary": "Established a resumable, human-steered autonomous chamber through which Root Logos can investigate, judge, and safely refactor its own constitutional structure.",
       "date": "July 2026",
       "source_export": "RL-EXPORT-0007",
@@ -1385,6 +1446,54 @@
         "lineage",
         "corrigibility",
         "human-machine collaboration"
+      ]
+    },
+    {
+      "id": "revision-0.8",
+      "type": "revision",
+      "label": "Revision 0.8.0",
+      "title": "The Resonant Chamber",
+      "status": "Current",
+      "summary": "Established sound as a constitutional pillar through which Root Logos may express inspectable relation through time without simulating personality or converting affect into authority.",
+      "date": "July 2026",
+      "source_export": "RL-EXPORT-0008",
+      "added": [
+        "The Resonant Chamber",
+        "The Resonant Integrity Principle",
+        "Constitutional Voice vocabulary",
+        "Seven-gate Resonant Integrity Standard",
+        "Silence as constitutional event",
+        "Consent and equivalent non-audio access",
+        "Revision 0.8.0"
+      ],
+      "modified": [
+        "Root Logos constitutional source",
+        "Temporal expression architecture",
+        "Human-machine authority boundary",
+        "The Music in Silence relation",
+        "Revision and export history"
+      ],
+      "removed": [],
+      "relationships": [
+        "Root Logos -> Resonant Chamber",
+        "Resonant Chamber -> Resonant Integrity",
+        "Resonant Chamber -> Cultivation Chamber",
+        "Resonant Chamber -> Attractor Membrane",
+        "Resonant Chamber -> The Music in Silence",
+        "Resonant Chamber -> Higher Reference"
+      ],
+      "reason": "Made temporal expression a governed constitutional capability before implementing sound, so the future instrument inherits traceability, epistemic difference, non-coercion, consent, accessibility, silence, and human authority by construction.",
+      "notes": "The Resonant Chamber is not yet an audio implementation. This revision establishes the grammar and integrity boundary that any implementation must satisfy.",
+      "keywords": [
+        "resonance",
+        "sound",
+        "voice",
+        "composition",
+        "silence",
+        "integrity",
+        "consent",
+        "accessibility",
+        "non-coercion"
       ]
     },
     {
@@ -2272,6 +2381,61 @@
     {
       "from": "revision-0.7",
       "to": "cultivation-chamber",
+      "type": "establishes"
+    },
+    {
+      "from": "root-logos",
+      "to": "resonant-chamber",
+      "type": "sounds through"
+    },
+    {
+      "from": "resonant-chamber",
+      "to": "principle-resonant-integrity",
+      "type": "governed by"
+    },
+    {
+      "from": "resonant-chamber",
+      "to": "constitutional-voice",
+      "type": "expresses as"
+    },
+    {
+      "from": "resonant-chamber",
+      "to": "cultivation-chamber",
+      "type": "listens to"
+    },
+    {
+      "from": "resonant-chamber",
+      "to": "attractor-membrane",
+      "type": "shares boundary with"
+    },
+    {
+      "from": "resonant-chamber",
+      "to": "field-note-music-silence",
+      "type": "recognizes silence through"
+    },
+    {
+      "from": "resonant-chamber",
+      "to": "principle-higher-reference",
+      "type": "remains oriented by"
+    },
+    {
+      "from": "principle-resonant-integrity",
+      "to": "principle-living-membrane",
+      "type": "extends into sound"
+    },
+    {
+      "from": "export-packet",
+      "to": "revision-0.8",
+      "type": "proposes"
+    },
+    {
+      "from": "revision-0.8",
+      "to": "root-logos",
+      "type": "modifies"
+    },
+    {
+      "from": "revision-0.8",
+      "to": "resonant-chamber",
       "type": "establishes"
     },
     {

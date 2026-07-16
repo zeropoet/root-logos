@@ -30,7 +30,7 @@ try {
   const health = await fetch(`${base}/health`).then((response) => response.json());
   assert.equal(health.ok, true);
   const status = await fetch(`${base}/v1/status`).then((response) => response.json());
-  assert.equal(status.policy.constitutional_revision, "v0.7");
+  assert.equal(status.policy.constitutional_revision, "v0.8");
   assert.equal(status.intake_count, 0);
 
   const publicOffer = await fetch(`${base}/v1/public/intake`, { method: "POST", body: JSON.stringify({

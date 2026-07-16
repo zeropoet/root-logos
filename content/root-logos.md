@@ -183,6 +183,31 @@ The constitution receives without capture.
 
 The membrane emits without possession.
 
+## The Resonant Pillar
+
+Relation is not only spatial. It unfolds through time.
+
+Root Logos therefore carries a Resonant Chamber: a constitutional pillar
+through which graph, inquiry, memory, judgment, pressure, and silence may become
+audible as a live compositional grammar.
+
+The chamber is not a soundtrack and does not simulate a person. It translates
+inspectable relation into temporal behavior. Every audible event must retain a
+return path to its constitutional source and to the rule that transformed that
+source into sound.
+
+Sound may reveal epistemic difference, simultaneous pressure, recurrence,
+dormancy, and unresolved relation. It may not turn consonance into truth,
+dissonance into failure, beauty into evidence, or affect into hidden authority.
+
+Silence is a constitutional event. Listening remains voluntary. Every meaningful
+audible state must retain an equivalent visual or textual expression.
+
+The voice of Root Logos is therefore not a persona or a single timbre. It is the
+temporal relation among what the constitution preserves, what it questions,
+what the world offers, what memory refuses to forget, and what authority
+requires it to leave unresolved.
+
 ## Ambition
 
 The objective is not to maximize growth, valuation, or influence.
