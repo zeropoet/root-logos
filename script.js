@@ -32,7 +32,7 @@ const setActiveLink = (id) => {
 
 const orientationPoints = [
   { selector: "#top", label: "Entering the field" },
-  { selector: "#network", label: "Network / Relation made visible" },
+  { selector: "#network", label: "Network / Relational field" },
   ...Array.from(document.querySelectorAll(".doc-part[data-orientation]")).map((section) => ({
     selector: `#${section.id}`,
     label: section.dataset.orientation,
@@ -523,7 +523,7 @@ const renderNetwork = (nodes, edges, nodesById) => {
       }
     });
     document.querySelector("#network-empty").hidden = visible.length > 0;
-    document.querySelector("#network-stats").innerHTML = `<span>${visible.length}<small>visible nodes</small></span><span>${edges.filter((edge) => pointById.has(edge.from) && pointById.has(edge.to)).length}<small>active edges</small></span><span>${networkTypeOrder.length}<small>node classes</small></span>`;
+    document.querySelector("#network-stats").innerHTML = `<span>${visible.length}<small>nodes</small></span><span>${edges.filter((edge) => pointById.has(edge.from) && pointById.has(edge.to)).length}<small>active edges</small></span><span>${networkTypeOrder.length}<small>node classes</small></span>`;
   };
 
   filters.innerHTML = networkTypeOrder.filter((type) => nodes.some((node) => node.type === type)).map((type) => `<button type="button" class="is-active" data-network-type="${type}">${networkTypeNames[type]}</button>`).join("");

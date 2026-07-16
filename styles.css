@@ -1887,18 +1887,6 @@ body::before {
   transform: rotate(45deg);
 }
 
-.home-panel::after {
-  content: "ROOT / LOGOS / 07";
-  position: absolute;
-  z-index: -1;
-  right: 0;
-  bottom: 42px;
-  color: var(--soft);
-  font: .62rem/1 var(--font-mono);
-  letter-spacing: .24em;
-  writing-mode: vertical-rl;
-}
-
 .home-mark {
   display: grid;
   place-items: center;
@@ -2040,18 +2028,6 @@ body::before {
     radial-gradient(circle at 72% 26%, rgba(36, 125, 82, .28), transparent 28rem),
     radial-gradient(circle at 20% 72%, rgba(185, 255, 218, .08), transparent 24rem),
     var(--night);
-}
-
-.network-section::before {
-  content: "RELATION / MADE / VISIBLE";
-  position: absolute;
-  top: 45%;
-  right: -5rem;
-  color: rgba(185, 255, 218, .12);
-  font: 700 clamp(2rem, 5vw, 5rem)/1 var(--font-mono);
-  letter-spacing: .12em;
-  writing-mode: vertical-rl;
-  pointer-events: none;
 }
 
 .network-head h2 {
@@ -2248,8 +2224,6 @@ body::before {
     width: 105vw;
   }
 
-  .home-panel::after { display: none; }
-
   .home-mark {
     width: 74px;
     padding: 11px;
@@ -2284,12 +2258,11 @@ body::before {
     line-height: .84;
   }
 
-  .network-section::before { display: none; }
-
   .document-head::after {
     right: -12px;
     font-size: 8rem;
   }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
