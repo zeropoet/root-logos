@@ -23,7 +23,7 @@ of carrying them without doctrinal repetition.
 - `index.html` renders the public Root Logos observatory: the constitutional
   Field, live Cultivation Chamber, semantic Memory, human Threshold, signed
   Intake membrane, Living Observatory, and the constitutional position from
-  which the future Resonant Chamber will become audible.
+  which the Resonant Chamber's future instrument will become audible.
 - `content/constitutional-graph.json` is the typed graph that defines canonical
   concepts, documents, relationships, questions, seeds, and revisions.
 - `content/export-packets.json` stores the accepted and proposed
@@ -359,6 +359,32 @@ orientation, a coherence progress line, and a live document pulse allow the
 reader to move from visual relation into language without managing a set of
 separate destinations.
 
+## Revision 0.8 — The Resonant Chamber
+
+Revision 0.8 establishes sound as a constitutional pillar before implementing
+the audio instrument. The Resonant Chamber is not a soundtrack, mood system, or
+simulated personality. It is the governed temporal expression of inspectable
+relation: graph topology, epistemic status, cultivation, semantic memory,
+judgment, pressure, outward emission, and meaningful silence.
+
+Every sounding must retain a return path to its source and transformation rule.
+Canonical principles, open questions, admitted observations, hypotheses,
+rejections, and implementations must remain audibly distinct without being
+reduced to emotional reward and punishment. Consonance is not truth;
+dissonance is not failure; beauty is not evidence.
+
+The Resonant Integrity Standard requires seven gates: source fidelity,
+epistemic legibility, relational necessity, non-coercion, consent and
+accessibility, dynamic restraint, and return path. Listening begins only through
+voluntary entry, and every meaningful sonic state must retain an equivalent
+visual or textual expression.
+
+The chamber may audit its own composition for masking, monotony, recurrence,
+excessive dominance, or broken source correspondence. Those findings enter the
+Cultivation Chamber as observations rather than self-authorizing truth. Changes
+to epistemic mapping, consent, accessibility, authority representation, or the
+meaning of silence remain attributable human decisions.
+
 ## Revision 0.7 — The Cultivation Chamber
 
 Revision 0.7 establishes Root Logos as a resumable, bounded self-cultivating
@@ -487,6 +513,7 @@ center rather than prevented at a boundary.
 - `CB-III` Conscious Participation
 - `004` Participation Without Possession
 - `CB-IV` From Reference to Participation
+- `RC-I` The Resonant Chamber
 
 ## Canonical Field Notes
 
