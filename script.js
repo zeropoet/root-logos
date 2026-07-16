@@ -94,10 +94,10 @@ const renderPresence = () => {
       : app.runtime.archival_fallback
         ? "The constitutional archive is present. Live runtime contact is unavailable."
         : service.last_error || "The chamber is resolving its current condition.";
-  $("#state-revision").textContent = `Revision ${app.runtime.policy.constitutional_revision || app.graph.meta.revision}`;
+  $("#state-revision").textContent = `Revision ${app.graph.meta.revision}`;
   $("#state-cycles").textContent = `${app.runtime.cultivation.history?.length || app.cycles.length} cycles`;
   $("#state-memory").textContent = `${app.runtime.hypothesis_count || 0} hypotheses`;
-  $("#footer-revision").textContent = String(app.runtime.policy.constitutional_revision || app.graph.meta.revision).replace(/^v/, "");
+  $("#footer-revision").textContent = String(app.graph.meta.revision).replace(/^v/, "");
 
   $("#chamber-condition").textContent = running ? "Awake" : app.runtime.dormancy?.active ? "Dormant" : "At rest";
   $("#chamber-condition-copy").textContent = running
