@@ -7,6 +7,14 @@
   "schedule": "Monday, Wednesday, and Friday at 10:17 AM",
   "max_emissions_per_run": 1,
   "selection": "oldest eligible not-before date, then attractor id",
+  "refinement_transition": {
+    "enabled": true,
+    "activation": "after every founding-cycle packet is emitted",
+    "eligible_kinds": ["discovery", "question", "tension", "compression", "amendment"],
+    "requires_epistemic_classification": true,
+    "settled_language_requires_canonical_status": true,
+    "notes": "Refinement findings may enter the outward cadence only after the founding cycle closes. Proposed and unresolved findings must remain visibly interrogative; they cannot be rendered as settled constitutional truth."
+  },
   "requires": {
     "packet_status": "eligible",
     "publication_status": "unpublished",

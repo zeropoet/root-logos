@@ -74,3 +74,11 @@ Autonomous publication does not transfer authority to the platform.
 The archive remembers every emission. The living document remains the source.
 
 The founding autonomous cycle contains 24 eligible fragments scheduled Monday, Wednesday, and Friday at 10:17 AM Eastern from July 15 through September 7, 2026. Every packet passed six upstream scrutiny checks and the four Gravitational Integrity checks before entering the release queue.
+
+## Refinement Transition
+
+When every founding-cycle packet has been emitted, the membrane may begin carrying the living edge of constitutional refinement: discoveries, questions, tensions, compressions, and accepted amendments. The transition is activated by completion of the founding cycle, not merely by the passage of a date.
+
+A refinement finding does not enter the public field simply because it is interesting. It must have a source, an epistemic classification, an explicit basis, a valid constitutional destination, six passed scrutiny checks, and four passed Gravitational Integrity checks. If its status is proposed or unresolved, uncertainty must remain visible in the fragment as a question. Only canonical findings may speak in the settled voice of an amendment.
+
+The scheduler may continue the cadence autonomously once these conditions hold. If no refinement finding has earned them, the membrane remains silent.

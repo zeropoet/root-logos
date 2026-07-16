@@ -41,6 +41,10 @@ const composeFragment = (packet) => {
     .join("\n\n");
 };
 
+const refinementKinds = new Set(["discovery", "question", "tension", "compression", "amendment"]);
+const epistemicStatuses = new Set(["canonical", "proposed", "unresolved"]);
+const isRefinementPacket = (packet) => refinementKinds.has(packet.kind);
+
 const validatePacket = (packet, nodesById) => {
   const errors = [];
   const required = ["attractor_id", "status", "source_revision", "source", "fragment", "destination", "channel", "integrity", "publication"];
@@ -57,6 +61,19 @@ const validatePacket = (packet, nodesById) => {
   const limit = packet.channel?.character_limit || 280;
   if (text.length > limit) errors.push(`rendered fragment is ${text.length} characters; limit is ${limit}`);
   if (!packet.destination?.canonical_url?.startsWith("https://rootlogos.com/")) errors.push("return path must resolve to rootlogos.com");
+
+  if (!packet.kind) errors.push("missing attractor kind");
+  if (!epistemicStatuses.has(packet.epistemic?.status)) errors.push("invalid or missing epistemic status");
+  if (!packet.epistemic?.basis) errors.push("missing epistemic basis");
+  if (isRefinementPacket(packet)) {
+    if (packet.release?.cadence_class === "founding-cycle") errors.push("refinement packets cannot enter the founding cycle");
+    if (packet.epistemic.status !== "canonical" && packet.kind === "amendment") {
+      errors.push("an amendment attractor must describe a canonical amendment; use discovery, question, tension, or compression while unresolved");
+    }
+    if (["proposed", "unresolved"].includes(packet.epistemic.status) && !packet.fragment?.tension?.includes("?")) {
+      errors.push("proposed and unresolved refinement packets must make their uncertainty explicit as a question");
+    }
+  }
 
   const integrityValues = Object.values(packet.integrity || {});
   if (integrityValues.length !== 4 || integrityValues.some((value) => value !== "passed")) {
@@ -208,14 +225,28 @@ const main = async () => {
       process.stdout.write("Attractor policy is disabled; no emission attempted.\n");
       return;
     }
+    const foundingOpen = results.some(({ packet }) =>
+      packet.release?.cadence_class === "founding-cycle" && packet.publication.status !== "published"
+    );
     const eligible = results
       .filter(({ packet, errors }) => packet.status === "eligible" && packet.publication.status === "unpublished" && !errors.length && Date.parse(packet.release.not_before) <= Date.now())
+      .filter(({ packet }) => !isRefinementPacket(packet) || (policy.refinement_transition?.enabled && !foundingOpen))
       .sort((left, right) => Date.parse(left.packet.release.not_before) - Date.parse(right.packet.release.not_before) || left.packet.attractor_id.localeCompare(right.packet.attractor_id));
     if (!eligible.length) {
       process.stdout.write("No constitutionally eligible fragment is due.\n");
       return;
     }
     await publishToX(eligible[0], archive, { autonomous: true });
+    return;
+  }
+
+  if (command === "transition-status") {
+    const founding = results.filter(({ packet }) => packet.release?.cadence_class === "founding-cycle");
+    const remaining = founding.filter(({ packet }) => packet.publication.status !== "published");
+    const refinements = results.filter(({ packet }) => isRefinementPacket(packet));
+    process.stdout.write(`Founding cycle: ${founding.length - remaining.length}/${founding.length} emitted\n`);
+    process.stdout.write(`Refinement transition: ${policy.refinement_transition?.enabled && !remaining.length ? "active" : "waiting"}\n`);
+    process.stdout.write(`Refinement packets: ${refinements.length} total, ${refinements.filter(({ errors }) => !errors.length).length} valid\n`);
     return;
   }
 

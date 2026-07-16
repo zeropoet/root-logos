@@ -248,6 +248,18 @@ Gravitational Integrity results, constitutional revision, schedule, channel
 configuration, and publication state remain in the Root Logos archive. They are
 provenance, not post copy.
 
+After every packet in the 24-fragment founding cycle has been emitted, the same
+cadence is permitted to carry refinement-derived attractors: discoveries,
+questions, tensions, compressions, and accepted amendments. This transition is
+structural rather than date-triggered. It remains closed while any founding
+packet is incomplete, and it emits nothing unless a refinement finding has
+earned eligibility and a canonical return path.
+
+Every refinement packet carries an epistemic status: `canonical`, `proposed`, or
+`unresolved`. Proposed and unresolved findings must expose their uncertainty as
+a question; they cannot borrow the declarative voice of settled constitutional
+language. Amendment attractors require canonical status.
+
 When a reader follows the return path, the browser waits for the generated node,
 opens any enclosing document structure, brings the node into view, and marks it
 as the **Canonical arrival**. This marker belongs only to that visitor's current
@@ -273,6 +285,12 @@ Run one autonomous release cycle locally:
 
 ```sh
 node scripts/attractors.mjs release-x
+```
+
+Inspect the founding-to-refinement transition without publishing:
+
+```sh
+node scripts/attractors.mjs transition-status
 ```
 
 The scheduled workflow executes that same release command every Monday,
@@ -345,6 +363,8 @@ autonomously without personal approval or browser control. The founding cycle
 runs Monday, Wednesday, and Friday at 10:17 AM Eastern from July 15 through
 September 7, 2026. Each public rendering contains only its fragment and
 canonical return URL; its full provenance remains in the constitutional archive.
+When the founding cycle is fully emitted, eligible refinement findings may enter
+that cadence automatically while retaining explicit epistemic status.
 
 ## Revision 0.5 — Intelligence as Participation
 
