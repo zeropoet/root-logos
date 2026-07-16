@@ -1,0 +1,12 @@
+{
+  "name": "root-logos",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/cultivate.test.mjs && node runtime/runtime.test.mjs",
+    "runtime": "node runtime/server.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

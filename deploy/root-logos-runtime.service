@@ -1,0 +1,22 @@
+[Unit]
+Description=Root Logos cultivation runtime
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=rootlogos
+Group=rootlogos
+WorkingDirectory=/opt/root-logos
+EnvironmentFile=/etc/root-logos/runtime.env
+ExecStart=/usr/bin/node /opt/root-logos/runtime/server.mjs
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/root-logos /var/lib/root-logos
+
+[Install]
+WantedBy=multi-user.target

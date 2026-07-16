@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: Root Logos Runtime
+  version: 1.0.0
+  description: Read-only cultivation inspection and authenticated wake intake.
+servers:
+  - url: https://runtime.rootlogos.com
+paths:
+  /health:
+    get:
+      operationId: health
+      responses:
+        "200": { description: Runtime health }
+  /v1/status:
+    get:
+      operationId: cultivationStatus
+      responses:
+        "200": { description: Runtime, cultivation, dormancy, novelty, and policy summary }
+  /v1/cycles:
+    get:
+      operationId: listCycles
+      responses:
+        "200": { description: Reverse-chronological cultivation cycles }
+  /v1/cycles/{cultivationId}:
+    get:
+      operationId: getCycle
+      parameters:
+        - in: path
+          name: cultivationId
+          required: true
+          schema: { type: string, pattern: "^RL-CULT-[0-9]{4,}$" }
+      responses:
+        "200": { description: One cycle with evidence and judgment lineage }
+  /v1/proposals:
+    get:
+      operationId: listProposals
+      responses:
+        "200": { description: Cycles containing proposals, without raw event logs }
+  /v1/intake:
+    post:
+      operationId: submitObservation
+      description: Requires timestamped HMAC headers; duplicate event IDs are idempotent.
+      parameters:
+        - in: header
+          name: X-Rootlogos-Timestamp
+          required: true
+          schema: { type: string, format: date-time }
+        - in: header
+          name: X-Rootlogos-Signature
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/ObservationEnvelope" }
+      responses:
+        "202": { description: Accepted and optionally queued for wake }
+        "401": { description: Invalid or stale signature }
+        "422": { description: Invalid observation envelope }
+  /v1/commands/wake:
+    post:
+      operationId: wakeCultivation
+      security: [{ adminBearer: [] }]
+      responses:
+        "202": { description: Human-forced wake queued }
+components:
+  securitySchemes:
+    adminBearer: { type: http, scheme: bearer }
+  schemas:
+    ObservationEnvelope:
+      type: object
+      required: [event_id, occurred_at, source_surface, authenticated_producer, payload_type, schema_version, consent_classification, retention_classification, provenance_signature, constitutional_relevance]
+      properties:
+        event_id: { type: string }
+        occurred_at: { type: string, format: date-time }
+        source_surface: { type: string }
+        authenticated_producer: { type: string }
+        payload_type: { type: string }
+        schema_version: { type: string }
+        payload: {}
+        content_ref: { type: string }
+        consent_classification: { type: string }
+        retention_classification: { type: string }
+        provenance_signature: { type: string }
+        constitutional_relevance:
+          type: string
+          enum: [unreviewed, admissible, rejected, promoted]

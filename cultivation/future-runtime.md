@@ -1,5 +1,12 @@
 # Future Runtime Boundary
 
+> Implementation status: the first service boundary now lives in
+> `runtime/server.mjs`. It provides signed intake, replay protection, an
+> append-only journal, serialized wake execution, human wake commands, and
+> read-only status/proposal/cycle APIs. Deployment assets live in `deploy/`.
+> GitHub Actions remains the scheduled-audit runner until the server cutover is
+> explicitly enabled.
+
 The next hosting form for the Cultivation Chamber should be a small durable
 service that can sleep, wake, and receive observations from `rootlogos.com`.
 Moving execution off GitHub Actions must not move constitutional authority into
@@ -62,3 +69,17 @@ memory, cycle, and policy schemas used in the repository. Git remains the
 constitutional publication and audit boundary until a later revision explicitly
 replaces it. This allows runtime hosting to change without changing the meaning
 of cultivation.
+
+## Interface boundary
+
+The public inspection surface is versioned under `/v1`. It exposes cultivation
+status, cycle lineage, and proposals but does not expose intake payloads or
+secrets. Mutation is split into two separately authenticated paths:
+
+- `POST /v1/intake` requires an HMAC signature over the timestamp and exact
+  request bytes;
+- `POST /v1/commands/wake` requires the human administration bearer token.
+
+The interface contract is recorded in `runtime/openapi.yaml`. The new Root
+Logos UI should depend on that contract rather than reading repository JSON
+directly.
