@@ -56,7 +56,8 @@ try {
   assert.equal(classified.status, 202);
   assert.equal((await classified.json()).wake_queued, true);
   await runtime.waitForIdle();
-  assert.deepEqual(calls, [["cycle"]]);
+  assert.ok(calls.some((args) => args.includes("--intake-context")));
+  assert.ok(calls.some((args) => args.includes("--priority") && args.includes("admissible")));
 
   const event = {
     event_id: "evt-001", occurred_at: new Date().toISOString(), source_surface: "rootlogos.com",
@@ -74,7 +75,8 @@ try {
   assert.equal(accepted.status, 202);
   assert.equal((await accepted.json()).wake_queued, true);
   await runtime.waitForIdle();
-  assert.deepEqual(calls, [["cycle"], ["cycle"]]);
+  assert.equal(calls.length, 2);
+  assert.ok(calls[1].includes("--intake-context"));
 
   const duplicate = await fetch(`${base}/v1/intake`, { method: "POST", body: raw, headers: {
     "content-type": "application/json", "x-rootlogos-timestamp": timestamp, "x-rootlogos-signature": signature

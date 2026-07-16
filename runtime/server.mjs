@@ -185,9 +185,26 @@ export const createRuntime = async (options = {}) => {
       await appendRecord({ type: "wake-started", at: iso(), trigger });
       try {
         const force = trigger.kind === "human-command";
-        const result = await commandRunner(["cycle", ...(force ? ["--force"] : [])]);
+        const args = ["cycle", ...(force ? ["--force"] : [])];
+        if (trigger.event_id) {
+          const observation = observations.get(trigger.event_id)?.event;
+          if (!observation) throw new Error(`Wake source ${trigger.event_id} is unavailable.`);
+          const contextPath = join(dataDir, `wake-${trigger.event_id.replace(/[^A-Za-z0-9-]/g, "_")}.json`);
+          await atomicJson(contextPath, {
+            event_id: trigger.event_id,
+            disposition: trigger.disposition || "admissible",
+            admitted_at: trigger.accepted_at,
+            steward_note: trigger.steward_note || null,
+            payload: observation.payload
+          });
+          args.push("--intake-context", contextPath, "--priority", trigger.disposition || "admissible");
+        }
+        const result = await commandRunner(args);
         const publication = await publishChanges(trigger);
-        await appendRecord({ type: "wake-completed", at: iso(), trigger, output: result.stdout, publication });
+        const cycleId = result.stdout.match(/RL-CULT-\d{4,}/)?.[0] || null;
+        const response = { cycle_id: cycleId, summary: result.stdout.split("\n").filter(Boolean).at(-1) || "Cultivation completed." };
+        await appendRecord({ type: "wake-completed", at: iso(), trigger, output: result.stdout, response, publication });
+        runtimeState.last_response = response;
         runtimeState.completed_wakes += 1;
       } catch (error) {
         runtimeState.last_error = error.message;
@@ -287,7 +304,7 @@ export const createRuntime = async (options = {}) => {
         knownEvents.add(event.event_id);
         observations.set(event.event_id, record);
         const wakes = ["admissible", "promoted"].includes(event.constitutional_relevance);
-        if (wakes) await enqueue({ id: `event:${event.event_id}`, kind: "admissible-observation", event_id: event.event_id, accepted_at: record.received_at });
+        if (wakes) await enqueue({ id: `event:${event.event_id}`, kind: "admitted-observation", event_id: event.event_id, disposition: event.constitutional_relevance, accepted_at: record.received_at });
         return send(res, 202, { accepted: true, duplicate: false, event_id: event.event_id, wake_queued: wakes }, cors);
       }
       if (req.method === "POST" && url.pathname === "/v1/public/intake") {
@@ -336,7 +353,7 @@ export const createRuntime = async (options = {}) => {
         if (!classifications.has(eventId)) classifications.set(eventId, []);
         classifications.get(eventId).push(classification);
         const wakes = status === "admissible" || status === "promoted";
-        if (wakes) await enqueue({ id: `classification:${eventId}:${classification.at}`, kind: "admissible-observation", event_id: eventId, accepted_at: classification.at });
+        if (wakes) await enqueue({ id: `classification:${eventId}:${classification.at}`, kind: "admitted-observation", event_id: eventId, disposition: status, steward_note: note, accepted_at: classification.at });
         return send(res, 202, { accepted: true, event_id: eventId, status, wake_queued: wakes }, cors);
       }
       if (req.method === "POST" && url.pathname === "/v1/commands/wake") {

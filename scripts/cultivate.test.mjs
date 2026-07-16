@@ -182,9 +182,40 @@ assert.equal(forcedState.history.length, historyBeforeDormantCycle + 1);
 const awakenedMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
 assert.equal(awakenedMemory.dormancy.wake_history.at(-1).reason, "manual-force");
 
+awakenedMemory.dormancy.active = true;
+awakenedMemory.dormancy.reason = "test dormancy before admitted evidence";
+awakenedMemory.dormancy.source_snapshot = { combined: (await import("node:crypto")).createHash("sha256").update("test").digest("hex"), policy: null };
+await writeFile(join(sandbox, "cultivation", "memory.json"), `${JSON.stringify(awakenedMemory, null, 2)}\n`);
+const intakeContextPath = join(sandbox, "admitted-observation.json");
+await writeFile(intakeContextPath, `${JSON.stringify({
+  event_id: "RL-OBS-TEST-FIRST",
+  disposition: "promoted",
+  admitted_at: new Date().toISOString(),
+  steward_note: "Priority inquiry pressure.",
+  payload: {
+    observation: "A living membrane needs explicit relation to stewardship, uncertainty, and cultivation.",
+    context: "First intake integration test.",
+    relation: "How does stewardship preserve uncertainty while permitting growth?",
+    source_type: "dialogue",
+    attribution: "Test Steward"
+  }
+}, null, 2)}\n`);
+succeeds("cycle", "--intake-context", intakeContextPath, "--priority", "promoted");
+const intakeState = JSON.parse(await readFile(join(sandbox, "cultivation", "state.json"), "utf8"));
+const intakeCycleId = intakeState.history.at(-1).cultivation_id;
+const intakeCycle = JSON.parse(await readFile(join(sandbox, "cultivation", "cycles", `${intakeCycleId}.json`), "utf8"));
+assert.equal(intakeCycle.intake.event_id, "RL-OBS-TEST-FIRST");
+assert.equal(intakeCycle.intake.disposition, "promoted");
+assert.equal(intakeCycle.findings[0].kind, "admitted-observation");
+assert.equal(intakeCycle.findings[0].intake_priority, "promoted");
+assert.match(intakeCycle.self_prompt, /crossed the human stewardship boundary/);
+assert.ok(intakeCycle.events.some(({ type, intake_event_id }) => type === "cycle-started" && intake_event_id === "RL-OBS-TEST-FIRST"));
+const postIntakeMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
+assert.equal(postIntakeMemory.dormancy.wake_history.at(-1).reason, "admitted-observation:RL-OBS-TEST-FIRST");
+
 succeeds("rebuild-memory");
 const rebuiltMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
 assert.ok(Object.keys(rebuiltMemory.hypotheses).length >= 4);
 
 succeeds("validate");
-process.stdout.write("PASS cultivation lifecycle, drift boundary, adversarial self-judgment, autonomous refactoring, scheduled-cycle entry point, lineage, and human escalation.\n");
+process.stdout.write("PASS cultivation lifecycle, drift boundary, admitted-observation inquiry, promotion priority, adversarial self-judgment, autonomous refactoring, scheduled-cycle entry point, lineage, and human escalation.\n");

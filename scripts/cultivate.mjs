@@ -2,6 +2,7 @@
 
 import { readFile, writeFile, readdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
+import { pathToFileURL } from "node:url";
 
 const root = new URL("../", import.meta.url);
 const stateUrl = new URL("cultivation/state.json", root);
@@ -15,6 +16,8 @@ const command = process.argv[2] || "status";
 const flags = new Set(process.argv.slice(3));
 const requestedLens = process.argv.includes("--lens") ? process.argv[process.argv.indexOf("--lens") + 1] : null;
 const flagValue = (flag) => process.argv.includes(flag) ? process.argv[process.argv.indexOf(flag) + 1] : null;
+const intakeContextPath = flagValue("--intake-context");
+const intakePriority = flagValue("--priority") || "admissible";
 
 const readJson = async (url) => JSON.parse(await readFile(url, "utf8"));
 const digest = (value) => createHash("sha256").update(typeof value === "string" ? value : JSON.stringify(value)).digest("hex");
@@ -208,16 +211,49 @@ const search = (graph, lens) => {
   return searchRelationalGaps(graph, lens.minimum_shared_keywords || 4);
 };
 
+const searchIntakeResonance = (graph, intake) => {
+  if (!intake?.payload?.observation) return [];
+  const text = normalizedText([intake.payload.observation, intake.payload.context, intake.payload.relation].filter(Boolean).join(" "));
+  const words = new Set(text.split(" ").filter((word) => word.length > 3));
+  const resonances = graph.nodes
+    .filter(({ type }) => type !== "revision")
+    .map((node) => {
+      const vocabulary = new Set([...normalizedKeywords(node), ...normalizedText(`${node.title} ${node.summary || node.definition || ""}`).split(" ")]);
+      const shared = [...words].filter((word) => vocabulary.has(word)).sort();
+      return { node, shared };
+    })
+    .filter(({ shared }) => shared.length)
+    .sort((a, b) => b.shared.length - a.shared.length || a.node.id.localeCompare(b.node.id))
+    .slice(0, intakePriority === "promoted" ? 5 : 3);
+  return [{
+    kind: "admitted-observation",
+    nodes: resonances.map(({ node }) => node.id),
+    titles: resonances.map(({ node }) => node.title),
+    shared_keywords: [...new Set(resonances.flatMap(({ shared }) => shared))],
+    evidence: [
+      `Admitted observation ${intake.event_id}: ${intake.payload.observation}`,
+      ...resonances.map(({ node, shared }) => `${node.title} resonates through ${shared.join(", ")}.`)
+    ],
+    claim: resonances.length
+      ? `${intake.event_id} creates new inquiry pressure around ${resonances.map(({ node }) => node.title).join(", ")}.`
+      : `${intake.event_id} has been admitted but does not yet share enough explicit language with the constitution to support a structural proposal.`,
+    proposed_question: intake.payload.relation || "What distinction or relation would let this observation interrogate Root Logos without converting testimony into doctrine?",
+    proposed_test: "Test the observation against the named constitutional structures, preserving its provenance and refusing canonical mutation until a distinct, corrigible relation can be stated.",
+    intake_priority: intakePriority,
+    external_evidence: true
+  }];
+};
+
 const score = (candidate, graph) => {
   const shared = candidate.shared_keywords?.length || 0;
   const isQuestion = candidate.kind === "question-pressure";
   const source_fidelity = candidate.evidence?.length >= 2 ? 4 : 2;
   const distance = candidate.graph_distance ?? 5;
-  const relational_gain = isQuestion ? Math.max(1, 4 - (candidate.relation_count || 0)) : Math.min(4, Math.max(1, distance));
+  const relational_gain = candidate.kind === "admitted-observation" ? (candidate.nodes.length ? 4 : 1) : isQuestion ? Math.max(1, 4 - (candidate.relation_count || 0)) : Math.min(4, Math.max(1, distance));
   const compression = isQuestion ? 2 : Math.min(4, Math.max(1, shared - 1));
   const testability = candidate.proposed_test ? 4 : 1;
   const corrigibility = 4;
-  const novelty_without_drift = candidate.nodes.every((id) => graph.nodes.some((node) => node.id === id))
+  const novelty_without_drift = candidate.kind === "admitted-observation" ? (candidate.intake_priority === "promoted" ? 4 : 3) : candidate.nodes.every((id) => graph.nodes.some((node) => node.id === id))
     ? (isQuestion || distance > 2 ? 3 : 1)
     : 0;
   const dimensions = { source_fidelity, relational_gain, compression, testability, corrigibility, novelty_without_drift };
@@ -320,7 +356,7 @@ const judgeProposal = (cycle, graph, policy) => {
   };
 };
 
-const start = async (state, policy) => {
+const start = async (state, policy, intake = null) => {
   if (state.active_cycle) throw new Error("A cultivation cycle is already active. Pause, resume, or complete it before starting another.");
   const id = `RL-CULT-${String(state.next_cycle).padStart(4, "0")}`;
   const snapshot = await sourceSnapshot();
@@ -334,13 +370,14 @@ const start = async (state, policy) => {
     policy_snapshot: policy,
     policy_hash: digest(policy),
     lens,
+    intake: intake ? { event_id: intake.event_id, disposition: intake.disposition || intakePriority, admitted_at: intake.admitted_at, steward_note: intake.steward_note || null, payload: intake.payload } : null,
     self_prompt: null,
     findings: [],
     selected_finding: null,
     proposal: null,
     events: []
   };
-  appendEvent(cycle, "cycle-started", { lens: lens.id, source_snapshot: snapshot.combined });
+  appendEvent(cycle, "cycle-started", { lens: lens.id, source_snapshot: snapshot.combined, intake_event_id: intake?.event_id || null, intake_priority: intake?.disposition || null });
   state.active_cycle = id;
   state.status = "running";
   state.next_cycle += 1;
@@ -358,11 +395,14 @@ const step = async (state, policy, memory) => {
   const cycle = await loadActive(state);
   const graph = await readJson(graphUrl);
   if (cycle.phase === "orientation") {
-    cycle.self_prompt = `${cycle.lens.question}\n\nUse only the snapshotted Root Logos constitution as evidence. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.`;
+    cycle.self_prompt = cycle.intake
+      ? `An admitted observation has crossed the human stewardship boundary: ${cycle.intake.event_id} (${cycle.intake.disposition}). Ask where it creates genuine pressure, contradiction, or connection within Root Logos.\n\nTreat the observation as attributable evidence, not constitutional truth. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.`
+      : `${cycle.lens.question}\n\nUse only the snapshotted Root Logos constitution as evidence. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.`;
     cycle.phase = "prompted";
     appendEvent(cycle, "self-prompt-generated", { prompt_hash: digest(cycle.self_prompt) });
   } else if (cycle.phase === "prompted") {
-    cycle.findings = search(graph, cycle.lens).slice(0, 12).map((finding, index) => ({ rank: index + 1, ...finding }));
+    const intakeFindings = searchIntakeResonance(graph, cycle.intake);
+    cycle.findings = [...intakeFindings, ...search(graph, cycle.lens)].slice(0, 12).map((finding, index) => ({ rank: index + 1, ...finding }));
     cycle.phase = "searched";
     appendEvent(cycle, "constitutional-search-completed", { findings: cycle.findings.length });
   } else if (cycle.phase === "searched") {
@@ -603,16 +643,17 @@ const runCycle = async (state, policy, memory) => {
   if (state.active_cycle) throw new Error(`Cannot start an automatic cycle while ${state.active_cycle} is active.`);
   const current = await sourceSnapshot();
   const force = flags.has("--force");
+  const intake = intakeContextPath ? await readJson(pathToFileURL(intakeContextPath)) : null;
   if (memory.dormancy.active) {
     const sourceChanged = memory.dormancy.source_snapshot?.combined !== current.combined;
     const policyChanged = memory.dormancy.source_snapshot?.policy !== digest(policy);
-    if (!sourceChanged && !policyChanged && !force) {
+    if (!sourceChanged && !policyChanged && !force && !intake) {
       process.stdout.write(`Cultivation remains dormant: ${memory.dormancy.reason}. No source or policy change earned a wake event.\n`);
       return;
     }
     memory.dormancy.wake_history.push({
       at: new Date().toISOString(),
-      reason: force ? "manual-force" : policyChanged ? "policy-changed" : "canonical-source-changed"
+      reason: intake ? `admitted-observation:${intake.event_id}` : force ? "manual-force" : policyChanged ? "policy-changed" : "canonical-source-changed"
     });
     memory.dormancy.active = false;
     memory.dormancy.entered_at = null;
@@ -621,7 +662,7 @@ const runCycle = async (state, policy, memory) => {
     await save(memoryUrl, memory);
   }
   const id = `RL-CULT-${String(state.next_cycle).padStart(4, "0")}`;
-  await start(state, policy);
+  await start(state, policy, intake);
   for (let phase = 0; phase < 4; phase += 1) await step(state, policy, memory);
   let cycle = await readJson(cycleUrl(id));
   if (cycle.status !== "awaiting-human-review") {
@@ -674,7 +715,7 @@ const validate = async (state, policy, memory) => {
 
 const main = async () => {
   const [state, policy, memory] = await Promise.all([readJson(stateUrl), readJson(policyUrl), readJson(memoryUrl)]);
-  if (command === "start") return start(state, policy);
+  if (command === "start") return start(state, policy, intakeContextPath ? await readJson(pathToFileURL(intakeContextPath)) : null);
   if (command === "step") return step(state, policy, memory);
   if (command === "pause") return pause(state);
   if (command === "resume") return resume(state);

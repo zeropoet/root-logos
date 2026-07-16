@@ -89,3 +89,11 @@ admission path. Public arrivals are bounded, rate-limited, signed by the server,
 and preserved as `unreviewed`. Steward classifications are appended rather
 than substituted. Only an attributable `admissible` or `promoted`
 classification may queue a wake.
+
+At wake time the runtime constructs a private, durable intake context and gives
+it to the chamber as external evidence. The chamber generates an
+observation-specific self-prompt and searches for lexical resonance with the
+constitutional graph. Admission permits inquiry, not truth; promotion changes
+priority and search breadth, not constitutional authority. Each completed wake
+records the responding cultivation cycle and a concise response in the
+append-only runtime journal.

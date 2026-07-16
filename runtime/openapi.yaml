@@ -15,7 +15,7 @@ paths:
     get:
       operationId: cultivationStatus
       responses:
-        "200": { description: Runtime, cultivation, dormancy, novelty, and policy summary }
+        "200": { description: Runtime, cultivation, dormancy, novelty, policy, and latest wake response summary }
   /v1/cycles:
     get:
       operationId: listCycles

@@ -36,14 +36,22 @@ refreshing or closing the page forgets it.
 
 ## Authority and publication
 
-Admissible or promoted observations queue one serialized cultivation wake.
+Admissible or promoted observations queue one serialized cultivation wake. The
+worker materializes a private wake context from the immutable observation and
+passes it into cultivation as attributable evidence. It is not treated as
+canonical truth. The resulting cycle preserves the intake event ID,
+disposition, steward note, self-prompt, resonance findings, judgment, and
+response lineage.
 Unreviewed and rejected observations are journaled without waking. Incoming
 payloads never become canonical memory merely by arrival.
 
 A steward may append `hold`, `rejected`, `admissible`, or `promoted`
 classification events through `/v1/admin/intake/:eventId/classify`. The source
 observation is never rewritten. Only `admissible` and `promoted`
-classifications queue cultivation.
+classifications queue cultivation. `promoted` does not grant mutation
+authority; it gives the observation first inquiry position, widens the number
+of constitutional resonances inspected, and assigns the highest bounded
+novelty weight. All ordinary proposal and judgment gates still apply.
 
 `ROOT_LOGOS_GIT_PUBLISH=0` is the safe deployment default. Set it to `1` only
 after the server has a narrow GitHub deploy credential and branch publication
