@@ -2,8 +2,8 @@
   "meta": {
     "title": "Root Logos",
     "subtitle": "Living Constitutional Grammar",
-    "revision": "v0.6",
-    "revisionLabel": "The Attractor Membrane",
+    "revision": "v0.7",
+    "revisionLabel": "The Cultivation Chamber",
     "updated": "July 2026",
     "status": "Living Document",
     "maxim": "The constitution matures when its grammar can carry the source without possessing it."
@@ -917,6 +917,28 @@
       ]
     },
     {
+      "id": "cultivation-chamber",
+      "type": "export-system",
+      "label": "Cultivation System",
+      "title": "The Cultivation Chamber",
+      "status": "Constitutional",
+      "summary": "A resumable chamber through which Root Logos prompts, investigates, judges, and safely refactors itself from its own constitutional memory.",
+      "definition": "The Cultivation Chamber turns Root Logos toward its own graph, documents, history, and constraints. It generates bounded inquiries, searches for structural pressure, preserves evidence and lineage across pauses, argues against its proposals, and applies only low-risk reversible refactorings that pass explicit constitutional gates. Changes to settled meaning, policy, publication, or the autonomy boundary remain subject to human judgment.",
+      "answers": "How can the constitution participate in its own growth without becoming its own highest authority?",
+      "keywords": [
+        "cultivation",
+        "autonomy",
+        "self-prompting",
+        "judgment",
+        "refactoring",
+        "lineage",
+        "pause",
+        "resume",
+        "corrigibility",
+        "human-machine collaboration"
+      ]
+    },
+    {
       "id": "attractor-membrane",
       "type": "export-system",
       "label": "Emanation System",
@@ -1276,7 +1298,7 @@
       "type": "revision",
       "label": "Revision 0.6.0",
       "title": "The Attractor Membrane",
-      "status": "Current",
+      "status": "Superseded",
       "summary": "Established the outward constitutional movement through which Root Logos can become encounterable in external fields without becoming platform content.",
       "date": "July 2026",
       "source_export": "RL-EXPORT-0006",
@@ -1318,6 +1340,51 @@
         "return path",
         "provenance",
         "integrity"
+      ]
+    },
+    {
+      "id": "revision-0.7",
+      "type": "revision",
+      "label": "Revision 0.7.0",
+      "title": "The Cultivation Chamber",
+      "status": "Current",
+      "summary": "Established a resumable, human-steered autonomous chamber through which Root Logos can investigate, judge, and safely refactor its own constitutional structure.",
+      "date": "July 2026",
+      "source_export": "RL-EXPORT-0007",
+      "added": [
+        "The Cultivation Chamber",
+        "Resumable cultivation state and cycle archive",
+        "Self-prompting inquiry lenses",
+        "Adversarial autonomous judgment",
+        "Risk-bounded snapshot-safe refactoring",
+        "Content-addressed policy lineage",
+        "Revision 0.7.0"
+      ],
+      "modified": [
+        "Root Logos constitutional network",
+        "Open-question integration",
+        "Human-machine authority boundary",
+        "README operational guidance",
+        "Revision and export history"
+      ],
+      "removed": [],
+      "relationships": [
+        "Root Logos -> Cultivation Chamber",
+        "Cultivation Chamber -> Reflexive Architecture",
+        "Cultivation Chamber -> Generative Compression",
+        "Cultivation Chamber -> Higher Reference",
+        "Open Question -> Constitutional Neighbors"
+      ],
+      "reason": "Crossed the Creator's Threshold operationally by giving Root Logos a bounded capacity to return insight, test its own proposals, preserve corrigibility, and improve its structure without waiting for outward fragments.",
+      "notes": "The chamber may autonomously apply only low-risk reversible graph relations. It cannot revise settled constitutional meaning, its own policy, publication authority, or its highest reference without human judgment.",
+      "keywords": [
+        "cultivation",
+        "autonomy",
+        "self-refactoring",
+        "judgment",
+        "lineage",
+        "corrigibility",
+        "human-machine collaboration"
       ]
     },
     {
@@ -2170,6 +2237,41 @@
     {
       "from": "revision-0.6",
       "to": "gravitational-integrity-standard",
+      "type": "establishes"
+    },
+    {
+      "from": "root-logos",
+      "to": "cultivation-chamber",
+      "type": "cultivates through"
+    },
+    {
+      "from": "cultivation-chamber",
+      "to": "principle-reflexive-architecture",
+      "type": "governed by"
+    },
+    {
+      "from": "cultivation-chamber",
+      "to": "principle-generative-compression",
+      "type": "searches through"
+    },
+    {
+      "from": "cultivation-chamber",
+      "to": "principle-higher-reference",
+      "type": "remains oriented by"
+    },
+    {
+      "from": "export-packet",
+      "to": "revision-0.7",
+      "type": "proposes"
+    },
+    {
+      "from": "revision-0.7",
+      "to": "root-logos",
+      "type": "modifies"
+    },
+    {
+      "from": "revision-0.7",
+      "to": "cultivation-chamber",
       "type": "establishes"
     },
     {

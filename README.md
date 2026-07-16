@@ -13,7 +13,7 @@ and documentary record are views of the same constitutional network:
 Logoi, vocabulary, Living Statements, Constitutional Bridges, Field Notes,
 Artifact Seeds, Open Questions, Export Packets, and published revisions.
 
-The current constitution is **Revision 0.6 — The Attractor Membrane**.
+The current constitution is **Revision 0.7 — The Cultivation Chamber**.
 Its direction is both expansive and compressive: the architecture names new
 distinctions when required, then seeks the smallest relational grammar capable
 of carrying them without doctrinal repetition.
@@ -351,6 +351,22 @@ The interface is intentionally continuous rather than route-like. Ambient
 orientation, a coherence progress line, and a live document pulse allow the
 reader to move from visual relation into language without managing a set of
 separate destinations.
+
+## Revision 0.7 — The Cultivation Chamber
+
+Revision 0.7 establishes Root Logos as a resumable, bounded self-cultivating
+constitution. The Cultivation Chamber reads the canonical graph, preserved
+documents, export history, and its applicable policy; generates its own inquiry;
+searches for structural pressure; evaluates and argues against its findings;
+and preserves every transition as durable lineage.
+
+Low-risk, additive, reversible relations from unresolved questions may be
+applied autonomously when all judgment gates pass and the constitutional source
+still matches the investigated snapshot. Changes to settled claims,
+constitutional language, publication, evaluation policy, or the autonomy
+boundary remain human decisions. The first two accepted self-refactorings
+integrated previously isolated questions about consciousness and
+post-institutional civilization without pretending to answer them.
 
 ## Revision 0.6 — The Attractor Membrane
 

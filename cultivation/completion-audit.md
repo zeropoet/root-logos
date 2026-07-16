@@ -38,5 +38,5 @@ node scripts/cultivate.mjs validate
 node scripts/attractors.mjs validate
 ```
 
-The final graph audit reports 65 unique nodes and 166 unique typed edges, with no
+The final graph audit reports 67 unique nodes and 173 unique typed edges, with no
 dangling endpoints or duplicate edges. `git diff --check` passes.
