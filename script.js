@@ -1,765 +1,401 @@
-const navLinks = Array.from(document.querySelectorAll(".site-nav a"));
-const sections = navLinks
-  .map((link) => document.getElementById(link.hash.slice(1)))
-  .filter(Boolean);
+const RUNTIME = "https://runtime.rootlogos.com";
 
-const typeLabels = {
-  root: "Layer 0",
-  logos: "Logos",
-  "architectural-principle": "Architectural Principle",
-  vocabulary: "Vocabulary",
-  "living-statement": "Living Statement",
-  bridge: "Bridge",
-  "field-note": "Field Note",
-  "artifact-seed": "Artifact Seed",
-  "open-question": "Open Question",
-  "export-system": "Export System",
-  revision: "Revision",
+const $ = (selector, scope = document) => scope.querySelector(selector);
+const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+})[character]);
+const sentence = (value = "") => String(value).replace(/[-_]/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
+const shortDate = (value) => value ? new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(new Date(value)) : "Never";
+const hash = (value) => [...String(value)].reduce((sum, character) => ((sum << 5) - sum + character.charCodeAt(0)) | 0, 0);
+const seeded = (value) => {
+  const x = Math.sin(hash(value) * 91.173) * 43758.5453;
+  return x - Math.floor(x);
 };
 
-const networkTypeOrder = ["root", "logos", "architectural-principle", "vocabulary", "living-statement", "bridge", "field-note", "artifact-seed", "open-question", "export-system", "revision"];
-const networkTypeNames = {
-  root: "Source", logos: "Logoi", "architectural-principle": "Principles", vocabulary: "Concepts", "living-statement": "Statements",
-  bridge: "Bridges", "field-note": "Notes", "artifact-seed": "Seeds", "open-question": "Questions",
-  "export-system": "Protocol", revision: "Revisions",
+const app = {
+  graph: null,
+  runtime: null,
+  cycles: [],
+  memory: null,
+  latest: null,
+  selectedNode: null,
+  selectedProposal: null,
+  filter: "all"
 };
 
-const setActiveLink = (id) => {
-  navLinks.forEach((link) => {
-    link.classList.toggle("is-active", link.hash === `#${id}`);
-  });
+const fetchJson = async (url) => {
+  const response = await fetch(url, { headers: { accept: "application/json" } });
+  if (!response.ok) throw new Error(`${url} returned ${response.status}`);
+  return response.json();
 };
 
-const orientationPoints = [
-  { selector: "#top", label: "Entering the field" },
-  { selector: "#network", label: "Network / Relational field" },
-  ...Array.from(document.querySelectorAll(".doc-part[data-orientation]")).map((section) => ({
-    selector: `#${section.id}`,
-    label: section.dataset.orientation,
-  })),
-];
+const loadData = async () => {
+  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult] = await Promise.allSettled([
+    fetchJson("content/constitutional-graph.json"),
+    fetchJson(`${RUNTIME}/v1/status`),
+    fetchJson(`${RUNTIME}/v1/cycles`),
+    fetchJson("cultivation/memory.json"),
+    fetchJson("cultivation/state.json")
+  ]);
 
-const updateDocumentFlow = () => {
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
-  const bar = document.querySelector("#coherence-progress-bar");
-  if (bar) bar.style.transform = `scaleX(${progress})`;
+  if (graphResult.status !== "fulfilled") throw graphResult.reason;
+  app.graph = graphResult.value;
+  app.memory = memoryResult.status === "fulfilled" ? memoryResult.value : null;
+  app.cycles = cyclesResult.status === "fulfilled" ? cyclesResult.value.cycles : [];
 
-  const threshold = window.innerHeight * 0.38;
-  const visiblePoints = orientationPoints
-    .map((point) => ({ ...point, element: document.querySelector(point.selector) }))
-    .filter((point) => point.element && point.element.getBoundingClientRect().top <= threshold);
-  const current = visiblePoints[visiblePoints.length - 1];
-  setText("#orientation-label", current?.label || "Entering the field");
+  if (runtimeResult.status === "fulfilled") {
+    app.runtime = runtimeResult.value;
+  } else {
+    const state = localStateResult.status === "fulfilled" ? localStateResult.value : { status: "unavailable", history: [] };
+    app.runtime = {
+      service: { status: "archive", queued_triggers: [], last_wake_at: null, last_error: null },
+      cultivation: state,
+      dormancy: app.memory?.dormancy || { active: false },
+      novelty: app.memory?.novelty || {},
+      hypothesis_count: Object.keys(app.memory?.hypotheses || {}).length,
+      policy: { constitutional_revision: app.graph.meta.revision, mode: "bounded-self-refactoring" },
+      intake_count: 0,
+      archival_fallback: true
+    };
+  }
+
+  if (!app.cycles.length && app.runtime.cultivation?.history?.length) {
+    const ids = app.runtime.cultivation.history.map(({ cultivation_id }) => cultivation_id).reverse();
+    const loaded = await Promise.allSettled(ids.map((id) => fetchJson(`cultivation/cycles/${id}.json`)));
+    app.cycles = loaded.filter(({ status }) => status === "fulfilled").map(({ value }) => value);
+  }
+  app.latest = app.cycles[0] || null;
 };
 
-document.querySelectorAll(".doc-part").forEach((part) => {
-  part.open = true;
-  part.querySelector("summary")?.addEventListener("click", (event) => event.preventDefault());
-});
+const renderPresence = () => {
+  const service = app.runtime.service;
+  const status = service.status || "unknown";
+  const header = $(".system-presence");
+  header.dataset.state = status;
+  $("#header-state").textContent = sentence(status === "archive" ? "Archive mode" : status);
+  $("#header-detail").textContent = app.runtime.archival_fallback ? "Runtime / archival witness" : "Runtime / live contact";
 
-window.addEventListener("scroll", () => requestAnimationFrame(updateDocumentFlow), { passive: true });
-window.addEventListener("resize", updateDocumentFlow);
+  const sleeping = status === "sleeping";
+  const running = status === "running";
+  $("#field-state-label").textContent = sleeping ? "Chamber sleeping" : running ? "Cultivation active" : sentence(status);
+  $("#field-state-declaration").textContent = sleeping
+    ? "No unresolved wake condition remains."
+    : running
+      ? "Root Logos is presently interrogating its own structure."
+      : app.runtime.archival_fallback
+        ? "The constitutional archive is present. Live runtime contact is unavailable."
+        : service.last_error || "The chamber is resolving its current condition.";
+  $("#state-revision").textContent = `Revision ${app.runtime.policy.constitutional_revision || app.graph.meta.revision}`;
+  $("#state-cycles").textContent = `${app.runtime.cultivation.history?.length || app.cycles.length} cycles`;
+  $("#state-memory").textContent = `${app.runtime.hypothesis_count || 0} hypotheses`;
+  $("#footer-revision").textContent = String(app.runtime.policy.constitutional_revision || app.graph.meta.revision).replace(/^v/, "");
 
-if (sections.length) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  $("#chamber-condition").textContent = running ? "Awake" : app.runtime.dormancy?.active ? "Dormant" : "At rest";
+  $("#chamber-condition-copy").textContent = running
+    ? "A serialized inquiry is moving through the chamber."
+    : app.runtime.dormancy?.active
+      ? app.runtime.dormancy.reason || "Inquiry methods have earned a period of dormancy."
+      : "The worker is listening. No policy-authorized wake remains.";
+  $("#last-wake").textContent = shortDate(service.last_wake_at);
+  $("#novelty-score").textContent = app.runtime.novelty?.last_score == null ? "Unscored" : `${app.runtime.novelty.last_score} / 4`;
+  $("#dormancy-state").textContent = app.runtime.dormancy?.active ? "Active" : "Open";
+  $("#wake-queue").textContent = String(service.queued_triggers?.length || 0).padStart(2, "0");
+  $("#phase-wake").textContent = app.latest?.events?.[0]?.type ? sentence(app.latest.events[0].type) : "Source revision";
+  $("#phase-resolution").textContent = running ? "Cultivating" : "Sleep";
+  $("#phase-resolution-detail").textContent = running ? "Serialized inquiry" : "No wake condition";
+  $("#intake-count").textContent = String(app.runtime.intake_count || 0).padStart(2, "0");
+  $("#memory-count-large").textContent = String(app.runtime.hypothesis_count || Object.keys(app.memory?.hypotheses || {}).length).padStart(2, "0");
+};
 
-      if (visible) {
-        setActiveLink(visible.target.id);
+const renderLatestCycle = () => {
+  const cycle = app.latest;
+  if (!cycle) return;
+  const finding = cycle.selected_finding || {};
+  const judgment = cycle.autonomous_judgment || {};
+  const proposal = cycle.proposal || {};
+  $("#cycle-id").textContent = `${cycle.cultivation_id} / ${sentence(cycle.lens?.id || "inquiry")}`;
+  $("#cycle-decision").textContent = sentence(cycle.status);
+  $("#cycle-decision").classList.toggle("is-rejected", String(cycle.status).includes("rejected"));
+  $("#cycle-question").textContent = cycle.lens?.question || cycle.self_prompt || "Inquiry record unavailable.";
+  $("#cycle-proposal").textContent = finding.claim || proposal.summary || "No proposal emerged from this cycle.";
+  $("#cycle-counterargument").textContent = judgment.counterargument || "No adversarial judgment was required because no proposal crossed the threshold.";
+  const checks = judgment.checks || {};
+  $("#cycle-gates").innerHTML = Object.entries(checks).slice(0, 6).map(([name, passed]) => `<span class="${passed ? "" : "failed"}">${escapeHtml(sentence(name))}</span>`).join("") || `<span>${escapeHtml(sentence(cycle.status))}</span>`;
+};
+
+const renderMemory = () => {
+  let hypotheses = Object.values(app.memory?.hypotheses || {});
+  if (!hypotheses.length) {
+    const seen = new Map();
+    app.cycles.forEach((cycle) => {
+      const finding = cycle.selected_finding;
+      const fingerprint = finding?.reconsideration?.fingerprint;
+      if (!fingerprint) return;
+      seen.set(fingerprint, {
+        fingerprint, kind: finding.kind, claim: finding.claim, nodes: finding.nodes,
+        status: cycle.status, last_cycle: cycle.cultivation_id,
+        considerations: 1, last_evaluation: finding.evaluation,
+        last_novelty_reason: finding.reconsideration.reason
+      });
+    });
+    hypotheses = [...seen.values()];
+  }
+  hypotheses.sort((a, b) => Number(b.last_cycle?.split("-").at(-1)) - Number(a.last_cycle?.split("-").at(-1)));
+  $("#memory-ledger").innerHTML = hypotheses.slice(0, 12).map((item, index) => {
+    const disposition = sentence(item.status || "remembered");
+    const returnCondition = item.status === "implemented" ? "Canonical relation preserved" : "Evidence, policy, or incubation must change";
+    const total = item.last_evaluation?.total;
+    return `<article class="memory-item">
+      <div class="memory-identity"><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${escapeHtml(item.claim || sentence(item.kind))}</h3><p>${escapeHtml((item.nodes || []).map(nodeTitle).join(" · ") || sentence(item.kind))}</p></div></div>
+      <div class="memory-status ${item.status === "implemented" ? "implemented" : ""}">${escapeHtml(disposition)}</div>
+      <div class="memory-evidence">${total == null ? "—" : `${total} / 24`}<span>${escapeHtml(item.considerations || 1)} consideration${item.considerations === 1 ? "" : "s"}</span></div>
+      <div class="memory-return">${escapeHtml(returnCondition)}</div>
+    </article>`;
+  }).join("") || `<div class="memory-loading">No hypothesis has yet crossed into semantic memory.</div>`;
+};
+
+const nodeTitle = (id) => app.graph?.nodes.find((node) => node.id === id)?.title || sentence(id || "");
+
+const proposalSummary = (cycle) => cycle.selected_finding?.claim || cycle.proposal?.summary || "No claim preserved.";
+const renderProposals = () => {
+  const proposals = app.cycles.filter((cycle) => cycle.proposal).slice(0, 8);
+  $("#proposal-stack").innerHTML = proposals.map((cycle, index) => `<button class="proposal-card ${index === 0 ? "is-active" : ""}" type="button" data-proposal="${escapeHtml(cycle.cultivation_id)}">
+    <span><b>${escapeHtml(cycle.cultivation_id)}</b><i>${escapeHtml(sentence(cycle.status))}</i></span>
+    <h3>${escapeHtml(sentence(cycle.lens?.id || "Inquiry"))}</h3>
+    <p>${escapeHtml(proposalSummary(cycle))}</p>
+  </button>`).join("") || `<p class="memory-loading">No proposals are preserved.</p>`;
+  if (proposals[0]) selectProposal(proposals[0].cultivation_id);
+};
+
+const selectProposal = (id) => {
+  const cycle = app.cycles.find((item) => item.cultivation_id === id);
+  if (!cycle) return;
+  app.selectedProposal = cycle;
+  $$(".proposal-card").forEach((card) => card.classList.toggle("is-active", card.dataset.proposal === id));
+  const judgment = cycle.autonomous_judgment || {};
+  const operations = judgment.operations || cycle.proposal?.operations || [];
+  const finding = cycle.selected_finding || {};
+  $("#review-title").textContent = `${cycle.cultivation_id} / ${sentence(cycle.lens?.id || "inquiry")}`;
+  $("#review-risk").textContent = `${sentence(judgment.risk || "human")} risk`;
+  $("#review-claim").textContent = proposalSummary(cycle);
+  $("#review-judgment").textContent = judgment.reason || `Disposition: ${sentence(cycle.status)}.`;
+  $("#review-reversibility").textContent = operations.length && operations.every(({ operation }) => operation === "add-edge") ? "Additive graph operations; reversible through a witnessed revision." : "Requires human evaluation of semantic reversibility.";
+  $("#review-nodes").textContent = (finding.nodes || cycle.proposal?.affected_nodes || []).map(nodeTitle).join(" · ") || "No canonical mutation proposed.";
+  $("#review-authority").textContent = sentence(judgment.authority || cycle.application?.authority || "Human review required");
+};
+
+const renderDrawer = () => {
+  const cycle = app.latest;
+  if (!cycle) return;
+  $("#drawer-title").textContent = `${cycle.cultivation_id} — ${sentence(cycle.status)}`;
+  const finding = cycle.selected_finding || {};
+  const evaluation = finding.evaluation || cycle.proposal?.evaluation || {};
+  const judgment = cycle.autonomous_judgment || {};
+  $("#drawer-content").innerHTML = `
+    <section class="drawer-section"><h3>Self-prompt</h3><p>${escapeHtml(cycle.self_prompt || cycle.lens?.question || "—")}</p></section>
+    <section class="drawer-section"><h3>Selected finding</h3><p>${escapeHtml(finding.claim || "No finding selected.")}</p></section>
+    <section class="drawer-section"><h3>Proposed test</h3><p>${escapeHtml(finding.proposed_test || "No test proposed.")}</p></section>
+    <section class="drawer-section"><h3>Evaluation</h3><p>${escapeHtml(String(evaluation.total ?? "—"))} / 24 · ${escapeHtml(Object.entries(evaluation.dimensions || {}).map(([key, value]) => `${sentence(key)} ${value}`).join(" · "))}</p></section>
+    <section class="drawer-section"><h3>Adversarial judgment</h3><p>${escapeHtml(judgment.counterargument || "No counterargument recorded.")}</p></section>
+    <section class="drawer-section"><h3>Event lineage</h3><ol class="drawer-events">${(cycle.events || []).map((event) => `<li><span>${String(event.sequence).padStart(2, "0")}</span><span>${escapeHtml(sentence(event.type))}</span></li>`).join("")}</ol></section>`;
+};
+
+const buildWaveform = () => {
+  const wave = $("#silent-waveform");
+  wave.innerHTML = Array.from({ length: 46 }, (_, index) => `<i style="--h:${5 + Math.abs(Math.sin(index * .63) * Math.cos(index * .18)) * 32}px"></i>`).join("");
+};
+
+class ConstitutionalField {
+  constructor(canvas, graph) {
+    this.canvas = canvas;
+    this.context = canvas.getContext("2d");
+    this.graph = graph;
+    this.nodes = graph.nodes.map((node, index) => ({ ...node, index, x: 0, y: 0, px: 0, py: 0, radius: 2 }));
+    this.nodeMap = new Map(this.nodes.map((node) => [node.id, node]));
+    this.edges = graph.edges.map((edge) => ({ ...edge, source: this.nodeMap.get(edge.from), target: this.nodeMap.get(edge.to) })).filter(({ source, target }) => source && target);
+    this.pointer = { x: -1000, y: -1000 };
+    this.hovered = null;
+    this.time = 0;
+    this.resize = this.resize.bind(this);
+    this.draw = this.draw.bind(this);
+    this.resize();
+    this.bind();
+    requestAnimationFrame(this.draw);
+  }
+
+  resize() {
+    const rect = this.canvas.getBoundingClientRect();
+    this.dpr = Math.min(window.devicePixelRatio || 1, 2);
+    this.width = rect.width;
+    this.height = rect.height;
+    this.canvas.width = Math.round(rect.width * this.dpr);
+    this.canvas.height = Math.round(rect.height * this.dpr);
+    this.layout();
+  }
+
+  layout() {
+    const centers = {
+      root: [.64, .5, .02], logos: [.64, .5, .16], "architectural-principle": [.64, .5, .25],
+      vocabulary: [.64, .5, .34], "open-question": [.64, .5, .41], bridge: [.64, .5, .31],
+      "living-statement": [.64, .5, .37], "field-note": [.64, .5, .43], "artifact-seed": [.64, .5, .46],
+      "export-system": [.64, .5, .39], revision: [.64, .5, .47]
+    };
+    const groups = new Map();
+    this.nodes.forEach((node) => {
+      if (!groups.has(node.type)) groups.set(node.type, []);
+      groups.get(node.type).push(node);
+    });
+    groups.forEach((nodes, type) => nodes.forEach((node, index) => {
+      const [cx, cy, ring] = centers[type] || [.64, .5, .4];
+      const angle = ((index / nodes.length) * Math.PI * 2) + seeded(type) * 2.7 + (seeded(node.id) - .5) * .12;
+      const elliptical = ring * Math.min(this.width, this.height * 1.65);
+      node.x = cx * this.width + Math.cos(angle) * elliptical;
+      node.y = cy * this.height + Math.sin(angle) * elliptical * .55;
+      node.px = node.x;
+      node.py = node.y;
+      const degree = this.edges.filter(({ from, to }) => from === node.id || to === node.id).length;
+      node.radius = type === "root" ? 9 : Math.min(6, 1.8 + degree * .22);
+    }));
+  }
+
+  visible(node) { return app.filter === "all" || node.type === app.filter || node.id === app.selectedNode?.id; }
+  bind() {
+    window.addEventListener("resize", this.resize, { passive: true });
+    this.canvas.addEventListener("pointermove", (event) => {
+      const rect = this.canvas.getBoundingClientRect();
+      this.pointer.x = event.clientX - rect.left;
+      this.pointer.y = event.clientY - rect.top;
+      this.hovered = this.nodes.filter((node) => this.visible(node)).find((node) => Math.hypot(node.px - this.pointer.x, node.py - this.pointer.y) < Math.max(12, node.radius + 7)) || null;
+      this.canvas.style.cursor = this.hovered ? "pointer" : "crosshair";
+    });
+    this.canvas.addEventListener("pointerleave", () => { this.hovered = null; });
+    this.canvas.addEventListener("click", () => { if (this.hovered) selectNode(this.hovered); });
+  }
+
+  draw(timestamp) {
+    this.time = timestamp * .0001;
+    const ctx = this.context;
+    ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    ctx.clearRect(0, 0, this.width, this.height);
+    const selected = app.selectedNode;
+    const relatedIds = selected ? new Set(this.edges.filter(({ source, target }) => source.id === selected.id || target.id === selected.id).flatMap(({ source, target }) => [source.id, target.id])) : null;
+
+    this.nodes.forEach((node) => {
+      const drift = node.type === "root" ? 0 : 2.2 + seeded(node.id) * 2;
+      node.px = node.x + Math.cos(this.time * (1 + seeded(node.id)) + node.index) * drift;
+      node.py = node.y + Math.sin(this.time * (1.1 + seeded(`${node.id}y`)) + node.index) * drift;
+    });
+
+    this.edges.forEach(({ source, target, type }) => {
+      if (!this.visible(source) || !this.visible(target)) return;
+      const active = selected && (source.id === selected.id || target.id === selected.id);
+      ctx.beginPath();
+      ctx.moveTo(source.px, source.py);
+      ctx.lineTo(target.px, target.py);
+      ctx.strokeStyle = active ? "rgba(225,209,152,.42)" : type === "questions" ? "rgba(147,185,187,.12)" : "rgba(226,220,197,.055)";
+      ctx.lineWidth = active ? .9 : .45;
+      ctx.stroke();
+    });
+
+    this.nodes.forEach((node) => {
+      if (!this.visible(node)) return;
+      const active = selected?.id === node.id;
+      const related = relatedIds?.has(node.id);
+      const hover = this.hovered?.id === node.id;
+      const alpha = selected && !related && !active ? .22 : 1;
+      const color = node.type === "open-question" ? [147,185,187] : node.type === "architectural-principle" ? [203,183,122] : node.type === "root" ? [225,209,152] : [189,185,170];
+      if (active || hover || node.type === "root") {
+        ctx.beginPath();
+        ctx.arc(node.px, node.py, node.radius + (active ? 12 : 7) + Math.sin(this.time * 12) * 1.5, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${color.join(",")},${active ? .45 : .17})`;
+        ctx.lineWidth = .7;
+        ctx.stroke();
       }
-    },
-    {
-      rootMargin: "-28% 0px -54% 0px",
-      threshold: [0.1, 0.35, 0.6],
-    },
-  );
-
-  sections.forEach((section) => observer.observe(section));
+      ctx.beginPath();
+      ctx.arc(node.px, node.py, active ? node.radius + 2 : node.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${color.join(",")},${alpha * (hover || active ? 1 : .68)})`;
+      ctx.fill();
+      if (hover || active || node.type === "root") {
+        ctx.fillStyle = `rgba(233,229,216,${alpha * .76})`;
+        ctx.font = "500 9px SFMono-Regular, monospace";
+        ctx.fillText(node.title.toUpperCase(), node.px + 13, node.py + 3);
+      }
+    });
+    requestAnimationFrame(this.draw);
+  }
 }
 
-const escapeHtml = (value = "") =>
-  String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
-
-const slugHref = (node) => node.url || `#${node.id}`;
-
-const relationVerb = (edge, selectedId) => {
-  if (edge.from === selectedId) {
-    return edge.type;
-  }
-
-  return `${edge.type} by`;
+let field;
+const selectNode = (node) => {
+  app.selectedNode = node;
+  const related = app.graph.edges.filter(({ from, to }) => from === node.id || to === node.id);
+  $("#inspector-index").textContent = String(node.index + 1).padStart(2, "0");
+  $("#inspector-type").textContent = sentence(node.type);
+  $("#inspector-title").textContent = node.title;
+  $("#inspector-summary").textContent = node.summary || node.definition || "No summary preserved.";
+  $("#inspector-relations").innerHTML = related.slice(0, 6).map((edge) => `<span>${escapeHtml(edge.type)} · ${escapeHtml(nodeTitle(edge.from === node.id ? edge.to : edge.from))}</span>`).join("");
+  $("#field-inspector").classList.add("is-visible");
 };
 
-const getRelations = (nodeId, edges, nodesById) =>
-  edges
-    .filter((edge) => edge.from === nodeId || edge.to === nodeId)
-    .map((edge) => {
-      const relatedId = edge.from === nodeId ? edge.to : edge.from;
-      return {
-        edge,
-        node: nodesById.get(relatedId),
-      };
-    })
-    .filter((relation) => relation.node);
-
-const renderTags = (items = []) =>
-  items
-    .slice(0, 5)
-    .map((item) => `<span>${escapeHtml(item)}</span>`)
-    .join("");
-
-const renderNodeCard = (node, relations = []) => `
-  <article class="node-card" id="${escapeHtml(node.id)}">
-    <p class="entry-label">${escapeHtml(node.label || typeLabels[node.type] || node.type)}</p>
-    <h3>${escapeHtml(node.title)}</h3>
-    <p>${escapeHtml(node.summary || node.definition || "")}</p>
-    <dl>
-      <div>
-        <dt>Status</dt>
-        <dd>${escapeHtml(node.status || "Active")}</dd>
-      </div>
-      ${
-        node.answers
-          ? `<div><dt>Answers</dt><dd>${escapeHtml(node.answers)}</dd></div>`
-          : ""
-      }
-    </dl>
-    <div class="related-links">
-      ${relations
-        .slice(0, 4)
-        .map(({ node: related }) => `<a href="${escapeHtml(slugHref(related))}">${escapeHtml(related.label || related.title)}</a>`)
-        .join("")}
-    </div>
-  </article>
-`;
-
-const renderCompactNode = (node, relations = []) => `
-  <article class="compact-node" id="${escapeHtml(node.id)}">
-    <div>
-      <p class="entry-label">${escapeHtml(node.label || typeLabels[node.type] || node.type)}</p>
-      <h3>${escapeHtml(node.title)}</h3>
-      <p>${escapeHtml(node.summary || "")}</p>
-    </div>
-    <div class="node-side">
-      <span>${escapeHtml(node.status || "Active")}</span>
-      ${
-        node.url
-          ? `<a href="${escapeHtml(node.url)}">Open</a>`
-          : `<a href="#${escapeHtml(node.id)}">Anchor</a>`
-      }
-    </div>
-    ${
-      relations.length
-        ? `<div class="related-links">${relations
-            .slice(0, 4)
-            .map(({ node: related }) => `<a href="${escapeHtml(slugHref(related))}">${escapeHtml(related.label || related.title)}</a>`)
-            .join("")}</div>`
-        : ""
+const bindInterface = () => {
+  $(".nav-toggle").addEventListener("click", (event) => {
+    const open = $(".primary-nav").classList.toggle("is-open");
+    event.currentTarget.setAttribute("aria-expanded", String(open));
+  });
+  $$(".primary-nav a").forEach((link) => link.addEventListener("click", () => $(".primary-nav").classList.remove("is-open")));
+  $$(".field-control").forEach((control) => control.addEventListener("click", () => {
+    app.filter = control.dataset.filter;
+    $$(".field-control").forEach((item) => item.classList.toggle("is-active", item === control));
+  }));
+  $("#open-cycle").addEventListener("click", () => {
+    renderDrawer();
+    $("#cycle-drawer").hidden = false;
+    document.body.style.overflow = "hidden";
+    $(".drawer-close").focus();
+  });
+  $$('[data-close-drawer]').forEach((element) => element.addEventListener("click", () => {
+    $("#cycle-drawer").hidden = true;
+    document.body.style.overflow = "";
+  }));
+  $("#proposal-stack").addEventListener("click", (event) => {
+    const card = event.target.closest("[data-proposal]");
+    if (card) selectProposal(card.dataset.proposal);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !$("#cycle-drawer").hidden) {
+      $("#cycle-drawer").hidden = true;
+      document.body.style.overflow = "";
     }
-  </article>
-`;
-
-const renderRevision = (node) => `
-  <article class="revision-entry" id="${escapeHtml(node.id)}">
-    <p class="entry-label">${escapeHtml(node.label)}</p>
-    <h3>${escapeHtml(node.title)}</h3>
-    <p>${escapeHtml(node.summary)}</p>
-    <dl>
-      <div><dt>Date</dt><dd>${escapeHtml(node.date)}</dd></div>
-      ${node.source_export ? `<div><dt>Source Export</dt><dd>${escapeHtml(node.source_export)}</dd></div>` : ""}
-      <div><dt>Reason</dt><dd>${escapeHtml(node.reason)}</dd></div>
-    </dl>
-    <h4>Added</h4>
-    <ul>${(node.added || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-    <h4>Modified</h4>
-    <ul>${(node.modified || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-    <h4>Removed</h4>
-    <ul>${(node.removed || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-    <h4>Relationships</h4>
-    <ul>${(node.relationships || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-    ${node.notes ? `<h4>Notes</h4><p>${escapeHtml(node.notes)}</p>` : ""}
-  </article>
-`;
-
-const sampleExportPacket = `export_id: RL-EXPORT-0001
-date: 2026-07-09
-source: ChatGPT conversation
-status: proposed
-
-summary:
-  Knowing was established as a temporal instrument within Root Logos.
-
-primary_update:
-  type: logos
-  title: Knowing and the Experience of Time
-  location: Root Logos / Constitutional Grammar / Logos I
-
-changes:
-  added:
-    - Logos I - Knowing and the Experience of Time
-  modified:
-    - Root Logos structure
-    - Architectural vocabulary
-  related:
-    - Living Statement 004
-    - Time, Memory, and Identity
-
-revision_entry:
-  version: 0.1.0
-  date: 2026-07-09
-  source_export: RL-EXPORT-0001
-  added:
-    - Logos I
-  relationships:
-    - Logos I -> Participation
-    - Logos I -> Observation
-  reason:
-    - Established knowing as a constitutional mechanism of temporal experience.`;
-
-const parseScalar = (value = "") => value.trim().replace(/^["']|["']$/g, "");
-
-const parsePacket = (text) => {
-  const root = {};
-  const lines = text.split("\n");
-  const stack = [{ indent: -1, key: null, value: root }];
-
-  const nextMeaningfulLine = (index) => {
-    for (let cursor = index + 1; cursor < lines.length; cursor += 1) {
-      if (lines[cursor].trim()) {
-        return lines[cursor].trim();
-      }
-    }
-    return "";
-  };
-
-  lines.forEach((line, index) => {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith("#")) {
-      return;
-    }
-
-    const indent = line.match(/^\s*/)[0].length;
-
-    while (stack.length > 1 && indent <= stack[stack.length - 1].indent) {
-      stack.pop();
-    }
-
-    const current = stack[stack.length - 1];
-
-    if (trimmed.startsWith("- ")) {
-      if (Array.isArray(current.value)) {
-        current.value.push(parseScalar(trimmed.slice(2)));
-      }
-      return;
-    }
-
-    const separator = trimmed.indexOf(":");
-    if (separator === -1) {
-      if (typeof current.value === "string") {
-        const parent = stack[stack.length - 2]?.value;
-        parent[current.key] = `${current.value} ${parseScalar(trimmed)}`.trim();
-        current.value = parent[current.key];
-      }
-      return;
-    }
-
-    const key = trimmed.slice(0, separator).trim();
-    const rawValue = trimmed.slice(separator + 1).trim();
-    const parent = current.value;
-
-    if (rawValue) {
-      parent[key] = parseScalar(rawValue);
-      return;
-    }
-
-    const next = nextMeaningfulLine(index);
-    const container = next.startsWith("- ") ? [] : next.includes(":") ? {} : "";
-    parent[key] = container;
-    stack.push({ indent, key, value: container });
   });
 
-  return root;
+  const spaces = $$(".space[data-space-name]");
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries.filter(({ isIntersecting }) => isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+    const id = visible.target.id;
+    $$(".primary-nav a").forEach((link) => link.classList.toggle("is-active", link.dataset.space === id));
+  }, { threshold: [.24, .52] });
+  spaces.forEach((space) => observer.observe(space));
 };
 
-const asList = (value) => {
-  if (Array.isArray(value)) {
-    return value;
-  }
-  if (!value) {
-    return [];
-  }
-  return [value];
-};
-
-const renderPacketPreview = (packet) => {
-  const revision = packet.revision_entry || {};
-  const changes = packet.changes || {};
-  return `
-    <article class="export-card">
-      <p class="entry-label">${escapeHtml(packet.status || "proposed")}</p>
-      <h3>${escapeHtml(packet.export_id || "Unidentified Export Packet")}</h3>
-      <p>${escapeHtml(packet.summary || "No summary supplied.")}</p>
-      <dl>
-        <div><dt>Date</dt><dd>${escapeHtml(packet.date || "")}</dd></div>
-        <div><dt>Source</dt><dd>${escapeHtml(packet.source || "")}</dd></div>
-        <div><dt>Primary Type</dt><dd>${escapeHtml(packet.primary_update?.type || "")}</dd></div>
-        <div><dt>Location</dt><dd>${escapeHtml(packet.primary_update?.location || "")}</dd></div>
-        <div><dt>Revision</dt><dd>${escapeHtml(revision.version || "")}</dd></div>
-      </dl>
-      <h4>Added</h4>
-      <ul>${asList(changes.added || revision.added).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-      <h4>Modified</h4>
-      <ul>${asList(changes.modified || revision.modified).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-      <h4>Relationships</h4>
-      <ul>${asList(changes.related || revision.relationships).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-      <h4>Reason</h4>
-      <ul>${asList(revision.reason).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-    </article>
-  `;
-};
-
-const renderExportPackets = (packets = []) => {
-  const list = document.querySelector("#export-packet-list");
-  const input = document.querySelector("#export-input");
-  const preview = document.querySelector("#export-preview");
-
-  if (input && !input.value) {
-    input.value = sampleExportPacket;
-  }
-
-  if (list) {
-    list.innerHTML = packets.map(renderPacketPreview).join("");
-  }
-
-  let reviewedPacket = null;
-  const validatePacket = (packet) => {
-    const required = ["export_id", "date", "status", "summary", "primary_update", "changes", "revision_entry"];
-    return required.filter((key) => !packet[key]);
-  };
-
-  const review = () => {
-    if (!input || !preview) {
-      return;
-    }
-    try {
-      reviewedPacket = parsePacket(input.value);
-      const missing = validatePacket(reviewedPacket);
-      preview.innerHTML = renderPacketPreview(reviewedPacket);
-      const status = document.querySelector("#import-status");
-      if (status) {
-        status.className = `import-status ${missing.length ? "is-error" : "is-valid"}`;
-        status.textContent = missing.length
-          ? `Contract incomplete · missing ${missing.join(", ")}`
-          : `Contract valid · ${reviewedPacket.export_id} is ready to stage`;
-      }
-    } catch {
-      preview.innerHTML = '<p class="export-error">This packet could not be parsed for review.</p>';
-    }
-  };
-
-  document.querySelector("#load-sample-export")?.addEventListener("click", () => {
-    if (input) {
-      input.value = sampleExportPacket;
-    }
-    review();
-  });
-
-  document.querySelector("#review-export")?.addEventListener("click", review);
-  document.querySelector("#stage-export")?.addEventListener("click", () => {
-    review();
-    const status = document.querySelector("#import-status");
-    const missing = reviewedPacket ? validatePacket(reviewedPacket) : ["packet"];
-    if (!status || missing.length) return;
-    const changes = reviewedPacket.changes || {};
-    const count = asList(changes.added).length + asList(changes.modified).length + asList(changes.related).length;
-    status.className = "import-status is-staged";
-    status.textContent = `Update staged · ${count} graph operations proposed · published data unchanged`;
-  });
-  review();
-};
-
-const composeAttractorFragment = (packet) => [
-  packet.fragment?.recognition,
-  packet.fragment?.tension,
-  packet.fragment?.reorientation,
-  packet.fragment?.aperture,
-  packet.destination?.canonical_url,
-].filter(Boolean).join("\n\n");
-
-const materializeAttractorPackets = (archive) => {
-  if (Array.isArray(archive)) return archive;
-  const defaults = archive.defaults || {};
-  return (archive.packets || []).map((raw) => {
-    const [recognition, tension, reorientation, aperture] = Array.isArray(raw.fragment) ? raw.fragment : [];
-    return {
-      ...defaults,
-      ...raw,
-      scrutiny: { ...(defaults.scrutiny || {}), ...(raw.scrutiny || {}) },
-      release: { ...(defaults.release || {}), ...(raw.release || {}), not_before: raw.not_before || raw.release?.not_before },
-      source: raw.source || { node: raw.node, relations: raw.relations || [] },
-      fragment: Array.isArray(raw.fragment) ? { recognition, tension, reorientation, aperture } : raw.fragment,
-      destination: raw.destination || { canonical_url: `https://rootlogos.com/#${raw.node}` },
-      channel: { ...(defaults.channel || {}), ...(raw.channel || {}) },
-      integrity: { ...(defaults.integrity || {}), ...(raw.integrity || {}) },
-      publication: { ...(defaults.publication || {}), ...(raw.publication || {}) },
-    };
-  });
-};
-
-const renderAttractorPackets = (packets = [], nodesById = new Map()) => {
-  const list = document.querySelector("#attractor-packet-list");
-  if (!list) return;
-
-  list.innerHTML = packets.map((packet) => {
-    const source = nodesById.get(packet.source?.node);
-    const text = composeAttractorFragment(packet);
-    const integrity = Object.entries(packet.integrity || {});
-    const scrutiny = Object.entries(packet.scrutiny || {});
-    const publication = packet.publication || {};
-    return `
-      <article class="attractor-card">
-        <header>
-          <div>
-            <p class="entry-label">${escapeHtml(packet.status || "proposed")}</p>
-            <h3>${escapeHtml(packet.attractor_id)}</h3>
-          </div>
-          <span>${text.length}/${escapeHtml(packet.channel?.character_limit || 280)}</span>
-        </header>
-        <blockquote>${escapeHtml(text).replaceAll("\n", "<br>")}</blockquote>
-        <dl>
-          <div><dt>Source</dt><dd><a href="#${escapeHtml(packet.source?.node)}">${escapeHtml(source?.title || packet.source?.node)}</a></dd></div>
-          <div><dt>Relations</dt><dd>${(packet.source?.relations || []).map((id) => escapeHtml(nodesById.get(id)?.title || id)).join(" · ")}</dd></div>
-          <div><dt>Revision</dt><dd>${escapeHtml(packet.source_revision)}</dd></div>
-          <div><dt>Adapter</dt><dd>${escapeHtml(packet.channel?.adapter || "unassigned")}</dd></div>
-          <div><dt>Not Before</dt><dd>${escapeHtml(packet.release?.not_before || "unassigned")}</dd></div>
-          <div><dt>Publication</dt><dd>${escapeHtml(publication.status || "unpublished")}</dd></div>
-        </dl>
-        <div class="integrity-row">
-          ${integrity.map(([key, value]) => `<span class="${value === "passed" ? "is-passed" : ""}">${escapeHtml(key.replaceAll("_", " "))}</span>`).join("")}
-          ${scrutiny.map(([key, value]) => `<span class="${value === "passed" ? "is-passed" : ""}">${escapeHtml(key.replaceAll("_", " "))}</span>`).join("")}
-        </div>
-        <div class="attractor-actions">
-          <a href="${escapeHtml(packet.destination?.canonical_url)}">Follow return path</a>
-          ${publication.external_url ? `<a href="${escapeHtml(publication.external_url)}">View emitted fragment</a>` : ""}
-        </div>
-      </article>
-    `;
-  }).join("");
-};
-
-const renderNetwork = (nodes, edges, nodesById) => {
-  const canvas = document.querySelector("#network-canvas");
-  const stage = canvas?.parentElement;
-  const filters = document.querySelector("#network-filters");
-  if (!canvas || !stage || !filters) return;
-
-  const state = { activeTypes: new Set(networkTypeOrder), selected: "root-logos", points: [], raf: 0 };
-  const context = canvas.getContext("2d");
-  if (!context) return;
-
-  const inspect = (id) => {
-    state.selected = id;
-    const node = nodesById.get(id);
-    if (!node) return;
-    const relations = getRelations(id, edges, nodesById);
-    setText("#network-node-label", node.label || typeLabels[node.type]);
-    setText("#network-node-title", node.title);
-    setText("#network-node-summary", node.summary || node.definition);
-    document.querySelector("#network-node-meta").innerHTML = `
-      <div><dt>Class</dt><dd>${escapeHtml(networkTypeNames[node.type] || node.type)}</dd></div>
-      <div><dt>State</dt><dd>${escapeHtml(node.status || "Active")}</dd></div>
-      <div><dt>Degree</dt><dd>${relations.length} relations</dd></div>`;
-    document.querySelector("#network-node-relations").innerHTML = relations.slice(0, 8).map(({ edge, node: related }) => `
-      <button type="button" data-network-node="${escapeHtml(related.id)}">
-        <span>${escapeHtml(relationVerb(edge, id))}</span>${escapeHtml(related.title)}
-      </button>`).join("") || "<p>No immediate relations recorded.</p>";
-    document.querySelectorAll("[data-network-node]").forEach((button) => button.addEventListener("click", () => { inspect(button.dataset.networkNode); draw(); }));
-  };
-
-  const layout = (visible, width, height) => visible.map((node, index) => {
-    if (node.id === "root-logos") return { node, x: width / 2, y: height / 2, r: 13 };
-    const typeIndex = Math.max(0, networkTypeOrder.indexOf(node.type));
-    const peers = visible.filter((candidate) => candidate.type === node.type && candidate.id !== "root-logos");
-    const peerIndex = peers.findIndex((candidate) => candidate.id === node.id);
-    const angle = (peerIndex / Math.max(1, peers.length)) * Math.PI * 2 + typeIndex * 0.57;
-    const radius = Math.min(width, height) * (0.22 + (typeIndex % 4) * 0.065);
-    return { node, x: width / 2 + Math.cos(angle) * radius, y: height / 2 + Math.sin(angle) * radius, r: node.type === "logos" ? 9 : 6 };
-  });
-
-  const draw = () => {
-    const ratio = Math.min(2, window.devicePixelRatio || 1);
-    const width = stage.clientWidth;
-    const height = Math.max(540, Math.min(720, window.innerHeight * 0.72));
-    canvas.width = width * ratio; canvas.height = height * ratio;
-    canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
-    context.setTransform(ratio, 0, 0, ratio, 0, 0); context.clearRect(0, 0, width, height);
-    const visible = nodes.filter((node) => state.activeTypes.has(node.type));
-    state.points = layout(visible, width, height);
-    const pointById = new Map(state.points.map((point) => [point.node.id, point]));
-    const relatedIds = new Set(edges.filter((edge) => edge.from === state.selected || edge.to === state.selected).flatMap((edge) => [edge.from, edge.to]));
-    edges.forEach((edge) => {
-      const from = pointById.get(edge.from); const to = pointById.get(edge.to);
-      if (!from || !to) return;
-      const active = edge.from === state.selected || edge.to === state.selected;
-      context.beginPath(); context.moveTo(from.x, from.y); context.lineTo(to.x, to.y);
-      context.strokeStyle = active ? "rgba(255,255,255,.75)" : "rgba(255,255,255,.13)";
-      context.lineWidth = active ? 1.4 : 0.7; context.stroke();
-    });
-    state.points.forEach((point) => {
-      const selected = point.node.id === state.selected; const related = relatedIds.has(point.node.id);
-      context.beginPath(); context.arc(point.x, point.y, selected ? point.r + 5 : point.r, 0, Math.PI * 2);
-      context.fillStyle = selected ? "#fff" : related ? "#b9ffda" : "rgba(255,255,255,.62)"; context.fill();
-      if (selected || point.node.type === "root" || point.node.type === "logos") {
-        context.font = "11px SFMono-Regular, Menlo, monospace"; context.fillStyle = "rgba(255,255,255,.86)";
-        context.textAlign = "center"; context.fillText(point.node.label || point.node.title, point.x, point.y + 25);
-      }
-    });
-    document.querySelector("#network-empty").hidden = visible.length > 0;
-    document.querySelector("#network-stats").innerHTML = `<span>${visible.length}<small>nodes</small></span><span>${edges.filter((edge) => pointById.has(edge.from) && pointById.has(edge.to)).length}<small>active edges</small></span><span>${networkTypeOrder.length}<small>node classes</small></span>`;
-  };
-
-  filters.innerHTML = networkTypeOrder.filter((type) => nodes.some((node) => node.type === type)).map((type) => `<button type="button" class="is-active" data-network-type="${type}">${networkTypeNames[type]}</button>`).join("");
-  filters.addEventListener("click", (event) => {
-    const button = event.target.closest("button"); if (!button) return;
-    const type = button.dataset.networkType;
-    state.activeTypes.has(type) ? state.activeTypes.delete(type) : state.activeTypes.add(type);
-    button.classList.toggle("is-active", state.activeTypes.has(type)); draw();
-  });
-  canvas.addEventListener("click", (event) => {
-    const rect = canvas.getBoundingClientRect(); const x = event.clientX - rect.left; const y = event.clientY - rect.top;
-    const hit = state.points.find((point) => Math.hypot(point.x - x, point.y - y) < Math.max(14, point.r + 6));
-    if (hit) { inspect(hit.node.id); draw(); }
-  });
-  canvas.addEventListener("mousemove", (event) => {
-    const rect = canvas.getBoundingClientRect();
-    canvas.style.cursor = state.points.some((point) => Math.hypot(point.x - (event.clientX - rect.left), point.y - (event.clientY - rect.top)) < 16) ? "pointer" : "crosshair";
-  });
-  window.addEventListener("resize", () => { cancelAnimationFrame(state.raf); state.raf = requestAnimationFrame(draw); });
-  inspect(state.selected); draw();
-};
-
-const setText = (selector, value) => {
-  const element = document.querySelector(selector);
-  if (element && value) {
-    element.textContent = value;
+const initialize = async () => {
+  bindInterface();
+  buildWaveform();
+  try {
+    await loadData();
+    renderPresence();
+    renderLatestCycle();
+    renderMemory();
+    renderProposals();
+    field = new ConstitutionalField($("#field-canvas"), app.graph);
+    selectNode(field.nodeMap.get("root-logos") || field.nodes[0]);
+  } catch (error) {
+    console.error(error);
+    $("#header-state").textContent = "Archive interrupted";
+    $("#field-state-label").textContent = "Field unavailable";
+    $("#field-state-declaration").textContent = "The constitutional data could not be resolved. The archive remains intact.";
   }
 };
 
-const resolveCanonicalArrival = () => {
-  const id = decodeURIComponent(window.location.hash.slice(1));
-  const sectionIds = ["top", "network", "document", "search", "exports", "attractors", "open-questions", "revision-history"];
-  if (!id || sectionIds.includes(id)) return;
-  const target = document.getElementById(id);
-  if (!target) return;
-
-  document.querySelectorAll(".arrival-target").forEach((element) => element.classList.remove("arrival-target"));
-  target.closest("details")?.setAttribute("open", "");
-  target.classList.add("arrival-target");
-  target.setAttribute("tabindex", "-1");
-  const settleArrival = () => {
-    if (decodeURIComponent(window.location.hash.slice(1)) !== id) return;
-    target.scrollIntoView({ block: "start" });
-    target.focus({ preventScroll: true });
-  };
-  requestAnimationFrame(() => requestAnimationFrame(settleArrival));
-  [120, 360, 900].forEach((delay) => window.setTimeout(settleArrival, delay));
-};
-
-window.addEventListener("hashchange", resolveCanonicalArrival);
-
-const renderRelationshipLedger = (edges, nodesById) => {
-  const summary = document.querySelector("#relationship-summary");
-  const records = document.querySelector("#relationship-records");
-  if (!summary || !records) return;
-
-  const counts = edges.reduce((map, edge) => map.set(edge.type, (map.get(edge.type) || 0) + 1), new Map());
-  summary.innerHTML = [...counts.entries()]
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .map(([type, count]) => `<span><strong>${count}</strong>${escapeHtml(type)}</span>`)
-    .join("");
-
-  records.innerHTML = edges.map((edge, index) => {
-    const from = nodesById.get(edge.from);
-    const to = nodesById.get(edge.to);
-    return `<article class="relationship-record">
-      <span class="relationship-number">${String(index + 1).padStart(2, "0")}</span>
-      <a href="${escapeHtml(slugHref(from))}">${escapeHtml(from.title)}</a>
-      <span class="relationship-verb">${escapeHtml(edge.type)}</span>
-      <a href="${escapeHtml(slugHref(to))}">${escapeHtml(to.title)}</a>
-    </article>`;
-  }).join("");
-};
-
-const scoreNode = (node, query) => {
-  const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
-  const haystack = [
-    node.title,
-    node.label,
-    node.summary,
-    node.definition,
-    node.status,
-    ...(node.keywords || []),
-  ]
-    .join(" ")
-    .toLowerCase();
-
-  return terms.reduce((score, term) => {
-    if ((node.keywords || []).some((keyword) => keyword.toLowerCase().includes(term))) {
-      return score + 5;
-    }
-
-    if (String(node.title || "").toLowerCase().includes(term)) {
-      return score + 3;
-    }
-
-    return haystack.includes(term) ? score + 1 : score;
-  }, 0);
-};
-
-const renderSearch = (nodes, edges, nodesById, query = "") => {
-  const results = document.querySelector("#search-results");
-  if (!results) {
-    return;
-  }
-
-  const matches = nodes
-    .map((node) => ({ node, score: query ? scoreNode(node, query) : Number(node.type === "root") }))
-    .filter((match) => match.score > 0)
-    .sort((a, b) => b.score - a.score || a.node.title.localeCompare(b.node.title))
-    .slice(0, 8);
-
-  results.innerHTML = matches.length
-    ? matches
-        .map(({ node }) => {
-          const relations = getRelations(node.id, edges, nodesById);
-          return `
-            <article class="search-result">
-              <p class="entry-label">${escapeHtml(typeLabels[node.type] || node.type)}</p>
-              <h3><a href="${escapeHtml(slugHref(node))}">${escapeHtml(node.title)}</a></h3>
-              <p>${escapeHtml(node.summary || node.definition || "")}</p>
-              <div class="tag-row">${renderTags(node.keywords)}</div>
-              <div class="related-links">
-                ${relations
-                  .slice(0, 3)
-                  .map(({ node: related }) => `<a href="${escapeHtml(slugHref(related))}">${escapeHtml(related.label || related.title)}</a>`)
-                  .join("")}
-              </div>
-            </article>
-          `;
-        })
-        .join("")
-    : "<p>No constitutional nodes match this concept yet.</p>";
-};
-
-const renderGraphSite = ({ meta, nodes, edges }) => {
-  const nodesById = new Map(nodes.map((node) => [node.id, node]));
-  const byType = (type) => nodes.filter((node) => node.type === type);
-  const relationsFor = (node) => getRelations(node.id, edges, nodesById);
-
-  document.title = meta.title;
-  setText("#site-title", meta.title);
-  setText(".subtitle", meta.subtitle);
-  setText("#current-revision", meta.revision);
-  setText("#current-updated", meta.updated);
-  setText("#current-status", meta.status);
-  setText("#footer-maxim", meta.maxim);
-  setText("#pulse-nodes", nodes.length);
-  setText("#pulse-relations", edges.length);
-  setText("#pulse-revision", meta.revision);
-
-  const root = nodesById.get("root-logos");
-  if (root) {
-    setText("#root-summary", root.summary);
-  }
-
-  document.querySelector("#logos-list").innerHTML = byType("logos")
-    .map((node) => renderNodeCard(node, relationsFor(node)))
-    .join("");
-
-  document.querySelector("#architectural-principle-list").innerHTML = byType("architectural-principle")
-    .map((node) => renderNodeCard(node, relationsFor(node)))
-    .join("");
-
-  document.querySelector("#vocabulary-list").innerHTML = byType("vocabulary")
-    .map((node) => renderNodeCard(node, relationsFor(node)))
-    .join("");
-
-  document.querySelector("#statement-list").innerHTML = byType("living-statement")
-    .map((node) => renderCompactNode(node, relationsFor(node)))
-    .join("");
-
-  document.querySelector("#bridge-list").innerHTML = byType("bridge")
-    .map((node) => renderCompactNode(node, relationsFor(node)))
-    .join("");
-
-  document.querySelector("#field-note-list").innerHTML = byType("field-note")
-    .map((node) => renderCompactNode(node, relationsFor(node)))
-    .join("");
-
-  document.querySelector("#artifact-seed-list").innerHTML = byType("artifact-seed")
-    .map((node) => renderCompactNode(node, relationsFor(node)))
-    .join("");
-
-  document.querySelector("#open-question-list").innerHTML = byType("open-question")
-    .map((node) => renderCompactNode(node, relationsFor(node)))
-    .join("");
-
-  document.querySelector("#revision-list").innerHTML = byType("revision")
-    .map(renderRevision)
-    .join("");
-
-  renderNetwork(nodes, edges, nodesById);
-  renderRelationshipLedger(edges, nodesById);
-  renderSearch(nodes, edges, nodesById, "coherence");
-  updateDocumentFlow();
-  resolveCanonicalArrival();
-
-  document.querySelector("#concept-search")?.addEventListener("input", (event) => {
-    renderSearch(nodes, edges, nodesById, event.target.value.trim());
-  });
-};
-
-Promise.all([
-  fetch("content/constitutional-graph.json").then((response) => {
-    if (!response.ok) {
-      throw new Error("Unable to load constitutional graph");
-    }
-    return response.json();
-  }),
-  fetch("content/export-packets.json").then((response) => {
-    if (!response.ok) {
-      throw new Error("Unable to load export packets");
-    }
-    return response.json();
-  }),
-  fetch("content/attractor-packets.json").then((response) => {
-    if (!response.ok) {
-      throw new Error("Unable to load attractor packets");
-    }
-    return response.json();
-  }),
-])
-  .then(([graph, packets, attractorArchive]) => {
-    renderGraphSite(graph);
-    renderExportPackets(packets);
-    renderAttractorPackets(materializeAttractorPackets(attractorArchive), new Map(graph.nodes.map((node) => [node.id, node])));
-    resolveCanonicalArrival();
-  })
-  .catch((error) => {
-    console.error("Root Logos initialization failed", error);
-    const root = document.querySelector(".living-document");
-    if (root) {
-      root.insertAdjacentHTML(
-        "afterbegin",
-        '<p class="article-loading">The living document could not be initialized. Please refresh to try again.</p>',
-      );
-    }
-  });
+initialize();

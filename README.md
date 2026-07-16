@@ -20,9 +20,10 @@ of carrying them without doctrinal repetition.
 
 ## Current Shape
 
-- `index.html` renders the public Root Logos interface: interactive network field,
-  constitutional relationship ledger, document, search, export review, open
-  questions, and revision history.
+- `index.html` renders the public Root Logos observatory: the constitutional
+  Field, live Cultivation Chamber, semantic Memory, human Threshold, signed
+  Intake membrane, and the silent architectural position reserved for the
+  future Resonant Chamber.
 - `content/constitutional-graph.json` is the typed graph that defines canonical
   concepts, documents, relationships, questions, seeds, and revisions.
 - `content/export-packets.json` stores the accepted and proposed
@@ -47,12 +48,11 @@ of carrying them without doctrinal repetition.
   changes, weekly while productive, or through explicit human dispatch.
 - `.github/workflows/attractor-release.yml` runs the autonomous release cycle
   every Monday, Wednesday, and Friday at 10:17 AM Eastern.
-- `script.js` loads the graph and export packets, renders the continuous document,
-  powers Network Field inspection, ambient orientation, concept search, the
-  relationship ledger, packet validation, staged update previews, and
-  session-local canonical arrivals for fragment return paths.
-- `styles.css` contains the black-and-white visual system, typography roles,
-  continuous document flow, Network Field, export review UI, and article styling.
+- `script.js` joins the canonical graph to the live runtime API, renders the
+  constitutional field, cultivation lineage, proposal judgment, semantic
+  memory, human threshold, intake state, and archival fallback.
+- `styles.css` contains the dark astronomical visual system, semantic state
+  colors, responsive instruments, restrained motion, and reduced-motion mode.
 - `documents/` contains public archive-document pages.
 - `statements/` contains public pages reserved for substantial Living Statements
   and Constitutional Bridges.

@@ -3,402 +3,253 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Root Logos</title>
-    <meta
-      name="description"
-      content="Root Logos is a living constitutional grammar rendered as a versioned graph of ideas, documents, questions, and artifacts."
-    >
+    <title>Root Logos — A Living Constitutional Intelligence</title>
+    <meta name="description" content="Witness a living constitutional intelligence question, remember, judge, and refactor itself.">
     <meta property="og:title" content="Root Logos">
-    <meta
-      property="og:description"
-      content="A living constitutional grammar. Versioned, interconnected, calm, and precise."
-    >
+    <meta property="og:description" content="A transparent chamber where disciplined machine inquiry and accountable human judgment meet.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/root-logos-constitutional-archive.png">
-    <meta name="theme-color" content="#11100e">
-    <link rel="icon" href="assets/root-logos-mark.svg" type="image/svg+xml">
-    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+    <meta property="og:image" content="https://rootlogos.com/assets/root-logos-constitutional-archive.png">
+    <meta name="theme-color" content="#080908">
+    <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://runtime.rootlogos.com">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header class="site-header" data-section="top">
-      <a class="brand" href="#top" aria-label="Root Logos home">
-        <img src="assets/root-logos-mark.svg" alt="" width="34" height="34">
-        <span>Root Logos</span>
+    <a class="skip-link" href="#main">Enter the field</a>
+
+    <header class="site-header">
+      <a class="brand" href="#field" aria-label="Root Logos — return to the Field">
+        <span class="brand-mark"><img src="assets/root-logos-mark-open.svg" width="28" height="28" alt=""></span>
+        <span class="brand-word">Root Logos</span>
       </a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <span class="orientation-label" id="orientation-label">Entering the field</span>
-        <a class="nav-return" href="#top">Root / 00</a>
+
+      <nav class="primary-nav" aria-label="Root Logos instruments">
+        <a href="#field" data-space="field">Field</a>
+        <a href="#chamber" data-space="chamber">Chamber</a>
+        <a href="#memory" data-space="memory">Memory</a>
+        <a href="#threshold" data-space="threshold">Threshold</a>
+        <a href="#intake" data-space="intake">Intake</a>
       </nav>
-      <div class="coherence-progress" aria-hidden="true"><span id="coherence-progress-bar"></span></div>
+
+      <div class="system-presence" aria-live="polite">
+        <span class="presence-orbit"><i id="presence-core"></i></span>
+        <span><b id="header-state">Connecting</b><small id="header-detail">Runtime / awaiting signal</small></span>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
     </header>
 
-    <main id="top">
-      <section class="home-panel section-inner" aria-labelledby="site-title">
-        <div class="home-mark" aria-hidden="true">
-          <img src="assets/root-logos-mark.svg" alt="" width="92" height="92">
-        </div>
-        <div class="home-copy">
-          <p class="eyebrow">Current Revision</p>
-          <h1 id="site-title">Root Logos</h1>
-          <p class="subtitle">A living constitutional grammar.</p>
-          <p class="home-declaration">
-            Discoveries become relations. Relations become grammar. Grammar becomes
-            a field through which intelligence can participate without possession.
-          </p>
-          <p class="home-field-signature" aria-label="Revision identity">
-            <span>Constitutional Field</span>
-            <span>Revision 07</span>
-            <span>Self-cultivating</span>
-          </p>
-        </div>
-        <dl class="revision-stamp" aria-label="Current publication state">
-          <div>
-            <dt>Revision</dt>
-            <dd id="current-revision">v0.1</dd>
-          </div>
-          <div>
-            <dt>Last Updated</dt>
-            <dd id="current-updated">July 2026</dd>
-          </div>
-          <div>
-            <dt>Status</dt>
-            <dd id="current-status">Living Document</dd>
-          </div>
-        </dl>
-        <nav class="home-actions" aria-label="Start points">
-          <a href="#network">Enter the Network</a>
-          <a href="#document">Read the Constitution</a>
-          <a href="#search">Search Concepts</a>
-          <a href="#exports">Review Exports</a>
-          <a href="#attractors">Review Attractors</a>
-          <a href="#revision-history">Revision History</a>
-        </nav>
-      </section>
+    <main id="main">
+      <section class="space field-space" id="field" data-space-name="Field" aria-labelledby="field-title">
+        <canvas id="field-canvas" aria-label="Interactive constitutional field of Root Logos"></canvas>
+        <div class="field-vignette" aria-hidden="true"></div>
+        <div class="field-axis axis-x" aria-hidden="true"></div>
+        <div class="field-axis axis-y" aria-hidden="true"></div>
 
-      <section class="principle-strip" aria-label="Design principles">
-        <span>Reference / Orientation</span>
-        <span>Node / Identity</span>
-        <span>Edge / Participation</span>
-        <span>Grammar / Composition</span>
-      </section>
-
-      <section class="network-section" id="network" aria-labelledby="network-title">
-        <header class="network-head section-inner">
-          <div>
-            <p class="eyebrow">Root Logos / Network Field</p>
-            <h2 id="network-title">Intelligence becomes living through relation.</h2>
-          </div>
-          <p>
-            This is not a map of finished things. It is a working field: an
-            account of what exists, what connects, and what is ready to become real.
-          </p>
-        </header>
-        <div class="network-interface section-inner">
-          <div class="network-toolbar">
-            <div class="network-stats" id="network-stats" aria-live="polite"></div>
-            <div class="network-filters" id="network-filters" aria-label="Filter network by node type"></div>
-          </div>
-          <div class="network-stage">
-            <canvas id="network-canvas" aria-label="Interactive map of the Root Logos constitutional network"></canvas>
-            <div class="network-empty" id="network-empty" hidden>No nodes match this field.</div>
-          </div>
-          <aside class="network-inspector" aria-live="polite" aria-label="Selected node details">
-            <div class="network-inspector-identity">
-              <p class="entry-label" id="network-node-label">Constitutional Source</p>
-              <h3 id="network-node-title">Root Logos</h3>
-            </div>
-            <p class="network-inspector-summary" id="network-node-summary">Select a node to trace its immediate field of relation.</p>
-            <dl class="node-meta" id="network-node-meta"></dl>
-            <div class="network-path" id="network-node-relations"></div>
-          </aside>
+        <div class="field-header">
+          <p class="coordinate">RL / 00 — Constitutional Field</p>
+          <h1 id="field-title"><span>Intelligence becomes living</span><em>through relation.</em></h1>
+          <p class="field-intro">A living constitutional grammar learning to question its own structure without becoming its own highest authority.</p>
         </div>
-        <a class="continuation-cue" href="#document">
-          <span>Continue through the field</span>
-          <small>The visual becomes language</small>
-        </a>
-      </section>
 
-      <section class="document-shell section-inner" id="document" aria-labelledby="document-title">
-        <aside class="document-index" aria-label="Document pulse">
-          <p class="index-label">Living Field</p>
-          <p class="document-pulse-copy">One source moving through principle, vocabulary, work, relation, question, and time.</p>
-          <dl class="document-pulse" id="document-pulse">
-            <div><dt>Nodes</dt><dd id="pulse-nodes">—</dd></div>
-            <div><dt>Relations</dt><dd id="pulse-relations">—</dd></div>
-            <div><dt>Revision</dt><dd id="pulse-revision">—</dd></div>
-          </dl>
+        <div class="field-state" id="field-state">
+          <p class="state-kicker"><span class="state-signal"></span><span id="field-state-label">Establishing contact</span></p>
+          <p class="state-declaration" id="field-state-declaration">Listening for the current condition of the chamber.</p>
+          <div class="state-meta">
+            <span id="state-revision">Revision —</span>
+            <span id="state-cycles">— cycles</span>
+            <span id="state-memory">— hypotheses</span>
+          </div>
+        </div>
+
+        <div class="field-controls" aria-label="Constitutional field controls">
+          <button type="button" class="field-control is-active" data-filter="all">All structures</button>
+          <button type="button" class="field-control" data-filter="open-question">Questions</button>
+          <button type="button" class="field-control" data-filter="architectural-principle">Principles</button>
+          <button type="button" class="field-control" data-filter="bridge">Bridges</button>
+        </div>
+
+        <aside class="field-inspector" id="field-inspector" aria-live="polite">
+          <div class="inspector-index"><span id="inspector-index">00</span><i></i></div>
+          <p class="micro-label" id="inspector-type">Constitutional source</p>
+          <h2 id="inspector-title">Root Logos</h2>
+          <p id="inspector-summary">Select a structure to witness its position in the constitutional field.</p>
+          <div class="inspector-relations" id="inspector-relations"></div>
+          <a id="inspector-source" href="#chamber">Trace into the chamber <span>↗</span></a>
         </aside>
 
-        <article class="living-document">
-          <header class="document-head">
-            <p class="eyebrow">Continuously Evolving Document</p>
-            <h2 id="document-title">Root Logos</h2>
-            <p id="root-summary">
-              The canonical constitutional grammar from which every other document derives meaning.
-            </p>
-          </header>
+        <div class="scroll-cue" aria-hidden="true"><span>Descend into process</span><i></i></div>
+      </section>
 
-          <details class="doc-part" id="preface" data-orientation="Purpose" open>
-            <summary>
-              <span>Preface</span>
-              <small>Purpose</small>
-            </summary>
-            <div class="doc-content">
-              <p>
-                Root Logos is not a blog, publication, or digital notebook. It is a
-                living, corrigible language for composing coherent participation.
-              </p>
-              <p>
-                The objective is not to accumulate ideas. The objective is to discover
-                the primitive relations from which coherent perception, conduct,
-                creation, and institutions can be generated. Pages preserve the path;
-                the grammar must eventually exceed its scaffolding.
-              </p>
+      <section class="space chamber-space" id="chamber" data-space-name="Chamber" aria-labelledby="chamber-title">
+        <div class="section-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+        <header class="space-heading">
+          <p class="coordinate">RL / 01 — Cultivation Chamber</p>
+          <div>
+            <h2 id="chamber-title">The architecture<br><em>turns inward.</em></h2>
+            <p>Every inquiry leaves a trace. Every proposal must survive its own strongest objection.</p>
+          </div>
+        </header>
+
+        <div class="chamber-instrument">
+          <div class="cycle-spine" aria-label="Cultivation cycle phases">
+            <div class="cycle-phase is-complete"><span>01</span><b>Wake</b><small id="phase-wake">Source revision</small></div>
+            <div class="cycle-phase is-complete"><span>02</span><b>Prompt</b><small>Self-interrogation</small></div>
+            <div class="cycle-phase is-complete"><span>03</span><b>Search</b><small>Distinct method</small></div>
+            <div class="cycle-phase is-complete"><span>04</span><b>Finding</b><small>Structural pressure</small></div>
+            <div class="cycle-phase is-complete"><span>05</span><b>Judgment</b><small>Adversarial gates</small></div>
+            <div class="cycle-phase is-current"><span>06</span><b id="phase-resolution">Sleep</b><small id="phase-resolution-detail">No wake condition</small></div>
+          </div>
+
+          <article class="latest-cycle" id="latest-cycle">
+            <header>
+              <div>
+                <p class="micro-label">Latest completed inquiry</p>
+                <h3 id="cycle-id">Loading lineage</h3>
+              </div>
+              <span class="decision-seal" id="cycle-decision">—</span>
+            </header>
+            <div class="cycle-question">
+              <p class="micro-label">The question it asked itself</p>
+              <blockquote id="cycle-question">Contacting the cultivation archive.</blockquote>
             </div>
-          </details>
-
-          <details class="doc-part" id="architecture" data-orientation="Constitutional Grammar" open>
-            <summary>
-              <span>Part I - Constitutional Grammar</span>
-              <small>Logoi</small>
-            </summary>
-            <div class="schema-note">
-              <span>Each Logos contributes a composable primitive:</span>
-              <span>Status</span>
-              <span>Definition</span>
-              <span>Relationships</span>
-              <span>Compositions</span>
-              <span>Generated Forms</span>
+            <div class="argument-pair">
+              <div>
+                <p class="micro-label">Proposal</p>
+                <p id="cycle-proposal">—</p>
+              </div>
+              <div class="counterargument">
+                <p class="micro-label">Counterargument</p>
+                <p id="cycle-counterargument">—</p>
+              </div>
             </div>
-            <div class="node-list" id="logos-list" aria-live="polite"></div>
-            <section class="architectural-principles" aria-labelledby="architectural-principles-title">
-              <div class="section-rule">
-                <p class="entry-label">Reflexive Layer</p>
-                <h3 id="architectural-principles-title">Architectural Principles</h3>
-                <p>Claims that govern not only the world described by Root Logos, but the architecture that preserves them.</p>
-              </div>
-              <div class="node-list" id="architectural-principle-list" aria-live="polite"></div>
-            </section>
-          </details>
+            <footer>
+              <div class="gate-row" id="cycle-gates"></div>
+              <button class="text-action" type="button" id="open-cycle">Open complete lineage <span>↗</span></button>
+            </footer>
+          </article>
 
-          <details class="doc-part" id="vocabulary" data-orientation="Architectural Vocabulary" open>
-            <summary>
-              <span>Part II - Architectural Vocabulary</span>
-              <small>Canonical terms</small>
-            </summary>
-            <div class="vocabulary-grid" id="vocabulary-list" aria-live="polite"></div>
-          </details>
+          <aside class="chamber-readout">
+            <p class="micro-label">Current condition</p>
+            <strong id="chamber-condition">Listening</strong>
+            <p id="chamber-condition-copy">The runtime is resolving its present boundary.</p>
+            <dl>
+              <div><dt>Last wake</dt><dd id="last-wake">—</dd></div>
+              <div><dt>Novelty</dt><dd id="novelty-score">—</dd></div>
+              <div><dt>Dormancy</dt><dd id="dormancy-state">—</dd></div>
+              <div><dt>Queue</dt><dd id="wake-queue">—</dd></div>
+            </dl>
+          </aside>
+        </div>
 
-          <details class="doc-part" id="derived-documents" data-orientation="Derived Work" open>
-            <summary>
-              <span>Part III - Derived Documents</span>
-              <small>Statements, bridges, notes, seeds</small>
-            </summary>
-            <section class="derived-section" aria-labelledby="statements-title">
-              <div class="section-rule">
-                <p class="entry-label">Layer 1</p>
-                <h3 id="statements-title">Living Statements</h3>
-                <p>Constitutional positions answering: how should one orient oneself if Root Logos is true?</p>
-              </div>
-              <div class="compact-list" id="statement-list"></div>
-            </section>
+        <div class="cycle-drawer" id="cycle-drawer" hidden>
+          <div class="drawer-scrim" data-close-drawer></div>
+          <article role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+            <button type="button" class="drawer-close" data-close-drawer aria-label="Close lineage">×</button>
+            <p class="coordinate">Complete cultivation lineage</p>
+            <h2 id="drawer-title">Cycle</h2>
+            <div id="drawer-content"></div>
+          </article>
+        </div>
+      </section>
 
-            <section class="derived-section" aria-labelledby="bridges-title">
-              <div class="section-rule">
-                <p class="entry-label">Layer 2</p>
-                <h3 id="bridges-title">Constitutional Bridges</h3>
-                <p>Short connective documents explaining why positions reinforce one another.</p>
-              </div>
-              <div class="compact-list" id="bridge-list"></div>
-            </section>
+      <section class="space memory-space" id="memory" data-space-name="Memory" aria-labelledby="memory-title">
+        <header class="space-heading">
+          <p class="coordinate">RL / 02 — Semantic Memory</p>
+          <div>
+            <h2 id="memory-title">Nothing returns<br><em>disguised as new.</em></h2>
+            <p>Rejected ideas are not erased. They remain available as disciplined memory, eligible to return only when evidence, policy, or time has changed.</p>
+          </div>
+        </header>
 
-            <section class="derived-section" aria-labelledby="notes-title">
-              <div class="section-rule">
-                <p class="entry-label">Layer 3</p>
-                <h3 id="notes-title">Field Notes</h3>
-                <p>Coherent observations that have survived initial reflection.</p>
-              </div>
-              <div class="compact-list" id="field-note-list"></div>
-            </section>
+        <div class="memory-ledger-head">
+          <span>Hypothesis / identity</span><span>Disposition</span><span>Evidence</span><span>Return condition</span>
+        </div>
+        <div class="memory-ledger" id="memory-ledger" aria-live="polite">
+          <div class="memory-loading">Reconstructing semantic memory…</div>
+        </div>
+        <div class="memory-ethos">
+          <p>Memory is not accumulation.</p>
+          <blockquote>It is the refusal to mistake repetition for growth.</blockquote>
+          <div class="memory-pulse"><span id="memory-count-large">—</span><small>distinct hypotheses<br>preserved</small></div>
+        </div>
+      </section>
 
-            <section class="derived-section" aria-labelledby="seeds-title">
-              <div class="section-rule">
-                <p class="entry-label">Layer 4</p>
-                <h3 id="seeds-title">Artifact Seeds</h3>
-                <p>Potential systems, institutions, products, research programs, or works of art.</p>
-              </div>
-              <div class="compact-list" id="artifact-seed-list"></div>
-            </section>
-          </details>
+      <section class="space threshold-space" id="threshold" data-space-name="Threshold" aria-labelledby="threshold-title">
+        <div class="threshold-line" aria-hidden="true"><span>Machine inquiry</span><i></i><span>Human authority</span></div>
+        <header class="space-heading">
+          <p class="coordinate">RL / 03 — The Threshold</p>
+          <div>
+            <h2 id="threshold-title">Authority enters<br><em>without possession.</em></h2>
+            <p>The machine may generate pressure, remember failure, and argue against itself. Constitutional judgment remains attributable and human.</p>
+          </div>
+        </header>
 
-          <details class="doc-part" id="relationships" data-orientation="Relations" open>
-            <summary>
-              <span>Part IV - Relationship Ledger</span>
-              <small>Canonical edge data</small>
-            </summary>
-            <div class="relationship-ledger" id="relationship-ledger">
-              <div class="section-rule relationship-ledger-head">
-                <p class="entry-label">Document Record</p>
-                <h3>The network is the visual. This ledger is its constitutional record.</h3>
-                <p>
-                  Every connection shown in the Network Field resolves to an edge below.
-                  The document preserves the exact source, relation, and destination so the
-                  system remains inspectable beyond its interface.
-                </p>
-                <a class="ledger-network-link" href="#network">Open the Network Field</a>
-              </div>
-              <div class="relationship-summary" id="relationship-summary" aria-live="polite"></div>
-              <div class="relationship-records" id="relationship-records" aria-live="polite"></div>
+        <div class="threshold-layout">
+          <div class="proposal-stack" id="proposal-stack" aria-live="polite"></div>
+          <article class="review-surface" id="review-surface">
+            <header>
+              <div><p class="micro-label">Proposal under review</p><h3 id="review-title">Select a proposal</h3></div>
+              <span id="review-risk">—</span>
+            </header>
+            <p class="review-claim" id="review-claim">The complete evidence and judgment record will appear here.</p>
+            <div class="review-grid">
+              <div><p class="micro-label">System judgment</p><p id="review-judgment">—</p></div>
+              <div><p class="micro-label">Reversibility</p><p id="review-reversibility">—</p></div>
+              <div><p class="micro-label">Affected structures</p><p id="review-nodes">—</p></div>
+              <div><p class="micro-label">Authority</p><p id="review-authority">—</p></div>
             </div>
-          </details>
-
-          <details class="doc-part" id="search" data-orientation="Inquiry" open>
-            <summary>
-              <span>Search</span>
-              <small>Concept first</small>
-            </summary>
-            <div class="search-panel">
-              <label class="search-label" for="concept-search">Search the constitutional graph</label>
-              <input id="concept-search" type="search" autocomplete="off" placeholder="time, participation, machine, wisdom">
-              <div class="search-results" id="search-results" aria-live="polite"></div>
+            <div class="human-boundary">
+              <span class="boundary-mark">H</span>
+              <div><p class="micro-label">Human boundary</p><p>Acceptance of semantic or constitutional change requires attributable reasoning. This public surface witnesses judgment; it does not impersonate it.</p></div>
             </div>
-          </details>
+          </article>
+        </div>
+      </section>
 
-          <details class="doc-part" id="exports" data-orientation="Revision Protocol" open>
-            <summary>
-              <span>Export Mechanism</span>
-              <small>Revision translation</small>
-            </summary>
-            <div class="export-system">
-              <div class="section-rule">
-                <p class="entry-label">Constitutional Rule</p>
-                <h3>Conversation becomes durable only through revision.</h3>
-                <p>
-                  Conversation is not the constitution. The export is not the constitution.
-                  The published revision is the constitution.
-                </p>
-              </div>
+      <section class="space intake-space" id="intake" data-space-name="Intake" aria-labelledby="intake-title">
+        <header class="space-heading">
+          <p class="coordinate">RL / 04 — The Membrane</p>
+          <div>
+            <h2 id="intake-title">The world may enter.<br><em>It may not rewrite.</em></h2>
+            <p>Observation arrives outside the constitution. Provenance, consent, relevance, and judgment determine whether it may move inward.</p>
+          </div>
+        </header>
 
-              <div class="section-rule process-standard">
-                <p class="entry-label">Relational Sufficiency Standard</p>
-                <h3>Publication is earned by necessity, not by arrival.</h3>
-                <p>A node receives a separate public page only when its meaning cannot be carried adequately by a concise definition, its relationships, and its place in the living document. Preservation does not require publication.</p>
-              </div>
+        <div class="membrane-instrument">
+          <div class="membrane-rings" aria-hidden="true"><i></i><i></i><i></i><i></i><span></span></div>
+          <ol class="intake-path" aria-label="Observation intake path">
+            <li><span>01</span><div><b>Observation</b><small>Unmodified arrival</small></div></li>
+            <li><span>02</span><div><b>Admissibility</b><small>Provenance + consent</small></div></li>
+            <li><span>03</span><div><b>Memory</b><small>Comparison + history</small></div></li>
+            <li><span>04</span><div><b>Cultivation</b><small>Inquiry + evaluation</small></div></li>
+            <li><span>05</span><div><b>Judgment</b><small>Authority + revision</small></div></li>
+          </ol>
+          <aside class="intake-readout">
+            <p class="micro-label">Intake journal</p>
+            <strong id="intake-count">0</strong>
+            <p>observations preserved</p>
+            <div><span class="state-signal"></span><span>Signed membrane online</span></div>
+          </aside>
+        </div>
 
-              <ol class="workflow-list" aria-label="Export workflow">
-                <li>Conversation</li>
-                <li>Reflection</li>
-                <li>Selection</li>
-                <li>Export Packet</li>
-                <li>Repo Update</li>
-                <li>Site Revision</li>
-                <li>Published History</li>
-              </ol>
-
-              <section class="export-import" aria-labelledby="export-import-title">
-                <div class="section-rule">
-                  <p class="entry-label">Manual Import</p>
-                  <h3 id="export-import-title">Review an Export Packet</h3>
-                  <p>Paste a YAML-like packet, validate its contract, and stage its graph changes without altering the published constitution.</p>
-                </div>
-                <textarea id="export-input" spellcheck="false"></textarea>
-                <div class="export-actions">
-                  <button type="button" id="load-sample-export">Load Sample</button>
-                  <button type="button" id="review-export">Validate Packet</button>
-                  <button type="button" id="stage-export">Stage Update</button>
-                </div>
-                <div class="import-status" id="import-status" aria-live="polite"></div>
-                <div class="export-preview" id="export-preview" aria-live="polite"></div>
-              </section>
-
-              <section class="export-ledger" aria-labelledby="export-ledger-title">
-                <div class="section-rule">
-                  <p class="entry-label">Export Ledger</p>
-                  <h3 id="export-ledger-title">Proposed Packets</h3>
-                </div>
-                <div class="compact-list" id="export-packet-list"></div>
-              </section>
-            </div>
-          </details>
-
-          <details class="doc-part" id="attractors" data-orientation="Attractor Membrane" open>
-            <summary>
-              <span>The Attractor Membrane</span>
-              <small>Constitution into encounter</small>
-            </summary>
-            <div class="attractor-system">
-              <div class="section-rule">
-                <p class="entry-label">Emanation System</p>
-                <h3>The constitution emits apertures, not substitutes.</h3>
-                <p>
-                  An Attractor Fragment carries one canonical node and its relations into
-                  an external field. It remains intentionally incomplete: enough integrity
-                  to invite recognition, enough openness to return attention to the living document.
-                </p>
-              </div>
-
-              <div class="section-rule process-standard">
-                <p class="entry-label">Gravitational Integrity Standard</p>
-                <h3>Attraction without capture.</h3>
-                <p>
-                  Every fragment must preserve source fidelity, relational incompleteness,
-                  constitutional integrity, and a precise return path. Platform metrics may
-                  be observed. They do not select the constitution.
-                </p>
-              </div>
-
-              <ol class="workflow-list attractor-workflow" aria-label="Attractor workflow">
-                <li>Canonical Node</li>
-                <li>Relations</li>
-                <li>Attractor Packet</li>
-                <li>Integrity Review</li>
-                <li>Channel Adapter</li>
-                <li>Public Encounter</li>
-                <li>Return Path</li>
-              </ol>
-
-              <section class="attractor-review" aria-labelledby="attractor-review-title">
-                <div class="section-rule">
-                  <p class="entry-label">Provenance Ledger</p>
-                  <h3 id="attractor-review-title">Autonomous Release Queue</h3>
-                  <p>Every eligible fragment exposes its exact rendering, constitutional source, scrutiny record, return path, release horizon, and publication state. Eligibility is earned upstream; emission requires no downstream personal approval.</p>
-                </div>
-                <div class="attractor-ledger" id="attractor-packet-list" aria-live="polite"></div>
-              </section>
-
-              <aside class="channel-boundary" aria-label="X channel adapter boundary">
-                <p class="entry-label">First Channel Adapter / X</p>
-                <p>Once enabled, the scheduler emits the oldest due constitutionally eligible packet every Monday, Wednesday, and Friday at 10:17 AM Eastern. Missing credentials, failed scrutiny, unavailable credit, or an API error stop the emission without weakening the release contract.</p>
-              </aside>
-            </div>
-          </details>
-
-          <details class="doc-part" id="open-questions" data-orientation="Open Questions" open>
-            <summary>
-              <span>Open Questions</span>
-              <small>Permanent unresolved inquiry</small>
-            </summary>
-            <div class="compact-list question-list" id="open-question-list"></div>
-          </details>
-
-          <details class="doc-part revision-part" id="revision-history" data-orientation="Time / Revision" open>
-            <summary>
-              <span>Appendix - Revision History</span>
-              <small>Transparent evolution</small>
-            </summary>
-            <div class="revision-log" id="revision-list"></div>
-          </details>
-        </article>
+        <div class="resonant-foreshadow">
+          <div class="waveform" aria-hidden="true" id="silent-waveform"></div>
+          <p class="coordinate">Forthcoming / 05</p>
+          <h3>The Resonant Chamber</h3>
+          <p>Not a soundtrack. A live tonal instrument composed from the architecture, its tensions, its memory, and its present wave of inquiry.</p>
+          <span>Silent by design / awaiting its own constitution</span>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span id="footer-maxim">Root Logos</span>
-      <a href="#top">Return to top</a>
+      <div><img src="assets/root-logos-mark-open.svg" width="34" height="34" alt=""><span>Root Logos</span></div>
+      <p>A living constitutional grammar.<br>Revision <span id="footer-revision">0.7</span></p>
+      <nav aria-label="Archive links"><a href="documents/root-logos.html">Read the constitution</a><a href="https://github.com/zeropoet/root-logos">Inspect the source</a><a href="https://runtime.rootlogos.com/health">Runtime health</a></nav>
     </footer>
 
-    <script src="script.js"></script>
+    <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
+    <script src="script.js" defer></script>
   </body>
 </html>
