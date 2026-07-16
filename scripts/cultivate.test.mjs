@@ -18,8 +18,7 @@ await Promise.all([
 await Promise.all([
   cp(new URL("scripts/cultivate.mjs", sourceRoot), join(sandbox, "scripts", "cultivate.mjs")),
   cp(new URL("content/", sourceRoot), join(sandbox, "content"), { recursive: true }),
-  cp(new URL("cultivation/policy.json", sourceRoot), join(sandbox, "cultivation", "policy.json")),
-  cp(new URL("cultivation/memory.json", sourceRoot), join(sandbox, "cultivation", "memory.json"))
+  cp(new URL("cultivation/policy.json", sourceRoot), join(sandbox, "cultivation", "policy.json"))
 ]);
 
 await writeFile(join(sandbox, "cultivation", "state.json"), `${JSON.stringify({
@@ -28,6 +27,13 @@ await writeFile(join(sandbox, "cultivation", "state.json"), `${JSON.stringify({
   active_cycle: null,
   next_cycle: 1,
   history: []
+}, null, 2)}\n`);
+await writeFile(join(sandbox, "cultivation", "memory.json"), `${JSON.stringify({
+  version: 1,
+  hypotheses: {},
+  novelty: { consecutive_low_yield_cycles: 0, last_score: null, history: [] },
+  dormancy: { active: false, entered_at: null, reason: null, source_snapshot: null, wake_history: [] },
+  method_observations: []
 }, null, 2)}\n`);
 
 // Give the lifecycle test a stable question-pressure baseline even after the

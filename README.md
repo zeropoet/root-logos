@@ -37,10 +37,14 @@ of carrying them without doctrinal repetition.
   eligible fragment, publishes it through the X adapter, and closes its archive
   record.
 - `cultivation/` contains the pause-and-resume state, policy, evidence archives,
-  and human authority boundary for inward autonomous inquiry.
+  semantic hypothesis memory, dormancy state, and human authority boundary for
+  inward autonomous inquiry.
 - `scripts/cultivate.mjs` lets Root Logos generate its own constitutional
-  question, search the graph for structural pressure, evaluate findings, and
-  preserve a proposed advance without silently changing the constitution.
+  question, search through four distinct methods, remember and suppress
+  unchanged hypotheses, evaluate findings, enter dormancy at diminishing
+  returns, and apply only authorized low-risk advances.
+- `.github/workflows/cultivation-cycle.yml` wakes the chamber after canonical
+  changes, weekly while productive, or through explicit human dispatch.
 - `.github/workflows/attractor-release.yml` runs the autonomous release cycle
   every Monday, Wednesday, and Friday at 10:17 AM Eastern.
 - `script.js` loads the graph and export packets, renders the continuous document,
@@ -367,6 +371,14 @@ constitutional language, publication, evaluation policy, or the autonomy
 boundary remain human decisions. The first two accepted self-refactorings
 integrated previously isolated questions about consciousness and
 post-institutional civilization without pretending to answer them.
+
+The chamber now remembers hypotheses across cycles by semantic and evidence
+fingerprint. Rejected findings cannot return as novelty unless evidence or
+policy changes, or an incubation interval elapses. Distinct relational,
+question-pressure, compression, and reflexive methods prevent every inquiry
+from collapsing into edge detection. When three consecutive cycles produce no
+new pressure, Root Logos records a proposal to refactor its inquiry method and
+enters dormancy until canonical change or explicit human wake.
 
 ## Revision 0.6 — The Attractor Membrane
 
