@@ -26,6 +26,7 @@
 
       <nav class="primary-nav" aria-label="Root Logos instruments">
         <a href="#field" data-space="field">Field</a>
+        <a href="#observatory" data-space="observatory">Observatory</a>
         <a href="#chamber" data-space="chamber">Chamber</a>
         <a href="#memory" data-space="memory">Memory</a>
         <a href="#threshold" data-space="threshold">Threshold</a>
@@ -81,10 +82,65 @@
         <div class="scroll-cue" aria-hidden="true"><span>Descend into process</span><i></i></div>
       </section>
 
+      <section class="space observatory-space" id="observatory" data-space-name="Observatory" aria-labelledby="observatory-title">
+        <header class="space-heading observatory-heading">
+          <p class="coordinate">RL / 01 — Living Observatory</p>
+          <div>
+            <h2 id="observatory-title">The architecture<br><em>reveals its becoming.</em></h2>
+            <p>One constitutional field, viewed through time, consequence, pressure, absence, authority, and exchange with the world.</p>
+          </div>
+        </header>
+
+        <div class="observatory-instrument">
+          <nav class="observatory-modes" aria-label="Ways of seeing Root Logos">
+            <button type="button" class="is-active" data-observatory-mode="lineage"><span>01</span><b>Lineage</b><small>How it became</small></button>
+            <button type="button" data-observatory-mode="causality"><span>02</span><b>Causal thread</b><small>What led to what</small></button>
+            <button type="button" data-observatory-mode="epistemic"><span>03</span><b>Epistemic field</b><small>What kind of knowing</small></button>
+            <button type="button" data-observatory-mode="pressure"><span>04</span><b>Pressure</b><small>Where inquiry gathers</small></button>
+            <button type="button" data-observatory-mode="absence"><span>05</span><b>Absence</b><small>What is not yet related</small></button>
+            <button type="button" data-observatory-mode="authority"><span>06</span><b>Authority</b><small>What may act</small></button>
+            <button type="button" data-observatory-mode="respiration"><span>07</span><b>Respiration</b><small>How the world enters</small></button>
+          </nav>
+
+          <div class="observatory-stage" data-mode="lineage">
+            <canvas id="observatory-canvas" aria-label="Living data visualization of Root Logos"></canvas>
+            <div class="observatory-grid" aria-hidden="true"></div>
+            <header class="observatory-stage-head">
+              <div><p class="micro-label" id="observatory-coordinate">Temporal constitution</p><h3 id="observatory-mode-title">The Living History</h3></div>
+              <p id="observatory-mode-copy">Move through the preserved cycles to witness the constitution becoming itself.</p>
+            </header>
+            <div class="observatory-legend" id="observatory-legend"></div>
+            <div class="observatory-timeline" id="observatory-timeline">
+              <button type="button" id="timeline-play" aria-label="Play constitutional history">Play</button>
+              <input type="range" id="timeline-range" min="0" max="0" value="0" aria-label="Constitutional history position">
+              <output id="timeline-output">Origin</output>
+            </div>
+            <button class="observatory-selection" id="observatory-selection" type="button" aria-expanded="false">
+              <span id="selection-index">00</span>
+              <span><small id="selection-kind">Field reading</small><b id="selection-title">Root Logos</b></span>
+              <i>Open reading</i>
+            </button>
+          </div>
+
+          <aside class="observatory-reading" id="observatory-reading" aria-live="polite">
+            <header><p class="coordinate" id="reading-coordinate">Lineage / present</p><button type="button" id="close-observatory-reading" aria-label="Close reading">×</button></header>
+            <h3 id="reading-title">A constitution with memory</h3>
+            <p id="reading-body">Every cycle is preserved as a distinct stratum. Rejection remains visible; implementation never erases the inquiry that produced it.</p>
+            <div class="reading-measures" id="reading-measures"></div>
+            <div class="reading-trace" id="reading-trace"></div>
+          </aside>
+        </div>
+
+        <div class="structural-health" aria-labelledby="health-title">
+          <header><p class="coordinate">Diagnostic profile / not a score</p><h3 id="health-title">Structural health</h3><p>Growth is read as a balance of relation, uncertainty, memory, provenance, and corrigibility—not as a single measure of success.</p></header>
+          <div class="health-profile" id="health-profile"></div>
+        </div>
+      </section>
+
       <section class="space chamber-space" id="chamber" data-space-name="Chamber" aria-labelledby="chamber-title">
         <div class="section-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
         <header class="space-heading">
-          <p class="coordinate">RL / 01 — Cultivation Chamber</p>
+          <p class="coordinate">RL / 02 — Cultivation Chamber</p>
           <div>
             <h2 id="chamber-title">The architecture<br><em>turns inward.</em></h2>
             <p>Every inquiry leaves a trace. Every proposal must survive its own strongest objection.</p>
@@ -155,7 +211,7 @@
 
       <section class="space memory-space" id="memory" data-space-name="Memory" aria-labelledby="memory-title">
         <header class="space-heading">
-          <p class="coordinate">RL / 02 — Semantic Memory</p>
+          <p class="coordinate">RL / 03 — Semantic Memory</p>
           <div>
             <h2 id="memory-title">Nothing returns<br><em>disguised as new.</em></h2>
             <p>Rejected ideas are not erased. They remain available as disciplined memory, eligible to return only when evidence, policy, or time has changed.</p>
@@ -178,7 +234,7 @@
       <section class="space threshold-space" id="threshold" data-space-name="Threshold" aria-labelledby="threshold-title">
         <div class="threshold-line" aria-hidden="true"><span>Machine inquiry</span><i></i><span>Human authority</span></div>
         <header class="space-heading">
-          <p class="coordinate">RL / 03 — The Threshold</p>
+          <p class="coordinate">RL / 04 — The Threshold</p>
           <div>
             <h2 id="threshold-title">Authority enters<br><em>without possession.</em></h2>
             <p>The machine may generate pressure, remember failure, and argue against itself. Constitutional judgment remains attributable and human.</p>
@@ -209,7 +265,7 @@
 
       <section class="space intake-space" id="intake" data-space-name="Intake" aria-labelledby="intake-title">
         <header class="space-heading">
-          <p class="coordinate">RL / 04 — The Membrane</p>
+          <p class="coordinate">RL / 05 — The Membrane</p>
           <div>
             <h2 id="intake-title">The world may enter.<br><em>It may not rewrite.</em></h2>
             <p>Observation arrives outside the constitution. Provenance, consent, relevance, and judgment determine whether it may move inward.</p>
@@ -308,7 +364,7 @@
 
         <div class="resonant-foreshadow">
           <div class="waveform" aria-hidden="true" id="silent-waveform"></div>
-          <p class="coordinate">Forthcoming / 05</p>
+          <p class="coordinate">Forthcoming / 06</p>
           <h3>The Resonant Chamber</h3>
           <p>Not a soundtrack. A live tonal instrument composed from the architecture, its tensions, its memory, and its present wave of inquiry.</p>
           <span>Silent by design / awaiting its own constitution</span>

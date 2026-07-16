@@ -23,8 +23,11 @@ const app = {
   selectedProposal: null,
   adminToken: null,
   observations: [],
+  attractors: null,
   selectedObservation: null,
-  filter: "all"
+  filter: "all",
+  observatoryMode: "lineage",
+  observatorySelection: null
 };
 
 const fetchJson = async (url) => {
@@ -34,17 +37,19 @@ const fetchJson = async (url) => {
 };
 
 const loadData = async () => {
-  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult] = await Promise.allSettled([
+  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult] = await Promise.allSettled([
     fetchJson("content/constitutional-graph.json"),
     fetchJson(`${RUNTIME}/v1/status`),
     fetchJson(`${RUNTIME}/v1/cycles`),
     fetchJson("cultivation/memory.json"),
-    fetchJson("cultivation/state.json")
+    fetchJson("cultivation/state.json"),
+    fetchJson("content/attractor-packets.json")
   ]);
 
   if (graphResult.status !== "fulfilled") throw graphResult.reason;
   app.graph = graphResult.value;
   app.memory = memoryResult.status === "fulfilled" ? memoryResult.value : null;
+  app.attractors = attractorResult.status === "fulfilled" ? attractorResult.value : { packets: [] };
   app.cycles = cyclesResult.status === "fulfilled" ? cyclesResult.value.cycles : [];
 
   if (runtimeResult.status === "fulfilled") {
@@ -332,6 +337,235 @@ const buildWaveform = () => {
   wave.innerHTML = Array.from({ length: 46 }, (_, index) => `<i style="--h:${5 + Math.abs(Math.sin(index * .63) * Math.cos(index * .18)) * 32}px"></i>`).join("");
 };
 
+const observatoryModes = {
+  lineage: ["Temporal constitution", "The Living History", "Move through the preserved cycles to witness the constitution becoming itself."],
+  causality: ["Consequence lineage", "The Causal Thread", "Trace an arrival through admission, wake, inquiry, judgment, and structural consequence."],
+  epistemic: ["Kinds of knowing", "The Epistemic Field", "See what is canonical, interrogative, provisional, remembered, rejected, and implemented."],
+  pressure: ["Attention topology", "Pressure + Attention", "Witness where recent inquiry, structural connectivity, and unresolved questions gather force."],
+  absence: ["Computed negative space", "The Negative-Space Map", "Reveal relations the architecture can name as missing without pretending they already exist."],
+  authority: ["Permission topology", "The Stewardship Ledger", "See what may arrive, inquire, judge, apply, and publish—and where action must stop."],
+  respiration: ["Constitutional exchange", "The Attractor Constellation", "Follow meaning outward through emission and inward through observed consequence."],
+};
+
+const sharedKeywords = (left, right) => {
+  const a = new Set((left.keywords || []).map((word) => word.toLowerCase()));
+  return (right.keywords || []).map((word) => word.toLowerCase()).filter((word) => a.has(word));
+};
+
+const renderHealth = () => {
+  const nodes = app.graph.nodes;
+  const edges = app.graph.edges;
+  const degree = new Map(nodes.map(({ id }) => [id, 0]));
+  edges.forEach(({ from, to }) => { degree.set(from, (degree.get(from) || 0) + 1); degree.set(to, (degree.get(to) || 0) + 1); });
+  const questions = nodes.filter(({ type }) => type === "open-question");
+  const isolated = nodes.filter(({ id }) => !degree.get(id)).length;
+  const judged = app.cycles.filter(({ autonomous_judgment }) => autonomous_judgment);
+  const provenance = app.cycles.filter(({ source_snapshot, events }) => source_snapshot && events?.length).length;
+  const measures = [
+    ["Relation", Math.min(100, Math.round(edges.length / Math.max(nodes.length, 1) * 34)), `${edges.length} witnessed edges`],
+    ["Uncertainty", Math.min(100, 34 + questions.length * 7), `${questions.length} open questions remain`],
+    ["Memory", Math.min(100, Object.keys(app.memory?.hypotheses || {}).length * 9), `${Object.keys(app.memory?.hypotheses || {}).length} distinct hypotheses`],
+    ["Provenance", app.cycles.length ? Math.round(provenance / app.cycles.length * 100) : 0, `${provenance}/${app.cycles.length} cycles fully traced`],
+    ["Corrigibility", judged.length ? Math.round(judged.filter(({ autonomous_judgment }) => autonomous_judgment.checks?.corrigibility).length / judged.length * 100) : 0, `${judged.length} adversarial judgments`],
+    ["Integration", Math.max(0, 100 - isolated * 8), `${isolated} isolated structures`]
+  ];
+  $("#health-profile").innerHTML = measures.map(([name, value, detail]) => `<article style="--health:${value}%"><span>${escapeHtml(name)}</span><i><b></b></i><strong>${value}</strong><small>${escapeHtml(detail)}</small></article>`).join("");
+};
+
+class LivingObservatory {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.context = canvas.getContext("2d");
+    this.mode = "lineage";
+    this.points = [];
+    this.hovered = null;
+    this.pointer = { x: -1000, y: -1000 };
+    this.time = 0;
+    this.timelineIndex = Math.max(0, app.cycles.length - 1);
+    this.playTimer = null;
+    this.resize = this.resize.bind(this);
+    this.draw = this.draw.bind(this);
+    this.resize();
+    this.bind();
+    this.setMode("lineage");
+    requestAnimationFrame(this.draw);
+  }
+
+  resize() {
+    const rect = this.canvas.getBoundingClientRect();
+    this.dpr = Math.min(window.devicePixelRatio || 1, 2);
+    this.width = rect.width;
+    this.height = rect.height;
+    this.canvas.width = Math.round(rect.width * this.dpr);
+    this.canvas.height = Math.round(rect.height * this.dpr);
+    this.compose();
+  }
+
+  bind() {
+    window.addEventListener("resize", this.resize, { passive: true });
+    this.canvas.addEventListener("pointermove", (event) => {
+      const rect = this.canvas.getBoundingClientRect();
+      this.pointer = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+      this.hovered = this.points.find((point) => Math.hypot(point.x - this.pointer.x, point.y - this.pointer.y) < Math.max(13, point.r + 7)) || null;
+      this.canvas.style.cursor = this.hovered ? "pointer" : "crosshair";
+    });
+    this.canvas.addEventListener("pointerleave", () => { this.hovered = null; });
+    this.canvas.addEventListener("click", () => { if (this.hovered) this.select(this.hovered); });
+  }
+
+  setMode(mode) {
+    this.mode = mode;
+    app.observatoryMode = mode;
+    const [coordinate, title, copy] = observatoryModes[mode];
+    $("#observatory-coordinate").textContent = coordinate;
+    $("#observatory-mode-title").textContent = title;
+    $("#observatory-mode-copy").textContent = copy;
+    $(".observatory-stage").dataset.mode = mode;
+    $$("[data-observatory-mode]").forEach((button) => button.classList.toggle("is-active", button.dataset.observatoryMode === mode));
+    $("#observatory-timeline").hidden = mode !== "lineage";
+    this.compose();
+    this.renderLegend();
+    const initial = mode === "lineage" ? this.points[Math.min(this.timelineIndex, this.points.length - 1)] : this.points[0];
+    if (initial) this.select(initial, false);
+  }
+
+  compose() {
+    if (!this.width) return;
+    const builders = {
+      lineage: () => this.lineage(), causality: () => this.causality(), epistemic: () => this.epistemic(),
+      pressure: () => this.pressure(), absence: () => this.absence(), authority: () => this.authority(), respiration: () => this.respiration()
+    };
+    this.points = builders[this.mode]();
+  }
+
+  lineage() {
+    const cycles = [...app.cycles].reverse();
+    const max = Math.max(1, cycles.length - 1);
+    $("#timeline-range").max = String(Math.max(0, cycles.length - 1));
+    $("#timeline-range").value = String(Math.min(this.timelineIndex, max));
+    $("#timeline-output").textContent = cycles[this.timelineIndex]?.cultivation_id || "Origin";
+    return cycles.map((cycle, index) => ({
+      x: this.width * (.1 + .8 * index / max), y: this.height * (.58 + Math.sin(index * .9) * .12), r: cycle.status === "implemented" ? 8 : 5,
+      kind: cycle.status, title: cycle.cultivation_id, body: cycle.selected_finding?.claim || cycle.self_prompt,
+      measures: [["Disposition", sentence(cycle.status)], ["Lens", sentence(cycle.lens?.id)], ["Novelty", `${cycle.novelty?.score ?? "—"} / 4`]],
+      trace: (cycle.events || []).map(({ type }) => sentence(type)), color: cycle.status === "implemented" ? "gold" : String(cycle.status).includes("rejected") ? "rust" : "inquiry", data: cycle
+    }));
+  }
+
+  causality() {
+    const cycle = app.cycles.find(({ intake }) => intake) || app.latest;
+    const phases = cycle?.intake ? [
+      ["Observation", cycle.intake.event_id, cycle.intake.payload?.observation], ["Admission", sentence(cycle.intake.disposition), cycle.intake.steward_note],
+      ["Wake", cycle.cultivation_id, cycle.self_prompt], ["Inquiry", sentence(cycle.selected_finding?.kind), cycle.selected_finding?.claim],
+      ["Judgment", sentence(cycle.status), cycle.autonomous_judgment?.reason], ["Consequence", cycle.application ? "Applied" : "Preserved", cycle.application ? "A reversible relation entered the graph." : "No canonical mutation was performed."]
+    ] : [
+      ["Source", "Constitution", "Canonical evidence changed."], ["Wake", cycle?.cultivation_id || "No cycle", cycle?.self_prompt],
+      ["Search", sentence(cycle?.lens?.id), cycle?.selected_finding?.claim], ["Judgment", sentence(cycle?.status), cycle?.autonomous_judgment?.reason]
+    ];
+    return phases.map(([kind, title, body], index) => ({ x: this.width * (.12 + index * .76 / Math.max(1, phases.length - 1)), y: this.height * (.52 + (index % 2 ? .1 : -.1)), r: index === 0 || index === phases.length - 1 ? 8 : 5, kind, title, body, measures: [["Sequence", `${index + 1} / ${phases.length}`]], trace: phases.slice(0, index + 1).map(([label]) => label), color: index < 2 ? "inquiry" : index === phases.length - 1 ? "gold" : "memory" }));
+  }
+
+  epistemic() {
+    const types = [...new Set(app.graph.nodes.map(({ type }) => type))];
+    const centers = new Map(types.map((type, index) => [type, { x: this.width * (.13 + (index % 4) * .245), y: this.height * (.28 + Math.floor(index / 4) * .28) }]));
+    return app.graph.nodes.map((node, index) => {
+      const center = centers.get(node.type); const angle = seeded(node.id) * Math.PI * 2; const spread = 18 + seeded(`${node.id}r`) * 54;
+      return { x: center.x + Math.cos(angle) * spread, y: center.y + Math.sin(angle) * spread * .6, r: node.type === "root" ? 9 : 3.5, kind: sentence(node.type), title: node.title, body: node.summary || node.definition, measures: [["Epistemic status", node.type === "open-question" ? "Interrogative" : node.type === "revision" ? "Historical" : "Canonical"], ["Relations", app.graph.edges.filter(({ from, to }) => from === node.id || to === node.id).length]], trace: [sentence(node.type), node.id], color: node.type === "open-question" ? "inquiry" : node.type === "revision" ? "memory" : "gold" };
+    });
+  }
+
+  pressure() {
+    const cycleRefs = new Map();
+    app.cycles.forEach((cycle, cycleIndex) => (cycle.selected_finding?.nodes || []).forEach((id) => cycleRefs.set(id, (cycleRefs.get(id) || 0) + Math.max(1, 5 - cycleIndex))));
+    return app.graph.nodes.map((node, index) => {
+      const degree = app.graph.edges.filter(({ from, to }) => from === node.id || to === node.id).length;
+      const inquiry = node.type === "open-question" ? 5 : 0; const pressure = degree + (cycleRefs.get(node.id) || 0) + inquiry;
+      const angle = index / app.graph.nodes.length * Math.PI * 2 + seeded(node.type); const radius = Math.min(this.width, this.height) * (.16 + seeded(node.id) * .28);
+      return { x: this.width * .5 + Math.cos(angle) * radius, y: this.height * .52 + Math.sin(angle) * radius * .62, r: Math.min(17, 3 + pressure * .7), pressure, kind: "Inquiry pressure", title: node.title, body: `${node.title} carries ${pressure} units of visible pressure from relation, open questions, and recent cultivation attention.`, measures: [["Pressure", pressure], ["Relations", degree], ["Recent attention", cycleRefs.get(node.id) || 0]], trace: app.cycles.filter((cycle) => cycle.selected_finding?.nodes?.includes(node.id)).map(({ cultivation_id }) => cultivation_id), color: pressure > 10 ? "rust" : node.type === "open-question" ? "inquiry" : "gold" };
+    }).sort((a, b) => b.r - a.r);
+  }
+
+  absence() {
+    const pairs = [];
+    const nodes = app.graph.nodes.filter(({ type }) => !["revision", "root"].includes(type));
+    for (let i = 0; i < nodes.length; i += 1) for (let j = i + 1; j < nodes.length; j += 1) {
+      if (app.graph.edges.some(({ from, to }) => (from === nodes[i].id && to === nodes[j].id) || (from === nodes[j].id && to === nodes[i].id))) continue;
+      const shared = sharedKeywords(nodes[i], nodes[j]);
+      if (shared.length >= 2) pairs.push({ left: nodes[i], right: nodes[j], shared });
+    }
+    return pairs.sort((a, b) => b.shared.length - a.shared.length).slice(0, 18).map((pair, index) => {
+      const column = index % 6; const row = Math.floor(index / 6);
+      return { x: this.width * (.1 + column * .16), y: this.height * (.3 + row * .24), r: 7 + pair.shared.length, kind: "Missing relation", title: `${pair.left.title} ↔ ${pair.right.title}`, body: `These structures share ${pair.shared.join(", ")} but no explicit constitutional relation. The absence is computed evidence, not a proposed truth.`, measures: [["Shared language", pair.shared.length], ["Existing edge", "None"]], trace: pair.shared, color: "void" };
+    });
+  }
+
+  authority() {
+    const layers = [
+      ["World", "May offer observation", "Arrival has no constitutional authority."], ["Membrane", "May preserve + verify", "Provenance, consent, and rate limits govern entry."],
+      ["Steward", "May admit or promote", "Human judgment permits inquiry, not truth."], ["Cultivation", "May prompt, search + judge", "The machine may reject itself and preserve uncertainty."],
+      ["Low-risk boundary", "May apply reversible relations", "Only policy-authorized additive operations cross autonomously."], ["Human threshold", "Must approve semantic change", "Constitutional language and higher-risk operations remain attributable."],
+      ["Published constitution", "Durable shared reference", "No actor becomes a higher reference than the constitution it serves."]
+    ];
+    return layers.map(([title, kind, body], index) => ({ x: this.width * (.5 + Math.sin(index * 1.4) * .08), y: this.height * (.13 + index * .115), r: 5 + index * .7, kind, title, body, measures: [["Authority layer", `${index + 1} / ${layers.length}`], ["Crossing", index === 3 ? "Bounded autonomy" : index === 5 ? "Human required" : "Witnessed"]], trace: layers.slice(0, index + 1).map(([name]) => name), color: index === 2 || index === 5 ? "gold" : index === 3 ? "inquiry" : "memory" }));
+  }
+
+  respiration() {
+    const packets = app.attractors?.packets || [];
+    const packetPoints = packets.map((packet, index) => {
+      const published = packet.publication?.status === "published"; const angle = index / Math.max(1, packets.length) * Math.PI * 2 - Math.PI / 2;
+      return { x: this.width * .52 + Math.cos(angle) * Math.min(this.width * .34, 300), y: this.height * .5 + Math.sin(angle) * Math.min(this.height * .35, 200), r: published ? 8 : 3.5, kind: published ? "Emitted fragment" : "Scheduled attractor", title: packet.attractor_id, body: (packet.fragment || []).join(" "), measures: [["State", published ? "Beyond the membrane" : "Awaiting cadence"], ["Not before", shortDate(packet.not_before)]], trace: [packet.node, ...(packet.relations || [])].filter(Boolean).map(nodeTitle), color: published ? "gold" : "memory" };
+    });
+    const center = { x: this.width * .52, y: this.height * .5, r: 13, kind: "Constitutional source", title: "Root Logos", body: "Meaning compresses outward through attractors; observed consequence may return only through the governed intake membrane.", measures: [["Founding fragments", packets.length], ["Emitted", packets.filter(({ publication }) => publication?.status === "published").length], ["Returned observations", app.runtime.intake_count || 0]], trace: ["Constitution", "Compression", "Emission", "Encounter", "Observation", "Admission", "Cultivation"], color: "inquiry" };
+    return [center, ...packetPoints];
+  }
+
+  renderLegend() {
+    const legends = {
+      lineage: [["gold", "Implemented"], ["rust", "Rejected"], ["inquiry", "Preserved inquiry"]], causality: [["inquiry", "Arrival"], ["memory", "Interpretation"], ["gold", "Consequence"]],
+      epistemic: [["gold", "Canonical"], ["inquiry", "Open question"], ["memory", "Historical"]], pressure: [["rust", "High pressure"], ["inquiry", "Question pressure"], ["gold", "Relational attention"]],
+      absence: [["void", "Computed absence"]], authority: [["gold", "Human boundary"], ["inquiry", "Bounded autonomy"], ["memory", "Witness layer"]], respiration: [["gold", "Emitted"], ["memory", "Scheduled"], ["inquiry", "Constitutional source"]]
+    };
+    $("#observatory-legend").innerHTML = legends[this.mode].map(([color, label]) => `<span class="${color}"><i></i>${label}</span>`).join("");
+  }
+
+  select(point, open = true) {
+    app.observatorySelection = point;
+    $("#selection-index").textContent = String(Math.max(0, this.points.indexOf(point)) + 1).padStart(2, "0");
+    $("#selection-kind").textContent = point.kind;
+    $("#selection-title").textContent = point.title;
+    $("#reading-coordinate").textContent = `${sentence(this.mode)} / ${point.kind}`;
+    $("#reading-title").textContent = point.title;
+    $("#reading-body").textContent = point.body || "No further reading is preserved.";
+    $("#reading-measures").innerHTML = (point.measures || []).map(([name, value]) => `<div><span>${escapeHtml(String(name))}</span><b>${escapeHtml(String(value ?? "—"))}</b></div>`).join("");
+    $("#reading-trace").innerHTML = (point.trace || []).slice(0, 10).map((item, index) => `<span><i>${String(index + 1).padStart(2, "0")}</i>${escapeHtml(String(item))}</span>`).join("");
+    if (open) $("#observatory-reading").classList.add("is-open");
+    $("#observatory-selection").setAttribute("aria-expanded", String(open));
+  }
+
+  draw(timestamp) {
+    this.time = timestamp * .001; const ctx = this.context;
+    ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0); ctx.clearRect(0, 0, this.width, this.height);
+    const selected = app.observatorySelection;
+    if (["lineage", "causality", "authority"].includes(this.mode)) {
+      ctx.beginPath(); this.points.forEach((point, index) => index ? ctx.lineTo(point.x, point.y) : ctx.moveTo(point.x, point.y));
+      ctx.strokeStyle = "rgba(225,209,152,.16)"; ctx.lineWidth = .7; ctx.stroke();
+    }
+    if (this.mode === "respiration" && this.points.length) this.points.slice(1).forEach((point) => { ctx.beginPath(); ctx.moveTo(this.points[0].x, this.points[0].y); ctx.lineTo(point.x, point.y); ctx.strokeStyle = "rgba(147,185,187,.08)"; ctx.stroke(); });
+    this.points.forEach((point, index) => {
+      const active = point === selected; const hover = point === this.hovered; const pulse = Math.sin(this.time * 1.4 + index) * 1.3;
+      const colors = { gold: [225,209,152], inquiry: [147,185,187], memory: [154,140,182], rust: [173,113,89], void: [110,114,105] }; const color = colors[point.color] || colors.gold;
+      if (this.mode === "absence") { ctx.setLineDash([3, 6]); ctx.beginPath(); ctx.arc(point.x, point.y, point.r + 7 + pulse, 0, Math.PI * 2); ctx.strokeStyle = `rgba(${color.join(",")},.34)`; ctx.stroke(); ctx.setLineDash([]); }
+      if (this.mode === "pressure") { const glow = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, point.r * 3); glow.addColorStop(0, `rgba(${color.join(",")},.18)`); glow.addColorStop(1, `rgba(${color.join(",")},0)`); ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(point.x, point.y, point.r * 3, 0, Math.PI * 2); ctx.fill(); }
+      if (active || hover) { ctx.beginPath(); ctx.arc(point.x, point.y, point.r + 9 + pulse, 0, Math.PI * 2); ctx.strokeStyle = `rgba(${color.join(",")},.5)`; ctx.lineWidth = .7; ctx.stroke(); }
+      ctx.beginPath(); ctx.arc(point.x, point.y, Math.max(2, point.r + (this.mode === "respiration" ? pulse * .25 : 0)), 0, Math.PI * 2); ctx.fillStyle = this.mode === "absence" ? "rgba(7,8,6,.88)" : `rgba(${color.join(",")},${active || hover ? .95 : .64})`; ctx.fill();
+      if (hover || active || (this.mode === "authority" && this.width > 700)) { ctx.fillStyle = "rgba(233,229,216,.76)"; ctx.font = "500 9px SFMono-Regular, monospace"; ctx.fillText(point.title.toUpperCase().slice(0, 42), point.x + point.r + 11, point.y + 3); }
+    });
+    requestAnimationFrame(this.draw);
+  }
+}
+
+let observatory;
+
 class ConstitutionalField {
   constructor(canvas, graph) {
     this.canvas = canvas;
@@ -474,6 +708,36 @@ const bindInterface = () => {
     app.filter = control.dataset.filter;
     $$(".field-control").forEach((item) => item.classList.toggle("is-active", item === control));
   }));
+  $$("[data-observatory-mode]").forEach((button) => button.addEventListener("click", () => observatory?.setMode(button.dataset.observatoryMode)));
+  $("#observatory-selection").addEventListener("click", () => {
+    const reading = $("#observatory-reading");
+    const open = reading.classList.toggle("is-open");
+    $("#observatory-selection").setAttribute("aria-expanded", String(open));
+  });
+  $("#close-observatory-reading").addEventListener("click", () => {
+    $("#observatory-reading").classList.remove("is-open");
+    $("#observatory-selection").setAttribute("aria-expanded", "false");
+  });
+  $("#timeline-range").addEventListener("input", (event) => {
+    if (!observatory) return;
+    observatory.timelineIndex = Number(event.target.value);
+    observatory.compose();
+    const point = observatory.points[observatory.timelineIndex];
+    if (point) observatory.select(point, false);
+    $("#timeline-output").textContent = point?.title || "Origin";
+  });
+  $("#timeline-play").addEventListener("click", (event) => {
+    if (!observatory) return;
+    if (observatory.playTimer) {
+      clearInterval(observatory.playTimer); observatory.playTimer = null; event.currentTarget.textContent = "Play"; return;
+    }
+    event.currentTarget.textContent = "Pause";
+    observatory.playTimer = setInterval(() => {
+      const range = $("#timeline-range");
+      observatory.timelineIndex = (observatory.timelineIndex + 1) % Math.max(1, observatory.points.length);
+      range.value = String(observatory.timelineIndex); range.dispatchEvent(new Event("input"));
+    }, 1100);
+  });
   $("#open-cycle").addEventListener("click", () => {
     renderDrawer();
     $("#cycle-drawer").hidden = false;
@@ -562,7 +826,9 @@ const initialize = async () => {
     renderLatestCycle();
     renderMemory();
     renderProposals();
+    renderHealth();
     field = new ConstitutionalField($("#field-canvas"), app.graph);
+    observatory = new LivingObservatory($("#observatory-canvas"));
     selectNode(field.nodeMap.get("root-logos") || field.nodes[0]);
   } catch (error) {
     console.error(error);
