@@ -117,5 +117,14 @@ const autonomouslyImplemented = JSON.parse(await readFile(autonomousPath, "utf8"
 assert.equal(autonomouslyImplemented.status, "implemented");
 assert.equal(autonomouslyImplemented.application.authority, "autonomous-low-risk");
 
+succeeds("cycle");
+const automaticState = JSON.parse(await readFile(join(sandbox, "cultivation", "state.json"), "utf8"));
+assert.equal(automaticState.history.length, 3);
+assert.equal(automaticState.active_cycle, null);
+const automaticId = automaticState.history.at(-1).cultivation_id;
+const automaticCycle = JSON.parse(await readFile(join(sandbox, "cultivation", "cycles", `${automaticId}.json`), "utf8"));
+assert.ok(["implemented", "autonomously-rejected", "completed-no-proposal"].includes(automaticCycle.status));
+assert.ok(automaticCycle.events.some(({ type }) => type === "proposal-written"));
+
 succeeds("validate");
-process.stdout.write("PASS cultivation lifecycle, drift boundary, adversarial self-judgment, autonomous refactoring, lineage, and human escalation.\n");
+process.stdout.write("PASS cultivation lifecycle, drift boundary, adversarial self-judgment, autonomous refactoring, scheduled-cycle entry point, lineage, and human escalation.\n");

@@ -352,8 +352,8 @@ const review = async (state) => {
   process.stdout.write(`${id} ${cycle.status}; canonical sources unchanged.\n`);
 };
 
-const autonomousJudge = async (state, policy) => {
-  const id = process.argv[3];
+const autonomousJudge = async (state, policy, idOverride = null) => {
+  const id = idOverride || process.argv[3];
   if (!id) throw new Error("Usage: judge <cultivation-id>");
   const cycle = await readJson(cycleUrl(id));
   if (!cycle.proposal || cycle.status !== "awaiting-human-review") throw new Error(`${id} is not awaiting judgment.`);
@@ -378,8 +378,8 @@ const autonomousJudge = async (state, policy) => {
   process.stdout.write(`${id} ${cycle.status}: ${cycle.autonomous_judgment.reason}\n`);
 };
 
-const applyAccepted = async (state) => {
-  const id = process.argv[3];
+const applyAccepted = async (state, idOverride = null) => {
+  const id = idOverride || process.argv[3];
   if (!id) throw new Error("Usage: apply <cultivation-id>");
   const cycle = await readJson(cycleUrl(id));
   const humanAccepted = cycle.status === "accepted-for-revision" && cycle.human_review?.decision === "accept";
@@ -412,6 +412,26 @@ const applyAccepted = async (state) => {
   if (history) history.status = cycle.status;
   await Promise.all([save(cycleUrl(id), cycle), save(stateUrl, state)]);
   process.stdout.write(`${id} applied ${operations.length} canonical operation${operations.length === 1 ? "" : "s"}; lineage archived.\n`);
+};
+
+const runCycle = async (state, policy) => {
+  if (state.active_cycle) throw new Error(`Cannot start an automatic cycle while ${state.active_cycle} is active.`);
+  const id = `RL-CULT-${String(state.next_cycle).padStart(4, "0")}`;
+  await start(state, policy);
+  for (let phase = 0; phase < 4; phase += 1) await step(state, policy);
+  let cycle = await readJson(cycleUrl(id));
+  if (cycle.status !== "awaiting-human-review") {
+    process.stdout.write(`${id} completed without an autonomously judgeable proposal.\n`);
+    return;
+  }
+  await autonomousJudge(state, policy, id);
+  cycle = await readJson(cycleUrl(id));
+  if (cycle.status === "autonomously-accepted") {
+    await applyAccepted(state, id);
+    process.stdout.write(`${id} completed with an autonomous low-risk refactoring.\n`);
+  } else {
+    process.stdout.write(`${id} completed with a preserved autonomous rejection.\n`);
+  }
 };
 
 const validate = async (state, policy) => {
@@ -450,6 +470,7 @@ const main = async () => {
   if (command === "review") return review(state);
   if (command === "judge") return autonomousJudge(state, policy);
   if (command === "apply") return applyAccepted(state);
+  if (command === "cycle") return runCycle(state, policy);
   if (command === "status") {
     process.stdout.write(`${state.status}; active=${state.active_cycle || "none"}; completed=${state.history.length}; next=${state.next_cycle}\n`);
     return;

@@ -26,6 +26,7 @@ node scripts/cultivate.mjs pause
 node scripts/cultivate.mjs resume
 node scripts/cultivate.mjs status
 node scripts/cultivate.mjs validate
+node scripts/cultivate.mjs cycle
 node scripts/cultivate.mjs judge RL-CULT-0005
 node scripts/cultivate.mjs review RL-CULT-0003 accept --by "human name" --note "reason"
 node scripts/cultivate.mjs apply RL-CULT-0003
@@ -45,6 +46,26 @@ escalated proposals but does not itself alter canonical sources. `apply` works
 only after autonomous or human acceptance and only
 when the constitution still matches the snapshot investigated by the cycle. It
 archives the exact operations and before/after source hashes.
+
+`cycle` completes the same phases in one invocation, performs adversarial
+judgment, and applies an accepted low-risk refactoring when eligible. It is the
+entry point used by automation; every underlying phase remains independently
+resumable for manual work.
+
+## Automatic triggers
+
+The Cultivation Chamber re-interrogates Root Logos under three conditions:
+
+1. after a push to `main` changes the constitutional graph, export history,
+   preserved canonical Markdown, or cultivation policy;
+2. weekly on Sunday at 14:07 UTC (10:07 AM Eastern during daylight saving
+   time); or
+3. when a human starts the workflow manually.
+
+Automation is serialized so two cycles cannot cultivate the same source state
+concurrently. The workflow commits cycle memory and any authorized refactoring
+back to `main`. GitHub does not recursively trigger workflows from pushes made
+with its workflow token, preventing self-amplifying audit loops.
 
 The lifecycle regression test runs in a temporary copy and does not touch the
 real chamber state:

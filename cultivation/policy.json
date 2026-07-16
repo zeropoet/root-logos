@@ -2,6 +2,22 @@
   "version": 2,
   "constitutional_revision": "v0.7",
   "mode": "bounded-self-refactoring",
+  "triggers": {
+    "canonical_change": {
+      "enabled": true,
+      "branch": "main",
+      "paths": ["content/constitutional-graph.json", "content/export-packets.json", "content/*.md", "cultivation/policy.json"]
+    },
+    "periodic": {
+      "enabled": true,
+      "cadence": "weekly",
+      "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+      "cron_utc": "7 14 * * 0"
+    },
+    "manual": {
+      "enabled": true
+    }
+  },
   "canonical_sources": [
     "content/constitutional-graph.json",
     "content/export-packets.json",
