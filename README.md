@@ -36,6 +36,11 @@ of carrying them without doctrinal repetition.
 - `scripts/attractors.mjs` validates and prepares packets, selects the next due
   eligible fragment, publishes it through the X adapter, and closes its archive
   record.
+- `cultivation/` contains the pause-and-resume state, policy, evidence archives,
+  and human authority boundary for inward autonomous inquiry.
+- `scripts/cultivate.mjs` lets Root Logos generate its own constitutional
+  question, search the graph for structural pressure, evaluate findings, and
+  preserve a proposed advance without silently changing the constitution.
 - `.github/workflows/attractor-release.yml` runs the autonomous release cycle
   every Monday, Wednesday, and Friday at 10:17 AM Eastern.
 - `script.js` loads the graph and export packets, renders the continuous document,

@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "mode": "human-steered-autonomy",
+  "canonical_sources": [
+    "content/constitutional-graph.json",
+    "content/export-packets.json",
+    "content/*.md"
+  ],
+  "lenses": [
+    {
+      "id": "relational-gaps",
+      "question": "Which concepts share substantial constitutional language but have no explicit relation, and would relating them increase explanatory power without collapsing their difference?",
+      "minimum_shared_keywords": 3
+    },
+    {
+      "id": "question-pressure",
+      "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+    },
+    {
+      "id": "generative-compression",
+      "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+    },
+    {
+      "id": "reflexive-test",
+      "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+    }
+  ],
+  "evaluation": {
+    "dimensions": ["source_fidelity", "relational_gain", "compression", "testability", "corrigibility", "novelty_without_drift"],
+    "scale": [0, 1, 2, 3, 4],
+    "minimum_total_for_proposal": 15,
+    "minimum_source_fidelity": 3,
+    "minimum_corrigibility": 3
+  },
+  "authority": {
+    "autonomous": [
+      "read canonical and preserved sources",
+      "generate inquiry prompts",
+      "detect structural patterns",
+      "form and score hypotheses",
+      "write cycle checkpoints and proposed export packets"
+    ],
+    "human_required": [
+      "accept or reject a cultivation finding",
+      "modify the constitutional graph or canonical documents",
+      "publish a revision or outward expression",
+      "change cultivation policy or evaluation thresholds"
+    ],
+    "forbidden": [
+      "represent a hypothesis as canonical",
+      "optimize constitutional selection using platform engagement",
+      "erase failed inquiries or provenance",
+      "treat its own output as a higher reference"
+    ]
+  }
+}

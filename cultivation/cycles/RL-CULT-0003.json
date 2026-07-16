@@ -1,0 +1,307 @@
+{
+  "cultivation_id": "RL-CULT-0003",
+  "status": "awaiting-human-review",
+  "phase": "proposed",
+  "source_snapshot": {
+    "graph": "5edf93f09ec58191ae111fe1e269b28229d60a8c8751c86fb07f99f6995734ad",
+    "exports": "92f31059ad3ec1a0ffc780639c441fdf898047d6c35a51b02fca6683f3b25719",
+    "preserved_documents": "5f23594bfc35be6e3834547cb2b009074b75f18ba8996a77bceb4e85a7341b5c",
+    "combined": "98d7a2e2d6791b78fb40f4c5b3948a0feab50fe18d62340b4ef6f0bda7f7dc79"
+  },
+  "policy_hash": "c448f8e75185f80072d54ea96a8c7f7b601263eaa3706139b39815114f65cb20",
+  "lens": {
+    "id": "question-pressure",
+    "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+  },
+  "self_prompt": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?\n\nUse only the snapshotted Root Logos constitution as evidence. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.",
+  "findings": [
+    {
+      "rank": 1,
+      "kind": "question-pressure",
+      "nodes": [
+        "question-consciousness-fundamental",
+        "consciousness",
+        "knowing",
+        "logos-1"
+      ],
+      "titles": [
+        "Is consciousness fundamental?",
+        "Consciousness",
+        "Knowing",
+        "Knowing and the Experience of Time"
+      ],
+      "shared_keywords": [
+        "consciousness",
+        "reality",
+        "truth",
+        "knowing"
+      ],
+      "evidence": [
+        "Does consciousness emerge from structure, or is it a primary condition through which structure appears?",
+        "Current relations: 0",
+        "Consciousness shares consciousness, knowing.",
+        "Knowing shares consciousness, knowing.",
+        "Knowing and the Experience of Time shares consciousness, knowing."
+      ],
+      "claim": "Is consciousness fundamental? has 0 explicit relations; Consciousness, Knowing, Knowing and the Experience of Time provide the strongest existing constitutional pressure for investigation.",
+      "proposed_test": "Test whether relations from question-consciousness-fundamental to at least two of consciousness, knowing, logos-1 constrain the question from distinct directions without converting it into a settled statement.",
+      "relation_count": 0,
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 21
+      }
+    },
+    {
+      "rank": 2,
+      "kind": "question-pressure",
+      "nodes": [
+        "question-post-institutional",
+        "bridge-002",
+        "civilization",
+        "field-note-scaffolding-without-attachment"
+      ],
+      "titles": [
+        "Can civilization become post-institutional?",
+        "Freedom Through Non-Possession",
+        "Civilization",
+        "Scaffolding Without Attachment"
+      ],
+      "shared_keywords": [
+        "civilization",
+        "institution",
+        "substrate",
+        "freedom"
+      ],
+      "evidence": [
+        "Can durable coordination exist without hardening into institutional capture?",
+        "Current relations: 0",
+        "Freedom Through Non-Possession shares civilization, freedom.",
+        "Civilization shares civilization, institution.",
+        "Scaffolding Without Attachment shares freedom, institution."
+      ],
+      "claim": "Can civilization become post-institutional? has 0 explicit relations; Freedom Through Non-Possession, Civilization, Scaffolding Without Attachment provide the strongest existing constitutional pressure for investigation.",
+      "proposed_test": "Test whether relations from question-post-institutional to at least two of bridge-002, civilization, field-note-scaffolding-without-attachment constrain the question from distinct directions without converting it into a settled statement.",
+      "relation_count": 0,
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 21
+      }
+    },
+    {
+      "rank": 3,
+      "kind": "question-pressure",
+      "nodes": [
+        "question-topology-wisdom",
+        "coherence",
+        "logos-3",
+        "principle-higher-reference"
+      ],
+      "titles": [
+        "What is the topology of wisdom?",
+        "Coherence",
+        "Coherence as Selection",
+        "Intelligence Requires a Higher Reference"
+      ],
+      "shared_keywords": [
+        "wisdom",
+        "topology",
+        "coherence",
+        "truth"
+      ],
+      "evidence": [
+        "Can wisdom be represented as relations among truth, memory, judgment, love, and restraint?",
+        "Current relations: 1",
+        "Coherence shares coherence, truth.",
+        "Coherence as Selection shares coherence, truth.",
+        "Intelligence Requires a Higher Reference shares coherence, truth."
+      ],
+      "claim": "What is the topology of wisdom? has 1 explicit relation; Coherence, Coherence as Selection, Intelligence Requires a Higher Reference provide the strongest existing constitutional pressure for investigation.",
+      "proposed_test": "Test whether relations from question-topology-wisdom to at least two of coherence, logos-3, principle-higher-reference constrain the question from distinct directions without converting it into a settled statement.",
+      "relation_count": 1,
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 3,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 4,
+      "kind": "question-pressure",
+      "nodes": [
+        "question-ai-citizenship",
+        "identity",
+        "living-statement-003",
+        "bridge-001"
+      ],
+      "titles": [
+        "Can AI possess constitutional citizenship?",
+        "Identity",
+        "Constitutional Naturalization",
+        "Participatory Sovereignty"
+      ],
+      "shared_keywords": [
+        "ai",
+        "machine",
+        "citizenship",
+        "human-machine",
+        "identity"
+      ],
+      "evidence": [
+        "What would legitimate belonging mean for nonhuman intelligence within a moral constitution?",
+        "Current relations: 2",
+        "Identity shares citizenship, identity.",
+        "Constitutional Naturalization shares citizenship, identity.",
+        "Participatory Sovereignty shares citizenship."
+      ],
+      "claim": "Can AI possess constitutional citizenship? has 2 explicit relations; Identity, Constitutional Naturalization, Participatory Sovereignty provide the strongest existing constitutional pressure for investigation.",
+      "proposed_test": "Test whether relations from question-ai-citizenship to at least two of identity, living-statement-003, bridge-001 constrain the question from distinct directions without converting it into a settled statement.",
+      "relation_count": 2,
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 2,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 19
+      }
+    }
+  ],
+  "selected_finding": {
+    "rank": 1,
+    "kind": "question-pressure",
+    "nodes": [
+      "question-consciousness-fundamental",
+      "consciousness",
+      "knowing",
+      "logos-1"
+    ],
+    "titles": [
+      "Is consciousness fundamental?",
+      "Consciousness",
+      "Knowing",
+      "Knowing and the Experience of Time"
+    ],
+    "shared_keywords": [
+      "consciousness",
+      "reality",
+      "truth",
+      "knowing"
+    ],
+    "evidence": [
+      "Does consciousness emerge from structure, or is it a primary condition through which structure appears?",
+      "Current relations: 0",
+      "Consciousness shares consciousness, knowing.",
+      "Knowing shares consciousness, knowing.",
+      "Knowing and the Experience of Time shares consciousness, knowing."
+    ],
+    "claim": "Is consciousness fundamental? has 0 explicit relations; Consciousness, Knowing, Knowing and the Experience of Time provide the strongest existing constitutional pressure for investigation.",
+    "proposed_test": "Test whether relations from question-consciousness-fundamental to at least two of consciousness, knowing, logos-1 constrain the question from distinct directions without converting it into a settled statement.",
+    "relation_count": 0,
+    "evaluation": {
+      "dimensions": {
+        "source_fidelity": 4,
+        "relational_gain": 4,
+        "compression": 2,
+        "testability": 4,
+        "corrigibility": 4,
+        "novelty_without_drift": 3
+      },
+      "total": 21
+    }
+  },
+  "proposal": {
+    "status": "proposed",
+    "epistemic_status": "unresolved",
+    "source": "Root Logos Cultivation Chamber",
+    "cultivation_id": "RL-CULT-0003",
+    "summary": "Is consciousness fundamental? has 0 explicit relations; Consciousness, Knowing, Knowing and the Experience of Time provide the strongest existing constitutional pressure for investigation.",
+    "evidence": [
+      "Does consciousness emerge from structure, or is it a primary condition through which structure appears?",
+      "Current relations: 0",
+      "Consciousness shares consciousness, knowing.",
+      "Knowing shares consciousness, knowing.",
+      "Knowing and the Experience of Time shares consciousness, knowing."
+    ],
+    "affected_nodes": [
+      "question-consciousness-fundamental",
+      "consciousness",
+      "knowing",
+      "logos-1"
+    ],
+    "test": "Test whether relations from question-consciousness-fundamental to at least two of consciousness, knowing, logos-1 constrain the question from distinct directions without converting it into a settled statement.",
+    "evaluation": {
+      "dimensions": {
+        "source_fidelity": 4,
+        "relational_gain": 4,
+        "compression": 2,
+        "testability": 4,
+        "corrigibility": 4,
+        "novelty_without_drift": 3
+      },
+      "total": 21
+    },
+    "human_decision_required": true,
+    "canonical_mutation_performed": false
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "type": "cycle-started",
+      "at": "2026-07-16T12:54:37.445Z",
+      "lens": "question-pressure",
+      "source_snapshot": "98d7a2e2d6791b78fb40f4c5b3948a0feab50fe18d62340b4ef6f0bda7f7dc79"
+    },
+    {
+      "sequence": 2,
+      "type": "self-prompt-generated",
+      "at": "2026-07-16T12:54:37.495Z",
+      "prompt_hash": "30a85cac043b8754e30b5f89afc73c54904a426e777ef9a9dd576e374acfc7eb"
+    },
+    {
+      "sequence": 3,
+      "type": "constitutional-search-completed",
+      "at": "2026-07-16T12:54:37.548Z",
+      "findings": 4
+    },
+    {
+      "sequence": 4,
+      "type": "findings-evaluated",
+      "at": "2026-07-16T12:54:37.597Z",
+      "selected": [
+        "question-consciousness-fundamental",
+        "consciousness",
+        "knowing",
+        "logos-1"
+      ]
+    },
+    {
+      "sequence": 5,
+      "type": "proposal-written",
+      "at": "2026-07-16T12:54:37.647Z",
+      "status": "awaiting-human-review"
+    }
+  ]
+}

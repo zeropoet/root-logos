@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "mode": "bounded-self-refactoring",
+  "canonical_sources": [
+    "content/constitutional-graph.json",
+    "content/export-packets.json",
+    "content/*.md"
+  ],
+  "lenses": [
+    {
+      "id": "relational-gaps",
+      "question": "Which concepts share substantial constitutional language but have no explicit relation, and would relating them increase explanatory power without collapsing their difference?",
+      "minimum_shared_keywords": 3
+    },
+    {
+      "id": "question-pressure",
+      "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+    },
+    {
+      "id": "generative-compression",
+      "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+    },
+    {
+      "id": "reflexive-test",
+      "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+    }
+  ],
+  "evaluation": {
+    "dimensions": ["source_fidelity", "relational_gain", "compression", "testability", "corrigibility", "novelty_without_drift"],
+    "scale": [0, 1, 2, 3, 4],
+    "minimum_total_for_proposal": 15,
+    "minimum_source_fidelity": 3,
+    "minimum_corrigibility": 3
+  },
+  "judgment": {
+    "minimum_total_for_autonomous_acceptance": 20,
+    "requires_valid_operations": true,
+    "requires_counterargument": true,
+    "autonomous_risk_classes": ["low"],
+    "low_risk_definition": "An additive, reversible relation from an open question that preserves interrogative status and does not modify constitutional language.",
+    "on_failure": "reject-and-preserve",
+    "on_mixed_operations": "escalate"
+  },
+  "authority": {
+    "autonomous": [
+      "read canonical and preserved sources",
+      "generate inquiry prompts",
+      "detect structural patterns",
+      "form and score hypotheses",
+      "write cycle checkpoints and proposed export packets",
+      "adversarially judge its own proposals",
+      "reject or revise proposals that fail judgment",
+      "apply snapshot-safe low-risk graph refactorings",
+      "verify and archive before/after constitutional state"
+    ],
+    "human_required": [
+      "accept semantic changes to constitutional language or settled claims",
+      "approve medium- or high-risk graph operations",
+      "publish a revision or outward expression",
+      "change cultivation policy or evaluation thresholds"
+    ],
+    "forbidden": [
+      "represent a hypothesis as canonical",
+      "optimize constitutional selection using platform engagement",
+      "erase failed inquiries or provenance",
+      "treat its own output as a higher reference"
+    ]
+  }
+}
