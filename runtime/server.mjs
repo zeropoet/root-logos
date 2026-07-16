@@ -102,6 +102,7 @@ export const createRuntime = async (options = {}) => {
   const knownEvents = new Set();
   const observations = new Map();
   const classifications = new Map();
+  const respondedEvents = new Set();
   try {
     for (const line of (await readFile(journalPath, "utf8")).split("\n").filter(Boolean)) {
       const record = JSON.parse(line);
@@ -112,6 +113,9 @@ export const createRuntime = async (options = {}) => {
       if (record.type === "observation-classified") {
         if (!classifications.has(record.event_id)) classifications.set(record.event_id, []);
         classifications.get(record.event_id).push(record);
+      }
+      if (record.type === "wake-completed" && record.trigger?.event_id && record.response?.cycle_id) {
+        respondedEvents.add(record.trigger.event_id);
       }
     }
   } catch (error) { if (error.code !== "ENOENT") throw error; }
@@ -202,8 +206,13 @@ export const createRuntime = async (options = {}) => {
         const result = await commandRunner(args);
         const publication = await publishChanges(trigger);
         const cycleId = result.stdout.match(/RL-CULT-\d{4,}/)?.[0] || null;
-        const response = { cycle_id: cycleId, summary: result.stdout.split("\n").filter(Boolean).at(-1) || "Cultivation completed." };
+        const respondingCycle = cycleId ? await readJson(join(root, "cultivation", "cycles", `${cycleId}.json`), {}) : {};
+        const response = {
+          cycle_id: cycleId,
+          summary: respondingCycle.selected_finding?.claim || respondingCycle.proposal?.summary || result.stdout.split("\n").filter(Boolean).at(-1) || "Cultivation completed."
+        };
         await appendRecord({ type: "wake-completed", at: iso(), trigger, output: result.stdout, response, publication });
+        if (trigger.event_id) respondedEvents.add(trigger.event_id);
         runtimeState.last_response = response;
         runtimeState.completed_wakes += 1;
       } catch (error) {
@@ -226,6 +235,21 @@ export const createRuntime = async (options = {}) => {
     if (!workerPromise) workerPromise = work();
     return true;
   };
+
+  for (const observation of currentIntake()) {
+    if (!["admissible", "promoted"].includes(observation.status) || respondedEvents.has(observation.event_id)) continue;
+    if (runtimeState.queued_triggers.some(({ event_id: eventId }) => eventId === observation.event_id)) continue;
+    const latest = observation.classification_history.at(-1);
+    await enqueue({
+      id: `reconcile:${observation.event_id}:${observation.status}`,
+      kind: "admitted-observation",
+      event_id: observation.event_id,
+      disposition: observation.status,
+      steward_note: latest?.note || "Reconciled after intake-aware cultivation became available.",
+      accepted_at: latest?.at || observation.received_at,
+      reconciled: true
+    });
+  }
 
   const verifySignature = (timestamp, supplied, raw) => {
     if (!intakeSecret || !timestamp || !supplied) return false;
