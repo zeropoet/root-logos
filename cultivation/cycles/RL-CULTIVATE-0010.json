@@ -1,16 +1,38 @@
 {
-  "cultivation_id": "RL-CULT-0006",
+  "cultivation_id": "RL-CULTIVATE-0010",
   "status": "implemented",
   "phase": "proposed",
   "source_snapshot": {
-    "graph": "a26513b652afe59015a8d72a311ddb72abd690ccded2e9e638192f0061afae36",
-    "exports": "92f31059ad3ec1a0ffc780639c441fdf898047d6c35a51b02fca6683f3b25719",
+    "graph": "6543841aad1bda8de801c351ec707619cdd709c6cd55e64155132f58cd7bcc6f",
+    "exports": "492610a29b5464dbd3c77324bdfdee2039994b4f96e999e5fcb4581a10f18fb6",
     "preserved_documents": "5f23594bfc35be6e3834547cb2b009074b75f18ba8996a77bceb4e85a7341b5c",
-    "combined": "f6b13c3e0094dad9d04f00161b5677c3eb3db657a3eb39d0ba9c6b7593be8907"
+    "combined": "6d8779debc1b8d57025ebbcf43699495f1697a7691ec368ffa76da479bc4c18f"
   },
   "policy_snapshot": {
     "version": 2,
+    "constitutional_revision": "v0.7",
     "mode": "bounded-self-refactoring",
+    "triggers": {
+      "canonical_change": {
+        "enabled": true,
+        "branch": "main",
+        "paths": [
+          "content/constitutional-graph.json",
+          "content/export-packets.json",
+          "content/*.md",
+          "cultivation/policy.json"
+        ]
+      },
+      "periodic": {
+        "enabled": true,
+        "cadence": "weekly",
+        "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+        "cron_utc": "7 14 * * 0"
+      },
+      "manual": {
+        "enabled": true
+      }
+    },
     "canonical_sources": [
       "content/constitutional-graph.json",
       "content/export-packets.json",
@@ -55,6 +77,44 @@
       "minimum_source_fidelity": 3,
       "minimum_corrigibility": 3
     },
+    "memory": {
+      "semantic_fingerprint_fields": [
+        "kind",
+        "nodes",
+        "claim",
+        "proposed_question"
+      ],
+      "reconsider_after_cycles": 8,
+      "reconsider_when": [
+        "evidence changed",
+        "policy changed",
+        "incubation elapsed"
+      ],
+      "repeat_without_change": "deprioritize"
+    },
+    "novelty": {
+      "scale": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "low_yield_maximum": 1,
+      "dormancy_after_consecutive_low_yield_cycles": 3,
+      "dimensions": [
+        "new_hypothesis",
+        "changed_evidence",
+        "new_question",
+        "new_method_pressure"
+      ]
+    },
+    "dormancy": {
+      "wake_on_canonical_change": true,
+      "wake_on_policy_change": true,
+      "manual_force_allowed": true,
+      "scheduled_cycles_skip_unchanged_dormant_sources": true
+    },
     "judgment": {
       "minimum_total_for_autonomous_acceptance": 20,
       "requires_valid_operations": true,
@@ -92,7 +152,7 @@
       ]
     }
   },
-  "policy_hash": "cd599288ae0bc7189db614b558ba19eb8ebc0f182feb72621706cb5a825ab925",
+  "policy_hash": "df29c1a66eb31c9f3f97f4f29c4dd9bdedfa8130a1f112034edb56f8aa5dede0",
   "lens": {
     "id": "question-pressure",
     "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
@@ -101,63 +161,6 @@
   "findings": [
     {
       "rank": 1,
-      "kind": "question-pressure",
-      "nodes": [
-        "question-post-institutional",
-        "bridge-002",
-        "civilization",
-        "field-note-scaffolding-without-attachment"
-      ],
-      "titles": [
-        "Can civilization become post-institutional?",
-        "Freedom Through Non-Possession",
-        "Civilization",
-        "Scaffolding Without Attachment"
-      ],
-      "shared_keywords": [
-        "civilization",
-        "institution",
-        "substrate",
-        "freedom"
-      ],
-      "evidence": [
-        "Can durable coordination exist without hardening into institutional capture?",
-        "Current relations: 0",
-        "Freedom Through Non-Possession shares civilization, freedom.",
-        "Civilization shares civilization, institution.",
-        "Scaffolding Without Attachment shares freedom, institution."
-      ],
-      "claim": "Can civilization become post-institutional? has 0 explicit relations; Freedom Through Non-Possession, Civilization, Scaffolding Without Attachment provide the strongest existing constitutional pressure for investigation.",
-      "proposed_test": "Test whether relations from question-post-institutional to at least two of bridge-002, civilization, field-note-scaffolding-without-attachment constrain the question from distinct directions without converting it into a settled statement.",
-      "proposed_operations": [
-        {
-          "operation": "add-edge",
-          "from": "question-post-institutional",
-          "to": "bridge-002",
-          "type": "questions"
-        },
-        {
-          "operation": "add-edge",
-          "from": "question-post-institutional",
-          "to": "civilization",
-          "type": "questions"
-        }
-      ],
-      "relation_count": 0,
-      "evaluation": {
-        "dimensions": {
-          "source_fidelity": 4,
-          "relational_gain": 4,
-          "compression": 2,
-          "testability": 4,
-          "corrigibility": 4,
-          "novelty_without_drift": 3
-        },
-        "total": 21
-      }
-    },
-    {
-      "rank": 2,
       "kind": "question-pressure",
       "nodes": [
         "question-topology-wisdom",
@@ -201,6 +204,13 @@
         }
       ],
       "relation_count": 1,
+      "reconsideration": {
+        "fingerprint": "8e7783cf4f32cbd7879e96d0ca6533ec201ef3f9762c989eb8bed8f2c4ee43a5",
+        "evidence_hash": "4bd8416f0e915d17fb90662b1fa7598a46b1054145b7275a76e5bd524c6d8b1c",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
       "evaluation": {
         "dimensions": {
           "source_fidelity": 4,
@@ -214,7 +224,7 @@
       }
     },
     {
-      "rank": 3,
+      "rank": 2,
       "kind": "question-pressure",
       "nodes": [
         "question-ai-citizenship",
@@ -259,6 +269,13 @@
         }
       ],
       "relation_count": 2,
+      "reconsideration": {
+        "fingerprint": "df8628e7e6824ed55d31c44a5c7d458b26c7e339dd7b68ab76cff81180a3dde6",
+        "evidence_hash": "b754fb5e79dba8dd011f77ec4935487970ee8e8e9daa484b9857e409fb98bbc0",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
       "evaluation": {
         "dimensions": {
           "source_fidelity": 4,
@@ -272,7 +289,7 @@
       }
     },
     {
-      "rank": 4,
+      "rank": 3,
       "kind": "question-pressure",
       "nodes": [
         "question-consciousness-fundamental",
@@ -316,6 +333,77 @@
         }
       ],
       "relation_count": 2,
+      "reconsideration": {
+        "fingerprint": "2f166802a1f94ac7b4fa65fb8787d31621ae1ce1003f3788014876204cd71684",
+        "evidence_hash": "3593df2b80c765a4dd571851cb2e620a689ffd33a268a529265b8c14e47181d6",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 2,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 19
+      }
+    },
+    {
+      "rank": 4,
+      "kind": "question-pressure",
+      "nodes": [
+        "question-post-institutional",
+        "field-note-scaffolding-without-attachment",
+        "living-statement-002",
+        "logos-2"
+      ],
+      "titles": [
+        "Can civilization become post-institutional?",
+        "Scaffolding Without Attachment",
+        "The Invisible Substrate",
+        "Value Without Possession"
+      ],
+      "shared_keywords": [
+        "civilization",
+        "institution",
+        "substrate",
+        "freedom"
+      ],
+      "evidence": [
+        "Can durable coordination exist without hardening into institutional capture?",
+        "Current relations: 2",
+        "Scaffolding Without Attachment shares freedom, institution.",
+        "The Invisible Substrate shares institution, substrate.",
+        "Value Without Possession shares institution, substrate."
+      ],
+      "claim": "Can civilization become post-institutional? has 2 explicit relations; Scaffolding Without Attachment, The Invisible Substrate, Value Without Possession provide the strongest existing constitutional pressure for investigation.",
+      "proposed_test": "Test whether relations from question-post-institutional to at least two of field-note-scaffolding-without-attachment, living-statement-002, logos-2 constrain the question from distinct directions without converting it into a settled statement.",
+      "proposed_operations": [
+        {
+          "operation": "add-edge",
+          "from": "question-post-institutional",
+          "to": "field-note-scaffolding-without-attachment",
+          "type": "questions"
+        },
+        {
+          "operation": "add-edge",
+          "from": "question-post-institutional",
+          "to": "living-statement-002",
+          "type": "questions"
+        }
+      ],
+      "relation_count": 2,
+      "reconsideration": {
+        "fingerprint": "0230fed5912bf655cb278a2039b797ac5373b1faf12dd399913bdadd698a6c45",
+        "evidence_hash": "9ba664f75623cc49e0eb6e545e945ed113d3ad92b1537923bab0f579f211eba6",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
       "evaluation": {
         "dimensions": {
           "source_fidelity": 4,
@@ -333,84 +421,91 @@
     "rank": 1,
     "kind": "question-pressure",
     "nodes": [
-      "question-post-institutional",
-      "bridge-002",
-      "civilization",
-      "field-note-scaffolding-without-attachment"
+      "question-topology-wisdom",
+      "coherence",
+      "logos-3",
+      "principle-higher-reference"
     ],
     "titles": [
-      "Can civilization become post-institutional?",
-      "Freedom Through Non-Possession",
-      "Civilization",
-      "Scaffolding Without Attachment"
+      "What is the topology of wisdom?",
+      "Coherence",
+      "Coherence as Selection",
+      "Intelligence Requires a Higher Reference"
     ],
     "shared_keywords": [
-      "civilization",
-      "institution",
-      "substrate",
-      "freedom"
+      "wisdom",
+      "topology",
+      "coherence",
+      "truth"
     ],
     "evidence": [
-      "Can durable coordination exist without hardening into institutional capture?",
-      "Current relations: 0",
-      "Freedom Through Non-Possession shares civilization, freedom.",
-      "Civilization shares civilization, institution.",
-      "Scaffolding Without Attachment shares freedom, institution."
+      "Can wisdom be represented as relations among truth, memory, judgment, love, and restraint?",
+      "Current relations: 1",
+      "Coherence shares coherence, truth.",
+      "Coherence as Selection shares coherence, truth.",
+      "Intelligence Requires a Higher Reference shares coherence, truth."
     ],
-    "claim": "Can civilization become post-institutional? has 0 explicit relations; Freedom Through Non-Possession, Civilization, Scaffolding Without Attachment provide the strongest existing constitutional pressure for investigation.",
-    "proposed_test": "Test whether relations from question-post-institutional to at least two of bridge-002, civilization, field-note-scaffolding-without-attachment constrain the question from distinct directions without converting it into a settled statement.",
+    "claim": "What is the topology of wisdom? has 1 explicit relation; Coherence, Coherence as Selection, Intelligence Requires a Higher Reference provide the strongest existing constitutional pressure for investigation.",
+    "proposed_test": "Test whether relations from question-topology-wisdom to at least two of coherence, logos-3, principle-higher-reference constrain the question from distinct directions without converting it into a settled statement.",
     "proposed_operations": [
       {
         "operation": "add-edge",
-        "from": "question-post-institutional",
-        "to": "bridge-002",
+        "from": "question-topology-wisdom",
+        "to": "coherence",
         "type": "questions"
       },
       {
         "operation": "add-edge",
-        "from": "question-post-institutional",
-        "to": "civilization",
+        "from": "question-topology-wisdom",
+        "to": "logos-3",
         "type": "questions"
       }
     ],
-    "relation_count": 0,
+    "relation_count": 1,
+    "reconsideration": {
+      "fingerprint": "8e7783cf4f32cbd7879e96d0ca6533ec201ef3f9762c989eb8bed8f2c4ee43a5",
+      "evidence_hash": "4bd8416f0e915d17fb90662b1fa7598a46b1054145b7275a76e5bd524c6d8b1c",
+      "eligible": true,
+      "reason": "new-hypothesis",
+      "novelty": 4
+    },
     "evaluation": {
       "dimensions": {
         "source_fidelity": 4,
-        "relational_gain": 4,
+        "relational_gain": 3,
         "compression": 2,
         "testability": 4,
         "corrigibility": 4,
         "novelty_without_drift": 3
       },
-      "total": 21
+      "total": 20
     }
   },
   "proposal": {
     "status": "implemented",
     "epistemic_status": "unresolved",
     "source": "Root Logos Cultivation Chamber",
-    "cultivation_id": "RL-CULT-0006",
-    "summary": "Can civilization become post-institutional? has 0 explicit relations; Freedom Through Non-Possession, Civilization, Scaffolding Without Attachment provide the strongest existing constitutional pressure for investigation.",
+    "cultivation_id": "RL-CULTIVATE-0010",
+    "summary": "What is the topology of wisdom? has 1 explicit relation; Coherence, Coherence as Selection, Intelligence Requires a Higher Reference provide the strongest existing constitutional pressure for investigation.",
     "evidence": [
-      "Can durable coordination exist without hardening into institutional capture?",
-      "Current relations: 0",
-      "Freedom Through Non-Possession shares civilization, freedom.",
-      "Civilization shares civilization, institution.",
-      "Scaffolding Without Attachment shares freedom, institution."
+      "Can wisdom be represented as relations among truth, memory, judgment, love, and restraint?",
+      "Current relations: 1",
+      "Coherence shares coherence, truth.",
+      "Coherence as Selection shares coherence, truth.",
+      "Intelligence Requires a Higher Reference shares coherence, truth."
     ],
     "affected_nodes": [
-      "question-post-institutional",
-      "bridge-002",
-      "civilization",
-      "field-note-scaffolding-without-attachment"
+      "question-topology-wisdom",
+      "coherence",
+      "logos-3",
+      "principle-higher-reference"
     ],
-    "test": "Test whether relations from question-post-institutional to at least two of bridge-002, civilization, field-note-scaffolding-without-attachment constrain the question from distinct directions without converting it into a settled statement.",
+    "test": "Test whether relations from question-topology-wisdom to at least two of coherence, logos-3, principle-higher-reference constrain the question from distinct directions without converting it into a settled statement.",
     "operations": [
       {
         "operation": "add-edge",
-        "from": "question-post-institutional",
-        "to": "bridge-002",
+        "from": "question-topology-wisdom",
+        "to": "coherence",
         "type": "questions",
         "validation": "passed",
         "errors": [],
@@ -418,8 +513,8 @@
       },
       {
         "operation": "add-edge",
-        "from": "question-post-institutional",
-        "to": "civilization",
+        "from": "question-topology-wisdom",
+        "to": "logos-3",
         "type": "questions",
         "validation": "passed",
         "errors": [],
@@ -430,13 +525,13 @@
     "evaluation": {
       "dimensions": {
         "source_fidelity": 4,
-        "relational_gain": 4,
+        "relational_gain": 3,
         "compression": 2,
         "testability": 4,
         "corrigibility": 4,
         "novelty_without_drift": 3
       },
-      "total": 21
+      "total": 20
     },
     "human_decision_required": true,
     "canonical_mutation_performed": false
@@ -445,43 +540,44 @@
     {
       "sequence": 1,
       "type": "cycle-started",
-      "at": "2026-07-16T13:04:54.315Z",
+      "at": "2026-07-16T14:46:35.063Z",
       "lens": "question-pressure",
-      "source_snapshot": "f6b13c3e0094dad9d04f00161b5677c3eb3db657a3eb39d0ba9c6b7593be8907"
+      "source_snapshot": "6d8779debc1b8d57025ebbcf43699495f1697a7691ec368ffa76da479bc4c18f"
     },
     {
       "sequence": 2,
       "type": "self-prompt-generated",
-      "at": "2026-07-16T13:04:54.362Z",
+      "at": "2026-07-16T14:46:35.068Z",
       "prompt_hash": "30a85cac043b8754e30b5f89afc73c54904a426e777ef9a9dd576e374acfc7eb"
     },
     {
       "sequence": 3,
       "type": "constitutional-search-completed",
-      "at": "2026-07-16T13:04:54.416Z",
+      "at": "2026-07-16T14:46:35.099Z",
       "findings": 4
     },
     {
       "sequence": 4,
       "type": "findings-evaluated",
-      "at": "2026-07-16T13:04:54.466Z",
+      "at": "2026-07-16T14:46:35.101Z",
       "selected": [
-        "question-post-institutional",
-        "bridge-002",
-        "civilization",
-        "field-note-scaffolding-without-attachment"
-      ]
+        "question-topology-wisdom",
+        "coherence",
+        "logos-3",
+        "principle-higher-reference"
+      ],
+      "suppressed_repeats": 0
     },
     {
       "sequence": 5,
       "type": "proposal-written",
-      "at": "2026-07-16T13:04:54.515Z",
+      "at": "2026-07-16T14:46:35.104Z",
       "status": "awaiting-human-review"
     },
     {
       "sequence": 6,
       "type": "autonomous-judgment-recorded",
-      "at": "2026-07-16T13:04:54.568Z",
+      "at": "2026-07-16T14:46:35.112Z",
       "decision": "accept",
       "risk": "low",
       "checks": {
@@ -497,11 +593,16 @@
     {
       "sequence": 7,
       "type": "accepted-proposal-applied",
-      "at": "2026-07-16T13:04:54.623Z",
-      "before": "f6b13c3e0094dad9d04f00161b5677c3eb3db657a3eb39d0ba9c6b7593be8907",
-      "after": "e1fdcb6059ff7ba6f311b5bf89d7afb290accd8dbb26f3e2b90c76acb6669071"
+      "at": "2026-07-16T14:46:35.127Z",
+      "before": "6d8779debc1b8d57025ebbcf43699495f1697a7691ec368ffa76da479bc4c18f",
+      "after": "0bdb9cc903dd19c0b9859ac114824c53435c1eb990fb21aad930813910716557"
     }
   ],
+  "novelty": {
+    "score": 4,
+    "reason": "new-hypothesis",
+    "fingerprint": "8e7783cf4f32cbd7879e96d0ca6533ec201ef3f9762c989eb8bed8f2c4ee43a5"
+  },
   "autonomous_judgment": {
     "decision": "accept",
     "authority": "cultivation-policy-v2",
@@ -520,8 +621,8 @@
     "operations": [
       {
         "operation": "add-edge",
-        "from": "question-post-institutional",
-        "to": "bridge-002",
+        "from": "question-topology-wisdom",
+        "to": "coherence",
         "type": "questions",
         "validation": "passed",
         "errors": [],
@@ -529,8 +630,8 @@
       },
       {
         "operation": "add-edge",
-        "from": "question-post-institutional",
-        "to": "civilization",
+        "from": "question-topology-wisdom",
+        "to": "logos-3",
         "type": "questions",
         "validation": "passed",
         "errors": [],
@@ -538,10 +639,32 @@
       }
     ],
     "reason": "The proposal increases inspectable structure while preserving uncertainty, remains reversible, and satisfies every autonomous gate.",
-    "policy_hash": "cd599288ae0bc7189db614b558ba19eb8ebc0f182feb72621706cb5a825ab925",
+    "policy_hash": "df29c1a66eb31c9f3f97f4f29c4dd9bdedfa8130a1f112034edb56f8aa5dede0",
     "policy_snapshot": {
       "version": 2,
+      "constitutional_revision": "v0.7",
       "mode": "bounded-self-refactoring",
+      "triggers": {
+        "canonical_change": {
+          "enabled": true,
+          "branch": "main",
+          "paths": [
+            "content/constitutional-graph.json",
+            "content/export-packets.json",
+            "content/*.md",
+            "cultivation/policy.json"
+          ]
+        },
+        "periodic": {
+          "enabled": true,
+          "cadence": "weekly",
+          "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+          "cron_utc": "7 14 * * 0"
+        },
+        "manual": {
+          "enabled": true
+        }
+      },
       "canonical_sources": [
         "content/constitutional-graph.json",
         "content/export-packets.json",
@@ -586,6 +709,44 @@
         "minimum_source_fidelity": 3,
         "minimum_corrigibility": 3
       },
+      "memory": {
+        "semantic_fingerprint_fields": [
+          "kind",
+          "nodes",
+          "claim",
+          "proposed_question"
+        ],
+        "reconsider_after_cycles": 8,
+        "reconsider_when": [
+          "evidence changed",
+          "policy changed",
+          "incubation elapsed"
+        ],
+        "repeat_without_change": "deprioritize"
+      },
+      "novelty": {
+        "scale": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "low_yield_maximum": 1,
+        "dormancy_after_consecutive_low_yield_cycles": 3,
+        "dimensions": [
+          "new_hypothesis",
+          "changed_evidence",
+          "new_question",
+          "new_method_pressure"
+        ]
+      },
+      "dormancy": {
+        "wake_on_canonical_change": true,
+        "wake_on_policy_change": true,
+        "manual_force_allowed": true,
+        "scheduled_cycles_skip_unchanged_dormant_sources": true
+      },
       "judgment": {
         "minimum_total_for_autonomous_acceptance": 20,
         "requires_valid_operations": true,
@@ -623,37 +784,37 @@
         ]
       }
     },
-    "at": "2026-07-16T13:04:54.567Z"
+    "at": "2026-07-16T14:46:35.112Z"
   },
   "application": {
     "status": "applied",
     "authority": "autonomous-low-risk",
-    "at": "2026-07-16T13:04:54.623Z",
+    "at": "2026-07-16T14:46:35.127Z",
     "operations": [
       {
         "operation": "add-edge",
-        "from": "question-post-institutional",
-        "to": "bridge-002",
+        "from": "question-topology-wisdom",
+        "to": "coherence",
         "type": "questions"
       },
       {
         "operation": "add-edge",
-        "from": "question-post-institutional",
-        "to": "civilization",
+        "from": "question-topology-wisdom",
+        "to": "logos-3",
         "type": "questions"
       }
     ],
     "source_before": {
-      "graph": "a26513b652afe59015a8d72a311ddb72abd690ccded2e9e638192f0061afae36",
-      "exports": "92f31059ad3ec1a0ffc780639c441fdf898047d6c35a51b02fca6683f3b25719",
+      "graph": "6543841aad1bda8de801c351ec707619cdd709c6cd55e64155132f58cd7bcc6f",
+      "exports": "492610a29b5464dbd3c77324bdfdee2039994b4f96e999e5fcb4581a10f18fb6",
       "preserved_documents": "5f23594bfc35be6e3834547cb2b009074b75f18ba8996a77bceb4e85a7341b5c",
-      "combined": "f6b13c3e0094dad9d04f00161b5677c3eb3db657a3eb39d0ba9c6b7593be8907"
+      "combined": "6d8779debc1b8d57025ebbcf43699495f1697a7691ec368ffa76da479bc4c18f"
     },
     "source_after": {
-      "graph": "9e7a8b37dbe89f7000313e189712b8821566c4dfc3fea1069d399ea16ed73064",
-      "exports": "92f31059ad3ec1a0ffc780639c441fdf898047d6c35a51b02fca6683f3b25719",
+      "graph": "410c34c52bb763baee66da681a991bba48e4afb51c24df65c953fc5736423388",
+      "exports": "492610a29b5464dbd3c77324bdfdee2039994b4f96e999e5fcb4581a10f18fb6",
       "preserved_documents": "5f23594bfc35be6e3834547cb2b009074b75f18ba8996a77bceb4e85a7341b5c",
-      "combined": "e1fdcb6059ff7ba6f311b5bf89d7afb290accd8dbb26f3e2b90c76acb6669071"
+      "combined": "0bdb9cc903dd19c0b9859ac114824c53435c1eb990fb21aad930813910716557"
     }
   }
 }

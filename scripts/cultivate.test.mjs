@@ -77,7 +77,7 @@ succeeds("resume");
 succeeds("step");
 succeeds("step");
 
-const cyclePath = join(sandbox, "cultivation", "cycles", "RL-CULT-0001.json");
+const cyclePath = join(sandbox, "cultivation", "cycles", "RL-CULTIVATE-0001.json");
 const cycle = JSON.parse(await readFile(cyclePath, "utf8"));
 assert.equal(cycle.status, "awaiting-human-review");
 assert.equal(cycle.proposal.canonical_mutation_performed, false);
@@ -88,7 +88,7 @@ assert.ok(cycle.proposal.operations.every(({ validation }) => validation === "pa
 assert.equal(cycle.policy_hash.length, 64);
 assert.deepEqual(cycle.policy_snapshot, JSON.parse(await readFile(join(sandbox, "cultivation", "policy.json"), "utf8")));
 
-const anonymousReview = run("review", "RL-CULT-0001", "accept");
+const anonymousReview = run("review", "RL-CULTIVATE-0001", "accept");
 assert.notEqual(anonymousReview.status, 0);
 assert.match(anonymousReview.stderr, /requires both --by attribution and --note reasoning/);
 succeeds("review", "RL-CULT-0001", "accept", "--by", "Test Human", "--note", "Evidence and relational test reviewed.");
@@ -97,7 +97,7 @@ assert.equal(reviewed.status, "accepted-for-revision");
 assert.equal(reviewed.human_review.reviewer, "Test Human");
 assert.equal(reviewed.proposal.canonical_mutation_performed, false);
 
-succeeds("apply", "RL-CULT-0001");
+succeeds("apply", "RL-CULTIVATE-0001");
 const implemented = JSON.parse(await readFile(cyclePath, "utf8"));
 assert.equal(implemented.status, "implemented");
 assert.equal(implemented.application.operations.length, 2);
@@ -112,14 +112,14 @@ succeeds("step");
 succeeds("step");
 succeeds("step");
 succeeds("step");
-succeeds("judge", "RL-CULT-0002");
-const autonomousPath = join(sandbox, "cultivation", "cycles", "RL-CULT-0002.json");
+succeeds("judge", "RL-CULTIVATE-0002");
+const autonomousPath = join(sandbox, "cultivation", "cycles", "RL-CULTIVATE-0002.json");
 const judged = JSON.parse(await readFile(autonomousPath, "utf8"));
 assert.equal(judged.status, "autonomously-accepted");
 assert.equal(judged.autonomous_judgment.risk, "low");
 assert.ok(Object.values(judged.autonomous_judgment.checks).every(Boolean));
 assert.match(judged.autonomous_judgment.counterargument, /decorative relations/);
-succeeds("apply", "RL-CULT-0002");
+succeeds("apply", "RL-CULTIVATE-0002");
 const autonomouslyImplemented = JSON.parse(await readFile(autonomousPath, "utf8"));
 assert.equal(autonomouslyImplemented.status, "implemented");
 assert.equal(autonomouslyImplemented.application.authority, "autonomous-low-risk");

@@ -28,7 +28,8 @@ paths:
         - in: path
           name: cultivationId
           required: true
-          schema: { type: string, pattern: "^RL-CULT-[0-9]{4,}$" }
+          schema: { type: string, pattern: "^RL-CULTIVATE-[0-9]{4,}$" }
+          description: Canonical cultivation identifier. Historical RL-CULT identifiers remain accepted as read-only aliases.
       responses:
         "200": { description: One cycle with evidence and judgment lineage }
   /v1/proposals:

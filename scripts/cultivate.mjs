@@ -21,7 +21,8 @@ const intakePriority = flagValue("--priority") || "admissible";
 
 const readJson = async (url) => JSON.parse(await readFile(url, "utf8"));
 const digest = (value) => createHash("sha256").update(typeof value === "string" ? value : JSON.stringify(value)).digest("hex");
-const cycleUrl = (id) => new URL(`${id}.json`, cyclesUrl);
+const canonicalCultivationId = (id) => String(id || "").replace(/^RL-CULT-/, "RL-CULTIVATE-");
+const cycleUrl = (id) => new URL(`${canonicalCultivationId(id)}.json`, cyclesUrl);
 const save = (url, value) => writeFile(url, `${JSON.stringify(value, null, 2)}\n`);
 
 const sourceSnapshot = async () => {
@@ -358,7 +359,7 @@ const judgeProposal = (cycle, graph, policy) => {
 
 const start = async (state, policy, intake = null) => {
   if (state.active_cycle) throw new Error("A cultivation cycle is already active. Pause, resume, or complete it before starting another.");
-  const id = `RL-CULT-${String(state.next_cycle).padStart(4, "0")}`;
+  const id = `RL-CULTIVATE-${String(state.next_cycle).padStart(4, "0")}`;
   const snapshot = await sourceSnapshot();
   const lens = requestedLens ? policy.lenses.find(({ id: lensId }) => lensId === requestedLens) : chooseLens(policy, state);
   if (!lens) throw new Error(`Unknown cultivation lens: ${requestedLens}`);
@@ -492,7 +493,7 @@ const resume = async (state) => {
 };
 
 const review = async (state, memory) => {
-  const id = process.argv[3];
+  const id = canonicalCultivationId(process.argv[3]);
   const decision = process.argv[4];
   const reviewer = flagValue("--by");
   const note = flagValue("--note");
@@ -512,7 +513,7 @@ const review = async (state, memory) => {
 };
 
 const autonomousJudge = async (state, policy, memory, idOverride = null) => {
-  const id = idOverride || process.argv[3];
+  const id = canonicalCultivationId(idOverride || process.argv[3]);
   if (!id) throw new Error("Usage: judge <cultivation-id>");
   const cycle = await readJson(cycleUrl(id));
   if (!cycle.proposal || cycle.status !== "awaiting-human-review") throw new Error(`${id} is not awaiting judgment.`);
@@ -539,7 +540,7 @@ const autonomousJudge = async (state, policy, memory, idOverride = null) => {
 };
 
 const applyAccepted = async (state, memory, idOverride = null) => {
-  const id = idOverride || process.argv[3];
+  const id = canonicalCultivationId(idOverride || process.argv[3]);
   if (!id) throw new Error("Usage: apply <cultivation-id>");
   const cycle = await readJson(cycleUrl(id));
   const humanAccepted = cycle.status === "accepted-for-revision" && cycle.human_review?.decision === "accept";
@@ -661,7 +662,7 @@ const runCycle = async (state, policy, memory) => {
     memory.novelty.consecutive_low_yield_cycles = 0;
     await save(memoryUrl, memory);
   }
-  const id = `RL-CULT-${String(state.next_cycle).padStart(4, "0")}`;
+  const id = `RL-CULTIVATE-${String(state.next_cycle).padStart(4, "0")}`;
   await start(state, policy, intake);
   for (let phase = 0; phase < 4; phase += 1) await step(state, policy, memory);
   let cycle = await readJson(cycleUrl(id));

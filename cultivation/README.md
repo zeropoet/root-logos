@@ -35,10 +35,15 @@ node scripts/cultivate.mjs status
 node scripts/cultivate.mjs validate
 node scripts/cultivate.mjs cycle
 node scripts/cultivate.mjs rebuild-memory
-node scripts/cultivate.mjs judge RL-CULT-0005
-node scripts/cultivate.mjs review RL-CULT-0003 accept --by "human name" --note "reason"
-node scripts/cultivate.mjs apply RL-CULT-0003
+node scripts/cultivate.mjs judge RL-CULTIVATE-0005
+node scripts/cultivate.mjs review RL-CULTIVATE-0003 accept --by "human name" --note "reason"
+node scripts/cultivate.mjs apply RL-CULTIVATE-0003
 ```
+
+Cultivation lineage uses the explicit identifier `RL-CULTIVATE-####`. The
+former `RL-CULT-####` abbreviation remains accepted by the CLI and read APIs as
+a historical alias, but all new cycles, filenames, state, memory, and public
+displays use the full name.
 
 `start` snapshots the current constitutional inputs and lets the system choose
 its inquiry lens. Each `step` advances exactly one durable phase: prompting,

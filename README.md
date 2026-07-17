@@ -40,6 +40,9 @@ of carrying them without doctrinal repetition.
 - `cultivation/` contains the pause-and-resume state, policy, evidence archives,
   semantic hypothesis memory, dormancy state, and human authority boundary for
   inward autonomous inquiry.
+- Cultivation cycles use the self-describing identity `RL-CULTIVATE-####`.
+  Historical `RL-CULT-####` references remain readable aliases but are never
+  emitted as new canonical identifiers.
 - `scripts/cultivate.mjs` lets Root Logos generate its own constitutional
   question, search through four distinct methods, remember and suppress
   unchanged hypotheses, evaluate findings, enter dormancy at diminishing

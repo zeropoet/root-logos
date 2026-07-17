@@ -14,15 +14,15 @@ Date: 2026-07-16
 | Refactors accordingly | Low-risk, additive, reversible question relations may self-apply. Snapshot drift prevents stale application. Medium/high-risk semantics, policy, publication, and autonomy boundaries remain human decisions. | Proven |
 | Preserves memory and lineage | Cycle archives contain ordered events, source hashes, embedded or content-addressed policy, evidence, evaluation, judgment, exact operations, authority, and before/after hashes. | Proven |
 | Independent of the 24 fragments | Cultivation commands and state do not read or depend on attractor publication status. The existing attractor validator still passes. | Proven |
-| Repeated verifiable improvement | `RL-CULT-0005` and `RL-CULT-0006` each completed autonomous inquiry, judgment, application, and verification against the canonical graph. | Proven |
+| Repeated verifiable improvement | `RL-CULTIVATE-0005` and `RL-CULTIVATE-0006` each completed autonomous inquiry, judgment, application, and verification against the canonical graph. | Proven |
 
 ## Demonstrated advances
 
-`RL-CULT-0005` integrated the previously isolated question “Is consciousness
+`RL-CULTIVATE-0005` integrated the previously isolated question “Is consciousness
 fundamental?” with `consciousness` and `knowing` through two typed `questions`
 relations.
 
-`RL-CULT-0006` then began from that changed constitution, selected the next
+`RL-CULTIVATE-0006` then began from that changed constitution, selected the next
 unintegrated question, and related “Can civilization become post-institutional?”
 to `bridge-002` and `civilization` without asserting an answer.
 

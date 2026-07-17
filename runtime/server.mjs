@@ -11,6 +11,7 @@ const runtimeDir = dirname(fileURLToPath(import.meta.url));
 const defaultRoot = resolve(runtimeDir, "..");
 const iso = () => new Date().toISOString();
 const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
+const canonicalCultivationId = (id) => String(id || "").replace(/^RL-CULT-/, "RL-CULTIVATE-");
 
 const safeEqual = (left, right) => {
   const a = Buffer.from(left);
@@ -61,7 +62,7 @@ const validateEnvelope = (event) => {
 };
 
 const publicCycle = (cycle) => ({
-  cultivation_id: cycle.cultivation_id,
+  cultivation_id: canonicalCultivationId(cycle.cultivation_id),
   status: cycle.status,
   phase: cycle.phase,
   lens: cycle.lens,
@@ -167,6 +168,15 @@ export const createRuntime = async (options = {}) => {
   let workerPromise = null;
   const saveRuntimeState = () => atomicJson(runtimeStatePath, runtimeState);
   const appendRecord = (record) => appendFile(journalPath, `${JSON.stringify(record)}\n`, { mode: 0o600 });
+  const readCycle = async (id, fallback = null) => {
+    const canonical = canonicalCultivationId(id);
+    try { return await readJson(join(root, "cultivation", "cycles", `${canonical}.json`)); }
+    catch (error) {
+      if (error.code !== "ENOENT") throw error;
+      const legacy = canonical.replace(/^RL-CULTIVATE-/, "RL-CULT-");
+      return readJson(join(root, "cultivation", "cycles", `${legacy}.json`), fallback);
+    }
+  };
 
   const publishChanges = async (trigger) => {
     if (!publish) return { published: false, reason: "publication-disabled" };
@@ -205,8 +215,8 @@ export const createRuntime = async (options = {}) => {
         }
         const result = await commandRunner(args);
         const publication = await publishChanges(trigger);
-        const cycleId = result.stdout.match(/RL-CULT-\d{4,}/)?.[0] || null;
-        const respondingCycle = cycleId ? await readJson(join(root, "cultivation", "cycles", `${cycleId}.json`), {}) : {};
+        const cycleId = canonicalCultivationId(result.stdout.match(/RL-(?:CULTIVATE|CULT)-\d{4,}/)?.[0] || "") || null;
+        const respondingCycle = cycleId ? await readCycle(cycleId, {}) : {};
         const response = {
           cycle_id: cycleId,
           summary: respondingCycle.selected_finding?.claim || respondingCycle.proposal?.summary || result.stdout.split("\n").filter(Boolean).at(-1) || "Cultivation completed."
@@ -303,8 +313,8 @@ export const createRuntime = async (options = {}) => {
         const cycles = await readCycles();
         return send(res, 200, { proposals: cycles.filter(({ proposal }) => proposal).map(({ events, ...cycle }) => cycle) }, cors);
       }
-      const cycleMatch = req.method === "GET" && url.pathname.match(/^\/v1\/cycles\/(RL-CULT-\d{4,})$/);
-      if (cycleMatch) return send(res, 200, publicCycle(await readJson(join(root, "cultivation", "cycles", `${cycleMatch[1]}.json`))), cors);
+      const cycleMatch = req.method === "GET" && url.pathname.match(/^\/v1\/cycles\/(RL-(?:CULTIVATE|CULT)-\d{4,})$/);
+      if (cycleMatch) return send(res, 200, publicCycle(await readCycle(cycleMatch[1])), cors);
       if (req.method === "GET" && url.pathname === "/v1/admin/intake") {
         if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
         return send(res, 200, { observations: currentIntake() }, cors);

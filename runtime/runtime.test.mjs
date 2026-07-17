@@ -32,6 +32,8 @@ try {
   const status = await fetch(`${base}/v1/status`).then((response) => response.json());
   assert.equal(status.policy.constitutional_revision, "v0.8");
   assert.equal(status.intake_count, 0);
+  const legacyCycle = await fetch(`${base}/v1/cycles/RL-CULT-0001`).then((response) => response.json());
+  assert.equal(legacyCycle.cultivation_id, "RL-CULTIVATE-0001");
 
   const publicOffer = await fetch(`${base}/v1/public/intake`, { method: "POST", body: JSON.stringify({
     observation: "A public observation remains outside the constitution until it earns admission.",
