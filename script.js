@@ -6,6 +6,12 @@ const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character)
   "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
 })[character]);
 const sentence = (value = "") => String(value).replace(/[-_]/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
+const canonicalCultivationId = (value = "") => String(value).replace(/^RL-CULT-/, "RL-CULTIVATE-");
+const canonicalCycle = (cycle) => ({
+  ...cycle,
+  cultivation_id: canonicalCultivationId(cycle.cultivation_id),
+  proposal: cycle.proposal ? { ...cycle.proposal, cultivation_id: canonicalCultivationId(cycle.proposal.cultivation_id) } : cycle.proposal
+});
 const shortDate = (value) => value ? new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(new Date(value)) : "Never";
 const hash = (value) => [...String(value)].reduce((sum, character) => ((sum << 5) - sum + character.charCodeAt(0)) | 0, 0);
 const seeded = (value) => {
@@ -50,7 +56,7 @@ const loadData = async () => {
   app.graph = graphResult.value;
   app.memory = memoryResult.status === "fulfilled" ? memoryResult.value : null;
   app.attractors = attractorResult.status === "fulfilled" ? attractorResult.value : { packets: [] };
-  app.cycles = cyclesResult.status === "fulfilled" ? cyclesResult.value.cycles : [];
+  app.cycles = cyclesResult.status === "fulfilled" ? cyclesResult.value.cycles.map(canonicalCycle) : [];
 
   if (runtimeResult.status === "fulfilled") {
     app.runtime = runtimeResult.value;
@@ -69,9 +75,9 @@ const loadData = async () => {
   }
 
   if (!app.cycles.length && app.runtime.cultivation?.history?.length) {
-    const ids = app.runtime.cultivation.history.map(({ cultivation_id }) => cultivation_id).reverse();
+    const ids = app.runtime.cultivation.history.map(({ cultivation_id }) => canonicalCultivationId(cultivation_id)).reverse();
     const loaded = await Promise.allSettled(ids.map((id) => fetchJson(`cultivation/cycles/${id}.json`)));
-    app.cycles = loaded.filter(({ status }) => status === "fulfilled").map(({ value }) => value);
+    app.cycles = loaded.filter(({ status }) => status === "fulfilled").map(({ value }) => canonicalCycle(value));
   }
   app.latest = app.cycles[0] || null;
 };
