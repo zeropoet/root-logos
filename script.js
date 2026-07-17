@@ -513,7 +513,7 @@ class LivingObservatory {
     const packets = app.attractors?.packets || [];
     const packetPoints = packets.map((packet, index) => {
       const published = packet.publication?.status === "published"; const angle = index / Math.max(1, packets.length) * Math.PI * 2 - Math.PI / 2;
-      return { x: this.width * .52 + Math.cos(angle) * Math.min(this.width * .34, 300), y: this.height * .5 + Math.sin(angle) * Math.min(this.height * .35, 200), r: published ? 8 : 3.5, kind: published ? "Emitted fragment" : "Scheduled attractor", title: packet.attractor_id, body: (packet.fragment || []).join(" "), measures: [["State", published ? "Beyond the membrane" : "Awaiting cadence"], ["Not before", shortDate(packet.not_before)]], trace: [packet.node, ...(packet.relations || [])].filter(Boolean).map(nodeTitle), color: published ? "gold" : "memory" };
+      return { x: this.width * .52 + Math.cos(angle) * Math.min(this.width * .34, 300), y: this.height * .5 + Math.sin(angle) * Math.min(this.height * .35, 200), r: published ? 8 : 3.5, kind: published ? "Emitted fragment" : "Scheduled attractor", title: packet.attractor_id, body: (packet.fragment || []).join(" "), measures: [["State", published ? "Beyond the membrane" : "Awaiting cadence"], ["Not before", shortDate(packet.not_before)]], trace: [packet.node, ...(packet.relations || [])].filter(Boolean).map(nodeTitle), color: published ? "gold" : "memory", packetId: packet.attractor_id, sourceNode: packet.node, canonicalUrl: packet.destination?.canonical_url || `https://rootlogos.com/#${packet.node}`, externalUrl: published ? packet.publication?.external_url : null };
     });
     const center = { x: this.width * .52, y: this.height * .5, r: 13, kind: "Constitutional source", title: "Root Logos", body: "Meaning compresses outward through attractors; observed consequence may return only through the governed intake membrane.", measures: [["Founding fragments", packets.length], ["Emitted", packets.filter(({ publication }) => publication?.status === "published").length], ["Returned observations", app.runtime.intake_count || 0]], trace: ["Constitution", "Compression", "Emission", "Encounter", "Observation", "Admission", "Cultivation"], color: "inquiry" };
     return [center, ...packetPoints];
@@ -538,6 +538,10 @@ class LivingObservatory {
     $("#reading-body").textContent = point.body || "No further reading is preserved.";
     $("#reading-measures").innerHTML = (point.measures || []).map(([name, value]) => `<div><span>${escapeHtml(String(name))}</span><b>${escapeHtml(String(value ?? "—"))}</b></div>`).join("");
     $("#reading-trace").innerHTML = (point.trace || []).slice(0, 10).map((item, index) => `<span><i>${String(index + 1).padStart(2, "0")}</i>${escapeHtml(String(item))}</span>`).join("");
+    const actions = [];
+    if (point.sourceNode) actions.push(`<a href="?from=${encodeURIComponent(point.packetId)}#field" data-fragment-source="${escapeHtml(point.sourceNode)}" data-fragment-id="${escapeHtml(point.packetId)}"><span>Trace to constitutional source</span><i>${escapeHtml(nodeTitle(point.sourceNode))} ↗</i></a>`);
+    if (point.externalUrl) actions.push(`<a href="${escapeHtml(point.externalUrl)}" target="_blank" rel="noopener noreferrer"><span>Witness emitted fragment</span><i>Open publication ↗</i></a>`);
+    $("#reading-actions").innerHTML = actions.join("");
     if (open) $("#observatory-reading").classList.add("is-open");
     $("#observatory-selection").setAttribute("aria-expanded", String(open));
   }
@@ -687,13 +691,16 @@ class ConstitutionalField {
 }
 
 let field;
-const selectNode = (node) => {
+const selectNode = (node, provenance = null) => {
   app.selectedNode = node;
   const related = app.graph.edges.filter(({ from, to }) => from === node.id || to === node.id);
   $("#inspector-index").textContent = String(node.index + 1).padStart(2, "0");
   $("#inspector-type").textContent = sentence(node.type);
   $("#inspector-title").textContent = node.title;
   $("#inspector-summary").textContent = node.summary || node.definition || "No summary preserved.";
+  const provenanceElement = $("#inspector-provenance");
+  provenanceElement.hidden = !provenance;
+  provenanceElement.textContent = provenance ? `Arrived through ${provenance}. This fragment is a return path, not a substitute for its source.` : "";
   $("#inspector-relations").innerHTML = related.slice(0, 6).map((edge) => `<span>${escapeHtml(edge.type)} · ${escapeHtml(nodeTitle(edge.from === node.id ? edge.to : edge.from))}</span>`).join("");
   $("#field-inspector").classList.add("is-visible");
 };
@@ -796,6 +803,18 @@ const bindInterface = () => {
     event.preventDefault();
     classifyObservation(event.target);
   });
+  $("#reading-actions").addEventListener("click", (event) => {
+    const link = event.target.closest("[data-fragment-source]");
+    if (!link) return;
+    const node = field?.nodeMap.get(link.dataset.fragmentSource);
+    if (!node) return;
+    event.preventDefault();
+    const fragmentId = link.dataset.fragmentId;
+    history.replaceState(null, "", `?from=${encodeURIComponent(fragmentId)}#field`);
+    selectNode(node, fragmentId);
+    $("#observatory-reading").classList.remove("is-open");
+    $("#field").scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !$("#cycle-drawer").hidden) {
       $("#cycle-drawer").hidden = true;
@@ -829,7 +848,10 @@ const initialize = async () => {
     renderHealth();
     field = new ConstitutionalField($("#field-canvas"), app.graph);
     observatory = new LivingObservatory($("#observatory-canvas"));
-    selectNode(field.nodeMap.get("root-logos") || field.nodes[0]);
+    const returningFragmentId = new URLSearchParams(location.search).get("from");
+    const returningPacket = (app.attractors?.packets || []).find(({ attractor_id: id }) => id === returningFragmentId);
+    const returningNode = returningPacket ? field.nodeMap.get(returningPacket.node) : null;
+    selectNode(returningNode || field.nodeMap.get("root-logos") || field.nodes[0], returningNode ? returningFragmentId : null);
   } catch (error) {
     console.error(error);
     $("#header-state").textContent = "Archive interrupted";

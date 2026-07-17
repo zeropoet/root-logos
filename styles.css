@@ -396,6 +396,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .reading-trace { display: grid; margin-top: 34px; }
 .reading-trace span { display: grid; grid-template-columns: 32px 1fr; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--bone); font-size: .82rem; }
 .reading-trace i { color: var(--gold); font: 500 .48rem/1.5 var(--mono); }
+.reading-actions { display: grid; gap: 10px; margin-top: 34px; }
+.reading-actions:empty { display: none; }
+.reading-actions a { display: grid; gap: 7px; padding: 16px; border: 1px solid var(--line-strong); background: rgba(225,209,152,.025); transition: border-color .25s, background .25s; }
+.reading-actions a:hover { border-color: var(--gold); background: rgba(225,209,152,.07); }
+.reading-actions span { color: var(--ivory); font: 500 .56rem/1 var(--mono); letter-spacing: .11em; text-transform: uppercase; }
+.reading-actions i { color: var(--gold); font-size: .86rem; }
+.inspector-provenance { margin: 18px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line); color: var(--inquiry); font: 500 .54rem/1.6 var(--mono); letter-spacing: .05em; }
 .structural-health { display: grid; grid-template-columns: minmax(250px,.7fr) minmax(0,1.8fr); gap: clamp(40px,7vw,100px); width: min(1500px,100%); margin: clamp(70px,8vw,120px) auto 0; }
 .structural-health header h3 { margin: 18px 0; font: 400 clamp(2.6rem,4vw,4.5rem)/.9 var(--display); }
 .structural-health header > p:last-child { max-width: 380px; color: var(--bone); line-height: 1.6; }
