@@ -705,6 +705,17 @@ const selectNode = (node, provenance = null) => {
   $("#field-inspector").classList.add("is-visible");
 };
 
+const resolveFieldDeepLink = ({ scroll = false } = {}) => {
+  const hashNodeId = decodeURIComponent(location.hash.slice(1));
+  const node = field?.nodeMap.get(hashNodeId);
+  if (!node) return false;
+  const explicitFragmentId = new URLSearchParams(location.search).get("from");
+  const inferredPacket = (app.attractors?.packets || []).find((packet) => packet.node === hashNodeId && packet.publication?.status === "published");
+  selectNode(node, explicitFragmentId || inferredPacket?.attractor_id || null);
+  if (scroll) $("#field").scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  return true;
+};
+
 const bindInterface = () => {
   $(".nav-toggle").addEventListener("click", (event) => {
     const open = $(".primary-nav").classList.toggle("is-open");
@@ -825,6 +836,7 @@ const bindInterface = () => {
       document.body.style.overflow = "";
     }
   });
+  window.addEventListener("hashchange", () => resolveFieldDeepLink({ scroll: true }));
 
   const spaces = $$(".space[data-space-name]");
   const observer = new IntersectionObserver((entries) => {
@@ -848,10 +860,14 @@ const initialize = async () => {
     renderHealth();
     field = new ConstitutionalField($("#field-canvas"), app.graph);
     observatory = new LivingObservatory($("#observatory-canvas"));
-    const returningFragmentId = new URLSearchParams(location.search).get("from");
-    const returningPacket = (app.attractors?.packets || []).find(({ attractor_id: id }) => id === returningFragmentId);
-    const returningNode = returningPacket ? field.nodeMap.get(returningPacket.node) : null;
-    selectNode(returningNode || field.nodeMap.get("root-logos") || field.nodes[0], returningNode ? returningFragmentId : null);
+    if (!resolveFieldDeepLink()) {
+      const returningFragmentId = new URLSearchParams(location.search).get("from");
+      const returningPacket = (app.attractors?.packets || []).find(({ attractor_id: id }) => id === returningFragmentId);
+      const returningNode = returningPacket ? field.nodeMap.get(returningPacket.node) : null;
+      selectNode(returningNode || field.nodeMap.get("root-logos") || field.nodes[0], returningNode ? returningFragmentId : null);
+    } else {
+      requestAnimationFrame(() => $("#field").scrollIntoView({ behavior: "auto" }));
+    }
   } catch (error) {
     console.error(error);
     $("#header-state").textContent = "Archive interrupted";
