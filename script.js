@@ -340,6 +340,7 @@ const renderDrawer = () => {
 
 const buildWaveform = () => {
   const wave = $("#silent-waveform");
+  if (!wave) return;
   wave.innerHTML = Array.from({ length: 46 }, (_, index) => `<i style="--h:${5 + Math.abs(Math.sin(index * .63) * Math.cos(index * .18)) * 32}px"></i>`).join("");
 };
 
@@ -874,6 +875,9 @@ const initialize = async () => {
     } else {
       requestAnimationFrame(() => $("#field").scrollIntoView({ behavior: "auto" }));
     }
+    window.dispatchEvent(new CustomEvent("rootlogos:ready", { detail: {
+      graph: app.graph, runtime: app.runtime, cycles: app.cycles, memory: app.memory, attractors: app.attractors
+    } }));
   } catch (error) {
     console.error(error);
     $("#header-state").textContent = "Archive interrupted";

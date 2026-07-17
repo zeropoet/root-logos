@@ -518,6 +518,33 @@ center rather than prevented at a boundary.
 - `CB-IV` From Reference to Participation
 - `RC-I` The Resonant Chamber
 
+## The Resonant Chamber
+
+Revision 0.8 gives Root Logos a constitutional voice. The public interface now
+contains a live, consent-first Web Audio instrument composed from the current
+constitutional graph, cultivation history, semantic memory, authority state,
+intake, and emitted attractors.
+
+The score is deterministic: an unchanged archive and sonic grammar produce the
+same score signature and event sequence. Every audible voice exposes the data
+that caused it. Silence is an authored interval, not an error or empty state.
+Sound never autoplays, begins at restrained gain, and can be paused, muted, or
+returned to silence at any time.
+
+The chamber audits its own range, silence, recurrence, and traceability while it
+sounds. That audit may identify pressure for a future grammar revision, but it
+cannot alter the grammar autonomously. Changes to constitutional voice remain
+proposals subject to attributable human judgment. The versioned grammar and its
+authority boundary are documented in `resonance/`.
+
+The chamber remains synchronized with the living system while it is open. It
+reconciles the constitutional graph, runtime condition, cultivation cycles,
+semantic memory, intake, and attractor emissions on a recurring interval and
+whenever the page returns to attention. Material architectural change produces
+a new deterministic score signature and enters the composition without cutting
+off the event already sounding. If part of the system cannot be reached, the
+last witnessed score is preserved and labeled honestly until contact returns.
+
 ## Canonical Field Notes
 
 - Time, Memory, and Identity
@@ -581,6 +608,7 @@ Useful checks:
 
 ```sh
 node --check script.js
+node --check resonance.js
 node -e "const fs=require('fs'); const g=JSON.parse(fs.readFileSync('content/constitutional-graph.json','utf8')); const p=JSON.parse(fs.readFileSync('content/export-packets.json','utf8')); const ids=new Set(g.nodes.map(n=>n.id)); const missing=g.edges.flatMap(e=>[e.from,e.to]).filter(id=>!ids.has(id)); const badUrls=g.nodes.filter(n=>n.url&&!['living-statement','bridge'].includes(n.type)); if(missing.length||badUrls.length) throw new Error(JSON.stringify({missing,badUrls})); console.log(g.nodes.length+' nodes, '+g.edges.length+' edges, '+p.length+' export packets')"
 ```
 

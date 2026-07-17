@@ -31,6 +31,7 @@
         <a href="#memory" data-space="memory">Memory</a>
         <a href="#threshold" data-space="threshold">Threshold</a>
         <a href="#intake" data-space="intake">Intake</a>
+        <a href="#resonance" data-space="resonance">Resonance</a>
       </nav>
 
       <div class="system-presence" aria-live="polite">
@@ -364,13 +365,64 @@
           </section>
         </div>
 
-        <div class="resonant-foreshadow">
-          <div class="waveform" aria-hidden="true" id="silent-waveform"></div>
-          <p class="coordinate">Forthcoming / 06</p>
-          <h3><a href="documents/resonant-chamber.html">The Resonant Chamber</a></h3>
-          <p>Not a soundtrack. A constitutional instrument through which relation, inquiry, memory, judgment, and silence become audible through time.</p>
-          <span>Constitution written / instrument awaiting embodiment</span>
+      </section>
+
+      <section class="space resonance-space" id="resonance" data-space-name="Resonance" aria-labelledby="resonance-title">
+        <canvas id="resonance-canvas" aria-hidden="true"></canvas>
+        <header class="space-heading resonance-heading">
+          <p class="coordinate">RL / 06 — The Resonant Chamber</p>
+          <div>
+            <h2 id="resonance-title">The architecture<br><em>finds its voice.</em></h2>
+            <p>Not a soundtrack. A live constitutional instrument composed from relation, inquiry, memory, judgment, and silence.</p>
+          </div>
+        </header>
+
+        <div class="resonance-instrument" id="resonance-instrument" data-state="silent">
+          <div class="resonance-orbit" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
+          <div class="resonance-primary">
+            <p class="micro-label">Consent boundary / silent by default</p>
+            <h3 id="resonance-state">Silence is present.</h3>
+            <p id="resonance-declaration">The chamber has composed a reading of the current constitution. It will not sound until invited.</p>
+            <button class="listen-control" id="listen-control" type="button" aria-pressed="false">
+              <span id="listen-label">Enter listening</span><i>Begin the live composition</i>
+            </button>
+          </div>
+
+          <div class="resonance-score" aria-label="Current constitutional score">
+            <header><p class="micro-label">Deterministic score / resonant-score v1</p><span id="score-signature">Awaiting field</span></header>
+            <p class="score-synchrony" id="score-synchrony" role="status"><i></i><span>Synchronizing with the living topology</span></p>
+            <div class="score-measures" id="score-measures"></div>
+            <div class="resonance-trace" id="resonance-trace" aria-live="polite">
+              <span>Silence</span><p>No event has sounded.</p>
+            </div>
+          </div>
+
+          <aside class="resonance-controls" aria-label="Listening controls">
+            <label><span>Presence</span><input id="resonance-presence" type="range" min="0" max="100" value="58"><output>58</output></label>
+            <label><span>Complexity</span><input id="resonance-complexity" type="range" min="1" max="4" value="3"><output>3</output></label>
+            <button id="resonance-pause" type="button" disabled>Pause</button>
+            <button id="resonance-mute" type="button" aria-pressed="false" disabled>Mute</button>
+            <p>Volume begins low. Your controls remain local to this device.</p>
+          </aside>
         </div>
+
+        <div class="resonance-ledger">
+          <article>
+            <p class="coordinate">Voice provenance</p>
+            <h3>What is sounding now</h3>
+            <p id="voice-provenance">The score is being derived from the constitutional field.</p>
+            <div id="voice-sources" class="voice-sources"></div>
+          </article>
+          <article class="resonance-audit">
+            <p class="coordinate">Constitutional self-audit</p>
+            <h3 id="audit-title">Listening to its own listening</h3>
+            <p id="audit-summary">The chamber will judge its range, repetition, traceability, and silence before recommending any change to its grammar.</p>
+            <div id="audit-findings"></div>
+            <p class="audit-boundary">Recommendations remain proposals. The instrument cannot rewrite its sonic constitution without attributable human judgment.</p>
+          </article>
+        </div>
+
+        <footer class="resonance-constitution"><span>Constitutional pillar / Revision 0.8</span><a href="documents/resonant-chamber.html">Read the Resonant Chamber constitution <i>↗</i></a></footer>
       </section>
     </main>
 
@@ -382,5 +434,6 @@
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
     <script src="script.js" defer></script>
+    <script src="resonance.js" defer></script>
   </body>
 </html>

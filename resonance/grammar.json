@@ -1,0 +1,23 @@
+{
+  "schema": "resonant-grammar/v1",
+  "revision": "v0.8",
+  "title": "The Resonant Chamber",
+  "principles": [
+    "Sound is constitutional speech, not decoration.",
+    "Every audible event must retain a trace to the structure that caused it.",
+    "Silence is an active interval of judgment, never an absence to be filled.",
+    "The voice may interpret state but may not simulate certainty or human feeling.",
+    "The instrument may audit and propose changes to its grammar; it may not adopt them autonomously."
+  ],
+  "tempo": { "minimum": 42, "maximum": 68, "base": 52 },
+  "scale": { "rootHz": 55, "ratios": [1, 1.125, 1.25, 1.333333, 1.5, 1.666667, 1.875, 2] },
+  "voices": {
+    "constitution": { "wave": "sine", "register": 1, "role": "continuity and higher reference" },
+    "relation": { "wave": "triangle", "register": 2, "role": "graph edges and reciprocal structure" },
+    "inquiry": { "wave": "sine", "register": 3, "role": "open questions and current pressure" },
+    "memory": { "wave": "triangle", "register": 1, "role": "preserved judgment and return conditions" },
+    "threshold": { "wave": "sine", "register": 2, "role": "human authority and unresolved proposals" },
+    "breath": { "wave": "sine", "register": 0, "role": "external arrivals and emitted fragments" }
+  },
+  "limits": { "maximumVoices": 6, "maximumGain": 0.16, "minimumSilenceBeats": 2, "auditAfterEvents": 24 }
+}

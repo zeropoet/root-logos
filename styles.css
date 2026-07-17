@@ -328,12 +328,64 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .classification-submit { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
 .classification-submit button { padding: 13px 18px; border: 1px solid var(--green); background: transparent; color: var(--ivory); cursor: pointer; font: .52rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .classification-submit p { margin: 0; color: var(--dim); font: .48rem/1.4 var(--mono); }
-.resonant-foreshadow { position: relative; z-index: 2; display: grid; grid-template-columns: .75fr 1fr 1.2fr .8fr; gap: 3vw; align-items: center; width: min(1380px, 100%); margin: 40px auto 0; padding: 38px 0 12px; border-top: 1px solid var(--line-strong); }
-.resonant-foreshadow h3 { margin: 0; font: 400 clamp(1.9rem, 3vw, 3.3rem)/1 var(--display); }
-.resonant-foreshadow > p:not(.coordinate) { margin: 0; color: var(--dim); line-height: 1.55; }
-.resonant-foreshadow > span { color: var(--ghost); font: .5rem/1.5 var(--mono); letter-spacing: .09em; text-transform: uppercase; }
-.waveform { display: flex; align-items: center; gap: 3px; height: 48px; }
-.waveform i { flex: 1; max-width: 2px; height: var(--h); background: var(--ghost); opacity: .45; }
+
+/* Resonant Chamber */
+.resonance-space { min-height: 1200px; isolation: isolate; background: radial-gradient(circle at 42% 50%, rgba(147,185,187,.07), transparent 30%), linear-gradient(180deg,#080a08,#050605); }
+#resonance-canvas { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.resonance-heading { margin-bottom: clamp(50px,7vw,95px); }
+.resonance-instrument { --resonant-energy: .15; position: relative; display: grid; grid-template-columns: minmax(260px,.9fr) minmax(380px,1.4fr) minmax(190px,.55fr); gap: clamp(24px,4vw,70px); align-items: center; width: min(1450px,100%); min-height: 540px; margin: 0 auto; padding: clamp(30px,5vw,70px); border: 1px solid var(--line-strong); background: rgba(6,8,6,.68); overflow: hidden; }
+.resonance-instrument::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:var(--resonant-energy); background:radial-gradient(circle at 18% 50%,rgba(225,209,152,.13),transparent 32%); transition:opacity 1.2s; }
+.resonance-orbit { position:absolute; top:50%; left:18%; width:380px; height:380px; transform:translate(-50%,-50%); opacity:.35; pointer-events:none; }
+.resonance-orbit i,.resonance-orbit span { position:absolute; inset:var(--inset,0); border:1px solid var(--line); border-radius:50%; }
+.resonance-orbit i:nth-child(2){--inset:48px}.resonance-orbit i:nth-child(3){--inset:96px}.resonance-orbit span{--inset:148px;border-color:var(--gold);background:rgba(203,183,122,.08);box-shadow:0 0 50px rgba(203,183,122,.08)}
+.resonance-instrument[data-state="sounding"] .resonance-orbit { animation:slow-spin 48s linear infinite; opacity:.7; }
+.resonance-primary { position:relative; z-index:2; }
+.resonance-primary h3 { margin:25px 0 18px; font:400 clamp(2.5rem,4.5vw,5.2rem)/.88 var(--display); }
+.resonance-primary > p:not(.micro-label) { max-width:430px; margin:0; color:var(--bone); line-height:1.65; }
+.listen-control { display:grid; gap:7px; min-width:240px; margin-top:38px; padding:18px 20px; border:1px solid var(--gold); background:rgba(203,183,122,.03); cursor:pointer; text-align:left; transition:.3s; }
+.listen-control:hover { background:var(--gold); color:var(--void); }
+.listen-control span { font:500 .62rem/1 var(--mono); letter-spacing:.12em; text-transform:uppercase; }
+.listen-control i { color:var(--dim); font-size:.78rem; }
+.resonance-score { position:relative; z-index:2; align-self:stretch; display:grid; align-content:center; }
+.resonance-score header { display:flex; justify-content:space-between; gap:20px; padding-bottom:18px; border-bottom:1px solid var(--line); }
+#score-signature { color:var(--gold); font:500 .5rem/1.5 var(--mono); letter-spacing:.09em; text-transform:uppercase; }
+.score-synchrony { display:flex; align-items:center; gap:9px; margin:13px 0 0; color:var(--dim); font:500 .46rem/1.4 var(--mono); letter-spacing:.07em; text-transform:uppercase; }
+.score-synchrony i { width:5px; height:5px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); }
+.score-synchrony[data-state="listening"] i { animation:breathe 1.2s ease-in-out infinite; }
+.score-synchrony[data-state="preserved"] i { background:var(--gold); box-shadow:none; }
+.score-synchrony[data-state="recomposed"] { color:var(--gold); }
+.score-measures { display:flex; align-items:center; gap:5px; height:170px; overflow:hidden; border-bottom:1px solid var(--line); }
+.score-measures i { flex:var(--measure); min-width:2px; height:calc(12px + var(--voice) * 13px); max-width:18px; background:linear-gradient(to top,var(--inquiry),var(--gold)); opacity:.58; transform-origin:center; transition:opacity .4s,transform .4s; }
+.resonance-instrument[data-state="sounding"] .score-measures i { animation:score-breathe 3.4s calc(var(--voice) * -.47s) ease-in-out infinite; }
+.score-measures i.is-rest { height:1px; background:var(--line-strong); opacity:1; }
+.resonance-trace { display:grid; grid-template-columns:150px 1fr; gap:20px; min-height:76px; padding:20px 0; }
+.resonance-trace span { color:var(--gold); font:500 .52rem/1.5 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+.resonance-trace p { margin:0; color:var(--bone); font-size:.84rem; line-height:1.5; }
+.resonance-controls { position:relative; z-index:2; display:grid; gap:22px; padding-left:24px; border-left:1px solid var(--line); }
+.resonance-controls label { display:grid; grid-template-columns:1fr auto; gap:10px; color:var(--dim); font:500 .52rem/1 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+.resonance-controls input { grid-column:1/-1; width:100%; height:1px; appearance:none; background:var(--line-strong); accent-color:var(--gold); }
+.resonance-controls input::-webkit-slider-thumb { width:10px;height:10px;appearance:none;border:1px solid var(--gold);border-radius:50%;background:var(--void); }
+.resonance-controls button { padding:12px; border:1px solid var(--line-strong); background:transparent; cursor:pointer; color:var(--bone); font:500 .52rem/1 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+.resonance-controls button:disabled { opacity:.25; cursor:not-allowed; }
+.resonance-controls > p { margin:0; color:var(--ghost); font:.48rem/1.55 var(--mono); }
+.resonance-ledger { display:grid; grid-template-columns:1fr 1fr; width:min(1450px,100%); margin:clamp(65px,8vw,110px) auto 0; border-top:1px solid var(--line-strong); border-left:1px solid var(--line); }
+.resonance-ledger > article { padding:clamp(28px,4vw,58px); border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+.resonance-ledger h3 { margin:20px 0 17px; font:400 clamp(2rem,3.5vw,4rem)/.95 var(--display); }
+.resonance-ledger article > p:not(.coordinate):not(.audit-boundary) { max-width:580px; color:var(--bone); line-height:1.6; }
+.voice-sources,#audit-findings { display:grid; margin-top:35px; border-top:1px solid var(--line); }
+.voice-sources div,#audit-findings div { display:grid; grid-template-columns:110px 1fr auto; gap:15px; align-items:center; min-height:58px; border-bottom:1px solid var(--line); }
+.voice-sources span,#audit-findings span { color:var(--gold); font:500 .48rem/1 var(--mono); letter-spacing:.08em; text-transform:uppercase; }
+.voice-sources b,#audit-findings b { font:400 .83rem/1.35 var(--body); }
+.voice-sources small,#audit-findings i { color:var(--dim); font:500 .46rem/1.4 var(--mono); text-align:right; }
+.audit-boundary { margin:32px 0 0; padding:18px 0 0; border-top:1px solid var(--rust); color:var(--dim); font:.5rem/1.6 var(--mono); letter-spacing:.04em; text-transform:uppercase; }
+.resonance-constitution { display:flex; justify-content:space-between; gap:30px; width:min(1450px,100%); margin:38px auto 0; color:var(--dim); font:500 .52rem/1.5 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+.resonance-constitution a { color:var(--gold); }
+@keyframes score-breathe { 0%,100%{opacity:.32;transform:scaleY(.65)} 50%{opacity:.9;transform:scaleY(1.12)} }
+
+@media (prefers-reduced-motion: reduce) {
+  .resonance-instrument[data-state="sounding"] .resonance-orbit,
+  .resonance-instrument[data-state="sounding"] .score-measures i { animation: none; }
+}
 
 .site-footer { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; align-items: end; padding: 80px var(--edge); background: #060705; }
 .site-footer > div { display: flex; align-items: center; gap: 14px; font: .7rem/1 var(--mono); letter-spacing: .15em; text-transform: uppercase; }
@@ -435,8 +487,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .membrane-instrument { grid-template-columns: .9fr 1fr; }
   .intake-readout { grid-column: 2; }
   .observation-instrument { grid-template-columns: 1fr; }
-  .resonant-foreshadow { grid-template-columns: .6fr 1fr 1.3fr; }
-  .resonant-foreshadow > span { display: none; }
+  .resonance-instrument { grid-template-columns:1fr 1.35fr; }
+  .resonance-controls { grid-column:1/-1; grid-template-columns:1fr 1fr auto auto; padding:24px 0 0; border-top:1px solid var(--line); border-left:0; }
 }
 
 @media (max-width: 760px) {
@@ -500,7 +552,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .intake-review { padding: 28px 0; overflow: visible; }
   .observation-context, .classification-form { grid-template-columns: 1fr; }
   .classification-form .field-wide { grid-column: auto; }
-  .resonant-foreshadow { grid-template-columns: 1fr; gap: 18px; }
+  .resonance-space { min-height:auto; }
+  .resonance-instrument { grid-template-columns:1fr; padding:28px 20px; }
+  .resonance-orbit { left:50%; width:300px; height:300px; opacity:.2; }
+  .resonance-score { min-width:0; }
+  .score-measures { height:120px; }
+  .resonance-controls { grid-column:auto; grid-template-columns:1fr 1fr; }
+  .resonance-controls label { grid-column:1/-1; }
+  .resonance-ledger { grid-template-columns:1fr; }
+  .voice-sources div,#audit-findings div { grid-template-columns:82px 1fr; }
+  .voice-sources small,#audit-findings i { grid-column:2; text-align:left; }
+  .resonance-constitution { display:grid; }
   .observatory-space { min-height: auto; }
   .observatory-stage, .observatory-instrument { min-height: 650px; }
   .observatory-stage-head { top: 22px; right: 20px; left: 20px; display: block; }
