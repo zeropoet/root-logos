@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "constitutional_revision": "v0.8",
+  "constitutional_revision": "v0.9",
   "mode": "bounded-self-refactoring",
   "triggers": {
     "canonical_change": {
       "enabled": true,
       "branch": "main",
-      "paths": ["content/constitutional-graph.json", "content/export-packets.json", "content/*.md", "cultivation/policy.json"]
+      "paths": ["content/constitutional-graph.json", "content/export-packets.json", "content/*.md", "cultivation/policy.json", "journal/policy.json", "journal/*.schema.json", "self-authorship/current.json", "self-authorship/policy.json"]
     },
     "periodic": {
       "enabled": true,
@@ -21,7 +21,11 @@
   "canonical_sources": [
     "content/constitutional-graph.json",
     "content/export-packets.json",
-    "content/*.md"
+    "content/*.md",
+    "journal/policy.json",
+    "journal/*.schema.json",
+    "self-authorship/current.json",
+    "self-authorship/policy.json"
   ],
   "lenses": [
     {

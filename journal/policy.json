@@ -1,0 +1,44 @@
+{
+  "schema": "journal-intake-policy/v1",
+  "constitutional_revision": "v0.9",
+  "status": "planned-not-enabled",
+  "default_adapter": "local-drop",
+  "source_grant": {
+    "required": true,
+    "human_attributable": true,
+    "revocable": true,
+    "scope_fields": ["source", "owner", "adapter", "include", "exclude", "cadence", "retention_class", "privacy_mode", "revocation_method"]
+  },
+  "collection": {
+    "enabled": false,
+    "maximum_entries_per_batch": 12,
+    "minimum_interval_minutes": 60,
+    "quiet_hours_local": ["22:00", "07:00"],
+    "duplicate_identity": "source_grant_id + source_entry_id + content_digest"
+  },
+  "privacy": {
+    "raw_storage": "transient-private-encrypted-working-copy",
+    "raw_retention": "release-after-successful-transformation-or-bounded-failure-window",
+    "durable_outputs": ["source_receipt", "content_digest", "derived_structures", "transformation_lineage", "judgment", "consequences"],
+    "public_metadata": ["event_id", "received_at", "source_class", "content_digest", "status"],
+    "forbidden_destinations": ["git", "public-api", "logs", "analytics", "attractor-output", "resonant-output", "model-training"],
+    "third_party_material": "automatic-hold",
+    "secret_detection": "automatic-hold",
+    "revocation": "stop-collection-release-working-copy-and-append-revocation-record"
+  },
+  "triage": {
+    "autonomous_recommendation": true,
+    "automatic_dispositions": ["hold-duplicate", "hold-malformed", "hold-out-of-scope", "hold-sensitive"],
+    "allowed_dispositions": ["hold", "rejected", "admissible", "promoted"],
+    "required_outputs": ["recommended_disposition", "reason", "confidence", "candidate_relations", "novelty_comparison", "counterargument", "risk_flags"]
+  },
+  "admission": {
+    "human_required": false,
+    "authority_basis": "entry-addition-or-active-source-grant",
+    "wake_dispositions": ["admissible", "promoted"],
+    "arrival_is_evidence": false,
+    "promotion_grants_mutation_authority": true,
+    "mutation_boundary": "reversible structures passing cultivation judgment; forbidden constitutional boundaries remain immutable"
+  },
+  "implementation_phases": ["local-drop", "review-intelligence", "scheduled-intake", "replaceable-adapters", "longitudinal-reflection"]
+}

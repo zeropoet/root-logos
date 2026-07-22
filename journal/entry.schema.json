@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rootlogos.com/journal/entry.schema.json",
+  "title": "Private Journal Observation Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "source_grant_id", "source_entry_id", "observed_at", "received_at", "content_digest", "content_reference", "adapter", "privacy", "status"],
+  "properties": {
+    "event_id": { "type": "string", "pattern": "^RL-JOURNAL-[0-9A-F]{12}$" },
+    "source_grant_id": { "type": "string", "minLength": 1 },
+    "source_entry_id": { "type": "string", "minLength": 1 },
+    "observed_at": { "type": "string", "format": "date-time" },
+    "received_at": { "type": "string", "format": "date-time" },
+    "content_digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "content_reference": { "type": "string", "description": "Ephemeral encrypted working reference destroyed after transformation or bounded failure expiry." },
+    "adapter": { "type": "object", "required": ["id", "version"], "properties": { "id": { "type": "string" }, "version": { "type": "string" } } },
+    "privacy": { "type": "object", "required": ["retention_class", "sensitivity", "third_party_review"], "properties": { "retention_class": { "type": "string" }, "sensitivity": { "type": "string" }, "third_party_review": { "type": "boolean" } } },
+    "status": { "enum": ["quarantined", "held", "unreviewed", "rejected", "admissible", "promoted", "revoked"] },
+    "derived": { "type": "array", "description": "Minimal claims, relations, questions, contradictions, or pressures produced from the released source.", "items": { "type": "object" } },
+    "transformation": { "type": "object", "description": "Method, confidence, fidelity checks, and release receipt." },
+    "triage": { "type": "object" },
+    "lineage": { "type": "array", "items": { "type": "object" } }
+  }
+}

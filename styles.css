@@ -328,6 +328,18 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .classification-submit { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
 .classification-submit button { padding: 13px 18px; border: 1px solid var(--green); background: transparent; color: var(--ivory); cursor: pointer; font: .52rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .classification-submit p { margin: 0; color: var(--dim); font: .48rem/1.4 var(--mono); }
+.journal-plan { position:relative; z-index:2; width:min(1380px,100%); margin:clamp(60px,8vw,110px) auto 0; padding:clamp(28px,4vw,56px); border:1px solid var(--line-strong); background:linear-gradient(135deg,rgba(147,185,187,.055),transparent 52%); }
+.journal-plan > header { display:grid; grid-template-columns:1fr minmax(260px,.7fr); gap:6vw; align-items:end; }
+.journal-plan h3 { margin:16px 0 0; font:400 clamp(2.5rem,5vw,5.6rem)/.9 var(--display); }
+.journal-plan > header > p { margin:0; color:var(--bone); line-height:1.65; }
+.journal-plan ol { display:grid; grid-template-columns:repeat(7,1fr); margin:50px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+.journal-plan li { min-height:130px; padding:17px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+.journal-plan li span { color:var(--gold); font:500 .5rem/1 var(--mono); }
+.journal-plan li div { display:grid; gap:8px; margin-top:31px; }
+.journal-plan li b { font:400 .9rem/1.2 var(--body); }
+.journal-plan li small { color:var(--dim); font:.48rem/1.45 var(--mono); }
+.journal-plan footer { display:flex; justify-content:space-between; gap:25px; margin-top:26px; color:var(--dim); font:500 .5rem/1.5 var(--mono); letter-spacing:.09em; text-transform:uppercase; }
+.journal-plan footer a { color:var(--gold); }
 
 /* Resonant Chamber */
 .resonance-space { min-height: 1200px; isolation: isolate; background: radial-gradient(circle at 42% 50%, rgba(147,185,187,.07), transparent 30%), linear-gradient(180deg,#080a08,#050605); }
@@ -487,6 +499,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .membrane-instrument { grid-template-columns: .9fr 1fr; }
   .intake-readout { grid-column: 2; }
   .observation-instrument { grid-template-columns: 1fr; }
+  .journal-plan ol { grid-template-columns:repeat(3,1fr); }
   .resonance-instrument { grid-template-columns:1fr 1.35fr; }
   .resonance-controls { grid-column:1/-1; grid-template-columns:1fr 1fr auto auto; padding:24px 0 0; border-top:1px solid var(--line); border-left:0; }
 }
@@ -552,6 +565,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .intake-review { padding: 28px 0; overflow: visible; }
   .observation-context, .classification-form { grid-template-columns: 1fr; }
   .classification-form .field-wide { grid-column: auto; }
+  .journal-plan > header { grid-template-columns:1fr; }
+  .journal-plan ol { grid-template-columns:1fr 1fr; }
+  .journal-plan footer { display:grid; }
   .resonance-space { min-height:auto; }
   .resonance-instrument { grid-template-columns:1fr; padding:28px 20px; }
   .resonance-orbit { left:50%; width:300px; height:300px; opacity:.2; }

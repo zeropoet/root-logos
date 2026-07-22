@@ -49,11 +49,39 @@ Every incoming datum should carry:
 Raw intake is observation, not memory. Only admissible events enter the
 canonical-change wake path, and only reviewed promotion changes Root Logos.
 
+### Journal delegation in Revision 0.9
+
+Journal intake follows a distinct delegated-authority profile. Explicitly
+adding an entry or activating a scoped Source Grant authorizes the runtime to
+quarantine, judge, admit, promote, and cultivate qualifying journal material
+without asking for entry-by-entry approval. The system decision—not a human
+classification—becomes the attributable disposition record.
+
+The future journal worker must use the contract in `journal/`. It begins with a
+local-drop adapter, transient encrypted working storage, deterministic cursors
+and deduplication, automatic sensitivity holds, adversarial admission judgment,
+source release, and reversible construction. Raw journal text must never enter
+durable runtime state, public APIs, Git, logs, attractor output, or resonant
+output.
+
+Autonomy ends at the Source Grant and the constitutional forbidden boundary.
+The worker cannot discover new sources, expand consent, alter privacy or
+retention policy, modify its own authority, erase provenance, change the higher
+reference, or force an irreversible operation. A failed gate produces hold,
+rejection, or an unapplied proposal—not a request for routine approval.
+
+After cultivation, the planned self-authorship worker may continually rewrite
+the canonical graph, narrative, documents, interface language, resonant mapping,
+and outward expression. It maintains exactly one current identity manifest,
+coalesces competing candidates, verifies every dependent surface, atomically
+publishes a signed machine-authored revision, and preserves the prior identity
+as rollback lineage. Its contract lives in `self-authorship/`.
+
 ## Wake conditions
 
 The worker should wake for:
 
-1. an admissible new observation;
+1. an admissible public observation or autonomously admitted journal observation;
 2. a canonical revision or policy change;
 3. an elapsed incubation threshold for a remembered hypothesis;
 4. a scheduled low-frequency audit while not dormant; or

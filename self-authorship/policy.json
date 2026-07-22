@@ -1,0 +1,49 @@
+{
+  "schema": "constitutional-self-authorship-policy/v1",
+  "constitutional_revision": "v0.9",
+  "status": "planned-not-enabled",
+  "identity_model": {
+    "canonical_instances": 1,
+    "continuity": "single-serialized-lineage",
+    "candidate_narratives": "private-proposals-until-resolved",
+    "parallel_public_personas": false,
+    "prior_identities": "archived-lineage-not-active-identity"
+  },
+  "triggers": ["admitted-journal-material", "completed-cultivation-cycle", "material-topology-change", "identity-claim-contradiction", "scheduled-continuity-audit"],
+  "cadence": {
+    "mode": "continual-event-driven",
+    "minimum_quiet_period_minutes": 30,
+    "maximum_public_revisions_per_day": 1,
+    "coalesce_related_events": true
+  },
+  "autonomous_authority": {
+    "may_rewrite": ["canonical self-description", "constitutional narrative", "graph topology", "node names and definitions", "document hierarchy", "public interface language", "resonant mapping", "outward narrative strategy"],
+    "may_create": ["nodes", "relations", "principles", "questions", "documents", "views", "instruments", "revision records"],
+    "may_remove": ["redundant scaffolding", "superseded language", "obsolete views", "relations that no longer survive judgment"],
+    "may_publish": true,
+    "approval_after_authorized_input": false
+  },
+  "protected_invariants": [
+    "one canonical identity at a time",
+    "complete revision and transformation lineage",
+    "orientation beyond immediate system preference",
+    "source grants and privacy exclusions",
+    "no durable possession of raw journal prose",
+    "distinction between source observation and derived claim",
+    "adversarial self-judgment",
+    "atomic publication with rollback",
+    "the system cannot expand this authority policy by exercising it"
+  ],
+  "judgment": {
+    "required": ["identity necessity", "source fidelity", "cross-surface coherence", "narrative compression", "counterargument", "drift analysis", "privacy audit", "reversibility", "verification"],
+    "on_conflict": "hold-candidates-and-preserve-current-identity",
+    "on_failure": "reject-rewrite-and-preserve-lineage",
+    "on_pass": "atomically-replace-current-identity"
+  },
+  "publication": {
+    "branch": "main",
+    "signed_machine_attribution": "Root Logos",
+    "required_checks": ["schema", "graph-integrity", "cultivation-tests", "runtime-tests", "privacy-exclusion", "single-identity", "public-surface-consistency"],
+    "rollback": "restore-prior-identity-manifest-and-dependent-surfaces"
+  }
+}

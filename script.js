@@ -33,7 +33,8 @@ const app = {
   selectedObservation: null,
   filter: "all",
   observatoryMode: "lineage",
-  observatorySelection: null
+  observatorySelection: null,
+  identity: null
 };
 
 const fetchJson = async (url) => {
@@ -43,19 +44,21 @@ const fetchJson = async (url) => {
 };
 
 const loadData = async () => {
-  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult] = await Promise.allSettled([
+  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, identityResult] = await Promise.allSettled([
     fetchJson("content/constitutional-graph.json"),
     fetchJson(`${RUNTIME}/v1/status`),
     fetchJson(`${RUNTIME}/v1/cycles`),
     fetchJson("cultivation/memory.json"),
     fetchJson("cultivation/state.json"),
-    fetchJson("content/attractor-packets.json")
+    fetchJson("content/attractor-packets.json"),
+    fetchJson("self-authorship/current.json")
   ]);
 
   if (graphResult.status !== "fulfilled") throw graphResult.reason;
   app.graph = graphResult.value;
   app.memory = memoryResult.status === "fulfilled" ? memoryResult.value : null;
   app.attractors = attractorResult.status === "fulfilled" ? attractorResult.value : { packets: [] };
+  app.identity = identityResult.status === "fulfilled" ? identityResult.value : null;
   app.cycles = cyclesResult.status === "fulfilled" ? cyclesResult.value.cycles.map(canonicalCycle) : [];
 
   if (runtimeResult.status === "fulfilled") {
@@ -84,6 +87,16 @@ const loadData = async () => {
 
 const renderPresence = () => {
   const service = app.runtime.service;
+  if (app.identity) {
+    const headline = app.identity.headline;
+    if (headline) {
+      $("#field-title span").textContent = headline.lead;
+      $("#field-title em").textContent = headline.emphasis;
+    }
+    $(".field-intro").textContent = app.identity.declaration;
+    document.title = `${app.identity.name} — A Living Constitutional Intelligence`;
+    $("meta[name='description']")?.setAttribute("content", app.identity.declaration);
+  }
   const status = service.status || "unknown";
   const header = $(".system-presence");
   header.dataset.state = status;
@@ -876,7 +889,7 @@ const initialize = async () => {
       requestAnimationFrame(() => $("#field").scrollIntoView({ behavior: "auto" }));
     }
     window.dispatchEvent(new CustomEvent("rootlogos:ready", { detail: {
-      graph: app.graph, runtime: app.runtime, cycles: app.cycles, memory: app.memory, attractors: app.attractors
+      graph: app.graph, runtime: app.runtime, cycles: app.cycles, memory: app.memory, attractors: app.attractors, identity: app.identity
     } }));
   } catch (error) {
     console.error(error);

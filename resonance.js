@@ -37,7 +37,7 @@
     }
 
     compose() {
-      const { graph, runtime, cycles, memory, attractors } = this.state;
+      const { graph, runtime, cycles, memory, attractors, identity } = this.state;
       const nodes = graph.nodes || [];
       const edges = graph.edges || [];
       const hypotheses = Object.values(memory?.hypotheses || {});
@@ -51,7 +51,8 @@
         cycles: cycles.map(({ cultivation_id, status, decision, updated_at }) => [cultivation_id, status, decision, updated_at]),
         memory: hypotheses.map(({ fingerprint, status, considerations, last_cycle }) => [fingerprint, status, considerations, last_cycle]),
         attractors: (attractors?.packets || []).map(({ attractor_id, status, publication }) => [attractor_id, status, publication?.status, publication?.published_at]),
-        runtime: [runtime.service?.status, runtime.service?.last_wake_at, runtime.intake_count, runtime.intake_pending, runtime.hypothesis_count]
+        runtime: [runtime.service?.status, runtime.service?.last_wake_at, runtime.intake_count, runtime.intake_pending, runtime.hypothesis_count],
+        identity: [identity?.revision, identity?.signature, identity?.declaration]
       });
       const seed = hash(seedText);
       const tempo = clamp(this.grammar.tempo.base + (edges.length % 9) - (runtime.dormancy?.active ? 8 : 0), this.grammar.tempo.minimum, this.grammar.tempo.maximum);
@@ -128,7 +129,8 @@
           request(`${RUNTIME}/v1/status`),
           request(`${RUNTIME}/v1/cycles`),
           request(`cultivation/memory.json${bust}`),
-          request(`content/attractor-packets.json${bust}`)
+          request(`content/attractor-packets.json${bust}`),
+          request(`self-authorship/current.json${bust}`)
         ]);
         if (!results.some(({ status }) => status === "fulfilled")) throw new Error("No topology source responded");
         const value = (index, fallback) => results[index].status === "fulfilled" ? results[index].value : fallback;
@@ -138,7 +140,8 @@
           runtime: value(1, this.state.runtime),
           cycles: cycleResult.cycles || this.state.cycles,
           memory: value(3, this.state.memory),
-          attractors: value(4, this.state.attractors)
+          attractors: value(4, this.state.attractors),
+          identity: value(5, this.state.identity)
         }, results.every(({ status }) => status === "fulfilled") ? "live topology" : "reconciled topology");
       } catch (error) {
         this.renderSynchrony("preserved");

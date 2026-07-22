@@ -31,3 +31,8 @@ events rather than restarting or breaking an existing tone.
 If live contact is unavailable, the last witnessed score remains intact and is
 identified as preserved rather than current. A later successful contact
 reconciles it automatically.
+
+Revision 0.9 adds the single current identity manifest to the score signature.
+When Root Logos eventually rewrites its identity, the Resonant Chamber will
+recompose from that same manifest rather than developing a divergent sonic
+self-description. Raw journal prose is never a resonant source.
