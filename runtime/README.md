@@ -53,8 +53,39 @@ authority; it gives the observation first inquiry position, widens the number
 of constitutional resonances inspected, and assigns the highest bounded
 novelty weight. All ordinary proposal and judgment gates still apply.
 
-`ROOT_LOGOS_GIT_PUBLISH=0` is the safe deployment default. Set it to `1` only
-after the server has a narrow GitHub deploy credential and branch publication
-has been intentionally transferred from GitHub Actions.
+Production convergence is bidirectional:
+
+- GitHub's `deploy-runtime.yml` sends each `main` commit SHA to the fixed,
+  secret-authenticated `/v1/internal/deploy` boundary. The runtime waits for an
+  active wake to finish, rebases to `main`, exits cleanly, and systemd restarts
+  it from the converged checkout.
+- With `ROOT_LOGOS_GIT_PUBLISH=1`, cultivation commits only its bounded lineage
+  files, rebases against concurrent GitHub work, and pushes through a
+  repository-scoped write deploy key.
+
+The GitHub Actions secret and server environment must share
+`ROOT_LOGOS_DEPLOY_TOKEN`. The runtime SSH key must be registered as a writable
+deploy key for this repository. No endpoint accepts arbitrary commands.
 
 See `openapi.yaml` for the UI-facing contract.
+
+## Planned journal worker
+
+Revision 0.9 defines a separate autonomous path for explicitly added or granted
+journal entries. Addition is the delegation event; unlike public intake, the
+future journal worker will not require steward classification for each entry.
+It will privately process and transform the source, release the working prose,
+make an attributable admission judgment with counterargument and risk evidence,
+wake cultivation for qualifying material, and permit reversible construction
+inside the delegated build boundary.
+
+This path is not active in `server.mjs`. Its disabled policy, envelope schema,
+privacy exclusions, phased implementation plan, and acceptance gates live in
+`journal/` and `content/journal-membrane.md`. The existing public intake and
+Antechamber behavior remain unchanged until that separate worker is built and
+verified.
+
+The subsequent self-authorship worker is likewise planned, not active. Its
+contract in `self-authorship/` permits continual autonomous rewriting and
+publication of one canonical Root Logos identity while requiring cross-surface
+consistency, complete lineage, atomic replacement, and rollback.

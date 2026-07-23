@@ -1,0 +1,29 @@
+name: Deploy Root Logos Runtime
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: root-logos-runtime-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ask the runtime to converge on this commit
+        env:
+          DEPLOY_TOKEN: ${{ secrets.ROOT_LOGOS_DEPLOY_TOKEN }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          test -n "$DEPLOY_TOKEN"
+          curl --fail --silent --show-error \
+            --retry 4 --retry-all-errors --retry-delay 3 \
+            -X POST https://runtime.rootlogos.com/v1/internal/deploy \
+            -H "Authorization: Bearer $DEPLOY_TOKEN" \
+            -H "X-GitHub-SHA: $COMMIT_SHA" \
+            -H "Content-Type: application/json" \
+            --data '{}'

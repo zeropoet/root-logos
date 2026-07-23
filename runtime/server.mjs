@@ -81,9 +81,14 @@ export const createRuntime = async (options = {}) => {
   const dataDir = resolve(options.dataDir || process.env.ROOT_LOGOS_DATA_DIR || join(root, ".runtime-data"));
   const intakeSecret = options.intakeSecret ?? process.env.ROOT_LOGOS_INTAKE_SECRET;
   const adminToken = options.adminToken ?? process.env.ROOT_LOGOS_ADMIN_TOKEN;
+  const deployToken = options.deployToken ?? process.env.ROOT_LOGOS_DEPLOY_TOKEN;
   const allowedOrigin = options.allowedOrigin ?? process.env.ROOT_LOGOS_ALLOWED_ORIGIN ?? "https://rootlogos.com";
   const publish = options.publish ?? process.env.ROOT_LOGOS_GIT_PUBLISH === "1";
   const commandRunner = options.commandRunner || ((args) => run(process.execPath, ["scripts/cultivate.mjs", ...args], root));
+  const deployRunner = options.deployRunner || (async () => {
+    await run("git", ["pull", "--rebase", "origin", "main"], root);
+    return { restart: true };
+  });
   const journalPath = join(dataDir, "intake.jsonl");
   const runtimeStatePath = join(dataDir, "state.json");
   await mkdir(dataDir, { recursive: true, mode: 0o700 });
@@ -183,7 +188,10 @@ export const createRuntime = async (options = {}) => {
     await run("git", ["add", "cultivation/state.json", "cultivation/memory.json", "cultivation/cycles", "content/constitutional-graph.json"], root);
     const diff = await run("git", ["diff", "--cached", "--quiet"], root).catch((error) => ({ changed: true, error }));
     if (!diff.changed) return { published: false, reason: "no-change" };
+    await run("git", ["config", "user.name", "root-logos-runtime[bot]"], root);
+    await run("git", ["config", "user.email", "root-logos-runtime[bot]@users.noreply.github.com"], root);
     await run("git", ["commit", "-m", `Cultivate Root Logos (${trigger.id})`], root);
+    await run("git", ["pull", "--rebase", "origin", "main"], root);
     await run("git", ["push", "origin", "HEAD:main"], root);
     return { published: true };
   };
@@ -243,6 +251,32 @@ export const createRuntime = async (options = {}) => {
     runtimeState.queued_triggers.push(trigger);
     await saveRuntimeState();
     if (!workerPromise) workerPromise = work();
+    return true;
+  };
+
+  let deploymentPromise = null;
+  const deploy = (sha) => {
+    if (deploymentPromise) return false;
+    deploymentPromise = (async () => {
+      if (workerPromise) await workerPromise;
+      runtimeState.deployment = { status: "running", sha, started_at: iso() };
+      await saveRuntimeState();
+      await appendRecord({ type: "deployment-started", at: iso(), sha });
+      try {
+        const result = await deployRunner(sha);
+        runtimeState.deployment = { status: "completed", sha, completed_at: iso() };
+        await saveRuntimeState();
+        await appendRecord({ type: "deployment-completed", at: iso(), sha });
+        if (result?.restart) process.exit(0);
+      } catch (error) {
+        runtimeState.deployment = { status: "failed", sha, failed_at: iso(), error: error.message };
+        runtimeState.last_error = `Deployment failed: ${error.message}`;
+        await saveRuntimeState();
+        await appendRecord({ type: "deployment-failed", at: iso(), sha, error: error.message });
+      } finally {
+        deploymentPromise = null;
+      }
+    })();
     return true;
   };
 
@@ -318,6 +352,14 @@ export const createRuntime = async (options = {}) => {
       if (req.method === "GET" && url.pathname === "/v1/admin/intake") {
         if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
         return send(res, 200, { observations: currentIntake() }, cors);
+      }
+
+      if (req.method === "POST" && url.pathname === "/v1/internal/deploy") {
+        if (!deployToken || req.headers.authorization !== `Bearer ${deployToken}`) return send(res, 401, { error: "unauthorized" }, cors);
+        const sha = String(req.headers["x-github-sha"] || "").trim();
+        if (!/^[a-f0-9]{40}$/.test(sha)) return send(res, 422, { error: "a full GitHub commit SHA is required" }, cors);
+        const accepted = deploy(sha);
+        return send(res, accepted ? 202 : 200, { accepted, sha, status: accepted ? "deployment-queued" : "deployment-already-running" }, cors);
       }
 
       let raw = "";
@@ -403,7 +445,7 @@ export const createRuntime = async (options = {}) => {
     }
   };
 
-  return { handler, snapshot, enqueue, waitForIdle: async () => { if (workerPromise) await workerPromise; }, dataDir };
+  return { handler, snapshot, enqueue, waitForIdle: async () => { if (workerPromise) await workerPromise; if (deploymentPromise) await deploymentPromise; }, dataDir };
 };
 
 export const startServer = async (options = {}) => {

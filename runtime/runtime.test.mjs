@@ -18,11 +18,13 @@ await Promise.all([
 ]);
 
 const calls = [];
+const deployments = [];
 const secret = "test-intake-secret";
 const admin = "test-admin-token";
 const { server, runtime } = await startServer({
-  root: sandbox, dataDir: join(sandbox, "data"), port: 0, intakeSecret: secret, adminToken: admin,
-  commandRunner: async (args) => { calls.push(args); return { stdout: "test cycle complete", stderr: "" }; }
+  root: sandbox, dataDir: join(sandbox, "data"), port: 0, intakeSecret: secret, adminToken: admin, deployToken: "test-deploy-token",
+  commandRunner: async (args) => { calls.push(args); return { stdout: "test cycle complete", stderr: "" }; },
+  deployRunner: async (sha) => { deployments.push(sha); return { restart: false }; }
 });
 const base = `http://127.0.0.1:${server.address().port}`;
 
@@ -49,6 +51,15 @@ try {
 
   const deniedIntake = await fetch(`${base}/v1/admin/intake`);
   assert.equal(deniedIntake.status, 401);
+  const deniedDeploy = await fetch(`${base}/v1/internal/deploy`, { method: "POST", headers: { "x-github-sha": "a".repeat(40) } });
+  assert.equal(deniedDeploy.status, 401);
+  const invalidDeploy = await fetch(`${base}/v1/internal/deploy`, { method: "POST", headers: { authorization: "Bearer test-deploy-token", "x-github-sha": "short" } });
+  assert.equal(invalidDeploy.status, 422);
+  const deploySha = "b".repeat(40);
+  const deployRequest = await fetch(`${base}/v1/internal/deploy`, { method: "POST", headers: { authorization: "Bearer test-deploy-token", "x-github-sha": deploySha } });
+  assert.equal(deployRequest.status, 202);
+  await runtime.waitForIdle();
+  assert.deepEqual(deployments, [deploySha]);
   const adminIntake = await fetch(`${base}/v1/admin/intake`, { headers: { authorization: `Bearer ${admin}` } }).then((response) => response.json());
   assert.equal(adminIntake.observations.length, 1);
   assert.equal(adminIntake.observations[0].status, "unreviewed");
