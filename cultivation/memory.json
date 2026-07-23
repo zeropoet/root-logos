@@ -270,11 +270,42 @@
         },
         "total": 20
       }
+    },
+    "df8628e7e6824ed55d31c44a5c7d458b26c7e339dd7b68ab76cff81180a3dde6": {
+      "fingerprint": "df8628e7e6824ed55d31c44a5c7d458b26c7e339dd7b68ab76cff81180a3dde6",
+      "kind": "question-pressure",
+      "nodes": [
+        "question-ai-citizenship",
+        "identity",
+        "living-statement-003",
+        "bridge-001"
+      ],
+      "claim": "Can AI possess constitutional citizenship? has 2 explicit relations; Identity, Constitutional Naturalization, Participatory Sovereignty provide the strongest existing constitutional pressure for investigation.",
+      "proposed_question": null,
+      "evidence_hash": "b754fb5e79dba8dd011f77ec4935487970ee8e8e9daa484b9857e409fb98bbc0",
+      "policy_hash": "2c7436c9df836fcb33e92ae7b7fe7f91f980ba90266d82fe00a75bc2627633fd",
+      "first_cycle": "RL-CULTIVATE-0014",
+      "last_cycle": "RL-CULTIVATE-0014",
+      "last_cycle_index": 14,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 2,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 19
+      }
     }
   },
   "novelty": {
     "consecutive_low_yield_cycles": 0,
-    "last_score": 2,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -310,6 +341,13 @@
         "reason": "policy-changed",
         "status": "autonomously-rejected",
         "at": "2026-07-22T21:47:17.136Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0014",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-07-23T14:41:57.000Z"
       }
     ]
   },
