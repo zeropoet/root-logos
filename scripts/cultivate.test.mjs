@@ -12,14 +12,30 @@ const sandbox = await mkdtemp(join(tmpdir(), "root-logos-cultivation-"));
 await Promise.all([
   mkdir(join(sandbox, "scripts"), { recursive: true }),
   mkdir(join(sandbox, "content"), { recursive: true }),
-  mkdir(join(sandbox, "cultivation", "cycles"), { recursive: true })
+  mkdir(join(sandbox, "cultivation", "cycles"), { recursive: true }),
+  mkdir(join(sandbox, "journal"), { recursive: true }),
+  mkdir(join(sandbox, "self-authorship"), { recursive: true })
 ]);
 
 await Promise.all([
   cp(new URL("scripts/cultivate.mjs", sourceRoot), join(sandbox, "scripts", "cultivate.mjs")),
   cp(new URL("content/", sourceRoot), join(sandbox, "content"), { recursive: true }),
-  cp(new URL("cultivation/policy.json", sourceRoot), join(sandbox, "cultivation", "policy.json"))
+  cp(new URL("cultivation/policy.json", sourceRoot), join(sandbox, "cultivation", "policy.json")),
+  cp(new URL("journal/policy.json", sourceRoot), join(sandbox, "journal", "policy.json")),
+  cp(new URL("journal/entry.schema.json", sourceRoot), join(sandbox, "journal", "entry.schema.json")),
+  cp(new URL("self-authorship/current.json", sourceRoot), join(sandbox, "self-authorship", "current.json")),
+  cp(new URL("self-authorship/policy.json", sourceRoot), join(sandbox, "self-authorship", "policy.json"))
 ]);
+
+const activePolicy = JSON.parse(await readFile(new URL("cultivation/policy.json", sourceRoot), "utf8"));
+assert.equal(activePolicy.version, 3);
+assert.equal(activePolicy.authority.authorization.constitutional_revision, "v0.9");
+assert.equal(activePolicy.authority.self_authorship.publication, "immediate-atomic-after-all-gates-pass");
+assert.ok(activePolicy.authority.protected_exclusions.includes("expand autonomous authority or modify the policy and thresholds that delimit it"));
+const workflow = await readFile(new URL(".github/workflows/cultivation-cycle.yml", sourceRoot), "utf8");
+for (const path of ["journal/policy.json", "journal/*.schema.json", "self-authorship/current.json", "self-authorship/policy.json"]) {
+  assert.match(workflow, new RegExp(path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+}
 
 await writeFile(join(sandbox, "cultivation", "state.json"), `${JSON.stringify({
   version: 1,
@@ -73,6 +89,15 @@ assert.match(driftResume.stderr, /remains paused because canonical sources chang
 assert.match(succeeds("status"), /^paused;/);
 
 await writeFile(graphPath, originalGraphText);
+const identityPath = join(sandbox, "self-authorship", "current.json");
+const originalIdentityText = await readFile(identityPath, "utf8");
+const changedIdentity = JSON.parse(originalIdentityText);
+changedIdentity.revision = "v0.9-test-drift";
+await writeFile(identityPath, `${JSON.stringify(changedIdentity, null, 2)}\n`);
+const identityDriftResume = run("resume");
+assert.notEqual(identityDriftResume.status, 0);
+assert.match(identityDriftResume.stderr, /remains paused because canonical sources changed/);
+await writeFile(identityPath, originalIdentityText);
 succeeds("resume");
 succeeds("step");
 succeeds("step");
@@ -117,6 +142,7 @@ const autonomousPath = join(sandbox, "cultivation", "cycles", "RL-CULTIVATE-0002
 const judged = JSON.parse(await readFile(autonomousPath, "utf8"));
 assert.equal(judged.status, "autonomously-accepted");
 assert.equal(judged.autonomous_judgment.risk, "low");
+assert.equal(judged.autonomous_judgment.authority, "cultivation-policy-v3");
 assert.ok(Object.values(judged.autonomous_judgment.checks).every(Boolean));
 assert.match(judged.autonomous_judgment.counterargument, /decorative relations/);
 succeeds("apply", "RL-CULTIVATE-0002");

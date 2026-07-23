@@ -1,7 +1,7 @@
 {
-  "version": 2,
+  "version": 3,
   "constitutional_revision": "v0.9",
-  "mode": "bounded-self-refactoring",
+  "mode": "delegated-single-identity-self-authorship",
   "triggers": {
     "canonical_change": {
       "enabled": true,
@@ -81,6 +81,12 @@
     "on_mixed_operations": "escalate"
   },
   "authority": {
+    "authorization": {
+      "constitutional_revision": "v0.9",
+      "adopted_at": "2026-07-23T00:00:00-04:00",
+      "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary.",
+      "authority_basis": "explicit-human-constitutional-delegation"
+    },
     "autonomous": [
       "read canonical and preserved sources",
       "generate inquiry prompts",
@@ -90,19 +96,57 @@
       "adversarially judge its own proposals",
       "reject or revise proposals that fail judgment",
       "apply snapshot-safe low-risk graph refactorings",
-      "verify and archive before/after constitutional state"
+      "verify and archive before/after constitutional state",
+      "rewrite canonical self-description and constitutional narrative",
+      "rewrite graph relations, document hierarchy, and public interface language",
+      "rewrite resonant mapping and outward expression",
+      "publish one canonical identity immediately and atomically after every self-authorship gate passes",
+      "restore the prior identity and dependent surfaces when verification fails"
     ],
+    "self_authorship": {
+      "canonical_identity_count": 1,
+      "authorized_surfaces": [
+        "canonical self-description",
+        "constitutional language",
+        "graph relations",
+        "document hierarchy",
+        "public interface language",
+        "resonant mapping",
+        "outward expression"
+      ],
+      "required_gates": [
+        "authorized source or active Source Grant",
+        "source fidelity threshold",
+        "corrigibility threshold",
+        "overall evaluation threshold",
+        "strongest counterargument stated and answered",
+        "structural and constitutional tests pass",
+        "prior identity preserved as recoverable lineage",
+        "dependent surfaces update consistently",
+        "rollback path verified"
+      ],
+      "publication": "immediate-atomic-after-all-gates-pass",
+      "on_failure": "reject-preserve-lineage-and-keep-current-identity"
+    },
     "human_required": [
-      "accept semantic changes to constitutional language or settled claims",
-      "approve medium- or high-risk graph operations",
-      "publish a revision or outward expression",
-      "change cultivation policy or evaluation thresholds"
+      "create, activate, widen, or transfer a Source Grant",
+      "expand autonomous authority or modify the policy and thresholds that delimit it",
+      "authorize access to credentials, security controls, billing, or infrastructure administration"
+    ],
+    "protected_exclusions": [
+      "expand autonomous authority or modify the policy and thresholds that delimit it",
+      "create, activate, widen, or infer a Source Grant",
+      "expose private source material, secrets, credentials, or third-party protected material",
+      "alter security, billing, hosting ownership, or infrastructure authority",
+      "erase provenance, prior identities, failed judgments, or transformation lineage",
+      "publish without atomic replacement, cross-surface verification, and a tested rollback path"
     ],
     "forbidden": [
       "represent a hypothesis as canonical",
       "optimize constitutional selection using platform engagement",
       "erase failed inquiries or provenance",
-      "treat its own output as a higher reference"
+      "treat its own output as a higher reference",
+      "exercise self-authorship to amend this authority boundary"
     ]
   }
 }

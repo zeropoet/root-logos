@@ -71,13 +71,19 @@ cycles update memory incrementally.
 
 ## Automatic triggers
 
-The Cultivation Chamber re-interrogates Root Logos under three conditions:
+The Cultivation Chamber re-interrogates Root Logos under four conditions:
 
 1. after a push to `main` changes the constitutional graph, export history,
-   preserved canonical Markdown, or cultivation policy;
+   preserved canonical Markdown, cultivation policy, journal policy or schema,
+   or the current identity and self-authorship policy;
 2. weekly on Sunday at 14:07 UTC (10:07 AM Eastern during daylight saving
    time); or
-3. when a human starts the workflow manually.
+3. when an admissible or promoted intake event wakes the live runtime; or
+4. when a human starts the workflow manually.
+
+Journal and self-authorship sources are part of the cycle's cryptographic source
+snapshot, not merely workflow triggers. A cycle cannot complete judgment if
+those sources drift after inquiry begins.
 
 Automation is serialized so two cycles cannot cultivate the same source state
 concurrently. The workflow commits cycle memory and any authorized refactoring

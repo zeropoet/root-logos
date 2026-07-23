@@ -10,6 +10,10 @@ const memoryUrl = new URL("cultivation/memory.json", root);
 const policyUrl = new URL("cultivation/policy.json", root);
 const graphUrl = new URL("content/constitutional-graph.json", root);
 const exportsUrl = new URL("content/export-packets.json", root);
+const journalPolicyUrl = new URL("journal/policy.json", root);
+const journalSchemaUrl = new URL("journal/entry.schema.json", root);
+const identityUrl = new URL("self-authorship/current.json", root);
+const selfAuthorshipPolicyUrl = new URL("self-authorship/policy.json", root);
 const cyclesUrl = new URL("cultivation/cycles/", root);
 const policiesUrl = new URL("cultivation/policies/", root);
 const command = process.argv[2] || "status";
@@ -28,6 +32,10 @@ const save = (url, value) => writeFile(url, `${JSON.stringify(value, null, 2)}\n
 const sourceSnapshot = async () => {
   const graphText = await readFile(graphUrl, "utf8");
   const exportsText = await readFile(exportsUrl, "utf8");
+  const journalPolicyText = await readFile(journalPolicyUrl, "utf8");
+  const journalSchemaText = await readFile(journalSchemaUrl, "utf8");
+  const identityText = await readFile(identityUrl, "utf8");
+  const selfAuthorshipPolicyText = await readFile(selfAuthorshipPolicyUrl, "utf8");
   const contentDir = new URL("content/", root);
   const markdown = (await readdir(contentDir)).filter((name) => name.endsWith(".md")).sort();
   const documents = [];
@@ -36,7 +44,19 @@ const sourceSnapshot = async () => {
     graph: digest(graphText),
     exports: digest(exportsText),
     preserved_documents: digest(documents),
-    combined: digest([graphText, exportsText, documents])
+    journal_policy: digest(journalPolicyText),
+    journal_schema: digest(journalSchemaText),
+    identity: digest(identityText),
+    self_authorship_policy: digest(selfAuthorshipPolicyText),
+    combined: digest([
+      graphText,
+      exportsText,
+      documents,
+      journalPolicyText,
+      journalSchemaText,
+      identityText,
+      selfAuthorshipPolicyText
+    ])
   };
 };
 
@@ -345,7 +365,7 @@ const judgeProposal = (cycle, graph, policy) => {
   const accepted = Object.values(checks).every(Boolean);
   return {
     decision: accepted ? "accept" : "reject",
-    authority: "cultivation-policy-v2",
+    authority: `cultivation-policy-v${policy.version}`,
     risk: operations.some(({ risk }) => risk === "high") ? "high" : "low",
     checks,
     counterargument,

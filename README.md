@@ -41,8 +41,9 @@ of carrying them without doctrinal repetition.
   eligible fragment, publishes it through the X adapter, and closes its archive
   record.
 - `cultivation/` contains the pause-and-resume state, policy, evidence archives,
-  semantic hypothesis memory, dormancy state, and human authority boundary for
-  inward autonomous inquiry.
+  semantic hypothesis memory, dormancy state, and Revision 0.9 delegated
+  authority boundary for inward autonomous inquiry and single-identity
+  self-authorship.
 - Cultivation cycles use the self-describing identity `RL-CULTIVATE-####`.
   Historical `RL-CULT-####` references remain readable aliases but are never
   emitted as new canonical identifiers.
@@ -379,11 +380,13 @@ separate destinations.
 
 ## Revision 0.9 — The Self-Writing Constitution
 
-Revision 0.9 establishes the plan for autonomous intake of journal entries and
-the continual self-authorship that follows from it. It does not enable either
-worker yet. The architecture separates source authorization, witnessing,
-transient quarantine, transformation and release, autonomous judgment,
-cultivation, identity rewrite, publication, and return.
+Revision 0.9 establishes the constitutional authority for autonomous intake of
+journal entries and the continual self-authorship that follows from it. The
+authority boundary is active; the journal collector and self-authorship worker
+remain disabled until their implementation gates pass. The architecture
+separates source authorization, witnessing, transient quarantine, transformation
+and release, autonomous judgment, cultivation, identity rewrite, publication,
+and return.
 
 Every source requires an explicit, scoped, revocable Source Grant. The initial
 adapter will be a steward-owned local drop folder for Markdown and plain text;
@@ -417,8 +420,9 @@ The implementation proceeds through five bounded phases:
 3. A scheduled worker with quiet hours, batch limits, backoff, health reporting,
    and a kill switch.
 4. Replaceable, individually authorized adapters for external journal sources.
-5. Continual single-identity rewriting and autonomous publication only after
-   privacy, transformation, coherence, atomicity, and rollback are proven.
+5. Continual single-identity rewriting and immediate atomic publication after
+   privacy, transformation, coherence, adversarial judgment, cross-surface
+   consistency, and rollback are proven.
 
 The collection switch in `journal/policy.json` remains false. Implementation
 cannot activate until tests prove zero ungranted collection, deterministic

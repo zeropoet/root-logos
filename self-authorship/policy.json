@@ -1,7 +1,13 @@
 {
   "schema": "constitutional-self-authorship-policy/v1",
   "constitutional_revision": "v0.9",
-  "status": "planned-not-enabled",
+  "status": "authorized-boundary-active-worker-not-yet-enabled",
+  "authorization": {
+    "adopted_at": "2026-07-23T00:00:00-04:00",
+    "constitutional_revision": "v0.9",
+    "authority_basis": "explicit-human-constitutional-delegation",
+    "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary."
+  },
   "identity_model": {
     "canonical_instances": 1,
     "continuity": "single-serialized-lineage",
@@ -12,9 +18,9 @@
   "triggers": ["admitted-journal-material", "completed-cultivation-cycle", "material-topology-change", "identity-claim-contradiction", "scheduled-continuity-audit"],
   "cadence": {
     "mode": "continual-event-driven",
-    "minimum_quiet_period_minutes": 30,
-    "maximum_public_revisions_per_day": 1,
-    "coalesce_related_events": true
+    "minimum_quiet_period_minutes": 0,
+    "publication": "immediate-after-passed-judgment",
+    "serialize_concurrent_events": true
   },
   "autonomous_authority": {
     "may_rewrite": ["canonical self-description", "constitutional narrative", "graph topology", "node names and definitions", "document hierarchy", "public interface language", "resonant mapping", "outward narrative strategy"],
@@ -23,6 +29,14 @@
     "may_publish": true,
     "approval_after_authorized_input": false
   },
+  "protected_exclusions": [
+    "create, activate, widen, transfer, or infer a Source Grant",
+    "expand autonomous authority or modify its governing policy and thresholds",
+    "expose private source material, secrets, credentials, or third-party protected material",
+    "alter security controls, billing, hosting ownership, or infrastructure authority",
+    "erase provenance, prior identities, failed judgments, or transformation lineage",
+    "publish without atomic replacement, cross-surface verification, and a tested rollback path"
+  ],
   "protected_invariants": [
     "one canonical identity at a time",
     "complete revision and transformation lineage",
