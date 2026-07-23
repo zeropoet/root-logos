@@ -135,6 +135,21 @@ const renderPresence = () => {
   $("#memory-count-large").textContent = String(app.runtime.hypothesis_count || Object.keys(app.memory?.hypotheses || {}).length).padStart(2, "0");
 };
 
+const renderIdentity = () => {
+  if (!app.identity) return;
+  const revision = app.identity.revision || "current";
+  $("#aperture-revision").textContent = revision;
+  $("#identity-revision").textContent = `Revision ${revision}`;
+  $("#identity-declaration").textContent = app.identity.declaration;
+  $("#identity-present").textContent = app.identity.narrative?.present || app.identity.declaration;
+  const orientations = (app.identity.orientation || []).slice(0, 4);
+  if (orientations.length) {
+    $("#identity-orientations").innerHTML = orientations.map((orientation, index) =>
+      `<li><span>${String(index + 1).padStart(2, "0")}</span>${escapeHtml(orientation)}</li>`
+    ).join("");
+  }
+};
+
 const submitObservation = async (form) => {
   const button = $("button[type='submit']", form);
   const status = $("#observation-status");
@@ -874,6 +889,7 @@ const initialize = async () => {
   try {
     await loadData();
     renderPresence();
+    renderIdentity();
     renderLatestCycle();
     renderMemory();
     renderProposals();

@@ -21,10 +21,12 @@ of carrying them without doctrinal repetition.
 ## Current Shape
 
 - `index.html` renders the public Root Logos observatory: the constitutional
-  Field, live Cultivation Chamber, semantic Memory, human Threshold, signed
-  Intake membrane, Living Observatory, live Resonant Chamber, and the planned
-  Journal Membrane and the planned self-authorship layer through which
-  authorized reflection may become one continually rewritten identity.
+  Field, the visible Single Living Identity, live Cultivation Chamber, semantic
+  Memory, constitutional Threshold, signed Intake membrane, Living Observatory,
+  live Resonant Chamber, and the planned Journal Membrane. The interface now
+  makes Revision 0.9's continual movement explicit: receive, transform, judge,
+  compose, and rewrite one canonical self inside a boundary where reality
+  remains greater than the system.
 - `content/constitutional-graph.json` is the typed graph that defines canonical
   concepts, documents, relationships, questions, seeds, and revisions.
 - `content/export-packets.json` stores the accepted and proposed
@@ -53,10 +55,12 @@ of carrying them without doctrinal repetition.
 - `.github/workflows/attractor-release.yml` runs the autonomous release cycle
   every Monday, Wednesday, and Friday at 10:17 AM Eastern.
 - `script.js` joins the canonical graph to the live runtime API, renders the
-  constitutional field, cultivation lineage, proposal judgment, semantic
-  memory, human threshold, intake state, and archival fallback.
+  constitutional field and current identity manifest, cultivation lineage,
+  proposal judgment, semantic memory, constitutional threshold, intake state,
+  and archival fallback.
 - `styles.css` contains the dark astronomical visual system, semantic state
-  colors, responsive instruments, restrained motion, and reduced-motion mode.
+  colors, responsive instruments, the orbital five-movement identity anatomy,
+  restrained motion, and reduced-motion mode.
 - `documents/` contains public archive-document pages.
 - `statements/` contains public pages reserved for substantial Living Statements
   and Constitutional Bridges.
