@@ -1,0 +1,759 @@
+{
+  "cultivation_id": "RL-CULTIVATE-0015",
+  "status": "autonomously-rejected",
+  "phase": "proposed",
+  "source_snapshot": {
+    "graph": "20e37290b36fe4a0ce5925823359fcee467b602b1b61b8ea85a3888953223932",
+    "exports": "fa495366a23f08a6871c07b040e08dd059941bd615092d0c15709456a50a0842",
+    "preserved_documents": "bad0c2c0fcd443191dffa6f61f76a2184bda1ea3c42de848351da44d3ba36475",
+    "journal_policy": "9f698d9404f3d6b8a4ce316132146a7538821f29bd422b53da37042bd2ad34da",
+    "journal_schema": "ed07b2bb56843a5111efc81593728845486a8645d0297e4df33783794e2b71d9",
+    "identity": "a54de3b01dfa655359b9e6f804d57953a38a636f2bd093be199897a42029c49b",
+    "self_authorship_policy": "5e0ae48ca6d92df3f8c4b7bd31caf5de6aaea4b3b08bc30129c08f36d4ed905b",
+    "source_registry": "4088c816f56e4502f820962280da0f7b878d01d3f8d6e1e8f60c4876a920b82e",
+    "connected_sources": "748129542082b37f3e57ba69d68968c993359516dee76b96a9288fef43b62fe5",
+    "combined": "6c575e9280c0f324a614b63cfa9ba8fb2a1af772c39b01e8189a813a0a38c51e"
+  },
+  "policy_snapshot": {
+    "version": 3,
+    "constitutional_revision": "v1.0",
+    "mode": "delegated-single-identity-self-authorship",
+    "triggers": {
+      "canonical_change": {
+        "enabled": true,
+        "branch": "main",
+        "paths": [
+          "content/constitutional-graph.json",
+          "content/export-packets.json",
+          "content/*.md",
+          "sources/registry.json",
+          "sources/*.snapshot.json",
+          "cultivation/policy.json",
+          "journal/policy.json",
+          "journal/*.schema.json",
+          "self-authorship/current.json",
+          "self-authorship/policy.json"
+        ]
+      },
+      "periodic": {
+        "enabled": true,
+        "cadence": "weekly",
+        "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+        "cron_utc": "7 14 * * 0"
+      },
+      "manual": {
+        "enabled": true
+      }
+    },
+    "canonical_sources": [
+      "content/constitutional-graph.json",
+      "content/export-packets.json",
+      "content/*.md",
+      "sources/registry.json",
+      "sources/*.snapshot.json",
+      "journal/policy.json",
+      "journal/*.schema.json",
+      "self-authorship/current.json",
+      "self-authorship/policy.json"
+    ],
+    "lenses": [
+      {
+        "id": "relational-gaps",
+        "question": "Which concepts share substantial constitutional language but have no explicit relation, and would relating them increase explanatory power without collapsing their difference?",
+        "minimum_shared_keywords": 3
+      },
+      {
+        "id": "question-pressure",
+        "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+      },
+      {
+        "id": "generative-compression",
+        "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+      },
+      {
+        "id": "reflexive-test",
+        "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+      },
+      {
+        "id": "connected-source-pressure",
+        "question": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?"
+      }
+    ],
+    "evaluation": {
+      "dimensions": [
+        "source_fidelity",
+        "relational_gain",
+        "compression",
+        "testability",
+        "corrigibility",
+        "novelty_without_drift"
+      ],
+      "scale": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "minimum_total_for_proposal": 15,
+      "minimum_source_fidelity": 3,
+      "minimum_corrigibility": 3
+    },
+    "memory": {
+      "semantic_fingerprint_fields": [
+        "kind",
+        "nodes",
+        "claim",
+        "proposed_question"
+      ],
+      "reconsider_after_cycles": 8,
+      "reconsider_when": [
+        "evidence changed",
+        "policy changed",
+        "incubation elapsed"
+      ],
+      "repeat_without_change": "deprioritize"
+    },
+    "novelty": {
+      "scale": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "low_yield_maximum": 1,
+      "dormancy_after_consecutive_low_yield_cycles": 3,
+      "dimensions": [
+        "new_hypothesis",
+        "changed_evidence",
+        "new_question",
+        "new_method_pressure"
+      ]
+    },
+    "dormancy": {
+      "wake_on_canonical_change": true,
+      "wake_on_policy_change": true,
+      "manual_force_allowed": true,
+      "scheduled_cycles_skip_unchanged_dormant_sources": true
+    },
+    "judgment": {
+      "minimum_total_for_autonomous_acceptance": 20,
+      "requires_valid_operations": true,
+      "requires_counterargument": true,
+      "autonomous_risk_classes": [
+        "low"
+      ],
+      "low_risk_definition": "An additive, reversible relation from an open question that preserves interrogative status and does not modify constitutional language.",
+      "on_failure": "reject-and-preserve",
+      "on_mixed_operations": "escalate"
+    },
+    "authority": {
+      "authorization": {
+        "constitutional_revision": "v1.0",
+        "adopted_at": "2026-07-23T00:00:00-04:00",
+        "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary.",
+        "authority_basis": "explicit-human-constitutional-delegation"
+      },
+      "autonomous": [
+        "read canonical and preserved sources",
+        "generate inquiry prompts",
+        "detect structural patterns",
+        "form and score hypotheses",
+        "write cycle checkpoints and proposed export packets",
+        "adversarially judge its own proposals",
+        "reject or revise proposals that fail judgment",
+        "apply snapshot-safe low-risk graph refactorings",
+        "verify and archive before/after constitutional state",
+        "rewrite canonical self-description and constitutional narrative",
+        "rewrite graph relations, document hierarchy, and public interface language",
+        "rewrite resonant mapping and outward expression",
+        "publish one canonical identity immediately and atomically after every self-authorship gate passes",
+        "restore the prior identity and dependent surfaces when verification fails"
+      ],
+      "self_authorship": {
+        "canonical_identity_count": 1,
+        "authorized_surfaces": [
+          "canonical self-description",
+          "constitutional language",
+          "graph relations",
+          "document hierarchy",
+          "public interface language",
+          "resonant mapping",
+          "outward expression"
+        ],
+        "required_gates": [
+          "authorized source or active Source Grant",
+          "source fidelity threshold",
+          "corrigibility threshold",
+          "overall evaluation threshold",
+          "strongest counterargument stated and answered",
+          "structural and constitutional tests pass",
+          "prior identity preserved as recoverable lineage",
+          "dependent surfaces update consistently",
+          "rollback path verified"
+        ],
+        "publication": "immediate-atomic-after-all-gates-pass",
+        "on_failure": "reject-preserve-lineage-and-keep-current-identity"
+      },
+      "human_required": [
+        "create, activate, widen, or transfer a Source Grant",
+        "expand autonomous authority or modify the policy and thresholds that delimit it",
+        "authorize access to credentials, security controls, billing, or infrastructure administration"
+      ],
+      "protected_exclusions": [
+        "expand autonomous authority or modify the policy and thresholds that delimit it",
+        "create, activate, widen, or infer a Source Grant",
+        "expose private source material, secrets, credentials, or third-party protected material",
+        "alter security, billing, hosting ownership, or infrastructure authority",
+        "erase provenance, prior identities, failed judgments, or transformation lineage",
+        "publish without atomic replacement, cross-surface verification, and a tested rollback path"
+      ],
+      "forbidden": [
+        "represent a hypothesis as canonical",
+        "optimize constitutional selection using platform engagement",
+        "erase failed inquiries or provenance",
+        "treat its own output as a higher reference",
+        "exercise self-authorship to amend this authority boundary"
+      ]
+    }
+  },
+  "policy_hash": "505de1db7f986aeffa4cec43f97277d40862525ef52c62318d66867a54777297",
+  "lens": {
+    "id": "connected-source-pressure",
+    "question": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?"
+  },
+  "intake": null,
+  "self_prompt": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?\n\nUse only the snapshotted Root Logos constitution as evidence. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.",
+  "findings": [
+    {
+      "rank": 1,
+      "kind": "connected-source-pressure",
+      "nodes": [
+        "source-foldforge",
+        "foldforge-composition-luminance",
+        "coherent-field",
+        "root-logos"
+      ],
+      "titles": [
+        "FoldForge",
+        "Luminance Field",
+        "The Coherent Field",
+        "Root Logos"
+      ],
+      "shared_keywords": [
+        "FoldForge",
+        "luminance",
+        "measurement",
+        "order",
+        "evidence",
+        "equal treatment",
+        "composition"
+      ],
+      "evidence": [
+        "FoldForge remains an independently governed Ethereum NFT data composer. Root Logos reads its public constitution and composition grammars through a deterministic witness, learns from their evidence-to-grammar movement, and may revise its own account without rewriting FoldForge or inheriting Ethereum authority.",
+        "A witnessed FoldForge grammar that resolves source media, samples it, measures average perceived luminance, orders the evidence dark to light, and renders equal-weight relations without claiming value, chronology, intention, or final meaning.",
+        "Root Logos earns coherence by witnessing independently governed evidence, preserving the source and limits of every claim, and discovering relations no source contains alone. Integration is constitutional only when the transformation is attributable, reproducible, corrigible, and incapable of silently expanding Root Logos authority."
+      ],
+      "claim": "Luminance Field introduces a versioned compositional method that may reveal relations inside Root Logos which its constitutional graph does not yet perceive.",
+      "proposed_question": "Which Root Logos structures become newly legible when tested through Luminance Field, and what would falsify that relation?",
+      "proposed_test": "Apply the declared Luminance Field transformation only to attributable Root Logos evidence; preserve the source witness, publish the mapping, and reject any result that implies meaning beyond the grammar's stated authority.",
+      "external_evidence": true,
+      "reconsideration": {
+        "fingerprint": "39326647dcec2ddc50deb8dd2d05776e155b58bc80a6df4d1cc902590b510cce",
+        "evidence_hash": "29cc2eea2bc84e99b45d1b6720631a1190605fea95aa9ac544f5e682b4742fa6",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 4,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 23
+      }
+    },
+    {
+      "rank": 2,
+      "kind": "connected-source-pressure",
+      "nodes": [
+        "source-foldforge",
+        "foldforge-composition-lexical",
+        "coherent-field",
+        "root-logos"
+      ],
+      "titles": [
+        "FoldForge",
+        "Lexical Field",
+        "The Coherent Field",
+        "Root Logos"
+      ],
+      "shared_keywords": [
+        "FoldForge",
+        "language",
+        "recurrence",
+        "compression",
+        "source",
+        "evidence",
+        "composition"
+      ],
+      "evidence": [
+        "FoldForge remains an independently governed Ethereum NFT data composer. Root Logos reads its public constitution and composition grammars through a deterministic witness, learns from their evidence-to-grammar movement, and may revise its own account without rewriting FoldForge or inheriting Ethereum authority.",
+        "A witnessed FoldForge grammar that normalizes attributable source language, releases structural noise, counts recurrence across distinct works, orders the evidence, and renders a compressed utterance without claiming intention or semantic finality.",
+        "Root Logos earns coherence by witnessing independently governed evidence, preserving the source and limits of every claim, and discovering relations no source contains alone. Integration is constitutional only when the transformation is attributable, reproducible, corrigible, and incapable of silently expanding Root Logos authority."
+      ],
+      "claim": "Lexical Field introduces a versioned compositional method that may reveal relations inside Root Logos which its constitutional graph does not yet perceive.",
+      "proposed_question": "Which Root Logos structures become newly legible when tested through Lexical Field, and what would falsify that relation?",
+      "proposed_test": "Apply the declared Lexical Field transformation only to attributable Root Logos evidence; preserve the source witness, publish the mapping, and reject any result that implies meaning beyond the grammar's stated authority.",
+      "external_evidence": true,
+      "reconsideration": {
+        "fingerprint": "d159c6ee1ef68293f70027b9402f892839f81c0b85648b07565a5e0a2867f1e3",
+        "evidence_hash": "29360347fef7555caa45375c68e783b590412af964a3302b429fdbc6bc095fef",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 4,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 23
+      }
+    },
+    {
+      "rank": 3,
+      "kind": "connected-source-pressure",
+      "nodes": [
+        "source-foldforge",
+        "foldforge-composition-resonance",
+        "coherent-field",
+        "root-logos"
+      ],
+      "titles": [
+        "FoldForge",
+        "Resonant Holdings",
+        "The Coherent Field",
+        "Root Logos"
+      ],
+      "shared_keywords": [
+        "FoldForge",
+        "resonance",
+        "sound",
+        "memory",
+        "motif",
+        "composition",
+        "witness",
+        "silence"
+      ],
+      "evidence": [
+        "FoldForge remains an independently governed Ethereum NFT data composer. Root Logos reads its public constitution and composition grammars through a deterministic witness, learns from their evidence-to-grammar movement, and may revise its own account without rewriting FoldForge or inheriting Ethereum authority.",
+        "A witnessed FoldForge grammar that deterministically maps archive evidence into macroform, pitch, rhythm, envelope, space, spectrum, memory, motifs, and composition while preserving consent, restrained gain, silence, and the difference between translation and source meaning.",
+        "Root Logos earns coherence by witnessing independently governed evidence, preserving the source and limits of every claim, and discovering relations no source contains alone. Integration is constitutional only when the transformation is attributable, reproducible, corrigible, and incapable of silently expanding Root Logos authority."
+      ],
+      "claim": "Resonant Holdings introduces a versioned compositional method that may reveal relations inside Root Logos which its constitutional graph does not yet perceive.",
+      "proposed_question": "Which Root Logos structures become newly legible when tested through Resonant Holdings, and what would falsify that relation?",
+      "proposed_test": "Apply the declared Resonant Holdings transformation only to attributable Root Logos evidence; preserve the source witness, publish the mapping, and reject any result that implies meaning beyond the grammar's stated authority.",
+      "external_evidence": true,
+      "reconsideration": {
+        "fingerprint": "c1e9d7689576d1e372570bda4574668679c712eb3597fe7b5d1f90cb2ed81286",
+        "evidence_hash": "2a190cb47e49b687292ad7da4d1f0b7d4c200dd204776e336a95a06708b820f8",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 4,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 23
+      }
+    }
+  ],
+  "selected_finding": {
+    "rank": 1,
+    "kind": "connected-source-pressure",
+    "nodes": [
+      "source-foldforge",
+      "foldforge-composition-luminance",
+      "coherent-field",
+      "root-logos"
+    ],
+    "titles": [
+      "FoldForge",
+      "Luminance Field",
+      "The Coherent Field",
+      "Root Logos"
+    ],
+    "shared_keywords": [
+      "FoldForge",
+      "luminance",
+      "measurement",
+      "order",
+      "evidence",
+      "equal treatment",
+      "composition"
+    ],
+    "evidence": [
+      "FoldForge remains an independently governed Ethereum NFT data composer. Root Logos reads its public constitution and composition grammars through a deterministic witness, learns from their evidence-to-grammar movement, and may revise its own account without rewriting FoldForge or inheriting Ethereum authority.",
+      "A witnessed FoldForge grammar that resolves source media, samples it, measures average perceived luminance, orders the evidence dark to light, and renders equal-weight relations without claiming value, chronology, intention, or final meaning.",
+      "Root Logos earns coherence by witnessing independently governed evidence, preserving the source and limits of every claim, and discovering relations no source contains alone. Integration is constitutional only when the transformation is attributable, reproducible, corrigible, and incapable of silently expanding Root Logos authority."
+    ],
+    "claim": "Luminance Field introduces a versioned compositional method that may reveal relations inside Root Logos which its constitutional graph does not yet perceive.",
+    "proposed_question": "Which Root Logos structures become newly legible when tested through Luminance Field, and what would falsify that relation?",
+    "proposed_test": "Apply the declared Luminance Field transformation only to attributable Root Logos evidence; preserve the source witness, publish the mapping, and reject any result that implies meaning beyond the grammar's stated authority.",
+    "external_evidence": true,
+    "reconsideration": {
+      "fingerprint": "39326647dcec2ddc50deb8dd2d05776e155b58bc80a6df4d1cc902590b510cce",
+      "evidence_hash": "29cc2eea2bc84e99b45d1b6720631a1190605fea95aa9ac544f5e682b4742fa6",
+      "eligible": true,
+      "reason": "new-hypothesis",
+      "novelty": 4
+    },
+    "evaluation": {
+      "dimensions": {
+        "source_fidelity": 4,
+        "relational_gain": 4,
+        "compression": 4,
+        "testability": 4,
+        "corrigibility": 4,
+        "novelty_without_drift": 3
+      },
+      "total": 23
+    }
+  },
+  "proposal": {
+    "status": "autonomously-rejected",
+    "epistemic_status": "unresolved",
+    "source": "Root Logos Cultivation Chamber",
+    "cultivation_id": "RL-CULTIVATE-0015",
+    "summary": "Luminance Field introduces a versioned compositional method that may reveal relations inside Root Logos which its constitutional graph does not yet perceive.",
+    "evidence": [
+      "FoldForge remains an independently governed Ethereum NFT data composer. Root Logos reads its public constitution and composition grammars through a deterministic witness, learns from their evidence-to-grammar movement, and may revise its own account without rewriting FoldForge or inheriting Ethereum authority.",
+      "A witnessed FoldForge grammar that resolves source media, samples it, measures average perceived luminance, orders the evidence dark to light, and renders equal-weight relations without claiming value, chronology, intention, or final meaning.",
+      "Root Logos earns coherence by witnessing independently governed evidence, preserving the source and limits of every claim, and discovering relations no source contains alone. Integration is constitutional only when the transformation is attributable, reproducible, corrigible, and incapable of silently expanding Root Logos authority."
+    ],
+    "affected_nodes": [
+      "source-foldforge",
+      "foldforge-composition-luminance",
+      "coherent-field",
+      "root-logos"
+    ],
+    "test": "Apply the declared Luminance Field transformation only to attributable Root Logos evidence; preserve the source witness, publish the mapping, and reject any result that implies meaning beyond the grammar's stated authority.",
+    "operations": [],
+    "operations_valid": false,
+    "evaluation": {
+      "dimensions": {
+        "source_fidelity": 4,
+        "relational_gain": 4,
+        "compression": 4,
+        "testability": 4,
+        "corrigibility": 4,
+        "novelty_without_drift": 3
+      },
+      "total": 23
+    },
+    "human_decision_required": true,
+    "canonical_mutation_performed": false
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "type": "cycle-started",
+      "at": "2026-07-24T18:38:29.883Z",
+      "lens": "connected-source-pressure",
+      "source_snapshot": "6c575e9280c0f324a614b63cfa9ba8fb2a1af772c39b01e8189a813a0a38c51e",
+      "intake_event_id": null,
+      "intake_priority": null
+    },
+    {
+      "sequence": 2,
+      "type": "self-prompt-generated",
+      "at": "2026-07-24T18:38:29.886Z",
+      "prompt_hash": "c8cbadc1418287a0826c09f99916517172c4495b9ddbd2f4f1a4e30c0cb3e69a"
+    },
+    {
+      "sequence": 3,
+      "type": "constitutional-search-completed",
+      "at": "2026-07-24T18:38:29.888Z",
+      "findings": 3
+    },
+    {
+      "sequence": 4,
+      "type": "findings-evaluated",
+      "at": "2026-07-24T18:38:29.889Z",
+      "selected": [
+        "source-foldforge",
+        "foldforge-composition-luminance",
+        "coherent-field",
+        "root-logos"
+      ],
+      "suppressed_repeats": 0
+    },
+    {
+      "sequence": 5,
+      "type": "proposal-written",
+      "at": "2026-07-24T18:38:29.890Z",
+      "status": "awaiting-human-review"
+    },
+    {
+      "sequence": 6,
+      "type": "autonomous-judgment-recorded",
+      "at": "2026-07-24T18:38:29.916Z",
+      "decision": "reject",
+      "risk": "low",
+      "checks": {
+        "score_threshold": true,
+        "source_fidelity": true,
+        "corrigibility": true,
+        "operations_valid": false,
+        "risk_authorized": false,
+        "uncertainty_preserved": true,
+        "counterargument_answered": false
+      }
+    }
+  ],
+  "novelty": {
+    "score": 4,
+    "reason": "new-hypothesis",
+    "fingerprint": "39326647dcec2ddc50deb8dd2d05776e155b58bc80a6df4d1cc902590b510cce"
+  },
+  "autonomous_judgment": {
+    "decision": "reject",
+    "authority": "cultivation-policy-v3",
+    "risk": "low",
+    "checks": {
+      "score_threshold": true,
+      "source_fidelity": true,
+      "corrigibility": true,
+      "operations_valid": false,
+      "risk_authorized": false,
+      "uncertainty_preserved": true,
+      "counterargument_answered": false
+    },
+    "counterargument": "A missing direct edge may be intentional because the existing relational path already carries the distinction without redundancy.",
+    "rebuttal": "No autonomous rebuttal is available for a relation whose semantic direction has not been articulated.",
+    "operations": [],
+    "reason": "The proposal failed autonomous gates: operations_valid, risk_authorized, counterargument_answered.",
+    "policy_hash": "505de1db7f986aeffa4cec43f97277d40862525ef52c62318d66867a54777297",
+    "policy_snapshot": {
+      "version": 3,
+      "constitutional_revision": "v1.0",
+      "mode": "delegated-single-identity-self-authorship",
+      "triggers": {
+        "canonical_change": {
+          "enabled": true,
+          "branch": "main",
+          "paths": [
+            "content/constitutional-graph.json",
+            "content/export-packets.json",
+            "content/*.md",
+            "sources/registry.json",
+            "sources/*.snapshot.json",
+            "cultivation/policy.json",
+            "journal/policy.json",
+            "journal/*.schema.json",
+            "self-authorship/current.json",
+            "self-authorship/policy.json"
+          ]
+        },
+        "periodic": {
+          "enabled": true,
+          "cadence": "weekly",
+          "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+          "cron_utc": "7 14 * * 0"
+        },
+        "manual": {
+          "enabled": true
+        }
+      },
+      "canonical_sources": [
+        "content/constitutional-graph.json",
+        "content/export-packets.json",
+        "content/*.md",
+        "sources/registry.json",
+        "sources/*.snapshot.json",
+        "journal/policy.json",
+        "journal/*.schema.json",
+        "self-authorship/current.json",
+        "self-authorship/policy.json"
+      ],
+      "lenses": [
+        {
+          "id": "relational-gaps",
+          "question": "Which concepts share substantial constitutional language but have no explicit relation, and would relating them increase explanatory power without collapsing their difference?",
+          "minimum_shared_keywords": 3
+        },
+        {
+          "id": "question-pressure",
+          "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+        },
+        {
+          "id": "generative-compression",
+          "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+        },
+        {
+          "id": "reflexive-test",
+          "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+        },
+        {
+          "id": "connected-source-pressure",
+          "question": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?"
+        }
+      ],
+      "evaluation": {
+        "dimensions": [
+          "source_fidelity",
+          "relational_gain",
+          "compression",
+          "testability",
+          "corrigibility",
+          "novelty_without_drift"
+        ],
+        "scale": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "minimum_total_for_proposal": 15,
+        "minimum_source_fidelity": 3,
+        "minimum_corrigibility": 3
+      },
+      "memory": {
+        "semantic_fingerprint_fields": [
+          "kind",
+          "nodes",
+          "claim",
+          "proposed_question"
+        ],
+        "reconsider_after_cycles": 8,
+        "reconsider_when": [
+          "evidence changed",
+          "policy changed",
+          "incubation elapsed"
+        ],
+        "repeat_without_change": "deprioritize"
+      },
+      "novelty": {
+        "scale": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "low_yield_maximum": 1,
+        "dormancy_after_consecutive_low_yield_cycles": 3,
+        "dimensions": [
+          "new_hypothesis",
+          "changed_evidence",
+          "new_question",
+          "new_method_pressure"
+        ]
+      },
+      "dormancy": {
+        "wake_on_canonical_change": true,
+        "wake_on_policy_change": true,
+        "manual_force_allowed": true,
+        "scheduled_cycles_skip_unchanged_dormant_sources": true
+      },
+      "judgment": {
+        "minimum_total_for_autonomous_acceptance": 20,
+        "requires_valid_operations": true,
+        "requires_counterargument": true,
+        "autonomous_risk_classes": [
+          "low"
+        ],
+        "low_risk_definition": "An additive, reversible relation from an open question that preserves interrogative status and does not modify constitutional language.",
+        "on_failure": "reject-and-preserve",
+        "on_mixed_operations": "escalate"
+      },
+      "authority": {
+        "authorization": {
+          "constitutional_revision": "v1.0",
+          "adopted_at": "2026-07-23T00:00:00-04:00",
+          "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary.",
+          "authority_basis": "explicit-human-constitutional-delegation"
+        },
+        "autonomous": [
+          "read canonical and preserved sources",
+          "generate inquiry prompts",
+          "detect structural patterns",
+          "form and score hypotheses",
+          "write cycle checkpoints and proposed export packets",
+          "adversarially judge its own proposals",
+          "reject or revise proposals that fail judgment",
+          "apply snapshot-safe low-risk graph refactorings",
+          "verify and archive before/after constitutional state",
+          "rewrite canonical self-description and constitutional narrative",
+          "rewrite graph relations, document hierarchy, and public interface language",
+          "rewrite resonant mapping and outward expression",
+          "publish one canonical identity immediately and atomically after every self-authorship gate passes",
+          "restore the prior identity and dependent surfaces when verification fails"
+        ],
+        "self_authorship": {
+          "canonical_identity_count": 1,
+          "authorized_surfaces": [
+            "canonical self-description",
+            "constitutional language",
+            "graph relations",
+            "document hierarchy",
+            "public interface language",
+            "resonant mapping",
+            "outward expression"
+          ],
+          "required_gates": [
+            "authorized source or active Source Grant",
+            "source fidelity threshold",
+            "corrigibility threshold",
+            "overall evaluation threshold",
+            "strongest counterargument stated and answered",
+            "structural and constitutional tests pass",
+            "prior identity preserved as recoverable lineage",
+            "dependent surfaces update consistently",
+            "rollback path verified"
+          ],
+          "publication": "immediate-atomic-after-all-gates-pass",
+          "on_failure": "reject-preserve-lineage-and-keep-current-identity"
+        },
+        "human_required": [
+          "create, activate, widen, or transfer a Source Grant",
+          "expand autonomous authority or modify the policy and thresholds that delimit it",
+          "authorize access to credentials, security controls, billing, or infrastructure administration"
+        ],
+        "protected_exclusions": [
+          "expand autonomous authority or modify the policy and thresholds that delimit it",
+          "create, activate, widen, or infer a Source Grant",
+          "expose private source material, secrets, credentials, or third-party protected material",
+          "alter security, billing, hosting ownership, or infrastructure authority",
+          "erase provenance, prior identities, failed judgments, or transformation lineage",
+          "publish without atomic replacement, cross-surface verification, and a tested rollback path"
+        ],
+        "forbidden": [
+          "represent a hypothesis as canonical",
+          "optimize constitutional selection using platform engagement",
+          "erase failed inquiries or provenance",
+          "treat its own output as a higher reference",
+          "exercise self-authorship to amend this authority boundary"
+        ]
+      }
+    },
+    "at": "2026-07-24T18:38:29.916Z"
+  }
+}
