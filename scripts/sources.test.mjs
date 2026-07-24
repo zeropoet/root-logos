@@ -18,6 +18,9 @@ assert.equal(firstBytes, secondBytes, "Source synchronization must be determinis
 assert.equal(first.status, "witnessed");
 assert.equal(first.compositions.length, 3);
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").status, "active");
+assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").public_url, "https://foldforge.xyz");
+assert.equal(validated.registry.sources.find(({ id }) => id === "telos").public_url, null);
+assert.equal(validated.registry.sources.find(({ id }) => id === "sovereign-standard").public_url, "https://sovereignstandard.co");
 assert.match(first.compositions[0].witness, /^[a-f0-9]{64}$/);
 
 console.log("Source integration tests passed.");

@@ -29,8 +29,10 @@ const validateRegistry = (registry) => {
     assert(source.id && source.name && source.role, `Source ${source.id || "unknown"} is incomplete.`);
     assert(source.boundary, `Source ${source.id} requires an explicit boundary.`);
     assert(["active", "registered", "paused"].includes(source.status), `Source ${source.id} has an invalid status.`);
+    if (source.public_url) assert(/^https:\/\//.test(source.public_url), `Source ${source.id} requires an HTTPS public URL.`);
     if (source.visibility === "private") {
       assert(source.reads.length === 0, `Private source ${source.id} may not expose implicit read paths.`);
+      assert(source.public_url === null, `Private source ${source.id} may not expose a public destination.`);
     }
   }
   return registry;

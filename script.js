@@ -188,8 +188,8 @@ const renderSources = () => {
     $("#source-measures").innerHTML = measures.map(([label, value]) => `<span><small>${escapeHtml(label)}</small><b>${escapeHtml(value)}</b></span>`).join("");
     $("#source-boundary").textContent = source.boundary;
     const repository = $("#source-repository");
-    repository.hidden = !source.repository;
-    if (source.repository) repository.href = source.repository;
+    repository.hidden = !source.public_url;
+    if (source.public_url) repository.href = source.public_url;
   };
   $$("[data-source-id]").forEach((button) => button.addEventListener("click", () => selectSource(button.dataset.sourceId)));
   selectSource("foldforge");
