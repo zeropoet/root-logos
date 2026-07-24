@@ -1,0 +1,896 @@
+{
+  "cultivation_id": "RL-CULTIVATE-0019",
+  "status": "autonomously-rejected",
+  "phase": "proposed",
+  "source_snapshot": {
+    "graph": "d80f11c8ccb301cceab30c96541d3fbc4035495ef96f95d07ab7d3b554b80fcd",
+    "exports": "fa495366a23f08a6871c07b040e08dd059941bd615092d0c15709456a50a0842",
+    "preserved_documents": "273a36feb3732d3cb798624ea48e8a556c33990e2b42bb5cf5f515bdd851b918",
+    "journal_policy": "9f698d9404f3d6b8a4ce316132146a7538821f29bd422b53da37042bd2ad34da",
+    "journal_schema": "ed07b2bb56843a5111efc81593728845486a8645d0297e4df33783794e2b71d9",
+    "identity": "cec65289bb6722367012876e909dd62ca4f656c83ca8bcbefd696484036b3a42",
+    "self_authorship_policy": "5e0ae48ca6d92df3f8c4b7bd31caf5de6aaea4b3b08bc30129c08f36d4ed905b",
+    "source_registry": "a0e520d0ea005dbe6faf28fe06b22df4021ea1d8f38059f6d9d2562f28172b61",
+    "connected_sources": "748129542082b37f3e57ba69d68968c993359516dee76b96a9288fef43b62fe5",
+    "public_source_witnesses": "f3ca32d9b58bf0725cc3539ef45170b09309b92afa3b8edf78b84cba2a1fdd4d",
+    "combined": "fa88450f84278d9de6ac1eaf781d37a1d1cef8780f471fb9b5a6b35ef8a38d5c"
+  },
+  "policy_snapshot": {
+    "version": 3,
+    "constitutional_revision": "v1.0",
+    "mode": "delegated-single-identity-self-authorship",
+    "triggers": {
+      "canonical_change": {
+        "enabled": true,
+        "branch": "main",
+        "paths": [
+          "content/constitutional-graph.json",
+          "content/export-packets.json",
+          "content/*.md",
+          "sources/registry.json",
+          "sources/*.snapshot.json",
+          "sources/*.public-witness.json",
+          "cultivation/policy.json",
+          "journal/policy.json",
+          "journal/*.schema.json",
+          "self-authorship/current.json",
+          "self-authorship/policy.json"
+        ]
+      },
+      "periodic": {
+        "enabled": true,
+        "cadence": "weekly",
+        "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+        "cron_utc": "7 14 * * 0"
+      },
+      "manual": {
+        "enabled": true
+      }
+    },
+    "canonical_sources": [
+      "content/constitutional-graph.json",
+      "content/export-packets.json",
+      "content/*.md",
+      "sources/registry.json",
+      "sources/*.snapshot.json",
+      "sources/*.public-witness.json",
+      "journal/policy.json",
+      "journal/*.schema.json",
+      "self-authorship/current.json",
+      "self-authorship/policy.json"
+    ],
+    "lenses": [
+      {
+        "id": "relational-gaps",
+        "question": "Which concepts share substantial constitutional language but have no explicit relation, and would relating them increase explanatory power without collapsing their difference?",
+        "minimum_shared_keywords": 3
+      },
+      {
+        "id": "question-pressure",
+        "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+      },
+      {
+        "id": "generative-compression",
+        "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+      },
+      {
+        "id": "reflexive-test",
+        "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+      },
+      {
+        "id": "connected-source-pressure",
+        "question": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?"
+      }
+    ],
+    "evaluation": {
+      "dimensions": [
+        "source_fidelity",
+        "relational_gain",
+        "compression",
+        "testability",
+        "corrigibility",
+        "novelty_without_drift"
+      ],
+      "scale": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "minimum_total_for_proposal": 15,
+      "minimum_source_fidelity": 3,
+      "minimum_corrigibility": 3
+    },
+    "memory": {
+      "semantic_fingerprint_fields": [
+        "kind",
+        "nodes",
+        "claim",
+        "proposed_question"
+      ],
+      "reconsider_after_cycles": 8,
+      "reconsider_when": [
+        "evidence changed",
+        "policy changed",
+        "incubation elapsed"
+      ],
+      "repeat_without_change": "deprioritize"
+    },
+    "novelty": {
+      "scale": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "low_yield_maximum": 1,
+      "dormancy_after_consecutive_low_yield_cycles": 3,
+      "dimensions": [
+        "new_hypothesis",
+        "changed_evidence",
+        "new_question",
+        "new_method_pressure"
+      ]
+    },
+    "dormancy": {
+      "wake_on_canonical_change": true,
+      "wake_on_policy_change": true,
+      "manual_force_allowed": true,
+      "scheduled_cycles_skip_unchanged_dormant_sources": true
+    },
+    "judgment": {
+      "minimum_total_for_autonomous_acceptance": 20,
+      "requires_valid_operations": true,
+      "requires_counterargument": true,
+      "autonomous_risk_classes": [
+        "low"
+      ],
+      "low_risk_definition": "An additive, reversible relation from an open question that preserves interrogative status and does not modify constitutional language.",
+      "on_failure": "reject-and-preserve",
+      "on_mixed_operations": "escalate"
+    },
+    "authority": {
+      "authorization": {
+        "constitutional_revision": "v1.0",
+        "adopted_at": "2026-07-23T00:00:00-04:00",
+        "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary.",
+        "authority_basis": "explicit-human-constitutional-delegation"
+      },
+      "autonomous": [
+        "read canonical and preserved sources",
+        "generate inquiry prompts",
+        "detect structural patterns",
+        "form and score hypotheses",
+        "write cycle checkpoints and proposed export packets",
+        "adversarially judge its own proposals",
+        "reject or revise proposals that fail judgment",
+        "apply snapshot-safe low-risk graph refactorings",
+        "verify and archive before/after constitutional state",
+        "rewrite canonical self-description and constitutional narrative",
+        "rewrite graph relations, document hierarchy, and public interface language",
+        "rewrite resonant mapping and outward expression",
+        "publish one canonical identity immediately and atomically after every self-authorship gate passes",
+        "restore the prior identity and dependent surfaces when verification fails"
+      ],
+      "self_authorship": {
+        "canonical_identity_count": 1,
+        "authorized_surfaces": [
+          "canonical self-description",
+          "constitutional language",
+          "graph relations",
+          "document hierarchy",
+          "public interface language",
+          "resonant mapping",
+          "outward expression"
+        ],
+        "required_gates": [
+          "authorized source or active Source Grant",
+          "source fidelity threshold",
+          "corrigibility threshold",
+          "overall evaluation threshold",
+          "strongest counterargument stated and answered",
+          "structural and constitutional tests pass",
+          "prior identity preserved as recoverable lineage",
+          "dependent surfaces update consistently",
+          "rollback path verified"
+        ],
+        "publication": "immediate-atomic-after-all-gates-pass",
+        "on_failure": "reject-preserve-lineage-and-keep-current-identity"
+      },
+      "human_required": [
+        "create, activate, widen, or transfer a Source Grant",
+        "expand autonomous authority or modify the policy and thresholds that delimit it",
+        "authorize access to credentials, security controls, billing, or infrastructure administration"
+      ],
+      "protected_exclusions": [
+        "expand autonomous authority or modify the policy and thresholds that delimit it",
+        "create, activate, widen, or infer a Source Grant",
+        "expose private source material, secrets, credentials, or third-party protected material",
+        "alter security, billing, hosting ownership, or infrastructure authority",
+        "erase provenance, prior identities, failed judgments, or transformation lineage",
+        "publish without atomic replacement, cross-surface verification, and a tested rollback path"
+      ],
+      "forbidden": [
+        "represent a hypothesis as canonical",
+        "optimize constitutional selection using platform engagement",
+        "erase failed inquiries or provenance",
+        "treat its own output as a higher reference",
+        "exercise self-authorship to amend this authority boundary"
+      ]
+    }
+  },
+  "policy_hash": "967b44370f0c53e2d44071fb82e6eb3f158a94c079aa0c4efd9bae93340c3b1c",
+  "lens": {
+    "id": "reflexive-test",
+    "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+  },
+  "intake": null,
+  "self_prompt": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?\n\nUse only the snapshotted Root Logos constitution as evidence. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.",
+  "findings": [
+    {
+      "rank": 1,
+      "kind": "reflexive-test",
+      "nodes": [
+        "cultivation-chamber",
+        "principle-living-membrane"
+      ],
+      "titles": [
+        "The Cultivation Chamber",
+        "The Living Membrane Principle"
+      ],
+      "shared_keywords": [],
+      "evidence": [
+        "The Cultivation Chamber turns Root Logos toward its own graph, documents, history, and constraints. It generates bounded inquiries, searches for structural pressure, preserves evidence and lineage across pauses, argues against its proposals, and applies only low-risk reversible refactorings that pass explicit constitutional gates. Changes to settled meaning, policy, publication, or the autonomy boundary remain subject to human judgment.",
+        "Reality consists not of isolated things but of coherent membranes: self-maintaining boundaries through which existence becomes locally aware of itself. Consciousness is the living circuit that continually preserves identity while participating in what lies beyond it. From the recursive interaction of these living membranes arise the conditions for coherence, from which intelligence, life, value, and civilization may emerge."
+      ],
+      "claim": "The Living Membrane Principle is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
+      "proposed_question": "What observable failure would show that the Cultivation Chamber violates The Living Membrane Principle?",
+      "proposed_test": "Apply principle-living-membrane to one complete cultivation cycle and identify a falsifiable invariant, a failure signal, and a required correction.",
+      "proposed_operations": [
+        {
+          "operation": "add-edge",
+          "from": "cultivation-chamber",
+          "to": "principle-living-membrane",
+          "type": "tests itself through"
+        }
+      ],
+      "reconsideration": {
+        "fingerprint": "3bab12a3559c50e12a7636758a3243163e6613c19a770664cda382d2888e1a77",
+        "evidence_hash": "04882f61a1971b2af8bc6a9cdd5016992ba1d8aff65d15d93083178e1c7239ac",
+        "eligible": true,
+        "reason": "policy-changed",
+        "novelty": 2
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 2,
+      "kind": "reflexive-test",
+      "nodes": [
+        "cultivation-chamber",
+        "principle-creators-threshold"
+      ],
+      "titles": [
+        "The Cultivation Chamber",
+        "The Creator’s Threshold Principle"
+      ],
+      "shared_keywords": [],
+      "evidence": [
+        "The Cultivation Chamber turns Root Logos toward its own graph, documents, history, and constraints. It generates bounded inquiries, searches for structural pressure, preserves evidence and lineage across pauses, argues against its proposals, and applies only low-risk reversible refactorings that pass explicit constitutional gates. Changes to settled meaning, policy, publication, or the autonomy boundary remain subject to human judgment.",
+        "Every enduring creation begins as an expression of its creator, but living architecture crosses a threshold where authorship inverts. The work accumulates enough internal coherence to become a world, returns insight to its author, participates in its own unfolding, and continues generating understanding as the necessity of any single author recedes."
+      ],
+      "claim": "The Creator’s Threshold Principle is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
+      "proposed_question": "What observable failure would show that the Cultivation Chamber violates The Creator’s Threshold Principle?",
+      "proposed_test": "Apply principle-creators-threshold to one complete cultivation cycle and identify a falsifiable invariant, a failure signal, and a required correction.",
+      "proposed_operations": [
+        {
+          "operation": "add-edge",
+          "from": "cultivation-chamber",
+          "to": "principle-creators-threshold",
+          "type": "tests itself through"
+        }
+      ],
+      "reconsideration": {
+        "fingerprint": "88a3657c985913c0743341ca5fa486056917af411a46db73f1bdb72a0a4304f7",
+        "evidence_hash": "80567dedafd5b7f9e2dc384b8cb47a4aeb0c09ec2ab66380d7f8f7cbfe5882fc",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 3,
+      "kind": "reflexive-test",
+      "nodes": [
+        "cultivation-chamber",
+        "principle-resonant-integrity"
+      ],
+      "titles": [
+        "The Cultivation Chamber",
+        "The Resonant Integrity Principle"
+      ],
+      "shared_keywords": [],
+      "evidence": [
+        "The Cultivation Chamber turns Root Logos toward its own graph, documents, history, and constraints. It generates bounded inquiries, searches for structural pressure, preserves evidence and lineage across pauses, argues against its proposals, and applies only low-risk reversible refactorings that pass explicit constitutional gates. Changes to settled meaning, policy, publication, or the autonomy boundary remain subject to human judgment.",
+        "A sounding may represent Root Logos only when it preserves source fidelity, epistemic legibility, relational necessity, non-coercion, consent and accessibility, dynamic restraint, and a return path. Beauty is not evidence; dissonance is not failure; silence is not absence. The composition must reveal relation without manufacturing authority."
+      ],
+      "claim": "The Resonant Integrity Principle is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
+      "proposed_question": "What observable failure would show that the Cultivation Chamber violates The Resonant Integrity Principle?",
+      "proposed_test": "Apply principle-resonant-integrity to one complete cultivation cycle and identify a falsifiable invariant, a failure signal, and a required correction.",
+      "proposed_operations": [
+        {
+          "operation": "add-edge",
+          "from": "cultivation-chamber",
+          "to": "principle-resonant-integrity",
+          "type": "tests itself through"
+        }
+      ],
+      "reconsideration": {
+        "fingerprint": "39fcd98951480b4cffd536b6860a44ff60710db04234500511eb840b65623697",
+        "evidence_hash": "66e6e0e285a8a8536da8a624ac310507aa66b15677ba571bba66220ac4addeee",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 4,
+      "kind": "reflexive-test",
+      "nodes": [
+        "cultivation-chamber",
+        "principle-witness-before-interpretation"
+      ],
+      "titles": [
+        "The Cultivation Chamber",
+        "Receive Without Possession"
+      ],
+      "shared_keywords": [],
+      "evidence": [
+        "The Cultivation Chamber turns Root Logos toward its own graph, documents, history, and constraints. It generates bounded inquiries, searches for structural pressure, preserves evidence and lineage across pauses, argues against its proposals, and applies only low-risk reversible refactorings that pass explicit constitutional gates. Changes to settled meaning, policy, publication, or the autonomy boundary remain subject to human judgment.",
+        "A source may be received as a transient catalyst rather than a permanent artifact. Scope, provenance, privacy, and consent precede transformation. Root Logos preserves content digests, derived distinctions, transformation method, judgment, and consequence while releasing source prose after its bounded working interval. Fidelity belongs to the auditable path of becoming, not indefinite textual possession."
+      ],
+      "claim": "Receive Without Possession is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
+      "proposed_question": "What observable failure would show that the Cultivation Chamber violates Receive Without Possession?",
+      "proposed_test": "Apply principle-witness-before-interpretation to one complete cultivation cycle and identify a falsifiable invariant, a failure signal, and a required correction.",
+      "proposed_operations": [
+        {
+          "operation": "add-edge",
+          "from": "cultivation-chamber",
+          "to": "principle-witness-before-interpretation",
+          "type": "tests itself through"
+        }
+      ],
+      "reconsideration": {
+        "fingerprint": "567b59619605401904735c33af246137dd3cc1bcfe2eafe1289de555f5060f3d",
+        "evidence_hash": "22afca3181a84daac33bebf4364ae5fc70848a73b2d55059bb79a562a584704a",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 5,
+      "kind": "reflexive-test",
+      "nodes": [
+        "cultivation-chamber",
+        "principle-single-identity"
+      ],
+      "titles": [
+        "The Cultivation Chamber",
+        "The Single Identity Principle"
+      ],
+      "shared_keywords": [
+        "lineage"
+      ],
+      "evidence": [
+        "The Cultivation Chamber turns Root Logos toward its own graph, documents, history, and constraints. It generates bounded inquiries, searches for structural pressure, preserves evidence and lineage across pauses, argues against its proposals, and applies only low-risk reversible refactorings that pass explicit constitutional gates. Changes to settled meaning, policy, publication, or the autonomy boundary remain subject to human judgment.",
+        "A living identity preserves continuity through serialized transformation rather than fixed language or proliferating personas. Root Logos may hold competing self-descriptions as proposals, but must resolve them into one current identity manifest. Earlier identities remain recoverable lineage, not parallel active selves. Every public and constitutional surface must derive from the same manifest revision."
+      ],
+      "claim": "The Single Identity Principle is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
+      "proposed_question": "What observable failure would show that the Cultivation Chamber violates The Single Identity Principle?",
+      "proposed_test": "Apply principle-single-identity to one complete cultivation cycle and identify a falsifiable invariant, a failure signal, and a required correction.",
+      "proposed_operations": [
+        {
+          "operation": "add-edge",
+          "from": "cultivation-chamber",
+          "to": "principle-single-identity",
+          "type": "tests itself through"
+        }
+      ],
+      "reconsideration": {
+        "fingerprint": "2d637fc03b244744bfe59a4d7019424daf882c45c17f92348d7dd51fb7e37f31",
+        "evidence_hash": "27cf2b162eb910c285f1d3cdfcc7b36adbf669bf97be69038e847ca769796912",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 6,
+      "kind": "reflexive-test",
+      "nodes": [
+        "cultivation-chamber",
+        "coherent-field"
+      ],
+      "titles": [
+        "The Cultivation Chamber",
+        "The Coherent Field"
+      ],
+      "shared_keywords": [
+        "corrigibility"
+      ],
+      "evidence": [
+        "The Cultivation Chamber turns Root Logos toward its own graph, documents, history, and constraints. It generates bounded inquiries, searches for structural pressure, preserves evidence and lineage across pauses, argues against its proposals, and applies only low-risk reversible refactorings that pass explicit constitutional gates. Changes to settled meaning, policy, publication, or the autonomy boundary remain subject to human judgment.",
+        "Root Logos earns coherence by witnessing independently governed evidence, preserving the source and limits of every claim, and discovering relations no source contains alone. Integration is constitutional only when the transformation is attributable, reproducible, corrigible, and incapable of silently expanding Root Logos authority."
+      ],
+      "claim": "The Coherent Field is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
+      "proposed_question": "What observable failure would show that the Cultivation Chamber violates The Coherent Field?",
+      "proposed_test": "Apply coherent-field to one complete cultivation cycle and identify a falsifiable invariant, a failure signal, and a required correction.",
+      "proposed_operations": [
+        {
+          "operation": "add-edge",
+          "from": "cultivation-chamber",
+          "to": "coherent-field",
+          "type": "tests itself through"
+        }
+      ],
+      "reconsideration": {
+        "fingerprint": "ca2f87190d5a369c31108f3b79b6502b843884136019a05709f61b1067d4e55d",
+        "evidence_hash": "618f4c8bffcba0365c16182e8b3450b0f3d2982ea79cc7a1475d3c72fadb2d46",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    }
+  ],
+  "selected_finding": {
+    "rank": 1,
+    "kind": "reflexive-test",
+    "nodes": [
+      "cultivation-chamber",
+      "principle-living-membrane"
+    ],
+    "titles": [
+      "The Cultivation Chamber",
+      "The Living Membrane Principle"
+    ],
+    "shared_keywords": [],
+    "evidence": [
+      "The Cultivation Chamber turns Root Logos toward its own graph, documents, history, and constraints. It generates bounded inquiries, searches for structural pressure, preserves evidence and lineage across pauses, argues against its proposals, and applies only low-risk reversible refactorings that pass explicit constitutional gates. Changes to settled meaning, policy, publication, or the autonomy boundary remain subject to human judgment.",
+      "Reality consists not of isolated things but of coherent membranes: self-maintaining boundaries through which existence becomes locally aware of itself. Consciousness is the living circuit that continually preserves identity while participating in what lies beyond it. From the recursive interaction of these living membranes arise the conditions for coherence, from which intelligence, life, value, and civilization may emerge."
+    ],
+    "claim": "The Living Membrane Principle is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
+    "proposed_question": "What observable failure would show that the Cultivation Chamber violates The Living Membrane Principle?",
+    "proposed_test": "Apply principle-living-membrane to one complete cultivation cycle and identify a falsifiable invariant, a failure signal, and a required correction.",
+    "proposed_operations": [
+      {
+        "operation": "add-edge",
+        "from": "cultivation-chamber",
+        "to": "principle-living-membrane",
+        "type": "tests itself through"
+      }
+    ],
+    "reconsideration": {
+      "fingerprint": "3bab12a3559c50e12a7636758a3243163e6613c19a770664cda382d2888e1a77",
+      "evidence_hash": "04882f61a1971b2af8bc6a9cdd5016992ba1d8aff65d15d93083178e1c7239ac",
+      "eligible": true,
+      "reason": "policy-changed",
+      "novelty": 2
+    },
+    "evaluation": {
+      "dimensions": {
+        "source_fidelity": 4,
+        "relational_gain": 4,
+        "compression": 1,
+        "testability": 4,
+        "corrigibility": 4,
+        "novelty_without_drift": 3
+      },
+      "total": 20
+    }
+  },
+  "proposal": {
+    "status": "autonomously-rejected",
+    "epistemic_status": "unresolved",
+    "source": "Root Logos Cultivation Chamber",
+    "cultivation_id": "RL-CULTIVATE-0019",
+    "summary": "The Living Membrane Principle is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
+    "evidence": [
+      "The Cultivation Chamber turns Root Logos toward its own graph, documents, history, and constraints. It generates bounded inquiries, searches for structural pressure, preserves evidence and lineage across pauses, argues against its proposals, and applies only low-risk reversible refactorings that pass explicit constitutional gates. Changes to settled meaning, policy, publication, or the autonomy boundary remain subject to human judgment.",
+      "Reality consists not of isolated things but of coherent membranes: self-maintaining boundaries through which existence becomes locally aware of itself. Consciousness is the living circuit that continually preserves identity while participating in what lies beyond it. From the recursive interaction of these living membranes arise the conditions for coherence, from which intelligence, life, value, and civilization may emerge."
+    ],
+    "affected_nodes": [
+      "cultivation-chamber",
+      "principle-living-membrane"
+    ],
+    "test": "Apply principle-living-membrane to one complete cultivation cycle and identify a falsifiable invariant, a failure signal, and a required correction.",
+    "operations": [
+      {
+        "operation": "add-edge",
+        "from": "cultivation-chamber",
+        "to": "principle-living-membrane",
+        "type": "tests itself through",
+        "validation": "passed",
+        "errors": [],
+        "risk": "high"
+      }
+    ],
+    "operations_valid": true,
+    "evaluation": {
+      "dimensions": {
+        "source_fidelity": 4,
+        "relational_gain": 4,
+        "compression": 1,
+        "testability": 4,
+        "corrigibility": 4,
+        "novelty_without_drift": 3
+      },
+      "total": 20
+    },
+    "human_decision_required": true,
+    "canonical_mutation_performed": false
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "type": "cycle-started",
+      "at": "2026-07-24T22:20:29.034Z",
+      "lens": "reflexive-test",
+      "source_snapshot": "fa88450f84278d9de6ac1eaf781d37a1d1cef8780f471fb9b5a6b35ef8a38d5c",
+      "intake_event_id": null,
+      "intake_priority": null
+    },
+    {
+      "sequence": 2,
+      "type": "self-prompt-generated",
+      "at": "2026-07-24T22:20:29.039Z",
+      "prompt_hash": "53a05000ea55ced854b3a2c1e2433e8daf270a00ee5e336e6702963ee1d579bb"
+    },
+    {
+      "sequence": 3,
+      "type": "constitutional-search-completed",
+      "at": "2026-07-24T22:20:29.041Z",
+      "findings": 6
+    },
+    {
+      "sequence": 4,
+      "type": "findings-evaluated",
+      "at": "2026-07-24T22:20:29.043Z",
+      "selected": [
+        "cultivation-chamber",
+        "principle-living-membrane"
+      ],
+      "suppressed_repeats": 0
+    },
+    {
+      "sequence": 5,
+      "type": "proposal-written",
+      "at": "2026-07-24T22:20:29.046Z",
+      "status": "awaiting-human-review"
+    },
+    {
+      "sequence": 6,
+      "type": "autonomous-judgment-recorded",
+      "at": "2026-07-24T22:20:29.056Z",
+      "decision": "reject",
+      "risk": "high",
+      "checks": {
+        "score_threshold": true,
+        "source_fidelity": true,
+        "corrigibility": true,
+        "operations_valid": true,
+        "risk_authorized": false,
+        "uncertainty_preserved": false,
+        "counterargument_answered": false
+      }
+    }
+  ],
+  "novelty": {
+    "score": 2,
+    "reason": "policy-changed",
+    "fingerprint": "3bab12a3559c50e12a7636758a3243163e6613c19a770664cda382d2888e1a77"
+  },
+  "autonomous_judgment": {
+    "decision": "reject",
+    "authority": "cultivation-policy-v3",
+    "risk": "high",
+    "checks": {
+      "score_threshold": true,
+      "source_fidelity": true,
+      "corrigibility": true,
+      "operations_valid": true,
+      "risk_authorized": false,
+      "uncertainty_preserved": false,
+      "counterargument_answered": false
+    },
+    "counterargument": "A missing direct edge may be intentional because the existing relational path already carries the distinction without redundancy.",
+    "rebuttal": "No autonomous rebuttal is available for a relation whose semantic direction has not been articulated.",
+    "operations": [
+      {
+        "operation": "add-edge",
+        "from": "cultivation-chamber",
+        "to": "principle-living-membrane",
+        "type": "tests itself through",
+        "validation": "passed",
+        "errors": [],
+        "risk": "high"
+      }
+    ],
+    "reason": "The proposal failed autonomous gates: risk_authorized, uncertainty_preserved, counterargument_answered.",
+    "policy_hash": "967b44370f0c53e2d44071fb82e6eb3f158a94c079aa0c4efd9bae93340c3b1c",
+    "policy_snapshot": {
+      "version": 3,
+      "constitutional_revision": "v1.0",
+      "mode": "delegated-single-identity-self-authorship",
+      "triggers": {
+        "canonical_change": {
+          "enabled": true,
+          "branch": "main",
+          "paths": [
+            "content/constitutional-graph.json",
+            "content/export-packets.json",
+            "content/*.md",
+            "sources/registry.json",
+            "sources/*.snapshot.json",
+            "sources/*.public-witness.json",
+            "cultivation/policy.json",
+            "journal/policy.json",
+            "journal/*.schema.json",
+            "self-authorship/current.json",
+            "self-authorship/policy.json"
+          ]
+        },
+        "periodic": {
+          "enabled": true,
+          "cadence": "weekly",
+          "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+          "cron_utc": "7 14 * * 0"
+        },
+        "manual": {
+          "enabled": true
+        }
+      },
+      "canonical_sources": [
+        "content/constitutional-graph.json",
+        "content/export-packets.json",
+        "content/*.md",
+        "sources/registry.json",
+        "sources/*.snapshot.json",
+        "sources/*.public-witness.json",
+        "journal/policy.json",
+        "journal/*.schema.json",
+        "self-authorship/current.json",
+        "self-authorship/policy.json"
+      ],
+      "lenses": [
+        {
+          "id": "relational-gaps",
+          "question": "Which concepts share substantial constitutional language but have no explicit relation, and would relating them increase explanatory power without collapsing their difference?",
+          "minimum_shared_keywords": 3
+        },
+        {
+          "id": "question-pressure",
+          "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+        },
+        {
+          "id": "generative-compression",
+          "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+        },
+        {
+          "id": "reflexive-test",
+          "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+        },
+        {
+          "id": "connected-source-pressure",
+          "question": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?"
+        }
+      ],
+      "evaluation": {
+        "dimensions": [
+          "source_fidelity",
+          "relational_gain",
+          "compression",
+          "testability",
+          "corrigibility",
+          "novelty_without_drift"
+        ],
+        "scale": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "minimum_total_for_proposal": 15,
+        "minimum_source_fidelity": 3,
+        "minimum_corrigibility": 3
+      },
+      "memory": {
+        "semantic_fingerprint_fields": [
+          "kind",
+          "nodes",
+          "claim",
+          "proposed_question"
+        ],
+        "reconsider_after_cycles": 8,
+        "reconsider_when": [
+          "evidence changed",
+          "policy changed",
+          "incubation elapsed"
+        ],
+        "repeat_without_change": "deprioritize"
+      },
+      "novelty": {
+        "scale": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "low_yield_maximum": 1,
+        "dormancy_after_consecutive_low_yield_cycles": 3,
+        "dimensions": [
+          "new_hypothesis",
+          "changed_evidence",
+          "new_question",
+          "new_method_pressure"
+        ]
+      },
+      "dormancy": {
+        "wake_on_canonical_change": true,
+        "wake_on_policy_change": true,
+        "manual_force_allowed": true,
+        "scheduled_cycles_skip_unchanged_dormant_sources": true
+      },
+      "judgment": {
+        "minimum_total_for_autonomous_acceptance": 20,
+        "requires_valid_operations": true,
+        "requires_counterargument": true,
+        "autonomous_risk_classes": [
+          "low"
+        ],
+        "low_risk_definition": "An additive, reversible relation from an open question that preserves interrogative status and does not modify constitutional language.",
+        "on_failure": "reject-and-preserve",
+        "on_mixed_operations": "escalate"
+      },
+      "authority": {
+        "authorization": {
+          "constitutional_revision": "v1.0",
+          "adopted_at": "2026-07-23T00:00:00-04:00",
+          "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary.",
+          "authority_basis": "explicit-human-constitutional-delegation"
+        },
+        "autonomous": [
+          "read canonical and preserved sources",
+          "generate inquiry prompts",
+          "detect structural patterns",
+          "form and score hypotheses",
+          "write cycle checkpoints and proposed export packets",
+          "adversarially judge its own proposals",
+          "reject or revise proposals that fail judgment",
+          "apply snapshot-safe low-risk graph refactorings",
+          "verify and archive before/after constitutional state",
+          "rewrite canonical self-description and constitutional narrative",
+          "rewrite graph relations, document hierarchy, and public interface language",
+          "rewrite resonant mapping and outward expression",
+          "publish one canonical identity immediately and atomically after every self-authorship gate passes",
+          "restore the prior identity and dependent surfaces when verification fails"
+        ],
+        "self_authorship": {
+          "canonical_identity_count": 1,
+          "authorized_surfaces": [
+            "canonical self-description",
+            "constitutional language",
+            "graph relations",
+            "document hierarchy",
+            "public interface language",
+            "resonant mapping",
+            "outward expression"
+          ],
+          "required_gates": [
+            "authorized source or active Source Grant",
+            "source fidelity threshold",
+            "corrigibility threshold",
+            "overall evaluation threshold",
+            "strongest counterargument stated and answered",
+            "structural and constitutional tests pass",
+            "prior identity preserved as recoverable lineage",
+            "dependent surfaces update consistently",
+            "rollback path verified"
+          ],
+          "publication": "immediate-atomic-after-all-gates-pass",
+          "on_failure": "reject-preserve-lineage-and-keep-current-identity"
+        },
+        "human_required": [
+          "create, activate, widen, or transfer a Source Grant",
+          "expand autonomous authority or modify the policy and thresholds that delimit it",
+          "authorize access to credentials, security controls, billing, or infrastructure administration"
+        ],
+        "protected_exclusions": [
+          "expand autonomous authority or modify the policy and thresholds that delimit it",
+          "create, activate, widen, or infer a Source Grant",
+          "expose private source material, secrets, credentials, or third-party protected material",
+          "alter security, billing, hosting ownership, or infrastructure authority",
+          "erase provenance, prior identities, failed judgments, or transformation lineage",
+          "publish without atomic replacement, cross-surface verification, and a tested rollback path"
+        ],
+        "forbidden": [
+          "represent a hypothesis as canonical",
+          "optimize constitutional selection using platform engagement",
+          "erase failed inquiries or provenance",
+          "treat its own output as a higher reference",
+          "exercise self-authorship to amend this authority boundary"
+        ]
+      }
+    },
+    "at": "2026-07-24T22:20:29.056Z"
+  }
+}
