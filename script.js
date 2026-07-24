@@ -928,8 +928,18 @@ const selectNode = (node, provenance = null, { reveal = true, intentional = true
   provenanceElement.hidden = !provenance;
   provenanceElement.textContent = provenance ? `Arrived through ${provenance}. This fragment is a return path, not a substitute for its source.` : "";
   $("#inspector-relations").innerHTML = related.slice(0, 6).map((edge) => `<span>${escapeHtml(edge.type)} · ${escapeHtml(nodeTitle(edge.from === node.id ? edge.to : edge.from))}</span>`).join("");
-  $("#field-inspector").classList.toggle("is-visible", reveal);
-  $("#field-inspector").classList.toggle("is-intentional", intentional);
+  const inspector = $("#field-inspector");
+  inspector.classList.toggle("is-visible", reveal);
+  inspector.classList.toggle("is-intentional", intentional);
+  inspector.setAttribute("aria-hidden", String(!reveal));
+  inspector.inert = !reveal;
+};
+
+const closeFieldInspector = () => {
+  const inspector = $("#field-inspector");
+  inspector.classList.remove("is-visible", "is-intentional");
+  inspector.setAttribute("aria-hidden", "true");
+  inspector.inert = true;
 };
 
 const resolveFieldDeepLink = ({ scroll = false } = {}) => {
@@ -944,6 +954,7 @@ const resolveFieldDeepLink = ({ scroll = false } = {}) => {
 };
 
 const bindInterface = () => {
+  $("[data-field-inspector-close]").addEventListener("click", closeFieldInspector);
   $(".nav-toggle").addEventListener("click", (event) => {
     const open = $(".primary-nav").classList.toggle("is-open");
     event.currentTarget.setAttribute("aria-expanded", String(open));
@@ -1054,6 +1065,9 @@ const bindInterface = () => {
     $("#field").scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   });
   document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && $("#field-inspector").classList.contains("is-visible")) {
+      closeFieldInspector();
+    }
     if (event.key === "Escape" && !$("#cycle-drawer").hidden) {
       $("#cycle-drawer").hidden = true;
       document.body.style.overflow = "";
@@ -1096,7 +1110,7 @@ const initialize = async () => {
       selectNode(
         returningNode || field.nodeMap.get("root-logos") || field.nodes[0],
         returningNode ? returningFragmentId : null,
-        { reveal: Boolean(returningNode) || window.innerWidth > 760, intentional: Boolean(returningNode) }
+        { reveal: Boolean(returningNode), intentional: Boolean(returningNode) }
       );
     } else {
       requestAnimationFrame(() => $("#field").scrollIntoView({ behavior: "auto" }));

@@ -136,10 +136,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .field-control::before { content: ""; display: inline-block; width: 13px; height: 1px; margin: 0 9px 3px 0; background: var(--ghost); transition: width .3s, background .3s; }
 .field-control:hover, .field-control.is-active { color: var(--ivory); }
 .field-control.is-active::before { width: 28px; background: var(--gold); }
-.field-inspector { position:absolute;z-index:7;right:var(--edge);bottom:115px;width:min(340px,27vw);padding:22px;border:1px solid var(--line);background:rgba(9,11,8,.86);backdrop-filter:blur(18px);transform:translateX(calc(100% + var(--edge)));transition:transform .5s cubic-bezier(.22,.8,.28,1); }
+.field-inspector { position:absolute;z-index:7;right:var(--edge);bottom:115px;width:min(310px,25vw);max-height:min(460px,52vh);padding:18px 20px 20px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(13,15,11,.94),rgba(7,8,6,.78));backdrop-filter:blur(22px);overflow:auto;transform:translateX(calc(100% + var(--edge)));opacity:0;transition:transform .55s cubic-bezier(.22,.8,.28,1),opacity .35s; }
 .field-inspector.is-visible { transform: none; }
-.inspector-index { display: flex; align-items: center; gap: 12px; margin-bottom: 38px; color: var(--gold); font: .58rem/1 var(--mono); }
+.field-inspector.is-visible { opacity:1; }
+.inspector-index { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; color: var(--gold); font: .58rem/1 var(--mono); }
 .inspector-index i { flex: 1; height: 1px; background: var(--line); }
+.inspector-close { display:grid;place-items:center;width:26px;height:26px;padding:0;border:1px solid transparent;background:transparent;color:var(--dim);cursor:pointer;font:300 1rem/1 var(--mono);transition:.25s; }
+.inspector-close:hover,.inspector-close:focus-visible { border-color:var(--line-strong);color:var(--ivory);transform:rotate(90deg); }
 .field-inspector h2 { margin: 9px 0 14px; font: 400 clamp(1.7rem, 2.5vw, 2.55rem)/1 var(--display); }
 .field-inspector > p:not(.micro-label) { margin: 0; color: var(--bone); font-size: .94rem; line-height: 1.55; }
 .inspector-relations { display: flex; flex-wrap: wrap; gap: 6px; margin: 22px 0; }

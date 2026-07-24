@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=1.0-constitutional-object-2">
+    <link rel="stylesheet" href="styles.css?v=1.0-constitutional-object-3">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the field</a>
@@ -87,8 +87,11 @@
           <button type="button" class="field-control" data-filter="source">Sources</button>
         </div>
 
-        <aside class="field-inspector" id="field-inspector" aria-live="polite">
-          <div class="inspector-index"><span id="inspector-index">00</span><i></i></div>
+        <aside class="field-inspector" id="field-inspector" aria-live="polite" aria-hidden="true" inert>
+          <div class="inspector-index">
+            <span id="inspector-index">00</span><i></i>
+            <button type="button" class="inspector-close" data-field-inspector-close aria-label="Refold structure detail">×</button>
+          </div>
           <p class="micro-label" id="inspector-type">Constitutional source</p>
           <h2 id="inspector-title">Root Logos</h2>
           <p id="inspector-summary">Rotate the object and select a structure to witness its position in the constitutional field.</p>
@@ -586,7 +589,7 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
-    <script src="script.js?v=1.0-constitutional-object-2" defer></script>
+    <script src="script.js?v=1.0-constitutional-object-3" defer></script>
     <script src="resonance.js" defer></script>
   </body>
 </html>
