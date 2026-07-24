@@ -685,11 +685,22 @@ class ConstitutionalField {
     this.canvas = canvas;
     this.context = canvas.getContext("2d");
     this.graph = graph;
-    this.nodes = graph.nodes.map((node, index) => ({ ...node, index, x: 0, y: 0, px: 0, py: 0, radius: 2 }));
+    this.nodes = graph.nodes.map((node, index) => ({ ...node, index, bx: 0, by: 0, bz: 0, px: 0, py: 0, pz: 0, scale: 1, radius: 2 }));
     this.nodeMap = new Map(this.nodes.map((node) => [node.id, node]));
     this.edges = graph.edges.map((edge) => ({ ...edge, source: this.nodeMap.get(edge.from), target: this.nodeMap.get(edge.to) })).filter(({ source, target }) => source && target);
     this.pointer = { x: -1000, y: -1000 };
     this.hovered = null;
+    this.rotation = { x: -.22, y: -.16 };
+    this.targetRotation = { ...this.rotation };
+    this.zoom = 1;
+    this.targetZoom = 1;
+    this.expansion = .84;
+    this.targetExpansion = .84;
+    this.dragging = false;
+    this.dragDistance = 0;
+    this.pointerOrigin = null;
+    this.search = "";
+    this.reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     this.time = 0;
     this.resize = this.resize.bind(this);
     this.draw = this.draw.bind(this);
@@ -709,11 +720,10 @@ class ConstitutionalField {
   }
 
   layout() {
-    const centers = {
-      root: [.64, .5, .02], logos: [.64, .5, .16], "architectural-principle": [.64, .5, .25],
-      vocabulary: [.64, .5, .34], "open-question": [.64, .5, .41], bridge: [.64, .5, .31],
-      "living-statement": [.64, .5, .37], "field-note": [.64, .5, .43], "artifact-seed": [.64, .5, .46],
-      "export-system": [.64, .5, .39], revision: [.64, .5, .47]
+    const shells = {
+      root: .01, logos: .28, "architectural-principle": .43, source: .54, "source-grammar": .61,
+      vocabulary: .68, bridge: .74, "living-statement": .79, "export-system": .83,
+      "open-question": .89, "field-note": .94, "artifact-seed": .98, revision: 1.03
     };
     const groups = new Map();
     this.nodes.forEach((node) => {
@@ -721,79 +731,185 @@ class ConstitutionalField {
       groups.get(node.type).push(node);
     });
     groups.forEach((nodes, type) => nodes.forEach((node, index) => {
-      const [cx, cy, ring] = centers[type] || [.64, .5, .4];
-      const angle = ((index / nodes.length) * Math.PI * 2) + seeded(type) * 2.7 + (seeded(node.id) - .5) * .12;
-      const elliptical = ring * Math.min(this.width, this.height * 1.65);
-      node.x = cx * this.width + Math.cos(angle) * elliptical;
-      node.y = cy * this.height + Math.sin(angle) * elliptical * .55;
-      node.px = node.x;
-      node.py = node.y;
+      const shell = shells[type] || .82;
+      const longitude = index * 2.399963229728653 + seeded(type) * Math.PI * 2;
+      const latitude = nodes.length === 1 ? 0 : Math.asin(-1 + (2 * (index + .5)) / nodes.length);
+      const variance = .94 + seeded(node.id) * .12;
+      node.bx = Math.cos(latitude) * Math.cos(longitude) * shell * variance;
+      node.by = Math.sin(latitude) * shell * variance;
+      node.bz = Math.cos(latitude) * Math.sin(longitude) * shell * variance;
+      if (type === "root") node.bx = node.by = node.bz = 0;
       const degree = this.edges.filter(({ from, to }) => from === node.id || to === node.id).length;
-      node.radius = type === "root" ? 9 : Math.min(6, 1.8 + degree * .22);
+      node.radius = type === "root" ? 9 : Math.min(6.5, 1.7 + degree * .24);
     }));
   }
 
-  visible(node) { return app.filter === "all" || node.type === app.filter || node.id === app.selectedNode?.id; }
+  matchesSearch(node) {
+    if (!this.search) return true;
+    return `${node.title} ${node.type} ${node.summary || ""} ${(node.keywords || []).join(" ")}`.toLowerCase().includes(this.search);
+  }
+
+  visible(node) {
+    return (app.filter === "all" || node.type === app.filter || node.id === app.selectedNode?.id) && this.matchesSearch(node);
+  }
+
+  setFold(target) {
+    this.targetExpansion = target;
+    $("#field-fold-state").textContent = target < .3 ? "Held in seed form" : "Open constellation";
+    $$("[data-field-action]").forEach((button) => button.classList.toggle("is-active",
+      (target < .3 && button.dataset.fieldAction === "refold") || (target >= .3 && button.dataset.fieldAction === "unfold")));
+  }
+
+  reset() {
+    this.targetRotation = { x: -.22, y: -.16 };
+    this.targetZoom = 1;
+  }
+
+  project(node) {
+    const expansion = node.type === "root" ? 1 : this.expansion;
+    const x = node.bx * expansion;
+    const y = node.by * expansion;
+    const z = node.bz * expansion;
+    const cosY = Math.cos(this.rotation.y); const sinY = Math.sin(this.rotation.y);
+    const x1 = x * cosY - z * sinY; const z1 = x * sinY + z * cosY;
+    const cosX = Math.cos(this.rotation.x); const sinX = Math.sin(this.rotation.x);
+    const y1 = y * cosX - z1 * sinX; const z2 = y * sinX + z1 * cosX;
+    const camera = 3.2;
+    const perspective = camera / (camera - z2);
+    const radius = Math.min(this.width, this.height) * .43 * this.zoom;
+    const centerX = this.width * (this.width > 900 ? .57 : .5);
+    const centerY = this.height * .51;
+    node.px = centerX + x1 * radius * perspective;
+    node.py = centerY + y1 * radius * perspective;
+    node.pz = z2;
+    node.scale = perspective;
+  }
+
   bind() {
     window.addEventListener("resize", this.resize, { passive: true });
+    this.canvas.addEventListener("pointerdown", (event) => {
+      this.dragging = true;
+      this.dragDistance = 0;
+      this.pointerOrigin = { x: event.clientX, y: event.clientY, rotationX: this.targetRotation.x, rotationY: this.targetRotation.y };
+      this.canvas.setPointerCapture(event.pointerId);
+      this.canvas.classList.add("is-dragging");
+    });
     this.canvas.addEventListener("pointermove", (event) => {
       const rect = this.canvas.getBoundingClientRect();
       this.pointer.x = event.clientX - rect.left;
       this.pointer.y = event.clientY - rect.top;
-      this.hovered = this.nodes.filter((node) => this.visible(node)).find((node) => Math.hypot(node.px - this.pointer.x, node.py - this.pointer.y) < Math.max(12, node.radius + 7)) || null;
-      this.canvas.style.cursor = this.hovered ? "pointer" : "crosshair";
+      if (this.dragging && this.pointerOrigin) {
+        const dx = event.clientX - this.pointerOrigin.x; const dy = event.clientY - this.pointerOrigin.y;
+        this.dragDistance = Math.max(this.dragDistance, Math.hypot(dx, dy));
+        this.targetRotation.y = this.pointerOrigin.rotationY + dx * .006;
+        this.targetRotation.x = Math.max(-1.25, Math.min(1.25, this.pointerOrigin.rotationX + dy * .005));
+      }
+      this.hovered = [...this.nodes].filter((node) => this.visible(node)).sort((a, b) => b.pz - a.pz)
+        .find((node) => Math.hypot(node.px - this.pointer.x, node.py - this.pointer.y) < Math.max(11, node.radius * node.scale + 6)) || null;
+      this.canvas.style.cursor = this.dragging ? "grabbing" : this.hovered ? "pointer" : "grab";
     });
-    this.canvas.addEventListener("pointerleave", () => { this.hovered = null; });
-    this.canvas.addEventListener("click", () => { if (this.hovered) selectNode(this.hovered); });
+    const release = (event) => {
+      if (!this.dragging) return;
+      this.dragging = false;
+      this.canvas.classList.remove("is-dragging");
+      if (this.canvas.hasPointerCapture(event.pointerId)) this.canvas.releasePointerCapture(event.pointerId);
+      if (this.dragDistance < 6 && this.hovered) {
+        selectNode(this.hovered);
+        if (this.targetExpansion < .5) this.setFold(.84);
+      }
+    };
+    this.canvas.addEventListener("pointerup", release);
+    this.canvas.addEventListener("pointercancel", release);
+    this.canvas.addEventListener("pointerleave", () => { if (!this.dragging) this.hovered = null; });
+    this.canvas.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      this.targetZoom = Math.max(.62, Math.min(1.65, this.targetZoom - event.deltaY * .0008));
+    }, { passive: false });
+    $$("[data-field-action]").forEach((button) => button.addEventListener("click", () => {
+      if (button.dataset.fieldAction === "unfold") this.setFold(.84);
+      if (button.dataset.fieldAction === "refold") this.setFold(.12);
+      if (button.dataset.fieldAction === "reset") this.reset();
+    }));
+    $("#field-search").addEventListener("input", (event) => {
+      this.search = event.target.value.trim().toLowerCase();
+      const first = this.nodes.find((node) => this.visible(node));
+      if (this.search && first) selectNode(first);
+    });
   }
 
   draw(timestamp) {
-    this.time = timestamp * .0001;
+    this.time = timestamp * .001;
     const ctx = this.context;
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     ctx.clearRect(0, 0, this.width, this.height);
+    this.rotation.x += (this.targetRotation.x - this.rotation.x) * .08;
+    this.rotation.y += (this.targetRotation.y - this.rotation.y) * .08;
+    this.zoom += (this.targetZoom - this.zoom) * .09;
+    this.expansion += (this.targetExpansion - this.expansion) * .055;
+    if (!this.dragging && !this.reducedMotion && this.targetExpansion > .3) this.targetRotation.y += .00038;
     const selected = app.selectedNode;
     const relatedIds = selected ? new Set(this.edges.filter(({ source, target }) => source.id === selected.id || target.id === selected.id).flatMap(({ source, target }) => [source.id, target.id])) : null;
 
-    this.nodes.forEach((node) => {
-      const drift = node.type === "root" ? 0 : 2.2 + seeded(node.id) * 2;
-      node.px = node.x + Math.cos(this.time * (1 + seeded(node.id)) + node.index) * drift;
-      node.py = node.y + Math.sin(this.time * (1.1 + seeded(`${node.id}y`)) + node.index) * drift;
+    this.nodes.forEach((node) => this.project(node));
+    const visibleNodes = this.nodes.filter((node) => this.visible(node)).sort((a, b) => a.pz - b.pz);
+    const centerX = this.width * (this.width > 900 ? .57 : .5); const centerY = this.height * .51;
+    const objectRadius = Math.min(this.width, this.height) * .43 * this.zoom * this.expansion;
+
+    ctx.save();
+    ctx.translate(centerX, centerY);
+    [1, .72, .43].forEach((ring, index) => {
+      ctx.beginPath();
+      ctx.ellipse(0, 0, objectRadius * ring, objectRadius * ring * (.34 + index * .08), this.rotation.y * .22 + index * .9, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(${index === 1 ? "147,185,187" : "203,183,122"},${.045 + index * .022})`;
+      ctx.lineWidth = .7;
+      ctx.stroke();
     });
+    ctx.restore();
 
     this.edges.forEach(({ source, target, type }) => {
       if (!this.visible(source) || !this.visible(target)) return;
       const active = selected && (source.id === selected.id || target.id === selected.id);
+      const depth = Math.max(.12, Math.min(1, (source.pz + target.pz + 2) / 4));
       ctx.beginPath();
       ctx.moveTo(source.px, source.py);
       ctx.lineTo(target.px, target.py);
-      ctx.strokeStyle = active ? "rgba(225,209,152,.42)" : type === "questions" ? "rgba(147,185,187,.12)" : "rgba(226,220,197,.055)";
-      ctx.lineWidth = active ? .9 : .45;
+      ctx.strokeStyle = active ? "rgba(225,209,152,.58)" : type === "questions" ? `rgba(147,185,187,${.05 + depth * .1})` : `rgba(226,220,197,${.025 + depth * .06})`;
+      ctx.lineWidth = active ? 1 : .35 + depth * .25;
       ctx.stroke();
     });
 
-    this.nodes.forEach((node) => {
-      if (!this.visible(node)) return;
+    visibleNodes.forEach((node) => {
       const active = selected?.id === node.id;
       const related = relatedIds?.has(node.id);
       const hover = this.hovered?.id === node.id;
       const alpha = selected && !related && !active ? .22 : 1;
-      const color = node.type === "open-question" ? [147,185,187] : node.type === "architectural-principle" ? [203,183,122] : node.type === "root" ? [225,209,152] : [189,185,170];
+      const depth = Math.max(.22, Math.min(1, (node.pz + 1.2) / 2.1));
+      const colors = {
+        "open-question": [147,185,187], "architectural-principle": [203,183,122], root: [225,209,152],
+        source: [138,166,129], "source-grammar": [154,140,182], revision: [173,113,89]
+      };
+      const color = colors[node.type] || [189,185,170];
+      const radius = Math.max(1.3, node.radius * node.scale * (.72 + depth * .35));
+      if (node.type === "root") {
+        const glow = ctx.createRadialGradient(node.px, node.py, 0, node.px, node.py, 52 * this.zoom);
+        glow.addColorStop(0, "rgba(225,209,152,.16)"); glow.addColorStop(1, "rgba(225,209,152,0)");
+        ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(node.px, node.py, 52 * this.zoom, 0, Math.PI * 2); ctx.fill();
+      }
       if (active || hover || node.type === "root") {
         ctx.beginPath();
-        ctx.arc(node.px, node.py, node.radius + (active ? 12 : 7) + Math.sin(this.time * 12) * 1.5, 0, Math.PI * 2);
+        ctx.arc(node.px, node.py, radius + (active ? 12 : 7) + Math.sin(this.time * 1.7) * 1.5, 0, Math.PI * 2);
         ctx.strokeStyle = `rgba(${color.join(",")},${active ? .45 : .17})`;
         ctx.lineWidth = .7;
         ctx.stroke();
       }
       ctx.beginPath();
-      ctx.arc(node.px, node.py, active ? node.radius + 2 : node.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${color.join(",")},${alpha * (hover || active ? 1 : .68)})`;
+      ctx.arc(node.px, node.py, active ? radius + 2 : radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${color.join(",")},${alpha * (hover || active ? 1 : .28 + depth * .58)})`;
       ctx.fill();
       if (hover || active || node.type === "root") {
         ctx.fillStyle = `rgba(233,229,216,${alpha * .76})`;
         ctx.font = "500 9px SFMono-Regular, monospace";
-        ctx.fillText(node.title.toUpperCase(), node.px + 13, node.py + 3);
+        ctx.fillText(node.title.toUpperCase().slice(0, 48), node.px + radius + 9, node.py + 3);
       }
     });
     requestAnimationFrame(this.draw);
@@ -801,7 +917,7 @@ class ConstitutionalField {
 }
 
 let field;
-const selectNode = (node, provenance = null) => {
+const selectNode = (node, provenance = null, { reveal = true, intentional = true } = {}) => {
   app.selectedNode = node;
   const related = app.graph.edges.filter(({ from, to }) => from === node.id || to === node.id);
   $("#inspector-index").textContent = String(node.index + 1).padStart(2, "0");
@@ -812,7 +928,8 @@ const selectNode = (node, provenance = null) => {
   provenanceElement.hidden = !provenance;
   provenanceElement.textContent = provenance ? `Arrived through ${provenance}. This fragment is a return path, not a substitute for its source.` : "";
   $("#inspector-relations").innerHTML = related.slice(0, 6).map((edge) => `<span>${escapeHtml(edge.type)} · ${escapeHtml(nodeTitle(edge.from === node.id ? edge.to : edge.from))}</span>`).join("");
-  $("#field-inspector").classList.add("is-visible");
+  $("#field-inspector").classList.toggle("is-visible", reveal);
+  $("#field-inspector").classList.toggle("is-intentional", intentional);
 };
 
 const resolveFieldDeepLink = ({ scroll = false } = {}) => {
@@ -976,7 +1093,11 @@ const initialize = async () => {
       const returningFragmentId = new URLSearchParams(location.search).get("from");
       const returningPacket = (app.attractors?.packets || []).find(({ attractor_id: id }) => id === returningFragmentId);
       const returningNode = returningPacket ? field.nodeMap.get(returningPacket.node) : null;
-      selectNode(returningNode || field.nodeMap.get("root-logos") || field.nodes[0], returningNode ? returningFragmentId : null);
+      selectNode(
+        returningNode || field.nodeMap.get("root-logos") || field.nodes[0],
+        returningNode ? returningFragmentId : null,
+        { reveal: Boolean(returningNode) || window.innerWidth > 760, intentional: Boolean(returningNode) }
+      );
     } else {
       requestAnimationFrame(() => $("#field").scrollIntoView({ behavior: "auto" }));
     }

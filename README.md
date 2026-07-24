@@ -26,12 +26,21 @@ of carrying them without doctrinal repetition.
 ## Current Shape
 
 - `index.html` renders the public Root Logos observatory: the constitutional
-  Field, the visible Living Identity, new connected-source Coherent Field, live Cultivation Chamber, semantic
+  Object, the visible Living Identity, connected-source Coherent Field, live Cultivation Chamber, semantic
   Memory, constitutional Threshold, signed Intake membrane, Living Observatory,
   live Resonant Chamber, and the planned Journal Membrane. The interface now
   makes its continual movement explicit: receive, witness, relate, judge,
   compose, and rewrite one canonical account inside a boundary where reality
   remains greater than the system.
+- The Constitutional Object is now the central public experience. Its 87
+  canonical structures and 224 explicit relations are projected into a stable
+  three-dimensional constellation generated directly from the graph. Readers
+  can rotate, approach, search, filter, inspect, unfold, and refold it. Depth,
+  light, scale, and motion change legibility without changing canon.
+- `content/constitutional-object.md` defines the dimensional grammar and Root
+  Logos's role as librarian and steward of when the field opens, isolates,
+  compresses, or refolds. The remaining chambers are understood as openings
+  from the same constitutional object rather than parallel interface modules.
 - `sources/registry.json` declares connected sources, their
   evidence interfaces, return paths, visibility, and non-negotiable authority
   boundaries. Connection is explicit; repository independence remains intact.
@@ -94,9 +103,10 @@ of carrying them without doctrinal repetition.
   constitutional field and current identity manifest, cultivation lineage,
   proposal judgment, semantic memory, constitutional threshold, intake state,
   and archival fallback.
-- `styles.css` contains the dark astronomical visual system, semantic state
-  colors, responsive instruments, the orbital five-movement identity anatomy,
-  restrained motion, and reduced-motion mode.
+- `styles.css` contains the dark astronomical visual system, dimensional field
+  controls, depth grammar, semantic state colors, responsive instruments, the
+  orbital five-movement identity anatomy, restrained motion, and reduced-motion
+  mode.
 - `documents/` contains public archive-document pages.
 - `statements/` contains public pages reserved for substantial Living Statements
   and Constitutional Bridges.
