@@ -20,6 +20,7 @@ assert.equal(first.status, "witnessed");
 assert.equal(first.compositions.length, 3);
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").status, "active");
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").public_url, "https://foldforge.xyz");
+assert.equal(validated.registry.sources.find(({ id }) => id === "x").public_url, "https://x.com/rootlogos");
 assert.equal(validated.registry.sources.find(({ id }) => id === "telos").public_url, null);
 assert.equal(validated.registry.sources.find(({ id }) => id === "sovereign-standard").public_url, "https://sovereignstandard.co");
 assert.equal(validated.publicWitnesses.length, 2);
