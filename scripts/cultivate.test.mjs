@@ -14,7 +14,8 @@ await Promise.all([
   mkdir(join(sandbox, "content"), { recursive: true }),
   mkdir(join(sandbox, "cultivation", "cycles"), { recursive: true }),
   mkdir(join(sandbox, "journal"), { recursive: true }),
-  mkdir(join(sandbox, "self-authorship"), { recursive: true })
+  mkdir(join(sandbox, "self-authorship"), { recursive: true }),
+  mkdir(join(sandbox, "sources"), { recursive: true })
 ]);
 
 await Promise.all([
@@ -24,16 +25,18 @@ await Promise.all([
   cp(new URL("journal/policy.json", sourceRoot), join(sandbox, "journal", "policy.json")),
   cp(new URL("journal/entry.schema.json", sourceRoot), join(sandbox, "journal", "entry.schema.json")),
   cp(new URL("self-authorship/current.json", sourceRoot), join(sandbox, "self-authorship", "current.json")),
-  cp(new URL("self-authorship/policy.json", sourceRoot), join(sandbox, "self-authorship", "policy.json"))
+  cp(new URL("self-authorship/policy.json", sourceRoot), join(sandbox, "self-authorship", "policy.json")),
+  cp(new URL("sources/registry.json", sourceRoot), join(sandbox, "sources", "registry.json")),
+  cp(new URL("sources/foldforge.snapshot.json", sourceRoot), join(sandbox, "sources", "foldforge.snapshot.json"))
 ]);
 
 const activePolicy = JSON.parse(await readFile(new URL("cultivation/policy.json", sourceRoot), "utf8"));
 assert.equal(activePolicy.version, 3);
-assert.equal(activePolicy.authority.authorization.constitutional_revision, "v0.9");
+assert.equal(activePolicy.authority.authorization.constitutional_revision, "v1.0");
 assert.equal(activePolicy.authority.self_authorship.publication, "immediate-atomic-after-all-gates-pass");
 assert.ok(activePolicy.authority.protected_exclusions.includes("expand autonomous authority or modify the policy and thresholds that delimit it"));
 const workflow = await readFile(new URL(".github/workflows/cultivation-cycle.yml", sourceRoot), "utf8");
-for (const path of ["journal/policy.json", "journal/*.schema.json", "self-authorship/current.json", "self-authorship/policy.json"]) {
+for (const path of ["journal/policy.json", "journal/*.schema.json", "self-authorship/current.json", "self-authorship/policy.json", "sources/registry.json", "sources/*.snapshot.json"]) {
   assert.match(workflow, new RegExp(path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 }
 

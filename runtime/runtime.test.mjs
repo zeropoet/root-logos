@@ -32,7 +32,7 @@ try {
   const health = await fetch(`${base}/health`).then((response) => response.json());
   assert.equal(health.ok, true);
   const status = await fetch(`${base}/v1/status`).then((response) => response.json());
-  assert.equal(status.policy.constitutional_revision, "v0.9");
+  assert.equal(status.policy.constitutional_revision, "v1.0");
   assert.equal(status.intake_count, 0);
   const legacyCycle = await fetch(`${base}/v1/cycles/RL-CULT-0001`).then((response) => response.json());
   assert.equal(legacyCycle.cultivation_id, "RL-CULTIVATE-0001");

@@ -1,0 +1,64 @@
+{
+  "schema": "root-logos-source-registry/v1",
+  "revision": "1.0.0",
+  "principle": "Root Logos builds one coherent account from independently governed evidence. Connection does not require possession, and interpretation never replaces source truth.",
+  "sources": [
+    {
+      "id": "foldforge",
+      "name": "FoldForge",
+      "repository": "https://github.com/zeropoet/FoldForge",
+      "role": "Identity composition and evidence-to-grammar research",
+      "status": "active",
+      "visibility": "public",
+      "adapter": "foldforge-public-v1",
+      "reads": [
+        "constitution/foldforge-constitution.json",
+        "grammar/composition-*.json"
+      ],
+      "receives": "Versioned constitutional and composition evidence",
+      "returns": "Identity pressure, compositional methods, and new questions for Root Logos",
+      "boundary": "Root Logos may interpret public FoldForge evidence but may not rewrite FoldForge, its Ethereum evidence, or the meaning of held works."
+    },
+    {
+      "id": "x",
+      "name": "X",
+      "repository": null,
+      "role": "Public observation and outward exchange",
+      "status": "active",
+      "visibility": "public-channel",
+      "adapter": "attractor-membrane-v2",
+      "reads": [
+        "content/attractor-packets.json"
+      ],
+      "receives": "Public response and changing external conditions",
+      "returns": "Traceable observations without engagement authority",
+      "boundary": "Platform metrics may inform observation but may not determine constitutional truth or authority."
+    },
+    {
+      "id": "telos",
+      "name": "Telos",
+      "repository": "https://github.com/zeropoet/Telos",
+      "role": "Proof-bounded treasury research",
+      "status": "registered",
+      "visibility": "private",
+      "adapter": "not-connected",
+      "reads": [],
+      "receives": "No private or financial data until a secret-free evidence contract exists",
+      "returns": "Future proof summaries and bounded economic questions",
+      "boundary": "Root Logos receives no credentials, custody, trading authority, private financial records, or mandate-expanding power."
+    },
+    {
+      "id": "sovereign-standard",
+      "name": "Sovereign Standard",
+      "repository": "https://github.com/zeropoet/sovereign-standard",
+      "role": "Physical product and community practice",
+      "status": "registered",
+      "visibility": "mixed",
+      "adapter": "not-connected",
+      "reads": [],
+      "receives": "Public product canon and explicitly released community evidence",
+      "returns": "Material tests of coherence, stewardship, and participation",
+      "boundary": "Private customer, order, claim, registry, and community records remain outside Root Logos by default."
+    }
+  ]
+}

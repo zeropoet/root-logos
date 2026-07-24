@@ -1,0 +1,87 @@
+name: Connected Source Integration
+
+on:
+  schedule:
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: root-logos-source-integration
+  cancel-in-progress: false
+
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out Root Logos
+        uses: actions/checkout@v7
+        with:
+          path: root-logos
+          fetch-depth: 0
+
+      - name: Check out FoldForge public evidence
+        uses: actions/checkout@v7
+        with:
+          repository: zeropoet/FoldForge
+          path: FoldForge
+          fetch-depth: 1
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Witness and validate source evidence
+        id: source
+        working-directory: root-logos
+        run: |
+          node scripts/sources.mjs sync ../FoldForge
+          node scripts/sources.mjs validate
+          if git diff --quiet -- sources/foldforge.snapshot.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Let changed evidence wake cultivation
+        if: steps.source.outputs.changed == 'true'
+        working-directory: root-logos
+        run: |
+          node scripts/cultivate.mjs cycle
+          node scripts/cultivate.mjs validate
+          node scripts/attractors.mjs validate
+
+      - name: Preserve changed witness
+        if: steps.source.outputs.changed == 'true'
+        working-directory: root-logos
+        run: |
+          git config user.name "root-logos-integrator[bot]"
+          git config user.email "root-logos-integrator[bot]@users.noreply.github.com"
+          git add sources/foldforge.snapshot.json cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json
+          if git diff --cached --quiet; then
+            echo "Connected source evidence is unchanged."
+            exit 0
+          fi
+          witness=$(node -e 'const s=require("./sources/foldforge.snapshot.json"); process.stdout.write(s.witness.slice(7,19))')
+          git commit -m "Witness FoldForge source (${witness})"
+          git push origin HEAD:main
+
+      - name: Converge the always-awake runtime
+        if: steps.source.outputs.changed == 'true'
+        working-directory: root-logos
+        env:
+          DEPLOY_TOKEN: ${{ secrets.ROOT_LOGOS_DEPLOY_TOKEN }}
+        run: |
+          test -n "$DEPLOY_TOKEN"
+          commit_sha=$(git rev-parse HEAD)
+          curl --fail --silent --show-error \
+            --retry 4 --retry-all-errors --retry-delay 3 \
+            -X POST https://runtime.rootlogos.com/v1/internal/deploy \
+            -H "Authorization: Bearer $DEPLOY_TOKEN" \
+            -H "X-GitHub-SHA: $commit_sha" \
+            -H "Content-Type: application/json" \
+            --data '{}'

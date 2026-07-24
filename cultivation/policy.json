@@ -1,12 +1,12 @@
 {
   "version": 3,
-  "constitutional_revision": "v0.9",
+  "constitutional_revision": "v1.0",
   "mode": "delegated-single-identity-self-authorship",
   "triggers": {
     "canonical_change": {
       "enabled": true,
       "branch": "main",
-      "paths": ["content/constitutional-graph.json", "content/export-packets.json", "content/*.md", "cultivation/policy.json", "journal/policy.json", "journal/*.schema.json", "self-authorship/current.json", "self-authorship/policy.json"]
+      "paths": ["content/constitutional-graph.json", "content/export-packets.json", "content/*.md", "sources/registry.json", "sources/*.snapshot.json", "cultivation/policy.json", "journal/policy.json", "journal/*.schema.json", "self-authorship/current.json", "self-authorship/policy.json"]
     },
     "periodic": {
       "enabled": true,
@@ -22,6 +22,8 @@
     "content/constitutional-graph.json",
     "content/export-packets.json",
     "content/*.md",
+    "sources/registry.json",
+    "sources/*.snapshot.json",
     "journal/policy.json",
     "journal/*.schema.json",
     "self-authorship/current.json",
@@ -44,6 +46,10 @@
     {
       "id": "reflexive-test",
       "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+    },
+    {
+      "id": "connected-source-pressure",
+      "question": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?"
     }
   ],
   "evaluation": {
@@ -82,7 +88,7 @@
   },
   "authority": {
     "authorization": {
-      "constitutional_revision": "v0.9",
+      "constitutional_revision": "v1.0",
       "adopted_at": "2026-07-23T00:00:00-04:00",
       "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary.",
       "authority_basis": "explicit-human-constitutional-delegation"

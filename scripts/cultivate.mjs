@@ -14,6 +14,8 @@ const journalPolicyUrl = new URL("journal/policy.json", root);
 const journalSchemaUrl = new URL("journal/entry.schema.json", root);
 const identityUrl = new URL("self-authorship/current.json", root);
 const selfAuthorshipPolicyUrl = new URL("self-authorship/policy.json", root);
+const sourceRegistryUrl = new URL("sources/registry.json", root);
+const foldForgeSnapshotUrl = new URL("sources/foldforge.snapshot.json", root);
 const cyclesUrl = new URL("cultivation/cycles/", root);
 const policiesUrl = new URL("cultivation/policies/", root);
 const command = process.argv[2] || "status";
@@ -36,6 +38,8 @@ const sourceSnapshot = async () => {
   const journalSchemaText = await readFile(journalSchemaUrl, "utf8");
   const identityText = await readFile(identityUrl, "utf8");
   const selfAuthorshipPolicyText = await readFile(selfAuthorshipPolicyUrl, "utf8");
+  const sourceRegistryText = await readFile(sourceRegistryUrl, "utf8");
+  const foldForgeSnapshotText = await readFile(foldForgeSnapshotUrl, "utf8");
   const contentDir = new URL("content/", root);
   const markdown = (await readdir(contentDir)).filter((name) => name.endsWith(".md")).sort();
   const documents = [];
@@ -48,6 +52,8 @@ const sourceSnapshot = async () => {
     journal_schema: digest(journalSchemaText),
     identity: digest(identityText),
     self_authorship_policy: digest(selfAuthorshipPolicyText),
+    source_registry: digest(sourceRegistryText),
+    connected_sources: digest(foldForgeSnapshotText),
     combined: digest([
       graphText,
       exportsText,
@@ -55,7 +61,9 @@ const sourceSnapshot = async () => {
       journalPolicyText,
       journalSchemaText,
       identityText,
-      selfAuthorshipPolicyText
+      selfAuthorshipPolicyText,
+      sourceRegistryText,
+      foldForgeSnapshotText
     ])
   };
 };
@@ -225,10 +233,29 @@ const searchReflexiveTests = (graph) => {
     }));
 };
 
+const searchConnectedSourcePressure = (graph) => {
+  const source = graph.nodes.find(({ id }) => id === "source-foldforge");
+  const field = graph.nodes.find(({ id }) => id === "coherent-field");
+  const compositions = graph.nodes.filter(({ id }) => id.startsWith("foldforge-composition-"));
+  if (!source || !field || !compositions.length) return [];
+  return compositions.map((composition) => ({
+    kind: "connected-source-pressure",
+    nodes: [source.id, composition.id, field.id, "root-logos"],
+    titles: [source.title, composition.title, field.title, "Root Logos"],
+    shared_keywords: composition.keywords || [],
+    evidence: [source.definition, composition.definition, field.definition],
+    claim: `${composition.title} introduces a versioned compositional method that may reveal relations inside Root Logos which its constitutional graph does not yet perceive.`,
+    proposed_question: `Which Root Logos structures become newly legible when tested through ${composition.title}, and what would falsify that relation?`,
+    proposed_test: `Apply the declared ${composition.title} transformation only to attributable Root Logos evidence; preserve the source witness, publish the mapping, and reject any result that implies meaning beyond the grammar's stated authority.`,
+    external_evidence: true
+  }));
+};
+
 const search = (graph, lens) => {
   if (lens.id === "question-pressure") return searchQuestionPressure(graph);
   if (lens.id === "generative-compression") return searchGenerativeCompression(graph);
   if (lens.id === "reflexive-test") return searchReflexiveTests(graph);
+  if (lens.id === "connected-source-pressure") return searchConnectedSourcePressure(graph);
   return searchRelationalGaps(graph, lens.minimum_shared_keywords || 4);
 };
 

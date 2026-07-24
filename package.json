@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node scripts/cultivate.test.mjs && node runtime/runtime.test.mjs",
+    "test": "node scripts/sources.test.mjs && node scripts/cultivate.test.mjs && node runtime/runtime.test.mjs",
+    "sources:sync": "node scripts/sources.mjs sync",
+    "sources:validate": "node scripts/sources.mjs validate",
     "runtime": "node runtime/server.mjs"
   },
   "engines": {

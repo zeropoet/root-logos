@@ -7,6 +7,8 @@ on:
       - content/constitutional-graph.json
       - content/export-packets.json
       - content/*.md
+      - sources/registry.json
+      - sources/*.snapshot.json
       - cultivation/policy.json
       - journal/policy.json
       - journal/*.schema.json
@@ -51,6 +53,9 @@ jobs:
 
       - name: Validate attractor independence
         run: node scripts/attractors.mjs validate
+
+      - name: Validate connected sources
+        run: node scripts/sources.mjs validate
 
       - name: Preserve cycle and authorized refactoring
         run: |

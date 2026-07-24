@@ -13,7 +13,10 @@ and documentary record are views of the same constitutional network:
 Logoi, vocabulary, Living Statements, Constitutional Bridges, Field Notes,
 Artifact Seeds, Open Questions, Export Packets, and published revisions.
 
-The current constitution is **Revision 0.9 — The Self-Writing Constitution**.
+The current constitution is **Revision 1.0 — The Coherent Field**. This
+inflection connects independently governed sources into one continually revised
+account without merging repositories, inheriting private authority, or replacing
+source truth with interpretation. FoldForge is the first live connection.
 Its direction is both expansive and compressive: the architecture names new
 distinctions when required, then seeks the smallest relational grammar capable
 of carrying them without doctrinal repetition.
@@ -21,12 +24,25 @@ of carrying them without doctrinal repetition.
 ## Current Shape
 
 - `index.html` renders the public Root Logos observatory: the constitutional
-  Field, the visible Single Living Identity, live Cultivation Chamber, semantic
+  Field, the visible Living Identity, new connected-source Coherent Field, live Cultivation Chamber, semantic
   Memory, constitutional Threshold, signed Intake membrane, Living Observatory,
   live Resonant Chamber, and the planned Journal Membrane. The interface now
-  makes Revision 0.9's continual movement explicit: receive, transform, judge,
-  compose, and rewrite one canonical self inside a boundary where reality
+  makes its continual movement explicit: receive, witness, relate, judge,
+  compose, and rewrite one canonical account inside a boundary where reality
   remains greater than the system.
+- `sources/registry.json` declares connected and registered sources, their
+  evidence interfaces, return paths, visibility, and non-negotiable authority
+  boundaries. Connection is explicit; repository independence remains intact.
+- `sources/foldforge.snapshot.json` is a deterministic, secret-free witness of
+  FoldForge's public constitution and versioned composition grammars. It exposes
+  identity pressure, primitives, transformation relations, limits, and questions
+  without copying source media or acquiring Ethereum authority.
+- `scripts/sources.mjs` validates source boundaries and synchronizes FoldForge
+  into a stable SHA-256-witnessed snapshot. `.github/workflows/source-integration.yml`
+  checks FoldForge daily; changed evidence produces a Root Logos commit, wakes
+  cultivation, and becomes visible in the public field.
+- `content/coherent-field.md` defines the constitutional standard for building
+  one coherent account across distinct sources without possession or collapse.
 - `content/constitutional-graph.json` is the typed graph that defines canonical
   concepts, documents, relationships, questions, seeds, and revisions.
 - `content/export-packets.json` stores the accepted and proposed
