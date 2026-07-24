@@ -1600,6 +1600,28 @@
       "keywords": ["FoldForge", "source", "composition", "grammar", "evidence", "witness", "relation", "identity"]
     },
     {
+      "id": "source-telos",
+      "type": "source",
+      "label": "Connected Source II",
+      "title": "Telos",
+      "status": "Public Witness",
+      "summary": "A self-capitalized, proof-bounded spot-BTC treasury system whose public posture tests preservation, authority, evidence, and autonomous action.",
+      "definition": "Telos remains independently governed and private in operation. Root Logos receives a deliberately bounded public witness of its identity, paper-only mode, BTC-settled orientation, governing commitments, and non-authorizing proof state. Root Logos receives no balance, position, account, credential, strategy, order, transaction, custody, signing power, or trading authority.",
+      "answers": "Can autonomous capital remain subordinate to evidence, survival, and authority beyond itself?",
+      "keywords": ["Telos", "source", "treasury", "BTC", "capital", "evidence", "preservation", "authority", "autonomy", "witness"]
+    },
+    {
+      "id": "source-sovereign-standard",
+      "type": "source",
+      "label": "Connected Source III",
+      "title": "Sovereign Standard",
+      "status": "Public Witness",
+      "summary": "A material practice of enduring tea, serialized vessels, public provenance, stewardship, and potential community.",
+      "definition": "Sovereign Standard gives Root Logos a physical domain in which continuity, preparation, provenance, stewardship, product, and community can be tested. Root Logos receives its public product canon and vessel field while private customer, collector, address, order, payment, claim, receipt, and community records remain outside the connection.",
+      "answers": "How does coherent truth change when it must survive as a repeatable physical practice?",
+      "keywords": ["Sovereign Standard", "source", "tea", "vessel", "physical", "provenance", "stewardship", "product", "community", "witness"]
+    },
+    {
       "id": "foldforge-composition-luminance",
       "type": "source-grammar",
       "label": "FoldForge Grammar I",
@@ -1638,15 +1660,15 @@
       "label": "Revision 1.0.0",
       "title": "The Coherent Field",
       "status": "Current",
-      "summary": "Established independently governed sources as a witnessed input to one continually revised Root Logos account, beginning with FoldForge.",
+      "summary": "Established independently governed sources as witnessed inputs to one continually revised Root Logos account across compositional, economic, and material domains.",
       "date": "July 2026",
       "source_export": "source-inflection:foldforge",
-      "added": ["Connected source registry", "Deterministic FoldForge witness", "The Coherent Field", "Connected-source cultivation lens", "Autonomous source integration", "Public coherence instrument"],
+      "added": ["Connected source registry", "Deterministic FoldForge witness", "Public Telos identity witness", "Public Sovereign Standard witness", "The Coherent Field", "Connected-source cultivation lens", "Autonomous source integration", "Public coherence instrument"],
       "modified": ["Root Logos identity", "Cultivation source fingerprint", "Public topology", "Visual identity", "Revision and source boundary"],
       "removed": ["The assumption that coherent identity can be cultivated only from sources already inside the Root Logos repository"],
-      "relationships": ["Root Logos -> Coherent Field", "Coherent Field -> FoldForge", "FoldForge -> Luminance Field", "FoldForge -> Lexical Field", "FoldForge -> Resonant Holdings"],
+      "relationships": ["Root Logos -> Coherent Field", "Coherent Field -> FoldForge", "Coherent Field -> Telos", "Coherent Field -> Sovereign Standard", "FoldForge -> Luminance Field", "FoldForge -> Lexical Field", "FoldForge -> Resonant Holdings"],
       "reason": "Connected existing work with intelligence and autonomy while preserving the independent truth, governance, and repositories of every source.",
-      "notes": "FoldForge is the first active adapter. X remains active through the Attractor Membrane; Telos and Sovereign Standard remain registered until bounded evidence contracts exist.",
+      "notes": "FoldForge contributes live public compositional grammars. Telos contributes a deliberately sanitized identity and proof-state witness. Sovereign Standard contributes public product canon and vessel-field evidence. X remains active through the Attractor Membrane.",
       "keywords": ["coherent field", "FoldForge", "connected sources", "witness", "autonomy", "relation", "evidence", "revision"]
     },
     {
@@ -2720,6 +2742,36 @@
       "from": "coherent-field",
       "to": "source-foldforge",
       "type": "witnesses"
+    },
+    {
+      "from": "coherent-field",
+      "to": "source-telos",
+      "type": "witnesses"
+    },
+    {
+      "from": "coherent-field",
+      "to": "source-sovereign-standard",
+      "type": "witnesses"
+    },
+    {
+      "from": "source-telos",
+      "to": "logos-2",
+      "type": "tests materially"
+    },
+    {
+      "from": "source-telos",
+      "to": "principle-higher-reference",
+      "type": "limits authority through"
+    },
+    {
+      "from": "source-sovereign-standard",
+      "to": "principle-creators-threshold",
+      "type": "tests physically"
+    },
+    {
+      "from": "source-sovereign-standard",
+      "to": "stewardship",
+      "type": "embodies"
     },
     {
       "from": "source-foldforge",

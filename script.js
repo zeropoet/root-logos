@@ -36,7 +36,8 @@ const app = {
   observatorySelection: null,
   identity: null,
   sources: null,
-  foldforge: null
+  foldforge: null,
+  sourceWitnesses: {}
 };
 
 const fetchJson = async (url) => {
@@ -46,7 +47,7 @@ const fetchJson = async (url) => {
 };
 
 const loadData = async () => {
-  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, identityResult, sourcesResult, foldForgeResult] = await Promise.allSettled([
+  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult] = await Promise.allSettled([
     fetchJson("content/constitutional-graph.json"),
     fetchJson(`${RUNTIME}/v1/status`),
     fetchJson(`${RUNTIME}/v1/cycles`),
@@ -55,7 +56,9 @@ const loadData = async () => {
     fetchJson("content/attractor-packets.json"),
     fetchJson("self-authorship/current.json"),
     fetchJson("sources/registry.json"),
-    fetchJson("sources/foldforge.snapshot.json")
+    fetchJson("sources/foldforge.snapshot.json"),
+    fetchJson("sources/telos.public-witness.json"),
+    fetchJson("sources/sovereign-standard.public-witness.json")
   ]);
 
   if (graphResult.status !== "fulfilled") throw graphResult.reason;
@@ -65,6 +68,10 @@ const loadData = async () => {
   app.identity = identityResult.status === "fulfilled" ? identityResult.value : null;
   app.sources = sourcesResult.status === "fulfilled" ? sourcesResult.value : { sources: [] };
   app.foldforge = foldForgeResult.status === "fulfilled" ? foldForgeResult.value : null;
+  app.sourceWitnesses = Object.fromEntries([
+    telosResult.status === "fulfilled" ? [telosResult.value.source_id, telosResult.value] : null,
+    sovereignStandardResult.status === "fulfilled" ? [sovereignStandardResult.value.source_id, sovereignStandardResult.value] : null
+  ].filter(Boolean));
   app.cycles = cyclesResult.status === "fulfilled" ? cyclesResult.value.cycles.map(canonicalCycle) : [];
 
   if (runtimeResult.status === "fulfilled") {
@@ -172,21 +179,34 @@ const renderSources = () => {
 
   const selectSource = (id) => {
     const source = sources.find((candidate) => candidate.id === id) || sources[0];
-    const live = source.id === "foldforge" && app.foldforge?.status === "witnessed";
+    const foldForgeLive = source.id === "foldforge" && app.foldforge?.status === "witnessed";
+    const publicWitness = app.sourceWitnesses[source.id];
+    const live = foldForgeLive || publicWitness?.status === "witnessed";
     $$("[data-source-id]").forEach((button) => button.classList.toggle("is-active", button.dataset.sourceId === source.id));
     $("#source-coordinate").textContent = `${sentence(source.status)} source / ${source.visibility}`;
     $("#source-title").textContent = source.name;
     $("#source-role").textContent = source.role;
-    $("#source-discovery").textContent = live
+    $("#source-discovery").textContent = foldForgeLive
       ? app.foldforge.identity.maxim
-      : source.status === "registered"
-        ? "The boundary is present. Connection waits for an explicit, secret-free evidence contract."
-        : source.returns;
-    const measures = live
+      : publicWitness
+        ? publicWitness.identity.role_in_coherent_field
+        : source.connection_message || source.returns;
+    let measures = foldForgeLive
       ? [["Revision", app.foldforge.source_revision], ["Compositions", app.foldforge.compositions.length], ["Relations", app.foldforge.relations.length], ["Primitives", app.foldforge.primitives.length]]
       : [["Adapter", sentence(source.adapter)], ["Read paths", source.reads.length], ["State", sentence(source.status)], ["Authority", "Bounded"]];
+    if (source.id === "telos" && publicWitness) {
+      measures = [["Mode", sentence(publicWitness.public_state.operational_mode)], ["Value layer", publicWitness.public_state.settled_value_layer], ["Live execution", "Unavailable"], ["RL custody", "None"]];
+    }
+    if (source.id === "sovereign-standard" && publicWitness) {
+      measures = [["Public records", publicWitness.public_state.published_vessel_records], ["Physical form", "Black Tin Vessel"], ["Private orders", "Excluded"], ["Witness", "Current"]];
+    }
     $("#source-measures").innerHTML = measures.map(([label, value]) => `<span><small>${escapeHtml(label)}</small><b>${escapeHtml(value)}</b></span>`).join("");
     $("#source-boundary").textContent = source.boundary;
+    $("#source-witness").textContent = foldForgeLive
+      ? app.foldforge.witness.replace("sha256:", "").slice(0, 16)
+      : publicWitness?.witness
+        ? publicWitness.witness.replace("sha256:", "").slice(0, 16)
+        : "Channel witness";
     const repository = $("#source-repository");
     repository.hidden = !source.public_url;
     if (source.public_url) repository.href = source.public_url;
@@ -203,7 +223,6 @@ const renderSources = () => {
       <i>${escapeHtml(composition.witness.slice(0, 10))}</i>
     </article>
   `).join("");
-  if (app.foldforge?.witness) $("#source-witness").textContent = app.foldforge.witness.replace("sha256:", "").slice(0, 16);
 };
 
 const submitObservation = async (form) => {
@@ -962,7 +981,7 @@ const initialize = async () => {
       requestAnimationFrame(() => $("#field").scrollIntoView({ behavior: "auto" }));
     }
     window.dispatchEvent(new CustomEvent("rootlogos:ready", { detail: {
-      graph: app.graph, runtime: app.runtime, cycles: app.cycles, memory: app.memory, attractors: app.attractors, identity: app.identity, sources: app.sources, foldforge: app.foldforge
+      graph: app.graph, runtime: app.runtime, cycles: app.cycles, memory: app.memory, attractors: app.attractors, identity: app.identity, sources: app.sources, foldforge: app.foldforge, sourceWitnesses: app.sourceWitnesses
     } }));
   } catch (error) {
     console.error(error);

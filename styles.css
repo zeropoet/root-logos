@@ -443,6 +443,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .source-measures b { color:var(--ivory);font:400 .9rem/1.2 var(--body); }
 .source-boundary { margin:26px 0;color:var(--dim);font:.5rem/1.65 var(--mono);letter-spacing:.035em;text-transform:uppercase; }
 .source-reading > a { display:flex;justify-content:space-between;padding-top:15px;border-top:1px solid var(--line);color:var(--gold);font:500 .5rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase; }
+.source-reading > a[hidden] { display:none; }
 .composition-ledger { display:grid;grid-template-columns:minmax(270px,.7fr) minmax(600px,1.6fr);gap:clamp(45px,7vw,110px);width:min(1420px,100%);margin:clamp(80px,10vw,145px) auto 0;padding-top:45px;border-top:1px solid var(--line-strong); }
 .composition-ledger header h3 { margin:20px 0;font:400 clamp(2.2rem,3.6vw,4rem)/.95 var(--display); }
 .composition-ledger header > p:last-child { color:var(--bone);line-height:1.6; }

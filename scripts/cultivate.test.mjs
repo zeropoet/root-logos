@@ -27,7 +27,9 @@ await Promise.all([
   cp(new URL("self-authorship/current.json", sourceRoot), join(sandbox, "self-authorship", "current.json")),
   cp(new URL("self-authorship/policy.json", sourceRoot), join(sandbox, "self-authorship", "policy.json")),
   cp(new URL("sources/registry.json", sourceRoot), join(sandbox, "sources", "registry.json")),
-  cp(new URL("sources/foldforge.snapshot.json", sourceRoot), join(sandbox, "sources", "foldforge.snapshot.json"))
+  cp(new URL("sources/foldforge.snapshot.json", sourceRoot), join(sandbox, "sources", "foldforge.snapshot.json")),
+  cp(new URL("sources/telos.public-witness.json", sourceRoot), join(sandbox, "sources", "telos.public-witness.json")),
+  cp(new URL("sources/sovereign-standard.public-witness.json", sourceRoot), join(sandbox, "sources", "sovereign-standard.public-witness.json"))
 ]);
 
 const activePolicy = JSON.parse(await readFile(new URL("cultivation/policy.json", sourceRoot), "utf8"));
@@ -36,7 +38,7 @@ assert.equal(activePolicy.authority.authorization.constitutional_revision, "v1.0
 assert.equal(activePolicy.authority.self_authorship.publication, "immediate-atomic-after-all-gates-pass");
 assert.ok(activePolicy.authority.protected_exclusions.includes("expand autonomous authority or modify the policy and thresholds that delimit it"));
 const workflow = await readFile(new URL(".github/workflows/cultivation-cycle.yml", sourceRoot), "utf8");
-for (const path of ["journal/policy.json", "journal/*.schema.json", "self-authorship/current.json", "self-authorship/policy.json", "sources/registry.json", "sources/*.snapshot.json"]) {
+for (const path of ["journal/policy.json", "journal/*.schema.json", "self-authorship/current.json", "self-authorship/policy.json", "sources/registry.json", "sources/*.snapshot.json", "sources/*.public-witness.json"]) {
   assert.match(workflow, new RegExp(path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 }
 

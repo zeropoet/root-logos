@@ -25,7 +25,7 @@ Every active connection must preserve:
 This makes integration constitutional rather than extractive. Root Logos is
 changed by contact, but contact remains legible.
 
-## FoldForge is the first live source
+## FoldForge contributes compositional grammar
 
 FoldForge contributes a mature evidence-to-grammar movement: receive evidence,
 preserve source identity, observe measurable qualities, relate observations,
@@ -37,18 +37,41 @@ FoldForge's public constitution and versioned composition grammars, then asks
 which of those methods reveal stronger relations inside the larger
 constitutional field.
 
-The current adapter witnesses FoldForge's constitution and three living
+The FoldForge adapter witnesses its constitution and three living
 compositions—luminance, language, and resonance—without acquiring repository
 write access or Ethereum authority.
 
+## Telos contributes economic identity and proof posture
+
+Telos is an independently governed, self-capitalized spot-BTC treasury system.
+Its public witness lets Root Logos understand Telos as an economic expression of
+preservation, evidence, bounded authority, and autonomous action. The witness
+declares its paper-only mode, BTC-settled orientation, governing commitments,
+and absence of live authority.
+
+The witness is deliberately incapable of carrying balances, positions, account
+identity, credentials, strategy parameters, orders, transactions, custody,
+signing power, or trading authority. Root Logos can be changed by what Telos
+demonstrates without becoming part of Telos's financial control plane.
+
+## Sovereign Standard contributes material practice
+
+Sovereign Standard gives the field a physical domain: one enduring tea, an
+individually numbered Black Tin Vessel, a public vessel record, and a practice
+of preparation and continuation. Root Logos may learn from its public product
+canon, provenance, and vessel field as material tests of continuity,
+stewardship, product, ritual, and potential community.
+
+Customer, collector, address, order, payment, claim, receipt, and private
+community records do not enter the witness.
+
 ## One account, many boundaries
 
-X, Telos, and Sovereign Standard enter through the same standard only when their
-interfaces are ready. Public exchange may inform observation but not truth by
-engagement. Treasury evidence may inform economic judgment but cannot convey
-credentials, custody, or trading authority. Physical and community practice may
-test constitutional claims while private participant and customer records
-remain outside the system by default.
+X supplies public observation and outward exchange without allowing engagement
+to determine truth. FoldForge supplies compositional grammar without transferring
+Ethereum authority. Telos supplies economic identity and proof posture without
+financial authority. Sovereign Standard supplies material practice without
+private participant data.
 
 The emerging whole is not a holding company, a dashboard, or a merged codebase.
 It is one living account of relation across independently real domains. Its

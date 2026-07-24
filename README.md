@@ -16,7 +16,9 @@ Artifact Seeds, Open Questions, Export Packets, and published revisions.
 The current constitution is **Revision 1.0 — The Coherent Field**. This
 inflection connects independently governed sources into one continually revised
 account without merging repositories, inheriting private authority, or replacing
-source truth with interpretation. FoldForge is the first live connection.
+source truth with interpretation. FoldForge contributes compositional grammar,
+Telos contributes a bounded public treasury-identity witness, Sovereign Standard
+contributes public material practice, and X supplies outward exchange.
 Its direction is both expansive and compressive: the architecture names new
 distinctions when required, then seeks the smallest relational grammar capable
 of carrying them without doctrinal repetition.
@@ -30,19 +32,36 @@ of carrying them without doctrinal repetition.
   makes its continual movement explicit: receive, witness, relate, judge,
   compose, and rewrite one canonical account inside a boundary where reality
   remains greater than the system.
-- `sources/registry.json` declares connected and registered sources, their
+- `sources/registry.json` declares connected sources, their
   evidence interfaces, return paths, visibility, and non-negotiable authority
   boundaries. Connection is explicit; repository independence remains intact.
 - `sources/foldforge.snapshot.json` is a deterministic, secret-free witness of
   FoldForge's public constitution and versioned composition grammars. It exposes
   identity pressure, primitives, transformation relations, limits, and questions
   without copying source media or acquiring Ethereum authority.
+- `sources/telos.public-witness.json` publishes Telos as an independently
+  governed, self-capitalized, proof-bounded spot-BTC treasury system. It exposes
+  identity, paper-only operational mode, BTC-settled orientation, governing
+  commitments, non-authorizing proof posture, and constitutional questions.
+  Its schema excludes balances, positions, account identity, credentials,
+  strategies, orders, transactions, custody, signing power, and trading
+  authority.
+- `sources/sovereign-standard.public-witness.json` witnesses the public
+  Sovereign Standard product canon, individually numbered Black Tin Vessel,
+  public provenance model, and vessel field as material tests of continuity,
+  stewardship, product, ritual, and potential community. Private customer,
+  collector, order, payment, claim, address, receipt, and community records are
+  excluded.
 - `scripts/sources.mjs` validates source boundaries and synchronizes FoldForge
-  into a stable SHA-256-witnessed snapshot. `.github/workflows/source-integration.yml`
+  into a stable SHA-256-witnessed snapshot. It also seals and verifies the Telos
+  and Sovereign Standard public witnesses so any silent mutation invalidates
+  their digests. `.github/workflows/source-integration.yml`
   checks FoldForge daily; changed evidence produces a Root Logos commit, wakes
   cultivation, and becomes visible in the public field.
 - `content/coherent-field.md` defines the constitutional standard for building
-  one coherent account across distinct sources without possession or collapse.
+  one coherent account across distinct sources without possession or collapse,
+  including the separate compositional, economic, material, and public-exchange
+  roles now present in the field.
 - `content/constitutional-graph.json` is the typed graph that defines canonical
   concepts, documents, relationships, questions, seeds, and revisions.
 - `content/export-packets.json` stores the accepted and proposed

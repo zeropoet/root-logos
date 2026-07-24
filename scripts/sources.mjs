@@ -6,6 +6,10 @@ import { fileURLToPath } from "node:url";
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const registryPath = resolve(root, "sources/registry.json");
 const snapshotPath = resolve(root, "sources/foldforge.snapshot.json");
+const publicWitnessPaths = [
+  resolve(root, "sources/telos.public-witness.json"),
+  resolve(root, "sources/sovereign-standard.public-witness.json")
+];
 
 const stable = (value) => {
   if (Array.isArray(value)) return value.map(stable);
@@ -20,6 +24,8 @@ const loadJson = async (path) => JSON.parse(await readFile(path, "utf8"));
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };
+const witnessedPayload = ({ witness, ...payload }) => payload;
+const sealPublicWitness = (witness) => ({ ...witnessedPayload(witness), witness: `sha256:${digest(witnessedPayload(witness))}` });
 
 const validateRegistry = (registry) => {
   assert(registry.schema === "root-logos-source-registry/v1", "Unsupported source registry schema.");
@@ -101,12 +107,20 @@ const deriveFoldForge = async (foldForgeRoot) => {
 export const validateSources = async () => {
   const registry = validateRegistry(await loadJson(registryPath));
   const snapshot = await loadJson(snapshotPath);
+  const publicWitnesses = await Promise.all(publicWitnessPaths.map(loadJson));
   assert(snapshot.schema === "root-logos-source-snapshot/v1", "Unsupported source snapshot schema.");
   if (snapshot.status === "witnessed") {
     assert(snapshot.witness?.startsWith("sha256:"), "Witnessed source requires a SHA-256 witness.");
     assert(snapshot.compositions.length > 0, "Witnessed FoldForge source requires compositions.");
   }
-  return { registry, snapshot };
+  for (const witness of publicWitnesses) {
+    assert(witness.schema === "root-logos-public-source-witness/v1", `Unsupported ${witness.source_id} public witness schema.`);
+    assert(witness.status === "witnessed", `${witness.source_id} public witness is not active.`);
+    assert(witness.identity?.definition && witness.identity?.role_in_coherent_field, `${witness.source_id} public witness lacks identity context.`);
+    assert(Array.isArray(witness.exclusions) && witness.exclusions.length > 0, `${witness.source_id} public witness lacks exclusions.`);
+    assert(witness.witness === `sha256:${digest(witnessedPayload(witness))}`, `${witness.source_id} public witness digest is invalid.`);
+  }
+  return { registry, snapshot, publicWitnesses };
 };
 
 export const syncFoldForge = async (foldForgeRoot = process.env.FOLDFORGE_PATH || resolve(root, "../FoldForge")) => {
@@ -115,14 +129,27 @@ export const syncFoldForge = async (foldForgeRoot = process.env.FOLDFORGE_PATH |
   return snapshot;
 };
 
+export const sealPublicWitnesses = async () => {
+  const sealed = [];
+  for (const path of publicWitnessPaths) {
+    const witness = sealPublicWitness(await loadJson(path));
+    await writeFile(path, `${JSON.stringify(witness, null, 2)}\n`);
+    sealed.push(witness);
+  }
+  return sealed;
+};
+
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const command = process.argv[2] || "validate";
   if (command === "sync") {
     const snapshot = await syncFoldForge(process.argv[3]);
     console.log(`Witnessed ${snapshot.compositions.length} FoldForge compositions at ${snapshot.witness}.`);
   } else if (command === "validate") {
-    const { registry, snapshot } = await validateSources();
-    console.log(`Validated ${registry.sources.length} sources; FoldForge is ${snapshot.status}.`);
+    const { registry, snapshot, publicWitnesses } = await validateSources();
+    console.log(`Validated ${registry.sources.length} sources; FoldForge is ${snapshot.status}; ${publicWitnesses.length} public witnesses are sealed.`);
+  } else if (command === "seal-public") {
+    const witnesses = await sealPublicWitnesses();
+    console.log(`Sealed ${witnesses.length} public source witnesses.`);
   } else {
     throw new Error(`Unknown command: ${command}`);
   }
