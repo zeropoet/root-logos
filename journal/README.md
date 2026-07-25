@@ -5,7 +5,7 @@ introduced by Revision 0.9. The first adapter is live and restricted to a
 steward-owned local drop directory.
 
 `policy.json` records the active authority, privacy, cadence, and admission
-limits. `entry.schema.json` defines the private observation envelope produced
+limits. `entry.schema.json` defines the derived observation envelope produced
 by the adapter. The complete constitution lives in
 `content/journal-membrane.md`; the implementation lives in
 `runtime/journal.mjs`.
@@ -17,9 +17,9 @@ system to judge, admit, cultivate, and build without entry-by-entry approval.
 Every autonomous disposition and structural consequence remains attributable,
 auditable, and reversible.
 
-The public terminal can create a one-time grant through explicit private
-addition. That grant is closed automatically after the entry is transformed
-and released; it cannot collect a second entry.
+Every public-terminal submission creates a one-time grant. That grant is closed
+automatically after the entry is transformed and released; it cannot collect a
+second entry.
 
 Raw journal content is transient working material, not an archive. The runtime
 seals each entry into an encrypted quarantine, removes the local-drop source,

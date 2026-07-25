@@ -31,10 +31,11 @@ Send it in `X-Rootlogos-Signature` with the same ISO timestamp in
 Human wake commands use `Authorization: Bearer <ROOT_LOGOS_ADMIN_TOKEN>`.
 
 The public site never receives either secret. `POST /v1/public/intake`
-validates a bounded observation, rate-limits its network source, signs its
-provenance on the server, and journals it as `unreviewed`. The private
-Antechamber uses the administrator credential in volatile page memory only;
-refreshing or closing the page forgets it.
+validates and rate-limits one public entry, creates a single-use Source Grant,
+transforms the source through encrypted transient quarantine, releases its
+wording, and autonomously judges the derived structure. Admissible structure
+wakes cultivation immediately. There is no second public intake mode and no
+steward classification step.
 
 ## Authority and publication
 
@@ -73,9 +74,9 @@ See `openapi.yaml` for the UI-facing contract.
 
 ## Journal Membrane
 
-Revision 0.9 defines a separate autonomous path for explicitly added or granted
-journal entries. Addition is the delegation event; unlike public intake, the
-operational journal worker does not require steward classification for each entry.
+Revision 0.9 defines the autonomous path for explicitly added or granted
+journal entries. Addition is the delegation event; the operational journal
+worker does not require steward classification for each entry.
 It privately processes and transforms the source, releases the working prose,
 make an attributable admission judgment with counterargument and risk evidence,
 wake cultivation for qualifying material, and permit reversible construction
@@ -90,12 +91,12 @@ default). The collector seals raw bytes into AES-256-GCM quarantine, removes
 the drop source, transforms in memory, releases quarantine, and durably keeps
 only digests, derived structures, autonomous judgment, and lineage.
 
-The public terminal exposes a simpler one-time boundary. Selecting **Private
-reflection** and submitting is the authorization event: the runtime creates a
-single-use Source Grant, hands the entry to the encrypted transformation path,
-closes the grant after release, and autonomously wakes cultivation when the
-derived structure is admissible. No login or subsequent review is required.
-Raw content is never returned by an API or included in derived-only journal
+The public terminal exposes one boundary. Every submission is public and is
+itself the authorization event: the runtime creates a single-use Source Grant,
+hands the entry to the encrypted transformation path, closes the grant after
+release, and autonomously wakes cultivation when the derived structure is
+admissible. No login, mode choice, or subsequent review is required. Raw
+content is never returned by an API or included in derived-only journal
 inspection.
 
 The serialized self-authorship worker is active for completed runtime

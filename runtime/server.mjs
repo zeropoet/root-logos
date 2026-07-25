@@ -113,6 +113,7 @@ export const createRuntime = async (options = {}) => {
   const knownEvents = new Set();
   const observations = new Map();
   const classifications = new Map();
+  const migratedObservations = new Map();
   const respondedEvents = new Set();
   try {
     for (const line of (await readFile(journalPath, "utf8")).split("\n").filter(Boolean)) {
@@ -125,6 +126,7 @@ export const createRuntime = async (options = {}) => {
         if (!classifications.has(record.event_id)) classifications.set(record.event_id, []);
         classifications.get(record.event_id).push(record);
       }
+      if (record.type === "observation-gauntlet-migrated") migratedObservations.set(record.event_id, record);
       if (record.type === "wake-completed" && record.trigger?.event_id && record.response?.cycle_id) {
         respondedEvents.add(record.trigger.event_id);
       }
@@ -146,27 +148,11 @@ export const createRuntime = async (options = {}) => {
   const publicObservation = (body) => {
     const errors = [];
     const observation = String(body?.observation || "").trim();
-    const context = String(body?.context || "").trim();
-    const relation = String(body?.relation || "").trim();
-    const sourceType = String(body?.source_type || "").trim();
     const attribution = String(body?.attribution || "Anonymous").trim();
     if (observation.length < 20 || observation.length > 6000) errors.push("observation must be between 20 and 6000 characters");
-    if (context.length > 2000) errors.push("context must be 2000 characters or fewer");
-    if (relation.length > 500) errors.push("relation must be 500 characters or fewer");
     if (attribution.length > 120) errors.push("attribution must be 120 characters or fewer");
-    if (!["lived-experience", "research", "dialogue", "artifact", "other"].includes(sourceType)) errors.push("source_type is invalid");
     if (body?.consent !== true) errors.push("consent is required");
-    return { errors, payload: { observation, context, relation, source_type: sourceType, attribution } };
-  };
-
-  const publicJournalEntry = (body) => {
-    const errors = [];
-    const content = String(body?.content || "").trim();
-    const owner = String(body?.owner || "").trim();
-    if (content.length < 20 || content.length > 12_000) errors.push("reflection must be between 20 and 12000 characters");
-    if (owner.length < 2 || owner.length > 120) errors.push("source owner must be between 2 and 120 characters");
-    if (body?.consent !== true) errors.push("explicit transformation and release consent is required");
-    return { errors, content, owner };
+    return { errors, payload: { observation, attribution } };
   };
 
   const currentIntake = () => [...observations.values()].map((record) => {
@@ -301,6 +287,39 @@ export const createRuntime = async (options = {}) => {
   });
   await journalMembrane.recover();
 
+  for (const observation of currentIntake()) {
+    if (migratedObservations.has(observation.event_id)) continue;
+    const content = String(observation.payload?.observation || "").trim();
+    if (content.length < 20) {
+      const migration = { type: "observation-gauntlet-migrated", at: iso(), event_id: observation.event_id, status: "rejected", reason: "insufficient-source-text", source_released: false };
+      await appendRecord(migration);
+      migratedObservations.set(observation.event_id, migration);
+      continue;
+    }
+    const owner = String(observation.payload?.attribution || "Anonymous").trim() || "Anonymous";
+    const grant = await journalMembrane.createGrant({
+      source: `Legacy public terminal entry ${observation.event_id}`,
+      owner,
+      adapter: "local-drop",
+      include: ["*.md"],
+      exclude: [],
+      cadence: "one-time-migration",
+      retention_class: "transform-and-release",
+      privacy_mode: "public-derived-only",
+      revocation_method: "automatic after one transformation"
+    }, "Root Logos migration");
+    try {
+      const result = await journalMembrane.addEntry(grant.source_grant_id, { source_entry_id: observation.event_id, content });
+      await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos migration", "Legacy public entry completed its gauntlet");
+      const migration = { type: "observation-gauntlet-migrated", at: iso(), event_id: observation.event_id, journal_event_id: result.event_id, status: result.status, wake_queued: result.wake_queued, source_released: true };
+      await appendRecord(migration);
+      migratedObservations.set(observation.event_id, migration);
+    } catch (error) {
+      await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos migration", "Legacy migration failed; one-time authority closed").catch(() => {});
+      throw error;
+    }
+  }
+
   for (const record of journalMembrane.records()) {
     if (!["admissible", "promoted"].includes(record.status) || respondedEvents.has(record.event_id)) continue;
     if (runtimeState.queued_triggers.some(({ event_id }) => event_id === record.event_id)) continue;
@@ -408,8 +427,8 @@ export const createRuntime = async (options = {}) => {
       novelty: memory.novelty,
       hypothesis_count: Object.keys(memory.hypotheses || {}).length,
       policy: { version: policy.version, constitutional_revision: policy.constitutional_revision, mode: policy.mode },
-      intake_count: knownEvents.size,
-      intake_pending: currentIntake().filter(({ status }) => status === "unreviewed" || status === "hold").length,
+      intake_count: journalMembrane.status().transformed_entries,
+      intake_pending: currentIntake().filter(({ event_id }) => !migratedObservations.has(event_id)).length,
       journal: journalMembrane.status()
     };
   };
@@ -478,59 +497,32 @@ export const createRuntime = async (options = {}) => {
         if (origin !== allowedOrigin && allowedOrigin !== "*") return send(res, 403, { error: "origin not permitted" }, cors);
         if (!intakeSecret) return send(res, 503, { error: "intake is not configured" }, cors);
         const body = JSON.parse(raw);
-        if (String(body.website || "").trim()) return send(res, 202, { accepted: true, status: "unreviewed" }, cors);
+        if (String(body.website || "").trim()) return send(res, 202, { accepted: true, status: "released" }, cors);
         if (!rateLimit(req)) return send(res, 429, { error: "intake limit reached; please return later" }, { ...cors, "retry-after": "3600" });
         const { errors, payload } = publicObservation(body);
         if (errors.length) return send(res, 422, { error: "invalid observation", details: errors }, cors);
-        const eventId = `RL-OBS-${new Date().toISOString().slice(0, 10).replaceAll("-", "")}-${randomUUID().slice(0, 8).toUpperCase()}`;
-        const occurredAt = iso();
-        const provenance = createHmac("sha256", intakeSecret).update(`${eventId}.${occurredAt}.${JSON.stringify(payload)}`).digest("hex");
-        const event = {
-          event_id: eventId,
-          occurred_at: occurredAt,
-          source_surface: "rootlogos.com/public-membrane",
-          authenticated_producer: "public-web-submission",
-          payload_type: "offered-observation",
-          schema_version: "1",
-          payload,
-          consent_classification: "explicit-public-intake-consent",
-          retention_classification: "review-pending",
-          provenance_signature: `server-hmac:${provenance}`,
-          constitutional_relevance: "unreviewed"
-        };
-        const record = { type: "observation-accepted", received_at: occurredAt, event };
-        await appendRecord(record);
-        knownEvents.add(eventId);
-        observations.set(eventId, record);
-        return send(res, 202, { accepted: true, event_id: eventId, status: "unreviewed", wake_queued: false }, cors);
-      }
-      if (req.method === "POST" && url.pathname === "/v1/public/journal") {
-        if (origin !== allowedOrigin && allowedOrigin !== "*") return send(res, 403, { error: "origin not permitted" }, cors);
-        if (String(JSON.parse(raw).website || "").trim()) return send(res, 202, { accepted: true, status: "released" }, cors);
-        if (!rateLimit(req)) return send(res, 429, { error: "intake limit reached; please return later" }, { ...cors, "retry-after": "3600" });
-        const body = JSON.parse(raw);
-        const { errors, content, owner } = publicJournalEntry(body);
-        if (errors.length) return send(res, 422, { error: "invalid private reflection", details: errors }, cors);
+        const owner = payload.attribution || "Anonymous";
+        const content = payload.observation;
         const grant = await journalMembrane.createGrant({
-          source: "Direct private terminal addition",
+          source: "Public terminal entry",
           owner,
           adapter: "local-drop",
           include: ["*.md"],
           exclude: [],
           cadence: "one-time-immediate",
           retention_class: "transform-and-release",
-          privacy_mode: "private-derived-only",
+          privacy_mode: "public-derived-only",
           revocation_method: "automatic after one transformation"
         }, owner);
         try {
           const result = await journalMembrane.addEntry(grant.source_grant_id, {
-            source_entry_id: `direct-${Date.now()}-${randomUUID().slice(0, 8)}`,
+            source_entry_id: `public-${Date.now()}-${randomUUID().slice(0, 8)}`,
             content
           });
-          await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "One-time addition completed and source released");
+          await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "Public entry completed its gauntlet and source was released");
           return send(res, 202, { accepted: true, event_id: result.event_id, status: result.status, wake_queued: result.wake_queued, source_released: true }, cors);
         } catch (error) {
-          await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "One-time addition failed; authority closed").catch(() => {});
+          await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "Public entry failed; one-time authority closed").catch(() => {});
           throw error;
         }
       }

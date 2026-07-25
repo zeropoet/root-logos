@@ -452,12 +452,12 @@ structures without recurring approval. Every decision must preserve reasons,
 confidence, risk flags, evidence, and a counterargument. Existing novelty,
 adversarial judgment, snapshot, and coherence gates continue to apply.
 
-The public terminal supports both public observations and private reflections.
-A private-reflection submission creates an attributable Source Grant for that
-entry alone, immediately transforms and releases the prose, closes the grant,
-and allows admissible derived structure to wake cultivation without login or
-later review. Public observations retain their separate unreviewed stewardship
-path.
+The public terminal has one intake path. Every entry is public, and submission
+creates an attributable Source Grant for that entry alone. Root Logos
+immediately transforms and releases the source wording, judges what remains,
+closes the grant, and allows admissible derived structure to wake cultivation
+without login, mode choice, or later review. Nothing remains merely because it
+arrived; only what survives the constitutional gauntlet may become structure.
 
 Qualifying changes may rewrite the canonical self-description, organizing
 narrative, graph, documents, interface language, resonant mapping, and outward

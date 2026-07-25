@@ -195,8 +195,8 @@ boundary.
 
 Add schema validation, secret and third-party sensitivity checks, semantic
 deduplication, constitutional resonance candidates, counterarguments, and
-autonomous disposition. The private Antechamber becomes a batch audit surface;
-every decision must show its evidence and remain independently reversible.
+autonomous disposition. The derived audit surface records each decision,
+which must show its evidence and remain independently reversible.
 
 ### Phase III — Scheduled Intake
 
@@ -251,12 +251,12 @@ source prose. Admissible derived observations wake cultivation without further
 approval. Sensitive, third-party, malformed, out-of-scope, or duplicate
 material cannot wake the system.
 
-The public terminal may create a one-time Source Grant through explicit
-addition. Submission names the source owner and grants authority for that entry
-alone. The grant closes automatically after transformation and source release;
-it cannot collect again or widen itself. This allows private reflection to
-enter without a login or later review while preserving attribution, bounded
-authority, rate limits, autonomous risk holds, and complete lineage.
+Every public-terminal submission creates a one-time Source Grant. Submission
+names the source owner and grants authority for that entry alone. The grant
+closes automatically after transformation and source release; it cannot
+collect again or widen itself. This single public path requires no login or
+later review while preserving attribution, bounded authority, rate limits,
+autonomous risk holds, and complete lineage.
 
 An implemented cultivation change then enters the serialized self-authorship
 worker. That worker may atomically revise the one current identity only after

@@ -134,7 +134,7 @@ const renderPresence = () => {
     ? `Online / ${journal.active_grants || 0} active source grant${journal.active_grants === 1 ? "" : "s"} / ${journal.transformed_entries || 0} transformed`
     : app.runtime.archival_fallback
       ? "Runtime witness unavailable / constitution preserved"
-      : "Collection held / private membrane unavailable";
+      : "Collection held / intake membrane unavailable";
   $("#footer-revision").textContent = String(app.graph.meta.revision).replace(/^v/, "");
 
   $("#chamber-condition").textContent = running ? "Awake" : app.runtime.dormancy?.active ? "Dormant" : "At rest";
@@ -231,56 +231,21 @@ const renderSources = () => {
   `).join("");
 };
 
-const setIntakeMode = (mode) => {
-  const journal = mode === "journal";
-  const form = $("#observation-form");
-  form.dataset.mode = journal ? "journal" : "observation";
-  $$("[data-intake-mode]").forEach((button) => button.classList.toggle("is-active", button.dataset.intakeMode === form.dataset.mode));
-  $$("[data-intake-fields]").forEach((fields) => {
-    const active = fields.dataset.intakeFields === form.dataset.mode;
-    fields.hidden = !active;
-    $$("input, textarea, select", fields).forEach((control) => { control.disabled = !active; });
-  });
-  $("#intake-coordinate").textContent = journal ? "The public terminal / Offer a private reflection" : "The public terminal / Offer an observation";
-  $("#intake-terminal-title").innerHTML = journal ? "Give what is living.<br><em>Release what was written.</em>" : "Bring reality into contact<br><em>with the grammar.</em>";
-  $("#intake-terminal-copy").textContent = journal
-    ? "Submission is authorization. Root Logos will transform the reflection, release its prose, judge what remains, and cultivate whatever earns consequence."
-    : "Offer something observed that may place pressure upon an existing distinction. It begins outside constitutional memory and awaits steward review.";
-  $("#intake-submit-label").textContent = journal ? "Offer private reflection" : "Offer observation";
-  $("#intake-submit-detail").textContent = journal ? "Transform, release, and cultivate" : "Cross the outer membrane";
-  $("#observation-status").textContent = journal
-    ? "No login or later review is required. Sensitive material is held; qualifying structure wakes cultivation."
-    : "Every accepted arrival receives a durable receipt and begins as unreviewed.";
-};
-
 const submitObservation = async (form) => {
   const button = $("button[type='submit']", form);
   const status = $("#observation-status");
   const data = new FormData(form);
-  const journalMode = form.dataset.mode === "journal";
-  const payload = journalMode
-    ? {
-        content: data.get("journal_content"),
-        owner: data.get("journal_owner"),
-        consent: data.get("journal_consent") === "on",
-        website: data.get("website")
-      }
-    : {
-        observation: data.get("observation"),
-        context: data.get("context"),
-        relation: data.get("relation"),
-        source_type: data.get("source_type"),
-        attribution: data.get("attribution") || "Anonymous",
-        consent: data.get("consent") === "on",
-        website: data.get("website")
-      };
+  const payload = {
+    observation: data.get("observation"),
+    attribution: data.get("attribution") || "Anonymous",
+    consent: data.get("consent") === "on",
+    website: data.get("website")
+  };
   button.disabled = true;
   status.className = "";
-  status.textContent = journalMode
-    ? "The membrane is transforming, judging, and releasing the reflection…"
-    : "The membrane is receiving and signing this observation…";
+  status.textContent = "The membrane is receiving, transforming, and judging this entry…";
   try {
-    const response = await fetch(`${RUNTIME}${journalMode ? "/v1/public/journal" : "/v1/public/intake"}`, {
+    const response = await fetch(`${RUNTIME}/v1/public/intake`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(payload)
@@ -288,18 +253,12 @@ const submitObservation = async (form) => {
     const result = await response.json();
     if (!response.ok) throw new Error(result.details?.join(" · ") || result.error || "The observation could not cross the membrane.");
     status.className = "is-success";
-    status.textContent = journalMode
-      ? result.wake_queued
-        ? `${result.event_id} was transformed, released, and admitted into autonomous cultivation.`
-        : `${result.event_id || "The reflection"} was transformed and released with disposition ${sentence(result.status || "held")}.`
-      : result.event_id
-        ? `Received as ${result.event_id}. It remains unreviewed and has not awakened cultivation.`
-        : "Received. It remains outside constitutional memory.";
+    status.textContent = result.wake_queued
+      ? `${result.event_id} survived the gauntlet and entered autonomous cultivation.`
+      : `${result.event_id || "The entry"} completed the gauntlet with disposition ${sentence(result.status || "held")}. Its source wording was released.`;
     form.reset();
-    setIntakeMode(form.dataset.mode);
-    if (!journalMode && result.event_id) {
+    if (result.event_id) {
       app.runtime.intake_count = (app.runtime.intake_count || 0) + 1;
-      app.runtime.intake_pending = (app.runtime.intake_pending || 0) + 1;
       $("#intake-count").textContent = String(app.runtime.intake_count).padStart(2, "0");
     }
   } catch (error) {
@@ -1054,13 +1013,6 @@ const bindInterface = () => {
   $("#observation-form").addEventListener("submit", (event) => {
     event.preventDefault();
     submitObservation(event.currentTarget);
-  });
-  $$("[data-intake-mode]").forEach((button) => button.addEventListener("click", () => setIntakeMode(button.dataset.intakeMode)));
-  $("#open-antechamber").addEventListener("click", () => {
-    $("#antechamber").hidden = false;
-    document.body.style.overflow = "hidden";
-    $(app.adminToken ? "#antechamber-title" : "#steward-token").focus();
-    if (app.adminToken) loadAntechamber().catch(() => { app.adminToken = null; $("#antechamber-auth").hidden = false; });
   });
   $$('[data-close-antechamber]').forEach((element) => element.addEventListener("click", () => {
     $("#antechamber").hidden = true;

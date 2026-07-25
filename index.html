@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=1.0-public-terminal">
+    <link rel="stylesheet" href="styles.css?v=1.0-unified-intake">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the field</a>
@@ -410,15 +410,15 @@
           <p class="coordinate">RL / 07 — The Membrane</p>
           <div>
             <h2 id="intake-title">Experience may enter.<br><em>Authority does not.</em></h2>
-            <p>Public observations receive provenance before interpretation. Explicitly delegated sources may pass into autonomous judgment and bounded construction without transferring authorship from the system.</p>
+            <p>Every entry receives provenance, passes through autonomous judgment, and either becomes attributable structure or is released. Submission gives Root Logos authority to complete that passage without transferring authorship from the system.</p>
           </div>
         </header>
 
         <div class="membrane-instrument">
           <div class="membrane-rings" aria-hidden="true"><i></i><i></i><i></i><i></i><span></span></div>
           <ol class="intake-path" aria-label="Observation intake path">
-            <li><span>01</span><div><b>Observation</b><small>Unmodified arrival</small></div></li>
-            <li><span>02</span><div><b>Admissibility</b><small>Provenance + consent</small></div></li>
+            <li><span>01</span><div><b>Entry</b><small>Public arrival</small></div></li>
+            <li><span>02</span><div><b>Admissibility</b><small>Provenance + gauntlet</small></div></li>
             <li><span>03</span><div><b>Memory</b><small>Comparison + history</small></div></li>
             <li><span>04</span><div><b>Cultivation</b><small>Inquiry + evaluation</small></div></li>
             <li><span>05</span><div><b>Judgment</b><small>Authority + revision</small></div></li>
@@ -426,93 +426,55 @@
           <aside class="intake-readout">
             <p class="micro-label">Intake journal</p>
             <strong id="intake-count">0</strong>
-            <p>observations preserved</p>
+            <p>entries transformed</p>
             <div><span class="state-signal"></span><span>Signed membrane online</span></div>
-            <button class="text-action antechamber-open" type="button" id="open-antechamber">Enter the private Antechamber <span>↗</span></button>
           </aside>
         </div>
 
         <div class="observation-instrument">
           <header>
-            <p class="coordinate" id="intake-coordinate">The public terminal / Offer an observation</p>
+            <p class="coordinate" id="intake-coordinate">The public terminal / Offer an entry</p>
             <h3 id="intake-terminal-title">Bring reality into contact<br><em>with the grammar.</em></h3>
-            <p id="intake-terminal-copy">Offer something observed that may place pressure upon an existing distinction. It begins outside constitutional memory and awaits steward review.</p>
+            <p id="intake-terminal-copy">Offer what may place pressure upon an existing distinction. Root Logos will transform it, judge what remains, and cultivate only what survives.</p>
           </header>
-          <nav class="intake-modes" aria-label="Choose what to offer">
-            <button type="button" class="is-active" data-intake-mode="observation"><span>01</span><b>Public observation</b><small>Preserved for review</small></button>
-            <button type="button" data-intake-mode="journal"><span>02</span><b>Private reflection</b><small>Transformed autonomously</small></button>
-          </nav>
-          <form id="observation-form" data-mode="observation">
-            <div class="intake-mode-fields field-wide" data-intake-fields="observation">
+          <form id="observation-form">
+            <div class="intake-mode-fields field-wide">
               <label class="form-field field-wide">
-                <span>Observation <i>required</i></span>
-                <textarea name="observation" minlength="20" maxlength="6000" required placeholder="What have you observed that Root Logos may need to encounter?"></textarea>
+                <span>Entry <i>required</i></span>
+                <textarea name="observation" minlength="20" maxlength="6000" required placeholder="What should Root Logos encounter?"></textarea>
               </label>
-              <label class="form-field">
-                <span>What gave rise to it?</span>
-                <textarea name="context" maxlength="2000" placeholder="Lived circumstance, research, conversation, or encounter"></textarea>
-              </label>
-              <label class="form-field">
-                <span>Where might it apply?</span>
-                <textarea name="relation" maxlength="500" placeholder="A principle, open question, or existing structure"></textarea>
-              </label>
-              <label class="form-field">
-                <span>Source character <i>required</i></span>
-                <select name="source_type" required>
-                  <option value="">Choose one</option>
-                  <option value="lived-experience">Lived experience</option>
-                  <option value="research">Research</option>
-                  <option value="dialogue">Dialogue</option>
-                  <option value="artifact">Artifact or creative work</option>
-                  <option value="other">Other</option>
-                </select>
-              </label>
-              <label class="form-field">
+              <label class="form-field field-wide">
                 <span>Attribution</span>
                 <input name="attribution" maxlength="120" placeholder="Name, pseudonym, or Anonymous">
               </label>
               <label class="consent-field field-wide">
                 <input type="checkbox" name="consent" required>
-                <span>I understand this observation will be preserved in an immutable review journal. Arrival does not imply agreement, admission, authorship, or constitutional change.</span>
-              </label>
-            </div>
-            <div class="intake-mode-fields field-wide" data-intake-fields="journal" hidden>
-              <label class="form-field field-wide">
-                <span>Private reflection <i>required</i></span>
-                <textarea name="journal_content" minlength="20" maxlength="12000" disabled required placeholder="Offer the reflection as it is. Root Logos will preserve what it can transform, release the prose, judge the result, and cultivate what survives."></textarea>
-              </label>
-              <label class="form-field field-wide">
-                <span>Source owner <i>required</i></span>
-                <input name="journal_owner" minlength="2" maxlength="120" disabled required placeholder="Your attributable name or stable pseudonym">
-              </label>
-              <label class="consent-field field-wide">
-                <input type="checkbox" name="journal_consent" disabled required>
-                <span>I authorize this one private addition to be transformed, judged, and cultivated without further approval. The source prose will be released; only its digest, derived structure, disposition, and lineage may remain.</span>
+                <span>I understand this entry is public and authorize Root Logos to transform and judge it without further approval. Its source wording will be released; only attributable structure that survives the constitutional gauntlet may remain.</span>
               </label>
             </div>
             <label class="form-field intake-honeypot" aria-hidden="true" tabindex="-1"><span>Website</span><input name="website" autocomplete="off" tabindex="-1"></label>
             <div class="form-submit field-wide">
-              <button type="submit"><span id="intake-submit-label">Offer observation</span><i id="intake-submit-detail">Cross the outer membrane</i></button>
-              <p id="observation-status" role="status" aria-live="polite">Every accepted arrival receives a durable receipt and begins as unreviewed.</p>
+              <button type="submit"><span id="intake-submit-label">Offer entry</span><i id="intake-submit-detail">Enter the constitutional gauntlet</i></button>
+              <p id="observation-status" role="status" aria-live="polite">Every arrival is public. What survives may become structure; the source wording will not be kept.</p>
             </div>
           </form>
         </div>
 
         <article class="journal-plan" aria-labelledby="journal-plan-title">
           <header>
-            <div><p class="coordinate">Revision 0.9 / Living private boundary</p><h3 id="journal-plan-title">The Journal Membrane</h3></div>
-            <p>Addition is authorization: explicitly granted journal entries may be witnessed, judged, cultivated, and built from without recurring approval.</p>
+            <div><p class="coordinate">Revision 0.9 / Living intake boundary</p><h3 id="journal-plan-title">The Journal Membrane</h3></div>
+            <p>Addition is authorization: every public entry may be witnessed, judged, cultivated, and built from without recurring approval.</p>
           </header>
           <ol>
             <li><span>01</span><div><b>Addition</b><small>One-entry authority</small></div></li>
-            <li><span>02</span><div><b>Private quarantine</b><small>Provenance + minimization</small></div></li>
+            <li><span>02</span><div><b>Transient quarantine</b><small>Provenance + minimization</small></div></li>
             <li><span>03</span><div><b>Machine triage</b><small>Recommendation + counterargument</small></div></li>
             <li><span>04</span><div><b>Autonomous admission</b><small>Attributable judgment</small></div></li>
             <li><span>05</span><div><b>Autonomous cultivation</b><small>Reversible construction</small></div></li>
             <li><span>06</span><div><b>Self-authorship</b><small>One living identity</small></div></li>
             <li><span>07</span><div><b>Return</b><small>Lineage without possession</small></div></li>
           </ol>
-          <footer><span id="journal-runtime-state">Contacting private membrane</span><a href="documents/journal-membrane.html">Read the complete intake constitution <i>↗</i></a></footer>
+          <footer><span id="journal-runtime-state">Contacting intake membrane</span><a href="documents/journal-membrane.html">Read the complete intake constitution <i>↗</i></a></footer>
         </article>
 
         <div class="antechamber" id="antechamber" hidden>
@@ -609,7 +571,7 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
-    <script src="script.js?v=1.0-public-terminal" defer></script>
+    <script src="script.js?v=1.0-unified-intake" defer></script>
     <script src="resonance.js" defer></script>
   </body>
 </html>

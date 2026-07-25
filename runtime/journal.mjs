@@ -65,8 +65,8 @@ const derive = (text) => {
     paragraph_count: text.split(/\n\s*\n/).filter((part) => part.trim()).length,
     word_count: words.length,
     structural_summary: concepts.length
-      ? `Private reflection creates attributable pressure around ${concepts.slice(0, 5).map(({ concept }) => concept).join(", ")}.`
-      : "Private reflection produced no durable conceptual structure."
+      ? `A public entry creates attributable pressure around ${concepts.slice(0, 5).map(({ concept }) => concept).join(", ")}.`
+      : "The public entry produced no durable conceptual structure."
   };
 };
 
