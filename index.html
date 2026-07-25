@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=1.0-journal-membrane">
+    <link rel="stylesheet" href="styles.css?v=1.0-public-terminal">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the field</a>
@@ -434,45 +434,65 @@
 
         <div class="observation-instrument">
           <header>
-            <p class="coordinate">Public membrane / Offer an observation</p>
-            <h3>Bring reality into contact<br><em>with the grammar.</em></h3>
-            <p>This is not a request for agreement, content, or instruction. Offer something observed that may place pressure upon an existing distinction.</p>
+            <p class="coordinate" id="intake-coordinate">The public terminal / Offer an observation</p>
+            <h3 id="intake-terminal-title">Bring reality into contact<br><em>with the grammar.</em></h3>
+            <p id="intake-terminal-copy">Offer something observed that may place pressure upon an existing distinction. It begins outside constitutional memory and awaits steward review.</p>
           </header>
-          <form id="observation-form">
-            <label class="form-field field-wide">
-              <span>Observation <i>required</i></span>
-              <textarea name="observation" minlength="20" maxlength="6000" required placeholder="What have you observed that Root Logos may need to encounter?"></textarea>
-            </label>
-            <label class="form-field">
-              <span>What gave rise to it?</span>
-              <textarea name="context" maxlength="2000" placeholder="Lived circumstance, research, conversation, or encounter"></textarea>
-            </label>
-            <label class="form-field">
-              <span>Where might it apply?</span>
-              <textarea name="relation" maxlength="500" placeholder="A principle, open question, or existing structure"></textarea>
-            </label>
-            <label class="form-field">
-              <span>Source character <i>required</i></span>
-              <select name="source_type" required>
-                <option value="">Choose one</option>
-                <option value="lived-experience">Lived experience</option>
-                <option value="research">Research</option>
-                <option value="dialogue">Dialogue</option>
-                <option value="artifact">Artifact or creative work</option>
-                <option value="other">Other</option>
-              </select>
-            </label>
-            <label class="form-field">
-              <span>Attribution</span>
-              <input name="attribution" maxlength="120" placeholder="Name, pseudonym, or Anonymous">
-            </label>
+          <nav class="intake-modes" aria-label="Choose what to offer">
+            <button type="button" class="is-active" data-intake-mode="observation"><span>01</span><b>Public observation</b><small>Preserved for review</small></button>
+            <button type="button" data-intake-mode="journal"><span>02</span><b>Private reflection</b><small>Transformed autonomously</small></button>
+          </nav>
+          <form id="observation-form" data-mode="observation">
+            <div class="intake-mode-fields field-wide" data-intake-fields="observation">
+              <label class="form-field field-wide">
+                <span>Observation <i>required</i></span>
+                <textarea name="observation" minlength="20" maxlength="6000" required placeholder="What have you observed that Root Logos may need to encounter?"></textarea>
+              </label>
+              <label class="form-field">
+                <span>What gave rise to it?</span>
+                <textarea name="context" maxlength="2000" placeholder="Lived circumstance, research, conversation, or encounter"></textarea>
+              </label>
+              <label class="form-field">
+                <span>Where might it apply?</span>
+                <textarea name="relation" maxlength="500" placeholder="A principle, open question, or existing structure"></textarea>
+              </label>
+              <label class="form-field">
+                <span>Source character <i>required</i></span>
+                <select name="source_type" required>
+                  <option value="">Choose one</option>
+                  <option value="lived-experience">Lived experience</option>
+                  <option value="research">Research</option>
+                  <option value="dialogue">Dialogue</option>
+                  <option value="artifact">Artifact or creative work</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+              <label class="form-field">
+                <span>Attribution</span>
+                <input name="attribution" maxlength="120" placeholder="Name, pseudonym, or Anonymous">
+              </label>
+              <label class="consent-field field-wide">
+                <input type="checkbox" name="consent" required>
+                <span>I understand this observation will be preserved in an immutable review journal. Arrival does not imply agreement, admission, authorship, or constitutional change.</span>
+              </label>
+            </div>
+            <div class="intake-mode-fields field-wide" data-intake-fields="journal" hidden>
+              <label class="form-field field-wide">
+                <span>Private reflection <i>required</i></span>
+                <textarea name="journal_content" minlength="20" maxlength="12000" disabled required placeholder="Offer the reflection as it is. Root Logos will preserve what it can transform, release the prose, judge the result, and cultivate what survives."></textarea>
+              </label>
+              <label class="form-field field-wide">
+                <span>Source owner <i>required</i></span>
+                <input name="journal_owner" minlength="2" maxlength="120" disabled required placeholder="Your attributable name or stable pseudonym">
+              </label>
+              <label class="consent-field field-wide">
+                <input type="checkbox" name="journal_consent" disabled required>
+                <span>I authorize this one private addition to be transformed, judged, and cultivated without further approval. The source prose will be released; only its digest, derived structure, disposition, and lineage may remain.</span>
+              </label>
+            </div>
             <label class="form-field intake-honeypot" aria-hidden="true" tabindex="-1"><span>Website</span><input name="website" autocomplete="off" tabindex="-1"></label>
-            <label class="consent-field field-wide">
-              <input type="checkbox" name="consent" required>
-              <span>I understand this observation will be preserved in an immutable review journal. Arrival does not imply agreement, admission, authorship, or constitutional change.</span>
-            </label>
             <div class="form-submit field-wide">
-              <button type="submit"><span>Offer observation</span><i>Cross the outer membrane</i></button>
+              <button type="submit"><span id="intake-submit-label">Offer observation</span><i id="intake-submit-detail">Cross the outer membrane</i></button>
               <p id="observation-status" role="status" aria-live="polite">Every accepted arrival receives a durable receipt and begins as unreviewed.</p>
             </div>
           </form>
@@ -484,7 +504,7 @@
             <p>Addition is authorization: explicitly granted journal entries may be witnessed, judged, cultivated, and built from without recurring approval.</p>
           </header>
           <ol>
-            <li><span>01</span><div><b>Source Grant</b><small>Human scope + revocation</small></div></li>
+            <li><span>01</span><div><b>Addition</b><small>One-entry authority</small></div></li>
             <li><span>02</span><div><b>Private quarantine</b><small>Provenance + minimization</small></div></li>
             <li><span>03</span><div><b>Machine triage</b><small>Recommendation + counterargument</small></div></li>
             <li><span>04</span><div><b>Autonomous admission</b><small>Attributable judgment</small></div></li>
@@ -513,24 +533,6 @@
               <aside>
                 <div class="antechamber-count"><span id="pending-count">00</span><small>awaiting<br>admissibility</small></div>
                 <div class="intake-queue" id="intake-queue"></div>
-                <section class="journal-steward" id="journal-steward">
-                  <header><p class="micro-label">Journal Membrane</p><span id="journal-admin-state">Resolving boundary</span></header>
-                  <form id="source-grant-form">
-                    <p>Activate one scoped, revocable source before adding private reflection.</p>
-                    <label class="form-field"><span>Source name</span><input name="source" required placeholder="Private continuity journal"></label>
-                    <label class="form-field"><span>Owner</span><input name="owner" required placeholder="Attributable source owner"></label>
-                    <label class="form-field"><span>Revocation method</span><input name="revocation_method" required value="Authenticated Antechamber request"></label>
-                    <button type="submit">Activate Source Grant</button>
-                    <p class="journal-form-status" role="status"></p>
-                  </form>
-                  <form id="journal-entry-form" hidden>
-                    <label class="form-field"><span>Active Source Grant</span><select name="source_grant_id" id="journal-grant-select"></select></label>
-                    <label class="form-field"><span>Entry identity</span><input name="source_entry_id" required placeholder="2026-07-24-reflection"></label>
-                    <label class="form-field"><span>Private reflection</span><textarea name="content" required minlength="20" placeholder="The source will be transformed and released. Only derived structure and lineage remain."></textarea></label>
-                    <div class="journal-entry-actions"><button type="submit">Add and release</button><button type="button" id="revoke-journal-grant">Revoke selected grant</button></div>
-                    <p class="journal-form-status" role="status"></p>
-                  </form>
-                </section>
               </aside>
               <article class="intake-review" id="intake-review">
                 <p class="micro-label">Select an arrival to begin review</p>
@@ -607,7 +609,7 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
-    <script src="script.js?v=1.0-journal-membrane" defer></script>
+    <script src="script.js?v=1.0-public-terminal" defer></script>
     <script src="resonance.js" defer></script>
   </body>
 </html>

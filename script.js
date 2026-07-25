@@ -29,7 +29,6 @@ const app = {
   selectedProposal: null,
   adminToken: null,
   observations: [],
-  journalAdmin: null,
   attractors: null,
   selectedObservation: null,
   filter: "all",
@@ -232,24 +231,56 @@ const renderSources = () => {
   `).join("");
 };
 
+const setIntakeMode = (mode) => {
+  const journal = mode === "journal";
+  const form = $("#observation-form");
+  form.dataset.mode = journal ? "journal" : "observation";
+  $$("[data-intake-mode]").forEach((button) => button.classList.toggle("is-active", button.dataset.intakeMode === form.dataset.mode));
+  $$("[data-intake-fields]").forEach((fields) => {
+    const active = fields.dataset.intakeFields === form.dataset.mode;
+    fields.hidden = !active;
+    $$("input, textarea, select", fields).forEach((control) => { control.disabled = !active; });
+  });
+  $("#intake-coordinate").textContent = journal ? "The public terminal / Offer a private reflection" : "The public terminal / Offer an observation";
+  $("#intake-terminal-title").innerHTML = journal ? "Give what is living.<br><em>Release what was written.</em>" : "Bring reality into contact<br><em>with the grammar.</em>";
+  $("#intake-terminal-copy").textContent = journal
+    ? "Submission is authorization. Root Logos will transform the reflection, release its prose, judge what remains, and cultivate whatever earns consequence."
+    : "Offer something observed that may place pressure upon an existing distinction. It begins outside constitutional memory and awaits steward review.";
+  $("#intake-submit-label").textContent = journal ? "Offer private reflection" : "Offer observation";
+  $("#intake-submit-detail").textContent = journal ? "Transform, release, and cultivate" : "Cross the outer membrane";
+  $("#observation-status").textContent = journal
+    ? "No login or later review is required. Sensitive material is held; qualifying structure wakes cultivation."
+    : "Every accepted arrival receives a durable receipt and begins as unreviewed.";
+};
+
 const submitObservation = async (form) => {
   const button = $("button[type='submit']", form);
   const status = $("#observation-status");
   const data = new FormData(form);
-  const payload = {
-    observation: data.get("observation"),
-    context: data.get("context"),
-    relation: data.get("relation"),
-    source_type: data.get("source_type"),
-    attribution: data.get("attribution") || "Anonymous",
-    consent: data.get("consent") === "on",
-    website: data.get("website")
-  };
+  const journalMode = form.dataset.mode === "journal";
+  const payload = journalMode
+    ? {
+        content: data.get("journal_content"),
+        owner: data.get("journal_owner"),
+        consent: data.get("journal_consent") === "on",
+        website: data.get("website")
+      }
+    : {
+        observation: data.get("observation"),
+        context: data.get("context"),
+        relation: data.get("relation"),
+        source_type: data.get("source_type"),
+        attribution: data.get("attribution") || "Anonymous",
+        consent: data.get("consent") === "on",
+        website: data.get("website")
+      };
   button.disabled = true;
   status.className = "";
-  status.textContent = "The membrane is receiving and signing this observation…";
+  status.textContent = journalMode
+    ? "The membrane is transforming, judging, and releasing the reflection…"
+    : "The membrane is receiving and signing this observation…";
   try {
-    const response = await fetch(`${RUNTIME}/v1/public/intake`, {
+    const response = await fetch(`${RUNTIME}${journalMode ? "/v1/public/journal" : "/v1/public/intake"}`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(payload)
@@ -257,11 +288,16 @@ const submitObservation = async (form) => {
     const result = await response.json();
     if (!response.ok) throw new Error(result.details?.join(" · ") || result.error || "The observation could not cross the membrane.");
     status.className = "is-success";
-    status.textContent = result.event_id
-      ? `Received as ${result.event_id}. It remains unreviewed and has not awakened cultivation.`
-      : "Received. It remains outside constitutional memory.";
+    status.textContent = journalMode
+      ? result.wake_queued
+        ? `${result.event_id} was transformed, released, and admitted into autonomous cultivation.`
+        : `${result.event_id || "The reflection"} was transformed and released with disposition ${sentence(result.status || "held")}.`
+      : result.event_id
+        ? `Received as ${result.event_id}. It remains unreviewed and has not awakened cultivation.`
+        : "Received. It remains outside constitutional memory.";
     form.reset();
-    if (result.event_id) {
+    setIntakeMode(form.dataset.mode);
+    if (!journalMode && result.event_id) {
       app.runtime.intake_count = (app.runtime.intake_count || 0) + 1;
       app.runtime.intake_pending = (app.runtime.intake_pending || 0) + 1;
       $("#intake-count").textContent = String(app.runtime.intake_count).padStart(2, "0");
@@ -285,95 +321,11 @@ const adminRequest = async (path, options = {}) => {
 };
 
 const loadAntechamber = async () => {
-  const [intake, journal] = await Promise.all([
-    adminRequest("/v1/admin/intake"),
-    adminRequest("/v1/admin/journal")
-  ]);
+  const intake = await adminRequest("/v1/admin/intake");
   app.observations = intake.observations || [];
-  app.journalAdmin = journal;
   $("#antechamber-auth").hidden = true;
   $("#antechamber-workspace").hidden = false;
   renderIntakeQueue();
-  renderJournalSteward();
-};
-
-const renderJournalSteward = () => {
-  const journal = app.journalAdmin || {};
-  const active = (journal.grants || []).filter(({ status }) => status === "active");
-  $("#journal-admin-state").textContent = `${sentence(journal.status || "unknown")} · ${active.length} active`;
-  $("#source-grant-form").hidden = active.length > 0;
-  $("#journal-entry-form").hidden = active.length === 0;
-  $("#journal-grant-select").innerHTML = active.map((grant) =>
-    `<option value="${escapeHtml(grant.source_grant_id)}">${escapeHtml(grant.source)} · ${escapeHtml(grant.source_grant_id)}</option>`).join("");
-};
-
-const createSourceGrant = async (form) => {
-  const data = new FormData(form);
-  const status = $(".journal-form-status", form);
-  const button = $("button[type='submit']", form);
-  button.disabled = true;
-  status.textContent = "Writing an attributable Source Grant…";
-  try {
-    await adminRequest("/v1/admin/journal/grants", {
-      method: "POST",
-      body: JSON.stringify({
-        source: data.get("source"),
-        owner: data.get("owner"),
-        adapter: "local-drop",
-        include: ["*.md"],
-        exclude: [],
-        revocation_method: data.get("revocation_method"),
-        authorized_by: data.get("owner")
-      })
-    });
-    form.reset();
-    await loadAntechamber();
-  } catch (error) {
-    status.textContent = error.message;
-  } finally {
-    button.disabled = false;
-  }
-};
-
-const addJournalEntry = async (form) => {
-  const data = new FormData(form);
-  const grantId = String(data.get("source_grant_id") || "");
-  const status = $(".journal-form-status", form);
-  const button = $("button[type='submit']", form);
-  button.disabled = true;
-  status.textContent = "Sealing, transforming, judging, and releasing the source…";
-  try {
-    const result = await adminRequest(`/v1/admin/journal/grants/${encodeURIComponent(grantId)}/entries`, {
-      method: "POST",
-      body: JSON.stringify({ source_entry_id: data.get("source_entry_id"), content: data.get("content") })
-    });
-    form.reset();
-    await loadAntechamber();
-    const entryStatus = $(".journal-form-status", $("#journal-entry-form"));
-    entryStatus.textContent = result.wake_queued
-      ? `${result.event_id} was released as source and queued as derived cultivation pressure.`
-      : `${result.event_id || "The entry"} was released with disposition ${sentence(result.status || "held")}.`;
-  } catch (error) {
-    status.textContent = error.message;
-  } finally {
-    button.disabled = false;
-  }
-};
-
-const revokeJournalGrant = async () => {
-  const grantId = $("#journal-grant-select").value;
-  if (!grantId) return;
-  const status = $(".journal-form-status", $("#journal-entry-form"));
-  status.textContent = "Revoking collection authority and releasing working copies…";
-  try {
-    await adminRequest(`/v1/admin/journal/grants/${encodeURIComponent(grantId)}/revoke`, {
-      method: "POST",
-      body: JSON.stringify({ revoked_by: "Root Logos steward", reason: "Explicit Antechamber revocation" })
-    });
-    await loadAntechamber();
-  } catch (error) {
-    status.textContent = error.message;
-  }
 };
 
 const renderIntakeQueue = () => {
@@ -1103,6 +1055,7 @@ const bindInterface = () => {
     event.preventDefault();
     submitObservation(event.currentTarget);
   });
+  $$("[data-intake-mode]").forEach((button) => button.addEventListener("click", () => setIntakeMode(button.dataset.intakeMode)));
   $("#open-antechamber").addEventListener("click", () => {
     $("#antechamber").hidden = false;
     document.body.style.overflow = "hidden";
@@ -1143,15 +1096,6 @@ const bindInterface = () => {
     event.preventDefault();
     classifyObservation(event.target);
   });
-  $("#source-grant-form").addEventListener("submit", (event) => {
-    event.preventDefault();
-    createSourceGrant(event.currentTarget);
-  });
-  $("#journal-entry-form").addEventListener("submit", (event) => {
-    event.preventDefault();
-    addJournalEntry(event.currentTarget);
-  });
-  $("#revoke-journal-grant").addEventListener("click", revokeJournalGrant);
   $("#reading-actions").addEventListener("click", (event) => {
     const link = event.target.closest("[data-fragment-source]");
     if (!link) return;

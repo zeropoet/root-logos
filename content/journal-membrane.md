@@ -251,6 +251,13 @@ source prose. Admissible derived observations wake cultivation without further
 approval. Sensitive, third-party, malformed, out-of-scope, or duplicate
 material cannot wake the system.
 
+The public terminal may create a one-time Source Grant through explicit
+addition. Submission names the source owner and grants authority for that entry
+alone. The grant closes automatically after transformation and source release;
+it cannot collect again or widen itself. This allows private reflection to
+enter without a login or later review while preserving attribution, bounded
+authority, rate limits, autonomous risk holds, and complete lineage.
+
 An implemented cultivation change then enters the serialized self-authorship
 worker. That worker may atomically revise the one current identity only after
 privacy, source fidelity, drift, coherence, counterargument, and reversibility

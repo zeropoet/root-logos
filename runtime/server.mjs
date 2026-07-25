@@ -159,6 +159,16 @@ export const createRuntime = async (options = {}) => {
     return { errors, payload: { observation, context, relation, source_type: sourceType, attribution } };
   };
 
+  const publicJournalEntry = (body) => {
+    const errors = [];
+    const content = String(body?.content || "").trim();
+    const owner = String(body?.owner || "").trim();
+    if (content.length < 20 || content.length > 12_000) errors.push("reflection must be between 20 and 12000 characters");
+    if (owner.length < 2 || owner.length > 120) errors.push("source owner must be between 2 and 120 characters");
+    if (body?.consent !== true) errors.push("explicit transformation and release consent is required");
+    return { errors, content, owner };
+  };
+
   const currentIntake = () => [...observations.values()].map((record) => {
     const history = classifications.get(record.event.event_id) || [];
     const latest = history.at(-1);
@@ -493,6 +503,36 @@ export const createRuntime = async (options = {}) => {
         knownEvents.add(eventId);
         observations.set(eventId, record);
         return send(res, 202, { accepted: true, event_id: eventId, status: "unreviewed", wake_queued: false }, cors);
+      }
+      if (req.method === "POST" && url.pathname === "/v1/public/journal") {
+        if (origin !== allowedOrigin && allowedOrigin !== "*") return send(res, 403, { error: "origin not permitted" }, cors);
+        if (String(JSON.parse(raw).website || "").trim()) return send(res, 202, { accepted: true, status: "released" }, cors);
+        if (!rateLimit(req)) return send(res, 429, { error: "intake limit reached; please return later" }, { ...cors, "retry-after": "3600" });
+        const body = JSON.parse(raw);
+        const { errors, content, owner } = publicJournalEntry(body);
+        if (errors.length) return send(res, 422, { error: "invalid private reflection", details: errors }, cors);
+        const grant = await journalMembrane.createGrant({
+          source: "Direct private terminal addition",
+          owner,
+          adapter: "local-drop",
+          include: ["*.md"],
+          exclude: [],
+          cadence: "one-time-immediate",
+          retention_class: "transform-and-release",
+          privacy_mode: "private-derived-only",
+          revocation_method: "automatic after one transformation"
+        }, owner);
+        try {
+          const result = await journalMembrane.addEntry(grant.source_grant_id, {
+            source_entry_id: `direct-${Date.now()}-${randomUUID().slice(0, 8)}`,
+            content
+          });
+          await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "One-time addition completed and source released");
+          return send(res, 202, { accepted: true, event_id: result.event_id, status: result.status, wake_queued: result.wake_queued, source_released: true }, cors);
+        } catch (error) {
+          await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "One-time addition failed; authority closed").catch(() => {});
+          throw error;
+        }
       }
       const classifyMatch = req.method === "POST" && url.pathname.match(/^\/v1\/admin\/intake\/([^/]+)\/classify$/);
       if (classifyMatch) {

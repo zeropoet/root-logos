@@ -17,6 +17,10 @@ system to judge, admit, cultivate, and build without entry-by-entry approval.
 Every autonomous disposition and structural consequence remains attributable,
 auditable, and reversible.
 
+The public terminal can create a one-time grant through explicit private
+addition. That grant is closed automatically after the entry is transformed
+and released; it cannot collect a second entry.
+
 Raw journal content is transient working material, not an archive. The runtime
 seals each entry into an encrypted quarantine, removes the local-drop source,
 derives structural evidence in memory, and releases the working copy. It never enters

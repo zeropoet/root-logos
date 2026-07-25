@@ -73,6 +73,27 @@ paths:
         "403": { description: Origin not permitted }
         "422": { description: Invalid observation }
         "429": { description: Intake rate limit reached }
+  /v1/public/journal:
+    post:
+      operationId: offerPrivateReflection
+      description: Creates a one-time Source Grant, transforms and releases the prose, autonomously judges the derived structure, closes the grant, and queues cultivation when admissible.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [content, owner, consent]
+              properties:
+                content: { type: string, minLength: 20, maxLength: 12000 }
+                owner: { type: string, minLength: 2, maxLength: 120 }
+                consent: { type: boolean, const: true }
+                website: { type: string, description: Bot-trap field; must remain empty. }
+      responses:
+        "202": { description: Source transformed and released; derived disposition returned }
+        "403": { description: Origin not permitted }
+        "422": { description: Invalid private reflection or missing authorization }
+        "429": { description: Intake rate limit reached }
   /v1/admin/intake:
     get:
       operationId: listIntake

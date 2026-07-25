@@ -90,11 +90,13 @@ default). The collector seals raw bytes into AES-256-GCM quarantine, removes
 the drop source, transforms in memory, releases quarantine, and durably keeps
 only digests, derived structures, autonomous judgment, and lineage.
 
-The private Antechamber exposes this boundary without retaining its credential:
-activate a Source Grant, add a named entry, and leave. The authenticated entry
-request is immediately handed to the same local-drop transformation path; raw
-content is never returned by an API or included in the derived-only journal
-inspection response.
+The public terminal exposes a simpler one-time boundary. Selecting **Private
+reflection** and submitting is the authorization event: the runtime creates a
+single-use Source Grant, hands the entry to the encrypted transformation path,
+closes the grant after release, and autonomously wakes cultivation when the
+derived structure is admissible. No login or subsequent review is required.
+Raw content is never returned by an API or included in derived-only journal
+inspection.
 
 The serialized self-authorship worker is active for completed runtime
 cultivation cycles. It judges whether an implemented topology change requires

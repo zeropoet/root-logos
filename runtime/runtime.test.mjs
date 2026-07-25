@@ -183,10 +183,32 @@ try {
   assert.equal(afterRevocation.active_grants, 0);
   assert.equal(afterRevocation.processed.length, 0);
 
+  const directPrivatePhrase = "Silver harbor direct terminal phrase must be released after autonomous transformation.";
+  const directJournal = await fetch(`${base}/v1/public/journal`, {
+    method: "POST",
+    body: JSON.stringify({
+      content: `${directPrivatePhrase}\n\nMemory, identity, relation, evidence, autonomy, judgment, responsibility, and coherence are changing together. The field should examine whether these pressures reveal a durable structure without preserving this prose.`,
+      owner: "Runtime Test",
+      consent: true,
+      website: ""
+    }),
+    headers: { "content-type": "application/json", origin: "https://rootlogos.com", "x-forwarded-for": "192.0.2.55" }
+  });
+  assert.equal(directJournal.status, 202);
+  const directReceipt = await directJournal.json();
+  assert.equal(directReceipt.source_released, true);
+  assert.equal(directReceipt.status, "admissible");
+  assert.equal(directReceipt.wake_queued, true);
+  await runtime.waitForIdle();
+  const directState = await fetch(`${base}/v1/status`).then((response) => response.json());
+  assert.equal(directState.journal.active_grants, 0);
+  assert.ok(directState.journal.total_grants >= 2);
+  assert.doesNotMatch(await readFile(join(sandbox, "data", "journal-records.json"), "utf8"), new RegExp(directPrivatePhrase));
+
   const journal = await readFile(join(sandbox, "data", "intake.jsonl"), "utf8");
   assert.match(journal, /observation-accepted/);
   assert.match(journal, /wake-completed/);
-  process.stdout.write("PASS public membrane, immutable receipts, signed intake, serialized wakes, Source Grants, encrypted transient journal processing, raw release, autonomous judgment, deduplication, prompt-instruction isolation, revocation, and human command boundary.\n");
+  process.stdout.write("PASS public membrane, direct private terminal intake, immutable receipts, signed intake, serialized wakes, one-time Source Grants, encrypted transient journal processing, raw release, autonomous judgment, deduplication, prompt-instruction isolation, revocation, and human command boundary.\n");
 } finally {
   await new Promise((resolveClose) => server.close(resolveClose));
 }
