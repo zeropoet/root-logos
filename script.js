@@ -135,7 +135,6 @@ const renderPresence = () => {
     : app.runtime.archival_fallback
       ? "Runtime witness unavailable / constitution preserved"
       : "Collection held / intake membrane unavailable";
-  $("#footer-revision").textContent = String(app.graph.meta.revision).replace(/^v/, "");
 
   $("#chamber-condition").textContent = running ? "Awake" : app.runtime.dormancy?.active ? "Dormant" : "At rest";
   $("#chamber-condition-copy").textContent = running
