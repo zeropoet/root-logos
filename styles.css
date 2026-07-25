@@ -72,8 +72,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   backdrop-filter: blur(22px) saturate(.7);
 }
 .brand { display: flex; align-items: center; gap: 12px; width: max-content; }
-.brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; }
-.brand-mark img { filter: invert(86%) sepia(12%) saturate(520%); opacity: .9; }
+.brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--gold); border-radius: 50%; background: var(--gold); }
+.brand-mark img { filter: none; opacity: 1; }
 .brand-word { font: 400 .76rem/1 var(--mono); letter-spacing: .19em; text-transform: uppercase; }
 .primary-nav { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 42px); }
 .primary-nav a { position: relative; padding: 12px 0; color: var(--dim); font: 500 .62rem/1 var(--mono); letter-spacing: .15em; text-transform: uppercase; transition: color .3s; }
