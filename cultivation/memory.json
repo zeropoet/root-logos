@@ -361,11 +361,42 @@
         },
         "total": 20
       }
+    },
+    "2f166802a1f94ac7b4fa65fb8787d31621ae1ce1003f3788014876204cd71684": {
+      "fingerprint": "2f166802a1f94ac7b4fa65fb8787d31621ae1ce1003f3788014876204cd71684",
+      "kind": "question-pressure",
+      "nodes": [
+        "question-consciousness-fundamental",
+        "logos-1",
+        "principle-higher-reference",
+        "root-logos"
+      ],
+      "claim": "Is consciousness fundamental? has 2 explicit relations; Knowing and the Experience of Time, Intelligence Requires a Higher Reference, Root Logos provide the strongest existing constitutional pressure for investigation.",
+      "proposed_question": null,
+      "evidence_hash": "3593df2b80c765a4dd571851cb2e620a689ffd33a268a529265b8c14e47181d6",
+      "policy_hash": "967b44370f0c53e2d44071fb82e6eb3f158a94c079aa0c4efd9bae93340c3b1c",
+      "first_cycle": "RL-CULTIVATE-0022",
+      "last_cycle": "RL-CULTIVATE-0022",
+      "last_cycle_index": 22,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 2,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 19
+      }
     }
   },
   "novelty": {
     "consecutive_low_yield_cycles": 0,
-    "last_score": 2,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -457,6 +488,13 @@
         "reason": "policy-changed",
         "status": "autonomously-rejected",
         "at": "2026-07-25T02:38:30.023Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0022",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-07-25T02:54:41.183Z"
       }
     ]
   },
