@@ -9,6 +9,8 @@ lineage, or Git publication authority.
 ```sh
 export ROOT_LOGOS_INTAKE_SECRET="$(openssl rand -hex 32)"
 export ROOT_LOGOS_ADMIN_TOKEN="$(openssl rand -hex 32)"
+export ROOT_LOGOS_JOURNAL_SECRET="$(openssl rand -hex 32)"
+export ROOT_LOGOS_JOURNAL_ENABLED=1
 npm run runtime
 ```
 
@@ -69,23 +71,33 @@ deploy key for this repository. No endpoint accepts arbitrary commands.
 
 See `openapi.yaml` for the UI-facing contract.
 
-## Planned journal worker
+## Journal Membrane
 
 Revision 0.9 defines a separate autonomous path for explicitly added or granted
 journal entries. Addition is the delegation event; unlike public intake, the
-future journal worker will not require steward classification for each entry.
-It will privately process and transform the source, release the working prose,
+operational journal worker does not require steward classification for each entry.
+It privately processes and transforms the source, releases the working prose,
 make an attributable admission judgment with counterargument and risk evidence,
 wake cultivation for qualifying material, and permit reversible construction
 inside the delegated build boundary.
 
-This path is not active in `server.mjs`. Its disabled policy, envelope schema,
-privacy exclusions, phased implementation plan, and acceptance gates live in
-`journal/` and `content/journal-membrane.md`. The existing public intake and
-Antechamber behavior remain unchanged until that separate worker is built and
-verified.
+The local-drop path is active in `server.mjs` and `journal/policy.json`.
+Authenticated administrator endpoints create or revoke explicit Source Grants,
+inspect derived-only lineage, and request collection. Files are accepted only
+from a directory named for an active grant beneath
+`ROOT_LOGOS_JOURNAL_DROP_DIR` (or the private runtime data directory by
+default). The collector seals raw bytes into AES-256-GCM quarantine, removes
+the drop source, transforms in memory, releases quarantine, and durably keeps
+only digests, derived structures, autonomous judgment, and lineage.
 
-The subsequent self-authorship worker is likewise planned, not active. Its
-contract in `self-authorship/` permits continual autonomous rewriting and
-publication of one canonical Root Logos identity while requiring cross-surface
-consistency, complete lineage, atomic replacement, and rollback.
+The private Antechamber exposes this boundary without retaining its credential:
+activate a Source Grant, add a named entry, and leave. The authenticated entry
+request is immediately handed to the same local-drop transformation path; raw
+content is never returned by an API or included in the derived-only journal
+inspection response.
+
+The serialized self-authorship worker is active for completed runtime
+cultivation cycles. It judges whether an implemented topology change requires
+an identity rewrite, archives the prior manifest and its counterargument, then
+atomically replaces the single current identity. Rejected or immaterial cycles
+produce preserve-current lineage instead of synthetic change.

@@ -125,9 +125,11 @@ of carrying them without doctrinal repetition.
 - `content/journal-membrane.md` defines autonomous journal intake through
   explicit Source Grants, transient source transformation, autonomous judgment,
   reversible construction, continual self-authorship, and complete lineage.
-- `journal/` contains the planned intake policy and private observation-envelope
-  schema. Its collection switch is deliberately disabled until the acceptance
-  gates of Revision 0.9 have been implemented and tested.
+- `journal/` contains the operational intake policy and private
+  observation-envelope schema. `runtime/journal.mjs` implements the first
+  Source-Grant-gated local-drop adapter, encrypted transient quarantine,
+  deterministic deduplication, autonomous disposition, raw-source release,
+  revocation, audit lineage, and cultivation wakes.
 - `self-authorship/` defines the continual rewrite policy and single current
   identity manifest. It authorizes Root Logos to revise its own graph,
   constitutional narrative, interface language, sound mapping, and outward
@@ -427,8 +429,9 @@ separate destinations.
 
 Revision 0.9 establishes the constitutional authority for autonomous intake of
 journal entries and the continual self-authorship that follows from it. The
-authority boundary is active; the journal collector and self-authorship worker
-remain disabled until their implementation gates pass. The architecture
+authority boundary, local-drop journal collector, private transformation
+worker, cultivation relay, and serialized self-authorship worker are active.
+The architecture
 separates source authorization, witnessing, transient quarantine, transformation
 and release, autonomous judgment, cultivation, identity rewrite, publication,
 and return.
@@ -456,7 +459,9 @@ one current identity manifest. Competing narratives remain private candidates
 until the system resolves them; an accepted rewrite atomically replaces the
 current identity and archives its predecessor as lineage.
 
-The implementation proceeds through five bounded phases:
+The implementation proceeds through five bounded phases. Phases 1–3 and the
+single-identity core of Phase 5 are operational; external cloud adapters in
+Phase 4 and richer longitudinal interpretation remain future extensions:
 
 1. A local-drop adapter, Source Grant ledger, deterministic identity, transient
    encrypted processing, source release, dry-run import, and revocation.
@@ -469,11 +474,12 @@ The implementation proceeds through five bounded phases:
    privacy, transformation, coherence, adversarial judgment, cross-surface
    consistency, and rollback are proven.
 
-The collection switch in `journal/policy.json` remains false. Implementation
-cannot activate until tests prove zero ungranted collection, deterministic
-recovery, raw-text release, prompt-injection resistance, uninterrupted autonomy
-after authorized addition, immediate revocation, one canonical identity across
-all surfaces, atomic publication, rollback, and complete transformation lineage.
+The collection switch in `journal/policy.json` is active. Acceptance tests now
+prove zero ungranted collection, deterministic duplicate recovery, encrypted
+transient handling, raw-text release, prompt-instruction isolation,
+uninterrupted autonomy after authorized addition, immediate revocation,
+auditable cultivation lineage, one canonical identity, atomic manifest
+replacement, and preservation of the prior identity as rollback lineage.
 
 ## Revision 0.8 — The Resonant Chamber
 

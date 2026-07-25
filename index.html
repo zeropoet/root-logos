@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=1.0-constitutional-object-3">
+    <link rel="stylesheet" href="styles.css?v=1.0-journal-membrane">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the field</a>
@@ -480,7 +480,7 @@
 
         <article class="journal-plan" aria-labelledby="journal-plan-title">
           <header>
-            <div><p class="coordinate">Revision 0.9 / Constitutional plan</p><h3 id="journal-plan-title">The Journal Membrane</h3></div>
+            <div><p class="coordinate">Revision 0.9 / Living private boundary</p><h3 id="journal-plan-title">The Journal Membrane</h3></div>
             <p>Addition is authorization: explicitly granted journal entries may be witnessed, judged, cultivated, and built from without recurring approval.</p>
           </header>
           <ol>
@@ -492,7 +492,7 @@
             <li><span>06</span><div><b>Self-authorship</b><small>One living identity</small></div></li>
             <li><span>07</span><div><b>Return</b><small>Lineage without possession</small></div></li>
           </ol>
-          <footer><span>Planned / collection disabled</span><a href="documents/journal-membrane.html">Read the complete intake constitution <i>↗</i></a></footer>
+          <footer><span id="journal-runtime-state">Contacting private membrane</span><a href="documents/journal-membrane.html">Read the complete intake constitution <i>↗</i></a></footer>
         </article>
 
         <div class="antechamber" id="antechamber" hidden>
@@ -513,6 +513,24 @@
               <aside>
                 <div class="antechamber-count"><span id="pending-count">00</span><small>awaiting<br>admissibility</small></div>
                 <div class="intake-queue" id="intake-queue"></div>
+                <section class="journal-steward" id="journal-steward">
+                  <header><p class="micro-label">Journal Membrane</p><span id="journal-admin-state">Resolving boundary</span></header>
+                  <form id="source-grant-form">
+                    <p>Activate one scoped, revocable source before adding private reflection.</p>
+                    <label class="form-field"><span>Source name</span><input name="source" required placeholder="Private continuity journal"></label>
+                    <label class="form-field"><span>Owner</span><input name="owner" required placeholder="Attributable source owner"></label>
+                    <label class="form-field"><span>Revocation method</span><input name="revocation_method" required value="Authenticated Antechamber request"></label>
+                    <button type="submit">Activate Source Grant</button>
+                    <p class="journal-form-status" role="status"></p>
+                  </form>
+                  <form id="journal-entry-form" hidden>
+                    <label class="form-field"><span>Active Source Grant</span><select name="source_grant_id" id="journal-grant-select"></select></label>
+                    <label class="form-field"><span>Entry identity</span><input name="source_entry_id" required placeholder="2026-07-24-reflection"></label>
+                    <label class="form-field"><span>Private reflection</span><textarea name="content" required minlength="20" placeholder="The source will be transformed and released. Only derived structure and lineage remain."></textarea></label>
+                    <div class="journal-entry-actions"><button type="submit">Add and release</button><button type="button" id="revoke-journal-grant">Revoke selected grant</button></div>
+                    <p class="journal-form-status" role="status"></p>
+                  </form>
+                </section>
               </aside>
               <article class="intake-review" id="intake-review">
                 <p class="micro-label">Select an arrival to begin review</p>
@@ -589,7 +607,7 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
-    <script src="script.js?v=1.0-constitutional-object-3" defer></script>
+    <script src="script.js?v=1.0-journal-membrane" defer></script>
     <script src="resonance.js" defer></script>
   </body>
 </html>

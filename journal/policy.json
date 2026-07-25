@@ -1,7 +1,7 @@
 {
   "schema": "journal-intake-policy/v1",
   "constitutional_revision": "v0.9",
-  "status": "planned-not-enabled",
+  "status": "operational-local-drop",
   "default_adapter": "local-drop",
   "source_grant": {
     "required": true,
@@ -10,7 +10,7 @@
     "scope_fields": ["source", "owner", "adapter", "include", "exclude", "cadence", "retention_class", "privacy_mode", "revocation_method"]
   },
   "collection": {
-    "enabled": false,
+    "enabled": true,
     "maximum_entries_per_batch": 12,
     "minimum_interval_minutes": 60,
     "quiet_hours_local": ["22:00", "07:00"],

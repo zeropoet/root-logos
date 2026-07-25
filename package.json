@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node scripts/sources.test.mjs && node scripts/cultivate.test.mjs && node runtime/runtime.test.mjs",
+    "test": "node scripts/sources.test.mjs && node scripts/cultivate.test.mjs && node scripts/self-author.test.mjs && node runtime/journal.test.mjs && node runtime/runtime.test.mjs",
     "sources:sync": "node scripts/sources.mjs sync",
     "sources:seal-public": "node scripts/sources.mjs seal-public",
     "sources:validate": "node scripts/sources.mjs validate",

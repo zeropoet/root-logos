@@ -6,6 +6,7 @@ import { appendFile, mkdir, readFile, readdir, rename, writeFile } from "node:fs
 import { spawn } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join, resolve } from "node:path";
+import { createJournalMembrane } from "./journal.mjs";
 
 const runtimeDir = dirname(fileURLToPath(import.meta.url));
 const defaultRoot = resolve(runtimeDir, "..");
@@ -82,9 +83,13 @@ export const createRuntime = async (options = {}) => {
   const intakeSecret = options.intakeSecret ?? process.env.ROOT_LOGOS_INTAKE_SECRET;
   const adminToken = options.adminToken ?? process.env.ROOT_LOGOS_ADMIN_TOKEN;
   const deployToken = options.deployToken ?? process.env.ROOT_LOGOS_DEPLOY_TOKEN;
+  const journalSecret = options.journalSecret ?? process.env.ROOT_LOGOS_JOURNAL_SECRET ?? (intakeSecret ? `journal-membrane:${intakeSecret}` : null);
+  const journalDropDir = options.journalDropDir ?? process.env.ROOT_LOGOS_JOURNAL_DROP_DIR;
+  const journalCollectionEnabled = options.journalCollectionEnabled ?? (process.env.ROOT_LOGOS_JOURNAL_ENABLED === "1" ? true : undefined);
   const allowedOrigin = options.allowedOrigin ?? process.env.ROOT_LOGOS_ALLOWED_ORIGIN ?? "https://rootlogos.com";
   const publish = options.publish ?? process.env.ROOT_LOGOS_GIT_PUBLISH === "1";
   const commandRunner = options.commandRunner || ((args) => run(process.execPath, ["scripts/cultivate.mjs", ...args], root));
+  const selfAuthorshipRunner = options.selfAuthorshipRunner || ((args) => run(process.execPath, ["scripts/self-author.mjs", ...args], root));
   const deployRunner = options.deployRunner || (async () => {
     await run("git", ["pull", "--rebase", "origin", "main"], root);
     return { restart: true };
@@ -171,6 +176,7 @@ export const createRuntime = async (options = {}) => {
   }).sort((a, b) => b.received_at.localeCompare(a.received_at));
 
   let workerPromise = null;
+  let journalMembrane = null;
   const saveRuntimeState = () => atomicJson(runtimeStatePath, runtimeState);
   const appendRecord = (record) => appendFile(journalPath, `${JSON.stringify(record)}\n`, { mode: 0o600 });
   const readCycle = async (id, fallback = null) => {
@@ -185,7 +191,7 @@ export const createRuntime = async (options = {}) => {
 
   const publishChanges = async (trigger) => {
     if (!publish) return { published: false, reason: "publication-disabled" };
-    await run("git", ["add", "cultivation/state.json", "cultivation/memory.json", "cultivation/cycles", "content/constitutional-graph.json"], root);
+    await run("git", ["add", "cultivation/state.json", "cultivation/memory.json", "cultivation/cycles", "content/constitutional-graph.json", "self-authorship/current.json", "self-authorship/lineage"], root);
     const diff = await run("git", ["diff", "--cached", "--quiet"], root).catch((error) => ({ changed: true, error }));
     if (!diff.changed) return { published: false, reason: "no-change" };
     await run("git", ["config", "user.name", "root-logos-runtime[bot]"], root);
@@ -209,7 +215,14 @@ export const createRuntime = async (options = {}) => {
         const force = trigger.kind === "human-command";
         const args = ["cycle", ...(force ? ["--force"] : [])];
         if (trigger.event_id) {
-          const observation = observations.get(trigger.event_id)?.event;
+          const journalRecord = trigger.kind === "journal-observation" ? journalMembrane?.getRecord(trigger.event_id) : null;
+          const observation = journalRecord ? {
+            payload: {
+              observation: journalRecord.derived.structural_summary,
+              context: `Concepts: ${journalRecord.derived.concepts.map(({ concept }) => concept).join(", ")}. Tensions: ${journalRecord.derived.tensions.join(", ") || "none detected"}.`,
+              relation: "Autonomously derived through the private Journal Membrane; raw source prose was released."
+            }
+          } : observations.get(trigger.event_id)?.event;
           if (!observation) throw new Error(`Wake source ${trigger.event_id} is unavailable.`);
           const contextPath = join(dataDir, `wake-${trigger.event_id.replace(/[^A-Za-z0-9-]/g, "_")}.json`);
           await atomicJson(contextPath, {
@@ -217,17 +230,23 @@ export const createRuntime = async (options = {}) => {
             disposition: trigger.disposition || "admissible",
             admitted_at: trigger.accepted_at,
             steward_note: trigger.steward_note || null,
-            payload: observation.payload
+            payload: observation.payload,
+            source_class: journalRecord ? "private-journal-derived-observation" : "public-or-signed-observation",
+            raw_source_retained: false
           });
           args.push("--intake-context", contextPath, "--priority", trigger.disposition || "admissible");
         }
         const result = await commandRunner(args);
-        const publication = await publishChanges(trigger);
         const cycleId = canonicalCultivationId(result.stdout.match(/RL-(?:CULTIVATE|CULT)-\d{4,}/)?.[0] || "") || null;
         const respondingCycle = cycleId ? await readCycle(cycleId, {}) : {};
+        const selfAuthorship = cycleId
+          ? await selfAuthorshipRunner(["consider", "--cycle", cycleId, ...(trigger.event_id ? ["--event", trigger.event_id] : [])])
+          : { stdout: JSON.stringify({ decision: "not-applicable", reason: "no-cycle-id" }) };
+        const publication = await publishChanges(trigger);
         const response = {
           cycle_id: cycleId,
-          summary: respondingCycle.selected_finding?.claim || respondingCycle.proposal?.summary || result.stdout.split("\n").filter(Boolean).at(-1) || "Cultivation completed."
+          summary: respondingCycle.selected_finding?.claim || respondingCycle.proposal?.summary || result.stdout.split("\n").filter(Boolean).at(-1) || "Cultivation completed.",
+          self_authorship: JSON.parse(selfAuthorship.stdout || "{}")
         };
         await appendRecord({ type: "wake-completed", at: iso(), trigger, output: result.stdout, response, publication });
         if (trigger.event_id) respondedEvents.add(trigger.event_id);
@@ -253,6 +272,63 @@ export const createRuntime = async (options = {}) => {
     if (!workerPromise) workerPromise = work();
     return true;
   };
+
+  journalMembrane = await createJournalMembrane({
+    root,
+    dataDir,
+    secret: journalSecret,
+    dropDir: journalDropDir,
+    enabled: journalCollectionEnabled,
+    onAdmitted: async (record) => enqueue({
+      id: `journal:${record.event_id}:${record.status}`,
+      kind: "journal-observation",
+      event_id: record.event_id,
+      disposition: record.status,
+      steward_note: record.triage.reason,
+      accepted_at: record.received_at,
+      source_grant_id: record.source_grant_id
+    })
+  });
+  await journalMembrane.recover();
+
+  for (const record of journalMembrane.records()) {
+    if (!["admissible", "promoted"].includes(record.status) || respondedEvents.has(record.event_id)) continue;
+    if (runtimeState.queued_triggers.some(({ event_id }) => event_id === record.event_id)) continue;
+    await enqueue({
+      id: `journal-reconcile:${record.event_id}:${record.status}`,
+      kind: "journal-observation",
+      event_id: record.event_id,
+      disposition: record.status,
+      steward_note: record.triage.reason,
+      accepted_at: record.received_at,
+      source_grant_id: record.source_grant_id,
+      reconciled: true
+    });
+  }
+
+  let journalTimer = null;
+  let journalSchedulerStopped = false;
+  if (journalMembrane.status().status === "online") {
+    const journalPolicy = await readJson(join(root, "journal", "policy.json"), {});
+    const interval = Math.max(60_000, Number(options.journalPollIntervalMs || (journalPolicy.collection?.minimum_interval_minutes || 60) * 60_000));
+    const scheduleJournal = (delay) => {
+      if (journalSchedulerStopped) return;
+      journalTimer = setTimeout(async () => {
+        let nextDelay = interval;
+        try {
+          await journalMembrane.collect();
+        } catch (error) {
+          runtimeState.last_error = `Journal collection failed: ${error.message}`;
+          await saveRuntimeState();
+          await appendRecord({ type: "journal-collection-failed", at: iso(), error: error.message });
+          nextDelay = Math.min(interval * 4, Math.max(interval * 2, 5 * 60_000));
+        }
+        scheduleJournal(nextDelay);
+      }, delay);
+      journalTimer.unref();
+    };
+    scheduleJournal(interval);
+  }
 
   let deploymentPromise = null;
   const deploy = (sha) => {
@@ -323,7 +399,8 @@ export const createRuntime = async (options = {}) => {
       hypothesis_count: Object.keys(memory.hypotheses || {}).length,
       policy: { version: policy.version, constitutional_revision: policy.constitutional_revision, mode: policy.mode },
       intake_count: knownEvents.size,
-      intake_pending: currentIntake().filter(({ status }) => status === "unreviewed" || status === "hold").length
+      intake_pending: currentIntake().filter(({ status }) => status === "unreviewed" || status === "hold").length,
+      journal: journalMembrane.status()
     };
   };
 
@@ -352,6 +429,10 @@ export const createRuntime = async (options = {}) => {
       if (req.method === "GET" && url.pathname === "/v1/admin/intake") {
         if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
         return send(res, 200, { observations: currentIntake() }, cors);
+      }
+      if (req.method === "GET" && url.pathname === "/v1/admin/journal") {
+        if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
+        return send(res, 200, { ...journalMembrane.status(), drop_directory: journalMembrane.sourceDir, grants: journalMembrane.grants(), records: journalMembrane.records() }, cors);
       }
 
       if (req.method === "POST" && url.pathname === "/v1/internal/deploy") {
@@ -432,6 +513,29 @@ export const createRuntime = async (options = {}) => {
         if (wakes) await enqueue({ id: `classification:${eventId}:${classification.at}`, kind: "admitted-observation", event_id: eventId, disposition: status, steward_note: note, accepted_at: classification.at });
         return send(res, 202, { accepted: true, event_id: eventId, status, wake_queued: wakes }, cors);
       }
+      if (req.method === "POST" && url.pathname === "/v1/admin/journal/grants") {
+        if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
+        const body = JSON.parse(raw);
+        const grant = await journalMembrane.createGrant(body, String(body.authorized_by || "Root Logos steward"));
+        return send(res, 201, { accepted: true, grant }, cors);
+      }
+      const revokeGrantMatch = req.method === "POST" && url.pathname.match(/^\/v1\/admin\/journal\/grants\/([^/]+)\/revoke$/);
+      if (revokeGrantMatch) {
+        if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
+        const body = raw ? JSON.parse(raw) : {};
+        const grant = await journalMembrane.revokeGrant(decodeURIComponent(revokeGrantMatch[1]), String(body.revoked_by || "Root Logos steward"), body.reason);
+        return send(res, 200, { accepted: true, grant }, cors);
+      }
+      const addJournalEntryMatch = req.method === "POST" && url.pathname.match(/^\/v1\/admin\/journal\/grants\/([^/]+)\/entries$/);
+      if (addJournalEntryMatch) {
+        if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
+        const result = await journalMembrane.addEntry(decodeURIComponent(addJournalEntryMatch[1]), JSON.parse(raw));
+        return send(res, 202, result, cors);
+      }
+      if (req.method === "POST" && url.pathname === "/v1/admin/journal/collect") {
+        if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
+        return send(res, 202, await journalMembrane.collect({ force: true }), cors);
+      }
       if (req.method === "POST" && url.pathname === "/v1/commands/wake") {
         if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
         const body = raw ? JSON.parse(raw) : {};
@@ -445,7 +549,15 @@ export const createRuntime = async (options = {}) => {
     }
   };
 
-  return { handler, snapshot, enqueue, waitForIdle: async () => { if (workerPromise) await workerPromise; if (deploymentPromise) await deploymentPromise; }, dataDir };
+  return {
+    handler,
+    snapshot,
+    enqueue,
+    journal: journalMembrane,
+    waitForIdle: async () => { if (workerPromise) await workerPromise; if (deploymentPromise) await deploymentPromise; },
+    stop: () => { journalSchedulerStopped = true; if (journalTimer) clearTimeout(journalTimer); },
+    dataDir
+  };
 };
 
 export const startServer = async (options = {}) => {
@@ -455,6 +567,7 @@ export const startServer = async (options = {}) => {
   const server = http.createServer(runtime.handler);
   await new Promise((resolveListen, reject) => server.listen(port, host, (error) => error ? reject(error) : resolveListen()));
   process.stdout.write(`Root Logos runtime listening on http://${host}:${server.address().port}\n`);
+  server.on("close", () => runtime.stop());
   return { server, runtime };
 };
 

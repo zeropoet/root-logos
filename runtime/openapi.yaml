@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
   title: Root Logos Runtime
-  version: 1.0.0
-  description: Read-only cultivation inspection and authenticated wake intake.
+  version: 1.1.0
+  description: Cultivation inspection, authenticated wake intake, and the private Source-Grant-gated Journal Membrane.
 servers:
   - url: https://runtime.rootlogos.com
 paths:
@@ -99,6 +99,72 @@ paths:
         "401": { description: Administrator credential required }
         "404": { description: Observation not found }
         "422": { description: Invalid classification }
+  /v1/admin/journal:
+    get:
+      operationId: inspectJournalMembrane
+      security: [{ adminBearer: [] }]
+      responses:
+        "200": { description: Derived-only journal status, Source Grants, autonomous dispositions, and transformation lineage }
+        "401": { description: Administrator credential required }
+  /v1/admin/journal/grants:
+    post:
+      operationId: createJournalSourceGrant
+      security: [{ adminBearer: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/SourceGrant" }
+      responses:
+        "201": { description: Attributable, scoped, revocable Source Grant activated }
+        "401": { description: Administrator credential required }
+        "422": { description: Invalid or unsupported grant }
+  /v1/admin/journal/grants/{sourceGrantId}/revoke:
+    post:
+      operationId: revokeJournalSourceGrant
+      security: [{ adminBearer: [] }]
+      parameters:
+        - in: path
+          name: sourceGrantId
+          required: true
+          schema: { type: string }
+      responses:
+        "200": { description: Grant revoked and encrypted working copies released }
+        "401": { description: Administrator credential required }
+        "404": { description: Source Grant not found }
+  /v1/admin/journal/grants/{sourceGrantId}/entries:
+    post:
+      operationId: addAuthorizedJournalEntry
+      security: [{ adminBearer: [] }]
+      parameters:
+        - in: path
+          name: sourceGrantId
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [source_entry_id, content]
+              properties:
+                source_entry_id: { type: string, maxLength: 120 }
+                content: { type: string, minLength: 20, maxLength: 1000000 }
+      responses:
+        "202": { description: Entry encrypted, transformed, released, autonomously judged, and optionally queued for cultivation }
+        "401": { description: Administrator credential required }
+        "404": { description: Active Source Grant not found }
+        "409": { description: Source entry identity already exists in the local drop }
+        "422": { description: Entry violates the grant scope or size boundary }
+  /v1/admin/journal/collect:
+    post:
+      operationId: collectAuthorizedJournalEntries
+      security: [{ adminBearer: [] }]
+      responses:
+        "202": { description: One bounded local-drop collection pass completed; qualifying derived observations queued cultivation }
+        "401": { description: Administrator credential required }
+        "503": { description: Journal encryption secret is not configured }
   /v1/commands/wake:
     post:
       operationId: wakeCultivation
@@ -131,6 +197,24 @@ components:
           enum: [hold, rejected, admissible, promoted]
         reviewer: { type: string }
         note: { type: string }
+    SourceGrant:
+      type: object
+      required: [source, owner, adapter, revocation_method]
+      properties:
+        source: { type: string }
+        owner: { type: string }
+        adapter: { type: string, const: local-drop }
+        include:
+          type: array
+          items: { type: string }
+        exclude:
+          type: array
+          items: { type: string }
+        cadence: { type: string }
+        retention_class: { type: string }
+        privacy_mode: { type: string }
+        revocation_method: { type: string }
+        authorized_by: { type: string }
     ObservationEnvelope:
       type: object
       required: [event_id, occurred_at, source_surface, authenticated_producer, payload_type, schema_version, consent_classification, retention_classification, provenance_signature, constitutional_relevance]

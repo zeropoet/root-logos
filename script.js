@@ -29,6 +29,7 @@ const app = {
   selectedProposal: null,
   adminToken: null,
   observations: [],
+  journalAdmin: null,
   attractors: null,
   selectedObservation: null,
   filter: "all",
@@ -129,6 +130,12 @@ const renderPresence = () => {
   $("#state-revision").textContent = `Revision ${app.graph.meta.revision}`;
   $("#state-cycles").textContent = `${app.runtime.cultivation.history?.length || app.cycles.length} cycles`;
   $("#state-memory").textContent = `${app.runtime.hypothesis_count || 0} hypotheses`;
+  const journal = app.runtime.journal;
+  $("#journal-runtime-state").textContent = journal?.status === "online"
+    ? `Online / ${journal.active_grants || 0} active source grant${journal.active_grants === 1 ? "" : "s"} / ${journal.transformed_entries || 0} transformed`
+    : app.runtime.archival_fallback
+      ? "Runtime witness unavailable / constitution preserved"
+      : "Collection held / private membrane unavailable";
   $("#footer-revision").textContent = String(app.graph.meta.revision).replace(/^v/, "");
 
   $("#chamber-condition").textContent = running ? "Awake" : app.runtime.dormancy?.active ? "Dormant" : "At rest";
@@ -278,11 +285,95 @@ const adminRequest = async (path, options = {}) => {
 };
 
 const loadAntechamber = async () => {
-  const result = await adminRequest("/v1/admin/intake");
-  app.observations = result.observations || [];
+  const [intake, journal] = await Promise.all([
+    adminRequest("/v1/admin/intake"),
+    adminRequest("/v1/admin/journal")
+  ]);
+  app.observations = intake.observations || [];
+  app.journalAdmin = journal;
   $("#antechamber-auth").hidden = true;
   $("#antechamber-workspace").hidden = false;
   renderIntakeQueue();
+  renderJournalSteward();
+};
+
+const renderJournalSteward = () => {
+  const journal = app.journalAdmin || {};
+  const active = (journal.grants || []).filter(({ status }) => status === "active");
+  $("#journal-admin-state").textContent = `${sentence(journal.status || "unknown")} · ${active.length} active`;
+  $("#source-grant-form").hidden = active.length > 0;
+  $("#journal-entry-form").hidden = active.length === 0;
+  $("#journal-grant-select").innerHTML = active.map((grant) =>
+    `<option value="${escapeHtml(grant.source_grant_id)}">${escapeHtml(grant.source)} · ${escapeHtml(grant.source_grant_id)}</option>`).join("");
+};
+
+const createSourceGrant = async (form) => {
+  const data = new FormData(form);
+  const status = $(".journal-form-status", form);
+  const button = $("button[type='submit']", form);
+  button.disabled = true;
+  status.textContent = "Writing an attributable Source Grant…";
+  try {
+    await adminRequest("/v1/admin/journal/grants", {
+      method: "POST",
+      body: JSON.stringify({
+        source: data.get("source"),
+        owner: data.get("owner"),
+        adapter: "local-drop",
+        include: ["*.md"],
+        exclude: [],
+        revocation_method: data.get("revocation_method"),
+        authorized_by: data.get("owner")
+      })
+    });
+    form.reset();
+    await loadAntechamber();
+  } catch (error) {
+    status.textContent = error.message;
+  } finally {
+    button.disabled = false;
+  }
+};
+
+const addJournalEntry = async (form) => {
+  const data = new FormData(form);
+  const grantId = String(data.get("source_grant_id") || "");
+  const status = $(".journal-form-status", form);
+  const button = $("button[type='submit']", form);
+  button.disabled = true;
+  status.textContent = "Sealing, transforming, judging, and releasing the source…";
+  try {
+    const result = await adminRequest(`/v1/admin/journal/grants/${encodeURIComponent(grantId)}/entries`, {
+      method: "POST",
+      body: JSON.stringify({ source_entry_id: data.get("source_entry_id"), content: data.get("content") })
+    });
+    form.reset();
+    await loadAntechamber();
+    const entryStatus = $(".journal-form-status", $("#journal-entry-form"));
+    entryStatus.textContent = result.wake_queued
+      ? `${result.event_id} was released as source and queued as derived cultivation pressure.`
+      : `${result.event_id || "The entry"} was released with disposition ${sentence(result.status || "held")}.`;
+  } catch (error) {
+    status.textContent = error.message;
+  } finally {
+    button.disabled = false;
+  }
+};
+
+const revokeJournalGrant = async () => {
+  const grantId = $("#journal-grant-select").value;
+  if (!grantId) return;
+  const status = $(".journal-form-status", $("#journal-entry-form"));
+  status.textContent = "Revoking collection authority and releasing working copies…";
+  try {
+    await adminRequest(`/v1/admin/journal/grants/${encodeURIComponent(grantId)}/revoke`, {
+      method: "POST",
+      body: JSON.stringify({ revoked_by: "Root Logos steward", reason: "Explicit Antechamber revocation" })
+    });
+    await loadAntechamber();
+  } catch (error) {
+    status.textContent = error.message;
+  }
 };
 
 const renderIntakeQueue = () => {
@@ -1052,6 +1143,15 @@ const bindInterface = () => {
     event.preventDefault();
     classifyObservation(event.target);
   });
+  $("#source-grant-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    createSourceGrant(event.currentTarget);
+  });
+  $("#journal-entry-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    addJournalEntry(event.currentTarget);
+  });
+  $("#revoke-journal-grant").addEventListener("click", revokeJournalGrant);
   $("#reading-actions").addEventListener("click", (event) => {
     const link = event.target.closest("[data-fragment-source]");
     if (!link) return;

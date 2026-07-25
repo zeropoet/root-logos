@@ -214,7 +214,7 @@ Some observations originate in deliberate public offering. Others arise within
 the private continuity of a journal and should be able to reach the architecture
 without repeated copying, exposure, or premature interpretation.
 
-Root Logos therefore carries a Journal Membrane: a planned intake boundary
+Root Logos therefore carries a Journal Membrane: an operational private intake boundary
 through which explicitly authorized journal sources may be witnessed, judged,
 cultivated, and built from autonomously.
 

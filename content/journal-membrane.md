@@ -235,6 +235,27 @@ Autonomous journal intake cannot leave planning status until tests demonstrate:
 - verified release of working source text after transformation; and
 - a complete audit from source event to final return record.
 
+## Activation
+
+The local-drop membrane became operational after its acceptance suite
+demonstrated the gates above. Collection now remains inert until an attributable
+Source Grant is activated. An active grant permits the runtime to receive
+Markdown or plain-text entries from that grant's private directory, seal the
+entry into encrypted transient quarantine, remove the drop source, derive
+structural evidence in memory, and release the working copy.
+
+The durable record contains the grant, source-entry identity, digest, derived
+concepts and tensions, autonomous disposition, risk flags, counterargument,
+cultivation consequence, and transformation lineage. It does not contain the
+source prose. Admissible derived observations wake cultivation without further
+approval. Sensitive, third-party, malformed, out-of-scope, or duplicate
+material cannot wake the system.
+
+An implemented cultivation change then enters the serialized self-authorship
+worker. That worker may atomically revise the one current identity only after
+privacy, source fidelity, drift, coherence, counterargument, and reversibility
+checks. The prior identity and failed candidates remain lineage.
+
 ## Measure of Success
 
 The Journal Membrane succeeds when reflection can reach Root Logos and become
