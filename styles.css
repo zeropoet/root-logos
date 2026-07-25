@@ -539,9 +539,16 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .resonance-instrument[data-state="sounding"] .score-measures i { animation: none; }
 }
 
-.site-footer { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: end; padding: 80px var(--edge); background: #060705; }
+.site-footer { display: grid; grid-template-columns: 1fr minmax(260px, 420px) 1fr; gap: clamp(30px, 6vw, 100px); align-items: end; padding: 80px var(--edge); background: #060705; }
 .site-footer > div { display: flex; align-items: center; gap: 14px; font: .7rem/1 var(--mono); letter-spacing: .15em; text-transform: uppercase; }
 .site-footer img { filter: invert(86%) sepia(12%) saturate(520%); }
+.footer-tea { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 10px 24px; padding: 20px 0 17px; border-top: 1px solid var(--gold); border-bottom: 1px solid var(--line); transition: border-color .3s, transform .3s; }
+.footer-tea small { grid-column: 1 / -1; color: var(--dim); font: 500 .48rem/1.4 var(--mono); letter-spacing: .13em; text-transform: uppercase; }
+.footer-tea span { color: var(--bone); font: 400 clamp(1.25rem, 1.8vw, 1.75rem)/1.05 var(--display); }
+.footer-tea em { color: var(--gold-bright); font-weight: 400; }
+.footer-tea i { align-self: end; color: var(--gold); font-style: normal; transition: transform .3s; }
+.footer-tea:hover { border-bottom-color: var(--gold); transform: translateY(-3px); }
+.footer-tea:hover i { transform: translate(3px, -3px); }
 .site-footer nav { justify-self: end; display: grid; justify-items: end; gap: 8px; }
 .site-footer nav a { color: var(--dim); font: .5rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .site-footer nav a:hover { color: var(--gold); }
@@ -781,6 +788,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .observatory-selection > i { display: none; }
   .health-profile { grid-template-columns: 1fr 1fr; }
   .site-footer { grid-template-columns: 1fr; justify-items: start; }
+  .footer-tea { width: min(100%, 420px); }
   .site-footer nav { justify-self: start; text-align: left; }
   .site-footer nav { justify-items: start; }
 }
