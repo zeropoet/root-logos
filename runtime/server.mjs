@@ -370,6 +370,7 @@ export const createRuntime = async (options = {}) => {
       try {
         const result = await deployRunner(sha);
         runtimeState.deployment = { status: "completed", sha, completed_at: iso() };
+        runtimeState.last_error = null;
         await saveRuntimeState();
         await appendRecord({ type: "deployment-completed", at: iso(), sha });
         if (result?.restart) process.exit(0);

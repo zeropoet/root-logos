@@ -67,6 +67,9 @@ try {
   assert.equal(deployRequest.status, 202);
   await runtime.waitForIdle();
   assert.deepEqual(deployments, [deploySha]);
+  const deployedStatus = await fetch(`${base}/v1/status`).then((response) => response.json());
+  assert.equal(deployedStatus.service.deployment.status, "completed");
+  assert.equal(deployedStatus.service.last_error, null);
   const adminIntake = await fetch(`${base}/v1/admin/intake`, { headers: { authorization: `Bearer ${admin}` } }).then((response) => response.json());
   assert.equal(adminIntake.observations.length, 0);
 
