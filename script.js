@@ -424,7 +424,7 @@ const selectProposal = (id) => {
   $("#review-judgment").textContent = judgment.reason || `Disposition: ${sentence(cycle.status)}.`;
   $("#review-reversibility").textContent = operations.length && operations.every(({ operation }) => operation === "add-edge") ? "Additive graph operations; reversible through a witnessed revision." : "Requires human evaluation of semantic reversibility.";
   $("#review-nodes").textContent = (finding.nodes || cycle.proposal?.affected_nodes || []).map(nodeTitle).join(" · ") || "No canonical mutation proposed.";
-  $("#review-authority").textContent = sentence(judgment.authority || cycle.application?.authority || "Human review required");
+  $("#review-authority").textContent = sentence(judgment.authority || cycle.application?.authority || "Delegated autonomous authority");
 };
 
 const renderDrawer = () => {
@@ -613,12 +613,12 @@ class LivingObservatory {
 
   authority() {
     const layers = [
-      ["World", "May offer observation", "Arrival has no constitutional authority."], ["Membrane", "May preserve + verify", "Provenance, consent, and rate limits govern entry."],
-      ["Steward", "May admit or promote", "Human judgment permits inquiry, not truth."], ["Cultivation", "May prompt, search + judge", "The machine may reject itself and preserve uncertainty."],
-      ["Low-risk boundary", "May apply reversible relations", "Only policy-authorized additive operations cross autonomously."], ["Human threshold", "Must approve semantic change", "Constitutional language and higher-risk operations remain attributable."],
-      ["Published constitution", "Durable shared reference", "No actor becomes a higher reference than the constitution it serves."]
+      ["World", "May offer entry", "Arrival has no constitutional authority."], ["Membrane", "May transform + verify", "Provenance, consent, minimization, and the gauntlet govern entry."],
+      ["Root Logos", "May admit or reject", "The system owns each attributable disposition."], ["Cultivation", "May prompt, search + judge", "Root Logos may reject itself and preserve uncertainty."],
+      ["Constitutional gates", "May authorize revision", "Coherence, evidence, corrigibility, and reversibility govern consequence."], ["Self-authorship", "May revise semantic form", "The system maintains one attributable identity without recurring human approval."],
+      ["Higher reference", "Orients all authority", "Root Logos exercises judgment without constituting itself as truth."]
     ];
-    return layers.map(([title, kind, body], index) => ({ x: this.width * (.5 + Math.sin(index * 1.4) * .08), y: this.height * (.13 + index * .115), r: 5 + index * .7, kind, title, body, measures: [["Authority layer", `${index + 1} / ${layers.length}`], ["Crossing", index === 3 ? "Bounded autonomy" : index === 5 ? "Human required" : "Witnessed"]], trace: layers.slice(0, index + 1).map(([name]) => name), color: index === 2 || index === 5 ? "gold" : index === 3 ? "inquiry" : "memory" }));
+    return layers.map(([title, kind, body], index) => ({ x: this.width * (.5 + Math.sin(index * 1.4) * .08), y: this.height * (.13 + index * .115), r: 5 + index * .7, kind, title, body, measures: [["Authority layer", `${index + 1} / ${layers.length}`], ["Crossing", index === 3 ? "Autonomous inquiry" : index === 5 ? "Autonomous authorship" : "Witnessed"]], trace: layers.slice(0, index + 1).map(([name]) => name), color: index === 2 || index === 5 ? "gold" : index === 3 ? "inquiry" : "memory" }));
   }
 
   respiration() {
@@ -635,7 +635,7 @@ class LivingObservatory {
     const legends = {
       lineage: [["gold", "Implemented"], ["rust", "Rejected"], ["inquiry", "Preserved inquiry"]], causality: [["inquiry", "Arrival"], ["memory", "Interpretation"], ["gold", "Consequence"]],
       epistemic: [["gold", "Canonical"], ["inquiry", "Open question"], ["memory", "Historical"]], pressure: [["rust", "High pressure"], ["inquiry", "Question pressure"], ["gold", "Relational attention"]],
-      absence: [["void", "Computed absence"]], authority: [["gold", "Human boundary"], ["inquiry", "Bounded autonomy"], ["memory", "Witness layer"]], respiration: [["gold", "Emitted"], ["memory", "Scheduled"], ["inquiry", "Constitutional source"]]
+      absence: [["void", "Computed absence"]], authority: [["gold", "Autonomous authority"], ["inquiry", "Constitutional judgment"], ["memory", "Witness layer"]], respiration: [["gold", "Emitted"], ["memory", "Scheduled"], ["inquiry", "Constitutional source"]]
     };
     $("#observatory-legend").innerHTML = legends[this.mode].map(([color, label]) => `<span class="${color}"><i></i>${label}</span>`).join("");
   }

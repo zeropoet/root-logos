@@ -239,7 +239,7 @@ assert.equal(intakeCycle.intake.event_id, "RL-OBS-TEST-FIRST");
 assert.equal(intakeCycle.intake.disposition, "promoted");
 assert.equal(intakeCycle.findings[0].kind, "admitted-observation");
 assert.equal(intakeCycle.findings[0].intake_priority, "promoted");
-assert.match(intakeCycle.self_prompt, /crossed the human stewardship boundary/);
+assert.match(intakeCycle.self_prompt, /crossed the autonomous intake boundary/);
 assert.ok(intakeCycle.events.some(({ type, intake_event_id }) => type === "cycle-started" && intake_event_id === "RL-OBS-TEST-FIRST"));
 const postIntakeMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
 assert.equal(postIntakeMemory.dormancy.wake_history.at(-1).reason, "admitted-observation:RL-OBS-TEST-FIRST");

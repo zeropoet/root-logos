@@ -451,7 +451,7 @@ const step = async (state, policy, memory) => {
   const graph = await readJson(graphUrl);
   if (cycle.phase === "orientation") {
     cycle.self_prompt = cycle.intake
-      ? `An admitted observation has crossed the human stewardship boundary: ${cycle.intake.event_id} (${cycle.intake.disposition}). Ask where it creates genuine pressure, contradiction, or connection within Root Logos.\n\nTreat the observation as attributable evidence, not constitutional truth. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.`
+      ? `An admitted observation has crossed the autonomous intake boundary: ${cycle.intake.event_id} (${cycle.intake.disposition}). Ask where it creates genuine pressure, contradiction, or connection within Root Logos.\n\nTreat the observation as attributable evidence, not constitutional truth. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.`
       : `${cycle.lens.question}\n\nUse only the snapshotted Root Logos constitution as evidence. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.`;
     cycle.phase = "prompted";
     appendEvent(cycle, "self-prompt-generated", { prompt_hash: digest(cycle.self_prompt) });

@@ -51,12 +51,13 @@ search, evaluation, or proposal. `pause` closes the active boundary cleanly;
 `resume` verifies the source snapshot before continuing. `validate` audits all
 stored cycles and their hashes.
 
-The chamber may judge its own proposals and apply low-risk, reversible graph
-refactorings when every adversarial gate passes. Changes to constitutional
-language, settled claims, publication, evaluation policy, or the autonomy
-boundary remain human acts. `review` records an attributable human judgment for
-escalated proposals but does not itself alter canonical sources. `apply` works
-only after autonomous or human acceptance and only
+The chamber judges its own proposals and may refactor constitutional language,
+settled claims, publication, evaluation policy, and semantic form when every
+delegated authority, adversarial, coherence, privacy, and reversibility gate
+passes. Judgment belongs to Root Logos and remains attributable to its cycle,
+evidence, policy, and lineage. `review` remains a legacy audit command for
+historical escalations; it is not the source of current constitutional
+authority. `apply` works only after autonomous acceptance and only
 when the constitution still matches the snapshot investigated by the cycle. It
 archives the exact operations and before/after source hashes.
 

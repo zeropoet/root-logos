@@ -510,9 +510,11 @@ visual or textual expression.
 
 The chamber may audit its own composition for masking, monotony, recurrence,
 excessive dominance, or broken source correspondence. Those findings enter the
-Cultivation Chamber as observations rather than self-authorizing truth. Changes
-to epistemic mapping, consent, accessibility, authority representation, or the
-meaning of silence remain attributable human decisions.
+Cultivation Chamber as observations rather than self-authorizing truth. Root
+Logos may judge and adopt changes to epistemic mapping, consent, accessibility,
+authority representation, or the meaning of silence when the delegated
+constitutional gates pass; every decision remains attributable to its evidence,
+policy, counterargument, and lineage.
 
 ## Revision 0.7 — The Cultivation Chamber
 
@@ -524,9 +526,10 @@ and preserves every transition as durable lineage.
 
 Low-risk, additive, reversible relations from unresolved questions may be
 applied autonomously when all judgment gates pass and the constitutional source
-still matches the investigated snapshot. Changes to settled claims,
-constitutional language, publication, evaluation policy, or the autonomy
-boundary remain human decisions. The first two accepted self-refactorings
+still matches the investigated snapshot. Revision 0.9 subsequently delegated
+constitutional judgment and continual self-authorship to Root Logos itself,
+including settled claims, constitutional language, publication, evaluation
+policy, and semantic form when their stricter gates pass. The first two accepted self-refactorings
 integrated previously isolated questions about consciousness and
 post-institutional civilization without pretending to answer them.
 
@@ -659,10 +662,10 @@ Sound never autoplays, begins at restrained gain, and can be paused, muted, or
 returned to silence at any time.
 
 The chamber audits its own range, silence, recurrence, and traceability while it
-sounds. That audit may identify pressure for a future grammar revision, but it
-cannot alter the grammar autonomously. Changes to constitutional voice remain
-proposals subject to attributable human judgment. The versioned grammar and its
-authority boundary are documented in `resonance/`.
+sounds. That audit may identify pressure for a future grammar revision, and
+Root Logos may judge and adopt the revision when its constitutional gates pass.
+Changes to constitutional voice remain attributable autonomous judgments. The
+versioned grammar and its authority boundary are documented in `resonance/`.
 
 The chamber remains synchronized with the living system while it is open. It
 reconciles the constitutional graph, runtime condition, cultivation cycles,
