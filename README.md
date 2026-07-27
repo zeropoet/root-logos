@@ -896,7 +896,9 @@ point, and may be dismissed without changing the work description. Deeper
 evidence remains in the underlying archive. The complete Library composition is
 bounded to one viewport: work selection, model, description, contextual detail,
 and listening state remain simultaneously visible. Only the work list acquires
-local overflow when future growth exceeds its allotted field.
+local overflow when future growth exceeds its allotted field. The model is held
+against absolute black without atmospheric gradient, radial field, grid plane,
+or veil; all depth must come from the topology itself.
 Its pulse is synchronized with the weekly cultivation cadence: Sunday at 10:07
 Eastern is the constitutional downbeat of a compressed seven-part live phrase,
 and the same phase governs visible growth pulses. Silence remains an authored
