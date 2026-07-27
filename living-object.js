@@ -76,12 +76,13 @@
   });
 
   const palette = {
-    constitutional: [0.86, 0.86, 0.86, 0.64],
-    canon: [0.7, 0.7, 0.7, 0.68],
-    literature: [0.82, 0.82, 0.82, 0.74],
-    native: [0.6, 0.6, 0.6, 0.76],
-    lineage: [0.94, 0.94, 0.94, 0.9],
-    structure: [0.48, 0.48, 0.48, 0.18]
+    constitutional: [0.80, 0.72, 0.46, 0.68],
+    canon: [0.54, 0.78, 0.80, 0.7],
+    literature: [0.68, 0.52, 0.83, 0.76],
+    contemplative: [0.90, 0.34, 0.22, 0.8],
+    native: [0.54, 0.76, 0.57, 0.78],
+    lineage: [0.92, 0.84, 0.56, 0.92],
+    structure: [0.36, 0.48, 0.49, 0.2]
   };
   const cadence = {
     anchor: Date.parse("2026-07-26T14:07:00.000Z") / 1000,
@@ -329,7 +330,13 @@
         anchor[1] + 0.42,
         Math.sin(baseAngle) * (0.7 + groupIndex * 0.12)
       ];
-      const color = collection.includes("Douay") ? palette.canon : collection.includes("Epic") ? palette.literature : palette.native;
+      const color = collection.includes("Douay")
+        ? palette.canon
+        : collection.includes("Epic")
+          ? palette.literature
+          : collection.includes("Buddhist")
+            ? palette.contemplative
+            : palette.native;
       addLine(anchor, shoulder, color, 0.5 + groupIndex * 0.05);
       pulsePaths.push([anchor, shoulder]);
 

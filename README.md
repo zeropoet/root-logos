@@ -563,10 +563,12 @@ leads into the architecture where explanation and operation become available.
 The void is absolute black; it contributes no atmospheric gradient, horizon,
 or decorative light. Dimensionality is carried by the engraving itself: near
 relations cut brighter, distant relations recede, and tonal work-points remain
-fine evidence within the linework. The Living Object and the constitutional
-data field are monochrome. One solid-red accent sits above that grayscale layer
-as a scarce signal of presence, active orientation, and passage; it never
-encodes evidence, authority, or judgment. Collection, pressure, relation, epistemic status, and
+fine evidence within the linework. The analytical interface remains grayscale
+with one solid-red signal for presence, orientation, and passage. The Living
+Object alone carries a restrained spectral identity: constitutional gold,
+canonical cyan, epic violet, contemplative vermilion, and native green. Hue
+reinforces provenance but never becomes the only carrier of evidence,
+authority, or judgment. Collection, pressure, relation, epistemic status, and
 judgment are carried through luminance, topology, line weight, pattern, motion,
 labels, and typography rather than hue. Public graphs therefore remain readable
 without a color key and cannot mistake chromatic atmosphere for evidence.

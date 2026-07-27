@@ -286,10 +286,13 @@ the form, the void, and one quiet passage into its architecture. Explanation,
 measures, navigation, and controls belong beyond that passage. The void must be
 complete black rather than simulated atmosphere. Three-dimensional depth must
 arise from the engraved topology itself: brightness, recession, intersection,
-motion, and the witnessed position of each line and point. The Living Object
-and the constitutional data field must remain monochrome. One solid-red accent
-may sit above that grayscale layer only as a scarce interface signal for
-presence, active orientation, or passage; it may never encode evidence,
+motion, and the witnessed position of each line and point. The constitutional
+interface and analytical fields remain monochrome, with one solid-red accent
+above that grayscale layer as a scarce signal for presence, active orientation,
+or passage. The Living Object itself may carry a restrained spectral identity:
+gold for constitutional lineage, cyan for canon, violet for epic, vermilion for
+contemplative commentary, and green for native Root Logos structure. Color
+reinforces witnessed provenance but may never be the only carrier of evidence,
 authority, judgment, or graph meaning. Collection, pressure,
 relation, epistemic class, judgment state, and authority must be distinguished
 through topology, luminance, line weight, pattern, motion, language, and
