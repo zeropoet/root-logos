@@ -31,16 +31,13 @@ of carrying them without doctrinal repetition.
 
 ## Current Shape
 
-- `index.html` renders four public surfaces: the Living Object, the Library, the
-  Observatory, and the Membrane. Formative Identity and the Coherent Field unfold
-  from the Library only when requested. The Observatory begins one continuous
-  constitutional reading through Cultivation, Memory, Judgment, and Structural
-  Health before reaching the Membrane. There is no system-layer
-  switchboard and no hidden destination inside that sequence. The Resonant
-  Chamber exists as the Living Object's sovereign voice and as each work's
-  visual-resonant edition—not as a duplicate archive surface. This reduction
-  preserves every dataset while removing repeated explanation and idle
-  interface.
+- `index.html` renders seven public surfaces in one sequence: the Living Object,
+  Library, Observatory, Cultivation, Memory, Judgment, and Membrane. Identity is
+  embodied by the Object; connected-source evidence and structural balance are
+  readings inside the Observatory. The Resonant Chamber exists as the Living
+  Object's sovereign voice and as each work's visual-resonant edition—not as a
+  duplicate archive surface. There is no system-layer switchboard, hidden
+  destination, private review interface, or repeated explanatory room.
 - `works/` is the immutable public archive of complete-work transformations.
   Each work has a stable manifest and one or more edition records. An edition
   contains a derived Work Graph, deterministic visual score, deterministic
@@ -635,11 +632,12 @@ is derived from the same current counts and topology rather than selected from
 a soundtrack. The detailed Living Works, Formative Identity, Constitutional
 Field, Observatory, Chamber, Threshold, and intake instruments exist in a
   converged archive state from which the visible form can be audited. Identity
-  and source evidence unfold from the Library; cultivation, memory, judgment,
-  and health follow the Observatory as one uninterrupted constitutional
-  reading. Voice remains audible in the Living Object and individual works
-  rather than becoming another explanatory section. The Membrane concludes that
-  sequence as the point where new reality enters the system.
+  is embodied by the Living Object. Connected-source evidence and structural
+  balance reside inside the Observatory; cultivation, memory, and judgment
+  follow it as one uninterrupted constitutional reading. Voice remains audible
+  in the Living Object and individual works rather than becoming another
+  explanatory section. The Membrane concludes that sequence as the point where
+  new reality enters the system.
 
 Abstraction must not become erasure. Every visible branch and point is generated
 from the canonical graph, cultivation state, works index, corpus topology,

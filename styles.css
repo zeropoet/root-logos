@@ -362,14 +362,11 @@ body.archive-open main {
 body.archive-open main > .space { display:block; }
 body.archive-open #field { order: 1; }
 body.archive-open #works { order: 2; }
-body.archive-open #living-identity { order: 3; }
-body.archive-open #coherence { order: 4; }
-body.archive-open #observatory { order: 5; }
-body.archive-open #chamber { order: 6; }
-body.archive-open #memory { order: 7; }
-body.archive-open #threshold { order: 8; }
-body.archive-open #structural-health { order: 9; }
-body.archive-open #intake { order: 10; }
+body.archive-open #observatory { order: 3; }
+body.archive-open #chamber { order: 4; }
+body.archive-open #memory { order: 5; }
+body.archive-open #threshold { order: 6; }
+body.archive-open #intake { order: 7; }
 .object-space {
   position:relative;
   height:max(100svh,760px);
@@ -1097,9 +1094,50 @@ h1, h2, h3, h4,
 .health-profile i b { display: block; width: var(--health); height: 100%; background: linear-gradient(90deg,var(--inquiry),var(--gold)); }
 .health-profile small { grid-column: 1 / -1; color: var(--bone); font-size: .74rem; }
 
-.health-space .health-profile {
+.observatory-substrate,
+.observatory-health {
   width: min(1500px, 100%);
-  margin: 0 auto;
+  margin: clamp(110px, 12vw, 180px) auto 0;
+  padding-top: clamp(32px, 4vw, 54px);
+  border-top: 1px solid var(--line-strong);
+}
+.observatory-substrate > header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: clamp(54px, 7vw, 96px);
+}
+.observatory-substrate > header h3,
+.observatory-health > header h3 {
+  margin: 18px 0 0;
+  font: 400 clamp(1.8rem, 2.7vw, 2.85rem)/1.06 var(--display);
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+}
+.observatory-substrate > header > p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--dim);
+  font: 500 .54rem/1 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.observatory-substrate > header > p i {
+  width: 24px;
+  height: 1px;
+  background: var(--line-strong);
+}
+.observatory-health {
+  display: grid;
+  grid-template-columns: minmax(250px, .7fr) minmax(0, 1.8fr);
+  gap: clamp(40px, 7vw, 100px);
+}
+.observatory-health > header > p:last-child {
+  max-width: 390px;
+  color: var(--bone);
+  line-height: 1.6;
 }
 
 @media (max-width: 1080px) {
@@ -1118,6 +1156,7 @@ h1, h2, h3, h4,
   .field-inspector { width: 330px; max-width: 38vw; }
   .identity-constitution { grid-template-columns: 1fr; }
   .coherence-instrument { grid-template-columns:1fr; }
+  .observatory-health { grid-template-columns: 1fr; }
   .source-field { min-height:600px; }
   .source-field-rings { width:min(70vw,580px); }
   .source-reading { min-height:auto; }
@@ -1606,6 +1645,7 @@ body.archive-open .site-footer nav {
 
 @media (max-width:760px) {
   body.archive-open { font-size:15px; }
+  .observatory-substrate > header { display: grid; }
   body.archive-open .space-heading h2 { font-size:clamp(2.2rem,11vw,3.45rem); }
   body.archive-open .coordinate,
   body.archive-open .micro-label { font-size:.58rem; }

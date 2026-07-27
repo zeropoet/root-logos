@@ -27,10 +27,7 @@ const app = {
   latest: null,
   selectedNode: null,
   selectedProposal: null,
-  adminToken: null,
-  observations: [],
   attractors: null,
-  selectedObservation: null,
   filter: "all",
   observatoryMode: "lineage",
   observatorySelection: null,
@@ -137,13 +134,6 @@ const renderPresence = () => {
   $("#state-revision").textContent = `Revision ${app.graph.meta.revision}`;
   $("#state-cycles").textContent = `${app.runtime.cultivation.history?.length || app.cycles.length} cycles`;
   $("#state-memory").textContent = `${app.runtime.hypothesis_count || 0} hypotheses`;
-  const journal = app.runtime.journal;
-  $("#journal-runtime-state").textContent = journal?.status === "online"
-    ? `Online / ${journal.active_grants || 0} active source grant${journal.active_grants === 1 ? "" : "s"} / ${journal.transformed_entries || 0} transformed`
-    : app.runtime.archival_fallback
-      ? "Runtime witness unavailable / constitution preserved"
-      : "Collection held / intake membrane unavailable";
-
   $("#chamber-condition").textContent = running ? "Awake" : app.runtime.dormancy?.active ? "Dormant" : "At rest";
   $("#chamber-condition-copy").textContent = running
     ? "A serialized inquiry is moving through the chamber."
@@ -157,7 +147,6 @@ const renderPresence = () => {
   $("#phase-wake").textContent = app.latest?.events?.[0]?.type ? sentence(app.latest.events[0].type) : "Source revision";
   $("#phase-resolution").textContent = running ? "Cultivating" : "Sleep";
   $("#phase-resolution-detail").textContent = running ? "Serialized inquiry" : "No wake condition";
-  $("#intake-count").textContent = String(app.runtime.intake_count || 0).padStart(2, "0");
   $("#memory-count-large").textContent = String(app.runtime.hypothesis_count || Object.keys(app.memory?.hypotheses || {}).length).padStart(2, "0");
 };
 
@@ -165,16 +154,6 @@ const renderIdentity = () => {
   if (!app.identity) return;
   const revision = app.identity.revision || "current";
   $("#aperture-revision").textContent = revision;
-  $("#identity-revision").textContent = `Revision ${revision}`;
-  $("#identity-declaration").textContent = app.identity.declaration;
-  const present = app.identity.narrative?.present || app.identity.declaration;
-  $("#identity-present").textContent = `${present} Completed readings remain distinct while exerting attributable pressure upon this continuing identity.`;
-  const orientations = (app.identity.orientation || []).slice(0, 4);
-  if (orientations.length) {
-    $("#identity-orientations").innerHTML = orientations.map((orientation, index) =>
-      `<li><span>${String(index + 1).padStart(2, "0")}</span>${escapeHtml(orientation)}</li>`
-    ).join("");
-  }
 };
 
 const renderSources = () => {
@@ -267,92 +246,10 @@ const submitObservation = async (form) => {
     form.reset();
     if (result.event_id) {
       app.runtime.intake_count = (app.runtime.intake_count || 0) + 1;
-      $("#intake-count").textContent = String(app.runtime.intake_count).padStart(2, "0");
     }
   } catch (error) {
     status.className = "is-error";
     status.textContent = error.message;
-  } finally {
-    button.disabled = false;
-  }
-};
-
-const adminRequest = async (path, options = {}) => {
-  const response = await fetch(`${RUNTIME}${path}`, {
-    ...options,
-    headers: { authorization: `Bearer ${app.adminToken}`, "content-type": "application/json", ...(options.headers || {}) }
-  });
-  const result = await response.json();
-  if (!response.ok) throw Object.assign(new Error(result.error || "The Antechamber refused this request."), { status: response.status });
-  return result;
-};
-
-const loadAntechamber = async () => {
-  const intake = await adminRequest("/v1/admin/intake");
-  app.observations = intake.observations || [];
-  $("#antechamber-auth").hidden = true;
-  $("#antechamber-workspace").hidden = false;
-  renderIntakeQueue();
-};
-
-const renderIntakeQueue = () => {
-  const pending = app.observations.filter(({ status }) => status === "unreviewed" || status === "hold").length;
-  $("#pending-count").textContent = String(pending).padStart(2, "0");
-  $("#intake-queue").innerHTML = app.observations.map((item) => `<button class="queue-item ${app.selectedObservation?.event_id === item.event_id ? "is-active" : ""}" type="button" data-observation="${escapeHtml(item.event_id)}">
-    <span><b>${escapeHtml(item.event_id)}</b><i>${escapeHtml(sentence(item.status))}</i></span>
-    <p>${escapeHtml(String(item.payload?.observation || "").slice(0, 165))}${String(item.payload?.observation || "").length > 165 ? "…" : ""}</p>
-  </button>`).join("") || `<p class="memory-loading">No observations have arrived.</p>`;
-  if (!app.selectedObservation && app.observations[0]) selectObservation(app.observations[0].event_id);
-};
-
-const selectObservation = (id) => {
-  const item = app.observations.find(({ event_id: eventId }) => eventId === id);
-  if (!item) return;
-  app.selectedObservation = item;
-  $$(".queue-item").forEach((button) => button.classList.toggle("is-active", button.dataset.observation === id));
-  const payload = item.payload || {};
-  const history = item.classification_history || [];
-  $("#intake-review").innerHTML = `
-    <header><div><p class="micro-label">${escapeHtml(shortDate(item.received_at))} / ${escapeHtml(payload.source_type || "observation")}</p><h3>${escapeHtml(item.event_id)}</h3></div><span class="intake-status">${escapeHtml(sentence(item.status))}</span></header>
-    <p class="observation-body">${escapeHtml(payload.observation || "")}</p>
-    <div class="observation-context">
-      <div><p class="micro-label">Context</p><p>${escapeHtml(payload.context || "Not supplied")}</p></div>
-      <div><p class="micro-label">Possible relation</p><p>${escapeHtml(payload.relation || "Not supplied")}</p></div>
-      <div><p class="micro-label">Attribution</p><p>${escapeHtml(payload.attribution || "Anonymous")}</p></div>
-      <div><p class="micro-label">Prior classifications</p><p>${history.length ? escapeHtml(history.map(({ status, reviewer }) => `${sentence(status)} — ${reviewer}`).join(" · ")) : "None"}</p></div>
-    </div>
-    <form class="classification-form" id="classification-form">
-      <div class="classification-actions field-wide" aria-label="Classification">
-        ${["hold", "rejected", "admissible", "promoted"].map((status) => `<button type="button" data-classification="${status}">${sentence(status)}</button>`).join("")}
-      </div>
-      <label class="form-field"><span>Reviewer <i>required</i></span><input name="reviewer" required placeholder="Attributable steward name"></label>
-      <label class="form-field"><span>Reason <i>required</i></span><textarea name="note" required placeholder="Why has this disposition been earned?"></textarea></label>
-      <input type="hidden" name="status">
-      <div class="classification-submit field-wide"><button type="submit">Record disposition</button><p role="status">Admissible or promoted observations wake cultivation. Hold and rejection do not.</p></div>
-    </form>`;
-};
-
-const classifyObservation = async (form) => {
-  const data = new FormData(form);
-  const status = data.get("status");
-  const message = $(".classification-submit p", form);
-  if (!status) {
-    message.textContent = "Choose a disposition before recording judgment.";
-    return;
-  }
-  const button = $("button[type='submit']", form);
-  button.disabled = true;
-  message.textContent = "Writing an immutable classification event…";
-  try {
-    const result = await adminRequest(`/v1/admin/intake/${encodeURIComponent(app.selectedObservation.event_id)}/classify`, {
-      method: "POST",
-      body: JSON.stringify({ status, reviewer: data.get("reviewer"), note: data.get("note") })
-    });
-    message.textContent = result.wake_queued ? "Disposition preserved. A serialized cultivation wake has been queued." : "Disposition preserved. The chamber remains asleep.";
-    app.selectedObservation = null;
-    await loadAntechamber();
-  } catch (error) {
-    message.textContent = error.message;
   } finally {
     button.disabled = false;
   }
@@ -964,22 +861,6 @@ const resolveFieldDeepLink = ({ scroll = false } = {}) => {
   return true;
 };
 
-const moveToSurface = (target, { hide = false } = {}) => {
-  if (!target) return;
-  if (hide) target.hidden = true;
-  else target.hidden = false;
-  const destination = hide
-    ? (["living-identity", "coherence"].includes(target.id) ? $("#works") : $("#observatory"))
-    : target;
-  requestAnimationFrame(() => {
-    dispatchEvent(new Event("resize"));
-    requestAnimationFrame(() => {
-      dispatchEvent(new Event("resize"));
-      destination.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
-    });
-  });
-};
-
 const bindInterface = () => {
   $("[data-field-inspector-close]").addEventListener("click", closeFieldInspector);
   $(".nav-toggle").addEventListener("click", (event) => {
@@ -987,29 +868,6 @@ const bindInterface = () => {
     event.currentTarget.setAttribute("aria-expanded", String(open));
   });
   $$(".primary-nav a").forEach((link) => link.addEventListener("click", () => $(".primary-nav").classList.remove("is-open")));
-  $$("[data-reveal-surface]").forEach((control) => control.addEventListener("click", (event) => {
-    const target = document.getElementById(control.dataset.revealSurface);
-    if (!target) return;
-    event.preventDefault();
-    moveToSurface(target);
-  }));
-  $$("[data-close-surface]").forEach((control) => control.addEventListener("click", () => {
-    moveToSurface(document.getElementById(control.dataset.closeSurface), { hide: true });
-  }));
-  $$("[data-toggle-surface]").forEach((control) => control.addEventListener("click", () => {
-    const target = document.getElementById(control.dataset.toggleSurface);
-    if (!target) return;
-    target.hidden = !target.hidden;
-    control.classList.toggle("is-active", !target.hidden);
-    control.setAttribute("aria-expanded", String(!target.hidden));
-    if (!target.hidden) requestAnimationFrame(() => dispatchEvent(new Event("resize")));
-  }));
-  $$('a[href^="#"]:not([data-reveal-surface])').forEach((link) => link.addEventListener("click", (event) => {
-    const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
-    if (!target?.hidden) return;
-    event.preventDefault();
-    moveToSurface(target);
-  }));
   $$(".field-control").forEach((control) => control.addEventListener("click", () => {
     app.filter = control.dataset.filter;
     $$(".field-control").forEach((item) => item.classList.toggle("is-active", item === control));
@@ -1062,40 +920,6 @@ const bindInterface = () => {
     event.preventDefault();
     submitObservation(event.currentTarget);
   });
-  $$('[data-close-antechamber]').forEach((element) => element.addEventListener("click", () => {
-    $("#antechamber").hidden = true;
-    document.body.style.overflow = "";
-  }));
-  $("#unlock-antechamber").addEventListener("click", async () => {
-    const input = $("#steward-token");
-    const status = $("#antechamber-auth-status");
-    app.adminToken = input.value.trim();
-    status.textContent = "Verifying steward authority…";
-    try {
-      await loadAntechamber();
-      input.value = "";
-      status.textContent = "";
-    } catch (error) {
-      app.adminToken = null;
-      status.textContent = error.status === 401 ? "The steward credential was not recognized." : error.message;
-    }
-  });
-  $("#steward-token").addEventListener("keydown", (event) => { if (event.key === "Enter") $("#unlock-antechamber").click(); });
-  $("#intake-queue").addEventListener("click", (event) => {
-    const item = event.target.closest("[data-observation]");
-    if (item) selectObservation(item.dataset.observation);
-  });
-  $("#intake-review").addEventListener("click", (event) => {
-    const option = event.target.closest("[data-classification]");
-    if (!option) return;
-    $$("[data-classification]", $("#intake-review")).forEach((button) => button.classList.toggle("is-selected", button === option));
-    $("input[name='status']", $("#classification-form")).value = option.dataset.classification;
-  });
-  $("#intake-review").addEventListener("submit", (event) => {
-    if (event.target.id !== "classification-form") return;
-    event.preventDefault();
-    classifyObservation(event.target);
-  });
   $("#reading-actions").addEventListener("click", (event) => {
     const link = event.target.closest("[data-fragment-source]");
     if (!link) return;
@@ -1116,10 +940,6 @@ const bindInterface = () => {
       $("#cycle-drawer").hidden = true;
       document.body.style.overflow = "";
     }
-    if (event.key === "Escape" && !$("#antechamber").hidden) {
-      $("#antechamber").hidden = true;
-      document.body.style.overflow = "";
-    }
   });
   window.addEventListener("hashchange", () => resolveFieldDeepLink({ scroll: true }));
 
@@ -1135,8 +955,6 @@ const bindInterface = () => {
 
 const initialize = async () => {
   bindInterface();
-  const requestedSurface = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-  if (requestedSurface?.classList.contains("system-layer")) requestedSurface.hidden = false;
   buildWaveform();
   try {
     await loadData();

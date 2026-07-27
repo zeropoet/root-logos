@@ -7,106 +7,8 @@
   const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
   })[character]);
-  const influenceAxes = [
-    { selector: ".organ-receive", words: ["came", "said", "heard", "saw", "voice", "world", "people"] },
-    { selector: ".organ-transform", words: ["made", "became", "turned", "formed", "changed", "work", "hand"] },
-    { selector: ".organ-judge", words: ["law", "truth", "justice", "right", "evil", "good", "judge"] },
-    { selector: ".organ-compose", words: ["words", "song", "memory", "name", "spake", "wrote", "book"] },
-    { selector: ".organ-rewrite", words: ["return", "new", "again", "life", "death", "time", "way"] }
-  ];
   const BIBLE_COLLECTION = "Original Douay-Rheims Catholic Canon";
   const isBibleBook = ({ collection }) => collection === BIBLE_COLLECTION;
-
-  const influenceScores = (concepts = [], seed = "") => {
-    const conceptMap = new Map(concepts.map(({ concept, count }) => [String(concept).toLowerCase(), Number(count) || 0]));
-    return influenceAxes.map(({ words }, axis) =>
-      words.reduce((sum, word) => sum + (conceptMap.get(word) || 0), 0) + ((seed.length + axis * 3) % 5) * .001
-    );
-  };
-
-  const renderIdentityInfluence = async (index, corpus) => {
-    const canvas = $("#identity-influence-canvas");
-    const loop = canvas?.closest(".identity-loop");
-    if (!canvas || !loop) return;
-    const corpusItems = (corpus?.nodes || []).map((node) => ({
-      id: node.id,
-      title: node.title,
-      concepts: node.concepts,
-      color: node.division === "Old Testament" ? "#c8c8c8" : "#a9a9a9"
-    }));
-    const independent = (index.works || []).filter(({ collection }) =>
-      collection !== "Original Douay-Rheims Catholic Canon"
-    );
-    const independentItems = (await Promise.all(independent.map(async (work) => {
-      try {
-        const response = await fetch(work.edition, { cache: "no-store" });
-        if (!response.ok) return null;
-        const edition = await response.json();
-        return {
-          id: work.work_id,
-          title: work.title,
-          concepts: edition.reading?.dominant_concepts || [],
-          color: work.collection ? "#989898" : "#858585"
-        };
-      } catch {
-        return null;
-      }
-    }))).filter(Boolean);
-    const items = [...corpusItems, ...independentItems].map((item, index) => {
-      const scores = influenceScores(item.concepts, item.id);
-      return { ...item, axis: scores.indexOf(Math.max(...scores)), order: index };
-    });
-    influenceAxes.forEach(({ selector }, axis) => {
-      const pressure = items.filter((item) => item.axis === axis).length;
-      const organ = $(selector);
-      if (organ) {
-        organ.dataset.pressure = `${pressure} reading${pressure === 1 ? "" : "s"} exert pressure`;
-        organ.title = `${pressure} completed readings currently exert their strongest derived pressure here.`;
-      }
-    });
-    const draw = () => {
-      const ratio = Math.min(2, window.devicePixelRatio || 1);
-      const rect = canvas.getBoundingClientRect();
-      if (!rect.width || !rect.height) return;
-      canvas.width = Math.round(rect.width * ratio);
-      canvas.height = Math.round(rect.height * ratio);
-      const context = canvas.getContext("2d");
-      context.setTransform(ratio, 0, 0, ratio, 0, 0);
-      context.clearRect(0, 0, rect.width, rect.height);
-      const loopRect = loop.getBoundingClientRect();
-      const center = { x: rect.width / 2, y: rect.height / 2 };
-      const orbit = Math.min(rect.width, rect.height) * (rect.width < 600 ? .28 : .43);
-      const targets = influenceAxes.map(({ selector }) => {
-        const target = $(selector)?.getBoundingClientRect();
-        return target
-          ? { x: target.left - loopRect.left + target.width / 2, y: target.top - loopRect.top + target.height / 2 }
-          : center;
-      });
-      items.forEach((item, index) => {
-        const angle = index / Math.max(1, items.length) * Math.PI * 2 - Math.PI / 2;
-        const modulation = .82 + (index % 5) * .045;
-        const point = {
-          x: center.x + Math.cos(angle) * orbit * modulation,
-          y: center.y + Math.sin(angle) * orbit * modulation
-        };
-        const target = targets[item.axis];
-        context.strokeStyle = `${item.color}18`;
-        context.lineWidth = .55;
-        context.beginPath();
-        context.moveTo(point.x, point.y);
-        context.quadraticCurveTo(center.x, center.y, target.x, target.y);
-        context.stroke();
-        context.fillStyle = item.color;
-        context.globalAlpha = .48 + (index % 4) * .1;
-        context.beginPath();
-        context.arc(point.x, point.y, index >= corpusItems.length ? 3.2 : 1.7, 0, Math.PI * 2);
-        context.fill();
-      });
-      context.globalAlpha = 1;
-    };
-    draw();
-    window.addEventListener("resize", draw);
-  };
 
   class LivingWorks {
     constructor(index, corpus = null) {
@@ -562,7 +464,6 @@
       const index = await indexResponse.json();
       const corpus = corpusResponse.ok ? await corpusResponse.json() : null;
       window.rootLogosWorks = new LivingWorks(index, corpus);
-      renderIdentityInfluence(index, corpus);
     } catch (error) {
       console.error(error);
       $("#work-title").textContent = "The archive remains closed";

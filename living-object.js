@@ -2,8 +2,7 @@
   "use strict";
 
   const archiveTargets = new Set([
-    "field", "works", "living-identity", "coherence", "observatory",
-    "chamber", "memory", "threshold", "structural-health", "intake"
+    "field", "works", "observatory", "chamber", "memory", "threshold", "intake"
   ]);
   const syncExperienceMode = () => {
     const target = location.hash.slice(1);
