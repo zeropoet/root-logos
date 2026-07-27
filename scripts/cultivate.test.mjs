@@ -251,5 +251,14 @@ succeeds("rebuild-memory");
 const rebuiltMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
 assert.ok(Object.keys(rebuiltMemory.hypotheses).length >= 4);
 
+// Early autonomous cycles retained their exact policy inside the judgment
+// record rather than duplicating it at the cycle root. That nested witness is
+// equally attributable and must remain a valid lineage archive.
+const nestedPolicyCyclePath = join(sandbox, "cultivation", "cycles", `${intakeCycleId}.json`);
+const nestedPolicyCycle = JSON.parse(await readFile(nestedPolicyCyclePath, "utf8"));
+assert.deepEqual(nestedPolicyCycle.autonomous_judgment.policy_snapshot, nestedPolicyCycle.policy_snapshot);
+delete nestedPolicyCycle.policy_snapshot;
+await writeFile(nestedPolicyCyclePath, `${JSON.stringify(nestedPolicyCycle, null, 2)}\n`);
+
 succeeds("validate");
 process.stdout.write("PASS cultivation lifecycle, drift boundary, admitted-observation inquiry, promotion priority, adversarial self-judgment, autonomous refactoring, scheduled-cycle entry point, lineage, and human escalation.\n");

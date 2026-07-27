@@ -756,15 +756,24 @@ const validate = async (state, policy, memory) => {
   const files = (await readdir(cyclesUrl)).filter((name) => name.endsWith(".json")).sort();
   for (const file of files) {
     const cycle = await readJson(new URL(file, cyclesUrl));
-    if (cycle.policy_snapshot && cycle.policy_hash !== digest(cycle.policy_snapshot)) {
-      errors.push(`${file}: embedded policy snapshot does not match its hash`);
-    }
-    if (!cycle.policy_snapshot && cycle.policy_hash !== digest(policy)) {
+    const embeddedPolicies = [
+      ["cycle", cycle.policy_snapshot, cycle.policy_hash],
+      ["autonomous judgment", cycle.autonomous_judgment?.policy_snapshot, cycle.autonomous_judgment?.policy_hash]
+    ].filter(([, snapshot]) => snapshot);
+    embeddedPolicies.forEach(([location, snapshot, expectedHash]) => {
+      if (expectedHash !== digest(snapshot)) {
+        errors.push(`${file}: ${location} policy snapshot does not match its hash`);
+      }
+    });
+    const hasVerifiedEmbeddedPolicy = embeddedPolicies.some(([, snapshot, expectedHash]) =>
+      expectedHash === cycle.policy_hash && cycle.policy_hash === digest(snapshot)
+    );
+    if (!hasVerifiedEmbeddedPolicy && cycle.policy_hash !== digest(policy)) {
       try {
         const archivedPolicy = await readJson(new URL(`${cycle.policy_hash}.json`, policiesUrl));
         if (digest(archivedPolicy) !== cycle.policy_hash) errors.push(`${file}: archived policy does not match its hash`);
       } catch {
-        errors.push(`${file}: legacy cycle policy hash has no verifiable archive`);
+        errors.push(`${file}: cycle policy hash has no verifiable embedded or content-addressed archive`);
       }
     }
     cycle.events.forEach((event, index) => {
