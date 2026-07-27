@@ -91,17 +91,19 @@
       });
       $$("#work-list [data-work]").forEach((button) => button.classList.toggle("is-active", button.dataset.work === entry.work_id));
       $("#work-title").textContent = entry.title;
-      $("#work-coordinate").textContent = `${entry.kind} / ${entry.author} / current edition`;
+      $("#work-coordinate").textContent = `${entry.kind} / ${entry.translation || entry.author} / current edition`;
       $("#work-statement").textContent = this.edition.reading.statement;
       $("#work-edition").textContent = `Edition ${this.edition.root_logos_revision} / ${this.edition.sound.signature}`;
-      $("#work-source").textContent = this.edition.source_hash.slice(0, 12);
+      $("#work-source").textContent = entry.source_visibility === "private"
+        ? `Private witness / ${this.edition.source_hash.slice(0, 12)}`
+        : this.edition.source_hash.slice(0, 12);
       $("#work-measures").innerHTML = Object.entries(this.edition.measures).map(([label, value]) =>
         `<div><dt>${escapeHtml(label)}</dt><dd>${Number(value).toLocaleString()}</dd></div>`).join("");
       $("#work-concepts").innerHTML = this.edition.reading.dominant_concepts.map(({ concept, count }) =>
         `<span style="--weight:${clamp(count / this.edition.reading.dominant_concepts[0].count, .25, 1)}">${escapeHtml(concept)}</span>`).join("");
       $("#work-editions").innerHTML = (entry.edition_history || []).map((edition, index) => `
         <button type="button" data-edition="${escapeHtml(edition.href)}" class="${edition.edition_id === this.edition.edition_id ? "is-active" : ""}">
-          <span>${String(index + 1).padStart(2, "0")}</span>${escapeHtml(edition.root_logos_revision)}
+          <span>${String(index + 1).padStart(2, "0")}</span>${escapeHtml(edition.root_logos_revision)} · read ${String(index + 1).padStart(2, "0")}
         </button>`).join("");
       $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / score ${this.edition.sound.signature} / silent by consent.`;
       $("#work-listen-label").textContent = "Listen to this reading";
@@ -162,7 +164,10 @@
           context.beginPath();
           context.arc(node.screenX, node.screenY, size * node.depth, 0, Math.PI * 2);
           context.fill();
-          if (node.type !== "concept" || (this.width >= 600 && node.weight > 3) || (this.width < 600 && node.weight > 12)) {
+          const chapterNumber = node.type === "document" ? Number(node.label.match(/\d+/)?.[0]) : null;
+          const labelDocument = node.type === "document" && (!chapterNumber || chapterNumber === 1 || chapterNumber % 5 === 0);
+          const labelConcept = node.type === "concept" && ((this.width >= 600 && node.weight > 3) || (this.width < 600 && node.weight > 12));
+          if (node.type === "work" || labelDocument || labelConcept) {
             context.globalAlpha = clamp(node.depth - .12, .2, .8);
             context.fillStyle = "#e9e5d8";
             context.font = `${node.type === "work" ? 11 : 8}px ui-monospace, monospace`;

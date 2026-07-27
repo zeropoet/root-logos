@@ -42,8 +42,10 @@ of carrying them without doctrinal repetition.
   revision that made it. The founding constitution is the first proof object.
 - `scripts/works.mjs` ingests a Markdown file or directory in natural order,
   preserves file and heading coordinates, derives concepts and relations,
-  composes the paired scores, and updates the public archive. It is the first
-  adapter for the forthcoming one-book-at-a-time Catholic Bible passage.
+  composes the paired scores, and updates the public archive. It also accepts
+  the structured Original Douay-Rheims JSON format
+  through a private-source membrane: only its opaque revision witness, content
+  digest, derived work, and lineage become public.
 - The Constitutional Object is now the central public experience. Its 87
   canonical structures and 224 explicit relations are projected into a stable
   three-dimensional constellation generated directly from the graph. Readers
@@ -453,11 +455,19 @@ the founding constitution demonstrate this: v1.0 reads the constitution before
 the Living Works pillar, while v1.1 reads it after the system has been changed
 by the capability itself.
 
-The Markdown adapter is intentionally work-agnostic. A directory can preserve
-books, chapters, scenes, poems, or screenplay units through filenames and
-headings. The next external ingestion is intended to be one book from the
-Catholic Bible repository, after its repository URL and translation-rights
-witness are supplied.
+The first external living work is **Genesis**, read from the Original
+Douay-Rheims (1609) CC0 dataset through the private-source membrane. Root Logos
+publishes no verse, annotation, repository URL, filename, or source prose.
+Genesis remains publicly present as a private content witness, 51 structural
+movements, 1,583 passage coordinates, a derived graph, and three preserved
+readings. Read 01 exposed a coordinate-frequency distortion; Read 02 corrected
+the lexicon; Read 03 bound the visual and sound signatures to the complete
+reading method. The failed and superseded readings remain navigable as lineage.
+
+The adapters remain work-agnostic. Markdown directories preserve books,
+chapters, scenes, poems, or screenplay units through filenames and headings.
+The Douay-Rheims adapter preserves book, chapter, verse, argument, and apparatus
+coordinates internally while releasing the source language after derivation.
 
 ## Revision 0.9 — The Self-Writing Constitution
 

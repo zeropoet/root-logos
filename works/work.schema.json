@@ -12,7 +12,12 @@
     "kind": { "type": "string", "minLength": 1 },
     "source": { "type": ["string", "null"] },
     "source_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
-    "source_retained": { "const": true },
+    "source_visibility": { "enum": ["public", "private"] },
+    "source_retained": { "type": "boolean" },
+    "source_witness": {
+      "type": "object",
+      "required": ["classification", "identity", "content_sha256"]
+    },
     "translation": { "type": ["string", "null"] },
     "language": { "type": "string", "minLength": 2 },
     "rights": { "type": "string", "minLength": 1 },
@@ -22,7 +27,7 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["edition_id", "root_logos_revision", "created_at", "href"]
+        "required": ["edition_id", "root_logos_revision", "transformation", "created_at", "href"]
       }
     }
   }

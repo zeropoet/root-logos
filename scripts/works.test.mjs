@@ -28,7 +28,38 @@ assert.ok(edition.visual.topology.edges.length > 1);
 assert.equal(edition.sound.events.length, 72);
 assert.match(edition.sound.signature, /^[0-9a-f]{12}$/);
 
+const scripturePath = join(fixture, "genesis.json");
+await writeFile(scripturePath, JSON.stringify({
+  book: "genesis",
+  short_title: "Genesis Test",
+  intros: [{ title: "Argument", text: "A private introduction." }],
+  chapters: [
+    { chapter: 1, summary: "The first chapter.", verses: [
+      { verse: 1, text: "Private source language creates the beginning." },
+      { verse: 2, text: "Private source language witnesses the deep." }
+    ] },
+    { chapter: 2, verses: [{ verse: 1, text: "The private work enters rest." }] }
+  ]
+}));
+const privateWork = await ingestWork({
+  input: scripturePath, title: "Genesis Test", author: "Traditional",
+  kind: "scripture", format: "douay-rheims-json", sourceVisibility: "private",
+  sourceWitness: "fixture@abc123", translation: "Test translation",
+  rights: "CC0 1.0", rootRevision: "test-v1"
+});
+const privateManifestPath = join(new URL("..", import.meta.url).pathname, "works", privateWork.work_id, "manifest.json");
+const privateManifest = JSON.parse(await readFile(privateManifestPath, "utf8"));
+const privateEditionText = await readFile(join(
+  new URL("..", import.meta.url).pathname, "works", privateWork.work_id, "editions", privateWork.current_edition, "edition.json"
+), "utf8");
+assert.equal(privateManifest.source, null);
+assert.equal(privateManifest.source_visibility, "private");
+assert.equal(privateManifest.source_retained, false);
+assert.equal(privateManifest.source_witness.identity, "fixture@abc123");
+assert.ok(!privateEditionText.includes("Private source language"));
+
 await rm(join(new URL("..", import.meta.url).pathname, "works", first.work_id), { recursive: true, force: true });
+await rm(join(new URL("..", import.meta.url).pathname, "works", privateWork.work_id), { recursive: true, force: true });
 await writeFile(indexPath, originalIndex);
 await rm(fixture, { recursive: true, force: true });
 

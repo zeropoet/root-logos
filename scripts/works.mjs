@@ -13,6 +13,7 @@ const slug = (value) => String(value).toLowerCase().normalize("NFKD")
   .replace(/[^\w\s-]/g, "").trim().replace(/[\s_]+/g, "-").replace(/-+/g, "-");
 const words = (value) => String(value).toLowerCase().match(/[\p{L}\p{N}'’]+/gu) || [];
 const STOP = new Set("a an and are as at be been but by can could did do does for from had has have he her hers him his how i if in into is it its may me more most my no nor not of on one only or our ours she so than that the their them then there these they this those through to too under up upon us was we were what when where which who will with would you your".split(" "));
+const DEFAULT_TRANSFORMATION = "deterministic-structural-reading/v3";
 
 const walkMarkdown = async (path) => {
   const stat = await import("node:fs/promises").then(({ stat }) => stat(path));
@@ -49,12 +50,53 @@ const parseDocument = (text, file, sourceRoot) => {
   };
 };
 
-const deriveWork = ({ title, author, kind, source, translation, language, rights, documents, sourceHash, workId, editionId, rootRevision }) => {
+const stripMarkup = (value) => String(value || "")
+  .replace(/<[^>]+>/g, " ")
+  .replace(/\s+/g, " ")
+  .trim();
+
+const parseDouayRheimsBook = (text) => {
+  const book = JSON.parse(text);
+  if (!book?.short_title || !Array.isArray(book.chapters)) throw new Error("The JSON source is not a structured Douay-Rheims book.");
+  const documents = book.chapters.map((chapter) => ({
+    path: `chapter:${chapter.chapter}`,
+    title: `Chapter ${chapter.chapter}`,
+    sections: [
+      ...(chapter.summary ? [{
+        coordinate: `${book.book}:${chapter.chapter}:summary`,
+        level: 2,
+        title: `Chapter ${chapter.chapter} argument`,
+        text: stripMarkup(chapter.summary)
+      }] : []),
+      ...(chapter.verses || []).map((verse) => ({
+        coordinate: `${book.book}:${chapter.chapter}:${verse.verse}`,
+        level: 3,
+        title: `${book.short_title} ${chapter.chapter}:${verse.verse}`,
+        text: stripMarkup(verse.text)
+      }))
+    ]
+  }));
+  if (book.intros?.length) {
+    documents.unshift({
+      path: "apparatus:introduction",
+      title: "Original argument and apparatus",
+      sections: book.intros.map((intro, index) => ({
+        coordinate: `${book.book}:introduction:${index + 1}`,
+        level: 2,
+        title: stripMarkup(intro.title) || `Introduction ${index + 1}`,
+        text: stripMarkup(intro.text)
+      }))
+    });
+  }
+  return { title: book.short_title, documents };
+};
+
+const deriveWork = ({ title, author, kind, source, translation, language, rights, documents, sourceHash, workId, editionId, rootRevision, transformation }) => {
   const sectionRows = documents.flatMap((document, documentIndex) => document.sections.map((section, sectionIndex) => ({
     ...section, documentIndex, sectionIndex, document: document.path
   })));
   const frequency = new Map();
-  for (const token of words(sectionRows.map(({ title: heading, text }) => `${heading} ${text}`).join(" "))) {
+  for (const token of words(sectionRows.map(({ text }) => text).join(" "))) {
     if (token.length > 3 && !STOP.has(token)) frequency.set(token, (frequency.get(token) || 0) + 1);
   }
   const concepts = [...frequency].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 36);
@@ -87,16 +129,17 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
     for (let right = left + 1; right < concepts.length; right += 1) {
       let shared = 0;
       for (const section of sectionRows) {
-        const tokens = new Set(words(`${section.title} ${section.text}`));
+        const tokens = new Set(words(section.text));
         if (tokens.has(concepts[left][0]) && tokens.has(concepts[right][0])) shared += 1;
       }
       if (shared) edges.push({ from: `concept-${left + 1}`, to: `concept-${right + 1}`, relation: "co-occurs", weight: shared });
     }
   }
-  const seed = Number.parseInt(sourceHash.slice(0, 8), 16) >>> 0;
   const palette = ["#cbb77a", "#e9e5d8", "#93b9bb", "#9a8cb6", "#ad7159", "#8aa681"];
   const scale = [1, 1.125, 1.25, 1.333333, 1.5, 1.666667, 1.875, 2];
   const graphEdges = edges.sort((a, b) => b.weight - a.weight).slice(0, 180);
+  const readingHash = digest(JSON.stringify({ sourceHash, transformation, concepts, graphEdges }));
+  const seed = Number.parseInt(readingHash.slice(0, 8), 16) >>> 0;
   const scoreEvents = Array.from({ length: 72 }, (_, index) => {
     const concept = concepts[(seed + index * 7) % Math.max(1, concepts.length)] || ["silence", 1];
     const rest = index % 13 === 0 || (index + concept[1]) % 19 === 0;
@@ -119,7 +162,7 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
     edition: {
       schema: "root-logos-work-edition/v1", edition_id: editionId, work_id: workId,
       created_at: now(), root_logos_revision: rootRevision, source_hash: sourceHash,
-      parent_edition: null, status: "archived", transformation: "deterministic-structural-reading/v1",
+      parent_edition: null, status: "archived", transformation,
       measures: {
         documents: documents.length, sections: sectionRows.length,
         words: sectionRows.reduce((sum, section) => sum + words(section.text).length, 0),
@@ -131,7 +174,7 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
         motion: { drift: .16 + (seed % 20) / 100, pulse: 7 + (seed % 9), fold: (seed % 7) + 3 }
       },
       sound: {
-        schema: "root-logos-work-score/v1", signature: sourceHash.slice(0, 12),
+        schema: "root-logos-work-score/v1", signature: readingHash.slice(0, 12),
         tempo: 44 + (seed % 21), root_hz: 55, events: scoreEvents
       },
       reading: {
@@ -144,23 +187,46 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
 
 export const ingestWork = async ({
   input, title, author = "Unattributed", kind = "manuscript", source = null,
-  translation = null, language = "en", rights = null, rootRevision = "v1.0"
+  translation = null, language = "en", rights = null, rootRevision = "v1.0",
+  sourceVisibility = "public", sourceWitness = null, format = "auto",
+  transformation = DEFAULT_TRANSFORMATION
 }) => {
   const sourcePath = resolve(input);
-  const files = await walkMarkdown(sourcePath);
-  if (!files.length) throw new Error("No Markdown files were found in the supplied work.");
-  const sourceRoot = (await import("node:fs/promises").then(({ stat }) => stat(sourcePath))).isDirectory() ? sourcePath : resolve(sourcePath, "..");
-  const texts = await Promise.all(files.map((file) => readFile(file, "utf8")));
-  const canonicalSource = files.map((file, index) => `--- ${relative(sourceRoot, file)} ---\n${texts[index].replace(/\r\n/g, "\n")}`).join("\n");
+  const sourceStat = await import("node:fs/promises").then(({ stat }) => stat(sourcePath));
+  const douayJson = sourceStat.isFile() && (format === "douay-rheims-json" || (format === "auto" && extname(sourcePath).toLowerCase() === ".json"));
+  let documents;
+  let canonicalSource;
+  let inferredTitle;
+  if (douayJson) {
+    canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
+    const parsed = parseDouayRheimsBook(canonicalSource);
+    documents = parsed.documents;
+    inferredTitle = parsed.title;
+  } else {
+    const files = await walkMarkdown(sourcePath);
+    if (!files.length) throw new Error("No Markdown files were found in the supplied work.");
+    const sourceRoot = sourceStat.isDirectory() ? sourcePath : resolve(sourcePath, "..");
+    const texts = await Promise.all(files.map((file) => readFile(file, "utf8")));
+    canonicalSource = files.map((file, index) => `--- ${relative(sourceRoot, file)} ---\n${texts[index].replace(/\r\n/g, "\n")}`).join("\n");
+    documents = texts.map((text, index) => parseDocument(text, files[index], sourceRoot));
+  }
   const sourceHash = digest(canonicalSource);
-  const resolvedTitle = title || basename(sourcePath, extname(sourcePath));
+  const resolvedTitle = title || inferredTitle || basename(sourcePath, extname(sourcePath));
   const workId = `${slug(resolvedTitle)}-${digest(`${resolvedTitle}\n${author}`).slice(0, 8)}`;
-  const editionId = `${workId}--${slug(rootRevision)}-${sourceHash.slice(8, 16)}`;
-  const documents = texts.map((text, index) => parseDocument(text, files[index], sourceRoot));
+  const transformationId = `read-${digest(transformation).slice(0, 6)}`;
+  const editionId = `${workId}--${slug(rootRevision)}-${transformationId}-${sourceHash.slice(8, 16)}`;
   const derived = deriveWork({
-    title: resolvedTitle, author, kind, source: source || `local:${sourcePath}`,
-    translation, language, rights, documents, sourceHash, workId, editionId, rootRevision
+    title: resolvedTitle, author, kind,
+    source: sourceVisibility === "private" ? null : (source || `local:${sourcePath}`),
+    translation, language, rights, documents, sourceHash, workId, editionId, rootRevision, transformation
   });
+  derived.manifest.source_visibility = sourceVisibility;
+  derived.manifest.source_retained = sourceVisibility !== "private";
+  derived.manifest.source_witness = {
+    classification: sourceVisibility === "private" ? "private-source/public-lineage" : "public-source",
+    identity: sourceWitness || "unwitnessed",
+    content_sha256: sourceHash
+  };
   const workDir = join(archiveRoot, workId);
   const editionDir = join(workDir, "editions", editionId);
   let priorManifest = null;
@@ -184,6 +250,7 @@ export const ingestWork = async ({
           return {
             edition_id: priorEdition.edition_id,
             root_logos_revision: priorEdition.root_logos_revision,
+            transformation: priorEdition.transformation,
             created_at: priorEdition.created_at,
             href: `works/${workId}/editions/${priorEdition.edition_id}/edition.json`
           };
@@ -191,9 +258,18 @@ export const ingestWork = async ({
         priorEditions.sort((a, b) => a.created_at.localeCompare(b.created_at));
       } catch {}
     }
+    priorEditions = await Promise.all(priorEditions.map(async (record) => {
+      if (record.transformation) return record;
+      try {
+        const priorEdition = JSON.parse(await readFile(join(workDir, "editions", record.edition_id, "edition.json"), "utf8"));
+        return { ...record, transformation: priorEdition.transformation };
+      } catch {
+        return { ...record, transformation: "unknown-preserved-reading" };
+      }
+    }));
   }
   const currentEditionRecord = {
-    edition_id: editionId, root_logos_revision: rootRevision, created_at: derived.edition.created_at,
+    edition_id: editionId, root_logos_revision: rootRevision, transformation, created_at: derived.edition.created_at,
     href: `works/${workId}/editions/${editionId}/edition.json`
   };
   derived.manifest.editions = [...priorEditions.filter(({ edition_id: id }) => id !== editionId), currentEditionRecord];
@@ -209,6 +285,9 @@ export const ingestWork = async ({
     work_id: workId, title: resolvedTitle, author, kind, current_edition: editionId,
     editions: sameEdition ? priorEntry.editions : (priorEntry?.editions || 0) + 1, updated_at: derived.edition.created_at,
     edition_history: derived.manifest.editions,
+    source_visibility: derived.manifest.source_visibility,
+    translation: derived.manifest.translation,
+    rights: derived.manifest.rights,
     manifest: `works/${workId}/manifest.json`,
     edition: `works/${workId}/editions/${editionId}/edition.json`
   };
@@ -223,14 +302,14 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--translation <name>] [--language <code>] [--rights <statement>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json>] [--translation <name>] [--language <code>] [--rights <statement>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();
     const options = { input };
     for (let index = 0; index < args.length; index += 2) {
       const key = args[index].replace(/^--/, "");
-      const map = { revision: "rootRevision" };
+      const map = { revision: "rootRevision", "source-visibility": "sourceVisibility", "source-witness": "sourceWitness" };
       options[map[key] || key] = args[index + 1];
     }
     ingestWork(options).then((entry) => process.stdout.write(`${JSON.stringify(entry, null, 2)}\n`)).catch((error) => {
