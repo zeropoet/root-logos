@@ -489,8 +489,7 @@
         float breath = 1.0 + sin(uTime * 0.62 + aBirth * 16.0) * 0.055 + cadencePulse * (0.16 + uCadenceAccent * 0.12);
         gl_PointSize = aSize * arrival * breath * (5.3 / depth);
         float engravingDepth = clamp((p.z + 2.4) / 4.8, 0.0, 1.0);
-        vec3 engravedColor = mix(aColor.rgb * 0.38, min(vec3(1.0), aColor.rgb * 1.28), engravingDepth);
-        vColor = vec4(engravedColor, aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
+        vColor = vec4(vec3(1.0), aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
         vVisible = arrival;
       }
     `;
