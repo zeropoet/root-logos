@@ -49,3 +49,24 @@ filenames, verses, annotations, or source prose. `.private-sources/` and
 The transformation grammar is part of edition identity. If Root Logos changes
 how it reads—even without a constitutional revision—the prior reading remains
 archived and the corrected reading becomes a child edition.
+
+## Complete private corpus
+
+The canon-aware corpus command serially transforms the 73-book Catholic canon:
+
+```sh
+npm run works:corpus -- /private/path/original-douay-rheims \
+  --source-witness "opaque-dataset-identity@revision" \
+  --revision "v1.1"
+```
+
+It preserves the canonical order of 46 Old Testament and 27 New Testament
+works, while witnessing 3 Esdras, 4 Esdras, and the two Prayer of Manasses
+source variants as unclassified supplements rather than silently treating them
+as canonical books.
+
+`corpora/original-douay-rheims.json` drapes the first aggregate fabric across
+the individual works. It contains book-level measures, dominant derived
+concepts, cross-work relations, a navigable Whole Canon visual object, and a
+deterministic corpus score. Every book remains independently addressable and
+retains its own future edition lineage.

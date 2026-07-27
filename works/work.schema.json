@@ -21,6 +21,9 @@
     "translation": { "type": ["string", "null"] },
     "language": { "type": "string", "minLength": 2 },
     "rights": { "type": "string", "minLength": 1 },
+    "collection": { "type": ["string", "null"] },
+    "division": { "type": ["string", "null"] },
+    "canonical_order": { "type": ["integer", "null"], "minimum": 1 },
     "current_edition": { "type": "string", "minLength": 1 },
     "editions": {
       "type": "array",

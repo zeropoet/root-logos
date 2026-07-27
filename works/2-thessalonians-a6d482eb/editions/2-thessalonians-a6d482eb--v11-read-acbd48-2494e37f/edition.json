@@ -1,0 +1,2117 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "2-thessalonians-a6d482eb--v11-read-acbd48-2494e37f",
+  "work_id": "2-thessalonians-a6d482eb",
+  "created_at": "2026-07-27T14:23:52.077Z",
+  "root_logos_revision": "v1.1",
+  "source_hash": "92841b472494e37fb0e6d4e62559aae3438344092d2e1075bd9f8edbd0bb89f5",
+  "parent_edition": null,
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v3",
+  "measures": {
+    "documents": 4,
+    "sections": 51,
+    "words": 1475,
+    "concepts": 36,
+    "relations": 180
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 2522334468,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "2 Thessalonians",
+          "weight": 1,
+          "coordinate": "work"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "Original argument and apparatus",
+          "weight": 1,
+          "coordinate": "apparatus:introduction"
+        },
+        {
+          "id": "document-2",
+          "type": "document",
+          "label": "Chapter 1",
+          "weight": 13,
+          "coordinate": "chapter:1"
+        },
+        {
+          "id": "document-3",
+          "type": "document",
+          "label": "Chapter 2",
+          "weight": 18,
+          "coordinate": "chapter:2"
+        },
+        {
+          "id": "document-4",
+          "type": "document",
+          "label": "Chapter 3",
+          "weight": 19,
+          "coordinate": "chapter:3"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "lord",
+          "weight": 21,
+          "coordinate": "lexicon:lord"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "christ",
+          "weight": 15,
+          "coordinate": "lexicon:christ"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "jesus",
+          "weight": 14,
+          "coordinate": "lexicon:jesus"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "also",
+          "weight": 11,
+          "coordinate": "lexicon:also"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "shall",
+          "weight": 9,
+          "coordinate": "lexicon:shall"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "epistle",
+          "weight": 8,
+          "coordinate": "lexicon:epistle"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "himself",
+          "weight": 8,
+          "coordinate": "lexicon:himself"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "brethren",
+          "weight": 7,
+          "coordinate": "lexicon:brethren"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "faith",
+          "weight": 7,
+          "coordinate": "lexicon:faith"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "every",
+          "weight": 6,
+          "coordinate": "lexicon:every"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "first",
+          "weight": 6,
+          "coordinate": "lexicon:first"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "hand",
+          "weight": 6,
+          "coordinate": "lexicon:hand"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "word",
+          "weight": 6,
+          "coordinate": "lexicon:word"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "antichrist",
+          "weight": 5,
+          "coordinate": "lexicon:antichrist"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "come",
+          "weight": 5,
+          "coordinate": "lexicon:come"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "hath",
+          "weight": 5,
+          "coordinate": "lexicon:hath"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "therefore",
+          "weight": 5,
+          "coordinate": "lexicon:therefore"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "traditions",
+          "weight": 5,
+          "coordinate": "lexicon:traditions"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "working",
+          "weight": 5,
+          "coordinate": "lexicon:working"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "charity",
+          "weight": 4,
+          "coordinate": "lexicon:charity"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "give",
+          "weight": 4,
+          "coordinate": "lexicon:give"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "grace",
+          "weight": 4,
+          "coordinate": "lexicon:grace"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "know",
+          "weight": 4,
+          "coordinate": "lexicon:know"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "power",
+          "weight": 4,
+          "coordinate": "lexicon:power"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "though",
+          "weight": 4,
+          "coordinate": "lexicon:though"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "unto",
+          "weight": 4,
+          "coordinate": "lexicon:unto"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "according",
+          "weight": 3,
+          "coordinate": "lexicon:according"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "always",
+          "weight": 3,
+          "coordinate": "lexicon:always"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "biddeth",
+          "weight": 3,
+          "coordinate": "lexicon:biddeth"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "coming",
+          "weight": 3,
+          "coordinate": "lexicon:coming"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "confirm",
+          "weight": 3,
+          "coordinate": "lexicon:confirm"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "father",
+          "weight": 3,
+          "coordinate": "lexicon:father"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "glorified",
+          "weight": 3,
+          "coordinate": "lexicon:glorified"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "glory",
+          "weight": 3,
+          "coordinate": "lexicon:glory"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "good",
+          "weight": 3,
+          "coordinate": "lexicon:good"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "hold",
+          "weight": 3,
+          "coordinate": "lexicon:hold"
+        }
+      ],
+      "edges": [
+        {
+          "from": "work",
+          "to": "document-4",
+          "relation": "contains",
+          "weight": 19
+        },
+        {
+          "from": "work",
+          "to": "document-3",
+          "relation": "contains",
+          "weight": 18
+        },
+        {
+          "from": "work",
+          "to": "document-2",
+          "relation": "contains",
+          "weight": 13
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 13
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-2",
+          "relation": "co-occurs",
+          "weight": 12
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 11
+        },
+        {
+          "from": "document-4",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 8
+        },
+        {
+          "from": "document-2",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 7
+        },
+        {
+          "from": "document-2",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 6
+        },
+        {
+          "from": "document-3",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 6
+        },
+        {
+          "from": "document-2",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 5
+        },
+        {
+          "from": "document-3",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 5
+        },
+        {
+          "from": "document-1",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 4
+        },
+        {
+          "from": "document-2",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 4
+        },
+        {
+          "from": "document-2",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 4
+        },
+        {
+          "from": "document-3",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 4
+        },
+        {
+          "from": "document-3",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 4
+        },
+        {
+          "from": "document-3",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 4
+        },
+        {
+          "from": "document-3",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 4
+        },
+        {
+          "from": "document-4",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 4
+        },
+        {
+          "from": "document-4",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 4
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 4
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 4
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 4
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 4
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 4
+        },
+        {
+          "from": "document-1",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-1",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-1",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-1",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-2",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-3",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-3",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-3",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-3",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-3",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-3",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-4",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-4",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "document-4",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 3
+        },
+        {
+          "from": "document-1",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-1",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-1",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-1",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-1",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-2",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-2",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-2",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-2",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-2",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-2",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-2",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-3",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-3",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-4",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-4",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-4",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-4",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "document-4",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.24,
+      "pulse": 10,
+      "fold": 6
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v1",
+    "signature": "9657c5040be7",
+    "tempo": 47,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:word",
+        "frequency": 137.5,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0368
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:charity",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:according",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:glory",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:shall",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0426
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:hand",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0368
+      },
+      {
+        "index": 6,
+        "voice": "figure",
+        "provenance": "lexicon:working",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 7,
+        "voice": "breath",
+        "provenance": "lexicon:unto",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 8,
+        "voice": "ground",
+        "provenance": "lexicon:glorified",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 9,
+        "voice": "relation",
+        "provenance": "lexicon:also",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0466
+      },
+      {
+        "index": 10,
+        "voice": "figure",
+        "provenance": "lexicon:first",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0368
+      },
+      {
+        "index": 11,
+        "voice": "breath",
+        "provenance": "lexicon:traditions",
+        "frequency": 550,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 12,
+        "voice": "ground",
+        "provenance": "lexicon:though",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 13,
+        "voice": "relation",
+        "provenance": "lexicon:father",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 14,
+        "voice": "figure",
+        "provenance": "lexicon:jesus",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0525
+      },
+      {
+        "index": 15,
+        "voice": "breath",
+        "provenance": "lexicon:every",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0368
+      },
+      {
+        "index": 16,
+        "voice": "ground",
+        "provenance": "lexicon:therefore",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 17,
+        "voice": "relation",
+        "provenance": "lexicon:power",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 18,
+        "voice": "figure",
+        "provenance": "lexicon:confirm",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 19,
+        "voice": "breath",
+        "provenance": "lexicon:christ",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0544
+      },
+      {
+        "index": 20,
+        "voice": "ground",
+        "provenance": "lexicon:faith",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0387
+      },
+      {
+        "index": 21,
+        "voice": "relation",
+        "provenance": "lexicon:hath",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 22,
+        "voice": "figure",
+        "provenance": "lexicon:know",
+        "frequency": 275,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 23,
+        "voice": "breath",
+        "provenance": "lexicon:coming",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 24,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0662
+      },
+      {
+        "index": 25,
+        "voice": "relation",
+        "provenance": "lexicon:brethren",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0387
+      },
+      {
+        "index": 26,
+        "voice": "figure",
+        "provenance": "lexicon:come",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 27,
+        "voice": "breath",
+        "provenance": "lexicon:grace",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:biddeth",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:hold",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:himself",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0407
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:antichrist",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:give",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:always",
+        "frequency": 137.5,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 34,
+        "voice": "figure",
+        "provenance": "lexicon:good",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 35,
+        "voice": "breath",
+        "provenance": "lexicon:epistle",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0407
+      },
+      {
+        "index": 36,
+        "voice": "ground",
+        "provenance": "lexicon:word",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0368
+      },
+      {
+        "index": 37,
+        "voice": "relation",
+        "provenance": "lexicon:charity",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 38,
+        "voice": "figure",
+        "provenance": "lexicon:according",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 39,
+        "voice": "breath",
+        "provenance": "lexicon:glory",
+        "frequency": 165,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 40,
+        "voice": "ground",
+        "provenance": "lexicon:shall",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0426
+      },
+      {
+        "index": 41,
+        "voice": "relation",
+        "provenance": "lexicon:hand",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0368
+      },
+      {
+        "index": 42,
+        "voice": "figure",
+        "provenance": "lexicon:working",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 43,
+        "voice": "breath",
+        "provenance": "lexicon:unto",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 44,
+        "voice": "ground",
+        "provenance": "lexicon:glorified",
+        "frequency": 586.66652,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 45,
+        "voice": "relation",
+        "provenance": "lexicon:also",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0466
+      },
+      {
+        "index": 46,
+        "voice": "figure",
+        "provenance": "lexicon:first",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0368
+      },
+      {
+        "index": 47,
+        "voice": "breath",
+        "provenance": "lexicon:traditions",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 48,
+        "voice": "ground",
+        "provenance": "lexicon:though",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 49,
+        "voice": "relation",
+        "provenance": "lexicon:father",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 50,
+        "voice": "figure",
+        "provenance": "lexicon:jesus",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0525
+      },
+      {
+        "index": 51,
+        "voice": "breath",
+        "provenance": "lexicon:every",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0368
+      },
+      {
+        "index": 52,
+        "voice": "ground",
+        "provenance": "lexicon:therefore",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 53,
+        "voice": "relation",
+        "provenance": "lexicon:power",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 54,
+        "voice": "figure",
+        "provenance": "lexicon:confirm",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 55,
+        "voice": "breath",
+        "provenance": "lexicon:christ",
+        "frequency": 220,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0544
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:faith",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0387
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:hath",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:know",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:coming",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0662
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:brethren",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0387
+      },
+      {
+        "index": 62,
+        "voice": "figure",
+        "provenance": "lexicon:come",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 63,
+        "voice": "breath",
+        "provenance": "lexicon:grace",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 64,
+        "voice": "ground",
+        "provenance": "lexicon:biddeth",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 65,
+        "voice": "relation",
+        "provenance": "lexicon:hold",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 66,
+        "voice": "figure",
+        "provenance": "lexicon:himself",
+        "frequency": 137.5,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0407
+      },
+      {
+        "index": 67,
+        "voice": "breath",
+        "provenance": "lexicon:antichrist",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 68,
+        "voice": "ground",
+        "provenance": "lexicon:give",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0328
+      },
+      {
+        "index": 69,
+        "voice": "relation",
+        "provenance": "lexicon:always",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 70,
+        "voice": "figure",
+        "provenance": "lexicon:good",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0309
+      },
+      {
+        "index": 71,
+        "voice": "breath",
+        "provenance": "lexicon:epistle",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0407
+      }
+    ]
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "lord",
+        "count": 21
+      },
+      {
+        "concept": "christ",
+        "count": 15
+      },
+      {
+        "concept": "jesus",
+        "count": 14
+      },
+      {
+        "concept": "also",
+        "count": 11
+      },
+      {
+        "concept": "shall",
+        "count": 9
+      },
+      {
+        "concept": "epistle",
+        "count": 8
+      },
+      {
+        "concept": "himself",
+        "count": 8
+      },
+      {
+        "concept": "brethren",
+        "count": 7
+      },
+      {
+        "concept": "faith",
+        "count": 7
+      },
+      {
+        "concept": "every",
+        "count": 6
+      },
+      {
+        "concept": "first",
+        "count": 6
+      },
+      {
+        "concept": "hand",
+        "count": 6
+      }
+    ],
+    "statement": "2 Thessalonians resolves as 4 documents, 51 structural passages, and 180 witnessed relations."
+  }
+}

@@ -121,6 +121,18 @@
 
         <aside class="works-archive" aria-label="Living works archive">
           <header><span>Archive</span><b id="work-count">00 works</b></header>
+          <button class="corpus-entry" id="corpus-entry" type="button">
+            <span>00</span><span><b>Whole Canon</b><small id="corpus-entry-detail">Resolving corpus topology</small></span>
+          </button>
+          <div class="work-archive-tools">
+            <label><span>Seek a work</span><input id="work-search" type="search" placeholder="Title or division" autocomplete="off"></label>
+            <nav aria-label="Filter living works">
+              <button type="button" class="is-active" data-work-division="all">All</button>
+              <button type="button" data-work-division="Old Testament">Old</button>
+              <button type="button" data-work-division="New Testament">New</button>
+              <button type="button" data-work-division="Root Logos">RL</button>
+            </nav>
+          </div>
           <div id="work-list"><p class="works-loading">Opening the archive…</p></div>
           <p class="archive-principle">One work at a time.<br>Every becoming remains navigable.</p>
         </aside>

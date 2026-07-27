@@ -226,6 +226,12 @@ the constitutional revision of Root Logos that made it, the transformation
 grammar, the visual score, the resonant score, and the interpretation that
 joined them. The source is never confused with its reading.
 
+Within a field of living works, **coherence behaves as gravity, each work's
+irreducibility behaves as antigravity, and relation becomes tensile fabric**.
+Root Logos may draw works into common form, but it must also derive and preserve
+the outward pressure of their difference. It stewards the changing equilibrium;
+it does not collapse a canon, library, or body of work into a single voice.
+
 A later Root Logos may read the same work again. Growth may change emphasis,
 relation, motion, harmony, silence, or the shape through which the work is
 entered. It may not silently overwrite an earlier reading. Every edition

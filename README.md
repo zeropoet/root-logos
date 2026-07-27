@@ -455,19 +455,39 @@ the founding constitution demonstrate this: v1.0 reads the constitution before
 the Living Works pillar, while v1.1 reads it after the system has been changed
 by the capability itself.
 
-The first external living work is **Genesis**, read from the Original
-Douay-Rheims (1609) CC0 dataset through the private-source membrane. Root Logos
-publishes no verse, annotation, repository URL, filename, or source prose.
-Genesis remains publicly present as a private content witness, 51 structural
-movements, 1,583 passage coordinates, a derived graph, and three preserved
-readings. Read 01 exposed a coordinate-frequency distortion; Read 02 corrected
-the lexicon; Read 03 bound the visual and sound signatures to the complete
-reading method. The failed and superseded readings remain navigable as lineage.
+The first complete external corpus is the **Original Douay-Rheims Catholic
+Canon**, read from its CC0 dataset through the private-source membrane. Root
+Logos publishes no verse, annotation, repository URL, filename, or source
+prose. Its 73 canonical books remain independently navigable living works:
+46 Old Testament and 27 New Testament books, together carrying 1,402
+structural movements, 37,114 passage coordinates, and 974,082 transiently read
+words. Their derived field presently contains 13,113 internal relations and
+1,681 cross-work relations.
+
+Genesis preserves three readings because it taught the reader how to read.
+Read 01 exposed a coordinate-frequency distortion; Read 02 corrected the
+lexicon; Read 03 bound visual and sound signatures to the complete reading
+method. The failed and superseded readings remain navigable as lineage. Every
+remaining book begins with Read 03 and may evolve independently as Root Logos'
+voice changes.
 
 The adapters remain work-agnostic. Markdown directories preserve books,
 chapters, scenes, poems, or screenplay units through filenames and headings.
 The Douay-Rheims adapter preserves book, chapter, verse, argument, and apparatus
 coordinates internally while releasing the source language after derivation.
+`scripts/works-corpus.mjs` preserves canonical order, builds the Whole Canon
+visual-resonant object, and emits the aggregate corpus topology. Four
+supplemental repository sources remain witnessed but unclassified rather than
+being silently promoted into the 73-book canon.
+
+The Whole Canon object establishes the governing geometry for multi-work
+fields: **coherence is gravity, living works are antigravity, and their
+relations are tensile fabric**. Each book's radius is derived from lexical
+distinctiveness and relational difference rather than length, status, or a
+hand-authored hierarchy. Root Logos occupies the compressive center while the
+works continually hold it open. The current derived field exposes 1,681
+cross-work tensions and a mean outward pressure of 0.7727; later readings may
+change that equilibrium without overwriting this one.
 
 ## Revision 0.9 — The Self-Writing Constitution
 

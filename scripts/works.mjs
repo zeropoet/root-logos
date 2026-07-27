@@ -189,7 +189,8 @@ export const ingestWork = async ({
   input, title, author = "Unattributed", kind = "manuscript", source = null,
   translation = null, language = "en", rights = null, rootRevision = "v1.0",
   sourceVisibility = "public", sourceWitness = null, format = "auto",
-  transformation = DEFAULT_TRANSFORMATION
+  transformation = DEFAULT_TRANSFORMATION, collection = null, division = null,
+  canonicalOrder = null
 }) => {
   const sourcePath = resolve(input);
   const sourceStat = await import("node:fs/promises").then(({ stat }) => stat(sourcePath));
@@ -227,6 +228,9 @@ export const ingestWork = async ({
     identity: sourceWitness || "unwitnessed",
     content_sha256: sourceHash
   };
+  derived.manifest.collection = collection;
+  derived.manifest.division = division;
+  derived.manifest.canonical_order = canonicalOrder == null ? null : Number(canonicalOrder);
   const workDir = join(archiveRoot, workId);
   const editionDir = join(workDir, "editions", editionId);
   let priorManifest = null;
@@ -288,6 +292,9 @@ export const ingestWork = async ({
     source_visibility: derived.manifest.source_visibility,
     translation: derived.manifest.translation,
     rights: derived.manifest.rights,
+    collection: derived.manifest.collection,
+    division: derived.manifest.division,
+    canonical_order: derived.manifest.canonical_order,
     manifest: `works/${workId}/manifest.json`,
     edition: `works/${workId}/editions/${editionId}/edition.json`
   };
@@ -302,14 +309,17 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json>] [--translation <name>] [--language <code>] [--rights <statement>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();
     const options = { input };
     for (let index = 0; index < args.length; index += 2) {
       const key = args[index].replace(/^--/, "");
-      const map = { revision: "rootRevision", "source-visibility": "sourceVisibility", "source-witness": "sourceWitness" };
+      const map = {
+        revision: "rootRevision", "source-visibility": "sourceVisibility",
+        "source-witness": "sourceWitness", "canonical-order": "canonicalOrder"
+      };
       options[map[key] || key] = args[index + 1];
     }
     ingestWork(options).then((entry) => process.stdout.write(`${JSON.stringify(entry, null, 2)}\n`)).catch((error) => {

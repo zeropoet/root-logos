@@ -6,7 +6,7 @@
     "canonical_change": {
       "enabled": true,
       "branch": "main",
-      "paths": ["content/constitutional-graph.json", "content/export-packets.json", "content/*.md", "sources/registry.json", "sources/*.snapshot.json", "sources/*.public-witness.json", "works/index.json", "works/*/manifest.json", "works/*/editions/*/edition.json", "cultivation/policy.json", "journal/policy.json", "journal/*.schema.json", "self-authorship/current.json", "self-authorship/policy.json"]
+      "paths": ["content/constitutional-graph.json", "content/export-packets.json", "content/*.md", "sources/registry.json", "sources/*.snapshot.json", "sources/*.public-witness.json", "works/index.json", "works/*/manifest.json", "works/*/editions/*/edition.json", "works/corpora/*.json", "cultivation/policy.json", "journal/policy.json", "journal/*.schema.json", "self-authorship/current.json", "self-authorship/policy.json"]
     },
     "periodic": {
       "enabled": true,
@@ -28,6 +28,7 @@
     "works/index.json",
     "works/*/manifest.json",
     "works/*/editions/*/edition.json",
+    "works/corpora/*.json",
     "journal/policy.json",
     "journal/*.schema.json",
     "self-authorship/current.json",

@@ -9,8 +9,9 @@
   })[character]);
 
   class LivingWorks {
-    constructor(index) {
+    constructor(index, corpus = null) {
       this.index = index;
+      this.corpus = corpus;
       this.canvas = $("#work-canvas");
       this.context = this.canvas.getContext("2d");
       this.entry = null;
@@ -23,6 +24,9 @@
       this.master = null;
       this.timer = null;
       this.cursor = 0;
+      this.isCorpus = false;
+      this.division = "all";
+      this.query = "";
       this.bind();
       this.resize();
       this.renderArchive();
@@ -51,6 +55,18 @@
         const entry = this.index.works.find(({ work_id: id }) => id === button?.dataset.work);
         if (entry) this.open(entry);
       });
+      $("#corpus-entry").addEventListener("click", () => this.openCorpus());
+      $("#work-search").addEventListener("input", (event) => {
+        this.query = event.target.value.trim().toLowerCase();
+        this.renderArchive();
+      });
+      document.querySelector(".work-archive-tools nav").addEventListener("click", (event) => {
+        const button = event.target.closest("[data-work-division]");
+        if (!button) return;
+        this.division = button.dataset.workDivision;
+        document.querySelectorAll("[data-work-division]").forEach((item) => item.classList.toggle("is-active", item === button));
+        this.renderArchive();
+      });
       $("#work-editions").addEventListener("click", (event) => {
         const button = event.target.closest("[data-edition]");
         if (button && this.entry) this.open(this.entry, button.dataset.edition);
@@ -71,11 +87,21 @@
 
     renderArchive() {
       $("#work-count").textContent = `${String(this.index.works?.length || 0).padStart(2, "0")} work${this.index.works?.length === 1 ? "" : "s"}`;
-      $("#work-list").innerHTML = (this.index.works || []).map((work, index) => `
+      if (this.corpus) $("#corpus-entry-detail").textContent = `${this.corpus.canonical_work_count} books / ${this.corpus.measures.passages.toLocaleString()} passages`;
+      const visible = (this.index.works || []).filter((work) => {
+        const divisionMatch = this.division === "all"
+          || work.division === this.division
+          || (this.division === "Root Logos" && !work.division);
+        const queryMatch = !this.query || `${work.title} ${work.division || "Root Logos"} ${work.translation || ""}`.toLowerCase().includes(this.query);
+        return divisionMatch && queryMatch;
+      });
+      $("#work-list").innerHTML = visible.map((work) => `
         <button type="button" data-work="${escapeHtml(work.work_id)}">
-          <span>${String(index + 1).padStart(2, "0")}</span>
+          <span>${work.canonical_order ? String(work.canonical_order).padStart(2, "0") : "RL"}</span>
           <span><b>${escapeHtml(work.title)}</b><small>${escapeHtml(work.kind)} / ${work.editions} edition${work.editions === 1 ? "" : "s"}</small></span>
         </button>`).join("") || "<p class=\"works-loading\">The archive is open. No work has crossed the membrane yet.</p>";
+      document.querySelectorAll("#work-list [data-work]").forEach((button) =>
+        button.classList.toggle("is-active", button.dataset.work === this.entry?.work_id));
     }
 
     async open(entry, editionHref = entry.edition) {
@@ -83,10 +109,12 @@
       const response = await fetch(editionHref, { cache: "no-store" });
       if (!response.ok) throw new Error(`Living work ${entry.work_id} could not be opened.`);
       this.entry = entry;
+      this.isCorpus = false;
+      $("#corpus-entry").classList.remove("is-active");
       this.edition = await response.json();
       this.nodes = this.edition.visual.topology.nodes.map((node, index) => {
-        const angle = (index / Math.max(1, this.edition.visual.topology.nodes.length)) * Math.PI * 2;
-        const band = node.type === "work" ? 0 : node.type === "document" ? .32 : .62 + (index % 3) * .09;
+        const angle = node.angle ?? (index / Math.max(1, this.edition.visual.topology.nodes.length)) * Math.PI * 2;
+        const band = node.band ?? (node.type === "work" ? 0 : node.type === "document" ? .32 : .62 + (index % 3) * .09);
         return { ...node, angle, band, screenX: 0, screenY: 0 };
       });
       $$("#work-list [data-work]").forEach((button) => button.classList.toggle("is-active", button.dataset.work === entry.work_id));
@@ -107,6 +135,59 @@
         </button>`).join("");
       $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / score ${this.edition.sound.signature} / silent by consent.`;
       $("#work-listen-label").textContent = "Listen to this reading";
+      $("#work-inspector-type").textContent = "Work graph";
+      $("#work-inspector-title").textContent = "Select a structure";
+      $("#work-inspector-body").textContent = "Move through the visual edition to reveal the structures Root Logos found within the work.";
+      $("#work-inspector").classList.remove("is-active");
+      this.targetRotation = 0;
+    }
+
+    openCorpus() {
+      if (!this.corpus) return;
+      this.stop();
+      this.entry = null;
+      this.isCorpus = true;
+      this.edition = {
+        edition_id: `corpus-${this.corpus.sound.signature}`,
+        root_logos_revision: "v1.1",
+        source_hash: this.corpus.source_witness,
+        measures: {
+          documents: this.corpus.canonical_work_count,
+          sections: this.corpus.measures.passages,
+          words: this.corpus.measures.words,
+          concepts: this.corpus.nodes.reduce((sum, node) => sum + node.concepts.length, 0),
+          relations: this.corpus.measures.cross_work_relations
+        },
+        visual: this.corpus.visual,
+        sound: this.corpus.sound,
+        reading: {
+          statement: `${this.corpus.title} resolves as ${this.corpus.canonical_work_count} living works, ${this.corpus.measures.passages.toLocaleString()} passage coordinates, and ${this.corpus.measures.cross_work_relations.toLocaleString()} cross-work relations.`,
+          dominant_concepts: []
+        }
+      };
+      this.nodes = this.edition.visual.topology.nodes.map((node, index) => {
+        const angle = node.angle ?? (index / this.edition.visual.topology.nodes.length) * Math.PI * 2;
+        return { ...node, angle, band: node.band ?? 0, screenX: 0, screenY: 0 };
+      });
+      document.querySelectorAll("#work-list [data-work]").forEach((button) => button.classList.remove("is-active"));
+      $("#corpus-entry").classList.add("is-active");
+      $("#work-coordinate").textContent = "private corpus witness / whole canonical field";
+      $("#work-title").textContent = this.corpus.title;
+      $("#work-statement").textContent = this.edition.reading.statement;
+      $("#work-edition").textContent = `Corpus reading / ${this.edition.sound.signature}`;
+      $("#work-source").textContent = "Private corpus witness";
+      $("#work-measures").innerHTML = Object.entries(this.edition.measures).map(([label, value]) =>
+        `<div><dt>${escapeHtml(label)}</dt><dd>${Number(value).toLocaleString()}</dd></div>`).join("");
+      $("#work-concepts").innerHTML = [
+        ["Coherence", "gravity"], ["Living works", "antigravity"], ["Relation", "tensile fabric"]
+      ].map(([label, role]) => `<span style="--weight:1">${label} = ${role}</span>`).join("");
+      $("#work-editions").innerHTML = "<span class=\"corpus-current\">One aggregate reading / every book retains its own lineage</span>";
+      $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / corpus score ${this.edition.sound.signature} / silent by consent.`;
+      $("#work-listen-label").textContent = "Listen to the whole canon";
+      $("#work-inspector-type").textContent = "Governing geometry / equilibrium";
+      $("#work-inspector-title").textContent = "Coherence and antigravity";
+      $("#work-inspector-body").textContent = `Root Logos compresses toward one corrigible account. Each work presses outward according to its irreducible difference. ${this.corpus.measures.cross_work_relations.toLocaleString()} relations hold the fabric between them without collapse.`;
+      $("#work-inspector").classList.add("is-active");
       this.targetRotation = 0;
     }
 
@@ -139,6 +220,18 @@
         const centerY = this.height * .52;
         const radius = Math.min(this.width, this.height) * .37;
         const palette = this.edition.visual.palette;
+        if (this.isCorpus) {
+          context.save();
+          context.translate(centerX, centerY);
+          for (let ring = 1; ring <= 4; ring += 1) {
+            context.strokeStyle = `rgba(203,183,122,${.11 - ring * .018})`;
+            context.lineWidth = ring === 1 ? 1 : .55;
+            context.beginPath();
+            context.arc(0, 0, radius * (.08 + ring * .055), 0, Math.PI * 2);
+            context.stroke();
+          }
+          context.restore();
+        }
         for (const node of this.nodes) {
           const angle = node.angle + this.rotation;
           const perspective = .7 + Math.sin(angle) * .3;
@@ -151,7 +244,10 @@
           const from = this.nodes.find(({ id }) => id === edge.from);
           const to = this.nodes.find(({ id }) => id === edge.to);
           if (!from || !to) continue;
-          context.strokeStyle = `rgba(203,183,122,${clamp(.025 + edge.weight * .018, .03, .2)})`;
+          const corpusRelation = this.isCorpus && edge.relation === "shared-derived-language";
+          context.strokeStyle = corpusRelation
+            ? `rgba(147,185,187,${clamp(.012 + edge.weight * .006, .018, .075)})`
+            : `rgba(203,183,122,${this.isCorpus ? .055 : clamp(.025 + edge.weight * .018, .03, .2)})`;
           context.beginPath();
           context.moveTo(from.screenX, from.screenY);
           context.quadraticCurveTo(centerX, centerY, to.screenX, to.screenY);
@@ -159,15 +255,16 @@
         }
         [...this.nodes].sort((a, b) => a.depth - b.depth).forEach((node, index) => {
           const size = node.type === "work" ? 11 : node.type === "document" ? 5 : clamp(1.5 + Math.sqrt(node.weight), 2, 6);
-          context.fillStyle = palette[index % palette.length];
+          context.fillStyle = node.color || palette[index % palette.length];
           context.globalAlpha = clamp(.2 + node.depth * .65, .25, .95);
           context.beginPath();
           context.arc(node.screenX, node.screenY, size * node.depth, 0, Math.PI * 2);
           context.fill();
           const chapterNumber = node.type === "document" ? Number(node.label.match(/\d+/)?.[0]) : null;
           const labelDocument = node.type === "document" && (!chapterNumber || chapterNumber === 1 || chapterNumber % 5 === 0);
+          const labelBook = node.type === "book" && (node.canonical_order === 1 || node.canonical_order === 47 || node.canonical_order % 6 === 0);
           const labelConcept = node.type === "concept" && ((this.width >= 600 && node.weight > 3) || (this.width < 600 && node.weight > 12));
-          if (node.type === "work" || labelDocument || labelConcept) {
+          if (node.type === "work" || labelDocument || labelBook || labelConcept) {
             context.globalAlpha = clamp(node.depth - .12, .2, .8);
             context.fillStyle = "#e9e5d8";
             context.font = `${node.type === "work" ? 11 : 8}px ui-monospace, monospace`;
@@ -229,9 +326,15 @@
 
   const initialize = async () => {
     try {
-      const response = await fetch("works/index.json", { cache: "no-store" });
-      if (!response.ok) throw new Error("The living works index is unavailable.");
-      window.rootLogosWorks = new LivingWorks(await response.json());
+      const [indexResponse, corpusResponse] = await Promise.all([
+        fetch("works/index.json", { cache: "no-store" }),
+        fetch("works/corpora/original-douay-rheims.json", { cache: "no-store" })
+      ]);
+      if (!indexResponse.ok) throw new Error("The living works index is unavailable.");
+      window.rootLogosWorks = new LivingWorks(
+        await indexResponse.json(),
+        corpusResponse.ok ? await corpusResponse.json() : null
+      );
     } catch (error) {
       console.error(error);
       $("#work-title").textContent = "The archive remains closed";

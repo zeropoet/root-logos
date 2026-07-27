@@ -3,11 +3,17 @@ import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { ingestWork } from "./works.mjs";
+import { CATHOLIC_CANON } from "./works-corpus.mjs";
 
 const fixture = await mkdtemp(join(tmpdir(), "root-logos-work-"));
 const book = join(fixture, "book");
 const indexPath = join(new URL("..", import.meta.url).pathname, "works", "index.json");
 const originalIndex = await readFile(indexPath, "utf8");
+assert.equal(CATHOLIC_CANON.length, 73);
+assert.equal(new Set(CATHOLIC_CANON.map(({ id }) => id)).size, 73);
+assert.equal(CATHOLIC_CANON.filter(({ division }) => division === "Old Testament").length, 46);
+assert.equal(CATHOLIC_CANON.filter(({ division }) => division === "New Testament").length, 27);
+assert.deepEqual(CATHOLIC_CANON.map(({ order }) => order), Array.from({ length: 73 }, (_, index) => index + 1));
 await mkdir(book);
 await writeFile(join(book, "01.md"), "# Part One\n\nLight enters the chamber. Memory answers light.\n\n## Scene\n\nA witness returns through time.\n");
 await writeFile(join(book, "02.md"), "# Part Two\n\nThe chamber holds silence. Light and witness become relation.\n");

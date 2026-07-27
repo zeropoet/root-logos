@@ -10,6 +10,10 @@ on:
       - sources/registry.json
       - sources/*.snapshot.json
       - sources/*.public-witness.json
+      - works/index.json
+      - works/*/manifest.json
+      - works/*/editions/*/edition.json
+      - works/corpora/*.json
       - cultivation/policy.json
       - journal/policy.json
       - journal/*.schema.json

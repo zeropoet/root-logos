@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rootlogos.com/works/corpus.schema.json",
+  "title": "Root Logos Corpus Topology",
+  "type": "object",
+  "required": ["schema", "corpus_id", "title", "source_visibility", "source_witness", "canonical_work_count", "measures", "nodes", "edges", "visual", "sound"],
+  "properties": {
+    "schema": { "const": "root-logos-corpus-topology/v1" },
+    "corpus_id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "source_visibility": { "const": "private" },
+    "source_witness": { "type": "string", "minLength": 1 },
+    "canonical_work_count": { "const": 73 },
+    "measures": {
+      "type": "object",
+      "required": ["documents", "passages", "words", "derived_relations", "cross_work_relations", "mean_outward_pressure"],
+      "properties": {
+        "mean_outward_pressure": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 73,
+      "maxItems": 73,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "division", "canonical_order", "distinctiveness", "outward_pressure", "relational_tension"],
+        "properties": {
+          "distinctiveness": { "type": "number", "minimum": 0, "maximum": 1 },
+          "outward_pressure": { "type": "number", "minimum": 0, "maximum": 1 },
+          "relational_tension": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    "edges": { "type": "array" },
+    "visual": {
+      "type": "object",
+      "required": ["schema", "seed", "palette", "topology", "motion"]
+    },
+    "sound": {
+      "type": "object",
+      "required": ["schema", "signature", "tempo", "events"]
+    }
+  }
+}

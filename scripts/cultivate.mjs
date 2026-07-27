@@ -18,6 +18,8 @@ const sourceRegistryUrl = new URL("sources/registry.json", root);
 const foldForgeSnapshotUrl = new URL("sources/foldforge.snapshot.json", root);
 const telosWitnessUrl = new URL("sources/telos.public-witness.json", root);
 const sovereignStandardWitnessUrl = new URL("sources/sovereign-standard.public-witness.json", root);
+const worksIndexUrl = new URL("works/index.json", root);
+const corpusTopologyUrl = new URL("works/corpora/original-douay-rheims.json", root);
 const cyclesUrl = new URL("cultivation/cycles/", root);
 const policiesUrl = new URL("cultivation/policies/", root);
 const command = process.argv[2] || "status";
@@ -44,6 +46,8 @@ const sourceSnapshot = async () => {
   const foldForgeSnapshotText = await readFile(foldForgeSnapshotUrl, "utf8");
   const telosWitnessText = await readFile(telosWitnessUrl, "utf8");
   const sovereignStandardWitnessText = await readFile(sovereignStandardWitnessUrl, "utf8");
+  const worksIndexText = await readFile(worksIndexUrl, "utf8");
+  const corpusTopologyText = await readFile(corpusTopologyUrl, "utf8");
   const contentDir = new URL("content/", root);
   const markdown = (await readdir(contentDir)).filter((name) => name.endsWith(".md")).sort();
   const documents = [];
@@ -59,6 +63,8 @@ const sourceSnapshot = async () => {
     source_registry: digest(sourceRegistryText),
     connected_sources: digest(foldForgeSnapshotText),
     public_source_witnesses: digest([telosWitnessText, sovereignStandardWitnessText]),
+    living_works: digest(worksIndexText),
+    corpus_topology: digest(corpusTopologyText),
     combined: digest([
       graphText,
       exportsText,
@@ -70,7 +76,9 @@ const sourceSnapshot = async () => {
       sourceRegistryText,
       foldForgeSnapshotText,
       telosWitnessText,
-      sovereignStandardWitnessText
+      sovereignStandardWitnessText,
+      worksIndexText,
+      corpusTopologyText
     ])
   };
 };
