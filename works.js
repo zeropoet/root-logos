@@ -124,6 +124,7 @@
       this.master = null;
       this.timer = null;
       this.cursor = 0;
+      this.detailPinned = false;
       this.isCorpus = false;
       this.isLibrary = false;
       this.bind();
@@ -141,13 +142,19 @@
         this.canvas.setPointerCapture(event.pointerId);
       });
       this.canvas.addEventListener("pointermove", (event) => {
-        if (!this.pointer) return;
-        this.targetRotation = this.pointer.rotation + (event.clientX - this.pointer.x) * .006;
+        if (this.pointer) {
+          this.targetRotation = this.pointer.rotation + (event.clientX - this.pointer.x) * .006;
+          return;
+        }
+        this.previewAt(event.offsetX, event.offsetY);
       });
       this.canvas.addEventListener("pointerup", (event) => {
         this.pointer = null;
         this.canvas.releasePointerCapture(event.pointerId);
         this.selectAt(event.offsetX, event.offsetY);
+      });
+      this.canvas.addEventListener("pointerleave", () => {
+        if (!this.detailPinned) this.hideDetail();
       });
       $("#work-list").addEventListener("click", (event) => {
         if (event.target.closest("[data-corpus]")) {
@@ -350,23 +357,43 @@
     }
 
     selectAt(x, y) {
-      const selected = this.nodes.reduce((best, node) => {
-        const distance = Math.hypot(x - node.screenX, y - node.screenY);
-        return distance < (best?.distance ?? 24) ? { node, distance } : best;
-      }, null);
+      const selected = this.nodeAt(x, y);
       if (!selected) return;
-      const { node } = selected;
+      this.showDetail(selected.node, x, y, true);
+    }
+
+    previewAt(x, y) {
+      if (this.detailPinned) return;
+      const selected = this.nodeAt(x, y, 30);
+      if (!selected) {
+        this.hideDetail();
+        return;
+      }
+      this.showDetail(selected.node, x, y, false);
+    }
+
+    nodeAt(x, y, threshold = 24) {
+      return this.nodes.reduce((best, node) => {
+        const distance = Math.hypot(x - node.screenX, y - node.screenY);
+        return distance < (best?.distance ?? threshold) ? { node, distance } : best;
+      }, null);
+    }
+
+    showDetail(node, x, y, pinned) {
+      this.detailPinned = pinned;
       const relations = this.edition.visual.topology.edges.filter(({ from, to }) => from === node.id || to === node.id);
       $("#work-node-detail-type").textContent = `${node.type} / ${node.coordinate}`;
       $("#work-node-detail-title").textContent = node.label;
-      $("#work-node-detail-body").textContent = `${relations.length} witnessed relation${relations.length === 1 ? "" : "s"} connect this structure to the selected model.`;
+      $("#work-node-detail-body").textContent = `${relations.length} witnessed relation${relations.length === 1 ? "" : "s"} connect this structure to the selected model.${pinned ? " Detail pinned." : " Select to hold."}`;
       const detail = $("#work-node-detail");
+      detail.dataset.state = pinned ? "pinned" : "preview";
       detail.style.left = `${clamp(x + 24, 20, Math.max(20, this.width - 360))}px`;
       detail.style.top = `${clamp(y - 36, 82, Math.max(82, this.height - 230))}px`;
       detail.hidden = false;
     }
 
     hideDetail() {
+      this.detailPinned = false;
       $("#work-node-detail").hidden = true;
     }
 

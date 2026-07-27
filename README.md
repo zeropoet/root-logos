@@ -892,7 +892,9 @@ sparse red event signal identifies sounding and rest without adding a mixing
 control. The full compositional instrument remains in the Resonant Chamber. Measures,
 concepts, edition navigation, filters, and persistent inspectors were removed.
 Structural detail appears only when a node is selected, beside the selected
-point, and may be dismissed without changing the work description. Deeper
+point, and may be dismissed without changing the work description. Pointer
+hover previews each node's title, type, coordinate, and relation count in that
+same local card; selection pins the detail for sustained reading. Deeper
 evidence remains in the underlying archive. The complete Library composition is
 bounded to one viewport: work selection, model, description, contextual detail,
 and listening state remain simultaneously visible. Only the work list acquires
