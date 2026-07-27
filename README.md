@@ -497,6 +497,21 @@ distance, and navigable architecture—not visual compression. The Living Works
 field is the first complete expression of this deep-space architectural
 language.
 
+The **Library Field** is the index-backed architecture above any individual
+corpus. It renders only witnessed containment: Root Logos at the center,
+independently bounded collections in the middle distance, and their works in
+the deep field. It does not fabricate semantic bridges between collections.
+Those relations remain visibly open until a later reading derives them.
+
+The first work outside the Catholic canon is **The Odyssey**, Homer’s epic in
+the William Cullen Bryant (1871) translation. It enters through the same
+private-source/public-lineage membrane as an independently navigable work:
+25 structural movements, 120,283 transiently read words, 36 derived concepts,
+180 witnessed internal relations, and one visual-resonant edition. Its arrival
+establishes Classical Epics as the library’s second external collection and
+changes the public archive from a canon-led display into a collection-aware
+living library.
+
 ## Revision 0.9 — The Self-Writing Constitution
 
 Revision 0.9 establishes the constitutional authority for autonomous intake of

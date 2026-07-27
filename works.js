@@ -25,13 +25,14 @@
       this.timer = null;
       this.cursor = 0;
       this.isCorpus = false;
+      this.isLibrary = false;
       this.division = "all";
       this.query = "";
       this.bind();
       this.resize();
       this.renderArchive();
       requestAnimationFrame(() => this.draw());
-      if (index.works?.length) this.open(index.works[0]);
+      if (index.works?.length) this.openLibrary();
       else this.renderEmpty();
     }
 
@@ -55,16 +56,17 @@
         const entry = this.index.works.find(({ work_id: id }) => id === button?.dataset.work);
         if (entry) this.open(entry);
       });
+      $("#library-entry").addEventListener("click", () => this.openLibrary());
       $("#corpus-entry").addEventListener("click", () => this.openCorpus());
       $("#work-search").addEventListener("input", (event) => {
         this.query = event.target.value.trim().toLowerCase();
         this.renderArchive();
       });
       document.querySelector(".work-archive-tools nav").addEventListener("click", (event) => {
-        const button = event.target.closest("[data-work-division]");
+        const button = event.target.closest("[data-work-filter]");
         if (!button) return;
-        this.division = button.dataset.workDivision;
-        document.querySelectorAll("[data-work-division]").forEach((item) => item.classList.toggle("is-active", item === button));
+        this.division = button.dataset.workFilter;
+        document.querySelectorAll("[data-work-filter]").forEach((item) => item.classList.toggle("is-active", item === button));
         this.renderArchive();
       });
       $("#work-editions").addEventListener("click", (event) => {
@@ -87,12 +89,15 @@
 
     renderArchive() {
       $("#work-count").textContent = `${String(this.index.works?.length || 0).padStart(2, "0")} work${this.index.works?.length === 1 ? "" : "s"}`;
+      const collections = new Set((this.index.works || []).map(({ collection }) => collection || "Root Logos"));
+      $("#library-entry-detail").textContent = `${this.index.works.length} works / ${collections.size} living fields`;
       if (this.corpus) $("#corpus-entry-detail").textContent = `${this.corpus.canonical_work_count} books / ${this.corpus.measures.passages.toLocaleString()} passages`;
       const visible = (this.index.works || []).filter((work) => {
         const divisionMatch = this.division === "all"
-          || work.division === this.division
-          || (this.division === "Root Logos" && !work.division);
-        const queryMatch = !this.query || `${work.title} ${work.division || "Root Logos"} ${work.translation || ""}`.toLowerCase().includes(this.query);
+          || (this.division === "scripture" && work.collection === "Original Douay-Rheims Catholic Canon")
+          || (this.division === "literature" && work.collection && work.collection !== "Original Douay-Rheims Catholic Canon")
+          || (this.division === "root-logos" && !work.collection);
+        const queryMatch = !this.query || `${work.title} ${work.collection || "Root Logos"} ${work.division || ""} ${work.translation || ""}`.toLowerCase().includes(this.query);
         return divisionMatch && queryMatch;
       });
       $("#work-list").innerHTML = visible.map((work) => `
@@ -110,6 +115,8 @@
       if (!response.ok) throw new Error(`Living work ${entry.work_id} could not be opened.`);
       this.entry = entry;
       this.isCorpus = false;
+      this.isLibrary = false;
+      $("#library-entry").classList.remove("is-active");
       $("#corpus-entry").classList.remove("is-active");
       this.edition = await response.json();
       this.nodes = this.edition.visual.topology.nodes.map((node, index) => {
@@ -142,11 +149,86 @@
       this.targetRotation = 0;
     }
 
+    openLibrary() {
+      this.stop();
+      this.entry = null;
+      this.isCorpus = false;
+      this.isLibrary = true;
+      const works = this.index.works || [];
+      const collectionNames = [...new Set(works.map(({ collection }) => collection || "Root Logos"))];
+      const collectionColors = ["#cbb77a", "#93b9bb", "#9a8cb6", "#ad7159", "#8aa681"];
+      const nodes = [{ id: "library", type: "work", label: "Root Logos Library", coordinate: "library:field", band: 0, weight: works.length, color: "#e9e5d8" }];
+      const edges = [];
+      collectionNames.forEach((collection, collectionIndex) => {
+        const members = works.filter((work) => (work.collection || "Root Logos") === collection);
+        const centerAngle = collectionIndex / collectionNames.length * Math.PI * 2 - Math.PI / 2;
+        const collectionId = `collection-${collectionIndex}`;
+        nodes.push({
+          id: collectionId, type: "collection", label: collection, coordinate: `collection:${members.length}`,
+          band: .43, angle: centerAngle, weight: members.length, color: collectionColors[collectionIndex % collectionColors.length]
+        });
+        edges.push({ from: "library", to: collectionId, relation: "contains", weight: members.length });
+        members.forEach((work, memberIndex) => {
+          const spread = Math.min(1.15, .18 + members.length * .035);
+          const angle = centerAngle + (memberIndex - (members.length - 1) / 2) / Math.max(1, members.length - 1) * spread;
+          nodes.push({
+            id: work.work_id, type: "book", label: work.title,
+            coordinate: `${work.collection || "Root Logos"}:${work.canonical_order || memberIndex + 1}`,
+            band: .75 + (memberIndex % 4) * .055, angle, weight: work.editions,
+            collection, division: work.division, color: collectionColors[collectionIndex % collectionColors.length]
+          });
+          edges.push({ from: collectionId, to: work.work_id, relation: "contains", weight: 1 });
+        });
+      });
+      const seed = works.reduce((value, work) => {
+        for (const character of `${work.work_id}:${work.current_edition}`) value = (value * 31 + character.charCodeAt(0)) >>> 0;
+        return value;
+      }, 2166136261);
+      const events = works.slice(0, 96).map((work, index) => ({
+        voice: "library",
+        frequency: Number((82.41 * Math.pow(2, ((seed + index * 7) % 25) / 12)).toFixed(2)),
+        amplitude: .025 + (work.editions || 1) * .004,
+        beats: index % 5 === 0 ? 2 : 1,
+        provenance: `${work.collection || "Root Logos"} / ${work.title}`
+      }));
+      this.edition = {
+        edition_id: `library-${seed.toString(16)}`,
+        root_logos_revision: "v1.1",
+        source_hash: seed.toString(16).padStart(12, "0"),
+        measures: { works: works.length, collections: collectionNames.length, editions: works.reduce((sum, work) => sum + work.editions, 0), witnessed_relations: edges.length },
+        visual: { palette: collectionColors, motion: { drift: .65 }, topology: { nodes, edges } },
+        sound: { tempo: 53, signature: seed.toString(16).padStart(12, "0"), events },
+        reading: { statement: `${works.length} living works now occupy ${collectionNames.length} independently bounded fields. Collection is witnessed as containment; relation between fields remains open until derived.` }
+      };
+      this.nodes = nodes.map((node, index) => ({ ...node, angle: node.angle ?? index / nodes.length * Math.PI * 2, screenX: 0, screenY: 0 }));
+      document.querySelectorAll("#work-list [data-work]").forEach((button) => button.classList.remove("is-active"));
+      $("#library-entry").classList.add("is-active");
+      $("#corpus-entry").classList.remove("is-active");
+      $("#work-coordinate").textContent = "living library / collection architecture";
+      $("#work-title").textContent = "The Library Field";
+      $("#work-statement").textContent = this.edition.reading.statement;
+      $("#work-edition").textContent = `Library state / ${this.edition.sound.signature}`;
+      $("#work-source").textContent = "Derived archive witnesses";
+      $("#work-measures").innerHTML = Object.entries(this.edition.measures).map(([label, value]) =>
+        `<div><dt>${escapeHtml(label)}</dt><dd>${Number(value).toLocaleString()}</dd></div>`).join("");
+      $("#work-concepts").innerHTML = collectionNames.map((collection, index) =>
+        `<span style="--weight:${clamp(works.filter((work) => (work.collection || "Root Logos") === collection).length / works.length, .3, 1)}">${escapeHtml(collection)}</span>`).join("");
+      $("#work-editions").innerHTML = "<span class=\"corpus-current\">The field changes whenever a living work enters</span>";
+      $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / library score ${this.edition.sound.signature} / silent by consent.`;
+      $("#work-listen-label").textContent = "Listen to the library field";
+      $("#work-inspector-type").textContent = "Library architecture / current state";
+      $("#work-inspector-title").textContent = "Difference requires distance";
+      $("#work-inspector-body").textContent = `${collectionNames.length} fields remain independently bounded. Their containment is visible; semantic bridges will appear only when Root Logos has derived them.`;
+      $("#work-inspector").classList.add("is-active");
+      this.targetRotation = 0;
+    }
+
     openCorpus() {
       if (!this.corpus) return;
       this.stop();
       this.entry = null;
       this.isCorpus = true;
+      this.isLibrary = false;
       this.edition = {
         edition_id: `corpus-${this.corpus.sound.signature}`,
         root_logos_revision: "v1.1",
@@ -170,6 +252,7 @@
         return { ...node, angle, band: node.band ?? 0, screenX: 0, screenY: 0 };
       });
       document.querySelectorAll("#work-list [data-work]").forEach((button) => button.classList.remove("is-active"));
+      $("#library-entry").classList.remove("is-active");
       $("#corpus-entry").classList.add("is-active");
       $("#work-coordinate").textContent = "private corpus witness / whole canonical field";
       $("#work-title").textContent = this.corpus.title;
@@ -277,6 +360,9 @@
           context.quadraticCurveTo(centerX, centerY, to.screenX, to.screenY);
           context.stroke();
         }
+        const documentOrdinals = new Map(
+          this.nodes.filter(({ type }) => type === "document").map((node, index) => [node.id, index])
+        );
         [...this.nodes].sort((a, b) => a.depth - b.depth).forEach((node, index) => {
           const size = node.type === "work" ? 11 : node.type === "document" ? 5 : clamp(1.5 + Math.sqrt(node.weight), 2, 6);
           context.fillStyle = node.color || palette[index % palette.length];
@@ -285,14 +371,19 @@
           context.arc(node.screenX, node.screenY, size * node.depth, 0, Math.PI * 2);
           context.fill();
           const chapterNumber = node.type === "document" ? Number(node.label.match(/\d+/)?.[0]) : null;
-          const labelDocument = node.type === "document" && (!chapterNumber || chapterNumber === 1 || chapterNumber % 5 === 0);
+          const documentOrdinal = documentOrdinals.get(node.id) ?? 0;
+          const labelDocument = node.type === "document" && (
+            chapterNumber ? chapterNumber === 1 || chapterNumber % 5 === 0 : documentOrdinal === 0 || documentOrdinal % 8 === 0
+          );
           const labelBook = node.type === "book" && (node.canonical_order === 1 || node.canonical_order === 47 || node.canonical_order % 6 === 0);
+          const labelCollection = node.type === "collection";
           const labelConcept = node.type === "concept" && ((this.width >= 600 && node.weight > 3) || (this.width < 600 && node.weight > 12));
-          if (node.type === "work" || labelDocument || labelBook || labelConcept) {
+          if (node.type === "work" || labelCollection || labelDocument || labelBook || labelConcept) {
             context.globalAlpha = clamp(node.depth - .12, .2, .8);
             context.fillStyle = "#e9e5d8";
-            context.font = `${node.type === "work" ? 11 : 8}px ui-monospace, monospace`;
-            context.fillText(node.label.toUpperCase(), node.screenX + size + 5, node.screenY + 3);
+            context.font = `${node.type === "work" ? 11 : node.type === "collection" ? 9 : 8}px ui-monospace, monospace`;
+            const label = node.label.length > 30 ? `${node.label.slice(0, 27)}…` : node.label;
+            context.fillText(label.toUpperCase(), node.screenX + size + 5, node.screenY + 3);
           }
         });
         context.globalAlpha = 1;
@@ -343,8 +434,15 @@
       this.master = null;
       $("#work-listen")?.setAttribute("aria-pressed", "false");
       $("#work-listen")?.classList.remove("is-sounding");
-      if ($("#work-listen-label")) $("#work-listen-label").textContent = "Listen to this reading";
-      if (this.edition) $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / score ${this.edition.sound.signature} / silent by consent.`;
+      if ($("#work-listen-label")) {
+        $("#work-listen-label").textContent = this.isLibrary
+          ? "Listen to the library field"
+          : this.isCorpus ? "Listen to the whole canon" : "Listen to this reading";
+      }
+      if (this.edition) {
+        const scope = this.isLibrary ? "library score" : this.isCorpus ? "corpus score" : "score";
+        $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / ${scope} ${this.edition.sound.signature} / silent by consent.`;
+      }
     }
   }
 

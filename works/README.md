@@ -71,6 +71,17 @@ concepts, cross-work relations, a navigable Whole Canon visual object, and a
 deterministic corpus score. Every book remains independently addressable and
 retains its own future edition lineage.
 
+The archive’s highest-level view is the **Library Field**, derived directly
+from `index.json`. Collections form independently bounded middle-distance
+structures; works occupy their deep-field orbits. These edges witness
+containment only. Cross-collection semantic relations are not displayed until
+Root Logos has actually derived them.
+
+The Odyssey is the first work beyond the scriptural corpus and establishes the
+`Classical Epics / Ancient Greek Epic` boundary. Its arrival also changes the
+archive filters from translation-specific Old/New Testament controls to
+library-scale Canon, Literature, and Root Logos views.
+
 ## Spatial grammar
 
 Living Works uses a deep-space architectural grammar because its archive is

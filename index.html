@@ -121,16 +121,21 @@
 
         <aside class="works-archive" aria-label="Living works archive">
           <header><span>Archive</span><b id="work-count">00 works</b></header>
-          <button class="corpus-entry" id="corpus-entry" type="button">
-            <span>00</span><span><b>Whole Canon</b><small id="corpus-entry-detail">Resolving corpus topology</small></span>
-          </button>
+          <div class="library-entries">
+            <button class="library-entry" id="library-entry" type="button">
+              <span>∞</span><span><b>Library Field</b><small id="library-entry-detail">Resolving living collections</small></span>
+            </button>
+            <button class="corpus-entry" id="corpus-entry" type="button">
+              <span>01</span><span><b>Whole Canon</b><small id="corpus-entry-detail">Resolving corpus topology</small></span>
+            </button>
+          </div>
           <div class="work-archive-tools">
-            <label><span>Seek a work</span><input id="work-search" type="search" placeholder="Title or division" autocomplete="off"></label>
+            <label><span>Seek a work</span><input id="work-search" type="search" placeholder="Title, collection, or division" autocomplete="off"></label>
             <nav aria-label="Filter living works">
-              <button type="button" class="is-active" data-work-division="all">All</button>
-              <button type="button" data-work-division="Old Testament">Old</button>
-              <button type="button" data-work-division="New Testament">New</button>
-              <button type="button" data-work-division="Root Logos">RL</button>
+              <button type="button" class="is-active" data-work-filter="all">All</button>
+              <button type="button" data-work-filter="scripture">Canon</button>
+              <button type="button" data-work-filter="literature">Literature</button>
+              <button type="button" data-work-filter="root-logos">RL</button>
             </nav>
           </div>
           <div id="work-list"><p class="works-loading">Opening the archive…</p></div>
