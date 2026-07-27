@@ -123,7 +123,7 @@
     return (h >>> 0) / 4294967295;
   };
 
-  const fetchJson = (url) => fetch(url).then((response) => {
+  const fetchJson = (url) => fetch(url, { cache: "no-store" }).then((response) => {
     if (!response.ok) throw new Error(`${url}: ${response.status}`);
     return response.json();
   });

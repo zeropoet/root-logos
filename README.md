@@ -450,10 +450,13 @@ visual score and a provenance-bearing resonant score.
 
 The archive is temporal. A change in the work or in Root Logos' constitutional
 voice creates a new immutable edition with a parent link. Earlier visuals,
-scores, measures, and readings remain playable. The two included editions of
-the founding constitution demonstrate this: v1.0 reads the constitution before
-the Living Works pillar, while v1.1 reads it after the system has been changed
-by the capability itself.
+scores, measures, and readings remain playable. Five included editions of the
+founding constitution now demonstrate this temporal identity: v1.0 reads the
+constitution before the Living Works pillar; successive v1.1 editions preserve
+the addition of complete-work reading, the changing public architecture, and
+the present FoldForge-derived visual language. The current self-reading resolves
+as 20 constitutional sections, 2,426 words, 36 dominant concepts, 180 internal
+relations, and a new 72-event resonant score with signature `5a2dec625377`.
 
 The first complete external corpus is the **Original Douay-Rheims Catholic
 Canon**, read from its CC0 dataset through the private-source membrane. Root
