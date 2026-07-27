@@ -76,8 +76,10 @@
   });
   const AudioContextClass = window.AudioContext || window.webkitAudioContext;
   const sovereignAudio = AudioContextClass ? new AudioContextClass() : null;
+  let fallbackAudio = null;
   const ensureVoiceAwake = () => {
     if (sovereignAudio?.state !== "running") sovereignAudio?.resume().catch(() => {});
+    if (fallbackAudio?.paused) fallbackAudio.play().catch(() => {});
   };
   ensureVoiceAwake();
   ["pointerdown", "keydown", "touchstart", "wheel"].forEach((eventName) => {
@@ -529,7 +531,10 @@
   }
 
   function beginSovereignVoice({ works, cycles, collections, relations }) {
-    if (!sovereignAudio) return;
+    if (!sovereignAudio) {
+      beginFallbackVoice({ works, cycles, collections, relations });
+      return;
+    }
     const audio = sovereignAudio;
     const master = audio.createGain();
     const filter = audio.createBiquadFilter();
@@ -607,6 +612,56 @@
       cadence: "weekly / Sunday 10:07 Eastern / seven-beat live phrase",
       relations: relations.length,
       relationWeight,
+      state: cadenceState
+    };
+  }
+
+  function beginFallbackVoice({ works, cycles, collections, relations }) {
+    const sampleRate = 8000;
+    const seconds = cadence.beatSeconds * 2;
+    const samples = sampleRate * seconds;
+    const buffer = new ArrayBuffer(44 + samples * 2);
+    const view = new DataView(buffer);
+    const write = (offset, value) => [...value].forEach((character, index) => view.setUint8(offset + index, character.charCodeAt(0)));
+    write(0, "RIFF");
+    view.setUint32(4, 36 + samples * 2, true);
+    write(8, "WAVEfmt ");
+    view.setUint32(16, 16, true);
+    view.setUint16(20, 1, true);
+    view.setUint16(22, 1, true);
+    view.setUint32(24, sampleRate, true);
+    view.setUint32(28, sampleRate * 2, true);
+    view.setUint16(32, 2, true);
+    view.setUint16(34, 16, true);
+    write(36, "data");
+    view.setUint32(40, samples * 2, true);
+    const root = 38 + (cycles % 12);
+    const relationTone = root * (1 + (relations.length % 29) / 100);
+    const meanWeight = relations.reduce((sum, relation) => sum + Math.max(1, Number(relation.weight || 1)), 0) / Math.max(1, relations.length);
+    for (let index = 0; index < samples; index += 1) {
+      const time = index / sampleRate;
+      const phase = time % cadence.beatSeconds;
+      const pulse = Math.exp(-phase * 3.4) * (.22 + Math.min(.1, meanWeight * .004));
+      const body = Math.sin(Math.PI * 2 * root * time) * .3
+        + Math.sin(Math.PI * 2 * root * 1.5 * time) * .11
+        + Math.sin(Math.PI * 2 * relationTone * time) * .16
+        + Math.sin(Math.PI * 2 * root * 2 * time) * pulse;
+      view.setInt16(44 + index * 2, Math.max(-1, Math.min(1, body)) * 32760, true);
+    }
+    fallbackAudio = document.createElement("audio");
+    fallbackAudio.src = URL.createObjectURL(new Blob([buffer], { type: "audio/wav" }));
+    fallbackAudio.loop = true;
+    fallbackAudio.preload = "auto";
+    fallbackAudio.volume = Math.min(.72, .42 + works / 1000 + collections / 100);
+    fallbackAudio.setAttribute("playsinline", "");
+    fallbackAudio.hidden = true;
+    document.body.append(fallbackAudio);
+    ensureVoiceAwake();
+    window.__rootLogosVoice = {
+      context: { state: "pcm-fallback" },
+      cadence: "weekly / Sunday 10:07 Eastern / seven-beat live phrase",
+      relations: relations.length,
+      relationWeight: meanWeight * relations.length,
       state: cadenceState
     };
   }
