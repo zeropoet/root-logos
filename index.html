@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=1.3-living-engraving">
+    <link rel="stylesheet" href="styles.css?v=1.3-monochrome-object">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the object</a>
@@ -26,13 +26,9 @@
 
       <nav class="primary-nav" aria-label="Root Logos instruments">
         <a href="#object" data-space="object">Object</a>
-        <a href="#works" data-space="works">Works</a>
-        <a href="#coherence" data-space="coherence">Coherence</a>
+        <a href="#works" data-space="works">Library</a>
         <a href="#observatory" data-space="observatory">Observatory</a>
-        <a href="#chamber" data-space="chamber">Chamber</a>
-        <a href="#threshold" data-space="threshold">Threshold</a>
-        <a href="#intake" data-space="intake">Intake</a>
-        <a href="#resonance" data-space="resonance">Resonance</a>
+        <a href="#intake" data-space="intake">Membrane</a>
       </nav>
 
       <div class="system-presence" aria-live="polite">
@@ -60,7 +56,7 @@
       </section>
 
       <section class="space field-space" id="field" data-space-name="Field" aria-labelledby="field-title">
-        <canvas id="field-canvas" aria-label="Dimensional interactive constellation of the Root Logos constitutional field. Drag to rotate, scroll to change depth, and select a node to inspect its relations."></canvas>
+        <canvas id="field-canvas" aria-label="Dimensional interactive constellation of the Root Logos constitutional field. Drag to rotate, hold Alt or Option while scrolling to change depth, and select a node to inspect its relations. Ordinary vertical scrolling moves through the archive."></canvas>
         <div class="field-vignette" aria-hidden="true"></div>
 
         <div class="field-header">
@@ -122,7 +118,7 @@
           <em>Enter the works ↓</em>
         </a>
 
-        <div class="scroll-cue" aria-hidden="true"><span>Drag to rotate · Scroll for depth</span><i></i></div>
+        <div class="scroll-cue" aria-hidden="true"><span>Drag to rotate · Alt / Option + scroll for depth</span><i></i></div>
       </section>
 
       <section class="space works-space" id="works" data-space-name="Works" aria-labelledby="works-title">
@@ -130,10 +126,17 @@
         <div class="works-veil" aria-hidden="true"></div>
 
         <header class="works-heading">
-          <p class="coordinate">RL / 01 — The Living Works</p>
-          <h2 id="works-title">A body of language enters.<br><em>Another body emerges.</em></h2>
+          <p class="coordinate">RL / 01 — The Library</p>
+          <h2 id="works-title">The living archive.<br><em>One work at a time.</em></h2>
           <p>Each work is read as structure, relation, pressure, voice, and time—then archived as a paired visual and resonant edition. No reading replaces the work. No later voice erases an earlier one.</p>
         </header>
+
+        <nav class="library-layers" aria-label="Library views">
+          <span>Library view</span>
+          <button type="button" class="is-active" disabled>Works</button>
+          <button type="button" data-reveal-surface="living-identity">Formative identity</button>
+          <button type="button" data-reveal-surface="coherence">Source field</button>
+        </nav>
 
         <aside class="works-archive" aria-label="Living works archive">
           <header><span>Archive</span><b id="work-count">00 works</b></header>
@@ -187,10 +190,11 @@
           <span><small>Future reading</small><b>Eligible to evolve</b></span>
         </div>
 
-        <a class="works-descent" href="#living-identity"><span>Every reading leaves attributable pressure</span><i>Enter the identity they shape ↓</i></a>
+        <a class="works-descent" href="#living-identity" data-reveal-surface="living-identity"><span>Every reading leaves attributable pressure</span><i>Enter the identity they shape ↓</i></a>
       </section>
 
-      <section class="space identity-space" id="living-identity" data-space-name="Identity" aria-labelledby="identity-title">
+      <section class="space identity-space system-layer" id="living-identity" data-space-name="Identity" aria-labelledby="identity-title" hidden>
+        <button class="surface-return" type="button" data-close-surface="living-identity">← Return to the Library</button>
         <header class="space-heading identity-heading">
           <p class="coordinate">RL / 02 — The Formative Identity</p>
           <div>
@@ -258,7 +262,8 @@
         </div>
       </section>
 
-      <section class="space coherence-space" id="coherence" data-space-name="Coherence" aria-labelledby="coherence-title">
+      <section class="space coherence-space system-layer" id="coherence" data-space-name="Coherence" aria-labelledby="coherence-title" hidden>
+        <button class="surface-return" type="button" data-close-surface="coherence">← Return to the Library</button>
         <header class="space-heading coherence-heading">
           <p class="coordinate">RL / 03 — Coherent Field</p>
           <div>
@@ -314,6 +319,15 @@
           </div>
         </header>
 
+        <nav class="system-layer-nav" aria-label="Observatory layers">
+          <span>System layer</span>
+          <button type="button" data-reveal-surface="chamber">Cultivation</button>
+          <button type="button" data-reveal-surface="memory">Memory</button>
+          <button type="button" data-reveal-surface="threshold">Judgment</button>
+          <button type="button" data-reveal-surface="resonance">Voice</button>
+          <button type="button" data-toggle-surface="structural-health">Health</button>
+        </nav>
+
         <div class="observatory-instrument">
           <nav class="observatory-modes" aria-label="Ways of seeing Root Logos">
             <button type="button" class="is-active" data-observatory-mode="lineage"><span>01</span><b>Lineage</b><small>How it became</small></button>
@@ -355,13 +369,14 @@
           </aside>
         </div>
 
-        <div class="structural-health" aria-labelledby="health-title">
+        <div class="structural-health" id="structural-health" aria-labelledby="health-title" hidden>
           <header><p class="coordinate">Diagnostic profile / not a score</p><h3 id="health-title">Structural health</h3><p>Growth is read as a balance of relation, uncertainty, memory, provenance, and corrigibility—not as a single measure of success.</p></header>
           <div class="health-profile" id="health-profile"></div>
         </div>
       </section>
 
-      <section class="space chamber-space" id="chamber" data-space-name="Chamber" aria-labelledby="chamber-title">
+      <section class="space chamber-space system-layer" id="chamber" data-space-name="Chamber" aria-labelledby="chamber-title" hidden>
+        <button class="surface-return" type="button" data-close-surface="chamber">← Return to the Observatory</button>
         <div class="section-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
         <header class="space-heading">
           <p class="coordinate">RL / 05 — Cultivation Chamber</p>
@@ -433,7 +448,8 @@
         </div>
       </section>
 
-      <section class="space memory-space" id="memory" data-space-name="Memory" aria-labelledby="memory-title">
+      <section class="space memory-space system-layer" id="memory" data-space-name="Memory" aria-labelledby="memory-title" hidden>
+        <button class="surface-return" type="button" data-close-surface="memory">← Return to the Observatory</button>
         <header class="space-heading">
           <p class="coordinate">RL / 06 — Semantic Memory</p>
           <div>
@@ -455,7 +471,8 @@
         </div>
       </section>
 
-      <section class="space threshold-space" id="threshold" data-space-name="Threshold" aria-labelledby="threshold-title">
+      <section class="space threshold-space system-layer" id="threshold" data-space-name="Threshold" aria-labelledby="threshold-title" hidden>
+        <button class="surface-return" type="button" data-close-surface="threshold">← Return to the Observatory</button>
         <div class="threshold-line" aria-hidden="true"><span>Delegated constitution</span><i></i><span>Autonomous judgment</span></div>
         <header class="space-heading">
           <p class="coordinate">RL / 07 — The Threshold</p>
@@ -496,7 +513,7 @@
           </div>
         </header>
 
-        <div class="membrane-instrument">
+        <div class="membrane-instrument" hidden>
           <div class="membrane-rings" aria-hidden="true"><i></i><i></i><i></i><i></i><span></span></div>
           <ol class="intake-path" aria-label="Observation intake path">
             <li><span>01</span><div><b>Entry</b><small>Public arrival</small></div></li>
@@ -542,7 +559,7 @@
           </form>
         </div>
 
-        <article class="journal-plan" aria-labelledby="journal-plan-title">
+        <article class="journal-plan" aria-labelledby="journal-plan-title" hidden>
           <header>
             <div><p class="coordinate">Revision 0.9 / Living intake boundary</p><h3 id="journal-plan-title">The Journal Membrane</h3></div>
             <p>Addition is authorization: every public entry may be witnessed, judged, cultivated, and built from without recurring approval.</p>
@@ -587,7 +604,8 @@
 
       </section>
 
-      <section class="space resonance-space" id="resonance" data-space-name="Resonance" aria-labelledby="resonance-title">
+      <section class="space resonance-space system-layer" id="resonance" data-space-name="Resonance" aria-labelledby="resonance-title" hidden>
+        <button class="surface-return" type="button" data-close-surface="resonance">← Return to the Observatory</button>
         <canvas id="resonance-canvas" aria-hidden="true"></canvas>
         <header class="space-heading resonance-heading">
           <p class="coordinate">RL / 09 — The Resonant Chamber</p>
@@ -647,19 +665,19 @@
     </main>
 
     <footer class="site-footer">
-      <div><img src="assets/root-logos-mark-open.svg" width="34" height="34" alt=""><span>Root Logos</span></div>
+      <div><span class="footer-mark"><img src="assets/root-logos-mark-open.svg" width="28" height="28" alt=""></span><span>Root Logos</span></div>
       <a class="footer-tea" href="https://sovereignstandard.co" target="_blank" rel="noopener">
         <small>Exit through the gift shop</small>
         <span>You made it this far.<br><em>Stay for tea.</em></span>
-        <i aria-hidden="true">↗</i>
+        <i class="footer-tea-arrow" aria-hidden="true"></i>
       </a>
       <nav aria-label="Archive links"><a href="documents/root-logos.html">Read the constitution</a><a href="https://github.com/zeropoet/root-logos">Inspect the source</a><a href="https://runtime.rootlogos.com/health">Runtime health</a></nav>
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
-    <script src="living-object.js?v=1.3-sovereign-voice-present" defer></script>
-    <script src="script.js?v=1.3-living-object-gravity" defer></script>
-    <script src="works.js?v=1.3-living-object-gravity" defer></script>
-    <script src="resonance.js" defer></script>
+    <script src="living-object.js?v=1.3-complete-audiovisual-field" defer></script>
+    <script src="script.js?v=1.3-monochrome-public" defer></script>
+    <script src="works.js?v=1.3-monochrome-public" defer></script>
+    <script src="resonance.js?v=1.3-monochrome-public" defer></script>
   </body>
 </html>

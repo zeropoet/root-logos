@@ -346,7 +346,7 @@
         const radius = 70 + ring * Math.min(width, height) * .055 + Math.sin(this.phase * (ring + 1)) * 8;
         context.beginPath();
         context.arc(width * .42, height * .54, radius, 0, Math.PI * 2);
-        context.strokeStyle = `rgba(${ring % 2 ? "147,185,187" : "203,183,122"},${.025 + energy * .018})`;
+        context.strokeStyle = `rgba(${ring % 2 ? "174,174,174" : "198,198,198"},${.025 + energy * .018})`;
         context.stroke();
       }
       requestAnimationFrame(() => this.draw());

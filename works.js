@@ -30,7 +30,7 @@
       id: node.id,
       title: node.title,
       concepts: node.concepts,
-      color: node.division === "Old Testament" ? "#cbb77a" : "#93b9bb"
+      color: node.division === "Old Testament" ? "#c8c8c8" : "#a9a9a9"
     }));
     const independent = (index.works || []).filter(({ collection }) =>
       collection !== "Original Douay-Rheims Catholic Canon"
@@ -44,7 +44,7 @@
           id: work.work_id,
           title: work.title,
           concepts: edition.reading?.dominant_concepts || [],
-          color: work.collection ? "#9a8cb6" : "#8aa681"
+          color: work.collection ? "#989898" : "#858585"
         };
       } catch {
         return null;
@@ -254,8 +254,8 @@
       this.isLibrary = true;
       const works = this.index.works || [];
       const collectionNames = [...new Set(works.map(({ collection }) => collection || "Root Logos"))];
-      const collectionColors = ["#cbb77a", "#93b9bb", "#9a8cb6", "#ad7159", "#8aa681"];
-      const nodes = [{ id: "library", type: "work", label: "Root Logos Library", coordinate: "library:field", band: 0, weight: works.length, color: "#e9e5d8" }];
+      const collectionColors = ["#d2d2d2", "#b8b8b8", "#9e9e9e", "#848484", "#6a6a6a"];
+      const nodes = [{ id: "library", type: "work", label: "Root Logos Library", coordinate: "library:field", band: 0, weight: works.length, color: "#e8e8e8" }];
       const edges = [];
       collectionNames.forEach((collection, collectionIndex) => {
         const members = works.filter((work) => (work.collection || "Root Logos") === collection);
@@ -406,7 +406,7 @@
         context.lineWidth = .55;
         for (let horizon = 1; horizon <= 5; horizon += 1) {
           const scale = horizon / 5;
-          context.strokeStyle = `rgba(147,185,187,${.055 - horizon * .006})`;
+          context.strokeStyle = `rgba(174,174,174,${.055 - horizon * .006})`;
           context.beginPath();
           context.ellipse(0, 0, radius * scale, radius * scale * .54, 0, 0, Math.PI * 2);
           context.stroke();
@@ -419,7 +419,7 @@
           context.lineTo(Math.cos(angle) * radius * 1.18, Math.sin(angle) * radius * 1.18 * .54);
           context.stroke();
         }
-        context.strokeStyle = "rgba(203,183,122,.12)";
+        context.strokeStyle = "rgba(198,198,198,.12)";
         context.beginPath();
         context.moveTo(-radius * 1.24, 0);
         context.lineTo(radius * 1.24, 0);
@@ -429,7 +429,7 @@
           context.save();
           context.translate(centerX, centerY);
           for (let ring = 1; ring <= 4; ring += 1) {
-            context.strokeStyle = `rgba(203,183,122,${.11 - ring * .018})`;
+            context.strokeStyle = `rgba(198,198,198,${.11 - ring * .018})`;
             context.lineWidth = ring === 1 ? 1 : .55;
             context.beginPath();
             context.arc(0, 0, radius * (.08 + ring * .055), 0, Math.PI * 2);
@@ -451,8 +451,8 @@
           if (!from || !to) continue;
           const corpusRelation = this.isCorpus && edge.relation === "shared-derived-language";
           context.strokeStyle = corpusRelation
-            ? `rgba(147,185,187,${clamp(.012 + edge.weight * .006, .018, .075)})`
-            : `rgba(203,183,122,${this.isCorpus ? .055 : clamp(.025 + edge.weight * .018, .03, .2)})`;
+            ? `rgba(174,174,174,${clamp(.012 + edge.weight * .006, .018, .075)})`
+            : `rgba(198,198,198,${this.isCorpus ? .055 : clamp(.025 + edge.weight * .018, .03, .2)})`;
           context.beginPath();
           context.moveTo(from.screenX, from.screenY);
           context.quadraticCurveTo(centerX, centerY, to.screenX, to.screenY);
@@ -478,7 +478,7 @@
           const labelConcept = node.type === "concept" && ((this.width >= 600 && node.weight > 3) || (this.width < 600 && node.weight > 12));
           if (node.type === "work" || labelCollection || labelDocument || labelBook || labelConcept) {
             context.globalAlpha = clamp(node.depth - .12, .2, .8);
-            context.fillStyle = "#e9e5d8";
+            context.fillStyle = "#e8e8e8";
             context.font = `${node.type === "work" ? 11 : node.type === "collection" ? 9 : 8}px ui-monospace, monospace`;
             const label = node.label.length > 30 ? `${node.label.slice(0, 27)}…` : node.label;
             context.fillText(label.toUpperCase(), node.screenX + size + 5, node.screenY + 3);

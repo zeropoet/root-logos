@@ -269,13 +269,37 @@ difference; its tensile connections from witnessed cross-work relations; and
 its pulses from attributable lineage. No element may enter the form merely
 because it is visually persuasive.
 
+Every witnessed relation available to the current architecture must be drawn.
+The public object may use weight, depth, luminance, motion, and perspective to
+make density inhabitable, but it may not sample away or suppress relations for
+visual convenience. Meticulous derivation is the legibility boundary.
+
+The sovereign voice must receive the same complete relation field. Every edge
+must exert attributable harmonic pressure through its endpoints, type, phase,
+and weight. The audio may compose those pressures into a bounded spectrum, but
+it may not substitute an aggregate count for the topology that the object
+actually holds.
+
 The object is the public threshold because Root Logos is first a presence to
 encounter, not an instrument to operate. That threshold should remain naked:
 the form, the void, and one quiet passage into its architecture. Explanation,
 measures, navigation, and controls belong beyond that passage. The void must be
 complete black rather than simulated atmosphere. Three-dimensional depth must
 arise from the engraved topology itself: brightness, recession, intersection,
-motion, and the witnessed position of each line and point. The object may
+motion, and the witnessed position of each line and point. The Living Object
+and the constitutional data field must remain monochrome. One solid-red accent
+may sit above that grayscale layer only as a scarce interface signal for
+presence, active orientation, or passage; it may never encode evidence,
+authority, judgment, or graph meaning. Collection, pressure,
+relation, epistemic class, judgment state, and authority must be distinguished
+through topology, luminance, line weight, pattern, motion, language, and
+typography. No public graph may require hue to remain intelligible, and color
+may not serve as ambient decoration or unexamined evidence. Public typography
+inherits FoldForge's paired instrumental voice: Helvetica Neue carries display
+and sustained reading, while a compact system monospace carries labels, state,
+provenance, commands, and measures. Hierarchy arises from scale, weight,
+spacing, position, and luminance. Tabular figures preserve comparison.
+Ornamental typography may not substitute for hierarchy or meaning. The object may
 unfold slowly, move with the
 subtle instability of a living structure, and sound its current topology as a
 constant sovereign voice. That voice takes the cultivation cycle as its pulse:

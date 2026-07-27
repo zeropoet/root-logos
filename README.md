@@ -28,13 +28,13 @@ of carrying them without doctrinal repetition.
 
 ## Current Shape
 
-- `index.html` renders the public Root Logos observatory: the constitutional
-  Object, central Living Works archive, visible Living Identity, connected-source Coherent Field, live Cultivation Chamber, semantic
-  Memory, constitutional Threshold, signed Intake membrane, Living Observatory,
-  live Resonant Chamber, and the autonomous Journal Membrane. The interface now
-  makes its continual movement explicit: receive, witness, relate, judge,
-  compose, and rewrite one canonical account inside a boundary where reality
-  remains greater than the system.
+- `index.html` renders four public surfaces: the Living Object, the Library, the
+  Observatory, and the Membrane. Formative Identity and the Coherent Field unfold
+  from the Library only when requested. Cultivation, Memory, Judgment, Voice,
+  and Structural Health unfold as Observatory layers rather than permanent
+  destinations. The Resonant Chamber remains embedded in the Living Object as
+  its sovereign voice. This reduction preserves every dataset while removing
+  repeated explanation and idle interface.
 - `works/` is the immutable public archive of complete-work transformations.
   Each work has a stable manifest and one or more edition records. An edition
   contains a derived Work Graph, deterministic visual score, deterministic
@@ -180,12 +180,12 @@ state.
 
 ## One Living Document
 
-The public interface is a single reading field rather than a collection of
-destinations. A reader moves from declaration to visual relation, constitutional
-language, derived work, the relationship ledger, inquiry, revision protocol, and
-history without changing routes or managing an outline.
+The public interface is a four-surface reading field rather than a collection of
+permanent conceptual rooms. A reader encounters the Object, enters the Library,
+observes the system, or offers material through the Membrane. Deeper instruments
+unfold in place only when selected.
 
-- The header supplies ambient conceptual orientation instead of section menus.
+- The header names only Object, Library, Observatory, and Membrane.
 - The progress line shows movement through the whole document.
 - The document pulse reports the live node, relationship, and revision counts.
 - Constitutional parts remain open and continuous.
@@ -527,9 +527,20 @@ The public threshold is now the **Living Object**: one slow, dimensional,
 data-derived form of Root Logos held in an architectural void. It is not a
 dashboard, network explorer, or decorative emblem. Constitutional continuity
 forms its trunk; cultivation cycles form its growth rings; every completed work
-remains a colored point; coherence draws inward as gravity; each work's derived
+remains a tonal point; coherence draws inward as gravity; each work's derived
 distinctiveness extends outward as antigravity; and witnessed cross-work
 relations become the tensile fabric holding the field open.
+
+The Living Object draws every witnessed relation available to it. It does not
+sample, rank away, or suppress cross-work connections for visual convenience.
+All 1,681 current corpus relations enter the engraving; weight, depth,
+luminance, rotation, and motion carry their density.
+
+The same complete field enters the sovereign voice. Every relation contributes
+its endpoints, type, phase, and derived weight to a deterministic harmonic
+spectrum. The cycle pulse carries the field's mean relational pressure. A
+change to any witnessed edge therefore changes both the engraved object and its
+audible body; sound does not reduce the topology to a relation count.
 
 The object is deliberately beheld before it is explained. Its threshold is
 visually naked: no site navigation, title treatment, measures, identity
@@ -537,15 +548,28 @@ statement, or interpretive panel precedes the encounter. A single quiet passage
 leads into the architecture where explanation and operation become available.
 The void is absolute black; it contributes no atmospheric gradient, horizon,
 or decorative light. Dimensionality is carried by the engraving itself: near
-relations cut brighter, distant relations recede, and colored work-points remain
-fine evidence within the linework. It rotates and breathes without demanding
+relations cut brighter, distant relations recede, and tonal work-points remain
+fine evidence within the linework. The Living Object and the constitutional
+data field are monochrome. One solid-red accent sits above that grayscale layer
+as a scarce signal of presence, active orientation, and passage; it never
+encodes evidence, authority, or judgment. Collection, pressure, relation, epistemic status, and
+judgment are carried through luminance, topology, line weight, pattern, motion,
+labels, and typography rather than hue. Public graphs therefore remain readable
+without a color key and cannot mistake chromatic atmosphere for evidence.
+The same law governs type through the FoldForge visual inheritance. Helvetica
+Neue carries display and sustained reading; a compact system monospace carries
+navigation, state, provenance, commands, and measures. Hierarchy arises from
+scale, weight, spacing, position, and luminance rather than ornament. Figures
+remain tabular so measurements stay distinguishable from prose.
+It rotates and breathes without demanding
 interaction and responds only subtly to a visitor's presence. Its live resonant state
 is derived from the same current counts and topology rather than selected from
 a soundtrack. The detailed Living Works, Formative Identity, Constitutional
 Field, Observatory, Chamber, Threshold, and intake instruments exist in a
-separate archive state from which the visible form can be audited. They do not
-occupy the threshold's layout, scroll, accessibility tree, or rendering path
-until a visitor explicitly enters that archive.
+  converged archive state from which the visible form can be audited. Identity
+  and source evidence unfold from the Library; cultivation, memory, judgment,
+  voice, and health unfold from the Observatory. They do not occupy the normal
+  scroll or accessibility tree until explicitly requested.
 
 Abstraction must not become erasure. Every visible branch and point is generated
 from the canonical graph, cultivation state, works index, corpus topology,

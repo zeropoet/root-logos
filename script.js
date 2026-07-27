@@ -118,6 +118,14 @@ const renderPresence = () => {
 
   const sleeping = status === "sleeping";
   const running = status === "running";
+  const chamber = $(".chamber-space");
+  if (chamber) chamber.dataset.runtimeState = running ? "running" : sleeping ? "sleeping" : status;
+  $("#phase-resolution").textContent = running ? "Resolve" : "Sleep";
+  $("#phase-resolution-detail").textContent = running
+    ? "Cultivation active"
+    : app.runtime.dormancy?.active
+      ? app.runtime.dormancy.reason || "Low-yield dormancy"
+      : "No wake condition";
   $("#field-state-label").textContent = sleeping ? "Chamber sleeping" : running ? "Cultivation active" : sentence(status);
   $("#field-state-declaration").textContent = sleeping
     ? "No unresolved wake condition remains."
@@ -666,10 +674,10 @@ class LivingObservatory {
       ctx.beginPath(); this.points.forEach((point, index) => index ? ctx.lineTo(point.x, point.y) : ctx.moveTo(point.x, point.y));
       ctx.strokeStyle = "rgba(225,209,152,.16)"; ctx.lineWidth = .7; ctx.stroke();
     }
-    if (this.mode === "respiration" && this.points.length) this.points.slice(1).forEach((point) => { ctx.beginPath(); ctx.moveTo(this.points[0].x, this.points[0].y); ctx.lineTo(point.x, point.y); ctx.strokeStyle = "rgba(147,185,187,.08)"; ctx.stroke(); });
+    if (this.mode === "respiration" && this.points.length) this.points.slice(1).forEach((point) => { ctx.beginPath(); ctx.moveTo(this.points[0].x, this.points[0].y); ctx.lineTo(point.x, point.y); ctx.strokeStyle = "rgba(174,174,174,.08)"; ctx.stroke(); });
     this.points.forEach((point, index) => {
       const active = point === selected; const hover = point === this.hovered; const pulse = Math.sin(this.time * 1.4 + index) * 1.3;
-      const colors = { gold: [225,209,152], inquiry: [147,185,187], memory: [154,140,182], rust: [173,113,89], void: [110,114,105] }; const color = colors[point.color] || colors.gold;
+      const colors = { gold: [218,218,218], inquiry: [178,178,178], memory: [158,158,158], rust: [132,132,132], void: [110,110,110] }; const color = colors[point.color] || colors.gold;
       if (this.mode === "absence") { ctx.setLineDash([3, 6]); ctx.beginPath(); ctx.arc(point.x, point.y, point.r + 7 + pulse, 0, Math.PI * 2); ctx.strokeStyle = `rgba(${color.join(",")},.34)`; ctx.stroke(); ctx.setLineDash([]); }
       if (this.mode === "pressure") { const glow = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, point.r * 3); glow.addColorStop(0, `rgba(${color.join(",")},.18)`); glow.addColorStop(1, `rgba(${color.join(",")},0)`); ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(point.x, point.y, point.r * 3, 0, Math.PI * 2); ctx.fill(); }
       if (active || hover) { ctx.beginPath(); ctx.arc(point.x, point.y, point.r + 9 + pulse, 0, Math.PI * 2); ctx.strokeStyle = `rgba(${color.join(",")},.5)`; ctx.lineWidth = .7; ctx.stroke(); }
@@ -824,6 +832,7 @@ class ConstitutionalField {
     this.canvas.addEventListener("pointercancel", release);
     this.canvas.addEventListener("pointerleave", () => { if (!this.dragging) this.hovered = null; });
     this.canvas.addEventListener("wheel", (event) => {
+      if (!event.altKey) return;
       event.preventDefault();
       this.targetZoom = Math.max(.62, Math.min(1.65, this.targetZoom - event.deltaY * .0008));
     }, { passive: false });
@@ -862,7 +871,7 @@ class ConstitutionalField {
     [1, .72, .43].forEach((ring, index) => {
       ctx.beginPath();
       ctx.ellipse(0, 0, objectRadius * ring, objectRadius * ring * (.34 + index * .08), this.rotation.y * .22 + index * .9, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(${index === 1 ? "147,185,187" : "203,183,122"},${.045 + index * .022})`;
+      ctx.strokeStyle = `rgba(${index === 1 ? "174,174,174" : "198,198,198"},${.045 + index * .022})`;
       ctx.lineWidth = .7;
       ctx.stroke();
     });
@@ -875,7 +884,7 @@ class ConstitutionalField {
       ctx.beginPath();
       ctx.moveTo(source.px, source.py);
       ctx.lineTo(target.px, target.py);
-      ctx.strokeStyle = active ? "rgba(225,209,152,.58)" : type === "questions" ? `rgba(147,185,187,${.05 + depth * .1})` : `rgba(226,220,197,${.025 + depth * .06})`;
+      ctx.strokeStyle = active ? "rgba(220,220,220,.58)" : type === "questions" ? `rgba(174,174,174,${.05 + depth * .1})` : `rgba(218,218,218,${.025 + depth * .06})`;
       ctx.lineWidth = active ? 1 : .35 + depth * .25;
       ctx.stroke();
     });
@@ -887,10 +896,10 @@ class ConstitutionalField {
       const alpha = selected && !related && !active ? .22 : 1;
       const depth = Math.max(.22, Math.min(1, (node.pz + 1.2) / 2.1));
       const colors = {
-        "open-question": [147,185,187], "architectural-principle": [203,183,122], root: [225,209,152],
-        source: [138,166,129], "source-grammar": [154,140,182], revision: [173,113,89]
+        "open-question": [176,176,176], "architectural-principle": [202,202,202], root: [226,226,226],
+        source: [164,164,164], "source-grammar": [150,150,150], revision: [128,128,128]
       };
-      const color = colors[node.type] || [189,185,170];
+      const color = colors[node.type] || [184,184,184];
       const radius = Math.max(1.3, node.radius * node.scale * (.72 + depth * .35));
       if (node.type === "root") {
         const glow = ctx.createRadialGradient(node.px, node.py, 0, node.px, node.py, 52 * this.zoom);
@@ -955,6 +964,22 @@ const resolveFieldDeepLink = ({ scroll = false } = {}) => {
   return true;
 };
 
+const moveToSurface = (target, { hide = false } = {}) => {
+  if (!target) return;
+  if (hide) target.hidden = true;
+  else target.hidden = false;
+  const destination = hide
+    ? (["living-identity", "coherence"].includes(target.id) ? $("#works") : $("#observatory"))
+    : target;
+  requestAnimationFrame(() => {
+    dispatchEvent(new Event("resize"));
+    requestAnimationFrame(() => {
+      dispatchEvent(new Event("resize"));
+      destination.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    });
+  });
+};
+
 const bindInterface = () => {
   $("[data-field-inspector-close]").addEventListener("click", closeFieldInspector);
   $(".nav-toggle").addEventListener("click", (event) => {
@@ -962,6 +987,29 @@ const bindInterface = () => {
     event.currentTarget.setAttribute("aria-expanded", String(open));
   });
   $$(".primary-nav a").forEach((link) => link.addEventListener("click", () => $(".primary-nav").classList.remove("is-open")));
+  $$("[data-reveal-surface]").forEach((control) => control.addEventListener("click", (event) => {
+    const target = document.getElementById(control.dataset.revealSurface);
+    if (!target) return;
+    event.preventDefault();
+    moveToSurface(target);
+  }));
+  $$("[data-close-surface]").forEach((control) => control.addEventListener("click", () => {
+    moveToSurface(document.getElementById(control.dataset.closeSurface), { hide: true });
+  }));
+  $$("[data-toggle-surface]").forEach((control) => control.addEventListener("click", () => {
+    const target = document.getElementById(control.dataset.toggleSurface);
+    if (!target) return;
+    target.hidden = !target.hidden;
+    control.classList.toggle("is-active", !target.hidden);
+    control.setAttribute("aria-expanded", String(!target.hidden));
+    if (!target.hidden) requestAnimationFrame(() => dispatchEvent(new Event("resize")));
+  }));
+  $$('a[href^="#"]:not([data-reveal-surface])').forEach((link) => link.addEventListener("click", (event) => {
+    const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+    if (!target?.hidden) return;
+    event.preventDefault();
+    moveToSurface(target);
+  }));
   $$(".field-control").forEach((control) => control.addEventListener("click", () => {
     app.filter = control.dataset.filter;
     $$(".field-control").forEach((item) => item.classList.toggle("is-active", item === control));
@@ -1087,6 +1135,8 @@ const bindInterface = () => {
 
 const initialize = async () => {
   bindInterface();
+  const requestedSurface = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (requestedSurface?.classList.contains("system-layer")) requestedSurface.hidden = false;
   buildWaveform();
   try {
     await loadData();

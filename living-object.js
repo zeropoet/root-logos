@@ -19,6 +19,12 @@
       object.toggleAttribute("inert", archiveOpen);
       object.setAttribute("aria-hidden", String(archiveOpen));
     }
+    if (archiveOpen) {
+      requestAnimationFrame(() => {
+        dispatchEvent(new Event("resize"));
+        requestAnimationFrame(() => dispatchEvent(new Event("resize")));
+      });
+    }
   };
   syncExperienceMode();
   addEventListener("hashchange", syncExperienceMode);
@@ -70,12 +76,12 @@
   });
 
   const palette = {
-    constitutional: [0.80, 0.72, 0.46, 0.68],
-    canon: [0.54, 0.78, 0.80, 0.7],
-    literature: [0.68, 0.52, 0.83, 0.76],
-    native: [0.54, 0.76, 0.57, 0.78],
-    lineage: [0.92, 0.84, 0.56, 0.92],
-    structure: [0.36, 0.48, 0.49, 0.2]
+    constitutional: [0.86, 0.86, 0.86, 0.64],
+    canon: [0.7, 0.7, 0.7, 0.68],
+    literature: [0.82, 0.82, 0.82, 0.74],
+    native: [0.6, 0.6, 0.6, 0.76],
+    lineage: [0.94, 0.94, 0.94, 0.9],
+    structure: [0.48, 0.48, 0.48, 0.18]
   };
   const cadence = {
     anchor: Date.parse("2026-07-26T14:07:00.000Z") / 1000,
@@ -189,7 +195,7 @@
       works: works.length,
       cycles,
       collections: new Set(works.map((work) => work.collection || "Root Logos")).size,
-      relations: crossRelations
+      relations: corpus.edges || []
     });
   }).catch((error) => {
     console.error("The Living Object could not resolve.", error);
@@ -284,16 +290,14 @@
       addPoint(outward, [...palette.canon.slice(0, 3), 0.38], 2.2, birth + 0.03);
     });
 
-    const strongestTensions = [...(corpus.edges || [])]
-      .filter((edge) => corpusPositions.has(edge.from) && corpusPositions.has(edge.to))
-      .sort((a, b) => Number(b.weight || 0) - Number(a.weight || 0))
-      .filter((edge, index) => index < 320 && (index < 90 || index % 3 === 0));
-    strongestTensions.forEach((edge, index) => {
+    const witnessedTensions = (corpus.edges || [])
+      .filter((edge) => corpusPositions.has(edge.from) && corpusPositions.has(edge.to));
+    witnessedTensions.forEach((edge, index) => {
       const weight = Math.min(9, Math.max(1, Number(edge.weight || 1)));
       const alpha = 0.09 + weight / 9 * 0.13;
       const a = corpusPositions.get(edge.from);
       const b = corpusPositions.get(edge.to);
-      addLine(a, b, [...palette.canon.slice(0, 3), alpha], 0.66 + index / Math.max(1, strongestTensions.length) * 0.21);
+      addLine(a, b, [...palette.canon.slice(0, 3), alpha], 0.66 + index / Math.max(1, witnessedTensions.length) * 0.21);
       if (index % 23 === 0) pulsePaths.push([a, b]);
     });
 
@@ -479,15 +483,39 @@
     filter.Q.value = 1.8 + collections * 0.25;
     master.connect(filter).connect(audio.destination);
 
-    [1, 1.5, 2.25, 1 + (relations % 17) / 100].forEach((ratio, index) => {
+    [1, 1.5, 2.25].forEach((ratio, index) => {
       const oscillator = audio.createOscillator();
       const gain = audio.createGain();
       oscillator.type = index === 1 ? "triangle" : "sine";
       oscillator.frequency.value = root * ratio;
-      gain.gain.value = [0.022, 0.008, 0.0035, 0.0045][index];
+      gain.gain.value = [0.022, 0.008, 0.0035][index];
       oscillator.connect(gain).connect(master);
       oscillator.start();
     });
+
+    // Every witnessed relation contributes to the harmonic body. An edge's
+    // endpoints choose a spectral bin and phase; its derived weight determines
+    // pressure. No relation is sampled away.
+    const harmonicCount = 96;
+    const real = new Float32Array(harmonicCount);
+    const imaginary = new Float32Array(harmonicCount);
+    let relationWeight = 0;
+    relations.forEach((relation) => {
+      const relationHash = hash(`${relation.from}:${relation.to}:${relation.relation || "related"}`);
+      const harmonic = 1 + Math.floor(relationHash * (harmonicCount - 1));
+      const weight = Math.max(1, Number(relation.weight || 1));
+      const phase = hash(`${relation.to}:${relation.from}`) * Math.PI * 2;
+      real[harmonic] += Math.cos(phase) * weight;
+      imaginary[harmonic] += Math.sin(phase) * weight;
+      relationWeight += weight;
+    });
+    const relationOscillator = audio.createOscillator();
+    const relationGain = audio.createGain();
+    relationOscillator.setPeriodicWave(audio.createPeriodicWave(real, imaginary, { disableNormalization: false }));
+    relationOscillator.frequency.value = root * (1 + (relations.length % 29) / 100);
+    relationGain.gain.value = 0.0075;
+    relationOscillator.connect(relationGain).connect(master);
+    relationOscillator.start();
 
     const pulseOscillator = audio.createOscillator();
     const pulseGain = audio.createGain();
@@ -500,7 +528,9 @@
     const soundPulse = () => {
       const state = cadenceState();
       const now = audio.currentTime;
-      const strength = state.cycleBeat === 0 ? 0.12 : 0.062;
+      const meanRelationWeight = relationWeight / Math.max(1, relations.length);
+      const relationalPressure = Math.min(0.025, meanRelationWeight * 0.002);
+      const strength = (state.cycleBeat === 0 ? 0.12 : 0.062) + relationalPressure;
       pulseGain.gain.cancelScheduledValues(now);
       pulseGain.gain.setValueAtTime(0.0001, now);
       pulseGain.gain.exponentialRampToValueAtTime(strength, now + 0.07);
@@ -522,6 +552,8 @@
     window.__rootLogosVoice = {
       context: audio,
       cadence: "weekly / Sunday 10:07 Eastern / seven-beat live phrase",
+      relations: relations.length,
+      relationWeight,
       state: cadenceState
     };
   }
