@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=1.8-typographic-recalibration">
+    <link rel="stylesheet" href="styles.css?v=1.9-continuous-system-reading">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the object</a>
@@ -284,15 +284,6 @@
           </div>
         </header>
 
-        <nav class="system-layer-nav" aria-label="Observatory layers">
-          <span>System layer</span>
-          <button type="button" data-reveal-surface="chamber">Cultivation</button>
-          <button type="button" data-reveal-surface="memory">Memory</button>
-          <button type="button" data-reveal-surface="threshold">Judgment</button>
-          <button type="button" data-reveal-surface="resonance">Voice</button>
-          <button type="button" data-toggle-surface="structural-health">Health</button>
-        </nav>
-
         <div class="observatory-instrument">
           <nav class="observatory-modes" aria-label="Ways of seeing Root Logos">
             <button type="button" class="is-active" data-observatory-mode="lineage"><span>01</span><b>Lineage</b><small>How it became</small></button>
@@ -334,14 +325,9 @@
           </aside>
         </div>
 
-        <div class="structural-health" id="structural-health" aria-labelledby="health-title" hidden>
-          <header><p class="coordinate">Diagnostic profile / not a score</p><h3 id="health-title">Structural health</h3><p>Growth is read as a balance of relation, uncertainty, memory, provenance, and corrigibility—not as a single measure of success.</p></header>
-          <div class="health-profile" id="health-profile"></div>
-        </div>
       </section>
 
-      <section class="space chamber-space system-layer" id="chamber" data-space-name="Chamber" aria-labelledby="chamber-title" hidden>
-        <button class="surface-return" type="button" data-close-surface="chamber">← Return to the Observatory</button>
+      <section class="space chamber-space system-layer" id="chamber" data-space-name="Chamber" aria-labelledby="chamber-title">
         <div class="section-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
         <header class="space-heading">
           <p class="coordinate">RL / 05 — Cultivation Chamber</p>
@@ -413,8 +399,7 @@
         </div>
       </section>
 
-      <section class="space memory-space system-layer" id="memory" data-space-name="Memory" aria-labelledby="memory-title" hidden>
-        <button class="surface-return" type="button" data-close-surface="memory">← Return to the Observatory</button>
+      <section class="space memory-space system-layer" id="memory" data-space-name="Memory" aria-labelledby="memory-title">
         <header class="space-heading">
           <p class="coordinate">RL / 06 — Semantic Memory</p>
           <div>
@@ -436,8 +421,7 @@
         </div>
       </section>
 
-      <section class="space threshold-space system-layer" id="threshold" data-space-name="Threshold" aria-labelledby="threshold-title" hidden>
-        <button class="surface-return" type="button" data-close-surface="threshold">← Return to the Observatory</button>
+      <section class="space threshold-space system-layer" id="threshold" data-space-name="Threshold" aria-labelledby="threshold-title">
         <div class="threshold-line" aria-hidden="true"><span>Delegated constitution</span><i></i><span>Autonomous judgment</span></div>
         <header class="space-heading">
           <p class="coordinate">RL / 07 — The Threshold</p>
@@ -471,7 +455,7 @@
 
       <section class="space intake-space" id="intake" data-space-name="Intake" aria-labelledby="intake-title">
         <header class="space-heading">
-          <p class="coordinate">RL / 08 — The Membrane</p>
+          <p class="coordinate">RL / 10 — The Membrane</p>
           <div>
             <h2 id="intake-title">Experience may enter.<br><em>Authority does not.</em></h2>
             <p>Every entry receives provenance, passes through autonomous judgment, and either becomes attributable structure or is released. Submission gives Root Logos authority to complete that passage without transferring authorship from the system.</p>
@@ -569,11 +553,10 @@
 
       </section>
 
-      <section class="space resonance-space system-layer" id="resonance" data-space-name="Resonance" aria-labelledby="resonance-title" hidden>
-        <button class="surface-return" type="button" data-close-surface="resonance">← Return to the Observatory</button>
+      <section class="space resonance-space system-layer" id="resonance" data-space-name="Resonance" aria-labelledby="resonance-title">
         <canvas id="resonance-canvas" aria-hidden="true"></canvas>
         <header class="space-heading resonance-heading">
-          <p class="coordinate">RL / 09 — The Resonant Chamber</p>
+          <p class="coordinate">RL / 08 — The Resonant Chamber</p>
           <div>
             <h2 id="resonance-title">The architecture<br><em>finds its voice.</em></h2>
             <p>Not a soundtrack. A live constitutional instrument composed from relation, inquiry, memory, judgment, and silence.</p>
@@ -631,6 +614,17 @@
         </div>
 
         <footer class="resonance-constitution"><span>Constitutional pillar / Revision 0.8</span><a href="documents/resonant-chamber.html">Read the Resonant Chamber constitution <i>↗</i></a></footer>
+      </section>
+
+      <section class="space health-space system-layer" id="structural-health" data-space-name="Structural Health" aria-labelledby="health-title">
+        <header class="space-heading">
+          <p class="coordinate">RL / 09 — Structural Health</p>
+          <div>
+            <h2 id="health-title">The architecture<br><em>reads its balance.</em></h2>
+            <p>Growth is read through relation, uncertainty, memory, provenance, and corrigibility—not collapsed into a single measure of success.</p>
+          </div>
+        </header>
+        <div class="health-profile" id="health-profile"></div>
       </section>
     </main>
 

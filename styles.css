@@ -355,7 +355,22 @@ body.object-open .object-witness,
 body.object-open .object-consent,
 body.object-open .object-instruction { display:none; }
 body.archive-open .object-space { display:none; }
+body.archive-open main {
+  display: flex;
+  flex-direction: column;
+}
 body.archive-open main > .space { display:block; }
+body.archive-open #field { order: 1; }
+body.archive-open #works { order: 2; }
+body.archive-open #living-identity { order: 3; }
+body.archive-open #coherence { order: 4; }
+body.archive-open #observatory { order: 5; }
+body.archive-open #chamber { order: 6; }
+body.archive-open #memory { order: 7; }
+body.archive-open #threshold { order: 8; }
+body.archive-open #resonance { order: 9; }
+body.archive-open #structural-health { order: 10; }
+body.archive-open #intake { order: 11; }
 .object-space {
   position:relative;
   height:max(100svh,760px);
@@ -1082,6 +1097,11 @@ h1, h2, h3, h4,
 .health-profile i { grid-column: 1 / -1; align-self: end; display: block; height: 2px; background: var(--line); }
 .health-profile i b { display: block; width: var(--health); height: 100%; background: linear-gradient(90deg,var(--inquiry),var(--gold)); }
 .health-profile small { grid-column: 1 / -1; color: var(--bone); font-size: .74rem; }
+
+.health-space .health-profile {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+}
 
 @media (max-width: 1080px) {
   .site-header { grid-template-columns: 1fr auto; }
