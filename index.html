@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=2.2-centered-constitutional-field">
+    <link rel="stylesheet" href="styles.css?v=2.3-composed-library-instrument">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the object</a>
@@ -104,40 +104,45 @@
       </section>
 
       <section class="space works-space" id="works" data-space-name="Works" aria-labelledby="work-title">
-        <canvas id="work-canvas" aria-label="Visual model of the selected living work. Drag to rotate and select a structure to describe it."></canvas>
-        <div class="works-veil" aria-hidden="true"></div>
-
-        <aside class="works-archive" aria-label="Living works archive">
-          <header><span>RL / 01 — Library</span><b id="work-count">00 works</b></header>
-          <div class="library-entries">
-            <button class="library-entry" id="library-entry" type="button">
-              <span>∞</span><span><b>Library Field</b><small id="library-entry-detail">Resolving living collections</small></span>
-            </button>
-          </div>
-          <div id="work-list"><p class="works-loading">Opening the archive…</p></div>
-        </aside>
-
-        <div class="work-reading">
-          <p class="micro-label" id="work-coordinate">Current visual-resonant edition</p>
-          <h3 id="work-title">Resolving the first work</h3>
-          <p id="work-statement">The archive is establishing its shape.</p>
-          <div class="work-listening">
-            <button type="button" id="work-listen" aria-pressed="false">
-              <span id="work-listen-label">Listen</span>
-            </button>
-            <div class="work-sound-signal" id="work-sound-signal" aria-hidden="true">
-              <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <div class="library-shell">
+          <aside class="works-archive" aria-label="Living works archive">
+            <header><span>RL / 01 — Library</span><b id="work-count">00 works</b></header>
+            <div class="library-entries">
+              <button class="library-entry" id="library-entry" type="button">
+                <span>∞</span><span><b>Library Field</b><small id="library-entry-detail">Resolving living collections</small></span>
+              </button>
             </div>
-            <p id="work-sound-status" role="status">Current score / silent</p>
-          </div>
-        </div>
+            <div id="work-list"><p class="works-loading">Opening the archive…</p></div>
+          </aside>
 
-        <aside class="work-node-detail" id="work-node-detail" hidden>
-          <button type="button" id="work-node-detail-close" aria-label="Close structural detail">×</button>
-          <p class="micro-label" id="work-node-detail-type">Structure</p>
-          <h3 id="work-node-detail-title">Selected node</h3>
-          <p id="work-node-detail-body"></p>
-        </aside>
+          <div class="library-stage">
+            <canvas id="work-canvas" aria-label="Visual model of the selected living work. Drag to rotate and select a structure to describe it."></canvas>
+            <div class="works-veil" aria-hidden="true"></div>
+            <p class="library-stage-instruction">Drag to rotate · select a node to read</p>
+
+            <aside class="work-node-detail" id="work-node-detail" hidden>
+              <button type="button" id="work-node-detail-close" aria-label="Close structural detail">×</button>
+              <p class="micro-label" id="work-node-detail-type">Structure</p>
+              <h3 id="work-node-detail-title">Selected node</h3>
+              <p id="work-node-detail-body"></p>
+            </aside>
+          </div>
+
+          <aside class="work-reading">
+            <p class="micro-label" id="work-coordinate">Current visual-resonant edition</p>
+            <h3 id="work-title">Resolving the first work</h3>
+            <p id="work-statement">The archive is establishing its shape.</p>
+            <div class="work-listening">
+              <button type="button" id="work-listen" aria-pressed="false">
+                <span id="work-listen-label">Listen</span>
+              </button>
+              <div class="work-sound-signal" id="work-sound-signal" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+              <p id="work-sound-status" role="status">Current score / silent</p>
+            </div>
+          </aside>
+        </div>
       </section>
 
       <section class="space observatory-space" id="observatory" data-space-name="Observatory" aria-labelledby="observatory-title">
@@ -418,6 +423,6 @@
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
     <script src="living-object.js?v=2.0-coherent-biblical-body" defer></script>
     <script src="script.js?v=2.3-original-constitutional-splines" defer></script>
-    <script src="works.js?v=2.0-converged-public-architecture" defer></script>
+    <script src="works.js?v=2.1-centered-library-stage" defer></script>
   </body>
 </html>

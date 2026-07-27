@@ -304,7 +304,7 @@
       context.clearRect(0, 0, this.width, this.height);
       if (this.edition) {
         this.rotation += (this.targetRotation - this.rotation) * .05;
-        const centerX = this.width * (this.width < 600 ? .48 : .585);
+        const centerX = this.width * .5;
         const centerY = this.height * .54;
         const radius = Math.min(this.width, this.height) * (this.width < 600 ? .34 : .325);
         const palette = this.edition.visual.palette;
