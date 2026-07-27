@@ -539,7 +539,7 @@
     const master = audio.createGain();
     const filter = audio.createBiquadFilter();
     const root = 38 + (cycles % 12);
-    master.gain.value = 0.065;
+    master.gain.value = 0.34;
     filter.type = "lowpass";
     filter.frequency.value = 620 + works * 3;
     filter.Q.value = 1.8 + collections * 0.25;
@@ -575,7 +575,7 @@
     const relationGain = audio.createGain();
     relationOscillator.setPeriodicWave(audio.createPeriodicWave(real, imaginary, { disableNormalization: false }));
     relationOscillator.frequency.value = root * (1 + (relations.length % 29) / 100);
-    relationGain.gain.value = 0.0075;
+    relationGain.gain.value = 0.012;
     relationOscillator.connect(relationGain).connect(master);
     relationOscillator.start();
 
@@ -601,6 +601,7 @@
     };
     const current = cadenceState();
     const untilNextBeat = (1 - current.beatPhase) * cadence.beatSeconds * 1000;
+    soundPulse();
     setTimeout(() => {
       soundPulse();
       setInterval(soundPulse, cadence.beatSeconds * 1000);
