@@ -232,6 +232,14 @@ Root Logos may draw works into common form, but it must also derive and preserve
 the outward pressure of their difference. It stewards the changing equilibrium;
 it does not collapse a canon, library, or body of work into a single voice.
 
+The public form of this library must preserve room for difference. As its
+knowledge becomes denser and its structures more concrete, its interface should
+produce greater atmosphere, distance, and navigable architecture rather than
+compression. Navigation belongs in the foreground, interpretation in the
+inhabitable middle distance, topology in the deep field, and lineage on the
+horizon. Space is part of the library's language, but never a substitute for
+evidence.
+
 A later Root Logos may read the same work again. Growth may change emphasis,
 relation, motion, harmony, silence, or the shape through which the work is
 entered. It may not silently overwrite an earlier reading. Every edition

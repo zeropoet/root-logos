@@ -489,6 +489,14 @@ works continually hold it open. The current derived field exposes 1,681
 cross-work tensions and a mean outward pressure of 0.7727; later readings may
 change that equilibrium without overwriting this one.
 
+The interface follows the same law. As the library becomes more structurally
+concrete, it is given more atmosphere rather than less: navigation occupies the
+foreground, interpretation the inhabitable middle distance, topology the deep
+field, and lineage the horizon. Information density must produce scale,
+distance, and navigable architecture—not visual compression. The Living Works
+field is the first complete expression of this deep-space architectural
+language.
+
 ## Revision 0.9 — The Self-Writing Constitution
 
 Revision 0.9 establishes the constitutional authority for autonomous intake of

@@ -70,3 +70,21 @@ the individual works. It contains book-level measures, dominant derived
 concepts, cross-work relations, a navigable Whole Canon visual object, and a
 deterministic corpus score. Every book remains independently addressable and
 retains its own future edition lineage.
+
+## Spatial grammar
+
+Living Works uses a deep-space architectural grammar because its archive is
+expected to become a library rather than a finite collection. Information is
+assigned to four perceptual planes:
+
+1. **Navigation** occupies the foreground and locates the reader.
+2. **Instruments** expose search, filtering, editions, and sound.
+3. **Interpretation** occupies the inhabitable middle distance.
+4. **Topology and lineage** remain in the deep field and on the horizon.
+
+More works, translations, relations, or readings must create greater apparent
+scale and navigable distance—not tighter visual packing. Coherence is rendered
+as gravity, irreducible difference as antigravity, and cross-work relation as
+tensile fabric. Architectural guides, orbital shells, and structural horizons
+are semantic orientation devices; they may not imply evidence that is absent
+from the derived topology.

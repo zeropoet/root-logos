@@ -220,6 +220,30 @@
         const centerY = this.height * .52;
         const radius = Math.min(this.width, this.height) * .37;
         const palette = this.edition.visual.palette;
+        context.save();
+        context.translate(centerX, centerY);
+        context.lineWidth = .55;
+        for (let horizon = 1; horizon <= 5; horizon += 1) {
+          const scale = horizon / 5;
+          context.strokeStyle = `rgba(147,185,187,${.055 - horizon * .006})`;
+          context.beginPath();
+          context.ellipse(0, 0, radius * scale, radius * scale * .54, 0, 0, Math.PI * 2);
+          context.stroke();
+        }
+        for (let bearing = 0; bearing < 12; bearing += 1) {
+          const angle = bearing / 12 * Math.PI * 2 + this.rotation * .18;
+          context.strokeStyle = "rgba(226,220,197,.027)";
+          context.beginPath();
+          context.moveTo(Math.cos(angle) * radius * .09, Math.sin(angle) * radius * .09 * .54);
+          context.lineTo(Math.cos(angle) * radius * 1.18, Math.sin(angle) * radius * 1.18 * .54);
+          context.stroke();
+        }
+        context.strokeStyle = "rgba(203,183,122,.12)";
+        context.beginPath();
+        context.moveTo(-radius * 1.24, 0);
+        context.lineTo(radius * 1.24, 0);
+        context.stroke();
+        context.restore();
         if (this.isCorpus) {
           context.save();
           context.translate(centerX, centerY);
