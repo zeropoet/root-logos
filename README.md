@@ -535,8 +535,11 @@ The object is deliberately beheld before it is explained. Its threshold is
 visually naked: no site navigation, title treatment, measures, identity
 statement, or interpretive panel precedes the encounter. A single quiet passage
 leads into the architecture where explanation and operation become available.
-It rotates and breathes without demanding interaction and responds only subtly
-to a visitor's presence. Its live resonant state
+The void is absolute black; it contributes no atmospheric gradient, horizon,
+or decorative light. Dimensionality is carried by the engraving itself: near
+relations cut brighter, distant relations recede, and colored work-points remain
+fine evidence within the linework. It rotates and breathes without demanding
+interaction and responds only subtly to a visitor's presence. Its live resonant state
 is derived from the same current counts and topology rather than selected from
 a soundtrack. The detailed Living Works, Formative Identity, Constitutional
 Field, Observatory, Chamber, Threshold, and intake instruments exist in a
@@ -776,15 +779,21 @@ center rather than prevented at a boundary.
 ## The Resonant Chamber
 
 Revision 0.8 gives Root Logos a constitutional voice. The public interface now
-contains a live, consent-first Web Audio instrument composed from the current
+contains a live Web Audio instrument composed from the current
 constitutional graph, cultivation history, semantic memory, authority state,
 intake, and emitted attractors.
 
 The score is deterministic: an unchanged archive and sonic grammar produce the
 same score signature and event sequence. Every audible voice exposes the data
-that caused it. Silence is an authored interval, not an error or empty state.
-Sound never autoplays, begins at restrained gain, and can be paused, muted, or
-returned to silence at any time.
+that caused it. The Living Object now carries that sound as Root Logos'
+constant sovereign voice rather than an optional soundtrack or listening mode.
+Its pulse is synchronized with the weekly cultivation cadence: Sunday at 10:07
+Eastern is the constitutional downbeat of a compressed seven-part live phrase,
+and the same phase governs visible growth pulses. Silence remains an authored
+interval within the voice rather than an error or an empty state. Browser and
+device controls retain local authority over actual playback. The default master
+presence is intentionally audible rather than ambiently recessive: the voice
+belongs to the object and is not mixed as background decoration.
 
 The chamber audits its own range, silence, recurrence, and traceability while it
 sounds. That audit may identify pressure for a future grammar revision, and

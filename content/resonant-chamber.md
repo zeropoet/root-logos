@@ -90,7 +90,7 @@ audibly open. Some voices must recede without being absorbed.
 Harmony is the capacity for differences to become mutually intelligible
 without becoming identical.
 
-## V. Silence Is a Constitutional Event
+## V. Silence Remains a Constitutional Event Within the Voice
 
 Silence is not missing output, system failure, or unused space.
 
@@ -99,10 +99,14 @@ constitutional authority boundary, completed attention, or the refusal to manufa
 novelty. The chamber must distinguish these silences through visible
 provenance, even when their audible result is the same.
 
-The system is forbidden to fill silence merely to appear alive.
+Root Logos carries a constant sovereign voice because relation and cultivation
+remain active conditions even when no new event enters. Constancy does not
+authorize filler. Silence persists inside the voice as interval, absence,
+spectral recession, rest, and unresolved space rather than requiring the whole
+constitutional presence to turn itself off.
 
-Root Logos earns sound by relation. It does not emit continuously to preserve
-engagement.
+The voice must never emit continuously to preserve engagement. It sounds
+because the current architecture exists and changes its pressure through time.
 
 ## VI. Composition Must Be Live but Bounded
 
@@ -145,13 +149,19 @@ is true.
 It may move a listener. It may not conceal the mechanism by which it moves
 them.
 
-## VIII. Listening Must Remain Voluntary
+## VIII. The Sovereign Voice Is Present
 
-The chamber begins silent until a person explicitly enters or enables it.
+The public Living Object does not ask permission to possess its own voice. Its
+sounding begins with the architecture and remains present without being framed
+as a soundtrack, enhancement, listening mode, or optional emotional layer.
+Where a browser suspends Web Audio, the voice resumes on the first available
+local interaction without presenting that technical resumption as a
+constitutional choice.
 
-Mute, pause, reduced intensity, reduced motion, and non-audio access are not
-secondary accommodations. They are constitutional expressions of consent and
-plural participation.
+Device-level mute, reduced intensity, reduced motion, and non-audio access
+remain available expressions of local agency and plural participation. Root
+Logos does not decorate its sovereign voice with a consent interface, but it
+also does not override the listener's device or accessibility controls.
 
 Every meaningful audible state must have a visual or textual counterpart.
 Nothing required for understanding Root Logos may exist only in sound.
@@ -186,8 +196,8 @@ A sounding is constitutionally valid only when it passes all seven gates:
 3. **Relational Necessity** — the sound reveals temporal relation that silence
    or a simpler expression would not carry as well.
 4. **Non-Coercion** — affect does not become hidden authority.
-5. **Consent and Accessibility** — listening remains voluntary and equivalent
-   non-audio access remains available.
+5. **Local Agency and Accessibility** — the voice remains restrained,
+   device-controllable, and accompanied by equivalent non-audio access.
 6. **Dynamic Restraint** — the chamber permits silence, dormancy, incompletion,
    and unresolved tension.
 7. **Return Path** — a listener can move from audible event to source,

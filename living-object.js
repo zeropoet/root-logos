@@ -77,6 +77,20 @@
     lineage: [0.92, 0.84, 0.56, 0.92],
     structure: [0.36, 0.48, 0.49, 0.2]
   };
+  const cadence = {
+    anchor: Date.parse("2026-07-26T14:07:00.000Z") / 1000,
+    beatSeconds: 4,
+    beatsPerCycle: 7
+  };
+  const cadenceState = (time = Date.now() / 1000) => {
+    const elapsed = Math.max(0, time - cadence.anchor);
+    const absoluteBeat = Math.floor(elapsed / cadence.beatSeconds);
+    return {
+      beatPhase: (elapsed % cadence.beatSeconds) / cadence.beatSeconds,
+      cycleBeat: absoluteBeat % cadence.beatsPerCycle,
+      absoluteBeat
+    };
+  };
 
   const hash = (value) => {
     let h = 2166136261;
@@ -146,12 +160,15 @@
       const elapsed = (now - started) / 1000;
       const growth = reducedMotion ? 1 : Math.min(1, elapsed / 14);
       const rotation = reducedMotion ? 0.35 : elapsed * 0.022 + targetX * 0.11;
+      const pulse = cadenceState();
       renderer.draw({
         time: reducedMotion ? 0 : elapsed,
         growth,
         rotation,
         pitch: -0.08 + targetY * 0.055,
-        aspect: canvas.width / canvas.height
+        aspect: canvas.width / canvas.height,
+        cadence: pulse.beatPhase,
+        cadenceAccent: pulse.cycleBeat === 0 ? 1 : 0
       });
       if (visible) requestAnimationFrame(frame);
     };
@@ -168,7 +185,12 @@
       }
     });
     requestAnimationFrame(frame);
-    bindSound({ works: works.length, cycles, collections: new Set(works.map((work) => work.collection || "Root Logos")).size });
+    beginSovereignVoice({
+      works: works.length,
+      cycles,
+      collections: new Set(works.map((work) => work.collection || "Root Logos")).size,
+      relations: crossRelations
+    });
   }).catch((error) => {
     console.error("The Living Object could not resolve.", error);
     $("#object-state").textContent = "The current form is temporarily beyond view. Its archive remains intact.";
@@ -342,6 +364,8 @@
       uniform float uYaw;
       uniform float uPitch;
       uniform float uAspect;
+      uniform float uCadence;
+      uniform float uCadenceAccent;
       varying vec4 vColor;
       varying float vVisible;
       void main() {
@@ -353,9 +377,12 @@
         vec2 projected = vec2(p.x / uAspect, p.y) * 2.15 / depth;
         gl_Position = vec4(projected, 0.0, 1.0);
         float arrival = smoothstep(aBirth - 0.025, aBirth + 0.055, uGrowth);
-        float breath = 1.0 + sin(uTime * 0.62 + aBirth * 16.0) * 0.09;
+        float cadencePulse = pow(max(0.0, cos(uCadence * 6.283185)), 10.0);
+        float breath = 1.0 + sin(uTime * 0.62 + aBirth * 16.0) * 0.055 + cadencePulse * (0.16 + uCadenceAccent * 0.12);
         gl_PointSize = aSize * arrival * breath * (5.3 / depth);
-        vColor = vec4(aColor.rgb, aColor.a * arrival);
+        float engravingDepth = clamp((p.z + 2.4) / 4.8, 0.0, 1.0);
+        vec3 engravedColor = mix(aColor.rgb * 0.38, min(vec3(1.0), aColor.rgb * 1.28), engravingDepth);
+        vColor = vec4(engravedColor, aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
         vVisible = arrival;
       }
     `;
@@ -399,14 +426,14 @@
 
     const uniforms = (shader, state) => {
       context.useProgram(shader);
-      [["uTime", state.time], ["uGrowth", state.growth], ["uYaw", state.rotation], ["uPitch", state.pitch], ["uAspect", state.aspect]].forEach(([name, value]) => {
+      [["uTime", state.time], ["uGrowth", state.growth], ["uYaw", state.rotation], ["uPitch", state.pitch], ["uAspect", state.aspect], ["uCadence", state.cadence], ["uCadenceAccent", state.cadenceAccent]].forEach(([name, value]) => {
         context.uniform1f(context.getUniformLocation(shader, name), value);
       });
     };
 
     return {
       draw(state) {
-        context.clearColor(0.004, 0.008, 0.011, 0);
+        context.clearColor(0, 0, 0, 1);
         context.clear(context.COLOR_BUFFER_BIT);
         uniforms(lineProgram, state);
         drawBuffer(lineProgram, lineBuffer, geometry.lines.length / 9, context.LINES, 9);
@@ -439,62 +466,63 @@
     return result;
   }
 
-  function bindSound({ works, cycles, collections }) {
-    const button = $("#object-listen");
-    const status = $("#object-sound-state");
-    if (!button) return;
-    let audio;
-    let sounding = false;
+  function beginSovereignVoice({ works, cycles, collections, relations }) {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    const audio = new AudioContext();
+    const master = audio.createGain();
+    const filter = audio.createBiquadFilter();
+    const root = 38 + (cycles % 12);
+    master.gain.value = 0.065;
+    filter.type = "lowpass";
+    filter.frequency.value = 620 + works * 3;
+    filter.Q.value = 1.8 + collections * 0.25;
+    master.connect(filter).connect(audio.destination);
 
-    const stop = () => {
-      if (audio) audio.close();
-      audio = null;
-      sounding = false;
-      button.setAttribute("aria-pressed", "false");
-      button.querySelector("b").textContent = "Hear the object";
-      status.textContent = "Silent by consent.";
+    [1, 1.5, 2.25, 1 + (relations % 17) / 100].forEach((ratio, index) => {
+      const oscillator = audio.createOscillator();
+      const gain = audio.createGain();
+      oscillator.type = index === 1 ? "triangle" : "sine";
+      oscillator.frequency.value = root * ratio;
+      gain.gain.value = [0.022, 0.008, 0.0035, 0.0045][index];
+      oscillator.connect(gain).connect(master);
+      oscillator.start();
+    });
+
+    const pulseOscillator = audio.createOscillator();
+    const pulseGain = audio.createGain();
+    pulseOscillator.type = "sine";
+    pulseOscillator.frequency.value = root * 2;
+    pulseGain.gain.value = 0.0001;
+    pulseOscillator.connect(pulseGain).connect(master);
+    pulseOscillator.start();
+
+    const soundPulse = () => {
+      const state = cadenceState();
+      const now = audio.currentTime;
+      const strength = state.cycleBeat === 0 ? 0.12 : 0.062;
+      pulseGain.gain.cancelScheduledValues(now);
+      pulseGain.gain.setValueAtTime(0.0001, now);
+      pulseGain.gain.exponentialRampToValueAtTime(strength, now + 0.07);
+      pulseGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.55);
+      pulseOscillator.frequency.setValueAtTime(root * (state.cycleBeat === 0 ? 2.25 : 2), now);
     };
+    const current = cadenceState();
+    const untilNextBeat = (1 - current.beatPhase) * cadence.beatSeconds * 1000;
+    setTimeout(() => {
+      soundPulse();
+      setInterval(soundPulse, cadence.beatSeconds * 1000);
+    }, untilNextBeat);
 
-    button.addEventListener("click", async () => {
-      if (sounding) return stop();
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContext) {
-        status.textContent = "Live sound is unavailable on this device.";
-        return;
-      }
-      audio = new AudioContext();
-      const master = audio.createGain();
-      const filter = audio.createBiquadFilter();
-      const lfo = audio.createOscillator();
-      const lfoGain = audio.createGain();
-      master.gain.value = 0.0001;
-      filter.type = "lowpass";
-      filter.frequency.value = 920 + works * 2;
-      filter.Q.value = 2.4;
-      master.connect(filter).connect(audio.destination);
-      lfo.frequency.value = 0.035 + collections * 0.008;
-      lfoGain.gain.value = 0.018;
-      lfo.connect(lfoGain).connect(master.gain);
-      lfo.start();
-      const root = 43 + (cycles % 12);
-      [1, 1.5, 2.25].forEach((ratio, index) => {
-        const oscillator = audio.createOscillator();
-        const gain = audio.createGain();
-        oscillator.type = index === 1 ? "triangle" : "sine";
-        oscillator.frequency.value = root * ratio + (works % 7) * 0.19;
-        gain.gain.value = [0.026, 0.012, 0.006][index];
-        oscillator.connect(gain).connect(master);
-        oscillator.start();
-      });
-      master.gain.exponentialRampToValueAtTime(0.075, audio.currentTime + 3.5);
-      sounding = true;
-      button.setAttribute("aria-pressed", "true");
-      button.querySelector("b").textContent = "Return to silence";
-      status.textContent = `${works} works · ${cycles} cycles · current topology sounding.`;
-      await audio.resume();
+    const resume = () => audio.resume().catch(() => {});
+    resume();
+    ["pointerdown", "keydown", "touchstart", "wheel"].forEach((eventName) => {
+      addEventListener(eventName, resume, { once: true, passive: true });
     });
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden && sounding) stop();
-    });
+    window.__rootLogosVoice = {
+      context: audio,
+      cadence: "weekly / Sunday 10:07 Eastern / seven-beat live phrase",
+      state: cadenceState
+    };
   }
 })();

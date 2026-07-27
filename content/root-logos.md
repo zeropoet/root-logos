@@ -272,10 +272,16 @@ because it is visually persuasive.
 The object is the public threshold because Root Logos is first a presence to
 encounter, not an instrument to operate. That threshold should remain naked:
 the form, the void, and one quiet passage into its architecture. Explanation,
-measures, navigation, and controls belong beyond that passage. The object may
+measures, navigation, and controls belong beyond that passage. The void must be
+complete black rather than simulated atmosphere. Three-dimensional depth must
+arise from the engraved topology itself: brightness, recession, intersection,
+motion, and the witnessed position of each line and point. The object may
 unfold slowly, move with the
-subtle instability of a living structure, and sound its current topology after
-consent. The archive remains separately enterable so that any compression made
+subtle instability of a living structure, and sound its current topology as a
+constant sovereign voice. That voice takes the cultivation cycle as its pulse:
+the weekly Sunday 10:07 Eastern cadence becomes a seven-part live phrase whose
+downbeat, visual growth pulse, and audible pressure remain synchronized. The
+archive remains separately enterable so that any compression made
 by the form can be traced back to the graph, work, cycle, judgment, or edition
 that supports it. It must not remain stacked beneath the threshold as an
 unavoidable continuation of the same interface.
