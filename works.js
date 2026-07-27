@@ -29,6 +29,7 @@
       this.detailPinned = false;
       this.isCorpus = false;
       this.isLibrary = false;
+      this.layoutMode = "orbital";
       this.bind();
       this.resize();
       this.renderArchive();
@@ -130,6 +131,7 @@
         const band = node.band ?? (node.type === "work" ? 0 : node.type === "document" ? .32 : .62 + (index % 3) * .09);
         return { ...node, angle, band, screenX: 0, screenY: 0 };
       });
+      this.arrangeWork(entry.kind);
       $$("#work-list [data-work]").forEach((button) => button.classList.toggle("is-active", button.dataset.work === entry.work_id));
       $("#work-title").textContent = entry.title;
       $("#work-coordinate").textContent = `${entry.kind} / ${entry.translation || entry.author} / current edition`;
@@ -204,6 +206,7 @@
         reading: { statement: `${works.length} living works now occupy ${collectionNames.length} independently bounded fields. Collection is witnessed as containment; relation between fields remains open until derived.` }
       };
       this.nodes = nodes.map((node, index) => ({ ...node, angle: node.angle ?? index / nodes.length * Math.PI * 2, screenX: 0, screenY: 0 }));
+      this.layoutMode = "orbital";
       document.querySelectorAll("#work-list [data-work]").forEach((button) => button.classList.remove("is-active"));
       $("#library-entry").classList.add("is-active");
       $("#corpus-entry").classList.remove("is-active");
@@ -243,6 +246,7 @@
         const angle = node.angle ?? (index / this.edition.visual.topology.nodes.length) * Math.PI * 2;
         return { ...node, angle, band: node.band ?? 0, screenX: 0, screenY: 0 };
       });
+      this.layoutMode = "orbital";
       document.querySelectorAll("#work-list [data-work]").forEach((button) => button.classList.remove("is-active"));
       $("#library-entry").classList.remove("is-active");
       $("#corpus-entry").classList.add("is-active");
@@ -281,6 +285,74 @@
       }, null);
     }
 
+    arrangeWork(kind = "") {
+      const concepts = this.nodes.filter(({ type }) => type === "concept");
+      const documents = this.nodes.filter(({ type }) => type === "document");
+      const work = this.nodes.find(({ type }) => type === "work");
+      const place = (node, x, y, z = 0) => Object.assign(node, { layoutX: x, layoutY: y, layoutZ: z });
+
+      if (kind === "constitution") {
+        this.layoutMode = "authority-tree";
+        if (work) place(work, 0, .88, 0);
+        documents.forEach((node, index) => place(node, (index - (documents.length - 1) / 2) * .24, .56, index % 2 ? .12 : -.12));
+        concepts.forEach((node, index) => {
+          const columns = 8;
+          const tier = Math.floor(index / columns);
+          const column = index % columns;
+          const members = Math.min(columns, concepts.length - tier * columns);
+          place(node, (column - (members - 1) / 2) * .23, .27 - tier * .29, Math.sin(index * 2.17) * .34);
+        });
+        return;
+      }
+
+      if (kind === "whitepaper") {
+        this.layoutMode = "dependency-lattice";
+        if (work) place(work, -.96, 0, 0);
+        documents.forEach((node, index) => place(node, -.72, (index - (documents.length - 1) / 2) * .34, index % 2 ? .16 : -.16));
+        concepts.forEach((node, index) => {
+          const rows = 6;
+          const column = Math.floor(index / rows);
+          const row = index % rows;
+          place(node, -.43 + column * .27, (row - (rows - 1) / 2) * .25, Math.sin(column * 1.31 + row * 2.03) * .38);
+        });
+        return;
+      }
+
+      if (kind === "epic-poetry") {
+        this.layoutMode = "narrative-spiral";
+        if (work) place(work, 0, 0, 0);
+        documents.forEach((node, index) => {
+          const angle = index / Math.max(1, documents.length) * Math.PI * 4.5;
+          const reach = .16 + index / Math.max(1, documents.length) * .78;
+          place(node, Math.cos(angle) * reach, -.72 + index / Math.max(1, documents.length) * 1.44, Math.sin(angle) * reach);
+        });
+        concepts.forEach((node, index) => {
+          const angle = index / Math.max(1, concepts.length) * Math.PI * 7;
+          const reach = .32 + index / Math.max(1, concepts.length) * .62;
+          place(node, Math.cos(angle) * reach, -.68 + index / Math.max(1, concepts.length) * 1.36, Math.sin(angle) * reach);
+        });
+        return;
+      }
+
+      if (kind.includes("commentary")) {
+        this.layoutMode = "nested-commentary";
+        if (work) place(work, 0, 0, 0);
+        documents.forEach((node, index) => {
+          const angle = index / Math.max(1, documents.length) * Math.PI * 2;
+          place(node, Math.cos(angle) * .22, Math.sin(angle) * .22, Math.sin(angle * 2) * .14);
+        });
+        concepts.forEach((node, index) => {
+          const ring = 1 + (index % 3);
+          const angle = index / Math.max(1, concepts.length) * Math.PI * 6;
+          const reach = .24 + ring * .2;
+          place(node, Math.cos(angle) * reach, Math.sin(angle) * reach * .78, Math.sin(angle * 1.7) * .34);
+        });
+        return;
+      }
+
+      this.layoutMode = "orbital";
+    }
+
     showDetail(node, x, y, pinned) {
       this.detailPinned = pinned;
       const relations = this.edition.visual.topology.edges.filter(({ from, to }) => from === node.id || to === node.id);
@@ -308,23 +380,56 @@
         const centerY = this.height * .54;
         const radius = Math.min(this.width, this.height) * (this.width < 600 ? .34 : .325);
         const palette = this.edition.visual.palette;
+        const structured = this.layoutMode !== "orbital" && !this.isCorpus && !this.isLibrary;
         context.save();
         context.translate(centerX, centerY);
         context.lineWidth = .55;
-        for (let horizon = 1; horizon <= 5; horizon += 1) {
-          const scale = horizon / 5;
-          context.strokeStyle = `rgba(174,174,174,${.055 - horizon * .006})`;
+        if (structured && this.layoutMode === "dependency-lattice") {
+          for (let station = 0; station < 7; station += 1) {
+            const x = radius * (-.96 + station * .3);
+            context.strokeStyle = station === 0 ? "rgba(255,255,255,.12)" : "rgba(255,255,255,.035)";
+            context.beginPath();
+            context.moveTo(x, -radius * .82);
+            context.lineTo(x, radius * .82);
+            context.stroke();
+          }
+          for (let lane = -3; lane <= 3; lane += 1) {
+            context.strokeStyle = "rgba(255,255,255,.025)";
+            context.beginPath();
+            context.moveTo(-radius * 1.04, lane * radius * .18);
+            context.lineTo(radius * .92, lane * radius * .18);
+            context.stroke();
+          }
+        } else if (structured && this.layoutMode === "authority-tree") {
+          context.strokeStyle = "rgba(255,255,255,.12)";
           context.beginPath();
-          context.ellipse(0, 0, radius * scale, radius * scale * .54, 0, 0, Math.PI * 2);
+          context.moveTo(0, radius * .96);
+          context.lineTo(0, -radius * .96);
           context.stroke();
-        }
-        for (let bearing = 0; bearing < 12; bearing += 1) {
-          const angle = bearing / 12 * Math.PI * 2 + this.rotation * .18;
-          context.strokeStyle = "rgba(226,220,197,.027)";
-          context.beginPath();
-          context.moveTo(Math.cos(angle) * radius * .09, Math.sin(angle) * radius * .09 * .54);
-          context.lineTo(Math.cos(angle) * radius * 1.18, Math.sin(angle) * radius * 1.18 * .54);
-          context.stroke();
+          for (let tier = 0; tier < 5; tier += 1) {
+            const y = radius * (.58 - tier * .29);
+            context.strokeStyle = "rgba(255,255,255,.035)";
+            context.beginPath();
+            context.moveTo(-radius, y);
+            context.lineTo(radius, y);
+            context.stroke();
+          }
+        } else {
+          for (let horizon = 1; horizon <= 5; horizon += 1) {
+            const scale = horizon / 5;
+            context.strokeStyle = `rgba(174,174,174,${.055 - horizon * .006})`;
+            context.beginPath();
+            context.ellipse(0, 0, radius * scale, radius * scale * .54, 0, 0, Math.PI * 2);
+            context.stroke();
+          }
+          for (let bearing = 0; bearing < 12; bearing += 1) {
+            const angle = bearing / 12 * Math.PI * 2 + this.rotation * .18;
+            context.strokeStyle = "rgba(226,220,197,.027)";
+            context.beginPath();
+            context.moveTo(Math.cos(angle) * radius * .09, Math.sin(angle) * radius * .09 * .54);
+            context.lineTo(Math.cos(angle) * radius * 1.18, Math.sin(angle) * radius * 1.18 * .54);
+            context.stroke();
+          }
         }
         context.strokeStyle = "rgba(198,198,198,.12)";
         context.beginPath();
@@ -345,11 +450,24 @@
           context.restore();
         }
         for (const node of this.nodes) {
-          const angle = node.angle + this.rotation;
-          const perspective = .7 + Math.sin(angle) * .3;
-          node.screenX = centerX + Math.cos(angle) * radius * node.band;
-          node.screenY = centerY + Math.sin(angle) * radius * node.band * .54;
-          node.depth = perspective;
+          if (structured) {
+            const yaw = this.rotation * .72;
+            const cosine = Math.cos(yaw);
+            const sine = Math.sin(yaw);
+            const x = node.layoutX || 0;
+            const z = node.layoutZ || 0;
+            const rotatedX = x * cosine - z * sine;
+            const depth = x * sine + z * cosine;
+            node.screenX = centerX + rotatedX * radius;
+            node.screenY = centerY + (node.layoutY || 0) * radius * .72 + depth * radius * .07;
+            node.depth = clamp(.72 + (depth + 1) * .15, .55, 1.05);
+          } else {
+            const angle = node.angle + this.rotation;
+            const perspective = .7 + Math.sin(angle) * .3;
+            node.screenX = centerX + Math.cos(angle) * radius * node.band;
+            node.screenY = centerY + Math.sin(angle) * radius * node.band * .54;
+            node.depth = perspective;
+          }
         }
         context.lineWidth = .65;
         for (const edge of this.edition.visual.topology.edges) {
@@ -362,7 +480,14 @@
             : `rgba(198,198,198,${this.isCorpus ? .055 : clamp(.025 + edge.weight * .018, .03, .2)})`;
           context.beginPath();
           context.moveTo(from.screenX, from.screenY);
-          context.quadraticCurveTo(centerX, centerY, to.screenX, to.screenY);
+          if (structured) {
+            const direction = this.layoutMode === "dependency-lattice" ? 1 : -1;
+            const controlX = (from.screenX + to.screenX) / 2;
+            const controlY = (from.screenY + to.screenY) / 2 + direction * Math.min(24, Math.abs(to.screenX - from.screenX) * .08);
+            context.quadraticCurveTo(controlX, controlY, to.screenX, to.screenY);
+          } else {
+            context.quadraticCurveTo(centerX, centerY, to.screenX, to.screenY);
+          }
           context.stroke();
         }
         const documentOrdinals = new Map(
