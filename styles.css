@@ -446,7 +446,6 @@ body.archive-open #intake { order: 7; }
 .field-search input::placeholder { color:var(--ghost); }
 .field-depth-legend { position:absolute;z-index:2;top:50%;right:21px;display:grid;gap:8px;justify-items:center;transform:translateY(-50%);color:var(--ghost);font:500 .4rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase; }
 .field-depth-legend i { width:1px;height:110px;background:linear-gradient(var(--gold),var(--line),transparent); }
-.field-state { position: absolute;z-index:2;bottom:clamp(74px,10vh,110px);left:var(--edge);width:min(430px,36vw);padding-top:16px;border-top:1px solid var(--line-strong);pointer-events:none; }
 .state-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 13px; color: var(--dim); font: 500 .57rem/1 var(--mono); letter-spacing: .13em; text-transform: uppercase; }
 .state-signal { width: 5px; height: 5px; border-radius: 50%; background: var(--green); box-shadow: 0 0 9px var(--green); animation: breathe 4s ease-in-out infinite; }
 .state-declaration { margin:0 0 14px;color:var(--ivory);font-size:clamp(1rem,1.3vw,1.3rem);line-height:1.35; }
@@ -470,14 +469,6 @@ body.archive-open #intake { order: 7; }
 .field-inspector a { display: flex; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--line); color: var(--gold); font: .55rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .scroll-cue { position:absolute;z-index:2;bottom:32px;left:50%;display:grid;justify-items:center;gap:9px;color:var(--ghost);font:.44rem/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;transform:translateX(-50%);pointer-events:none; }
 .scroll-cue i { width: 1px; height: 30px; background: linear-gradient(var(--gold), transparent); animation: descend 2.5s ease-in-out infinite; }
-.identity-aperture { position:absolute;z-index:6;right:var(--edge);bottom:38px;display:grid;grid-template-columns:42px auto auto;gap:13px;align-items:center;min-width:min(390px,36vw);padding:13px 0 13px 14px;border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(203,183,122,.04),rgba(7,8,6,.82));transition:border-color .3s,background .3s; }
-.identity-aperture:hover { border-top-color: var(--gold); background: linear-gradient(90deg, rgba(203,183,122,.08), transparent); }
-.identity-aperture-mark { position: relative; display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line-strong); border-radius: 50%; }
-.identity-aperture-mark::before, .identity-aperture-mark::after { content: ""; position: absolute; border: 1px solid var(--line); border-radius: 50%; }
-.identity-aperture-mark::before { inset: 5px; }
-.identity-aperture-mark::after { inset: 10px; }
-.identity-aperture-mark i { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 12px var(--gold); }
-.identity-aperture > span:nth-child(2) { display: grid; gap: 5px; }
 
 /* Living Works */
 .works-space {
@@ -585,11 +576,6 @@ body.archive-open #intake { order: 7; }
 .work-inspector > p:last-child { margin:0;color:var(--dim);font-size:.78rem;line-height:1.65; }
 .works-descent { display:none; }
 .works-descent i { color:var(--gold);font-style:normal; }
-.identity-aperture small, .identity-aperture b, .identity-aperture > em { font: 500 .48rem/1.2 var(--mono); letter-spacing: .11em; text-transform: uppercase; }
-.identity-aperture small { color: var(--dim); }
-.identity-aperture b { color: var(--bone); }
-.identity-aperture b i { color: var(--gold); font-style: normal; }
-.identity-aperture > em { justify-self: end; padding: 0 14px; color: var(--gold); font-style: normal; }
 
 /* Single Living Identity */
 .identity-space { min-height: auto; padding-bottom: clamp(100px, 12vw, 180px); isolation: isolate; background: #080907; }
@@ -1151,7 +1137,6 @@ h1, h2, h3, h4,
   .space-heading > div { grid-template-columns: 1.4fr .8fr; }
   .field-header { width:min(470px,48vw); }
   .field-header h1 { font-size:clamp(3.2rem,7vw,5.8rem); }
-  .field-state { width:44vw; }
   .field-object-controls { width:280px; }
   .field-inspector { width: 330px; max-width: 38vw; }
   .identity-constitution { grid-template-columns: 1fr; }
@@ -1209,7 +1194,6 @@ h1, h2, h3, h4,
   .field-intro { display:none; }
   .field-object-controls { top:310px;right:20px;left:20px;width:auto;padding:12px 0;background:rgba(7,8,6,.48); }
   .field-depth-legend { display:none; }
-  .field-state { bottom:105px;width:calc(100% - 40px); }
   .state-declaration { font-size:1rem; }
   .field-controls { top:468px;right:20px;left:20px;bottom:auto;display:flex;justify-content:center;gap:12px; }
   .field-control { font-size:.45rem; }

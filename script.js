@@ -117,17 +117,6 @@ const renderPresence = () => {
     : app.runtime.dormancy?.active
       ? app.runtime.dormancy.reason || "Low-yield dormancy"
       : "No wake condition";
-  $("#field-state-label").textContent = sleeping ? "Chamber sleeping" : running ? "Cultivation active" : sentence(status);
-  $("#field-state-declaration").textContent = sleeping
-    ? "No unresolved wake condition remains."
-    : running
-      ? "Root Logos is presently interrogating its own structure."
-      : app.runtime.archival_fallback
-        ? "The constitutional archive is present. Live runtime contact is unavailable."
-        : service.last_error || "The chamber is resolving its current condition.";
-  $("#state-revision").textContent = `Revision ${app.graph.meta.revision}`;
-  $("#state-cycles").textContent = `${app.runtime.cultivation.history?.length || app.cycles.length} cycles`;
-  $("#state-memory").textContent = `${app.runtime.hypothesis_count || 0} hypotheses`;
   $("#chamber-condition").textContent = running ? "Awake" : app.runtime.dormancy?.active ? "Dormant" : "At rest";
   $("#chamber-condition-copy").textContent = running
     ? "A serialized inquiry is moving through the chamber."
@@ -142,12 +131,6 @@ const renderPresence = () => {
   $("#phase-resolution").textContent = running ? "Cultivating" : "Sleep";
   $("#phase-resolution-detail").textContent = running ? "Serialized inquiry" : "No wake condition";
   $("#memory-count-large").textContent = String(app.runtime.hypothesis_count || Object.keys(app.memory?.hypotheses || {}).length).padStart(2, "0");
-};
-
-const renderIdentity = () => {
-  if (!app.identity) return;
-  const revision = app.identity.revision || "current";
-  $("#aperture-revision").textContent = revision;
 };
 
 const renderSources = () => {
@@ -678,7 +661,7 @@ class ConstitutionalField {
     const camera = 3.2;
     const perspective = camera / (camera - z2);
     const radius = Math.min(this.width, this.height) * .43 * this.zoom;
-    const centerX = this.width * (this.width > 900 ? .57 : .5);
+    const centerX = this.width * .5;
     const centerY = this.height * .51;
     node.px = centerX + x1 * radius * perspective;
     node.py = centerY + y1 * radius * perspective;
@@ -750,11 +733,10 @@ class ConstitutionalField {
     this.expansion += (this.targetExpansion - this.expansion) * .055;
     if (!this.dragging && !this.reducedMotion && this.targetExpansion > .3) this.targetRotation.y += .00038;
     const selected = app.selectedNode;
-    const relatedIds = selected ? new Set(this.edges.filter(({ source, target }) => source.id === selected.id || target.id === selected.id).flatMap(({ source, target }) => [source.id, target.id])) : null;
 
     this.nodes.forEach((node) => this.project(node));
     const visibleNodes = this.nodes.filter((node) => this.visible(node)).sort((a, b) => a.pz - b.pz);
-    const centerX = this.width * (this.width > 900 ? .57 : .5); const centerY = this.height * .51;
+    const centerX = this.width * .5; const centerY = this.height * .51;
     const objectRadius = Math.min(this.width, this.height) * .43 * this.zoom * this.expansion;
 
     ctx.save();
@@ -782,15 +764,8 @@ class ConstitutionalField {
 
     visibleNodes.forEach((node) => {
       const active = selected?.id === node.id;
-      const related = relatedIds?.has(node.id);
       const hover = this.hovered?.id === node.id;
-      const alpha = selected && !related && !active ? .22 : 1;
       const depth = Math.max(.22, Math.min(1, (node.pz + 1.2) / 2.1));
-      const colors = {
-        "open-question": [176,176,176], "architectural-principle": [202,202,202], root: [226,226,226],
-        source: [164,164,164], "source-grammar": [150,150,150], revision: [128,128,128]
-      };
-      const color = colors[node.type] || [184,184,184];
       const radius = Math.max(1.3, node.radius * node.scale * (.72 + depth * .35));
       if (node.type === "root") {
         const glow = ctx.createRadialGradient(node.px, node.py, 0, node.px, node.py, 52 * this.zoom);
@@ -800,16 +775,16 @@ class ConstitutionalField {
       if (active || hover || node.type === "root") {
         ctx.beginPath();
         ctx.arc(node.px, node.py, radius + (active ? 12 : 7) + Math.sin(this.time * 1.7) * 1.5, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${color.join(",")},${active ? .45 : .17})`;
+        ctx.strokeStyle = `rgba(255,255,255,${active ? .48 : .2})`;
         ctx.lineWidth = .7;
         ctx.stroke();
       }
       ctx.beginPath();
       ctx.arc(node.px, node.py, active ? radius + 2 : radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${color.join(",")},${alpha * (hover || active ? 1 : .28 + depth * .58)})`;
+      ctx.fillStyle = "#fff";
       ctx.fill();
       if (hover || active || node.type === "root") {
-        ctx.fillStyle = `rgba(255,255,255,${alpha * .76})`;
+        ctx.fillStyle = "#fff";
         ctx.font = '500 9px "SFMono-Regular", Consolas, "Liberation Mono", monospace';
         ctx.fillText(node.title.toUpperCase().slice(0, 48), node.px + radius + 9, node.py + 3);
       }
@@ -953,7 +928,6 @@ const initialize = async () => {
   try {
     await loadData();
     renderPresence();
-    renderIdentity();
     renderSources();
     renderLatestCycle();
     renderMemory();
@@ -979,8 +953,6 @@ const initialize = async () => {
   } catch (error) {
     console.error(error);
     $("#header-state").textContent = "Archive interrupted";
-    $("#field-state-label").textContent = "Field unavailable";
-    $("#field-state-declaration").textContent = "The constitutional data could not be resolved. The archive remains intact.";
   }
 };
 
