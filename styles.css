@@ -493,7 +493,7 @@ body.archive-open main > .space { display:block; }
   mask-image: linear-gradient(90deg, rgba(0,0,0,.7), transparent 26%, transparent 70%, rgba(0,0,0,.45));
 }
 .works-space::after {
-  content: "DEEP FIELD  /  LIVING LIBRARY  /  STRUCTURAL DISTANCE IS MEANING";
+  content: none;
   position: absolute;
   z-index: 5;
   top: 103px;
@@ -536,7 +536,7 @@ body.archive-open main > .space { display:block; }
 #work-list button small { color:var(--dim);font:500 .42rem/1.55 var(--mono);letter-spacing:.085em;text-transform:uppercase; }
 .works-loading,.archive-principle { margin:0;padding:16px 0;color:var(--dim);font:.78rem/1.5 var(--body); }
 .archive-principle { border-bottom:1px solid var(--line);font-style:italic; }
-.work-reading { position:absolute;z-index:3;bottom:72px;left:var(--edge);display:grid;grid-template-columns:1fr 1fr;column-gap:24px;width:min(540px,40vw);padding:20px;border:1px solid var(--line);border-top-color:var(--line-strong);background:rgba(3,3,3,.94); }
+.work-reading { position:absolute;z-index:3;bottom:72px;left:var(--edge);display:grid;width:min(540px,40vw);padding:20px;border:1px solid var(--line);border-top-color:var(--line-strong);background:rgba(3,3,3,.94); }
 .work-reading > :not(.work-inspector):not(.work-listening) { grid-column:1 / -1; }
 .work-reading h3 { margin:13px 0 16px;font:400 clamp(1.45rem,2vw,2.15rem)/1.14 var(--display);letter-spacing:-.035em;overflow-wrap:anywhere; }
 .work-reading > p:not(.micro-label) { margin:0;color:var(--bone);font-size:.94rem;line-height:1.7; }
@@ -1174,31 +1174,21 @@ h1, h2, h3, h4,
   .identity-organ { right: auto; left: 0; display: grid; grid-template-columns: 28px 96px 1fr; align-items: baseline; width: 100%; padding: 13px 0; border-bottom: 1px solid var(--line); background: transparent; backdrop-filter: none; }
   .identity-organ::after { display:none; }
   .identity-organ:hover { transform: none; }
-  .works-space { height:auto;min-height:2420px;padding:112px 20px 40px; }
+  .works-space { height:auto;min-height:1100px;padding:0; }
   .works-space::before { inset:72px 12px 26px;background-size:50% 100%,100% 16.666%;mask-image:linear-gradient(#000,transparent 18%,transparent 82%,#000); }
   .works-space::after { top:78px;right:20px;left:auto;max-width:210px;text-align:right;line-height:1.5; }
-  #work-canvas { height:560px;top:980px; }
+  #work-canvas { top:0;height:100%; }
   .works-veil { background:linear-gradient(#050605 0,rgba(5,6,5,.12) 35%,rgba(5,6,5,.2) 70%,#050605 84%); }
-  .works-heading { position:relative;top:auto;left:auto;width:100%; }
-  .works-heading h2 { font-size:clamp(1.8rem,8vw,2.8rem);line-height:1.06; }
-  .works-heading > p:last-child { width:100%;margin-left:0; }
-  .library-layers { position:relative;top:auto;right:auto;grid-template-columns:repeat(3,minmax(96px,1fr));width:100%;margin:28px 0 34px;overflow-x:auto; }
-  .library-layers button { min-width:0;padding:0 12px; }
   .system-layer-nav { overflow-x:auto; }
-  .library-layers > span,.system-layer-nav > span { display:none; }
-  .library-layers button,.system-layer-nav button { flex:0 0 auto; }
+  .system-layer-nav > span { display:none; }
+  .system-layer-nav button { flex:0 0 auto; }
   .surface-return { top:72px;left:20px; }
-  .works-archive { top:620px;right:20px;left:20px;width:auto;background:rgba(3,5,6,.82); }
-  #work-list { max-height:180px; }
+  .works-archive { top:88px;right:20px;left:20px;width:auto;background:rgba(3,5,6,.86); }
+  #work-list { max-height:200px; }
   #work-list button { grid-template-columns:24px 1fr;padding:10px 6px;background:rgba(6,7,5,.86); }
   .archive-principle { display:none; }
-  .work-reading { top:1640px;right:20px;bottom:auto;left:20px;display:block;width:auto; }
+  .work-reading { top:auto;right:20px;bottom:24px;left:20px;display:block;width:auto; }
   .work-reading > p:not(.micro-label) { max-width:470px; }
-  .work-edition-line { right:20px;bottom:20px;left:20px;grid-template-columns:1fr;gap:7px; }
-  .work-edition-line > i { display:none; }
-  .work-listening { top:auto;right:auto;bottom:auto;left:auto;width:100%; }
-  .work-inspector { display:block; }
-  .works-descent { display:none; }
   .identity-organ b { margin: 0; font-size: .92rem; }
   .identity-organ small { font-size: .5rem; }
   .organ-receive { top: 500px; }

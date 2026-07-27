@@ -121,24 +121,12 @@
         <div class="scroll-cue" aria-hidden="true"><span>Drag to rotate · Alt / Option + scroll for depth</span><i></i></div>
       </section>
 
-      <section class="space works-space" id="works" data-space-name="Works" aria-labelledby="works-title">
-        <canvas id="work-canvas" aria-label="Navigable visual edition of the selected living work. Drag to rotate the reading and select structures to inspect them."></canvas>
+      <section class="space works-space" id="works" data-space-name="Works" aria-labelledby="work-title">
+        <canvas id="work-canvas" aria-label="Visual model of the selected living work. Drag to rotate and select a structure to describe it."></canvas>
         <div class="works-veil" aria-hidden="true"></div>
 
-        <header class="works-heading">
-          <p class="coordinate">RL / 01 — The Library</p>
-          <h2 id="works-title">The living archive.<br><em>One work at a time.</em></h2>
-          <p>Each work is read as structure, relation, pressure, voice, and time—then archived as a paired visual and resonant edition. No reading replaces the work. No later voice erases an earlier one.</p>
-        </header>
-
-        <nav class="library-layers" aria-label="Library views">
-          <button type="button" class="is-active" disabled>Works</button>
-          <button type="button" data-reveal-surface="living-identity">Identity</button>
-          <button type="button" data-reveal-surface="coherence">Sources</button>
-        </nav>
-
         <aside class="works-archive" aria-label="Living works archive">
-          <header><span>Archive</span><b id="work-count">00 works</b></header>
+          <header><span>RL / 01 — Library</span><b id="work-count">00 works</b></header>
           <div class="library-entries">
             <button class="library-entry" id="library-entry" type="button">
               <span>∞</span><span><b>Library Field</b><small id="library-entry-detail">Resolving living collections</small></span>
@@ -147,49 +135,14 @@
               <span>00</span><span><b>Original Douay-Rheims</b><small id="corpus-entry-detail">Resolving corpus topology</small></span>
             </button>
           </div>
-          <div class="work-archive-tools">
-            <label><span>Seek a work</span><input id="work-search" type="search" placeholder="Title, collection, or division" autocomplete="off"></label>
-            <nav aria-label="Filter living works">
-              <button type="button" class="is-active" data-work-filter="all">All</button>
-              <button type="button" data-work-filter="scripture">Canon</button>
-              <button type="button" data-work-filter="literature">Collections</button>
-              <button type="button" data-work-filter="root-logos">RL</button>
-            </nav>
-          </div>
           <div id="work-list"><p class="works-loading">Opening the archive…</p></div>
-          <p class="archive-principle">One work at a time.<br>Every becoming remains navigable.</p>
         </aside>
 
         <div class="work-reading">
           <p class="micro-label" id="work-coordinate">Current visual-resonant edition</p>
           <h3 id="work-title">Resolving the first work</h3>
           <p id="work-statement">The archive is establishing its shape.</p>
-          <dl id="work-measures"></dl>
-          <div class="work-concepts" id="work-concepts"></div>
-          <nav class="work-editions" id="work-editions" aria-label="Editions of the selected work"></nav>
-          <aside class="work-inspector" id="work-inspector" aria-live="polite">
-            <p class="micro-label" id="work-inspector-type">Work graph</p>
-            <h3 id="work-inspector-title">Select a structure</h3>
-            <p id="work-inspector-body">Move through the visual edition to reveal the structures Root Logos found within the work.</p>
-          </aside>
-          <div class="work-listening">
-            <button type="button" id="work-listen" aria-pressed="false">
-              <span class="work-listen-orbit" aria-hidden="true"><i></i></span>
-              <span><small>Paired resonant edition</small><b id="work-listen-label">Listen to this reading</b></span>
-            </button>
-            <p id="work-sound-status" role="status">Silent by consent.</p>
-          </div>
         </div>
-
-        <div class="work-edition-line">
-          <span><small>Source witness</small><b id="work-source">Immutable</b></span>
-          <i></i>
-          <span class="is-current"><small>Root Logos reading</small><b id="work-edition">Edition —</b></span>
-          <i></i>
-          <span><small>Future reading</small><b>Eligible to evolve</b></span>
-        </div>
-
-        <a class="works-descent" href="#living-identity" data-reveal-surface="living-identity"><span>Every reading leaves attributable pressure</span><i>Enter the identity they shape ↓</i></a>
       </section>
 
       <section class="space identity-space system-layer" id="living-identity" data-space-name="Identity" aria-labelledby="identity-title" hidden>
@@ -681,7 +634,7 @@
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
     <script src="living-object.js?v=1.7-recomposed-sovereign-voice" defer></script>
     <script src="script.js?v=1.3-monochrome-public" defer></script>
-    <script src="works.js?v=1.4-coherent-corpus-selection" defer></script>
+    <script src="works.js?v=1.5-essential-library" defer></script>
     <script src="resonance.js?v=1.4-coherent-corpus-voice" defer></script>
   </body>
 </html>

@@ -120,14 +120,8 @@
       this.rotation = 0;
       this.targetRotation = 0;
       this.pointer = null;
-      this.audio = null;
-      this.master = null;
-      this.timer = null;
-      this.cursor = 0;
       this.isCorpus = false;
       this.isLibrary = false;
-      this.division = "all";
-      this.query = "";
       this.bind();
       this.resize();
       this.renderArchive();
@@ -158,23 +152,6 @@
       });
       $("#library-entry").addEventListener("click", () => this.openLibrary());
       $("#corpus-entry").addEventListener("click", () => this.openCorpus());
-      $("#work-search").addEventListener("input", (event) => {
-        this.query = event.target.value.trim().toLowerCase();
-        this.renderArchive();
-      });
-      document.querySelector(".work-archive-tools nav").addEventListener("click", (event) => {
-        const button = event.target.closest("[data-work-filter]");
-        if (!button) return;
-        this.division = button.dataset.workFilter;
-        document.querySelectorAll("[data-work-filter]").forEach((item) => item.classList.toggle("is-active", item === button));
-        this.renderArchive();
-      });
-      $("#work-editions").addEventListener("click", (event) => {
-        const button = event.target.closest("[data-edition]");
-        if (button && this.entry) this.open(this.entry, button.dataset.edition);
-      });
-      $("#work-listen").addEventListener("click", () => this.audio ? this.stop() : this.start());
-      document.addEventListener("visibilitychange", () => { if (document.hidden && this.audio) this.stop(); });
     }
 
     resize() {
@@ -195,18 +172,10 @@
       $("#work-count").textContent = `${String(selectableWorks).padStart(2, "0")} coherent voice${selectableWorks === 1 ? "" : "s"}`;
       $("#library-entry-detail").textContent = `${selectableWorks} coherent works / ${collections.size} living fields`;
       if (this.corpus) $("#corpus-entry-detail").textContent = `${this.corpus.canonical_work_count} books / ${this.corpus.measures.passages.toLocaleString()} passages`;
-      const corpusQuery = `${this.corpus?.title || ""} bible scripture canon catholic douay rheims`.toLowerCase();
-      $("#corpus-entry").hidden = !this.corpus
-        || !["all", "scripture"].includes(this.division)
-        || Boolean(this.query && !corpusQuery.includes(this.query));
+      $("#corpus-entry").hidden = !this.corpus;
       const visible = (this.index.works || []).filter((work) => {
         if (isBibleBook(work)) return false;
-        const divisionMatch = this.division === "all"
-          || (this.division === "scripture" && isBibleBook(work))
-          || (this.division === "literature" && work.collection && work.collection !== "Original Douay-Rheims Catholic Canon")
-          || (this.division === "root-logos" && !work.collection);
-        const queryMatch = !this.query || `${work.title} ${work.collection || "Root Logos"} ${work.division || ""} ${work.translation || ""}`.toLowerCase().includes(this.query);
-        return divisionMatch && queryMatch;
+        return true;
       }).sort((a, b) => Number(a.library_order || 9999) - Number(b.library_order || 9999));
       $("#work-list").innerHTML = visible.map((work) => `
         <button type="button" data-work="${escapeHtml(work.work_id)}">
@@ -218,7 +187,6 @@
     }
 
     async open(entry, editionHref = entry.edition) {
-      this.stop();
       const response = await fetch(editionHref, { cache: "no-store" });
       if (!response.ok) throw new Error(`Living work ${entry.work_id} could not be opened.`);
       this.entry = entry;
@@ -236,29 +204,10 @@
       $("#work-title").textContent = entry.title;
       $("#work-coordinate").textContent = `${entry.kind} / ${entry.translation || entry.author} / current edition`;
       $("#work-statement").textContent = this.edition.reading.statement;
-      $("#work-edition").textContent = `Edition ${this.edition.root_logos_revision} / ${this.edition.sound.signature}`;
-      $("#work-source").textContent = entry.source_visibility === "private"
-        ? `Private witness / ${this.edition.source_hash.slice(0, 12)}`
-        : this.edition.source_hash.slice(0, 12);
-      $("#work-measures").innerHTML = Object.entries(this.edition.measures).map(([label, value]) =>
-        `<div><dt>${escapeHtml(label)}</dt><dd>${Number(value).toLocaleString()}</dd></div>`).join("");
-      $("#work-concepts").innerHTML = this.edition.reading.dominant_concepts.map(({ concept, count }) =>
-        `<span style="--weight:${clamp(count / this.edition.reading.dominant_concepts[0].count, .25, 1)}">${escapeHtml(concept)}</span>`).join("");
-      $("#work-editions").innerHTML = (entry.edition_history || []).map((edition, index) => `
-        <button type="button" data-edition="${escapeHtml(edition.href)}" class="${edition.edition_id === this.edition.edition_id ? "is-active" : ""}">
-          <span>${String(index + 1).padStart(2, "0")}</span>${escapeHtml(edition.root_logos_revision)} · read ${String(index + 1).padStart(2, "0")}
-        </button>`).join("");
-      $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / score ${this.edition.sound.signature} / silent by consent.`;
-      $("#work-listen-label").textContent = "Listen to this reading";
-      $("#work-inspector-type").textContent = "Work graph";
-      $("#work-inspector-title").textContent = "Select a structure";
-      $("#work-inspector-body").textContent = "Move through the visual edition to reveal the structures Root Logos found within the work.";
-      $("#work-inspector").classList.remove("is-active");
       this.targetRotation = 0;
     }
 
     openLibrary() {
-      this.stop();
       this.entry = null;
       this.isCorpus = false;
       this.isLibrary = true;
@@ -327,25 +276,11 @@
       $("#work-coordinate").textContent = "living library / collection architecture";
       $("#work-title").textContent = "The Library Field";
       $("#work-statement").textContent = this.edition.reading.statement;
-      $("#work-edition").textContent = `Library state / ${this.edition.sound.signature}`;
-      $("#work-source").textContent = "Derived archive witnesses";
-      $("#work-measures").innerHTML = Object.entries(this.edition.measures).map(([label, value]) =>
-        `<div><dt>${escapeHtml(label)}</dt><dd>${Number(value).toLocaleString()}</dd></div>`).join("");
-      $("#work-concepts").innerHTML = collectionNames.map((collection, index) =>
-        `<span style="--weight:${clamp(works.filter((work) => (work.collection || "Root Logos") === collection).length / works.length, .3, 1)}">${escapeHtml(collection)}</span>`).join("");
-      $("#work-editions").innerHTML = "<span class=\"corpus-current\">The field changes whenever a living work enters</span>";
-      $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / library score ${this.edition.sound.signature} / silent by consent.`;
-      $("#work-listen-label").textContent = "Listen to the library field";
-      $("#work-inspector-type").textContent = "Library architecture / current state";
-      $("#work-inspector-title").textContent = "Difference requires distance";
-      $("#work-inspector-body").textContent = `${collectionNames.length} fields remain independently bounded. Their containment is visible; semantic bridges will appear only when Root Logos has derived them.`;
-      $("#work-inspector").classList.add("is-active");
       this.targetRotation = 0;
     }
 
     openCorpus() {
       if (!this.corpus) return;
-      this.stop();
       this.entry = null;
       this.isCorpus = true;
       this.isLibrary = false;
@@ -377,27 +312,12 @@
       $("#work-coordinate").textContent = "private corpus witness / whole canonical field";
       $("#work-title").textContent = this.corpus.title;
       $("#work-statement").textContent = this.edition.reading.statement;
-      $("#work-edition").textContent = `Corpus reading / ${this.edition.sound.signature}`;
-      $("#work-source").textContent = "Private corpus witness";
-      $("#work-measures").innerHTML = Object.entries(this.edition.measures).map(([label, value]) =>
-        `<div><dt>${escapeHtml(label)}</dt><dd>${Number(value).toLocaleString()}</dd></div>`).join("");
-      $("#work-concepts").innerHTML = [
-        ["Coherence", "gravity"], ["Living works", "antigravity"], ["Relation", "tensile fabric"]
-      ].map(([label, role]) => `<span style="--weight:1">${label} = ${role}</span>`).join("");
-      $("#work-editions").innerHTML = "<span class=\"corpus-current\">One aggregate reading / every book retains its own lineage</span>";
-      $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / corpus score ${this.edition.sound.signature} / silent by consent.`;
-      $("#work-listen-label").textContent = "Listen to the whole canon";
-      $("#work-inspector-type").textContent = "Governing geometry / equilibrium";
-      $("#work-inspector-title").textContent = "Coherence and antigravity";
-      $("#work-inspector-body").textContent = `Root Logos compresses toward one corrigible account. Each work presses outward according to its irreducible difference. ${this.corpus.measures.cross_work_relations.toLocaleString()} relations hold the fabric between them without collapse.`;
-      $("#work-inspector").classList.add("is-active");
       this.targetRotation = 0;
     }
 
     renderEmpty() {
       $("#work-title").textContent = "The membrane is open";
       $("#work-statement").textContent = "A complete work may now enter. Its source, visual reading, resonant score, and every later edition will remain navigable here.";
-      $("#work-listen").disabled = true;
     }
 
     selectAt(x, y) {
@@ -407,11 +327,10 @@
       }, null);
       if (!selected) return;
       const { node } = selected;
-      $("#work-inspector-type").textContent = `${node.type} / ${node.coordinate}`;
-      $("#work-inspector-title").textContent = node.label;
       const relations = this.edition.visual.topology.edges.filter(({ from, to }) => from === node.id || to === node.id);
-      $("#work-inspector-body").textContent = `${relations.length} witnessed relation${relations.length === 1 ? "" : "s"} connect this structure to the current reading. Weight ${node.weight}.`;
-      $("#work-inspector").classList.add("is-active");
+      $("#work-coordinate").textContent = `${node.type} / ${node.coordinate}`;
+      $("#work-title").textContent = node.label;
+      $("#work-statement").textContent = `${relations.length} witnessed relation${relations.length === 1 ? "" : "s"} connect this structure to the selected model.`;
     }
 
     draw() {
@@ -512,58 +431,6 @@
       requestAnimationFrame(() => this.draw());
     }
 
-    start() {
-      if (!this.edition || !window.AudioContext) return;
-      this.audio = new AudioContext();
-      this.master = this.audio.createGain();
-      this.master.gain.value = .075;
-      this.master.connect(this.audio.destination);
-      this.cursor = 0;
-      $("#work-listen").setAttribute("aria-pressed", "true");
-      $("#work-listen").classList.add("is-sounding");
-      $("#work-listen-label").textContent = "Close this reading";
-      this.schedule();
-    }
-
-    schedule() {
-      if (!this.audio) return;
-      const event = this.edition.sound.events[this.cursor % this.edition.sound.events.length];
-      const beat = 60 / this.edition.sound.tempo;
-      if (!event.rest) {
-        const oscillator = this.audio.createOscillator();
-        const gain = this.audio.createGain();
-        oscillator.type = event.voice === "ground" ? "sine" : event.voice === "relation" ? "triangle" : "sine";
-        oscillator.frequency.value = event.frequency;
-        gain.gain.setValueAtTime(0, this.audio.currentTime);
-        gain.gain.linearRampToValueAtTime(event.amplitude, this.audio.currentTime + .04);
-        gain.gain.exponentialRampToValueAtTime(.0001, this.audio.currentTime + Math.max(.16, beat * event.beats * .88));
-        oscillator.connect(gain).connect(this.master);
-        oscillator.start();
-        oscillator.stop(this.audio.currentTime + beat * event.beats);
-      }
-      $("#work-sound-status").textContent = event.rest ? "A structural silence holds." : `${event.voice} / ${event.provenance}`;
-      this.cursor += 1;
-      this.timer = window.setTimeout(() => this.schedule(), beat * event.beats * 1000);
-    }
-
-    stop() {
-      if (this.timer) clearTimeout(this.timer);
-      if (this.audio) this.audio.close().catch(() => {});
-      this.timer = null;
-      this.audio = null;
-      this.master = null;
-      $("#work-listen")?.setAttribute("aria-pressed", "false");
-      $("#work-listen")?.classList.remove("is-sounding");
-      if ($("#work-listen-label")) {
-        $("#work-listen-label").textContent = this.isLibrary
-          ? "Listen to the library field"
-          : this.isCorpus ? "Listen to the whole canon" : "Listen to this reading";
-      }
-      if (this.edition) {
-        const scope = this.isLibrary ? "library score" : this.isCorpus ? "corpus score" : "score";
-        $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / ${scope} ${this.edition.sound.signature} / silent by consent.`;
-      }
-    }
   }
 
   const initialize = async () => {
