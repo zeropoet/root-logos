@@ -898,7 +898,10 @@ bounded to one viewport: work selection, model, description, contextual detail,
 and listening state remain simultaneously visible. Only the work list acquires
 local overflow when future growth exceeds its allotted field. The model is held
 against absolute black without atmospheric gradient, radial field, grid plane,
-or veil; all depth must come from the topology itself.
+or veil; all depth must come from the topology itself. Its monochrome state is
+authored natively: nodes, relations, type, cards, selection states, structural
+detail, and the listening signal use explicit black, white, and white opacity.
+No inversion or parent grayscale filter is used to conceal tinted source color.
 Its pulse is synchronized with the weekly cultivation cadence: Sunday at 10:07
 Eastern is the constitutional downbeat of a compressed seven-part live phrase,
 and the same phase governs visible growth pulses. Silence remains an authored

@@ -441,7 +441,7 @@
         );
         [...this.nodes].sort((a, b) => a.depth - b.depth).forEach((node, index) => {
           const size = node.type === "work" ? 11 : node.type === "document" ? 5 : clamp(1.5 + Math.sqrt(node.weight), 2, 6);
-          context.fillStyle = node.color || palette[index % palette.length];
+          context.fillStyle = "#ffffff";
           context.globalAlpha = clamp(.2 + node.depth * .65, .25, .95);
           context.beginPath();
           context.arc(node.screenX, node.screenY, size * node.depth, 0, Math.PI * 2);
