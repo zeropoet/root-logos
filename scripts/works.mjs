@@ -289,7 +289,7 @@ export const ingestWork = async ({
   const sameEdition = priorEntry?.current_edition === editionId;
   const coherentLibraryWork = collection !== COMPILED_CORPUS_COLLECTION;
   const libraryOrder = coherentLibraryWork
-    ? priorEntry?.library_order || Math.max(
+    ? priorEntry?.library_order ?? Math.max(
       0,
       ...(index.works || []).map(({ library_order: order }) => Number(order) || 0)
     ) + 1

@@ -150,12 +150,15 @@
         this.selectAt(event.offsetX, event.offsetY);
       });
       $("#work-list").addEventListener("click", (event) => {
+        if (event.target.closest("[data-corpus]")) {
+          this.openCorpus();
+          return;
+        }
         const button = event.target.closest("[data-work]");
         const entry = this.index.works.find(({ work_id: id }) => id === button?.dataset.work);
         if (entry) this.open(entry);
       });
       $("#library-entry").addEventListener("click", () => this.openLibrary());
-      $("#corpus-entry").addEventListener("click", () => this.openCorpus());
       $("#work-listen").addEventListener("click", () => this.audio ? this.stop() : this.start());
       $("#work-node-detail-close").addEventListener("click", () => this.hideDetail());
       document.addEventListener("visibilitychange", () => { if (document.hidden && this.audio) this.stop(); });
@@ -178,15 +181,24 @@
       if (this.corpus) collections.add(this.corpus.title);
       $("#work-count").textContent = `${String(selectableWorks).padStart(2, "0")} coherent voice${selectableWorks === 1 ? "" : "s"}`;
       $("#library-entry-detail").textContent = `${selectableWorks} coherent works / ${collections.size} living fields`;
-      if (this.corpus) $("#corpus-entry-detail").textContent = `${this.corpus.canonical_work_count} books / ${this.corpus.measures.passages.toLocaleString()} passages`;
-      $("#corpus-entry").hidden = !this.corpus;
       const visible = (this.index.works || []).filter((work) => {
         if (isBibleBook(work)) return false;
         return true;
-      }).sort((a, b) => Number(a.library_order || 9999) - Number(b.library_order || 9999));
-      $("#work-list").innerHTML = visible.map((work) => `
+      }).sort((a, b) => Number(a.library_order ?? 9999) - Number(b.library_order ?? 9999));
+      const entries = visible.map((work) => ({ ...work, public_order: work.library_order }));
+      if (this.corpus) entries.push({
+        is_corpus: true,
+        public_order: 1,
+        title: "Original Douay-Rheims",
+        kind: `${this.corpus.canonical_work_count} books / ${this.corpus.measures.passages.toLocaleString()} passages`
+      });
+      entries.sort((a, b) => Number(a.public_order ?? 9999) - Number(b.public_order ?? 9999));
+      $("#work-list").innerHTML = entries.map((work) => work.is_corpus ? `
+        <button type="button" class="corpus-entry" id="corpus-entry" data-corpus="true">
+          <span>01</span><span><b>${escapeHtml(work.title)}</b><small>${escapeHtml(work.kind)}</small></span>
+        </button>` : `
         <button type="button" data-work="${escapeHtml(work.work_id)}">
-          <span>${String(work.library_order || "—").padStart(2, "0")}</span>
+          <span>${String(work.library_order ?? "—").padStart(2, "0")}</span>
           <span><b>${escapeHtml(work.title)}</b><small>${escapeHtml(work.kind)} / ${work.editions} edition${work.editions === 1 ? "" : "s"}</small></span>
         </button>`).join("") || "<p class=\"works-loading\">The archive is open. No work has crossed the membrane yet.</p>";
       document.querySelectorAll("#work-list [data-work]").forEach((button) =>
@@ -225,7 +237,7 @@
       this.isLibrary = true;
       const works = (this.index.works || [])
         .filter((work) => !isBibleBook(work))
-        .sort((a, b) => Number(a.library_order || 9999) - Number(b.library_order || 9999));
+        .sort((a, b) => Number(a.library_order ?? 9999) - Number(b.library_order ?? 9999));
       if (this.corpus) {
         works.push({
           work_id: this.corpus.corpus_id,
@@ -233,7 +245,8 @@
           kind: "coherent corpus",
           collection: this.corpus.title,
           current_edition: `corpus-${this.corpus.sound.signature}`,
-          editions: 1
+          editions: 1,
+          library_order: 1
         });
       }
       const collectionNames = [...new Set(works.map(({ collection }) => collection || "Root Logos"))];

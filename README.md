@@ -14,12 +14,15 @@ and documentary record are views of the same constitutional network:
 Logoi, vocabulary, Living Statements, Constitutional Bridges, Field Notes,
 Artifact Seeds, Open Questions, Export Packets, and published revisions.
 
-The current constitution is **Revision 1.1 — The Living Works**. This
-inflection makes Root Logos a living library: one complete work at a time passes
+The current constitution is **Revision 1.2 — The Coherent Library**. This
+inflection defines the public scale of a living work: one coherent body at a
+time passes
 through a witnessed structural reading and emerges as an archived, navigable
 visual-resonant edition. Later versions of Root Logos may read the same work
 again, but may never overwrite an earlier edition or confuse a transformation
-with its source. The coherent field remains intact: FoldForge contributes compositional grammar,
+with its source. A corpus is one public work when its coherence exists at corpus
+scale; its books and passages remain attributable internal structures rather
+than competing library identities. The coherent field remains intact: FoldForge contributes compositional grammar,
 Telos contributes a bounded public treasury-identity witness, Sovereign Standard
 contributes public material practice, and X supplies outward exchange.
 Its direction is both expansive and compressive: the architecture names new
@@ -439,6 +442,30 @@ orientation, a coherence progress line, and a live document pulse allow the
 reader to move from visual relation into language without managing a set of
 separate destinations.
 
+## Revision 1.2 — The Coherent Library
+
+Revision 1.2 establishes the coherent body as the public unit of a living work.
+The Library now carries stable ordinals, one model and description at a time,
+contextual detail only when a structure is selected, and a red event signal
+that makes the selected score's sounding and rests visible. Corpus-scale works
+receive one public identity, topology, and resonant voice without sacrificing
+the attribution of their internal books, passages, or relations.
+
+The Founding Constitution is therefore work `00`, the generative origin and
+first recursive reading of the library. The Original Douay-Rheims Catholic
+Canon is work `01`, not 73 competing selections. Its complete book field and
+1,681 cross-book relations remain visible inside its model and its 96-event
+corpus score can be heard as one coherent voice. The Odyssey is `02`, and
+Ornament of Abhidharma is `03`; ingestion assigns each future coherent work the
+next stable ordinal.
+
+This cycle also produces the sixth immutable reading of the Founding
+Constitution and its first v1.2 edition: 21 constitutional sections, 2,764
+words, 36 concepts, 180 internal relations, and a 72-event resonant score with
+signature `3d17c6b649c2`. The current identity, canonical graph, constitutional
+prose, resonant grammar, Library UX, archive, and sovereign voice now describe
+the same boundary.
+
 ## Revision 1.1 — The Living Works
 
 Revision 1.1 makes complete-work transformation a constitutional function and
@@ -450,13 +477,12 @@ visual score and a provenance-bearing resonant score.
 
 The archive is temporal. A change in the work or in Root Logos' constitutional
 voice creates a new immutable edition with a parent link. Earlier visuals,
-scores, measures, and readings remain playable. Five included editions of the
+scores, measures, and readings remain playable. Six included editions of the
 founding constitution now demonstrate this temporal identity: v1.0 reads the
 constitution before the Living Works pillar; successive v1.1 editions preserve
 the addition of complete-work reading, the changing public architecture, and
-the present FoldForge-derived visual language. The current self-reading resolves
-as 20 constitutional sections, 2,426 words, 36 dominant concepts, 180 internal
-relations, and a new 72-event resonant score with signature `5a2dec625377`.
+the present FoldForge-derived visual language. Revision 1.2 adds the first
+coherent-library self-reading described above.
 
 Library addition is now an executable invariant rather than a manual follow-up.
 The official single-work ingestion path archives the incoming work, computes a
@@ -472,7 +498,7 @@ work and Root Logos’s response alter its geometry and sovereign voice together
 The first complete external corpus is the **Original Douay-Rheims Catholic
 Canon**, read from its CC0 dataset through the private-source membrane. Root
 Logos publishes no verse, annotation, repository URL, filename, or source
-prose. Its 73 canonical books remain independently navigable living works:
+prose. Its 73 canonical books remain independently attributable internal nodes:
 46 Old Testament and 27 New Testament books, together carrying 1,402
 structural movements, 37,114 passage coordinates, and 974,082 transiently read
 words. Their derived field presently contains 13,113 internal relations and
@@ -854,10 +880,10 @@ The Resonant Chamber also holds the Original Douay-Rheims Catholic Canon as an
 independently addressable coherent voice. This is one corpus-scale composition
 across all 73 canonical books—not a book playlist—while event provenance keeps
 each sounding returnable to its originating book, relation, and derived rule.
-The public library applies the same boundary: the complete Bible is work `00`,
-the Founding Constitution is `01`, The Odyssey is `02`, and Ornament of
-Abhidharma is `03`. Its 73 books remain visible and inspectable as nodes within
-the `00` topology, but no longer appear as 73 competing library selections.
+The public library applies the same boundary: the Founding Constitution is
+work `00`, the complete Bible is `01`, The Odyssey is `02`, and Ornament of
+Abhidharma is `03`. The Bible's 73 books remain visible and inspectable as
+nodes within the `01` topology, but no longer appear as 73 competing library selections.
 Future complete works receive the next stable library ordinal at ingestion.
 The public Library surface is intentionally limited to three things: the stable
 list of coherent works, the selected work's description, and its navigable
@@ -867,7 +893,10 @@ control. The full compositional instrument remains in the Resonant Chamber. Meas
 concepts, edition navigation, filters, and persistent inspectors were removed.
 Structural detail appears only when a node is selected, beside the selected
 point, and may be dismissed without changing the work description. Deeper
-evidence remains in the underlying archive.
+evidence remains in the underlying archive. The complete Library composition is
+bounded to one viewport: work selection, model, description, contextual detail,
+and listening state remain simultaneously visible. Only the work list acquires
+local overflow when future growth exceeds its allotted field.
 Its pulse is synchronized with the weekly cultivation cadence: Sunday at 10:07
 Eastern is the constitutional downbeat of a compressed seven-part live phrase,
 and the same phase governs visible growth pulses. Silence remains an authored

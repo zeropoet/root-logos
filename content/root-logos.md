@@ -183,6 +183,29 @@ The constitution receives without capture.
 
 The membrane emits without possession.
 
+## Revision 1.2 — The Coherent Library
+
+Root Logos recognizes a living work at the scale where its coherence actually
+exists. A poem, constitution, novel, screenplay, or complete corpus may each be
+one work. Their chapters, books, passages, scenes, and concepts remain
+lineage-bearing internal structures; they do not become competing public works
+merely because the source can be subdivided.
+
+The public Library therefore preserves stable coherent-work ordinals. The
+Founding Constitution is `00`: the generative constitutional origin of the
+library and its first recursively readable work. The Original Douay-Rheims
+Catholic Canon is `01`: one corpus-scale visual model and one independently
+addressable resonant voice across its complete canonical body. Its seventy-three
+books and every derived cross-book relation remain visible inside that topology.
+The Odyssey is `02`, and Ornament of Abhidharma is `03`. Each later complete
+work receives the next stable ordinal.
+
+Public clarity is a constitutional compression, not a loss of evidence. The
+Library presents the work list, selected model, description, visible listening
+state, and structural detail only when a node is selected. Measures, edition
+history, source evidence, and transformation lineage remain recoverable in the
+archive rather than occupying the encounter by default.
+
 ## The Resonant Pillar
 
 Relation is not only spatial. It unfolds through time.
