@@ -935,6 +935,9 @@ body.archive-open main > .space { display:block; }
 .resonance-trace span { color:var(--gold); font:500 .52rem/1.5 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
 .resonance-trace p { margin:0; color:var(--bone); font-size:.84rem; line-height:1.5; }
 .resonance-controls { position:relative; z-index:2; display:grid; gap:22px; padding-left:24px; border-left:1px solid var(--line); }
+.voice-mode { display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+.voice-mode > span { grid-column:1/-1; color:var(--dim); font:500 .52rem/1 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+.voice-mode button[aria-pressed="true"] { border-color:var(--red); color:var(--white); }
 .resonance-controls label { display:grid; grid-template-columns:1fr auto; gap:10px; color:var(--dim); font:500 .52rem/1 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
 .resonance-controls input { grid-column:1/-1; width:100%; height:1px; appearance:none; background:var(--line-strong); accent-color:var(--gold); }
 .resonance-controls input::-webkit-slider-thumb { width:10px;height:10px;appearance:none;border:1px solid var(--gold);border-radius:50%;background:var(--void); }

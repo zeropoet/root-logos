@@ -23,6 +23,7 @@
       this.lastSynchronized = new Date();
       this.presence = .58;
       this.complexity = 3;
+      this.mode = "root-logos";
       this.score = this.compose();
       this.canvas = $("#resonance-canvas");
       this.context = this.canvas.getContext("2d");
@@ -37,6 +38,7 @@
     }
 
     compose() {
+      if (this.mode === "bible") return this.composeBible();
       const { graph, runtime, cycles, memory, attractors, identity } = this.state;
       const nodes = graph.nodes || [];
       const edges = graph.edges || [];
@@ -84,6 +86,42 @@
       return { schema: "resonant-score/v1", seed, signature: seed.toString(16).padStart(8, "0"), tempo, sources, events };
     }
 
+    composeBible() {
+      const corpus = this.state.corpus;
+      const score = corpus?.sound;
+      if (!score?.events?.length) return this.composeRootLogosFallback();
+      const events = score.events.map((event, index) => ({
+        ...event,
+        index,
+        voice: event.voice || "coherence",
+        label: event.voice === "antigravity" ? "Canonical difference" : "Canonical coherence",
+        provenance: event.provenance || `${corpus.title} / event ${index + 1}`,
+        wave: event.voice === "antigravity" ? "triangle" : "sine"
+      }));
+      return {
+        schema: "resonant-corpus-voice/v1",
+        seed: hash(`${corpus.corpus_id}:${score.signature}`),
+        signature: score.signature,
+        tempo: score.tempo,
+        title: corpus.title,
+        sources: [{
+          voice: "corpus",
+          count: corpus.canonical_work_count,
+          source: `${corpus.canonical_work_count} canonical books / ${corpus.measures?.passages?.toLocaleString() || "—"} passages`,
+          label: "Original Douay-Rheims Catholic Canon"
+        }],
+        events
+      };
+    }
+
+    composeRootLogosFallback() {
+      const priorMode = this.mode;
+      this.mode = "root-logos";
+      const score = this.compose();
+      this.mode = priorMode;
+      return score;
+    }
+
     bind() {
       window.addEventListener("resize", () => this.resize());
       $("#listen-control").addEventListener("click", () => this.started ? this.stop() : this.start());
@@ -96,6 +134,33 @@
           this[key] = key === "presence" ? value / 100 : value;
           if (this.master && key === "presence" && !this.muted) this.master.gain.setTargetAtTime(this.gain(), this.audio.currentTime, .08);
         });
+      });
+      document.querySelectorAll("[data-voice-mode]").forEach((button) => {
+        button.addEventListener("click", () => this.selectVoice(button.dataset.voiceMode));
+      });
+    }
+
+    selectVoice(mode) {
+      if (mode === this.mode || !["root-logos", "bible"].includes(mode)) return;
+      this.mode = mode;
+      this.score = this.compose();
+      this.cursor = 0;
+      this.eventsHeard = [];
+      this.nextAt = this.audio ? this.audio.currentTime + .12 : 0;
+      document.querySelectorAll("[data-voice-mode]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.voiceMode === mode));
+      });
+      this.renderScore();
+      this.renderProvenance();
+      this.renderAudit();
+      this.renderSynchrony("recomposed");
+      const name = mode === "bible" ? "The Bible compilation" : "Root Logos";
+      $("#resonance-declaration").textContent = `${name} is now held as one coherent voice.`;
+      this.trace({
+        label: `${name} selected`,
+        voice: mode === "bible" ? "corpus" : "constitution",
+        provenance: `${this.score.signature} / ${this.score.events.length} attributable events`,
+        rest: true
       });
     }
 
@@ -130,7 +195,8 @@
           request(`${RUNTIME}/v1/cycles`),
           request(`cultivation/memory.json${bust}`),
           request(`content/attractor-packets.json${bust}`),
-          request(`self-authorship/current.json${bust}`)
+          request(`self-authorship/current.json${bust}`),
+          request(`works/corpora/original-douay-rheims.json${bust}`)
         ]);
         if (!results.some(({ status }) => status === "fulfilled")) throw new Error("No topology source responded");
         const value = (index, fallback) => results[index].status === "fulfilled" ? results[index].value : fallback;
@@ -141,7 +207,8 @@
           cycles: cycleResult.cycles || this.state.cycles,
           memory: value(3, this.state.memory),
           attractors: value(4, this.state.attractors),
-          identity: value(5, this.state.identity)
+          identity: value(5, this.state.identity),
+          corpus: value(6, this.state.corpus)
         }, results.every(({ status }) => status === "fulfilled") ? "live topology" : "reconciled topology");
       } catch (error) {
         this.renderSynchrony("preserved");
@@ -154,7 +221,7 @@
     synchronize(state, source) {
       if (!state?.graph || !state?.runtime) return;
       const previousSignature = this.score.signature;
-      this.state = state;
+      this.state = { ...this.state, ...state };
       const nextScore = this.compose();
       this.lastSynchronized = new Date();
       if (nextScore.signature === previousSignature) {
@@ -214,7 +281,9 @@
       $("#listen-control").setAttribute("aria-pressed", "true");
       $("#listen-label").textContent = "Return to silence";
       $("#resonance-state").textContent = "The field is sounding.";
-      $("#resonance-declaration").textContent = `A ${this.score.tempo} BPM reading of revision ${this.state.graph.meta.revision}, composed now from preserved state.`;
+      $("#resonance-declaration").textContent = this.mode === "bible"
+        ? `The complete ${this.score.title} is sounding as one ${this.score.tempo} BPM corpus voice.`
+        : `A ${this.score.tempo} BPM reading of revision ${this.state.graph.meta.revision}, composed now from preserved state.`;
       $("#resonance-pause").disabled = false;
       $("#resonance-mute").disabled = false;
       this.schedule();
@@ -279,7 +348,8 @@
       filter.type = "lowpass";
       filter.frequency.setValueAtTime(680 + this.presence * 1700, at);
       envelope.gain.setValueAtTime(.0001, at);
-      envelope.gain.exponentialRampToValueAtTime(.16 / Math.max(2, this.complexity), at + Math.min(.22, duration * .25));
+      const amplitude = clamp(Number(event.amplitude || .16), .035, .16) / Math.max(2, this.complexity);
+      envelope.gain.exponentialRampToValueAtTime(amplitude, at + Math.min(.22, duration * .25));
       envelope.gain.exponentialRampToValueAtTime(.0001, at + Math.max(.3, duration * .92));
       oscillator.connect(filter).connect(envelope).connect(this.master);
       oscillator.start(at);
@@ -297,11 +367,14 @@
 
     renderScore() {
       $("#score-signature").textContent = `${this.score.signature} / ${this.score.tempo} BPM`;
-      $("#score-measures").innerHTML = this.score.events.slice(0, 32).map((event) => `<i class="${event.rest ? "is-rest" : ""}" style="--measure:${event.beats};--voice:${["constitution", "relation", "inquiry", "memory", "threshold", "breath"].indexOf(event.voice)}" title="${event.label}: ${event.provenance}"></i>`).join("");
+      const voices = [...new Set(this.score.events.map(({ voice }) => voice))];
+      $("#score-measures").innerHTML = this.score.events.slice(0, 32).map((event) => `<i class="${event.rest ? "is-rest" : ""}" style="--measure:${event.beats};--voice:${voices.indexOf(event.voice)}" title="${event.label}: ${event.provenance}"></i>`).join("");
     }
 
     renderProvenance() {
-      $("#voice-provenance").textContent = `Score ${this.score.signature} is a reproducible interpretation of ${this.state.graph.meta.revision}. Reloading unchanged data produces the same sequence.`;
+      $("#voice-provenance").textContent = this.mode === "bible"
+        ? `Score ${this.score.signature} composes the complete Catholic canon as one reproducible corpus voice. Its books remain attributable within every event.`
+        : `Score ${this.score.signature} is a reproducible interpretation of ${this.state.graph.meta.revision}. Reloading unchanged data produces the same sequence.`;
       $("#voice-sources").innerHTML = this.score.sources.map(({ voice, source, label }) => `<div><span>${sentence(voice)}</span><b>${label}</b><small>${source}</small></div>`).join("");
     }
 
@@ -309,10 +382,11 @@
       const heard = this.eventsHeard;
       const audible = heard.filter(({ rest }) => !rest);
       const represented = new Set(audible.map(({ voice }) => voice)).size;
+      const available = new Set(this.score.events.map(({ voice }) => voice)).size;
       const rests = heard.filter(({ rest }) => rest).length;
       const traceable = audible.filter(({ provenance }) => provenance).length;
       return [
-        { label: "Range", value: `${represented} / 6 voices`, state: represented >= 4 ? "coherent" : "forming" },
+        { label: "Range", value: `${represented} / ${available} voices`, state: represented >= Math.min(4, available) ? "coherent" : "forming" },
         { label: "Silence", value: heard.length ? `${Math.round(rests / heard.length * 100)}% of events` : "Designed into score", state: rests || !heard.length ? "preserved" : "review" },
         { label: "Traceability", value: audible.length ? `${Math.round(traceable / audible.length * 100)}%` : "Awaiting listening", state: traceable === audible.length ? "intact" : "review" },
         { label: "Repetition", value: this.score.events.length >= 32 ? "Long-form cycle" : "Narrow cycle", state: this.score.events.length >= 32 ? "bounded" : "review" }
@@ -355,9 +429,15 @@
 
   const awaken = async (state) => {
     try {
-      const response = await fetch("resonance/grammar.json");
-      if (!response.ok) throw new Error("sonic grammar unavailable");
-      new ResonantChamber(state, await response.json());
+      const [grammarResponse, corpusResponse] = await Promise.all([
+        fetch("resonance/grammar.json", { cache: "no-store" }),
+        fetch("works/corpora/original-douay-rheims.json", { cache: "no-store" })
+      ]);
+      if (!grammarResponse.ok) throw new Error("sonic grammar unavailable");
+      new ResonantChamber({
+        ...state,
+        corpus: corpusResponse.ok ? await corpusResponse.json() : null
+      }, await grammarResponse.json());
     } catch (error) {
       console.error(error);
       $("#resonance-state").textContent = "The grammar remains silent.";

@@ -14,6 +14,8 @@
     { selector: ".organ-compose", words: ["words", "song", "memory", "name", "spake", "wrote", "book"] },
     { selector: ".organ-rewrite", words: ["return", "new", "again", "life", "death", "time", "way"] }
   ];
+  const BIBLE_COLLECTION = "Original Douay-Rheims Catholic Canon";
+  const isBibleBook = ({ collection }) => collection === BIBLE_COLLECTION;
 
   const influenceScores = (concepts = [], seed = "") => {
     const conceptMap = new Map(concepts.map(({ concept, count }) => [String(concept).toLowerCase(), Number(count) || 0]));
@@ -186,21 +188,29 @@
     }
 
     renderArchive() {
-      $("#work-count").textContent = `${String(this.index.works?.length || 0).padStart(2, "0")} work${this.index.works?.length === 1 ? "" : "s"}`;
-      const collections = new Set((this.index.works || []).map(({ collection }) => collection || "Root Logos"));
-      $("#library-entry-detail").textContent = `${this.index.works.length} works / ${collections.size} living fields`;
+      const independent = (this.index.works || []).filter((work) => !isBibleBook(work));
+      const selectableWorks = independent.length + (this.corpus ? 1 : 0);
+      const collections = new Set(independent.map(({ collection }) => collection || "Root Logos"));
+      if (this.corpus) collections.add(this.corpus.title);
+      $("#work-count").textContent = `${String(selectableWorks).padStart(2, "0")} coherent voice${selectableWorks === 1 ? "" : "s"}`;
+      $("#library-entry-detail").textContent = `${selectableWorks} coherent works / ${collections.size} living fields`;
       if (this.corpus) $("#corpus-entry-detail").textContent = `${this.corpus.canonical_work_count} books / ${this.corpus.measures.passages.toLocaleString()} passages`;
+      const corpusQuery = `${this.corpus?.title || ""} bible scripture canon catholic douay rheims`.toLowerCase();
+      $("#corpus-entry").hidden = !this.corpus
+        || !["all", "scripture"].includes(this.division)
+        || Boolean(this.query && !corpusQuery.includes(this.query));
       const visible = (this.index.works || []).filter((work) => {
+        if (isBibleBook(work)) return false;
         const divisionMatch = this.division === "all"
-          || (this.division === "scripture" && work.collection === "Original Douay-Rheims Catholic Canon")
+          || (this.division === "scripture" && isBibleBook(work))
           || (this.division === "literature" && work.collection && work.collection !== "Original Douay-Rheims Catholic Canon")
           || (this.division === "root-logos" && !work.collection);
         const queryMatch = !this.query || `${work.title} ${work.collection || "Root Logos"} ${work.division || ""} ${work.translation || ""}`.toLowerCase().includes(this.query);
         return divisionMatch && queryMatch;
-      });
+      }).sort((a, b) => Number(a.library_order || 9999) - Number(b.library_order || 9999));
       $("#work-list").innerHTML = visible.map((work) => `
         <button type="button" data-work="${escapeHtml(work.work_id)}">
-          <span>${work.canonical_order ? String(work.canonical_order).padStart(2, "0") : "RL"}</span>
+          <span>${String(work.library_order || "—").padStart(2, "0")}</span>
           <span><b>${escapeHtml(work.title)}</b><small>${escapeHtml(work.kind)} / ${work.editions} edition${work.editions === 1 ? "" : "s"}</small></span>
         </button>`).join("") || "<p class=\"works-loading\">The archive is open. No work has crossed the membrane yet.</p>";
       document.querySelectorAll("#work-list [data-work]").forEach((button) =>
@@ -252,7 +262,19 @@
       this.entry = null;
       this.isCorpus = false;
       this.isLibrary = true;
-      const works = this.index.works || [];
+      const works = (this.index.works || [])
+        .filter((work) => !isBibleBook(work))
+        .sort((a, b) => Number(a.library_order || 9999) - Number(b.library_order || 9999));
+      if (this.corpus) {
+        works.push({
+          work_id: this.corpus.corpus_id,
+          title: this.corpus.title,
+          kind: "coherent corpus",
+          collection: this.corpus.title,
+          current_edition: `corpus-${this.corpus.sound.signature}`,
+          editions: 1
+        });
+      }
       const collectionNames = [...new Set(works.map(({ collection }) => collection || "Root Logos"))];
       const collectionColors = ["#d2d2d2", "#b8b8b8", "#9e9e9e", "#848484", "#6a6a6a"];
       const nodes = [{ id: "library", type: "work", label: "Root Logos Library", coordinate: "library:field", band: 0, weight: works.length, color: "#e8e8e8" }];

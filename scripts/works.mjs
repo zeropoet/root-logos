@@ -14,6 +14,7 @@ const slug = (value) => String(value).toLowerCase().normalize("NFKD")
 const words = (value) => String(value).toLowerCase().match(/[\p{L}\p{N}'’]+/gu) || [];
 const STOP = new Set("a an and are as at be been but by can could did do does for from had has have he her hers him his how i if in into is it its may me more most my no nor not of on one only or our ours she so than that the their them then there these they this those through to too under up upon us was we were what when where which who will with would you your".split(" "));
 const DEFAULT_TRANSFORMATION = "deterministic-structural-reading/v3";
+const COMPILED_CORPUS_COLLECTION = "Original Douay-Rheims Catholic Canon";
 
 const walkMarkdown = async (path) => {
   const stat = await import("node:fs/promises").then(({ stat }) => stat(path));
@@ -286,9 +287,19 @@ export const ingestWork = async ({
   try { index = JSON.parse(await readFile(indexPath, "utf8")); } catch {}
   const priorEntry = (index.works || []).find(({ work_id: id }) => id === workId);
   const sameEdition = priorEntry?.current_edition === editionId;
+  const coherentLibraryWork = collection !== COMPILED_CORPUS_COLLECTION;
+  const libraryOrder = coherentLibraryWork
+    ? priorEntry?.library_order || Math.max(
+      0,
+      ...(index.works || []).map(({ library_order: order }) => Number(order) || 0)
+    ) + 1
+    : null;
+  derived.manifest.library_order = libraryOrder;
+  await writeFile(join(workDir, "manifest.json"), json(derived.manifest));
   const entry = {
     work_id: workId, title: resolvedTitle, author, kind, current_edition: editionId,
     editions: sameEdition ? priorEntry.editions : (priorEntry?.editions || 0) + 1, updated_at: derived.edition.created_at,
+    library_order: libraryOrder,
     edition_history: derived.manifest.editions,
     source_visibility: derived.manifest.source_visibility,
     translation: derived.manifest.translation,

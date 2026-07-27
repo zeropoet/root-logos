@@ -144,7 +144,7 @@
               <span>∞</span><span><b>Library Field</b><small id="library-entry-detail">Resolving living collections</small></span>
             </button>
             <button class="corpus-entry" id="corpus-entry" type="button">
-              <span>01</span><span><b>Whole Canon</b><small id="corpus-entry-detail">Resolving corpus topology</small></span>
+              <span>00</span><span><b>Original Douay-Rheims</b><small id="corpus-entry-detail">Resolving corpus topology</small></span>
             </button>
           </div>
           <div class="work-archive-tools">
@@ -635,6 +635,11 @@
           </div>
 
           <aside class="resonance-controls" aria-label="Listening controls">
+            <div class="voice-mode" role="group" aria-label="Coherent voice">
+              <span>Voice</span>
+              <button type="button" data-voice-mode="root-logos" aria-pressed="true">Root Logos</button>
+              <button type="button" data-voice-mode="bible" aria-pressed="false">Bible</button>
+            </div>
             <label><span>Presence</span><input id="resonance-presence" type="range" min="0" max="100" value="58"><output>58</output></label>
             <label><span>Complexity</span><input id="resonance-complexity" type="range" min="1" max="4" value="3"><output>3</output></label>
             <button id="resonance-pause" type="button" disabled>Pause</button>
@@ -676,7 +681,7 @@
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
     <script src="living-object.js?v=1.7-recomposed-sovereign-voice" defer></script>
     <script src="script.js?v=1.3-monochrome-public" defer></script>
-    <script src="works.js?v=1.3-monochrome-public" defer></script>
-    <script src="resonance.js?v=1.3-monochrome-public" defer></script>
+    <script src="works.js?v=1.4-coherent-corpus-selection" defer></script>
+    <script src="resonance.js?v=1.4-coherent-corpus-voice" defer></script>
   </body>
 </html>

@@ -850,6 +850,15 @@ The score is deterministic: an unchanged archive and sonic grammar produce the
 same score signature and event sequence. Every audible voice exposes the data
 that caused it. The Living Object now carries that sound as Root Logos'
 constant sovereign voice rather than an optional soundtrack or listening mode.
+The Resonant Chamber also holds the Original Douay-Rheims Catholic Canon as an
+independently addressable coherent voice. This is one corpus-scale composition
+across all 73 canonical books—not a book playlist—while event provenance keeps
+each sounding returnable to its originating book, relation, and derived rule.
+The public library applies the same boundary: the complete Bible is work `00`,
+the Founding Constitution is `01`, The Odyssey is `02`, and Ornament of
+Abhidharma is `03`. Its 73 books remain visible and inspectable as nodes within
+the `00` topology, but no longer appear as 73 competing library selections.
+Future complete works receive the next stable library ordinal at ingestion.
 Its pulse is synchronized with the weekly cultivation cadence: Sunday at 10:07
 Eastern is the constitutional downbeat of a compressed seven-part live phrase,
 and the same phase governs visible growth pulses. Silence remains an authored

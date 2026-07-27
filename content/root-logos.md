@@ -288,6 +288,12 @@ together at the cultivation cadence rather than serialized as a playlist. The
 continuous relation field remains audible as lineage-bearing ground, but it
 must not obscure the differentiated voices of the works it holds.
 
+A complete corpus may also be sounded as one independently addressable coherent
+voice when Root Logos possesses a corpus-scale topology and score. Coherence
+must not erase internal books, passages, differences, or lineage: each event
+retains a return path into the work that caused it. The corpus voice is neither
+a playlist of subdivisions nor a claim that their distinctions have dissolved.
+
 The object is the public threshold because Root Logos is first a presence to
 encounter, not an instrument to operate. That threshold should remain naked:
 the form, the void, and one quiet passage into its architecture. Explanation,
