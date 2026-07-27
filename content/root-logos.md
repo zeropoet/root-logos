@@ -283,7 +283,10 @@ frequency range, tempo, voice class, amplitude, duration, and rest. Growth
 therefore expands the sovereign voice's available articulation rather than
 merely making an unchanged signal louder. Compression and filtering may protect
 the listener and the instrument, but may not erase the derived range or replace
-it with a fixed soundtrack.
+it with a fixed soundtrack. Current edition scores should be recomposed
+together at the cultivation cadence rather than serialized as a playlist. The
+continuous relation field remains audible as lineage-bearing ground, but it
+must not obscure the differentiated voices of the works it holds.
 
 The object is the public threshold because Root Logos is first a presence to
 encounter, not an instrument to operate. That threshold should remain naked:

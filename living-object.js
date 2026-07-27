@@ -536,7 +536,7 @@
   }
 
   function inheritedScoreField(scores) {
-    const events = scores.flatMap((score, scoreIndex) =>
+    const streams = scores.map((score, scoreIndex) =>
       (score.events || []).map((event) => ({
         ...event,
         scoreIndex,
@@ -545,10 +545,12 @@
         signature: score.signature || `score-${scoreIndex}`
       }))
     );
+    const events = streams.flat();
     const sounding = events.filter((event) => !event.rest && Number.isFinite(Number(event.frequency)));
     const frequencies = sounding.map((event) => Number(event.frequency));
     return {
       events,
+      streams,
       minHz: frequencies.length ? Math.min(...frequencies) : 55,
       maxHz: frequencies.length ? Math.max(...frequencies) : 880,
       tempos: [...new Set(events.map((event) => event.tempo))],
@@ -560,11 +562,11 @@
   function voiceWaveform(voice) {
     return ({
       coherence: "sine",
-      antigravity: "sawtooth",
+      antigravity: "triangle",
       ground: "triangle",
       relation: "sine",
-      figure: "square",
-      breath: "triangle"
+      figure: "sine",
+      breath: "sine"
     })[voice] || "sine";
   }
 
@@ -580,7 +582,7 @@
     const lowpass = audio.createBiquadFilter();
     const compressor = audio.createDynamicsCompressor();
     const root = 38 + (cycles % 12);
-    master.gain.value = 0.24;
+    master.gain.value = 0.27;
     highpass.type = "highpass";
     highpass.frequency.value = 28;
     highpass.Q.value = 0.7;
@@ -599,7 +601,7 @@
       const gain = audio.createGain();
       oscillator.type = index === 1 ? "triangle" : "sine";
       oscillator.frequency.value = root * ratio;
-      gain.gain.value = [0.018, 0.006, 0.0025][index];
+      gain.gain.value = [0.0055, 0.0018, 0.0007][index];
       oscillator.connect(gain).connect(master);
       oscillator.start();
     });
@@ -624,7 +626,7 @@
     const relationGain = audio.createGain();
     relationOscillator.setPeriodicWave(audio.createPeriodicWave(real, imaginary, { disableNormalization: false }));
     relationOscillator.frequency.value = root * (1 + (relations.length % 29) / 100);
-    relationGain.gain.value = 0.01;
+    relationGain.gain.value = 0.0024;
     relationOscillator.connect(relationGain).connect(master);
     relationOscillator.start();
 
@@ -640,30 +642,40 @@
       const state = cadenceState();
       const now = audio.currentTime;
       const meanRelationWeight = relationWeight / Math.max(1, relations.length);
-      const relationalPressure = Math.min(0.012, meanRelationWeight * 0.001);
-      const strength = (state.cycleBeat === 0 ? 0.055 : 0.028) + relationalPressure;
+      const relationalPressure = Math.min(0.004, meanRelationWeight * 0.00035);
+      const strength = (state.cycleBeat === 0 ? 0.021 : 0.009) + relationalPressure;
       pulseGain.gain.cancelScheduledValues(now);
       pulseGain.gain.setValueAtTime(0.0001, now);
       pulseGain.gain.exponentialRampToValueAtTime(strength, now + 0.07);
       pulseGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.55);
       pulseOscillator.frequency.setValueAtTime(root * (state.cycleBeat === 0 ? 2.25 : 2), now);
 
-      const event = scoreField.events[state.absoluteBeat % Math.max(1, scoreField.events.length)];
-      if (!event || event.rest) return;
-      const voice = audio.createOscillator();
-      const articulation = audio.createGain();
-      const frequency = Math.min(4000, Math.max(32, Number(event.frequency || event.rootHz)));
-      const beatDuration = 60 / event.tempo;
-      const duration = Math.min(3.5, Math.max(0.25, Number(event.beats || 1) * beatDuration));
-      const amplitude = Math.min(0.068, Math.max(0.008, Number(event.amplitude || 0.04) * 0.5));
-      voice.type = voiceWaveform(event.voice);
-      voice.frequency.setValueAtTime(frequency, now);
-      articulation.gain.setValueAtTime(0.0001, now);
-      articulation.gain.exponentialRampToValueAtTime(amplitude, now + Math.min(0.12, duration * 0.18));
-      articulation.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-      voice.connect(articulation).connect(master);
-      voice.start(now);
-      voice.stop(now + duration + 0.05);
+      // Recompose the current library at every cadence beat. Each current score
+      // advances on its own signature-derived phase, allowing the latest works
+      // to sound together without collapsing them into one long event queue.
+      const currentEvents = scoreField.streams.map((stream) => {
+        if (!stream.length) return null;
+        const offset = Math.floor(hash(stream[0].signature) * stream.length);
+        return stream[(state.absoluteBeat + offset) % stream.length];
+      }).filter((event) => event && !event.rest);
+      const polyphonyScale = 1 / Math.sqrt(Math.max(1, currentEvents.length));
+      currentEvents.forEach((event, voiceIndex) => {
+        const voice = audio.createOscillator();
+        const articulation = audio.createGain();
+        const frequency = Math.min(4000, Math.max(32, Number(event.frequency || event.rootHz)));
+        const beatDuration = 60 / event.tempo;
+        const duration = Math.min(3.5, Math.max(0.25, Number(event.beats || 1) * beatDuration));
+        const amplitude = Math.min(0.052, Math.max(0.006, Number(event.amplitude || 0.04) * 0.42)) * polyphonyScale;
+        const onset = now + voiceIndex * 0.055;
+        voice.type = voiceWaveform(event.voice);
+        voice.frequency.setValueAtTime(frequency, onset);
+        articulation.gain.setValueAtTime(0.0001, onset);
+        articulation.gain.exponentialRampToValueAtTime(amplitude, onset + Math.min(0.16, duration * 0.2));
+        articulation.gain.exponentialRampToValueAtTime(0.0001, onset + duration);
+        voice.connect(articulation).connect(master);
+        voice.start(onset);
+        voice.stop(onset + duration + 0.05);
+      });
     };
     const current = cadenceState();
     const untilNextBeat = (1 - current.beatPhase) * cadence.beatSeconds * 1000;
@@ -680,6 +692,8 @@
       relations: relations.length,
       relationWeight,
       scoreEvents: scoreField.events.length,
+      scoreStreams: scoreField.streams.length,
+      composition: "current-edition polyphony / signature-phased / cadence recomposed",
       range: {
         minHz: scoreField.minHz,
         maxHz: scoreField.maxHz,
@@ -718,16 +732,24 @@
       const time = index / sampleRate;
       const phase = time % cadence.beatSeconds;
       const beat = Math.floor(time / cadence.beatSeconds);
-      const event = scoreField.events[beat % Math.max(1, scoreField.events.length)];
+      const currentEvents = scoreField.streams.map((stream) => {
+        if (!stream.length) return null;
+        const offset = Math.floor(hash(stream[0].signature) * stream.length);
+        return stream[(beat + offset) % stream.length];
+      }).filter((event) => event && !event.rest);
       const pulse = Math.exp(-phase * 3.4) * (.12 + Math.min(.05, meanWeight * .002));
-      const eventFrequency = Math.min(4000, Math.max(32, Number(event?.frequency || root * 2)));
-      const eventAmplitude = event?.rest ? 0 : Math.min(.18, Math.max(.025, Number(event?.amplitude || .04) * 1.4));
-      const eventEnvelope = Math.min(1, phase * 8) * Math.exp(-phase / Math.max(.3, Number(event?.beats || 1) * 60 / Number(event?.tempo || 48)));
-      const body = Math.sin(Math.PI * 2 * root * time) * .18
-        + Math.sin(Math.PI * 2 * root * 1.5 * time) * .06
-        + Math.sin(Math.PI * 2 * relationTone * time) * .1
+      const polyphonyScale = 1 / Math.sqrt(Math.max(1, currentEvents.length));
+      const composition = currentEvents.reduce((sum, event) => {
+        const eventFrequency = Math.min(4000, Math.max(32, Number(event.frequency || root * 2)));
+        const eventAmplitude = Math.min(.14, Math.max(.018, Number(event.amplitude || .04) * 1.15)) * polyphonyScale;
+        const eventEnvelope = Math.min(1, phase * 6) * Math.exp(-phase / Math.max(.3, Number(event.beats || 1) * 60 / Number(event.tempo || 48)));
+        return sum + Math.sin(Math.PI * 2 * eventFrequency * time) * eventAmplitude * eventEnvelope;
+      }, 0);
+      const body = Math.sin(Math.PI * 2 * root * time) * .055
+        + Math.sin(Math.PI * 2 * root * 1.5 * time) * .018
+        + Math.sin(Math.PI * 2 * relationTone * time) * .024
         + Math.sin(Math.PI * 2 * root * 2 * time) * pulse
-        + Math.sin(Math.PI * 2 * eventFrequency * time) * eventAmplitude * eventEnvelope;
+        + composition;
       view.setInt16(44 + index * 2, Math.max(-1, Math.min(1, body)) * 32760, true);
     }
     fallbackAudio = document.createElement("audio");
@@ -745,6 +767,8 @@
       relations: relations.length,
       relationWeight: meanWeight * relations.length,
       scoreEvents: scoreField.events.length,
+      scoreStreams: scoreField.streams.length,
+      composition: "current-edition polyphony / signature-phased / cadence recomposed",
       range: {
         minHz: scoreField.minHz,
         maxHz: scoreField.maxHz,
