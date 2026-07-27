@@ -19,10 +19,12 @@
   --rust: #8c8c8c;
   --green: #fff;
   --accent: #f01818;
-  --display: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --body: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --ui: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --display: var(--font-sans);
+  --body: var(--font-sans);
+  --ui: var(--font-sans);
+  --mono: var(--font-mono);
   --edge: clamp(20px, 4vw, 64px);
 }
 
@@ -1014,6 +1016,36 @@ body.archive-open main > .space { display:block; }
 .health-profile article { display: grid; grid-template-columns: 1fr auto; gap: 13px; min-height: 145px; padding: 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .health-profile span { color: var(--dim); font: 500 .52rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .health-profile strong { color: var(--gold); font: 400 1.7rem/1 var(--display); }
+
+/* FoldForge type presentation: the sans face stays light and tightly set at
+   display scale; architectural headings are uppercase, while authored work
+   titles and sustained prose retain their original casing. */
+h1, h2, h3, h4,
+.identity-core strong,
+.identity-organ b,
+.chamber-readout > strong,
+.intake-readout strong,
+.source-field-core strong,
+.health-profile strong {
+  font-weight: 300;
+}
+
+.object-identity h1,
+.field-header h1,
+.space-heading h2,
+.works-heading h2,
+.cycle-drawer h2,
+.observation-instrument > header h3,
+.antechamber > section > header h2,
+.journal-plan h3,
+.source-reading h3,
+.composition-ledger header h3,
+.resonance-primary h3,
+.resonance-ledger h3,
+.observatory-stage-head h3,
+.structural-health header h3 {
+  text-transform: uppercase;
+}
 .health-profile i { grid-column: 1 / -1; align-self: end; display: block; height: 2px; background: var(--line); }
 .health-profile i b { display: block; width: var(--health); height: 100%; background: linear-gradient(90deg,var(--inquiry),var(--gold)); }
 .health-profile small { grid-column: 1 / -1; color: var(--bone); font-size: .74rem; }

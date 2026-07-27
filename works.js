@@ -479,7 +479,7 @@
           if (node.type === "work" || labelCollection || labelDocument || labelBook || labelConcept) {
             context.globalAlpha = clamp(node.depth - .12, .2, .8);
             context.fillStyle = "#e8e8e8";
-            context.font = `${node.type === "work" ? 11 : node.type === "collection" ? 9 : 8}px ui-monospace, monospace`;
+            context.font = `${node.type === "work" ? 11 : node.type === "collection" ? 9 : 8}px "SFMono-Regular", Consolas, "Liberation Mono", monospace`;
             const label = node.label.length > 30 ? `${node.label.slice(0, 27)}…` : node.label;
             context.fillText(label.toUpperCase(), node.screenX + size + 5, node.screenY + 3);
           }

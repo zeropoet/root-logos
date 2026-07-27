@@ -521,6 +521,16 @@ establishes Classical Epics as the library’s second external collection and
 changes the public archive from a canon-led display into a collection-aware
 living library.
 
+**Ornament of Abhidharma**, Chim Jampaiyang’s Tibetan Abhidharma commentary in
+Ian James Coghlan’s 2019 English translation, establishes Buddhist Classics as
+another independently bounded collection. Root Logos transiently reads the
+privately supplied owned edition and retains no source prose. Its public
+lineage consists of an opaque source witness and one derived visual-resonant
+edition: 48 documents, 606 sections, 399,363 words encountered, 36 concepts,
+and 180 internal relations. Copyright and translation attribution remain
+explicit in the manifest; the archive publishes transformation and lineage,
+not the protected text.
+
 ### The Living Object
 
 The public threshold is now the **Living Object**: one slow, dimensional,
@@ -862,11 +872,15 @@ The current identity is strict black and white.
 
 Typography roles:
 
-- Display serif for constitutional titles and major headings.
-- Serif body text for reading.
-- Monospace for navigation, metadata, labels, revision data, and export/code-like
-  surfaces.
-- System UI font for Network Field and packet controls.
+- Helvetica Neue, with Helvetica and Arial fallbacks, for constitutional
+  titles, major headings, sustained reading, and interface controls.
+- SFMono-Regular, with Consolas and Liberation Mono fallbacks, for navigation,
+  metadata, labels, revision data, measurements, and export/code-like surfaces.
+- Canvas labels use the same explicit monospace stack as the surrounding
+  interface rather than a browser-generic UI font.
+- Architectural display headings follow FoldForge's light, tightly tracked,
+  uppercase presentation; authored work titles and sustained prose preserve
+  their natural casing for legibility and fidelity.
 
 The brand mark is a framed constitutional grid with a central source axis and
 node structure. SVG is the source of truth; PNG fallbacks are generated for

@@ -682,7 +682,7 @@ class LivingObservatory {
       if (this.mode === "pressure") { const glow = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, point.r * 3); glow.addColorStop(0, `rgba(${color.join(",")},.18)`); glow.addColorStop(1, `rgba(${color.join(",")},0)`); ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(point.x, point.y, point.r * 3, 0, Math.PI * 2); ctx.fill(); }
       if (active || hover) { ctx.beginPath(); ctx.arc(point.x, point.y, point.r + 9 + pulse, 0, Math.PI * 2); ctx.strokeStyle = `rgba(${color.join(",")},.5)`; ctx.lineWidth = .7; ctx.stroke(); }
       ctx.beginPath(); ctx.arc(point.x, point.y, Math.max(2, point.r + (this.mode === "respiration" ? pulse * .25 : 0)), 0, Math.PI * 2); ctx.fillStyle = this.mode === "absence" ? "rgba(7,8,6,.88)" : `rgba(${color.join(",")},${active || hover ? .95 : .64})`; ctx.fill();
-      if (hover || active || (this.mode === "authority" && this.width > 700)) { ctx.fillStyle = "rgba(233,229,216,.76)"; ctx.font = "500 9px SFMono-Regular, monospace"; ctx.fillText(point.title.toUpperCase().slice(0, 42), point.x + point.r + 11, point.y + 3); }
+      if (hover || active || (this.mode === "authority" && this.width > 700)) { ctx.fillStyle = "rgba(233,229,216,.76)"; ctx.font = '500 9px "SFMono-Regular", Consolas, "Liberation Mono", monospace'; ctx.fillText(point.title.toUpperCase().slice(0, 42), point.x + point.r + 11, point.y + 3); }
     });
     requestAnimationFrame(this.draw);
   }
@@ -919,7 +919,7 @@ class ConstitutionalField {
       ctx.fill();
       if (hover || active || node.type === "root") {
         ctx.fillStyle = `rgba(233,229,216,${alpha * .76})`;
-        ctx.font = "500 9px SFMono-Regular, monospace";
+        ctx.font = '500 9px "SFMono-Regular", Consolas, "Liberation Mono", monospace';
         ctx.fillText(node.title.toUpperCase().slice(0, 48), node.px + radius + 9, node.py + 3);
       }
     });
