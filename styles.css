@@ -1430,3 +1430,168 @@ body.archive-open select:focus {
   border-color:#fff;
   background:#000;
 }
+
+/* Revision 1.2 typographic recalibration.
+   Helvetica carries language; SF Mono is reserved for coordinates and state. */
+body.archive-open {
+  font-size:16px;
+  line-height:1.58;
+  letter-spacing:0;
+}
+body.archive-open h1,
+body.archive-open h2,
+body.archive-open h3,
+body.archive-open h4 {
+  font-family:var(--display);
+  font-weight:400;
+  letter-spacing:-.035em;
+  text-wrap:balance;
+}
+body.archive-open p {
+  text-wrap:pretty;
+}
+body.archive-open .space-heading {
+  margin-bottom:clamp(72px,9vw,132px);
+}
+body.archive-open .space-heading h2 {
+  max-width:17ch;
+  font-size:clamp(2.35rem,3.6vw,4.35rem);
+  line-height:.98;
+  letter-spacing:-.05em;
+}
+body.archive-open .space-heading > div > p {
+  max-width:44ch;
+  color:rgba(255,255,255,.76);
+  font-size:clamp(.88rem,.95vw,1rem);
+  line-height:1.65;
+}
+body.archive-open .coordinate,
+body.archive-open .micro-label {
+  font-family:var(--mono);
+  font-size:.61rem;
+  font-weight:500;
+  line-height:1.4;
+  letter-spacing:.085em;
+  text-transform:uppercase;
+}
+body.archive-open .micro-label {
+  color:rgba(255,255,255,.56);
+}
+body.archive-open button,
+body.archive-open input,
+body.archive-open textarea,
+body.archive-open select {
+  font-size:.72rem;
+}
+body.archive-open button {
+  letter-spacing:.045em;
+}
+body.archive-open .primary-nav a,
+body.archive-open .surface-return,
+body.archive-open .system-layer-nav button,
+body.archive-open .library-layers button {
+  font-family:var(--mono);
+  font-size:.64rem;
+  letter-spacing:.065em;
+}
+body.archive-open .works-archive > header {
+  font-size:.61rem;
+  letter-spacing:.075em;
+}
+body.archive-open .library-entry b,
+body.archive-open .corpus-entry b,
+body.archive-open #work-list button b {
+  font-family:var(--body);
+  font-size:.92rem;
+  font-weight:400;
+  line-height:1.24;
+  letter-spacing:-.012em;
+}
+body.archive-open .library-entry small,
+body.archive-open .corpus-entry small,
+body.archive-open #work-list button small {
+  font-family:var(--mono);
+  font-size:.55rem;
+  line-height:1.42;
+  letter-spacing:.045em;
+  text-transform:none;
+}
+body.archive-open #work-list button > span:first-child,
+body.archive-open .library-entry > span:first-child,
+body.archive-open .corpus-entry > span:first-child {
+  font-size:.62rem;
+  letter-spacing:.04em;
+}
+body.archive-open .work-reading h3 {
+  margin:12px 0 14px;
+  font-size:clamp(1.65rem,2.15vw,2.45rem);
+  line-height:1.03;
+  letter-spacing:-.045em;
+}
+body.archive-open .work-reading > p:not(.micro-label) {
+  max-width:48ch;
+  font-size:.96rem;
+  line-height:1.58;
+}
+body.archive-open #work-listen,
+body.archive-open .work-listening > p {
+  font-family:var(--mono);
+  font-size:.58rem;
+  letter-spacing:.055em;
+  text-transform:none;
+}
+body.archive-open .work-node-detail h3 {
+  font-size:1.3rem;
+  letter-spacing:-.025em;
+}
+body.archive-open .work-node-detail > p:last-child {
+  font-size:.86rem;
+  line-height:1.52;
+}
+body.archive-open .identity-manifest h3,
+body.archive-open .latest-cycle h3,
+body.archive-open .review-surface h3,
+body.archive-open .source-reading h3,
+body.archive-open .resonance-primary h3,
+body.archive-open .resonance-ledger h3,
+body.archive-open .observatory-reading h3 {
+  font-size:clamp(1.65rem,2.35vw,2.8rem);
+  line-height:1.04;
+  letter-spacing:-.04em;
+}
+body.archive-open .identity-manifest p,
+body.archive-open .latest-cycle p,
+body.archive-open .review-surface p,
+body.archive-open .source-reading p,
+body.archive-open .resonance-primary p,
+body.archive-open .resonance-ledger p,
+body.archive-open .observatory-reading p {
+  font-size:.94rem;
+  line-height:1.62;
+}
+body.archive-open .voice-sources span,
+body.archive-open #audit-findings span,
+body.archive-open .voice-sources small,
+body.archive-open #audit-findings i,
+body.archive-open .observatory-modes button,
+body.archive-open .observatory-timeline button {
+  font-size:.58rem;
+  letter-spacing:.05em;
+}
+body.archive-open .site-footer,
+body.archive-open .site-footer > div,
+body.archive-open .site-footer nav {
+  font-size:.68rem;
+  letter-spacing:.07em;
+}
+
+@media (max-width:760px) {
+  body.archive-open { font-size:15px; }
+  body.archive-open .space-heading h2 { font-size:clamp(2.2rem,11vw,3.45rem); }
+  body.archive-open .coordinate,
+  body.archive-open .micro-label { font-size:.58rem; }
+  body.archive-open .work-reading h3 { font-size:1.75rem; }
+  body.archive-open .library-entry b,
+  body.archive-open .corpus-entry b,
+  body.archive-open #work-list button b { font-size:.86rem; }
+}

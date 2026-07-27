@@ -911,6 +911,14 @@ and footer. Shared tokens resolve to black, white, and white opacity; hardcoded
 atmospheres, canvas highlights, glows, active states, and mobile overrides are
 likewise emitted directly in monochrome. The Living Object alone retains its
 separate provenance-bearing spectral identity.
+
+Archive typography follows a strict two-voice system. Helvetica Neue carries
+headings, descriptions, and sustained reading; SF Mono is reserved for
+coordinates, compact state, provenance, and commands. Revision 1.2 removes the
+prior dependence on sub-10px labels, excessive tracking, and ubiquitous
+uppercase. Minimum label sizes rise, headings gain clearer scale contrast,
+paragraphs receive a readable measure and rhythm, and mobile type remains
+compact without becoming cryptic.
 Its pulse is synchronized with the weekly cultivation cadence: Sunday at 10:07
 Eastern is the constitutional downbeat of a compressed seven-part live phrase,
 and the same phase governs visible growth pulses. Silence remains an authored
