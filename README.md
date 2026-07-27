@@ -861,9 +861,13 @@ the `00` topology, but no longer appear as 73 competing library selections.
 Future complete works receive the next stable library ordinal at ingestion.
 The public Library surface is intentionally limited to three things: the stable
 list of coherent works, the selected work's description, and its navigable
-visual model. Measures, concepts, edition controls, inspectors, filters, and
-local playback were removed from that surface. Resonant listening belongs to
-the Resonant Chamber; deeper evidence remains in the underlying archive.
+visual model. A single listening action belongs to the selected work, while a
+sparse red event signal identifies sounding and rest without adding a mixing
+control. The full compositional instrument remains in the Resonant Chamber. Measures,
+concepts, edition navigation, filters, and persistent inspectors were removed.
+Structural detail appears only when a node is selected, beside the selected
+point, and may be dismissed without changing the work description. Deeper
+evidence remains in the underlying archive.
 Its pulse is synchronized with the weekly cultivation cadence: Sunday at 10:07
 Eastern is the constitutional downbeat of a compressed seven-part live phrase,
 and the same phase governs visible growth pulses. Silence remains an authored

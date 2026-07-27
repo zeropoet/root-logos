@@ -142,7 +142,23 @@
           <p class="micro-label" id="work-coordinate">Current visual-resonant edition</p>
           <h3 id="work-title">Resolving the first work</h3>
           <p id="work-statement">The archive is establishing its shape.</p>
+          <div class="work-listening">
+            <button type="button" id="work-listen" aria-pressed="false">
+              <span id="work-listen-label">Listen</span>
+            </button>
+            <div class="work-sound-signal" id="work-sound-signal" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <p id="work-sound-status" role="status">Current score / silent</p>
+          </div>
         </div>
+
+        <aside class="work-node-detail" id="work-node-detail" hidden>
+          <button type="button" id="work-node-detail-close" aria-label="Close structural detail">×</button>
+          <p class="micro-label" id="work-node-detail-type">Structure</p>
+          <h3 id="work-node-detail-title">Selected node</h3>
+          <p id="work-node-detail-body"></p>
+        </aside>
       </section>
 
       <section class="space identity-space system-layer" id="living-identity" data-space-name="Identity" aria-labelledby="identity-title" hidden>
@@ -634,7 +650,7 @@
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
     <script src="living-object.js?v=1.7-recomposed-sovereign-voice" defer></script>
     <script src="script.js?v=1.3-monochrome-public" defer></script>
-    <script src="works.js?v=1.5-essential-library" defer></script>
+    <script src="works.js?v=1.7-visible-listening-state" defer></script>
     <script src="resonance.js?v=1.4-coherent-corpus-voice" defer></script>
   </body>
 </html>

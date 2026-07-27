@@ -120,6 +120,10 @@
       this.rotation = 0;
       this.targetRotation = 0;
       this.pointer = null;
+      this.audio = null;
+      this.master = null;
+      this.timer = null;
+      this.cursor = 0;
       this.isCorpus = false;
       this.isLibrary = false;
       this.bind();
@@ -152,6 +156,9 @@
       });
       $("#library-entry").addEventListener("click", () => this.openLibrary());
       $("#corpus-entry").addEventListener("click", () => this.openCorpus());
+      $("#work-listen").addEventListener("click", () => this.audio ? this.stop() : this.start());
+      $("#work-node-detail-close").addEventListener("click", () => this.hideDetail());
+      document.addEventListener("visibilitychange", () => { if (document.hidden && this.audio) this.stop(); });
     }
 
     resize() {
@@ -187,6 +194,8 @@
     }
 
     async open(entry, editionHref = entry.edition) {
+      this.stop();
+      this.hideDetail();
       const response = await fetch(editionHref, { cache: "no-store" });
       if (!response.ok) throw new Error(`Living work ${entry.work_id} could not be opened.`);
       this.entry = entry;
@@ -204,10 +213,13 @@
       $("#work-title").textContent = entry.title;
       $("#work-coordinate").textContent = `${entry.kind} / ${entry.translation || entry.author} / current edition`;
       $("#work-statement").textContent = this.edition.reading.statement;
+      this.resetSoundStatus("score");
       this.targetRotation = 0;
     }
 
     openLibrary() {
+      this.stop();
+      this.hideDetail();
       this.entry = null;
       this.isCorpus = false;
       this.isLibrary = true;
@@ -276,11 +288,14 @@
       $("#work-coordinate").textContent = "living library / collection architecture";
       $("#work-title").textContent = "The Library Field";
       $("#work-statement").textContent = this.edition.reading.statement;
+      this.resetSoundStatus("library score");
       this.targetRotation = 0;
     }
 
     openCorpus() {
       if (!this.corpus) return;
+      this.stop();
+      this.hideDetail();
       this.entry = null;
       this.isCorpus = true;
       this.isLibrary = false;
@@ -312,6 +327,7 @@
       $("#work-coordinate").textContent = "private corpus witness / whole canonical field";
       $("#work-title").textContent = this.corpus.title;
       $("#work-statement").textContent = this.edition.reading.statement;
+      this.resetSoundStatus("corpus score");
       this.targetRotation = 0;
     }
 
@@ -328,9 +344,17 @@
       if (!selected) return;
       const { node } = selected;
       const relations = this.edition.visual.topology.edges.filter(({ from, to }) => from === node.id || to === node.id);
-      $("#work-coordinate").textContent = `${node.type} / ${node.coordinate}`;
-      $("#work-title").textContent = node.label;
-      $("#work-statement").textContent = `${relations.length} witnessed relation${relations.length === 1 ? "" : "s"} connect this structure to the selected model.`;
+      $("#work-node-detail-type").textContent = `${node.type} / ${node.coordinate}`;
+      $("#work-node-detail-title").textContent = node.label;
+      $("#work-node-detail-body").textContent = `${relations.length} witnessed relation${relations.length === 1 ? "" : "s"} connect this structure to the selected model.`;
+      const detail = $("#work-node-detail");
+      detail.style.left = `${clamp(x + 24, 20, Math.max(20, this.width - 360))}px`;
+      detail.style.top = `${clamp(y - 36, 82, Math.max(82, this.height - 230))}px`;
+      detail.hidden = false;
+    }
+
+    hideDetail() {
+      $("#work-node-detail").hidden = true;
     }
 
     draw() {
@@ -429,6 +453,61 @@
         if (!this.pointer) this.targetRotation += .0007 * this.edition.visual.motion.drift;
       }
       requestAnimationFrame(() => this.draw());
+    }
+
+    resetSoundStatus(scope) {
+      $("#work-listen").setAttribute("aria-pressed", "false");
+      $("#work-listen-label").textContent = "Listen";
+      $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / ${scope} ${this.edition.sound.signature}`;
+      $("#work-sound-signal").dataset.state = "silent";
+    }
+
+    start() {
+      if (!this.edition || !window.AudioContext) return;
+      this.audio = new AudioContext();
+      this.master = this.audio.createGain();
+      this.master.gain.value = .043;
+      this.master.connect(this.audio.destination);
+      this.cursor = 0;
+      $("#work-listen").setAttribute("aria-pressed", "true");
+      $("#work-listen-label").textContent = "Stop";
+      this.schedule();
+    }
+
+    schedule() {
+      if (!this.audio) return;
+      const event = this.edition.sound.events[this.cursor % this.edition.sound.events.length];
+      const beat = 60 / this.edition.sound.tempo;
+      if (!event.rest) {
+        const oscillator = this.audio.createOscillator();
+        const envelope = this.audio.createGain();
+        oscillator.type = ["ground", "antigravity"].includes(event.voice) ? "triangle" : "sine";
+        oscillator.frequency.value = event.frequency;
+        const peak = clamp(Number(event.amplitude || .05), .018, .1);
+        envelope.gain.setValueAtTime(.0001, this.audio.currentTime);
+        envelope.gain.exponentialRampToValueAtTime(peak, this.audio.currentTime + .08);
+        envelope.gain.exponentialRampToValueAtTime(.0001, this.audio.currentTime + Math.max(.2, beat * event.beats * .9));
+        oscillator.connect(envelope).connect(this.master);
+        oscillator.start();
+        oscillator.stop(this.audio.currentTime + beat * event.beats);
+      }
+      $("#work-sound-signal").dataset.state = event.rest ? "rest" : "sounding";
+      $("#work-sound-signal").style.setProperty("--event-duration", `${Math.max(.3, beat * event.beats)}s`);
+      $("#work-sound-status").textContent = event.rest ? "Structural rest" : `${event.voice} / ${event.provenance}`;
+      this.cursor += 1;
+      this.timer = window.setTimeout(() => this.schedule(), beat * event.beats * 1000);
+    }
+
+    stop() {
+      if (this.timer) clearTimeout(this.timer);
+      if (this.audio) this.audio.close().catch(() => {});
+      this.timer = null;
+      this.audio = null;
+      this.master = null;
+      if (this.edition) {
+        const scope = this.isLibrary ? "library score" : this.isCorpus ? "corpus score" : "score";
+        this.resetSoundStatus(scope);
+      }
     }
 
   }
