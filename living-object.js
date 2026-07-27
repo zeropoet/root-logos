@@ -74,6 +74,19 @@
     depth: false,
     powerPreference: "high-performance"
   });
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  const sovereignAudio = AudioContextClass ? new AudioContextClass() : null;
+  const ensureVoiceAwake = () => {
+    if (sovereignAudio?.state !== "running") sovereignAudio?.resume().catch(() => {});
+  };
+  ensureVoiceAwake();
+  ["pointerdown", "keydown", "touchstart", "wheel"].forEach((eventName) => {
+    addEventListener(eventName, ensureVoiceAwake, { passive: true });
+  });
+  addEventListener("pageshow", ensureVoiceAwake);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") ensureVoiceAwake();
+  });
 
   const palette = {
     constitutional: [0.80, 0.72, 0.46, 0.68],
@@ -516,9 +529,8 @@
   }
 
   function beginSovereignVoice({ works, cycles, collections, relations }) {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContext) return;
-    const audio = new AudioContext();
+    if (!sovereignAudio) return;
+    const audio = sovereignAudio;
     const master = audio.createGain();
     const filter = audio.createBiquadFilter();
     const root = 38 + (cycles % 12);
@@ -589,11 +601,7 @@
       setInterval(soundPulse, cadence.beatSeconds * 1000);
     }, untilNextBeat);
 
-    const resume = () => audio.resume().catch(() => {});
-    resume();
-    ["pointerdown", "keydown", "touchstart", "wheel"].forEach((eventName) => {
-      addEventListener(eventName, resume, { once: true, passive: true });
-    });
+    ensureVoiceAwake();
     window.__rootLogosVoice = {
       context: audio,
       cadence: "weekly / Sunday 10:07 Eastern / seven-beat live phrase",
