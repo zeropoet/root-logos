@@ -753,14 +753,12 @@ class ConstitutionalField {
     this.edges.forEach(({ source, target, type }) => {
       if (!this.visible(source) || !this.visible(target)) return;
       const active = selected && (source.id === selected.id || target.id === selected.id);
-      const rootConnected = source.id === "root-logos" || target.id === "root-logos";
       const depth = Math.max(.12, Math.min(1, (source.pz + target.pz + 2) / 4));
       ctx.beginPath();
       ctx.moveTo(source.px, source.py);
       ctx.lineTo(target.px, target.py);
       ctx.strokeStyle = active ? "rgba(220,220,220,.58)" : type === "questions" ? `rgba(174,174,174,${.05 + depth * .1})` : `rgba(218,218,218,${.025 + depth * .06})`;
-      const splineWidth = 1 + depth * .68;
-      ctx.lineWidth = active ? (rootConnected ? 1.3 : 2.6) : rootConnected ? splineWidth * .5 : splineWidth;
+      ctx.lineWidth = active ? 1 : .35 + depth * .25;
       ctx.stroke();
     });
 
