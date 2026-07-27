@@ -120,14 +120,27 @@
     fetchJson("cultivation/memory.json"),
     fetchJson("content/attractor-packets.json"),
     fetchJson("self-authorship/current.json")
-  ]).then(([graph, worksIndex, corpus, cultivation, memory, attractors, identity]) => {
+  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity]) => {
     const works = worksIndex.works || [];
+    const independentWorks = works.filter((work) => !String(work.collection || "").includes("Douay") && work.edition);
+    const independentEditions = new Map((await Promise.all(independentWorks.map(async (work) => {
+      try { return [work.work_id, await fetchJson(work.edition)]; }
+      catch { return [work.work_id, null]; }
+    }))).filter(([, edition]) => edition));
+    const independentRelations = [...independentEditions.entries()].flatMap(([workId, edition]) =>
+      (edition.visual?.topology?.edges || []).map((edge) => ({
+        ...edge,
+        from: `${workId}:${edge.from}`,
+        to: `${workId}:${edge.to}`,
+        provenance: workId
+      }))
+    );
     const cycles = Math.max(0, Number(cultivation.next_cycle || 1) - 1);
     const revision = identity.revision || graph.meta?.revision || "—";
     $("#object-work-count").textContent = `${works.length} works`;
     $("#object-cycle-count").textContent = `${cycles} cycles`;
     $("#object-revision").textContent = `Revision ${revision}`;
-    const crossRelations = corpus.edges?.length || 0;
+    const crossRelations = (corpus.edges?.length || 0) + independentRelations.length;
     const outwardPressure = corpus.measures?.mean_outward_pressure;
     $("#object-state").textContent = `Gravity seeks coherence. ${works.length} irreducible works hold the field open through ${crossRelations.toLocaleString()} witnessed tensions${outwardPressure ? ` at ${outwardPressure} mean outward pressure` : ""}.`;
     document.title = `${identity.name || "Root Logos"} — The Living Object`;
@@ -138,7 +151,7 @@
       return;
     }
 
-    const geometry = formGeometry({ graph, works, corpus, cultivation, memory, attractors });
+    const geometry = formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions });
     const renderer = createRenderer(gl, geometry);
     let pointerX = 0;
     let pointerY = 0;
@@ -195,14 +208,14 @@
       works: works.length,
       cycles,
       collections: new Set(works.map((work) => work.collection || "Root Logos")).size,
-      relations: corpus.edges || []
+      relations: [...(corpus.edges || []), ...independentRelations]
     });
   }).catch((error) => {
     console.error("The Living Object could not resolve.", error);
     $("#object-state").textContent = "The current form is temporarily beyond view. Its archive remains intact.";
   });
 
-  function formGeometry({ graph, works, corpus, cultivation, memory, attractors }) {
+  function formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions = new Map() }) {
     const lines = [];
     const points = [];
     const pulsePaths = [];
@@ -338,6 +351,31 @@
         addLine(shoulder, joint, [...color.slice(0, 3), 0.32], birth);
         addLine(joint, leaf, [...color.slice(0, 3), 0.5], birth + 0.025);
         addPoint(leaf, color, collection.includes("Douay") ? 5.3 : 7.2, birth + 0.04);
+        const edition = independentEditions.get(work.work_id);
+        const topology = edition?.visual?.topology;
+        if (topology?.nodes?.length) {
+          const internalPositions = new Map([["work", leaf]]);
+          topology.nodes.filter(({ id }) => id !== "work").forEach((node, nodeIndex, internalNodes) => {
+            const fraction = (nodeIndex + 1) / Math.max(1, internalNodes.length);
+            const internalAngle = fraction * Math.PI * 10 + hash(`${work.work_id}:${node.id}`) * Math.PI;
+            const internalRadius = 0.08 + Math.sqrt(fraction) * 0.24;
+            const internal = [
+              leaf[0] + Math.cos(internalAngle) * internalRadius,
+              leaf[1] + (hash(`${node.id}:y`) - 0.5) * 0.32,
+              leaf[2] + Math.sin(internalAngle) * internalRadius
+            ];
+            internalPositions.set(node.id, internal);
+            addPoint(internal, [...color.slice(0, 3), 0.38], node.type === "concept" ? 2.1 : 2.7, birth + 0.045 + fraction * 0.045);
+          });
+          (topology.edges || []).forEach((edge, edgeIndex, internalEdges) => {
+            const from = internalPositions.get(edge.from);
+            const to = internalPositions.get(edge.to);
+            if (!from || !to) return;
+            const weight = Math.min(1, Math.max(.08, Number(edge.weight || 1) / 12));
+            addLine(from, to, [...color.slice(0, 3), .035 + weight * .08], birth + 0.05 + edgeIndex / Math.max(1, internalEdges.length) * .04);
+            if (edgeIndex % 29 === 0) pulsePaths.push([from, to]);
+          });
+        }
         if (index % Math.max(1, Math.floor(collectionWorks.length / 9)) === 0) pulsePaths.push([shoulder, joint, leaf]);
       });
     });

@@ -543,8 +543,12 @@ relations become the tensile fabric holding the field open.
 
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
-All 1,681 current corpus relations enter the engraving; weight, depth,
-luminance, rotation, and motion carry their density.
+All 1,681 current Catholic-corpus relations enter the engraving. The three
+independently bounded works contribute another 540 internal relations and 185
+structural points, bringing the present Living Object to 2,221 witnessed
+relations. Ornament of Abhidharma therefore changes the object as a complete
+internal topology rather than merely increasing its work count. Weight, depth,
+luminance, rotation, and motion carry the resulting density.
 
 The same complete field enters the sovereign voice. Every relation contributes
 its endpoints, type, phase, and derived weight to a deterministic harmonic
