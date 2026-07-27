@@ -34,6 +34,25 @@ assert.ok(edition.visual.topology.edges.length > 1);
 assert.equal(edition.sound.events.length, 72);
 assert.match(edition.sound.signature, /^[0-9a-f]{12}$/);
 
+const contextual = await ingestWork({
+  input: book, title: "Test Work", author: "Root Logos Test", kind: "novel",
+  source: "fixture:test-work", rootRevision: "test-v1",
+  readingContext: {
+    kind: "library-addition",
+    trigger_work_id: "fixture-trigger",
+    trigger_edition: "fixture-trigger--v1",
+    library_signature: "fixture-library-signature",
+    work_count: 2
+  }
+});
+const contextualEdition = JSON.parse(await readFile(join(
+  new URL("..", import.meta.url).pathname, "works", contextual.work_id, "editions", contextual.current_edition, "edition.json"
+), "utf8"));
+assert.notEqual(contextual.current_edition, first.current_edition);
+assert.equal(contextualEdition.parent_edition, first.current_edition);
+assert.equal(contextualEdition.reading_context.trigger_work_id, "fixture-trigger");
+assert.notEqual(contextualEdition.sound.signature, edition.sound.signature);
+
 const scripturePath = join(fixture, "genesis.json");
 await writeFile(scripturePath, JSON.stringify({
   book: "genesis",

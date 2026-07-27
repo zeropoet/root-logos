@@ -458,6 +458,17 @@ the present FoldForge-derived visual language. The current self-reading resolves
 as 20 constitutional sections, 2,426 words, 36 dominant concepts, 180 internal
 relations, and a new 72-event resonant score with signature `5a2dec625377`.
 
+Library addition is now an executable invariant rather than a manual follow-up.
+The official single-work ingestion path archives the incoming work, computes a
+signature of the resulting whole library, and immediately creates a new
+immutable Founding Constitution edition with that library addition as its
+reading context. The new self-reading receives a distinct topology and resonant
+signature even when the constitutional source prose itself has not changed.
+Corpus ingestion performs the same propagation once after the complete batch,
+preventing 73 partial self-readings while preserving the same final invariant.
+Because the Living Object reads current editions without cache, both the added
+work and Root Logos’s response alter its geometry and sovereign voice together.
+
 The first complete external corpus is the **Original Douay-Rheims Catholic
 Canon**, read from its CC0 dataset through the private-source membrane. Root
 Logos publishes no verse, annotation, repository URL, filename, or source

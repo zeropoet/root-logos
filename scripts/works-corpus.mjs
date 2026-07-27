@@ -3,7 +3,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { createHash } from "node:crypto";
-import { ingestWork } from "./works.mjs";
+import { ingestWork, refreshFoundingConstitution } from "./works.mjs";
 
 const root = resolve(new URL("..", import.meta.url).pathname);
 const archiveRoot = join(root, "works");
@@ -221,6 +221,7 @@ export const ingestDouayRheimsCorpus = async ({ sourceRoot, sourceWitness, rootR
   const corpus = await buildCorpusTopology(normalized, sourceWitness);
   await mkdir(join(archiveRoot, "corpora"), { recursive: true });
   await writeFile(join(archiveRoot, "corpora", "original-douay-rheims.json"), json(corpus));
+  await refreshFoundingConstitution(normalized.at(-1));
   return corpus;
 };
 

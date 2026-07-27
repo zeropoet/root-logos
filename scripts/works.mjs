@@ -91,7 +91,7 @@ const parseDouayRheimsBook = (text) => {
   return { title: book.short_title, documents };
 };
 
-const deriveWork = ({ title, author, kind, source, translation, language, rights, documents, sourceHash, workId, editionId, rootRevision, transformation }) => {
+const deriveWork = ({ title, author, kind, source, translation, language, rights, documents, sourceHash, workId, editionId, rootRevision, transformation, readingContext }) => {
   const sectionRows = documents.flatMap((document, documentIndex) => document.sections.map((section, sectionIndex) => ({
     ...section, documentIndex, sectionIndex, document: document.path
   })));
@@ -138,7 +138,7 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
   const palette = ["#cbb77a", "#e9e5d8", "#93b9bb", "#9a8cb6", "#ad7159", "#8aa681"];
   const scale = [1, 1.125, 1.25, 1.333333, 1.5, 1.666667, 1.875, 2];
   const graphEdges = edges.sort((a, b) => b.weight - a.weight).slice(0, 180);
-  const readingHash = digest(JSON.stringify({ sourceHash, transformation, concepts, graphEdges }));
+  const readingHash = digest(JSON.stringify({ sourceHash, transformation, readingContext, concepts, graphEdges }));
   const seed = Number.parseInt(readingHash.slice(0, 8), 16) >>> 0;
   const scoreEvents = Array.from({ length: 72 }, (_, index) => {
     const concept = concepts[(seed + index * 7) % Math.max(1, concepts.length)] || ["silence", 1];
@@ -163,6 +163,7 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
       schema: "root-logos-work-edition/v1", edition_id: editionId, work_id: workId,
       created_at: now(), root_logos_revision: rootRevision, source_hash: sourceHash,
       parent_edition: null, status: "archived", transformation,
+      reading_context: readingContext || null,
       measures: {
         documents: documents.length, sections: sectionRows.length,
         words: sectionRows.reduce((sum, section) => sum + words(section.text).length, 0),
@@ -190,7 +191,7 @@ export const ingestWork = async ({
   translation = null, language = "en", rights = null, rootRevision = "v1.0",
   sourceVisibility = "public", sourceWitness = null, format = "auto",
   transformation = DEFAULT_TRANSFORMATION, collection = null, division = null,
-  canonicalOrder = null
+  canonicalOrder = null, readingContext = null
 }) => {
   const sourcePath = resolve(input);
   const sourceStat = await import("node:fs/promises").then(({ stat }) => stat(sourcePath));
@@ -214,12 +215,12 @@ export const ingestWork = async ({
   const sourceHash = digest(canonicalSource);
   const resolvedTitle = title || inferredTitle || basename(sourcePath, extname(sourcePath));
   const workId = `${slug(resolvedTitle)}-${digest(`${resolvedTitle}\n${author}`).slice(0, 8)}`;
-  const transformationId = `read-${digest(transformation).slice(0, 6)}`;
+  const transformationId = `read-${digest(`${transformation}\n${JSON.stringify(readingContext || null)}`).slice(0, 6)}`;
   const editionId = `${workId}--${slug(rootRevision)}-${transformationId}-${sourceHash.slice(8, 16)}`;
   const derived = deriveWork({
     title: resolvedTitle, author, kind,
     source: sourceVisibility === "private" ? null : (source || `local:${sourcePath}`),
-    translation, language, rights, documents, sourceHash, workId, editionId, rootRevision, transformation
+    translation, language, rights, documents, sourceHash, workId, editionId, rootRevision, transformation, readingContext
   });
   derived.manifest.source_visibility = sourceVisibility;
   derived.manifest.source_retained = sourceVisibility !== "private";
@@ -305,6 +306,43 @@ export const ingestWork = async ({
   return entry;
 };
 
+export const refreshFoundingConstitution = async (triggerEntry) => {
+  if (!triggerEntry || triggerEntry.work_id === "root-logos-founding-constitution-0e20f4a9") return null;
+  const [index, graph] = await Promise.all([
+    readFile(join(archiveRoot, "index.json"), "utf8").then(JSON.parse),
+    readFile(join(root, "content", "constitutional-graph.json"), "utf8").then(JSON.parse)
+  ]);
+  const librarySignature = digest(JSON.stringify((index.works || [])
+    .map(({ work_id, current_edition }) => [work_id, current_edition])
+    .sort(([left], [right]) => left.localeCompare(right))));
+  return ingestWork({
+    input: join(root, "content", "root-logos.md"),
+    title: "Root Logos: Founding Constitution",
+    author: "Root Logos",
+    kind: "constitution",
+    source: "https://rootlogos.com/documents/root-logos.html",
+    sourceVisibility: "public",
+    sourceWitness: `library-addition:${triggerEntry.work_id}:${triggerEntry.current_edition}`,
+    translation: "Canonical English",
+    language: "en",
+    rights: "Root Logos canonical source; public repository witness.",
+    rootRevision: graph.meta?.revision || "v1.1",
+    readingContext: {
+      kind: "library-addition",
+      trigger_work_id: triggerEntry.work_id,
+      trigger_edition: triggerEntry.current_edition,
+      library_signature: librarySignature,
+      work_count: (index.works || []).length
+    }
+  });
+};
+
+export const ingestLibraryWork = async (options) => {
+  const entry = await ingestWork(options);
+  const foundingConstitution = await refreshFoundingConstitution(entry);
+  return { entry, founding_constitution: foundingConstitution };
+};
+
 const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
@@ -322,7 +360,7 @@ if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
       };
       options[map[key] || key] = args[index + 1];
     }
-    ingestWork(options).then((entry) => process.stdout.write(`${JSON.stringify(entry, null, 2)}\n`)).catch((error) => {
+    ingestLibraryWork(options).then((result) => process.stdout.write(`${JSON.stringify(result, null, 2)}\n`)).catch((error) => {
       process.stderr.write(`${error.stack || error.message}\n`);
       process.exitCode = 1;
     });
