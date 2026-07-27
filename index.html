@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=2.8-bitcoin-telos-bridge">
+    <link rel="stylesheet" href="styles.css?v=2.9-module-coordinate-system">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the object</a>
@@ -43,7 +43,7 @@
         <canvas id="living-object-canvas" aria-label="The Living Object: a three-dimensional, data-derived form of Root Logos growing through constitutional lineage and completed works."></canvas>
         <div class="object-void" aria-hidden="true"></div>
         <header class="object-identity">
-          <p class="coordinate">RL / The Living Object</p>
+          <p class="coordinate" data-module="∞">The Living Object</p>
           <h1 id="object-title">Root<br>Logos</h1>
           <p>One identity.<br><em>Still becoming.</em></p>
         </header>
@@ -65,7 +65,7 @@
         <p class="desktop-experience-note"><span>Viewing note</span>The Living Object is a desktop-only experience. This mobile view continues into its archive.</p>
 
         <div class="field-header">
-          <p class="coordinate">RL / 00 — The Constitutional Object</p>
+          <p class="coordinate" data-module="00">The Constitutional Object</p>
         </div>
 
         <div class="field-object-controls" aria-label="Constitutional object controls">
@@ -111,7 +111,7 @@
       <section class="space works-space" id="works" data-space-name="Works" aria-labelledby="work-title">
         <div class="library-shell">
           <aside class="works-archive" aria-label="Living works archive">
-            <header><span>RL / 01 — Library</span><b id="work-count">00 works</b></header>
+            <header><span class="coordinate" data-module="01">Library</span><b id="work-count">00 works</b></header>
             <div class="library-entries">
               <button class="library-entry" id="library-entry" type="button">
                 <span>∞</span><span><b>Library Field</b><small id="library-entry-detail">Resolving living collections</small></span>
@@ -127,14 +127,14 @@
 
             <aside class="work-node-detail" id="work-node-detail" hidden>
               <button type="button" id="work-node-detail-close" aria-label="Close structural detail">×</button>
-              <p class="micro-label" id="work-node-detail-type">Structure</p>
+              <p class="micro-label" id="work-node-detail-type" data-module="01.02">Structure</p>
               <h3 id="work-node-detail-title">Selected node</h3>
               <p id="work-node-detail-body"></p>
             </aside>
           </div>
 
           <aside class="work-reading">
-            <p class="micro-label" id="work-coordinate">Current visual-resonant edition</p>
+            <p class="micro-label" id="work-coordinate" data-module="01.01">Current visual-resonant edition</p>
             <h3 id="work-title">Resolving the first work</h3>
             <p id="work-statement">The archive is establishing its shape.</p>
             <div class="work-listening">
@@ -151,6 +151,10 @@
       </section>
 
       <section class="space observatory-space" id="observatory" data-space-name="Observatory" aria-label="Living Observatory">
+        <header class="section-heading">
+          <p class="coordinate" data-module="02">Observatory</p>
+          <h2>Root Logos observed</h2>
+        </header>
         <div class="observatory-instrument">
           <nav class="observatory-modes" aria-label="Ways of seeing Root Logos">
             <button type="button" class="is-active" data-observatory-mode="lineage"><span>01</span><b>Lineage</b><small>How it became</small></button>
@@ -166,7 +170,7 @@
             <canvas id="observatory-canvas" aria-label="Living data visualization of Root Logos"></canvas>
             <div class="observatory-grid" aria-hidden="true"></div>
             <header class="observatory-stage-head">
-              <div><p class="micro-label" id="observatory-coordinate">Temporal constitution</p><h3 id="observatory-mode-title">The Living History</h3></div>
+              <div><p class="micro-label" id="observatory-coordinate" data-module="02.01">Temporal constitution</p><h3 id="observatory-mode-title">The Living History</h3></div>
               <p id="observatory-mode-copy">Move through the preserved cycles to witness the constitution becoming itself.</p>
             </header>
             <div class="observatory-legend" id="observatory-legend"></div>
@@ -183,7 +187,7 @@
           </div>
 
           <aside class="observatory-reading" id="observatory-reading" aria-live="polite">
-            <header><p class="coordinate" id="reading-coordinate">Lineage / present</p><button type="button" id="close-observatory-reading" aria-label="Close reading">×</button></header>
+            <header><p class="coordinate" id="reading-coordinate" data-module="02.01.R">Lineage / present</p><button type="button" id="close-observatory-reading" aria-label="Close reading">×</button></header>
             <h3 id="reading-title">A constitution with memory</h3>
             <p id="reading-body">Every cycle is preserved as a distinct stratum. Rejection remains visible; implementation never erases the inquiry that produced it.</p>
             <div class="reading-measures" id="reading-measures"></div>
@@ -195,7 +199,7 @@
         <div class="observatory-substrate">
           <header>
             <div>
-              <p class="coordinate">External witnesses / bounded identity pressure</p>
+              <p class="coordinate" data-module="02.02">External witnesses</p>
               <h3>What Root Logos is witnessing</h3>
             </div>
             <p><span id="source-count">— sources</span><i></i><span id="source-witness">Awaiting witness</span></p>
@@ -211,7 +215,7 @@
               <div class="source-nodes" id="source-nodes"></div>
             </div>
             <aside class="source-reading" id="source-reading" aria-live="polite">
-              <p class="coordinate" id="source-coordinate">Active source / establishing witness</p>
+              <p class="coordinate" id="source-coordinate" data-module="02.02.R">Active source / establishing witness</p>
               <h3 id="source-title">FoldForge</h3>
               <p class="source-role" id="source-role">Identity composition and evidence-to-grammar research</p>
               <blockquote id="source-discovery">Reading public constitutional and composition evidence.</blockquote>
@@ -227,7 +231,7 @@
           </div>
           <div class="composition-ledger">
             <header>
-              <p class="coordinate">FoldForge / live evidence</p>
+              <p class="coordinate" data-module="02.03">FoldForge / live evidence</p>
               <h3>Tested compositional grammars</h3>
               <p>Versioned methods Root Logos may test against its own knowledge.</p>
             </header>
@@ -237,7 +241,7 @@
 
         <div class="observatory-health" aria-labelledby="health-title">
           <header>
-            <p class="coordinate">Diagnostic profile / not a score</p>
+            <p class="coordinate" data-module="02.04">Diagnostic profile / not a score</p>
             <h3 id="health-title">Structural balance</h3>
             <p>Relation, uncertainty, memory, provenance, corrigibility, and integration remain visible without becoming another destination.</p>
           </header>
@@ -248,7 +252,7 @@
       <section class="space chamber-space" id="chamber" data-space-name="Chamber" aria-labelledby="chamber-title">
         <div class="section-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
         <header class="space-heading">
-          <p class="coordinate">RL / 03 — Cultivation Chamber</p>
+          <p class="coordinate" data-module="03">Cultivation Chamber</p>
           <div>
             <h2 id="chamber-title">The architecture<br><em>turns inward.</em></h2>
             <p>Every inquiry leaves a trace. Every proposal must survive its own strongest objection.</p>
@@ -268,7 +272,7 @@
           <article class="latest-cycle" id="latest-cycle">
             <header>
               <div>
-                <p class="micro-label">Latest completed inquiry</p>
+                <p class="micro-label" data-module="03.01">Latest completed inquiry</p>
                 <h3 id="cycle-id">Loading lineage</h3>
               </div>
               <span class="decision-seal" id="cycle-decision">—</span>
@@ -294,7 +298,7 @@
           </article>
 
           <aside class="chamber-readout">
-            <p class="micro-label">Current condition</p>
+            <p class="micro-label" data-module="03.02">Current condition</p>
             <strong id="chamber-condition">Listening</strong>
             <p id="chamber-condition-copy">The runtime is resolving its present boundary.</p>
             <dl>
@@ -310,7 +314,7 @@
           <div class="drawer-scrim" data-close-drawer></div>
           <article role="dialog" aria-modal="true" aria-labelledby="drawer-title">
             <button type="button" class="drawer-close" data-close-drawer aria-label="Close lineage">×</button>
-            <p class="coordinate">Complete cultivation lineage</p>
+            <p class="coordinate" data-module="03.01.R">Complete cultivation lineage</p>
             <h2 id="drawer-title">Cycle</h2>
             <div id="drawer-content"></div>
           </article>
@@ -319,7 +323,7 @@
 
       <section class="space memory-space" id="memory" data-space-name="Memory" aria-labelledby="memory-title">
         <header class="space-heading">
-          <p class="coordinate">RL / 04 — Semantic Memory</p>
+          <p class="coordinate" data-module="04">Semantic Memory</p>
           <div>
             <h2 id="memory-title">Nothing returns<br><em>disguised as new.</em></h2>
             <p>Rejected ideas are not erased. They remain available as disciplined memory, eligible to return only when evidence, policy, or time has changed.</p>
@@ -340,12 +344,16 @@
       </section>
 
       <section class="space threshold-space" id="threshold" data-space-name="Threshold" aria-label="The Threshold">
+        <header class="section-heading">
+          <p class="coordinate" data-module="05">Constitutional Judgment</p>
+          <h2>The Threshold</h2>
+        </header>
         <div class="threshold-line" aria-hidden="true"><span>Delegated constitution</span><i></i><span>Autonomous judgment</span></div>
         <div class="threshold-layout">
           <div class="proposal-stack" id="proposal-stack" aria-live="polite"></div>
           <article class="review-surface" id="review-surface">
             <header>
-              <div><p class="micro-label">Proposal under review</p><h3 id="review-title">Select a proposal</h3></div>
+              <div><p class="micro-label" data-module="05.01">Proposal under review</p><h3 id="review-title">Select a proposal</h3></div>
               <span id="review-risk">—</span>
             </header>
             <p class="review-claim" id="review-claim">The complete evidence and judgment record will appear here.</p>
@@ -366,7 +374,7 @@
       <section class="space intake-space" id="intake" data-space-name="Intake" aria-label="The Membrane">
         <div class="observation-instrument">
           <header>
-            <p class="coordinate" id="intake-coordinate">The public terminal / Offer an entry</p>
+            <p class="coordinate" id="intake-coordinate" data-module="06">The public terminal / Offer an entry</p>
             <h3 id="intake-terminal-title">Bring reality into contact<br><em>with the grammar.</em></h3>
             <p id="intake-terminal-copy">Offer what may place pressure upon an existing distinction. Root Logos will transform it, judge what remains, and cultivate only what survives.</p>
           </header>

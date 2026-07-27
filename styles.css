@@ -125,6 +125,43 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .coordinate, .micro-label { margin: 0; color: var(--gold); font: 500 .59rem/1.65 var(--mono); letter-spacing: .18em; text-transform: uppercase; }
 .micro-label { color: var(--dim); font-size: .54rem; }
+.coordinate[data-module],
+.micro-label[data-module] { display:flex;gap:12px;align-items:baseline; }
+.coordinate[data-module]::before,
+.micro-label[data-module]::before {
+  content:attr(data-module);
+  flex:0 0 auto;
+  width:4.8em;
+  color:#fff;
+  font:500 .92em/1 var(--mono);
+  letter-spacing:.05em;
+}
+.section-heading {
+  position:relative;
+  z-index:3;
+  display:grid;
+  grid-template-columns:minmax(190px,1fr) minmax(0,2.05fr);
+  gap:9vw;
+  width:min(1440px,100%);
+  margin:0 auto clamp(54px,7vw,96px);
+  padding-top:1px;
+}
+.section-heading::before {
+  content:"";
+  position:absolute;
+  top:-30px;
+  right:0;
+  left:calc(33.333% + 2vw);
+  height:1px;
+  background:linear-gradient(90deg,var(--line-strong),transparent 78%);
+}
+.section-heading h2 {
+  margin:0;
+  color:#fff;
+  font:400 clamp(1.65rem,2.6vw,2.9rem)/1 var(--display);
+  letter-spacing:-.045em;
+  text-transform:uppercase;
+}
 .space-heading { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(190px, 1fr) minmax(0, 2.05fr); gap: 9vw; width: min(1440px, 100%); margin: 0 auto clamp(112px, 15vw, 210px); }
 .space-heading > div { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(240px, .72fr); gap: 6.5vw; align-items: end; }
 .space-heading h2 { margin: 0; max-width: 19ch; font: 400 clamp(2.15rem, 3.35vw, 3.85rem)/1.02 var(--display); letter-spacing: -.06em; overflow-wrap: anywhere; }
@@ -161,7 +198,7 @@ main {
   letter-spacing: .16em;
   text-transform: uppercase;
 }
-.coordinate::before {
+.coordinate:not([data-module])::before {
   content: "";
   display: inline-block;
   width: 30px;
@@ -1176,7 +1213,8 @@ h1, h2, h3, h4,
   .primary-nav a { padding: 13px 0; border-bottom: 1px solid var(--line); }
   .system-presence { display: none; }
   .nav-toggle { display: block; }
-  .space-heading { grid-template-columns: 1fr; gap: 30px; }
+  .space-heading,
+  .section-heading { grid-template-columns: 1fr; gap: 30px; }
   .space-heading > div { grid-template-columns: 1.4fr .8fr; }
   .field-header { width:min(470px,48vw); }
   .field-header h1 { font-size:clamp(3.2rem,7vw,5.8rem); }
@@ -1230,7 +1268,11 @@ h1, h2, h3, h4,
   .object-switchboard > div { flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none; }
   .object-switchboard button { flex:0 0 auto; }
   .space { min-height: auto; padding-top: 112px; }
-  .space-heading { margin-bottom: 60px; }
+  .space-heading,
+  .section-heading { margin-bottom: 60px; }
+  .section-heading { gap:14px; }
+  .section-heading::before { right:0;left:0; }
+  .section-heading h2 { font-size:clamp(1.55rem,7vw,2.35rem); }
   .space-heading > div { grid-template-columns: 1fr; gap: 25px; }
   .space-heading h2 { max-width: none; font-size: clamp(1.8rem, 8vw, 2.8rem); line-height: 1.06; }
   .field-space { height:max(100svh,920px); }
@@ -1480,6 +1522,24 @@ body.archive-open .observatory-modes button.is-active,
 body.archive-open .reading-actions a:hover {
   border-color:#fff;
   background:#fff;
+  color:#000;
+}
+body.archive-open .proposal-card:hover > span,
+body.archive-open .proposal-card:hover > p,
+body.archive-open .proposal-card.is-active > span,
+body.archive-open .proposal-card.is-active > p,
+body.archive-open .source-node:hover span,
+body.archive-open .source-node:hover b,
+body.archive-open .source-node:hover small,
+body.archive-open .source-node.is-active span,
+body.archive-open .source-node.is-active b,
+body.archive-open .source-node.is-active small,
+body.archive-open .observatory-modes button:hover span,
+body.archive-open .observatory-modes button:hover b,
+body.archive-open .observatory-modes button:hover small,
+body.archive-open .observatory-modes button.is-active span,
+body.archive-open .observatory-modes button.is-active b,
+body.archive-open .observatory-modes button.is-active small {
   color:#000;
 }
 body.archive-open .presence-orbit i,
