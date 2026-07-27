@@ -176,6 +176,94 @@ main {
   opacity: .35;
 }
 
+/* The Living Object */
+body.object-open { overflow:hidden; }
+body.object-open main { height:100svh;overflow:hidden; }
+body.object-open main > .space,
+body.object-open .site-footer { display:none !important; }
+body.object-open .site-header,
+body.object-open .object-identity,
+body.object-open .object-witness,
+body.object-open .object-consent,
+body.object-open .object-instruction { display:none; }
+body.archive-open .object-space { display:none; }
+body.archive-open main > .space { display:block; }
+.object-space {
+  position:relative;
+  height:max(100svh,760px);
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 50% 52%,rgba(12,25,30,.52),transparent 25%),
+    radial-gradient(ellipse at 50% 55%,#050a0d 0,#020405 52%,#010203 100%);
+}
+#living-object-canvas { position:absolute;inset:0;z-index:0;width:100%;height:100%; }
+.object-void {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(1,2,3,.94),transparent 25%,transparent 76%,rgba(1,2,3,.92)),
+    linear-gradient(rgba(1,2,3,.66),transparent 18%,transparent 76%,rgba(1,2,3,.82)),
+    radial-gradient(circle at 50% 51%,transparent 0 31%,rgba(1,2,3,.1) 56%,rgba(1,2,3,.8) 100%);
+}
+.object-void::before,.object-void::after { content:"";position:absolute;pointer-events:none; }
+.object-void::before {
+  inset:0;
+  border:0;
+  background:
+    linear-gradient(90deg,transparent 49.96%,rgba(147,185,187,.05) 50%,transparent 50.04%),
+    linear-gradient(transparent 49.96%,rgba(147,185,187,.04) 50%,transparent 50.04%);
+  mask-image:radial-gradient(circle at 50% 53%,transparent 0 24%,#000 74%);
+}
+.object-void::after {
+  top:50%;
+  left:50%;
+  width:min(68vw,880px);
+  aspect-ratio:1;
+  border:1px solid rgba(147,185,187,.06);
+  border-radius:50%;
+  transform:translate(-50%,-50%) rotateX(68deg);
+  box-shadow:0 0 100px rgba(147,185,187,.035);
+}
+.object-identity {
+  position:absolute;
+  z-index:3;
+  top:clamp(122px,16vh,170px);
+  left:var(--edge);
+  pointer-events:none;
+}
+.object-identity h1 { margin:22px 0 18px;font:400 clamp(3.6rem,7.4vw,8.2rem)/.68 var(--display);letter-spacing:-.055em; }
+.object-identity > p:last-child { margin:0 0 0 clamp(10px,2.4vw,36px);color:var(--bone);font-size:clamp(.95rem,1.18vw,1.18rem);line-height:1.55; }
+.object-identity em { color:var(--gold);font-weight:400; }
+.object-witness {
+  position:absolute;
+  z-index:3;
+  bottom:clamp(82px,11vh,122px);
+  left:var(--edge);
+  width:min(380px,31vw);
+  padding-top:17px;
+  border-top:1px solid var(--line-strong);
+  pointer-events:none;
+}
+.object-witness > p { margin:0 0 14px;color:var(--bone);font-size:clamp(.94rem,1.2vw,1.14rem);line-height:1.5; }
+.object-witness small { display:flex;align-items:center;gap:10px;color:var(--dim);font:500 .43rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase; }
+.object-witness i { width:16px;height:1px;background:var(--line); }
+.object-consent { position:absolute;z-index:4;right:var(--edge);bottom:clamp(84px,11vh,124px);width:min(245px,21vw); }
+#object-listen { display:flex;align-items:center;gap:12px;width:100%;padding:12px 0;border:0;border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line);background:transparent;cursor:pointer;text-align:left; }
+#object-listen > span { position:relative;display:grid;place-items:center;width:29px;height:29px;border:1px solid var(--line-strong);border-radius:50%; }
+#object-listen > span::before { content:"";position:absolute;inset:5px;border:1px solid var(--line);border-radius:50%; }
+#object-listen i { width:4px;height:4px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold); }
+#object-listen b { color:var(--bone);font:500 .52rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase; }
+#object-listen:hover b,#object-listen[aria-pressed="true"] b { color:var(--gold); }
+#object-listen[aria-pressed="true"] > span { animation:orbit-pulse 3s linear infinite; }
+.object-consent p { margin:9px 0 0;color:var(--ghost);font:500 .4rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase; }
+.object-descent { position:absolute;z-index:4;right:clamp(24px,3vw,56px);bottom:clamp(22px,3vh,38px);display:flex;align-items:center;gap:18px;color:rgba(183,183,169,.52);font:500 .43rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;transition:color .3s; }
+.object-descent:hover { color:var(--gold); }
+.object-descent i { color:var(--gold);font-style:normal; }
+.object-instruction { position:absolute;z-index:3;bottom:34px;left:50%;margin:0;color:rgba(119,120,110,.55);font:500 .4rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;transform:translateX(-50%);white-space:nowrap; }
+
 /* Field */
 .field-space { height: max(100svh, 800px); padding: 0; isolation: isolate; background: radial-gradient(circle at 57% 51%,#0b0d0a,#060705 70%); }
 #field-canvas { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; cursor: grab; touch-action: none; }
@@ -851,6 +939,20 @@ main {
   :root { --edge: 20px; }
   .site-header { min-height: 62px; }
   .primary-nav { top: 62px; }
+  .object-space { height:max(100svh,820px); }
+  .object-void::before { inset:72px 12px 20px; }
+  .object-void::after { width:112vw; }
+  .object-identity { top:96px;left:20px; }
+  .object-identity h1 { margin:18px 0 15px;font-size:clamp(3.8rem,20vw,5.8rem); }
+  .object-identity > p:last-child { margin-left:0;font-size:.92rem; }
+  .object-witness { bottom:155px;left:20px;width:calc(100% - 40px); }
+  .object-witness > p { display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;font-size:.86rem; }
+  .object-witness small { gap:7px;font-size:.38rem; }
+  .object-consent { right:20px;bottom:68px;left:20px;width:auto; }
+  .object-consent p { position:absolute;right:0;bottom:15px;max-width:48%;text-align:right; }
+  #object-listen { width:52%; }
+  .object-descent { right:20px;bottom:22px; }
+  .object-instruction { display:none; }
   .space { min-height: auto; padding-top: 112px; }
   .space-heading { margin-bottom: 60px; }
   .space-heading > div { grid-template-columns: 1fr; gap: 25px; }

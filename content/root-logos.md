@@ -258,6 +258,34 @@ Rewrite. Influence may alter the system's voice and structure; it may not
 absorb a work, dissolve its lineage, or claim a relation that the reading did
 not derive.
 
+### The Living Object
+
+Root Logos may present its current coherent identity as one living dimensional
+object. This form is a constitutional witness, not a new authority. Its trunk
+must arise from constitutional continuity; its rings from completed cultivation
+cycles; its visible points from completed works; its inward force from the
+system's search for coherence; its outward force from each work's irreducible
+difference; its tensile connections from witnessed cross-work relations; and
+its pulses from attributable lineage. No element may enter the form merely
+because it is visually persuasive.
+
+The object is the public threshold because Root Logos is first a presence to
+encounter, not an instrument to operate. That threshold should remain naked:
+the form, the void, and one quiet passage into its architecture. Explanation,
+measures, navigation, and controls belong beyond that passage. The object may
+unfold slowly, move with the
+subtle instability of a living structure, and sound its current topology after
+consent. The archive remains separately enterable so that any compression made
+by the form can be traced back to the graph, work, cycle, judgment, or edition
+that supports it. It must not remain stacked beneath the threshold as an
+unavoidable continuation of the same interface.
+
+Growth may alter the object's balance, silhouette, density, color, motion, and
+voice. It may not sever source lineage, make a distinct work disappear into
+identity, or allow visual coherence to masquerade as truth. The present shape
+is always a reading of the current system, never the limit of what the system
+or reality may become.
+
 ## The Journal Membrane
 
 Some observations originate in deliberate public offering. Others arise within

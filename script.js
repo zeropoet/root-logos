@@ -107,7 +107,7 @@ const renderPresence = () => {
       $("#field-title em").textContent = headline.emphasis;
     }
     $(".field-intro").textContent = app.identity.declaration;
-    document.title = `${app.identity.name} — The Living Works`;
+    document.title = `${app.identity.name} — The Living Object`;
     $("meta[name='description']")?.setAttribute("content", app.identity.declaration);
   }
   const status = service.status || "unknown";

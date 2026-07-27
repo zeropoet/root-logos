@@ -521,6 +521,35 @@ establishes Classical Epics as the library’s second external collection and
 changes the public archive from a canon-led display into a collection-aware
 living library.
 
+### The Living Object
+
+The public threshold is now the **Living Object**: one slow, dimensional,
+data-derived form of Root Logos held in an architectural void. It is not a
+dashboard, network explorer, or decorative emblem. Constitutional continuity
+forms its trunk; cultivation cycles form its growth rings; every completed work
+remains a colored point; coherence draws inward as gravity; each work's derived
+distinctiveness extends outward as antigravity; and witnessed cross-work
+relations become the tensile fabric holding the field open.
+
+The object is deliberately beheld before it is explained. Its threshold is
+visually naked: no site navigation, title treatment, measures, identity
+statement, or interpretive panel precedes the encounter. A single quiet passage
+leads into the architecture where explanation and operation become available.
+It rotates and breathes without demanding interaction and responds only subtly
+to a visitor's presence. Its live resonant state
+is derived from the same current counts and topology rather than selected from
+a soundtrack. The detailed Living Works, Formative Identity, Constitutional
+Field, Observatory, Chamber, Threshold, and intake instruments exist in a
+separate archive state from which the visible form can be audited. They do not
+occupy the threshold's layout, scroll, accessibility tree, or rendering path
+until a visitor explicitly enters that archive.
+
+Abstraction must not become erasure. Every visible branch and point is generated
+from the canonical graph, cultivation state, works index, corpus topology,
+attractor lineage, and current self-authorship manifest. As those sources
+change, the object changes. Earlier evidence and editions remain navigable in
+the archive even when the present public form has grown beyond them.
+
 ## Revision 0.9 — The Self-Writing Constitution
 
 Revision 0.9 establishes the constitutional authority for autonomous intake of
