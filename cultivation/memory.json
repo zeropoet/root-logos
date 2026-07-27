@@ -283,11 +283,11 @@
       "claim": "Can AI possess constitutional citizenship? has 2 explicit relations; Identity, Constitutional Naturalization, Participatory Sovereignty provide the strongest existing constitutional pressure for investigation.",
       "proposed_question": null,
       "evidence_hash": "b754fb5e79dba8dd011f77ec4935487970ee8e8e9daa484b9857e409fb98bbc0",
-      "policy_hash": "967b44370f0c53e2d44071fb82e6eb3f158a94c079aa0c4efd9bae93340c3b1c",
+      "policy_hash": "077f46170043519e0f4144e97b8ea8b8d7a664fbe5f35ddc8723d782a822a7b7",
       "first_cycle": "RL-CULTIVATE-0014",
-      "last_cycle": "RL-CULTIVATE-0017",
-      "last_cycle_index": 17,
-      "considerations": 2,
+      "last_cycle": "RL-CULTIVATE-0032",
+      "last_cycle_index": 32,
+      "considerations": 4,
       "status": "autonomously-rejected",
       "last_novelty_reason": "policy-changed",
       "last_evaluation": {
@@ -575,8 +575,8 @@
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 3,
-    "last_score": 1,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 2,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -738,18 +738,30 @@
         "reason": "incubation-elapsed",
         "status": "autonomously-rejected",
         "at": "2026-07-26T14:40:37.196Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0032",
+        "score": 2,
+        "reason": "policy-changed",
+        "status": "autonomously-rejected",
+        "at": "2026-07-27T22:25:00.621Z"
       }
     ]
   },
   "dormancy": {
-    "active": true,
-    "entered_at": "2026-07-26T14:40:37.205Z",
-    "reason": "3 consecutive low-yield cycles",
+    "active": false,
+    "entered_at": null,
+    "reason": null,
     "source_snapshot": {
       "combined": "53777d83611f2da66e0186583a5a1268844119b276f240ea45dc15ba732fde01",
       "policy": "967b44370f0c53e2d44071fb82e6eb3f158a94c079aa0c4efd9bae93340c3b1c"
     },
-    "wake_history": []
+    "wake_history": [
+      {
+        "at": "2026-07-27T22:25:00.544Z",
+        "reason": "manual-force"
+      }
+    ]
   },
   "method_observations": [
     {
