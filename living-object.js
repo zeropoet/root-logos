@@ -3,7 +3,7 @@
 
   const archiveTargets = new Set([
     "field", "works", "living-identity", "coherence", "observatory",
-    "chamber", "memory", "threshold", "intake", "resonance"
+    "chamber", "memory", "threshold", "structural-health", "intake"
   ]);
   const syncExperienceMode = () => {
     const target = location.hash.slice(1);

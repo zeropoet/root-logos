@@ -34,12 +34,13 @@ of carrying them without doctrinal repetition.
 - `index.html` renders four public surfaces: the Living Object, the Library, the
   Observatory, and the Membrane. Formative Identity and the Coherent Field unfold
   from the Library only when requested. The Observatory begins one continuous
-  constitutional reading through Cultivation, Memory, Judgment, Voice, and
-  Structural Health before reaching the Membrane. There is no system-layer
+  constitutional reading through Cultivation, Memory, Judgment, and Structural
+  Health before reaching the Membrane. There is no system-layer
   switchboard and no hidden destination inside that sequence. The Resonant
-  Chamber remains embedded in the Living Object as its sovereign voice. This
-  reduction preserves every dataset while removing repeated explanation and
-  idle interface.
+  Chamber exists as the Living Object's sovereign voice and as each work's
+  visual-resonant edition—not as a duplicate archive surface. This reduction
+  preserves every dataset while removing repeated explanation and idle
+  interface.
 - `works/` is the immutable public archive of complete-work transformations.
   Each work has a stable manifest and one or more edition records. An edition
   contains a derived Work Graph, deterministic visual score, deterministic
@@ -635,9 +636,10 @@ a soundtrack. The detailed Living Works, Formative Identity, Constitutional
 Field, Observatory, Chamber, Threshold, and intake instruments exist in a
   converged archive state from which the visible form can be audited. Identity
   and source evidence unfold from the Library; cultivation, memory, judgment,
-  voice, and health follow the Observatory as one uninterrupted constitutional
-  reading. The Membrane concludes that sequence as the point where new reality
-  enters the system.
+  and health follow the Observatory as one uninterrupted constitutional
+  reading. Voice remains audible in the Living Object and individual works
+  rather than becoming another explanatory section. The Membrane concludes that
+  sequence as the point where new reality enters the system.
 
 Abstraction must not become erasure. Every visible branch and point is generated
 from the canonical graph, cultivation state, works index, corpus topology,
