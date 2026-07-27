@@ -220,11 +220,16 @@
       }
     });
     requestAnimationFrame(frame);
+    const scores = [
+      corpus.sound,
+      ...[...independentEditions.values()].map((edition) => edition.sound)
+    ].filter((score) => score?.events?.length);
     beginSovereignVoice({
       works: works.length,
       cycles,
       collections: new Set(works.map((work) => work.collection || "Root Logos")).size,
-      relations: [...(corpus.edges || []), ...independentRelations]
+      relations: [...(corpus.edges || []), ...independentRelations],
+      scores
     });
   }).catch((error) => {
     console.error("The Living Object could not resolve.", error);
@@ -530,27 +535,71 @@
     return result;
   }
 
-  function beginSovereignVoice({ works, cycles, collections, relations }) {
+  function inheritedScoreField(scores) {
+    const events = scores.flatMap((score, scoreIndex) =>
+      (score.events || []).map((event) => ({
+        ...event,
+        scoreIndex,
+        tempo: Math.max(24, Number(score.tempo || 48)),
+        rootHz: Math.max(24, Number(score.root_hz || 55)),
+        signature: score.signature || `score-${scoreIndex}`
+      }))
+    );
+    const sounding = events.filter((event) => !event.rest && Number.isFinite(Number(event.frequency)));
+    const frequencies = sounding.map((event) => Number(event.frequency));
+    return {
+      events,
+      minHz: frequencies.length ? Math.min(...frequencies) : 55,
+      maxHz: frequencies.length ? Math.max(...frequencies) : 880,
+      tempos: [...new Set(events.map((event) => event.tempo))],
+      voices: [...new Set(events.map((event) => event.voice || "relation"))],
+      rests: events.filter((event) => event.rest).length
+    };
+  }
+
+  function voiceWaveform(voice) {
+    return ({
+      coherence: "sine",
+      antigravity: "sawtooth",
+      ground: "triangle",
+      relation: "sine",
+      figure: "square",
+      breath: "triangle"
+    })[voice] || "sine";
+  }
+
+  function beginSovereignVoice({ works, cycles, collections, relations, scores }) {
     if (!sovereignAudio) {
-      beginFallbackVoice({ works, cycles, collections, relations });
+      beginFallbackVoice({ works, cycles, collections, relations, scores });
       return;
     }
     const audio = sovereignAudio;
+    const scoreField = inheritedScoreField(scores || []);
     const master = audio.createGain();
-    const filter = audio.createBiquadFilter();
+    const highpass = audio.createBiquadFilter();
+    const lowpass = audio.createBiquadFilter();
+    const compressor = audio.createDynamicsCompressor();
     const root = 38 + (cycles % 12);
-    master.gain.value = 0.34;
-    filter.type = "lowpass";
-    filter.frequency.value = 620 + works * 3;
-    filter.Q.value = 1.8 + collections * 0.25;
-    master.connect(filter).connect(audio.destination);
+    master.gain.value = 0.24;
+    highpass.type = "highpass";
+    highpass.frequency.value = 28;
+    highpass.Q.value = 0.7;
+    lowpass.type = "lowpass";
+    lowpass.frequency.value = Math.min(7000, Math.max(1400, scoreField.maxHz * 1.35));
+    lowpass.Q.value = 0.8 + collections * 0.08;
+    compressor.threshold.value = -22;
+    compressor.knee.value = 18;
+    compressor.ratio.value = 5;
+    compressor.attack.value = 0.012;
+    compressor.release.value = 0.42;
+    master.connect(highpass).connect(lowpass).connect(compressor).connect(audio.destination);
 
     [1, 1.5, 2.25].forEach((ratio, index) => {
       const oscillator = audio.createOscillator();
       const gain = audio.createGain();
       oscillator.type = index === 1 ? "triangle" : "sine";
       oscillator.frequency.value = root * ratio;
-      gain.gain.value = [0.022, 0.008, 0.0035][index];
+      gain.gain.value = [0.018, 0.006, 0.0025][index];
       oscillator.connect(gain).connect(master);
       oscillator.start();
     });
@@ -575,7 +624,7 @@
     const relationGain = audio.createGain();
     relationOscillator.setPeriodicWave(audio.createPeriodicWave(real, imaginary, { disableNormalization: false }));
     relationOscillator.frequency.value = root * (1 + (relations.length % 29) / 100);
-    relationGain.gain.value = 0.012;
+    relationGain.gain.value = 0.01;
     relationOscillator.connect(relationGain).connect(master);
     relationOscillator.start();
 
@@ -591,13 +640,30 @@
       const state = cadenceState();
       const now = audio.currentTime;
       const meanRelationWeight = relationWeight / Math.max(1, relations.length);
-      const relationalPressure = Math.min(0.025, meanRelationWeight * 0.002);
-      const strength = (state.cycleBeat === 0 ? 0.12 : 0.062) + relationalPressure;
+      const relationalPressure = Math.min(0.012, meanRelationWeight * 0.001);
+      const strength = (state.cycleBeat === 0 ? 0.055 : 0.028) + relationalPressure;
       pulseGain.gain.cancelScheduledValues(now);
       pulseGain.gain.setValueAtTime(0.0001, now);
       pulseGain.gain.exponentialRampToValueAtTime(strength, now + 0.07);
       pulseGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.55);
       pulseOscillator.frequency.setValueAtTime(root * (state.cycleBeat === 0 ? 2.25 : 2), now);
+
+      const event = scoreField.events[state.absoluteBeat % Math.max(1, scoreField.events.length)];
+      if (!event || event.rest) return;
+      const voice = audio.createOscillator();
+      const articulation = audio.createGain();
+      const frequency = Math.min(4000, Math.max(32, Number(event.frequency || event.rootHz)));
+      const beatDuration = 60 / event.tempo;
+      const duration = Math.min(3.5, Math.max(0.25, Number(event.beats || 1) * beatDuration));
+      const amplitude = Math.min(0.068, Math.max(0.008, Number(event.amplitude || 0.04) * 0.5));
+      voice.type = voiceWaveform(event.voice);
+      voice.frequency.setValueAtTime(frequency, now);
+      articulation.gain.setValueAtTime(0.0001, now);
+      articulation.gain.exponentialRampToValueAtTime(amplitude, now + Math.min(0.12, duration * 0.18));
+      articulation.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+      voice.connect(articulation).connect(master);
+      voice.start(now);
+      voice.stop(now + duration + 0.05);
     };
     const current = cadenceState();
     const untilNextBeat = (1 - current.beatPhase) * cadence.beatSeconds * 1000;
@@ -613,13 +679,22 @@
       cadence: "weekly / Sunday 10:07 Eastern / seven-beat live phrase",
       relations: relations.length,
       relationWeight,
+      scoreEvents: scoreField.events.length,
+      range: {
+        minHz: scoreField.minHz,
+        maxHz: scoreField.maxHz,
+        tempos: scoreField.tempos,
+        voices: scoreField.voices,
+        rests: scoreField.rests
+      },
       state: cadenceState
     };
   }
 
-  function beginFallbackVoice({ works, cycles, collections, relations }) {
+  function beginFallbackVoice({ works, cycles, collections, relations, scores }) {
+    const scoreField = inheritedScoreField(scores || []);
     const sampleRate = 8000;
-    const seconds = cadence.beatSeconds * 2;
+    const seconds = cadence.beatSeconds * cadence.beatsPerCycle;
     const samples = sampleRate * seconds;
     const buffer = new ArrayBuffer(44 + samples * 2);
     const view = new DataView(buffer);
@@ -642,11 +717,17 @@
     for (let index = 0; index < samples; index += 1) {
       const time = index / sampleRate;
       const phase = time % cadence.beatSeconds;
-      const pulse = Math.exp(-phase * 3.4) * (.22 + Math.min(.1, meanWeight * .004));
-      const body = Math.sin(Math.PI * 2 * root * time) * .3
-        + Math.sin(Math.PI * 2 * root * 1.5 * time) * .11
-        + Math.sin(Math.PI * 2 * relationTone * time) * .16
-        + Math.sin(Math.PI * 2 * root * 2 * time) * pulse;
+      const beat = Math.floor(time / cadence.beatSeconds);
+      const event = scoreField.events[beat % Math.max(1, scoreField.events.length)];
+      const pulse = Math.exp(-phase * 3.4) * (.12 + Math.min(.05, meanWeight * .002));
+      const eventFrequency = Math.min(4000, Math.max(32, Number(event?.frequency || root * 2)));
+      const eventAmplitude = event?.rest ? 0 : Math.min(.18, Math.max(.025, Number(event?.amplitude || .04) * 1.4));
+      const eventEnvelope = Math.min(1, phase * 8) * Math.exp(-phase / Math.max(.3, Number(event?.beats || 1) * 60 / Number(event?.tempo || 48)));
+      const body = Math.sin(Math.PI * 2 * root * time) * .18
+        + Math.sin(Math.PI * 2 * root * 1.5 * time) * .06
+        + Math.sin(Math.PI * 2 * relationTone * time) * .1
+        + Math.sin(Math.PI * 2 * root * 2 * time) * pulse
+        + Math.sin(Math.PI * 2 * eventFrequency * time) * eventAmplitude * eventEnvelope;
       view.setInt16(44 + index * 2, Math.max(-1, Math.min(1, body)) * 32760, true);
     }
     fallbackAudio = document.createElement("audio");
@@ -663,6 +744,14 @@
       cadence: "weekly / Sunday 10:07 Eastern / seven-beat live phrase",
       relations: relations.length,
       relationWeight: meanWeight * relations.length,
+      scoreEvents: scoreField.events.length,
+      range: {
+        minHz: scoreField.minHz,
+        maxHz: scoreField.maxHz,
+        tempos: scoreField.tempos,
+        voices: scoreField.voices,
+        rests: scoreField.rests
+      },
       state: cadenceState
     };
   }

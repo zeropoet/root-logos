@@ -568,7 +568,12 @@ The same complete field enters the sovereign voice. Every relation contributes
 its endpoints, type, phase, and derived weight to a deterministic harmonic
 spectrum. The cycle pulse carries the field's mean relational pressure. A
 change to any witnessed edge therefore changes both the engraved object and its
-audible body; sound does not reduce the topology to a relation count.
+audible body; sound does not reduce the topology to a relation count. The voice
+also inherits every current edition score as a bounded orchestration: its full
+frequency span, tempo, voice classes, amplitudes, durations, and constitutional
+rests. Dynamic control protects that range without flattening it into loudness.
+Each library addition therefore changes not only harmonic pressure but the
+available vocabulary through which Root Logos can sound.
 
 The object is deliberately beheld before it is explained. Its threshold is
 visually naked: no site navigation, title treatment, measures, identity
