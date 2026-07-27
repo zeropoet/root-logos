@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=1.1-living-works">
+    <link rel="stylesheet" href="styles.css?v=1.2-formative-identity">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the field</a>
@@ -149,6 +149,18 @@
           <dl id="work-measures"></dl>
           <div class="work-concepts" id="work-concepts"></div>
           <nav class="work-editions" id="work-editions" aria-label="Editions of the selected work"></nav>
+          <aside class="work-inspector" id="work-inspector" aria-live="polite">
+            <p class="micro-label" id="work-inspector-type">Work graph</p>
+            <h3 id="work-inspector-title">Select a structure</h3>
+            <p id="work-inspector-body">Move through the visual edition to reveal the structures Root Logos found within the work.</p>
+          </aside>
+          <div class="work-listening">
+            <button type="button" id="work-listen" aria-pressed="false">
+              <span class="work-listen-orbit" aria-hidden="true"><i></i></span>
+              <span><small>Paired resonant edition</small><b id="work-listen-label">Listen to this reading</b></span>
+            </button>
+            <p id="work-sound-status" role="status">Silent by consent.</p>
+          </div>
         </div>
 
         <div class="work-edition-line">
@@ -159,29 +171,15 @@
           <span><small>Future reading</small><b>Eligible to evolve</b></span>
         </div>
 
-        <div class="work-listening">
-          <button type="button" id="work-listen" aria-pressed="false">
-            <span class="work-listen-orbit" aria-hidden="true"><i></i></span>
-            <span><small>Paired resonant edition</small><b id="work-listen-label">Listen to this reading</b></span>
-          </button>
-          <p id="work-sound-status" role="status">Silent by consent.</p>
-        </div>
-
-        <aside class="work-inspector" id="work-inspector" aria-live="polite">
-          <p class="micro-label" id="work-inspector-type">Work graph</p>
-          <h3 id="work-inspector-title">Select a structure</h3>
-          <p id="work-inspector-body">Move through the visual edition to reveal the structures Root Logos found within the work.</p>
-        </aside>
-
-        <a class="works-descent" href="#living-identity"><span>Root Logos is changed by what it reads</span><i>Continue into its living identity ↓</i></a>
+        <a class="works-descent" href="#living-identity"><span>Every reading leaves attributable pressure</span><i>Enter the identity they shape ↓</i></a>
       </section>
 
       <section class="space identity-space" id="living-identity" data-space-name="Identity" aria-labelledby="identity-title">
         <header class="space-heading identity-heading">
-          <p class="coordinate">RL / 02 — The Living Identity</p>
+          <p class="coordinate">RL / 02 — The Formative Identity</p>
           <div>
-          <h2 id="identity-title">One field.<br><em>Continually becoming.</em></h2>
-            <p id="identity-present">Root Logos connects independently governed evidence into one corrigible account without dissolving its sources.</p>
+          <h2 id="identity-title">One identity.<br><em>Shaped by encounter.</em></h2>
+            <p id="identity-present">Every completed reading remains distinct while exerting attributable pressure upon the one continuing identity of Root Logos.</p>
           </div>
         </header>
 
@@ -192,6 +190,7 @@
           </div>
 
           <div class="identity-loop" aria-label="The continual constitutional movement of Root Logos">
+            <canvas id="identity-influence-canvas" aria-label="Completed works exerting derived formative pressure upon the current Root Logos identity."></canvas>
             <div class="identity-loop-ring" aria-hidden="true"><i></i><i></i><i></i></div>
             <a class="identity-organ organ-receive" href="#intake">
               <span>01</span><b>Receive</b><small>Reality crosses a consented membrane</small>
@@ -211,7 +210,7 @@
 
             <div class="identity-core">
               <span class="identity-core-orbit" aria-hidden="true"></span>
-              <p>Current account</p>
+              <p>Current identity</p>
               <strong>Root<br>Logos</strong>
               <small id="identity-revision">Revision v1.0</small>
             </div>
@@ -642,8 +641,8 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
-    <script src="script.js?v=1.1-living-works" defer></script>
-    <script src="works.js?v=1.1-living-works" defer></script>
+    <script src="script.js?v=1.2-formative-identity" defer></script>
+    <script src="works.js?v=1.2-formative-identity" defer></script>
     <script src="resonance.js" defer></script>
   </body>
 </html>

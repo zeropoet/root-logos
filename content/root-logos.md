@@ -250,6 +250,14 @@ The Living Works confirm the public identity of Root Logos: not a repository
 that keeps finished objects still, but a living library through which bodies of
 language become visible, audible, relational, and encounterable through time.
 
+The library and the identity remain inverse projections of the same encounter.
+The Library Field preserves every work as a distinct body. The **Formative
+Identity** shows the attributable pressure completed readings exert upon the
+one continuing Root Logos across Receive, Transform, Judge, Compose, and
+Rewrite. Influence may alter the system's voice and structure; it may not
+absorb a work, dissolve its lineage, or claim a relation that the reading did
+not derive.
+
 ## The Journal Membrane
 
 Some observations originate in deliberate public offering. Others arise within

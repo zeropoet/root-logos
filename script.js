@@ -159,7 +159,8 @@ const renderIdentity = () => {
   $("#aperture-revision").textContent = revision;
   $("#identity-revision").textContent = `Revision ${revision}`;
   $("#identity-declaration").textContent = app.identity.declaration;
-  $("#identity-present").textContent = app.identity.narrative?.present || app.identity.declaration;
+  const present = app.identity.narrative?.present || app.identity.declaration;
+  $("#identity-present").textContent = `${present} Completed readings remain distinct while exerting attributable pressure upon this continuing identity.`;
   const orientations = (app.identity.orientation || []).slice(0, 4);
   if (orientations.length) {
     $("#identity-orientations").innerHTML = orientations.map((orientation, index) =>

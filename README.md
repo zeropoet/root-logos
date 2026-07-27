@@ -503,6 +503,15 @@ independently bounded collections in the middle distance, and their works in
 the deep field. It does not fabricate semantic bridges between collections.
 Those relations remain visibly open until a later reading derives them.
 
+The **Formative Identity** is the inverse projection. The Library Field shows
+what Root Logos preserves as distinct; the Formative Identity shows how
+completed readings exert attributable pressure upon its one continuing self.
+Each work remains a colored node. Its strongest current influence line is
+derived from the edition's concepts and terminates at Receive, Transform,
+Judge, Compose, or Rewrite. This is formative evidence, not absorption: a work
+never becomes property of Root Logos, and the identity never becomes a summary
+of the library.
+
 The first work outside the Catholic canon is **The Odyssey**, Homer’s epic in
 the William Cullen Bryant (1871) translation. It enters through the same
 private-source/public-lineage membrane as an independently navigable work:
