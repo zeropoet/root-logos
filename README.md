@@ -461,9 +461,16 @@ The Founding Constitution is therefore work `00`, the generative origin and
 first recursive reading of the library. The Original Douay-Rheims Catholic
 Canon is work `01`, not 73 competing selections. Its complete book field and
 1,681 cross-book relations remain visible inside its model and its 96-event
-corpus score can be heard as one coherent voice. The Odyssey is `02`, and
-Ornament of Abhidharma is `03`; ingestion assigns each future coherent work the
-next stable ordinal.
+corpus score can be heard as one coherent voice. The Odyssey is `02`, Ornament
+of Abhidharma is `03`, and the Bitcoin white paper is `04`; ingestion assigns
+each future coherent work the next stable ordinal.
+
+The Bitcoin white paper also has an explicit, sealed relation to Telos. The
+exact Library work and edition ground Telos's declared BTC settled value layer
+and terminal accounting reference. This lineage grants no treasury strategy,
+custody, execution, trading, or interpretive authority: Telos cannot alter the
+source work's meaning, and the work does not authorize Telos. The bounded bridge
+is visible from both the Telos public witness and the Bitcoin Library reading.
 
 This cycle also produces the sixth immutable reading of the Founding
 Constitution and its first v1.2 edition: 21 constitutional sections, 2,764

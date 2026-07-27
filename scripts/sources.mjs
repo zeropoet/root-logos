@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const registryPath = resolve(root, "sources/registry.json");
 const snapshotPath = resolve(root, "sources/foldforge.snapshot.json");
+const worksIndexPath = resolve(root, "works/index.json");
 const publicWitnessPaths = [
   resolve(root, "sources/telos.public-witness.json"),
   resolve(root, "sources/sovereign-standard.public-witness.json")
@@ -107,6 +108,7 @@ const deriveFoldForge = async (foldForgeRoot) => {
 export const validateSources = async () => {
   const registry = validateRegistry(await loadJson(registryPath));
   const snapshot = await loadJson(snapshotPath);
+  const worksIndex = await loadJson(worksIndexPath);
   const publicWitnesses = await Promise.all(publicWitnessPaths.map(loadJson));
   assert(snapshot.schema === "root-logos-source-snapshot/v1", "Unsupported source snapshot schema.");
   if (snapshot.status === "witnessed") {
@@ -118,6 +120,12 @@ export const validateSources = async () => {
     assert(witness.status === "witnessed", `${witness.source_id} public witness is not active.`);
     assert(witness.identity?.definition && witness.identity?.role_in_coherent_field, `${witness.source_id} public witness lacks identity context.`);
     assert(Array.isArray(witness.exclusions) && witness.exclusions.length > 0, `${witness.source_id} public witness lacks exclusions.`);
+    for (const relation of witness.work_relations || []) {
+      assert(relation.id && relation.work_id && relation.edition_id && relation.relation && relation.statement && relation.boundary, `${witness.source_id} has an incomplete work relation.`);
+      const work = worksIndex.works.find(({ work_id }) => work_id === relation.work_id);
+      assert(work, `${witness.source_id} references an unknown work ${relation.work_id}.`);
+      assert(work.edition_history?.some(({ edition_id }) => edition_id === relation.edition_id), `${witness.source_id} references an unknown edition ${relation.edition_id}.`);
+    }
     assert(witness.witness === `sha256:${digest(witnessedPayload(witness))}`, `${witness.source_id} public witness digest is invalid.`);
   }
   return { registry, snapshot, publicWitnesses };

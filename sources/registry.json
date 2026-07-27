@@ -45,8 +45,11 @@
       "status": "active",
       "visibility": "public-witness",
       "adapter": "telos-public-witness-v1",
-      "reads": ["sources/telos.public-witness.json"],
-      "receives": "A deliberately published identity, operational posture, governing commitments, and non-authorizing proof state",
+      "reads": [
+        "sources/telos.public-witness.json",
+        "works/bitcoin-a-peer-to-peer-electronic-cash-system-0110e266/manifest.json"
+      ],
+      "receives": "A deliberately published identity, operational posture, governing commitments, non-authorizing proof state, and an attributable relation to the Bitcoin white paper",
       "returns": "Economic tests of preservation, evidence, authority, and autonomous action",
       "connection_message": "Telos is present through a public constitutional witness. Root Logos can learn from its purpose and proof posture without receiving private capital data or financial authority.",
       "boundary": "Balances, positions, accounts, credentials, strategies, orders, transactions, custody, signing power, and trading authority remain outside Root Logos."

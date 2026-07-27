@@ -23,6 +23,10 @@ assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").pub
 assert.equal(validated.registry.sources.find(({ id }) => id === "x").public_url, "https://x.com/rootlogos");
 assert.equal(validated.registry.sources.find(({ id }) => id === "telos").public_url, null);
 assert.equal(validated.registry.sources.find(({ id }) => id === "sovereign-standard").public_url, "https://sovereignstandard.co");
+const telosWitness = validated.publicWitnesses.find(({ source_id }) => source_id === "telos");
+assert.equal(telosWitness.work_relations.length, 1);
+assert.equal(telosWitness.work_relations[0].work_id, "bitcoin-a-peer-to-peer-electronic-cash-system-0110e266");
+assert.equal(telosWitness.work_relations[0].relation, "grounds-settled-value-layer");
 assert.equal(validated.publicWitnesses.length, 2);
 assert.equal(validated.publicWitnesses.find(({ source_id }) => source_id === "telos").public_state.live_execution_available, false);
 assert.equal(validated.publicWitnesses.find(({ source_id }) => source_id === "telos").public_state.root_logos_has_custody, false);

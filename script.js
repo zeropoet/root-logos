@@ -165,13 +165,21 @@ const renderSources = () => {
       ? [["Revision", app.foldforge.source_revision], ["Compositions", app.foldforge.compositions.length], ["Relations", app.foldforge.relations.length], ["Primitives", app.foldforge.primitives.length]]
       : [["Adapter", sentence(source.adapter)], ["Read paths", source.reads.length], ["State", sentence(source.status)], ["Authority", "Bounded"]];
     if (source.id === "telos" && publicWitness) {
-      measures = [["Mode", sentence(publicWitness.public_state.operational_mode)], ["Value layer", publicWitness.public_state.settled_value_layer], ["Live execution", "Unavailable"], ["RL custody", "None"]];
+      measures = [["Mode", sentence(publicWitness.public_state.operational_mode)], ["Value layer", publicWitness.public_state.settled_value_layer], ["Linked works", publicWitness.work_relations?.length || 0], ["RL custody", "None"]];
     }
     if (source.id === "sovereign-standard" && publicWitness) {
       measures = [["Public records", publicWitness.public_state.published_vessel_records], ["Physical form", "Black Tin Vessel"], ["Private orders", "Excluded"], ["Witness", "Current"]];
     }
     $("#source-measures").innerHTML = measures.map(([label, value]) => `<span><small>${escapeHtml(label)}</small><b>${escapeHtml(value)}</b></span>`).join("");
     $("#source-boundary").textContent = source.boundary;
+    const workRelation = publicWitness?.work_relations?.[0];
+    const relationLink = $("#source-work-relation");
+    relationLink.hidden = !workRelation;
+    relationLink.dataset.workId = workRelation?.work_id || "";
+    if (workRelation) {
+      $("#source-work-title").textContent = workRelation.title;
+      $("#source-work-relation-label").textContent = sentence(workRelation.relation);
+    }
     $("#source-witness").textContent = foldForgeLive
       ? app.foldforge.witness.replace("sha256:", "").slice(0, 16)
       : publicWitness?.witness
@@ -182,6 +190,16 @@ const renderSources = () => {
     if (source.public_url) repository.href = source.public_url;
   };
   $$("[data-source-id]").forEach((button) => button.addEventListener("click", () => selectSource(button.dataset.sourceId)));
+  $("#source-work-relation").addEventListener("click", (event) => {
+    event.preventDefault();
+    const workId = event.currentTarget.dataset.workId;
+    if (!workId) return;
+    location.hash = "works";
+    requestAnimationFrame(() => {
+      const entry = window.rootLogosWorks?.index?.works?.find(({ work_id }) => work_id === workId);
+      if (entry) window.rootLogosWorks.open(entry);
+    });
+  });
   selectSource("foldforge");
 
   const compositions = app.foldforge?.compositions || [];

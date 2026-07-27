@@ -11,9 +11,10 @@
   const isBibleBook = ({ collection }) => collection === BIBLE_COLLECTION;
 
   class LivingWorks {
-    constructor(index, corpus = null) {
+    constructor(index, corpus = null, sourceRelations = []) {
       this.index = index;
       this.corpus = corpus;
+      this.sourceRelations = sourceRelations;
       this.canvas = $("#work-canvas");
       this.context = this.canvas.getContext("2d");
       this.entry = null;
@@ -135,7 +136,11 @@
       $$("#work-list [data-work]").forEach((button) => button.classList.toggle("is-active", button.dataset.work === entry.work_id));
       $("#work-title").textContent = entry.title;
       $("#work-coordinate").textContent = `${entry.kind} / ${entry.translation || entry.author} / current edition`;
-      $("#work-statement").textContent = this.edition.reading.statement;
+      const sourceRelation = this.sourceRelations.find(({ work_id }) => work_id === entry.work_id);
+      $("#work-statement").textContent = [
+        this.edition.reading.statement,
+        sourceRelation?.library_statement
+      ].filter(Boolean).join(" ");
       this.resetSoundStatus("score");
       this.targetRotation = 0;
     }
@@ -581,14 +586,16 @@
 
   const initialize = async () => {
     try {
-      const [indexResponse, corpusResponse] = await Promise.all([
+      const [indexResponse, corpusResponse, telosResponse] = await Promise.all([
         fetch("works/index.json", { cache: "no-store" }),
-        fetch("works/corpora/original-douay-rheims.json", { cache: "no-store" })
+        fetch("works/corpora/original-douay-rheims.json", { cache: "no-store" }),
+        fetch("sources/telos.public-witness.json", { cache: "no-store" }).catch(() => null)
       ]);
       if (!indexResponse.ok) throw new Error("The living works index is unavailable.");
       const index = await indexResponse.json();
       const corpus = corpusResponse.ok ? await corpusResponse.json() : null;
-      window.rootLogosWorks = new LivingWorks(index, corpus);
+      const telos = telosResponse?.ok ? await telosResponse.json() : null;
+      window.rootLogosWorks = new LivingWorks(index, corpus, telos?.work_relations || []);
     } catch (error) {
       console.error(error);
       $("#work-title").textContent = "The archive remains closed";

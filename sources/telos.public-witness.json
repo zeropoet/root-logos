@@ -33,6 +33,24 @@
     "Current architecture does not provide Root Logos with custody, credentials, signing power, transfer capability, or trade authority.",
     "Telos preserves content-addressed evidence and separates proposal, permission, execution, and audit."
   ],
+  "work_relations": [
+    {
+      "id": "telos-bitcoin-whitepaper",
+      "work_id": "bitcoin-a-peer-to-peer-electronic-cash-system-0110e266",
+      "edition_id": "bitcoin-a-peer-to-peer-electronic-cash-system-0110e266--v11-read-aa3eeb-e2121bae",
+      "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+      "relation": "grounds-settled-value-layer",
+      "statement": "The Bitcoin white paper provides the public protocol architecture from which Telos names BTC as its settled value layer and terminal accounting reference.",
+      "library_statement": "This work grounds Telos’s declared BTC value layer; it grants no treasury authority.",
+      "shared_structures": [
+        "peer-to-peer settlement",
+        "proof-bounded authority",
+        "adversarial verification",
+        "BTC-denominated accounting"
+      ],
+      "boundary": "The white paper does not authorize Telos strategy, custody, execution, or claims of protocol identity. Telos does not alter the work’s source meaning."
+    }
+  ],
   "exclusions": [
     "balances and position sizes",
     "account and portfolio identifiers",
@@ -46,5 +64,5 @@
     "What treasury behavior would embody Root Logos without converting capital into constitutional authority?",
     "Which proofs should be public before a treasury system may claim that its autonomy has matured?"
   ],
-  "witness": "sha256:8c995259f3d4edc681ab9a7cd78f10662e26ed9518348fd01158ea0b29a843dd"
+  "witness": "sha256:5f2e58da5bca564f5124124a0201f6dcb277a223760d081237f8e63dec310492"
 }
