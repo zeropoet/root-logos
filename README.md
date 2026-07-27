@@ -904,6 +904,13 @@ or veil; all depth must come from the topology itself. Its monochrome state is
 authored natively: nodes, relations, type, cards, selection states, structural
 detail, and the listening signal use explicit black, white, and white opacity.
 No inversion or parent grayscale filter is used to conceal tinted source color.
+The same authored monochrome law now governs every archive surface beyond the
+Living Object: constitutional field, Library, formative identity, cultivation,
+memory, judgment, membrane, connected sources, Resonant Chamber, Observatory,
+and footer. Shared tokens resolve to black, white, and white opacity; hardcoded
+atmospheres, canvas highlights, glows, active states, and mobile overrides are
+likewise emitted directly in monochrome. The Living Object alone retains its
+separate provenance-bearing spectral identity.
 Its pulse is synchronized with the weekly cultivation cadence: Sunday at 10:07
 Eastern is the constitutional downbeat of a compressed seven-part live phrase,
 and the same phase governs visible growth pulses. Silence remains an authored

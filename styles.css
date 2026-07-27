@@ -1287,3 +1287,146 @@ h1, h2, h3, h4,
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Revision 1.2 native monochrome archive.
+   Color is removed at the authored surface, never through inversion/filtering. */
+body.archive-open {
+  --void:#000;
+  --void-2:#000;
+  --abyss:#000;
+  --deep-blue:#000;
+  --surface:#000;
+  --surface-solid:#000;
+  --ivory:#fff;
+  --bone:#fff;
+  --dim:rgba(255,255,255,.62);
+  --ghost:rgba(255,255,255,.34);
+  --line:rgba(255,255,255,.18);
+  --line-strong:rgba(255,255,255,.42);
+  --gold:#fff;
+  --gold-bright:#fff;
+  --inquiry:#fff;
+  --memory:#fff;
+  --rust:#fff;
+  --green:#fff;
+  --accent:#fff;
+  background:#000;
+  color:#fff;
+}
+body.archive-open main,
+body.archive-open main > .space,
+body.archive-open .site-footer {
+  background-color:#000;
+  background-image:none;
+}
+body.archive-open main::before,
+body.archive-open main::after,
+body.archive-open .field-space::before,
+body.archive-open .field-space::after,
+body.archive-open .identity-space::before,
+body.archive-open .identity-space::after,
+body.archive-open .chamber-space::before,
+body.archive-open .memory-space::before,
+body.archive-open .coherence-space::before,
+body.archive-open .resonance-space::before,
+body.archive-open .observatory-space::before {
+  background:none;
+}
+body.archive-open .field-vignette,
+body.archive-open .works-veil {
+  display:none;
+}
+body.archive-open .field-object-controls,
+body.archive-open .field-inspector,
+body.archive-open .identity-aperture,
+body.archive-open .identity-core,
+body.archive-open .identity-organ,
+body.archive-open .identity-manifest,
+body.archive-open .latest-cycle,
+body.archive-open .cycle-drawer > article,
+body.archive-open .memory-item,
+body.archive-open .proposal-card,
+body.archive-open .review-surface,
+body.archive-open .intake-path,
+body.archive-open .antechamber > section,
+body.archive-open .queue-item,
+body.archive-open .journal-plan,
+body.archive-open .source-field-core,
+body.archive-open .source-node,
+body.archive-open .source-reading,
+body.archive-open .resonance-instrument,
+body.archive-open .listen-control,
+body.archive-open .observatory-instrument,
+body.archive-open .observatory-modes,
+body.archive-open .observatory-timeline button,
+body.archive-open .observatory-selection,
+body.archive-open .observatory-reading,
+body.archive-open .reading-actions a {
+  background-color:#000;
+  background-image:none;
+  color:#fff;
+  box-shadow:none;
+}
+body.archive-open .field-object-controls button,
+body.archive-open .proposal-card,
+body.archive-open .classification-actions button,
+body.archive-open .source-node,
+body.archive-open .observatory-modes button,
+body.archive-open .reading-actions a {
+  background:#000;
+  color:rgba(255,255,255,.68);
+}
+body.archive-open .field-object-controls button:hover,
+body.archive-open .field-object-controls button.is-active,
+body.archive-open .proposal-card:hover,
+body.archive-open .proposal-card.is-active,
+body.archive-open .classification-actions button:hover,
+body.archive-open .classification-actions button.is-selected,
+body.archive-open .source-node:hover,
+body.archive-open .source-node.is-active,
+body.archive-open .observatory-modes button:hover,
+body.archive-open .observatory-modes button.is-active,
+body.archive-open .reading-actions a:hover {
+  border-color:#fff;
+  background:#fff;
+  color:#000;
+}
+body.archive-open .presence-orbit i,
+body.archive-open .identity-loop-ring i,
+body.archive-open .membrane-rings span,
+body.archive-open .source-field-rings::before,
+body.archive-open .source-field-rings::after {
+  background:#fff;
+  box-shadow:none;
+}
+body.archive-open .identity-loop::before,
+body.archive-open .identity-loop-ring,
+body.archive-open .identity-loop-ring::before,
+body.archive-open .identity-loop-ring::after,
+body.archive-open .identity-core,
+body.archive-open .identity-core::before,
+body.archive-open .identity-core::after,
+body.archive-open .identity-core-orbit,
+body.archive-open .section-orbit i,
+body.archive-open .cycle-phase > span,
+body.archive-open .membrane-rings i,
+body.archive-open .source-field-rings,
+body.archive-open .source-field-rings i,
+body.archive-open .source-field-core,
+body.archive-open .resonance-orbit i,
+body.archive-open .resonance-orbit span {
+  border-color:rgba(255,255,255,.28);
+  box-shadow:none;
+}
+body.archive-open input,
+body.archive-open textarea,
+body.archive-open select {
+  background:#000;
+  color:#fff;
+}
+body.archive-open input:focus,
+body.archive-open textarea:focus,
+body.archive-open select:focus {
+  border-color:#fff;
+  background:#000;
+}

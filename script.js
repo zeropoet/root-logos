@@ -672,7 +672,7 @@ class LivingObservatory {
     const selected = app.observatorySelection;
     if (["lineage", "causality", "authority"].includes(this.mode)) {
       ctx.beginPath(); this.points.forEach((point, index) => index ? ctx.lineTo(point.x, point.y) : ctx.moveTo(point.x, point.y));
-      ctx.strokeStyle = "rgba(225,209,152,.16)"; ctx.lineWidth = .7; ctx.stroke();
+      ctx.strokeStyle = "rgba(255,255,255,.16)"; ctx.lineWidth = .7; ctx.stroke();
     }
     if (this.mode === "respiration" && this.points.length) this.points.slice(1).forEach((point) => { ctx.beginPath(); ctx.moveTo(this.points[0].x, this.points[0].y); ctx.lineTo(point.x, point.y); ctx.strokeStyle = "rgba(174,174,174,.08)"; ctx.stroke(); });
     this.points.forEach((point, index) => {
@@ -681,8 +681,8 @@ class LivingObservatory {
       if (this.mode === "absence") { ctx.setLineDash([3, 6]); ctx.beginPath(); ctx.arc(point.x, point.y, point.r + 7 + pulse, 0, Math.PI * 2); ctx.strokeStyle = `rgba(${color.join(",")},.34)`; ctx.stroke(); ctx.setLineDash([]); }
       if (this.mode === "pressure") { const glow = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, point.r * 3); glow.addColorStop(0, `rgba(${color.join(",")},.18)`); glow.addColorStop(1, `rgba(${color.join(",")},0)`); ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(point.x, point.y, point.r * 3, 0, Math.PI * 2); ctx.fill(); }
       if (active || hover) { ctx.beginPath(); ctx.arc(point.x, point.y, point.r + 9 + pulse, 0, Math.PI * 2); ctx.strokeStyle = `rgba(${color.join(",")},.5)`; ctx.lineWidth = .7; ctx.stroke(); }
-      ctx.beginPath(); ctx.arc(point.x, point.y, Math.max(2, point.r + (this.mode === "respiration" ? pulse * .25 : 0)), 0, Math.PI * 2); ctx.fillStyle = this.mode === "absence" ? "rgba(7,8,6,.88)" : `rgba(${color.join(",")},${active || hover ? .95 : .64})`; ctx.fill();
-      if (hover || active || (this.mode === "authority" && this.width > 700)) { ctx.fillStyle = "rgba(233,229,216,.76)"; ctx.font = '500 9px "SFMono-Regular", Consolas, "Liberation Mono", monospace'; ctx.fillText(point.title.toUpperCase().slice(0, 42), point.x + point.r + 11, point.y + 3); }
+      ctx.beginPath(); ctx.arc(point.x, point.y, Math.max(2, point.r + (this.mode === "respiration" ? pulse * .25 : 0)), 0, Math.PI * 2); ctx.fillStyle = this.mode === "absence" ? "rgba(0,0,0,.88)" : `rgba(${color.join(",")},${active || hover ? .95 : .64})`; ctx.fill();
+      if (hover || active || (this.mode === "authority" && this.width > 700)) { ctx.fillStyle = "rgba(255,255,255,.76)"; ctx.font = '500 9px "SFMono-Regular", Consolas, "Liberation Mono", monospace'; ctx.fillText(point.title.toUpperCase().slice(0, 42), point.x + point.r + 11, point.y + 3); }
     });
     requestAnimationFrame(this.draw);
   }
@@ -903,7 +903,7 @@ class ConstitutionalField {
       const radius = Math.max(1.3, node.radius * node.scale * (.72 + depth * .35));
       if (node.type === "root") {
         const glow = ctx.createRadialGradient(node.px, node.py, 0, node.px, node.py, 52 * this.zoom);
-        glow.addColorStop(0, "rgba(225,209,152,.16)"); glow.addColorStop(1, "rgba(225,209,152,0)");
+        glow.addColorStop(0, "rgba(255,255,255,.16)"); glow.addColorStop(1, "rgba(255,255,255,0)");
         ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(node.px, node.py, 52 * this.zoom, 0, Math.PI * 2); ctx.fill();
       }
       if (active || hover || node.type === "root") {
@@ -918,7 +918,7 @@ class ConstitutionalField {
       ctx.fillStyle = `rgba(${color.join(",")},${alpha * (hover || active ? 1 : .28 + depth * .58)})`;
       ctx.fill();
       if (hover || active || node.type === "root") {
-        ctx.fillStyle = `rgba(233,229,216,${alpha * .76})`;
+        ctx.fillStyle = `rgba(255,255,255,${alpha * .76})`;
         ctx.font = '500 9px "SFMono-Regular", Consolas, "Liberation Mono", monospace';
         ctx.fillText(node.title.toUpperCase().slice(0, 48), node.px + radius + 9, node.py + 3);
       }
