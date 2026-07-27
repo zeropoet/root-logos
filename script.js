@@ -98,12 +98,6 @@ const loadData = async () => {
 const renderPresence = () => {
   const service = app.runtime.service;
   if (app.identity) {
-    const headline = app.identity.headline;
-    if (headline) {
-      $("#field-title span").textContent = headline.lead;
-      $("#field-title em").textContent = headline.emphasis;
-    }
-    $(".field-intro").textContent = app.identity.declaration;
     document.title = `${app.identity.name} — The Living Object`;
     $("meta[name='description']")?.setAttribute("content", app.identity.declaration);
   }
