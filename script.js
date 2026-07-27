@@ -758,7 +758,7 @@ class ConstitutionalField {
       ctx.moveTo(source.px, source.py);
       ctx.lineTo(target.px, target.py);
       ctx.strokeStyle = active ? "rgba(220,220,220,.58)" : type === "questions" ? `rgba(174,174,174,${.05 + depth * .1})` : `rgba(218,218,218,${.025 + depth * .06})`;
-      ctx.lineWidth = active ? 5.2 : 2 + depth * 1.36;
+      ctx.lineWidth = active ? 2.6 : 1 + depth * .68;
       ctx.stroke();
     });
 
