@@ -992,7 +992,8 @@ body.archive-open #intake { order: 7; }
 .site-footer > div { display: flex; align-items: center; gap: 14px; font: .7rem/1 var(--mono); letter-spacing: .15em; text-transform: uppercase; }
 .footer-mark { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid #fff; border-radius: 50%; background: #000; }
 .footer-mark img { filter: invert(1); opacity: 1; }
-.footer-tea { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 10px 24px; padding: 20px 0 17px; border-top: 1px solid var(--gold); border-bottom: 1px solid var(--line); transition: border-color .3s, transform .3s; }
+.footer-tea { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 14px 24px; min-height:170px;padding:26px;align-content:space-between;border:1px solid rgba(255,255,255,.28);background:#000;transition:border-color .3s,transform .3s; }
+.footer-tea::before { content:"";position:absolute;top:-1px;left:-1px;width:54px;height:2px;background:var(--accent); }
 .footer-tea small { grid-column: 1 / -1; color: var(--dim); font: 500 .48rem/1.4 var(--mono); letter-spacing: .13em; text-transform: uppercase; }
 .footer-tea span { color: var(--bone); font: 400 clamp(1.25rem, 1.8vw, 1.75rem)/1.05 var(--display); }
 .footer-tea em { color: var(--gold-bright); font-weight: 400; }
@@ -1001,7 +1002,7 @@ body.archive-open #intake { order: 7; }
 .footer-tea-arrow { color: var(--accent); }
 .footer-tea-arrow::before { content: ""; position: absolute; top: 8px; left: 1px; width: 17px; height: 1px; background: currentColor; transform: rotate(-45deg); transform-origin: center; }
 .footer-tea-arrow::after { content: ""; position: absolute; top: 1px; right: 0; width: 8px; height: 8px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; }
-.footer-tea:hover { border-bottom-color: var(--gold); transform: translateY(-3px); }
+.footer-tea:hover { border-color:#fff;transform:translateY(-3px); }
 .footer-tea:hover i { transform: translate(3px, -3px); }
 .site-footer nav { justify-self: end; display: grid; justify-items: end; gap: 8px; }
 .site-footer nav a { color: var(--dim); font: .5rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
