@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rootlogos.com/works/edition.schema.json",
+  "title": "Root Logos Living Work Edition",
+  "type": "object",
+  "required": ["schema", "edition_id", "work_id", "created_at", "root_logos_revision", "source_hash", "transformation", "measures", "visual", "sound", "reading"],
+  "properties": {
+    "schema": { "const": "root-logos-work-edition/v1" },
+    "edition_id": { "type": "string", "minLength": 1 },
+    "work_id": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "root_logos_revision": { "type": "string", "minLength": 1 },
+    "source_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "parent_edition": { "type": ["string", "null"] },
+    "status": { "const": "archived" },
+    "transformation": { "type": "string", "minLength": 1 },
+    "measures": { "type": "object" },
+    "visual": {
+      "type": "object",
+      "required": ["schema", "seed", "palette", "topology", "motion"]
+    },
+    "sound": {
+      "type": "object",
+      "required": ["schema", "signature", "tempo", "events"]
+    },
+    "reading": {
+      "type": "object",
+      "required": ["dominant_concepts", "statement"]
+    }
+  }
+}

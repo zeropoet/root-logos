@@ -4,8 +4,9 @@
 
 # Root Logos
 
-Root Logos is a living, corrigible constitutional grammar for composing coherent
-participation in reality.
+Root Logos is a living, corrigible constitutional intelligence that transforms
+bodies of language and evidence into evolving visual, resonant, and relational
+forms.
 
 The site is not organized as a blog, feed, dashboard, or publication archive.
 It is one continuously readable, versioned knowledge system whose public surface
@@ -13,10 +14,12 @@ and documentary record are views of the same constitutional network:
 Logoi, vocabulary, Living Statements, Constitutional Bridges, Field Notes,
 Artifact Seeds, Open Questions, Export Packets, and published revisions.
 
-The current constitution is **Revision 1.0 — The Coherent Field**. This
-inflection connects independently governed sources into one continually revised
-account without merging repositories, inheriting private authority, or replacing
-source truth with interpretation. FoldForge contributes compositional grammar,
+The current constitution is **Revision 1.1 — The Living Works**. This
+inflection makes Root Logos a living library: one complete work at a time passes
+through a witnessed structural reading and emerges as an archived, navigable
+visual-resonant edition. Later versions of Root Logos may read the same work
+again, but may never overwrite an earlier edition or confuse a transformation
+with its source. The coherent field remains intact: FoldForge contributes compositional grammar,
 Telos contributes a bounded public treasury-identity witness, Sovereign Standard
 contributes public material practice, and X supplies outward exchange.
 Its direction is both expansive and compressive: the architecture names new
@@ -26,12 +29,21 @@ of carrying them without doctrinal repetition.
 ## Current Shape
 
 - `index.html` renders the public Root Logos observatory: the constitutional
-  Object, the visible Living Identity, connected-source Coherent Field, live Cultivation Chamber, semantic
+  Object, central Living Works archive, visible Living Identity, connected-source Coherent Field, live Cultivation Chamber, semantic
   Memory, constitutional Threshold, signed Intake membrane, Living Observatory,
-  live Resonant Chamber, and the planned Journal Membrane. The interface now
+  live Resonant Chamber, and the autonomous Journal Membrane. The interface now
   makes its continual movement explicit: receive, witness, relate, judge,
   compose, and rewrite one canonical account inside a boundary where reality
   remains greater than the system.
+- `works/` is the immutable public archive of complete-work transformations.
+  Each work has a stable manifest and one or more edition records. An edition
+  contains a derived Work Graph, deterministic visual score, deterministic
+  resonant score, measures, interpretation, source hash, and the Root Logos
+  revision that made it. The founding constitution is the first proof object.
+- `scripts/works.mjs` ingests a Markdown file or directory in natural order,
+  preserves file and heading coordinates, derives concepts and relations,
+  composes the paired scores, and updates the public archive. It is the first
+  adapter for the forthcoming one-book-at-a-time Catholic Bible passage.
 - The Constitutional Object is now the central public experience. Its 87
   canonical structures and 224 explicit relations are projected into a stable
   three-dimensional constellation generated directly from the graph. Readers
@@ -424,6 +436,28 @@ The interface is intentionally continuous rather than route-like. Ambient
 orientation, a coherence progress line, and a live document pulse allow the
 reader to move from visual relation into language without managing a set of
 separate destinations.
+
+## Revision 1.1 — The Living Works
+
+Revision 1.1 makes complete-work transformation a constitutional function and
+the central public identity of Root Logos. A bounded manuscript crosses a Work
+Grant with title, authorship, source, translation, language, rights witness, and
+source hash. Its files and headings become durable coordinates. Root Logos then
+derives a Work Graph and composes two inseparable outputs from it: a navigable
+visual score and a provenance-bearing resonant score.
+
+The archive is temporal. A change in the work or in Root Logos' constitutional
+voice creates a new immutable edition with a parent link. Earlier visuals,
+scores, measures, and readings remain playable. The two included editions of
+the founding constitution demonstrate this: v1.0 reads the constitution before
+the Living Works pillar, while v1.1 reads it after the system has been changed
+by the capability itself.
+
+The Markdown adapter is intentionally work-agnostic. A directory can preserve
+books, chapters, scenes, poems, or screenplay units through filenames and
+headings. The next external ingestion is intended to be one book from the
+Catholic Bible repository, after its repository URL and translation-rights
+witness are supplied.
 
 ## Revision 0.9 — The Self-Writing Constitution
 
