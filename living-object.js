@@ -138,6 +138,7 @@
   ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity]) => {
     const works = worksIndex.works || [];
     const independentWorks = works.filter((work) => !String(work.collection || "").includes("Douay") && work.edition);
+    const coherentWorkCount = independentWorks.length + (corpus.canonical_work_count ? 1 : 0);
     const independentEditions = new Map((await Promise.all(independentWorks.map(async (work) => {
       try { return [work.work_id, await fetchJson(work.edition)]; }
       catch { return [work.work_id, null]; }
@@ -152,12 +153,12 @@
     );
     const cycles = Math.max(0, Number(cultivation.next_cycle || 1) - 1);
     const revision = identity.revision || graph.meta?.revision || "—";
-    $("#object-work-count").textContent = `${works.length} works`;
+    $("#object-work-count").textContent = `${coherentWorkCount} coherent works`;
     $("#object-cycle-count").textContent = `${cycles} cycles`;
     $("#object-revision").textContent = `Revision ${revision}`;
     const crossRelations = (corpus.edges?.length || 0) + independentRelations.length;
     const outwardPressure = corpus.measures?.mean_outward_pressure;
-    $("#object-state").textContent = `Gravity seeks coherence. ${works.length} irreducible works hold the field open through ${crossRelations.toLocaleString()} witnessed tensions${outwardPressure ? ` at ${outwardPressure} mean outward pressure` : ""}.`;
+    $("#object-state").textContent = `The Bible holds as one ${corpus.canonical_work_count || 73}-book body within ${coherentWorkCount} coherent works. Gravity seeks coherence through ${crossRelations.toLocaleString()} witnessed tensions${outwardPressure ? ` while the canon sustains ${outwardPressure} mean outward pressure` : ""}.`;
     document.title = `${identity.name || "Root Logos"} — The Living Object`;
 
     if (!gl) {
@@ -224,9 +225,9 @@
       ...[...independentEditions.values()].map((edition) => edition.sound)
     ].filter((score) => score?.events?.length);
     beginSovereignVoice({
-      works: works.length,
+      works: coherentWorkCount,
       cycles,
-      collections: new Set(works.map((work) => work.collection || "Root Logos")).size,
+      collections: new Set([...independentWorks.map((work) => work.collection || work.title), corpus.title]).size,
       relations: [...(corpus.edges || []), ...independentRelations],
       scores
     });
@@ -290,48 +291,87 @@
       }
     });
 
-    // The canon is not a branch hanging from Root Logos. Its books exert
-    // outward pressure around the center while their derived relations hold
-    // the open field in tension.
+    // The Bible is one coherent formative body, not seventy-three competing
+    // library identities. Its two canonical divisions form nested chambers
+    // around a shared corpus barycenter. Canonical order gives the body a spine;
+    // every derived relation remains drawn; each book's outward pressure extends
+    // away from the barycenter while its gravitational line pulls inward.
     const corpusVisual = new Map((corpus.visual?.topology?.nodes || []).map((node) => [node.id, node]));
     const corpusPositions = new Map();
-    const gravityCenter = [0, 0.05, 0];
-    (corpus.nodes || []).forEach((node, index, nodes) => {
+    const corpusNodes = [...(corpus.nodes || [])].sort((a, b) => Number(a.canonical_order || 0) - Number(b.canonical_order || 0));
+    const corpusCenter = [-0.82, -0.18, 0.08];
+    const corpusRoot = trunk[Math.min(trunk.length - 1, Math.round(cycles * 0.58))];
+    const oldTestament = corpusNodes.filter(({ division }) => division === "Old Testament");
+    const newTestament = corpusNodes.filter(({ division }) => division === "New Testament");
+    const divisionIndex = new Map([
+      ...oldTestament.map((node, index) => [node.id, [index, oldTestament.length, 0]]),
+      ...newTestament.map((node, index) => [node.id, [index, newTestament.length, 1]])
+    ]);
+    addPoint(corpusCenter, [...palette.canon.slice(0, 3), 0.92], 12.5, 0.54);
+    addLine(corpusRoot, corpusCenter, [...palette.canon.slice(0, 3), 0.58], 0.52);
+    pulsePaths.push([corpusRoot, corpusCenter]);
+
+    corpusNodes.forEach((node, index, nodes) => {
       const visual = corpusVisual.get(node.id) || node;
-      const angle = Number.isFinite(visual.angle) ? visual.angle : index / Math.max(1, nodes.length) * Math.PI * 2;
       const pressure = Number(visual.outward_pressure ?? node.outward_pressure ?? 0.72);
       const distinctiveness = Number(visual.distinctiveness ?? node.distinctiveness ?? 0.65);
-      const radius = 1.05 + pressure * 1.12;
+      const [withinDivision, divisionLength, division] = divisionIndex.get(node.id) || [index, nodes.length, 0];
+      const progress = divisionLength <= 1 ? 0 : withinDivision / (divisionLength - 1);
+      const old = division === 0;
+      const turns = old ? 2.62 : 1.72;
+      const phase = (old ? -0.72 : 2.18) + progress * Math.PI * 2 * turns;
+      const chamberRadius = (old ? 0.5 : 0.29) + pressure * (old ? 0.27 : 0.2);
+      const vertical = old
+        ? -0.82 + progress * 1.38
+        : -0.2 + progress * 1.18;
       const position = [
-        Math.cos(angle) * radius,
-        0.03 + Math.sin(angle * 3) * 0.52 + (distinctiveness - 0.65) * 0.55,
-        Math.sin(angle) * radius
+        corpusCenter[0] + Math.cos(phase) * chamberRadius + (old ? -0.16 : 0.2),
+        corpusCenter[1] + vertical + (distinctiveness - 0.65) * 0.38,
+        corpusCenter[2] + Math.sin(phase) * chamberRadius
       ];
       corpusPositions.set(node.id, position);
       const birth = 0.57 + index / Math.max(1, nodes.length) * 0.27;
-      addPoint(position, palette.canon, 4.6 + distinctiveness * 2.4, birth);
-      addLine(gravityCenter, position, [...palette.canon.slice(0, 3), 0.055], birth - 0.025);
+      const divisionColor = old
+        ? palette.canon
+        : [palette.canon[0] * 0.82, palette.canon[1] * 0.9, Math.min(1, palette.canon[2] * 1.18), 0.82];
+      addPoint(position, divisionColor, 4.8 + distinctiveness * 2.8, birth);
+      addLine(corpusCenter, position, [...divisionColor.slice(0, 3), 0.075], birth - 0.025);
 
-      const length = Math.hypot(position[0], position[1], position[2]) || 1;
+      const radial = [
+        position[0] - corpusCenter[0],
+        position[1] - corpusCenter[1],
+        position[2] - corpusCenter[2]
+      ];
+      const length = Math.hypot(...radial) || 1;
       const release = 0.12 + pressure * 0.19;
       const outward = [
-        position[0] + position[0] / length * release,
-        position[1] + position[1] / length * release,
-        position[2] + position[2] / length * release
+        position[0] + radial[0] / length * release,
+        position[1] + radial[1] / length * release,
+        position[2] + radial[2] / length * release
       ];
-      addLine(position, outward, [...palette.canon.slice(0, 3), 0.6], birth + 0.018);
-      addPoint(outward, [...palette.canon.slice(0, 3), 0.38], 2.2, birth + 0.03);
+      addLine(position, outward, [...divisionColor.slice(0, 3), 0.64], birth + 0.018);
+      addPoint(outward, [...divisionColor.slice(0, 3), 0.42], 2.2, birth + 0.03);
+    });
+
+    corpusNodes.forEach((node, index) => {
+      if (!index) return;
+      const previous = corpusPositions.get(corpusNodes[index - 1].id);
+      const current = corpusPositions.get(node.id);
+      if (!previous || !current) return;
+      const crossesTestament = corpusNodes[index - 1].division !== node.division;
+      addLine(previous, current, [...palette.canon.slice(0, 3), crossesTestament ? 0.78 : 0.31], 0.6 + index / corpusNodes.length * 0.18);
+      if (crossesTestament || index % 7 === 0) pulsePaths.push([previous, current]);
     });
 
     const witnessedTensions = (corpus.edges || [])
       .filter((edge) => corpusPositions.has(edge.from) && corpusPositions.has(edge.to));
     witnessedTensions.forEach((edge, index) => {
       const weight = Math.min(9, Math.max(1, Number(edge.weight || 1)));
-      const alpha = 0.09 + weight / 9 * 0.13;
+      const alpha = 0.025 + weight / 9 * 0.075;
       const a = corpusPositions.get(edge.from);
       const b = corpusPositions.get(edge.to);
       addLine(a, b, [...palette.canon.slice(0, 3), alpha], 0.66 + index / Math.max(1, witnessedTensions.length) * 0.21);
-      if (index % 23 === 0) pulsePaths.push([a, b]);
+      if (index % 47 === 0) pulsePaths.push([a, b]);
     });
 
     const groups = new Map();

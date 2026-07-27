@@ -43,6 +43,12 @@ of carrying them without doctrinal repetition.
   contains a derived Work Graph, deterministic visual score, deterministic
   resonant score, measures, interpretation, source hash, and the Root Logos
   revision that made it. The founding constitution is the first proof object.
+  The Original Douay-Rheims is one coherent Library work and one formative body
+  inside the Living Object. Its 73 canonical books remain attributable internal
+  structures: the Old and New Testaments form nested chambers around a shared
+  corpus barycenter, canonical order supplies a continuous spine, all derived
+  cross-book relations remain drawn, and each book simultaneously expresses
+  gravitational coherence and measured outward pressure.
 - `scripts/works.mjs` ingests a Markdown file or directory in natural order,
   preserves file and heading coordinates, derives concepts and relations,
   composes the paired scores, and updates the public archive. It also accepts
