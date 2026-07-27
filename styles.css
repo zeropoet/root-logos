@@ -788,6 +788,7 @@ body.archive-open #intake { order: 7; }
 .intake-readout > div { display: flex; align-items: center; gap: 9px; color: var(--bone); font: .52rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .antechamber-open { display: block; margin-top: 28px; padding-top: 15px; border-top: 1px solid var(--line); }
 .observation-instrument { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(280px, .8fr) minmax(520px, 1.6fr); gap: clamp(45px, 8vw, 140px); width: min(1380px, 100%); margin: clamp(65px, 10vw, 145px) auto 0; padding: clamp(35px, 5vw, 70px) 0; border-top: 1px solid var(--green); border-bottom: 1px solid var(--line); }
+.intake-space > .observation-instrument { margin-top:0; }
 .observation-instrument > header { grid-row:1; }
 .observation-instrument > header h3 { margin: 24px 0; font: 400 clamp(1.7rem, 2.7vw, 2.9rem)/1.06 var(--display); letter-spacing: -.04em; overflow-wrap: anywhere; }
 .observation-instrument > header h3 em { color: var(--green); font-weight: 400; }
