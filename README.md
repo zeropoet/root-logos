@@ -176,8 +176,9 @@ of carrying them without doctrinal repetition.
 
 Sovereign Standard now publishes
 `https://sovereignstandard.co/root-logos-witness-export.json` as a deterministic
-public evidence contract. The current witness contains 54 archived works: 14
-minted works carried by 14 individually numbered Black Tin Vessels and 40
+public evidence contract. The current Root Logos witness contains 53 canonical
+archived works: 13 minted works carried by 13 individually numbered Black Tin
+Vessels and 40
 prepared works awaiting later embodiment. Each relation preserves the work hash,
 public manifest and metadata, vessel coordinate, preparation or mint state, and
 public ledger witness where one exists.
@@ -191,8 +192,12 @@ Library merely because they occupy a vessel, and vessels do not become works.
 Token ownership witnesses stewardship but grants neither archive access,
 custody, minting power, nor constitutional authority.
 
-The Connected Source Integration runs daily and may also be invoked manually.
-An unchanged witness remains dormant. A changed witness is committed,
+Operational test assets remain available inside Sovereign Standard but are
+excluded from Root Logos; the Witness Genesis Test therefore never appears in
+the material lineage. Sovereign Standard publication now dispatches the sealed
+witness hash directly into the Connected Source Integration. The daily schedule
+and manual invocation remain recovery paths. An unchanged witness remains
+dormant. A changed witness is committed,
 autonomously enters cultivation, and converges the always-awake runtime.
 Material-witness integration produced `RL-CULTIVATE-0034`, the first preserved
 Root Logos inquiry caused by this physical archival field.

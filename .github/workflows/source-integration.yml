@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: "17 9 * * *"
   workflow_dispatch:
+  repository_dispatch:
+    types:
+      - sovereign-standard-witness-published
 
 permissions:
   contents: write
@@ -38,9 +41,17 @@ jobs:
       - name: Witness and validate source evidence
         id: source
         working-directory: root-logos
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          SOVEREIGN_STANDARD_WITNESS: ${{ github.event.client_payload.witness }}
         run: |
           node scripts/sources.mjs sync ../FoldForge
-          node scripts/sources.mjs sync-sovereign-standard https://sovereignstandard.co/root-logos-witness-export.json
+          sovereign_source=https://sovereignstandard.co/root-logos-witness-export.json
+          if [ "$EVENT_NAME" = "repository_dispatch" ]; then
+            node -e 'if (!/^sha256:[a-f0-9]{64}$/.test(process.env.SOVEREIGN_STANDARD_WITNESS || "")) process.exit(1)'
+            sovereign_source="https://raw.githubusercontent.com/zeropoet/sovereign-standard-site/main/root-logos-witness-export.json?witness=${SOVEREIGN_STANDARD_WITNESS#sha256:}"
+          fi
+          node scripts/sources.mjs sync-sovereign-standard "$sovereign_source"
           node scripts/sources.mjs validate
           if git diff --quiet -- sources/foldforge.snapshot.json sources/sovereign-standard.snapshot.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
