@@ -119,10 +119,14 @@ npm run works:protestant-corpus -- /private/path/bible-data \
 
 The adapter accepts only the declared public-domain Oxford 1769 KJV witness and
 requires exactly 39 Old Testament books, 27 New Testament books, 1,189
-chapters, and 31,102 verses. It then compiles one coherent Library selection:
-the 66 books become attributable internal documents, chapters become structural
-passages, and the source language is released after topology, score, lineage,
-Founding Constitution reread, and first-frame portrait have been derived.
+chapters, and 31,102 verses. It first gives every book an independent derived
+edition, then calculates cross-book language, distinctiveness, outward pressure,
+canonical position, tensile relations, and corpus score before compiling one
+coherent Library selection. The source language is released after each book
+reading; the public corpus retains only attributable structures, aggregate
+topology, score, lineage, Founding Constitution reread, and first-frame
+portrait. Recompilation creates a child corpus edition rather than overwriting
+the earlier 66-document reading.
 
 The archive’s highest-level view is the **Library Field**, derived directly
 from `index.json`. Collections form independently bounded middle-distance

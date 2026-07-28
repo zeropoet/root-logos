@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { coherentLibraryIdentity, ingestWork, parseGutenbergBookText, parseMidvashBible, parsePerseusTei } from "./works.mjs";
+import { coherentLibraryIdentity, ingestWork, parseGutenbergBookText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei } from "./works.mjs";
 import { CATHOLIC_CANON } from "./works-corpus.mjs";
 
 const fixture = await mkdtemp(join(tmpdir(), "root-logos-work-"));
@@ -74,6 +74,16 @@ assert.equal(protestantFixture.measures.chapters, 66);
 assert.equal(protestantFixture.measures.verses, 66);
 assert.equal(protestantFixture.documents[0].path, "book:OT1");
 assert.equal(protestantFixture.documents.at(-1).title, "New Book 27");
+const protestantBookFixture = parseMidvashBibleBook(JSON.stringify({
+  version: "kjv", book: "Gen", bookId: 1, englishName: "Genesis", testament: "OT",
+  chapters: [
+    { chapter: 1, verses: [{ number: 1, text: "The beginning is witnessed." }, { number: 2, text: "The deep answers." }] },
+    { chapter: 2, verses: [{ number: 1, text: "The work enters rest." }] }
+  ]
+}));
+assert.equal(protestantBookFixture.documents.length, 2);
+assert.equal(protestantBookFixture.documents[0].sections.length, 2);
+assert.equal(protestantBookFixture.documents[0].sections[0].coordinate, "Gen:1:1");
 await mkdir(book);
 await writeFile(join(book, "01.md"), "# Part One\n\nLight enters the chamber. Memory answers light.\n\n## Scene\n\nA witness returns through time.\n");
 await writeFile(join(book, "02.md"), "# Part Two\n\nThe chamber holds silence. Light and witness become relation.\n");

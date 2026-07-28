@@ -10,7 +10,16 @@ const worksRoot = join(root, "works");
 const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const digest = (value) => createHash("sha256").update(String(value)).digest("hex");
 const now = () => new Date().toISOString();
-const CORPUS = "Original Douay-Rheims Catholic Canon";
+const COMPILED_CORPORA = new Map([
+  ["Original Douay-Rheims Catholic Canon", {
+    filename: "original-douay-rheims.json",
+    workId: "original-douay-rheims-catholic-canon"
+  }],
+  ["King James Bible (1769) Protestant Canon", {
+    filename: "king-james-bible-1769.json",
+    workId: "king-james-bible-1769-78d562e1"
+  }]
+]);
 
 const snapshot = JSON.parse(await readFile(join(root, "sources", "foldforge.snapshot.json"), "utf8"));
 const inheritance = foldForgeCompositionIdentity(snapshot);
@@ -75,8 +84,8 @@ const recomposeWork = async (entry) => {
   } };
 };
 
-const recomposeCorpus = async () => {
-  const corpusPath = join(worksRoot, "corpora", "original-douay-rheims.json");
+const recomposeCorpus = async ({ filename, workId }) => {
+  const corpusPath = join(worksRoot, "corpora", filename);
   const corpus = JSON.parse(await readFile(corpusPath, "utf8"));
   if (corpus.sound?.composition_inheritance?.source_witness === snapshot.witness) return { corpus, changed: false };
   const priorId = corpus.current_sound_edition || `corpus-score-${corpus.sound.signature}`;
@@ -84,7 +93,7 @@ const recomposeCorpus = async () => {
   const createdAt = now();
   const sound = applyFoldForgeComposition({
     score: corpus.sound,
-    workId: "original-douay-rheims-catholic-canon",
+    workId,
     snapshot
   });
   const edition = {
@@ -112,12 +121,14 @@ const indexPath = join(worksRoot, "index.json");
 const index = JSON.parse(await readFile(indexPath, "utf8"));
 if (checkOnly) {
   for (const entry of index.works || []) {
-    if (entry.collection === CORPUS) continue;
+    if (COMPILED_CORPORA.has(entry.collection)) continue;
     const edition = JSON.parse(await readFile(join(root, entry.edition), "utf8"));
     assertCurrentInheritance(edition.sound, entry.title || entry.work_id);
   }
-  const corpus = JSON.parse(await readFile(join(worksRoot, "corpora", "original-douay-rheims.json"), "utf8"));
-  assertCurrentInheritance(corpus.sound, CORPUS);
+  for (const [label, { filename }] of COMPILED_CORPORA) {
+    const corpus = JSON.parse(await readFile(join(worksRoot, "corpora", filename), "utf8"));
+    assertCurrentInheritance(corpus.sound, label);
+  }
   process.stdout.write(`FoldForge composition inheritance is current for every public Library voice (${snapshot.witness}).\n`);
   process.exit(0);
 }
@@ -125,7 +136,7 @@ if (checkOnly) {
 const recomposed = [];
 let indexChanged = false;
 for (const entry of index.works || []) {
-  if (entry.collection === CORPUS) {
+  if (COMPILED_CORPORA.has(entry.collection)) {
     recomposed.push(entry);
     continue;
   }
@@ -138,12 +149,15 @@ if (indexChanged) {
   index.updated_at = now();
   await writeFile(indexPath, json(index));
 }
-const corpusResult = await recomposeCorpus();
-const corpus = corpusResult.corpus;
+const corpora = [];
+for (const [label, config] of COMPILED_CORPORA) {
+  const result = await recomposeCorpus(config);
+  corpora.push({ label, corpus: result.corpus });
+}
 
 process.stdout.write(`${JSON.stringify({
   source_witness: snapshot.witness,
   grammars: inheritance.grammars,
-  recomposed_works: recomposed.filter(({ collection }) => collection !== CORPUS).map(({ work_id, current_edition }) => ({ work_id, current_edition })),
-  corpus_sound_edition: corpus.current_sound_edition
+  recomposed_works: recomposed.filter(({ collection }) => !COMPILED_CORPORA.has(collection)).map(({ work_id, current_edition }) => ({ work_id, current_edition })),
+  corpus_sound_editions: Object.fromEntries(corpora.map(({ label, corpus }) => [label, corpus.current_sound_edition]))
 }, null, 2)}\n`);

@@ -40,7 +40,14 @@ export const CATHOLIC_CANON = [
   ...NEW_TESTAMENT.map((id, index) => ({ id, division: "New Testament", order: OLD_TESTAMENT.length + index + 1 }))
 ];
 
-export const buildCorpusTopology = async (entries, sourceWitness) => {
+export const buildCorpusTopology = async (entries, sourceWitness, options = {}) => {
+  const {
+    corpusId = "original-douay-rheims-catholic-canon",
+    title = "Original Douay-Rheims Catholic Canon",
+    translation = "Original Douay-Rheims (1609 / 1582)",
+    rights = "CC0 1.0 Universal / public-domain dataset witness",
+    supplements = ["3-esdras", "4-esdras", "prayer-of-manasseh", "prayer-of-manasses"]
+  } = options;
   const readings = await Promise.all(entries.map(async (entry) => ({
     entry,
     edition: JSON.parse(await readFile(join(root, entry.edition), "utf8"))
@@ -87,7 +94,7 @@ export const buildCorpusTopology = async (entries, sourceWitness) => {
     node.relational_tension = Number((related.reduce((sum, { weight }) => sum + weight, 0) / Math.max(1, related.length)).toFixed(4));
   }
   const visualNodes = [
-    { id: "corpus", type: "work", label: "Root Logos", weight: 73, coordinate: "coherence:gravity", band: 0, color: "#e9e5d8" },
+    { id: "corpus", type: "work", label: title, weight: nodes.length, coordinate: "coherence:gravity", band: 0, color: "#e9e5d8" },
     ...nodes.map((node) => ({
       id: node.id,
       type: "book",
@@ -122,19 +129,24 @@ export const buildCorpusTopology = async (entries, sourceWitness) => {
       pressure: node.outward_pressure
     };
   });
+  const sound = applyFoldForgeComposition({ workId: corpusId, snapshot: foldForgeSnapshot, score: {
+    schema: "root-logos-corpus-score/v1",
+    signature: corpusSignature.slice(0, 12),
+    tempo: 47 + (seed % 12),
+    root_hz: 55,
+    events: scoreEvents
+  } });
   return {
     schema: "root-logos-corpus-topology/v1",
-    corpus_id: "original-douay-rheims-catholic-canon",
-    title: "Original Douay-Rheims Catholic Canon",
-    translation: "Original Douay-Rheims (1609 / 1582)",
+    corpus_id: corpusId,
+    title,
+    translation,
     source_visibility: "private",
     source_witness: sourceWitness,
-    rights: "CC0 1.0 Universal / public-domain dataset witness",
+    rights,
     generated_at: iso(),
     canonical_work_count: nodes.length,
-    supplementary_sources_not_classified_as_canonical_books: [
-      "3-esdras", "4-esdras", "prayer-of-manasseh", "prayer-of-manasses"
-    ],
+    supplementary_sources_not_classified_as_canonical_books: supplements,
     measures: {
       documents: nodes.reduce((sum, node) => sum + node.measures.documents, 0),
       passages: nodes.reduce((sum, node) => sum + node.measures.sections, 0),
@@ -144,7 +156,6 @@ export const buildCorpusTopology = async (entries, sourceWitness) => {
       mean_outward_pressure: Number((nodes.reduce((sum, node) => sum + node.outward_pressure, 0) / nodes.length).toFixed(4))
     },
     nodes,
-    nodes,
     edges: sortedEdges,
     visual: {
       schema: "root-logos-corpus-visual/v1",
@@ -153,13 +164,9 @@ export const buildCorpusTopology = async (entries, sourceWitness) => {
       topology: { nodes: visualNodes, edges: visualEdges },
       motion: { drift: .11, pulse: 11, fold: 7 }
     },
-    sound: applyFoldForgeComposition({ workId: "original-douay-rheims-catholic-canon", snapshot: foldForgeSnapshot, score: {
-      schema: "root-logos-corpus-score/v1",
-      signature: corpusSignature.slice(0, 12),
-      tempo: 47 + (seed % 12),
-      root_hz: 55,
-      events: scoreEvents
-    } })
+    sound,
+    current_sound_edition: `corpus-${sound.signature}`,
+    sound_editions: []
   };
 };
 

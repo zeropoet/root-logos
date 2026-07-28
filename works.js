@@ -7,8 +7,11 @@
   const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
   })[character]);
-  const BIBLE_COLLECTION = "Original Douay-Rheims Catholic Canon";
-  const isBibleBook = ({ collection }) => collection === BIBLE_COLLECTION;
+  const COMPILED_BIBLE_COLLECTIONS = new Set([
+    "Original Douay-Rheims Catholic Canon",
+    "King James Bible (1769) Protestant Canon"
+  ]);
+  const isBibleBook = ({ collection }) => COMPILED_BIBLE_COLLECTIONS.has(collection);
 
   class LivingWorks {
     constructor(index, corpus = null, sourceRelations = [], topology = null, editionScores = new Map()) {

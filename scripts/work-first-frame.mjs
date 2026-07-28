@@ -347,7 +347,7 @@ export const renderLibraryFirstFrames = async () => {
   for (const entry of works) {
     const edition = JSON.parse(await readFile(resolve(root, entry.edition), "utf8"));
     const filename = frameName(entry.library_order, entry.work_id);
-    const png = encodePng(renderWeighted(edition), WIDTH, HEIGHT);
+    const png = encodePng(edition.corpus_ref ? renderCorpus(edition) : renderWeighted(edition), WIDTH, HEIGHT);
     await writeFile(join(outputRoot, filename), png);
     frames.push({
       order: Number(entry.library_order), work_id: entry.work_id, title: entry.title,

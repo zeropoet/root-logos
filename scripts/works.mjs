@@ -16,12 +16,15 @@ const slug = (value) => String(value).toLowerCase().normalize("NFKD")
 const words = (value) => String(value).toLowerCase().match(/[\p{L}\p{N}'’]+/gu) || [];
 const STOP = new Set("a an and are as at be been but by can could did do does for from had has have he her hers him his how i if in into is it its may me more most my no nor not of on one only or our ours she so than that the their them then there these they this those through to too under up upon us was we were what when where which who will with would you your".split(" "));
 const DEFAULT_TRANSFORMATION = "deterministic-structural-reading/v3";
-const COMPILED_CORPUS_COLLECTION = "Original Douay-Rheims Catholic Canon";
+const COMPILED_CORPUS_COLLECTIONS = new Set([
+  "Original Douay-Rheims Catholic Canon",
+  "King James Bible (1769) Protestant Canon"
+]);
 const foldForgeSnapshot = JSON.parse(await readFile(join(root, "sources", "foldforge.snapshot.json"), "utf8"));
 
 export const coherentLibraryIdentity = (index, corpus = null) => {
   const editions = (index.works || [])
-    .filter(({ collection }) => collection !== COMPILED_CORPUS_COLLECTION)
+    .filter(({ collection }) => !COMPILED_CORPUS_COLLECTIONS.has(collection))
     .map(({ work_id, current_edition }) => [work_id, current_edition]);
   if (corpus?.corpus_id && corpus?.current_sound_edition) {
     editions.push([corpus.corpus_id, corpus.current_sound_edition]);
@@ -138,6 +141,26 @@ export const parseMidvashBible = (text) => {
   const verses = bible.books.reduce((sum, book) =>
     sum + book.chapters.reduce((chapterSum, chapter) => chapterSum + (chapter.verses || []).length, 0), 0);
   return { title: bible.name, documents, measures: { books: documents.length, chapters, verses } };
+};
+
+export const parseMidvashBibleBook = (text) => {
+  const book = JSON.parse(text);
+  if (!book?.book || !book?.englishName || !Array.isArray(book.chapters) || !book.chapters.length) {
+    throw new Error("The JSON source is not a structured Midvash Bible book.");
+  }
+  return {
+    title: book.englishName,
+    documents: book.chapters.map((chapter) => ({
+      path: `chapter:${chapter.chapter}`,
+      title: `${book.englishName} ${chapter.chapter}`,
+      sections: (chapter.verses || []).map((verse) => ({
+        coordinate: `${book.book}:${chapter.chapter}:${verse.number}`,
+        level: 3,
+        title: `${book.englishName} ${chapter.chapter}:${verse.number}`,
+        text: stripMarkup(verse.text)
+      }))
+    }))
+  };
 };
 
 const decodeXml = (value) => String(value || "")
@@ -397,12 +420,18 @@ export const ingestWork = async ({
   const sourceStat = await import("node:fs/promises").then(({ stat }) => stat(sourcePath));
   const douayJson = sourceStat.isFile() && (format === "douay-rheims-json" || (format === "auto" && extname(sourcePath).toLowerCase() === ".json"));
   const midvashBible = sourceStat.isFile() && format === "midvash-bible-json";
+  const midvashBibleBook = sourceStat.isFile() && format === "midvash-bible-book-json";
   const perseusTei = sourceStat.isFile() && (format === "perseus-tei" || (format === "auto" && extname(sourcePath).toLowerCase() === ".xml"));
   const gutenbergText = sourceStat.isFile() && (format === "gutenberg-book-text" || (format === "auto" && extname(sourcePath).toLowerCase() === ".txt"));
   let documents;
   let canonicalSource;
   let inferredTitle;
-  if (midvashBible) {
+  if (midvashBibleBook) {
+    canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
+    const parsed = parseMidvashBibleBook(canonicalSource);
+    documents = parsed.documents;
+    inferredTitle = parsed.title;
+  } else if (midvashBible) {
     canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
     const parsed = parseMidvashBible(canonicalSource);
     documents = parsed.documents;
@@ -502,7 +531,7 @@ export const ingestWork = async ({
   try { index = JSON.parse(await readFile(indexPath, "utf8")); } catch {}
   const priorEntry = (index.works || []).find(({ work_id: id }) => id === workId);
   const sameEdition = priorEntry?.current_edition === editionId;
-  const coherentLibraryWork = collection !== COMPILED_CORPUS_COLLECTION;
+  const coherentLibraryWork = !COMPILED_CORPUS_COLLECTIONS.has(collection);
   const libraryOrder = coherentLibraryWork
     ? priorEntry?.library_order ?? Math.max(
       0,
@@ -577,7 +606,7 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|perseus-tei|gutenberg-book-text>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();

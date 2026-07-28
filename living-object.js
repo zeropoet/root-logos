@@ -203,7 +203,11 @@
     fetchJson("sources/foldforge.snapshot.json")
   ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge]) => {
     const works = worksIndex.works || [];
-    const independentWorks = works.filter((work) => !String(work.collection || "").includes("Douay") && work.edition);
+    const compiledBibleCollections = new Set([
+      "Original Douay-Rheims Catholic Canon",
+      "King James Bible (1769) Protestant Canon"
+    ]);
+    const independentWorks = works.filter((work) => !compiledBibleCollections.has(work.collection) && work.edition);
     const coherentWorkCount = independentWorks.length + (corpus.canonical_work_count ? 1 : 0);
     const independentEditions = new Map((await Promise.all(independentWorks.map(async (work) => {
       try { return [work.work_id, await fetchJson(work.edition)]; }
@@ -226,7 +230,7 @@
     $("#archive-revision").textContent = `Revision ${revision}`;
     const crossRelations = (corpus.edges?.length || 0) + independentRelations.length;
     const outwardPressure = corpus.measures?.mean_outward_pressure;
-    $("#object-state").textContent = `The Bible holds as one ${corpus.canonical_work_count || 73}-book body within ${coherentWorkCount} coherent works. Gravity seeks coherence through ${crossRelations.toLocaleString()} witnessed tensions${outwardPressure ? ` while the canon sustains ${outwardPressure} mean outward pressure` : ""}.`;
+    $("#object-state").textContent = `The scriptural corpora hold as coherent bodies within ${coherentWorkCount} works. Gravity seeks coherence through ${crossRelations.toLocaleString()} witnessed tensions${outwardPressure ? ` while the Catholic canon sustains ${outwardPressure} mean outward pressure` : ""}.`;
     document.title = `${identity.name || "Root Logos"} — The Living Object`;
 
     if (!gl) {

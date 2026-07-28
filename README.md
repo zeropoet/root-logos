@@ -583,10 +583,10 @@ custody, execution, trading, or interpretive authority: Telos cannot alter the
 source work's meaning, and the work does not authorize Telos. The bounded bridge
 is visible from both the Telos public witness and the Bitcoin Library reading.
 
-The Founding Constitution now holds twenty-six immutable readings. Its current
+The Founding Constitution now holds twenty-seven immutable readings. Its current
 v1.2 Library-addition edition preserves 21 constitutional sections, 2,838 words,
 36 concepts, 180 internal relations, and an 84-event resonant score with
-signature `131f568b2b0b`. The current identity, canonical graph,
+signature `3be3711cdcbb`. The current identity, canonical graph,
 constitutional prose, resonant grammar, Library UX, archive, and sovereign
 voice now describe the same boundary.
 
@@ -671,10 +671,14 @@ as work `13` from `midvash/bible-data` at commit
 public-domain 1769 witness and the exact 66-book Protestant boundary—39 Old
 Testament and 27 New Testament books, 1,189 chapters, and 31,102 verses—before
 reading. The source remains behind the private-source membrane. The public
-edition retains its pinned witness and content digest, 66 attributable book
-structures, 1,189 chapter passages, 789,649 transiently read words, 36 derived
-concepts, 180 relations, a 103-node topology, an 84-event FoldForge-inherited
-score, immutable lineage, and a canonical engraved-grayscale first-frame portrait.
+edition retains its pinned witness and content digest. Each of its 66 books is
+read independently before compilation, producing 31,102 passage coordinates,
+789,649 transiently read words, 1,477 derived cross-book relations, a 67-node
+aggregate topology with 426 visible tensile edges, a 108-event
+FoldForge-inherited corpus score, immutable lineage, and a canonical
+engraved-grayscale first-frame portrait. Its earlier 66-document reading remains
+preserved as superseded lineage rather than being mistaken for equivalent
+architectural evidence.
 
 The Whole Canon object establishes the governing geometry for multi-work
 fields: **coherence is gravity, living works are antigravity, and their
@@ -805,8 +809,8 @@ or competing with its nodes and engraved edges.
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving. The twelve
-independently bounded external works contribute another 2,160 internal relations
-and 656 structural points, bringing that Library field to 3,841 witnessed
+independently bounded external works contribute another 2,406 internal relations
+and 620 structural points, bringing that Library field to 4,087 witnessed
 relations beyond the constitutional root. Each work therefore changes the
 object as a complete internal topology rather than merely increasing its work
 count. Weight, depth, luminance, rotation, and motion carry the resulting
