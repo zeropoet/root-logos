@@ -172,6 +172,31 @@ of carrying them without doctrinal repetition.
   constitutional memory, not instructions to generate matching routes.
 - `assets/` contains the Root Logos mark, favicon, touch icon, and social image.
 
+### Material Witness Bridge
+
+Sovereign Standard now publishes
+`https://sovereignstandard.co/root-logos-witness-export.json` as a deterministic
+public evidence contract. The current witness contains 54 archived works: 14
+minted works carried by 14 individually numbered Black Tin Vessels and 40
+prepared works awaiting later embodiment. Each relation preserves the work hash,
+public manifest and metadata, vessel coordinate, preparation or mint state, and
+public ledger witness where one exists.
+
+Root Logos synchronizes that export into
+`sources/sovereign-standard.snapshot.json`, verifies its SHA-256 witness and
+internal counts, rejects private or authorizing fields, and renders the material
+lineage inside the Observatory. Vessel numbers navigate to their public vessel
+records; work titles navigate to immutable manifests. Works do not enter the
+Library merely because they occupy a vessel, and vessels do not become works.
+Token ownership witnesses stewardship but grants neither archive access,
+custody, minting power, nor constitutional authority.
+
+The Connected Source Integration runs daily and may also be invoked manually.
+An unchanged witness remains dormant. A changed witness is committed,
+autonomously enters cultivation, and converges the always-awake runtime.
+Material-witness integration produced `RL-CULTIVATE-0034`, the first preserved
+Root Logos inquiry caused by this physical archival field.
+
 ## Constitutional Network
 
 The graph treats each meaningful element as a typed node rather than merely a
