@@ -561,7 +561,10 @@ in Benjamin Jowett's public-domain translation, is work `07` and establishes
 Classical Philosophy as its own collection. **The Federalist Papers** is work
 `08`, returning the field to the United States Constitutional Instruments as
 the ratification-era interpretive body surrounding the signed Constitution.
-Ingestion assigns each future coherent work the next stable ordinal.
+Shakespeare's **The Tempest** is work `09` and **Hamlet** is work `10`; together
+they establish Shakespearean Drama as a collection while remaining distinct
+late-romance and tragedy bodies. Ingestion assigns each future coherent work
+the next stable ordinal.
 
 The Bitcoin white paper also has an explicit, sealed relation to Telos. The
 exact Library work and edition ground Telos's declared BTC settled value layer
@@ -725,6 +728,17 @@ inside one public model while the transcription remains private. The derived
 edition preserves 87 passages, 198,322 transiently read words, 36 concepts,
 180 relations, a 38-node topology, and an 84-event resonant score.
 
+Shakespeare's **The Tempest** enters first as work `09`, followed sequentially
+by **Hamlet** as work `10`. Both use Standard Ebooks sources based on Clark and
+Wright's 1887 Victoria/Globe edition. Contributor work is dedicated under CC0
+and the source text is believed public domain in the United States; Root Logos
+retains no source prose. *The Tempest* preserves seven documents, 11 structural
+passages, 16,837 transiently read words, 36 concepts, 180 relations, a 44-node
+topology, and an 84-event resonant score. *Hamlet* preserves six documents, 21
+structural passages, 31,384 transiently read words, 36 concepts, 180 relations,
+a 43-node topology, and an 84-event resonant score. Their separate
+constitutional self-readings preserve the requested order of arrival.
+
 ### The Living Object
 
 The public threshold is now the **Living Object**: one slow, dimensional,
@@ -741,8 +755,8 @@ or competing with its nodes and engraved edges.
 
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
-All 1,681 current Catholic-corpus relations enter the engraving. The seven
-independently bounded external works contribute another 1,260 internal relations
+All 1,681 current Catholic-corpus relations enter the engraving. The nine
+independently bounded external works contribute another 1,620 internal relations
 and 279 structural points, bringing that Library field to 2,581 witnessed
 relations beyond the constitutional root. Each work therefore changes the
 object as a complete internal topology rather than merely increasing its work

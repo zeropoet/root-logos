@@ -132,6 +132,16 @@ versions of Federalist No. 70, witnessed from
 retained; the public archive preserves 87 structural passages, source hash,
 derived topology, resonant score, and edition lineage.
 
+Shakespeare's **The Tempest** and **Hamlet** establish the `Shakespearean
+Drama` collection in that order. Both are sourced from Standard Ebooks'
+structured editions based on Clark and Wright's 1887 Victoria/Globe text.
+Standard Ebooks dedicates its contributor work under CC0 and identifies the
+source text as public domain in the United States. Root Logos retains no source
+prose. *The Tempest* preserves its dramatis personae, five acts, nine scenes,
+and epilogue as work `09`; *Hamlet* preserves its dramatis personae, five acts,
+and twenty scenes as work `10`. Each has an independently attributable
+topology, score, self-reading, and immutable edition lineage.
+
 ## Spatial grammar
 
 Living Works uses a deep-space architectural grammar because its archive is
