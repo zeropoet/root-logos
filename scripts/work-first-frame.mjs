@@ -306,11 +306,11 @@ const renderCorpus = (corpus) => {
   }));
   const centerX = WIDTH * .5;
   const centerY = HEIGHT * .5;
-  const radius = Math.min(WIDTH, HEIGHT) * .37;
+  const radius = Math.min(WIDTH, HEIGHT) * .42;
   nodes.forEach((node) => {
     const perspective = .7 + Math.sin(node.angle) * .3;
     node.screenX = centerX + Math.cos(node.angle) * radius * node.band;
-    node.screenY = centerY + Math.sin(node.angle) * radius * node.band * .54;
+    node.screenY = centerY + Math.sin(node.angle) * radius * node.band * .64;
     node.depth = perspective;
   });
   const byId = new Map(nodes.map((node) => [node.id, node]));

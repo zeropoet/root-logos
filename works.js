@@ -138,12 +138,14 @@
       $("#library-entry").classList.remove("is-active");
       $("#corpus-entry").classList.remove("is-active");
       this.edition = await response.json();
+      this.isCorpus = Boolean(this.edition.corpus_ref);
       this.nodes = this.edition.visual.topology.nodes.map((node, index) => {
         const angle = node.angle ?? (index / Math.max(1, this.edition.visual.topology.nodes.length)) * Math.PI * 2;
         const band = node.band ?? (node.type === "work" ? 0 : node.type === "document" ? .32 : .62 + (index % 3) * .09);
         return { ...node, angle, band, screenX: 0, screenY: 0 };
       });
-      this.arrangeWork(entry.kind);
+      if (this.isCorpus) this.layoutMode = "orbital";
+      else this.arrangeWork(entry.kind);
       $$("#work-list [data-work]").forEach((button) => button.classList.toggle("is-active", button.dataset.work === entry.work_id));
       $("#work-title").textContent = entry.title;
       $("#work-coordinate").textContent = `${entry.kind} / ${entry.translation || entry.author} / current edition`;
@@ -152,7 +154,7 @@
         this.edition.reading.statement,
         sourceRelation?.library_statement
       ].filter(Boolean).join(" ");
-      this.resetSoundStatus("score");
+      this.resetSoundStatus(this.isCorpus ? "corpus score" : "score");
       this.targetRotation = 0;
     }
 
@@ -489,7 +491,9 @@
         this.rotation += (this.targetRotation - this.rotation) * .05;
         const centerX = this.width * .5;
         const centerY = this.height * .54;
-        const radius = Math.min(this.width, this.height) * (this.width < 600 ? .34 : .325);
+        const radius = Math.min(this.width, this.height) * (
+          this.width < 600 ? .34 : this.isCorpus ? .39 : .325
+        );
         const palette = this.edition.visual.palette;
         const structured = this.layoutMode !== "orbital" && !this.isCorpus && !this.isLibrary;
         context.save();
@@ -564,7 +568,7 @@
             const angle = node.angle + this.rotation;
             const perspective = .7 + Math.sin(angle) * .3;
             node.screenX = centerX + Math.cos(angle) * radius * node.band;
-            node.screenY = centerY + Math.sin(angle) * radius * node.band * .54;
+            node.screenY = centerY + Math.sin(angle) * radius * node.band * (this.isCorpus ? .64 : .54);
             node.depth = perspective;
           }
         }
