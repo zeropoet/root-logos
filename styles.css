@@ -396,7 +396,7 @@ body.archive-open #state { order: 3; }
 body.archive-open #intake { order: 4; }
 .object-space {
   position:relative;
-  height:max(100svh,760px);
+  height:100svh;
   overflow:hidden;
   isolation:isolate;
   background:#000;
@@ -1241,7 +1241,7 @@ h1, h2, h3, h4,
   :root { --edge: 20px; }
   .site-header { min-height: 62px; }
   .primary-nav { top: 62px; }
-  .object-space { height:max(100svh,820px); }
+  .object-space { height:100svh; }
   .object-void::before { inset:72px 12px 20px; }
   .object-void::after { width:112vw; }
   .object-identity { top:96px;left:20px; }
