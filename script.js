@@ -172,6 +172,15 @@ const renderSources = () => {
     let measures = foldForgeLive
       ? [["Revision", app.foldforge.source_revision], ["Compositions", app.foldforge.compositions.length], ["Relations", app.foldforge.relations.length], ["Primitives", app.foldforge.primitives.length]]
       : [["Adapter", sentence(source.adapter)], ["Read paths", source.reads.length], ["State", sentence(source.status)], ["Authority", "Bounded"]];
+    if (source.id === "x") {
+      const packets = app.attractors?.packets || [];
+      measures = [
+        ["Published", packets.filter(({ publication }) => publication?.status === "published").length],
+        ["Scheduled corpus", packets.length],
+        ["Channel", "@rootlogos"],
+        ["Authority", "Bounded"]
+      ];
+    }
     if (source.id === "telos" && publicWitness) {
       measures = [["Mode", sentence(publicWitness.public_state.operational_mode)], ["Value layer", publicWitness.public_state.settled_value_layer], ["Linked works", publicWitness.work_relations?.length || 0], ["RL custody", "None"]];
     }
