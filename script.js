@@ -793,7 +793,7 @@ class ConstitutionalField {
         ? Math.sin(this.time * 1.7) * 1.5
         : 0;
       const rootAwake = node.type === "root" && runtimeIsAwake();
-      const rootColor = rootAwake ? "226,27,27" : "255,255,255";
+      const rootColor = "226,27,27";
       if (node.type === "root") {
         const glowRadius = (52 + rootPulse * 2) * this.zoom;
         const glow = ctx.createRadialGradient(node.px, node.py, 0, node.px, node.py, glowRadius);
@@ -810,7 +810,7 @@ class ConstitutionalField {
       }
       ctx.beginPath();
       ctx.arc(node.px, node.py, (active ? radius + 2 : radius) + rootPulse * .24, 0, Math.PI * 2);
-      ctx.fillStyle = rootAwake ? "#e21b1b" : "#fff";
+      ctx.fillStyle = node.type === "root" ? "#e21b1b" : "#fff";
       ctx.fill();
       if (hover || active || node.type === "root") {
         ctx.fillStyle = "#fff";

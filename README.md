@@ -810,15 +810,15 @@ leads into the architecture where explanation and operation become available.
 The void is absolute black; it contributes no atmospheric gradient, horizon,
 or decorative light. Dimensionality is carried by the engraving itself: near
 relations cut brighter, distant relations recede, and tonal work-points remain
-fine evidence within the linework. The analytical interface remains grayscale
-with one solid-red signal for presence, orientation, and passage. The Living
-Object alone carries a restrained spectral identity: constitutional gold,
-canonical cyan, epic violet, contemplative vermilion, and native green. Hue
-reinforces provenance but never becomes the only carrier of evidence,
-authority, or judgment. Collection, pressure, relation, epistemic status, and
-judgment are carried through luminance, topology, line weight, pattern, motion,
-labels, and typography rather than hue. Public graphs therefore remain readable
-without a color key and cannot mistake chromatic atmosphere for evidence.
+fine evidence within the linework. The Living Object is now rendered as one
+solid-red engraving: identity, lineage, works, and witnessed relations resolve
+as a single presence without losing their distinctions in topology, weight,
+depth, or motion. The analytical interface remains grayscale except for the
+permanently red Root Logos node in the Constitutional Field. Collection,
+pressure, relation, epistemic status, and judgment are carried through
+luminance, topology, line weight, pattern, motion, labels, and typography
+rather than additional hues. Public graphs therefore remain readable without a
+color key and cannot mistake chromatic atmosphere for evidence.
 The same law governs type through the FoldForge visual inheritance. Helvetica
 Neue carries display and sustained reading; a compact system monospace carries
 navigation, state, provenance, commands, and measures. Hierarchy arises from
@@ -1118,23 +1118,25 @@ Living Object: constitutional field, Library, formative identity, cultivation,
 memory, judgment, membrane, connected sources, Observatory, and footer. Shared
 tokens resolve to black, white, and white opacity; hardcoded
 atmospheres, canvas highlights, glows, active states, and mobile overrides are
-likewise emitted directly in monochrome. The Living Object alone retains its
-separate provenance-bearing spectral identity. The opening object occupies
+likewise emitted directly in monochrome. The opening object occupies
 exactly one visible viewport, so its WebGL projection resolves around the true
 above-the-fold center rather than the center of a taller minimum-height stage.
 The vertical archive rail is a live condition register rather than decoration:
 it carries runtime state, current identity revision, and coherent-work count.
 Runtime vitality is expressed consistently across the archive. Whenever the
 system is neither sleeping nor constitutionally dormant, the top-right runtime
-witness and the central Root Logos node pulse together in the interface's
-single solid red accent. Both return to still white when the system sleeps or
-enters dormancy; reduced-motion preferences suppress the geometric pulse
-without changing the reported state or active red witness.
+witness and the permanently red central Root Logos node pulse together.
+Sleeping or dormancy stills the node without removing its identity color;
+reduced-motion preferences suppress the geometric pulse without changing the
+reported condition.
 
 The Sovereign Standard tea invitation is the archive's quiet terminal chamber
 rather than a footer annotation: Root Logos resolves into an embodied
-continuation at architectural scale, while the remaining constitutional and
-runtime utilities recede.
+continuation at architectural scale. The footer's remaining right-hand utility
+is one **Constitutional documents** link. It opens a single readable register of
+the founding constitution, constitutional pillars, Living Statements, and
+Constitutional Bridges; source and runtime utilities no longer compete with
+that terminal passage.
 
 Archive typography follows a strict two-voice system. Helvetica Neue carries
 headings, descriptions, and sustained reading; SF Mono is reserved for
