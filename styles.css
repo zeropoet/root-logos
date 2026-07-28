@@ -89,7 +89,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   width: 100%;
   min-height: 72px;
   padding: 12px var(--edge);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 0;
   background: rgba(0, 0, 0, .88);
   backdrop-filter: blur(14px);
 }
@@ -207,7 +207,7 @@ main {
   background: linear-gradient(90deg, var(--gold), transparent);
 }
 .site-header {
-  border-bottom-color: var(--line);
+  border-bottom: 0;
   background: rgba(0,0,0,.88);
   backdrop-filter: blur(14px);
 }
@@ -371,14 +371,7 @@ select { border-radius: 0; }
 .system-layer[hidden],
 [hidden] { display: none !important; }
 .site-header::after {
-  content: "";
-  position: absolute;
-  right: var(--edge);
-  bottom: -1px;
-  left: var(--edge);
-  height: 1px;
-  background: linear-gradient(90deg, var(--gold), transparent 16%, transparent 84%, var(--inquiry));
-  opacity: .35;
+  content: none;
 }
 
 /* The Living Object */
@@ -2043,7 +2036,7 @@ body.archive-open .site-header {
   grid-template-columns:minmax(255px,1fr) minmax(220px,1fr);
   min-height:78px;
   padding:0 var(--archive-edge);
-  border-bottom-color:rgba(255,255,255,.32);
+  border-bottom:0;
   background:rgba(0,0,0,.94);
 }
 
@@ -2052,9 +2045,7 @@ body.archive-open .site-header::before {
 }
 
 body.archive-open .site-header::after {
-  right:var(--archive-edge);
-  left:var(--archive-edge);
-  background:linear-gradient(90deg,#fff 0 42px,rgba(255,255,255,.2) 42px);
+  content:none;
 }
 
 .brand-word {
