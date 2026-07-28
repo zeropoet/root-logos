@@ -500,8 +500,6 @@ body.archive-open #intake { order: 4; }
 .inspector-relations { display: flex; flex-wrap: wrap; gap: 6px; margin: 22px 0; }
 .inspector-relations span { padding: 5px 7px; border: 1px solid var(--line); color: var(--dim); font: .48rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .field-inspector a { display: flex; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--line); color: var(--gold); font: .55rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
-.scroll-cue { position:absolute;z-index:2;bottom:32px;left:50%;display:grid;justify-items:center;gap:9px;color:var(--ghost);font:.44rem/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;transform:translateX(-50%);pointer-events:none; }
-.scroll-cue i { width: 1px; height: 30px; background: linear-gradient(var(--gold), transparent); animation: descend 2.5s ease-in-out infinite; }
 
 /* Living Works */
 .works-space {
@@ -1288,7 +1286,6 @@ h1, h2, h3, h4,
   .field-inspector.is-visible:not(.is-intentional) { transform:translateY(150%); }
   .field-inspector.is-visible.is-intentional { transform: none; }
   .identity-aperture { right: 20px; bottom: 18px; left: 20px; grid-template-columns: 42px 1fr auto; min-width: 0; }
-  .scroll-cue { display: none; }
   .identity-space { padding-top: 110px; }
   .identity-heading { margin-bottom: 54px; }
   .identity-constitution { display: block; padding-top: 38px; }
