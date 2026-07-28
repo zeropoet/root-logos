@@ -506,8 +506,9 @@ first recursive reading of the library. The Original Douay-Rheims Catholic
 Canon is work `01`, not 73 competing selections. Its complete book field and
 1,681 cross-book relations remain visible inside its model and its 96-event
 corpus score can be heard as one coherent voice. The Odyssey is `02`, Ornament
-of Abhidharma is `03`, and the Bitcoin white paper is `04`; ingestion assigns
-each future coherent work the next stable ordinal.
+of Abhidharma is `03`, the Bitcoin white paper is `04`, and the signed 1787
+Constitution of the United States is `05`; ingestion assigns each future
+coherent work the next stable ordinal.
 
 The Bitcoin white paper also has an explicit, sealed relation to Telos. The
 exact Library work and edition ground Telos's declared BTC settled value layer
@@ -516,10 +517,10 @@ custody, execution, trading, or interpretive authority: Telos cannot alter the
 source work's meaning, and the work does not authorize Telos. The bounded bridge
 is visible from both the Telos public witness and the Bitcoin Library reading.
 
-The Founding Constitution now holds eight immutable readings. Its current v1.2
-FoldForge-inherited edition preserves 21 constitutional sections, 2,764 words,
+The Founding Constitution now holds fifteen immutable readings. Its current
+v1.2 Library-addition edition preserves 21 constitutional sections, 2,838 words,
 36 concepts, 180 internal relations, and an 84-event resonant score with
-signature `df56f0d953eb`. The current identity, canonical graph,
+signature `8a58575326ba`. The current identity, canonical graph,
 constitutional prose, resonant grammar, Library UX, archive, and sovereign
 voice now describe the same boundary.
 
@@ -644,6 +645,15 @@ edition: 48 documents, 606 sections, 399,363 words encountered, 36 concepts,
 and 180 internal relations. Copyright and translation attribution remain
 explicit in the manifest; the archive publishes transformation and lineage,
 not the protected text.
+
+**The Constitution of the United States of America, 1787** enters as the
+original signed seven-article instrument, distinct from later amendments. Root
+Logos reads a Project Gutenberg/GITenberg transcription witnessed at commit
+`474c00255be3e730f3711f9d916176175e88e824` through the private-source
+membrane and retains no transcription. Its public edition preserves 25
+structural passages, 4,487 transiently read words, 36 derived concepts, 180
+witnessed relations, a 38-node visual topology, and an 84-event FoldForge v10
+resonant score.
 
 ### The Living Object
 
@@ -972,8 +982,9 @@ independently addressable coherent voice. This is one corpus-scale composition
 across all 73 canonical books—not a book playlist—while event provenance keeps
 each sounding returnable to its originating book, relation, and derived rule.
 The public library applies the same boundary: the Founding Constitution is
-work `00`, the complete Bible is `01`, The Odyssey is `02`, and Ornament of
-Abhidharma is `03`. The Bible's 73 books remain visible and inspectable as
+work `00`, the complete Bible is `01`, The Odyssey is `02`, Ornament of
+Abhidharma is `03`, the Bitcoin white paper is `04`, and the signed 1787 U.S.
+Constitution is `05`. The Bible's 73 books remain visible and inspectable as
 nodes within the `01` topology, but no longer appear as 73 competing library selections.
 Future complete works receive the next stable library ordinal at ingestion.
 The public Library surface is intentionally limited to three things: the stable

@@ -93,6 +93,14 @@ The Odyssey is the first work beyond the scriptural corpus and establishes the
 archive filters from translation-specific Old/New Testament controls to
 library-scale Canon, Literature, and Root Logos views.
 
+The Constitution of the United States of America is ingested as the original
+signed 1787 instrument: seven articles, including the convention signatures,
+without silently treating later amendments as part of that source edition.
+Its Project Gutenberg/GITenberg transcription enters through the
+private-source membrane; the public Library retains the immutable Git commit
+witness, source hash, derived topology, resonant score, and Root Logos lineage,
+but no transcription.
+
 ## Spatial grammar
 
 Living Works uses a deep-space architectural grammar because its archive is
