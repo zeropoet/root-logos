@@ -26,7 +26,6 @@
       this.rotation = 0;
       this.targetRotation = 0;
       this.lastFrameAt = performance.now();
-      this.pointer = null;
       this.audio = null;
       this.master = null;
       this.volume = null;
@@ -46,20 +45,10 @@
 
     bind() {
       window.addEventListener("resize", () => this.resize());
-      this.canvas.addEventListener("pointerdown", (event) => {
-        this.pointer = { x: event.clientX, rotation: this.targetRotation };
-        this.canvas.setPointerCapture(event.pointerId);
-      });
       this.canvas.addEventListener("pointermove", (event) => {
-        if (this.pointer) {
-          this.targetRotation = this.pointer.rotation + (event.clientX - this.pointer.x) * .006;
-          return;
-        }
         this.previewAt(event.offsetX, event.offsetY);
       });
-      this.canvas.addEventListener("pointerup", (event) => {
-        this.pointer = null;
-        this.canvas.releasePointerCapture(event.pointerId);
+      this.canvas.addEventListener("click", (event) => {
         this.selectAt(event.offsetX, event.offsetY);
       });
       this.canvas.addEventListener("pointerleave", () => {
@@ -630,10 +619,8 @@
           }
         });
         context.globalAlpha = 1;
-        if (!this.pointer) {
-          const orbitalVelocity = .022 + this.edition.visual.motion.drift * .025;
-          this.targetRotation += elapsedSeconds * orbitalVelocity;
-        }
+        const orbitalVelocity = .022 + this.edition.visual.motion.drift * .025;
+        this.targetRotation += elapsedSeconds * orbitalVelocity;
       }
       requestAnimationFrame((nextTimestamp) => this.draw(nextTimestamp));
     }
