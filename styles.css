@@ -1048,22 +1048,22 @@ body.archive-open #intake { order: 4; }
   .resonance-instrument[data-state="sounding"] .score-measures i { animation: none; }
 }
 
-.site-footer { display: grid; grid-template-columns: 1fr minmax(260px, 420px) 1fr; gap: clamp(30px, 6vw, 100px); align-items: end; padding: 80px var(--edge); background: #060705; }
+.site-footer { display:grid;grid-template-columns:1fr auto;gap:clamp(34px,5vw,72px);align-items:end;padding:80px var(--edge);background:#060705; }
 .site-footer > div { display: flex; align-items: center; gap: 14px; font: .7rem/1 var(--mono); letter-spacing: .15em; text-transform: uppercase; }
 .footer-mark { display:grid;place-items:center;width:28px;height:28px;border:0;background:transparent; }
 .footer-mark img { filter: invert(1); opacity: 1; }
-.footer-tea { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 14px 24px; min-height:170px;padding:26px;align-content:space-between;border:1px solid rgba(255,255,255,.28);background:#000;transition:border-color .3s,transform .3s; }
-.footer-tea::before { content:"";position:absolute;top:-1px;left:-1px;width:54px;height:2px;background:var(--accent); }
-.footer-tea small { grid-column: 1 / -1; color: var(--dim); font: 500 .48rem/1.4 var(--mono); letter-spacing: .13em; text-transform: uppercase; }
-.footer-tea span { color: var(--bone); font: 400 clamp(1.25rem, 1.8vw, 1.75rem)/1.05 var(--display); }
+.footer-tea { position:relative;grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:32px;min-height:clamp(320px,48vh,560px);padding:clamp(34px,5vw,72px);align-content:space-between;border-top:1px solid rgba(255,255,255,.42);border-bottom:1px solid rgba(255,255,255,.18);background:#000;overflow:hidden;transition:border-color .3s; }
+.footer-tea::before { content:"";position:absolute;top:-1px;left:clamp(34px,5vw,72px);width:72px;height:2px;background:var(--accent); }
+.footer-tea small { grid-column:1/-1;color:var(--dim);font:500 .58rem/1.4 var(--mono);letter-spacing:.13em;text-transform:uppercase; }
+.footer-tea span { align-self:end;max-width:1100px;color:var(--bone);font:400 clamp(2.8rem,7vw,7.8rem)/.92 var(--display);letter-spacing:-.055em; }
 .footer-tea em { color: var(--gold-bright); font-weight: 400; }
-.footer-tea i { align-self: end; color: var(--gold); font-style: normal; transition: transform .3s; }
-.footer-tea-arrow { position: relative; display: block; width: 17px; height: 17px; }
+.footer-tea i { align-self:end;margin-bottom:.65em;color:var(--gold);font-style:normal;transition:transform .3s; }
+.footer-tea-arrow { position:relative;display:block;width:42px;height:42px; }
 .footer-tea-arrow { color: var(--accent); }
-.footer-tea-arrow::before { content: ""; position: absolute; top: 8px; left: 1px; width: 17px; height: 1px; background: currentColor; transform: rotate(-45deg); transform-origin: center; }
-.footer-tea-arrow::after { content: ""; position: absolute; top: 1px; right: 0; width: 8px; height: 8px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; }
-.footer-tea:hover { border-color:#fff;transform:translateY(-3px); }
-.footer-tea:hover i { transform: translate(3px, -3px); }
+.footer-tea-arrow::before { content:"";position:absolute;top:20px;left:1px;width:42px;height:1px;background:currentColor;transform:rotate(-45deg);transform-origin:center; }
+.footer-tea-arrow::after { content:"";position:absolute;top:2px;right:0;width:18px;height:18px;border-top:1px solid currentColor;border-right:1px solid currentColor; }
+.footer-tea:hover { border-color:#fff; }
+.footer-tea:hover i { transform:translate(7px,-7px); }
 .site-footer nav { justify-self: end; display: grid; justify-items: end; gap: 8px; }
 .site-footer nav a { color: var(--dim); font: .5rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .site-footer nav a:hover { color: var(--gold); }
@@ -1409,7 +1409,8 @@ h1, h2, h3, h4,
   .observatory-selection > i { display: none; }
   .health-profile { grid-template-columns: 1fr 1fr; }
   .site-footer { grid-template-columns: 1fr; justify-items: start; }
-  .footer-tea { width: min(100%, 420px); }
+  .footer-tea { width:100%;min-height:360px;padding:32px 22px; }
+  .footer-tea span { font-size:clamp(2.45rem,12vw,4.8rem); }
   .site-footer nav { justify-self: start; text-align: left; }
   .site-footer nav { justify-items: start; }
 }

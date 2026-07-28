@@ -1101,6 +1101,10 @@ atmospheres, canvas highlights, glows, active states, and mobile overrides are
 likewise emitted directly in monochrome. The Living Object alone retains its
 separate provenance-bearing spectral identity.
 
+The Sovereign Standard tea invitation is the archive's full-scale terminal
+chamber rather than a footer annotation: Root Logos resolves into an embodied
+continuation before the remaining constitutional and runtime utilities recede.
+
 Archive typography follows a strict two-voice system. Helvetica Neue carries
 headings, descriptions, and sustained reading; SF Mono is reserved for
 coordinates, compact state, provenance, and commands. Revision 1.2 removes the
