@@ -190,11 +190,11 @@ const renderSources = () => {
         .sort((left, right) => left.vessels[0].vessel_number.localeCompare(right.vessels[0].vessel_number));
       $("#material-witness-summary").textContent = `${linkedWorks.length} works / ${materialWitness.measures.vessels_with_witness_works} vessels`;
       $("#material-witness-works").innerHTML = linkedWorks.map((work) => `
-        <div>
-          <a class="witness-vessel" href="${escapeHtml(work.vessels[0].public_url)}" target="_blank" rel="noreferrer">${escapeHtml(work.vessels.map(({ vessel_number }) => vessel_number).join(" · "))}</a>
-          <a class="witness-work" href="${escapeHtml(work.manifest_url)}" target="_blank" rel="noreferrer">${escapeHtml(work.title)}</a>
+        <a href="${escapeHtml(work.vessels[0].public_url)}" target="_blank" rel="noreferrer">
+          <span>${escapeHtml(work.vessels.map(({ vessel_number }) => vessel_number).join(" · "))}</span>
+          <b>${escapeHtml(work.title)}</b>
           <small>${escapeHtml(sentence(work.mint_status))}</small>
-        </div>
+        </a>
       `).join("");
     } else {
       $("#material-witness-works").innerHTML = "";
