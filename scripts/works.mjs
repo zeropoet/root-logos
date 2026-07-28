@@ -18,6 +18,20 @@ const DEFAULT_TRANSFORMATION = "deterministic-structural-reading/v3";
 const COMPILED_CORPUS_COLLECTION = "Original Douay-Rheims Catholic Canon";
 const foldForgeSnapshot = JSON.parse(await readFile(join(root, "sources", "foldforge.snapshot.json"), "utf8"));
 
+export const coherentLibraryIdentity = (index, corpus = null) => {
+  const editions = (index.works || [])
+    .filter(({ collection }) => collection !== COMPILED_CORPUS_COLLECTION)
+    .map(({ work_id, current_edition }) => [work_id, current_edition]);
+  if (corpus?.corpus_id && corpus?.current_sound_edition) {
+    editions.push([corpus.corpus_id, corpus.current_sound_edition]);
+  }
+  editions.sort(([left], [right]) => left.localeCompare(right));
+  return {
+    workCount: editions.length,
+    signature: digest(JSON.stringify(editions))
+  };
+};
+
 const walkMarkdown = async (path) => {
   const stat = await import("node:fs/promises").then(({ stat }) => stat(path));
   if (stat.isFile()) return extname(path).toLowerCase() === ".md" ? [path] : [];
@@ -324,13 +338,12 @@ export const ingestWork = async ({
 
 export const refreshFoundingConstitution = async (triggerEntry) => {
   if (!triggerEntry || triggerEntry.work_id === "root-logos-founding-constitution-0e20f4a9") return null;
-  const [index, graph] = await Promise.all([
+  const [index, graph, corpus] = await Promise.all([
     readFile(join(archiveRoot, "index.json"), "utf8").then(JSON.parse),
-    readFile(join(root, "content", "constitutional-graph.json"), "utf8").then(JSON.parse)
+    readFile(join(root, "content", "constitutional-graph.json"), "utf8").then(JSON.parse),
+    readFile(join(archiveRoot, "corpora", "original-douay-rheims.json"), "utf8").then(JSON.parse).catch(() => null)
   ]);
-  const librarySignature = digest(JSON.stringify((index.works || [])
-    .map(({ work_id, current_edition }) => [work_id, current_edition])
-    .sort(([left], [right]) => left.localeCompare(right))));
+  const library = coherentLibraryIdentity(index, corpus);
   return ingestWork({
     input: join(root, "content", "root-logos.md"),
     title: "Root Logos: Founding Constitution",
@@ -347,8 +360,8 @@ export const refreshFoundingConstitution = async (triggerEntry) => {
       kind: "library-addition",
       trigger_work_id: triggerEntry.work_id,
       trigger_edition: triggerEntry.current_edition,
-      library_signature: librarySignature,
-      work_count: (index.works || []).length
+      library_signature: library.signature,
+      work_count: library.workCount
     }
   });
 };

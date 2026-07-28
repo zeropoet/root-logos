@@ -507,8 +507,9 @@ Canon is work `01`, not 73 competing selections. Its complete book field and
 1,681 cross-book relations remain visible inside its model and its 96-event
 corpus score can be heard as one coherent voice. The Odyssey is `02`, Ornament
 of Abhidharma is `03`, the Bitcoin white paper is `04`, and the signed 1787
-Constitution of the United States is `05`; ingestion assigns each future
-coherent work the next stable ordinal.
+Constitution of the United States is `05`. The twenty-seven ratified amendments
+are the related but independently bounded work `06`; ingestion assigns each
+future coherent work the next stable ordinal.
 
 The Bitcoin white paper also has an explicit, sealed relation to Telos. The
 exact Library work and edition ground Telos's declared BTC settled value layer
@@ -517,10 +518,10 @@ custody, execution, trading, or interpretive authority: Telos cannot alter the
 source work's meaning, and the work does not authorize Telos. The bounded bridge
 is visible from both the Telos public witness and the Bitcoin Library reading.
 
-The Founding Constitution now holds fifteen immutable readings. Its current
+The Founding Constitution now holds sixteen immutable readings. Its current
 v1.2 Library-addition edition preserves 21 constitutional sections, 2,838 words,
 36 concepts, 180 internal relations, and an 84-event resonant score with
-signature `8a58575326ba`. The current identity, canonical graph,
+signature `3900a464a425`. The current identity, canonical graph,
 constitutional prose, resonant grammar, Library UX, archive, and sovereign
 voice now describe the same boundary.
 
@@ -560,10 +561,9 @@ composition grammars, and twelve traceable lexical events alongside the work's
 native ground, relation, figure, and breath voices. A FoldForge witness change
 therefore changes edition identity and requires a new immutable recording; it
 never silently alters a prior score. The consolidated Bible score follows the
-same rule. In the public Library player, the newest work recording sounds over
-a quiet foundation derived from the current Root Logos constitutional topology,
-and the two concurrent waveforms expose topology and work composition
-separately. `npm run works:recompose-foldforge` performs this versioned
+same rule. In the public Library player, the continuous sovereign hum remains
+underneath while the selected work sounds its unmodified recorded score through
+one truthful event waveform. `npm run works:recompose-foldforge` performs this versioned
 convergence for existing coherent public works and the consolidated corpus.
 The connected-source wake path runs that convergence before cultivation,
 commits the resulting editions with their source witness, and refuses
@@ -655,6 +655,15 @@ structural passages, 4,487 transiently read words, 36 derived concepts, 180
 witnessed relations, a 38-node visual topology, and an 84-event FoldForge v10
 resonant score.
 
+**The Twenty-Seven Amendments to the Constitution of the United States** enter
+as a second coherent work in the shared `United States Constitutional
+Instruments` collection. Root Logos reads the twenty-seven ratified texts from
+`JesseKPhillips/USA-Constitution` at commit
+`4cfdd130709fa7e8db998383b6917ba33b402ec6`, retaining neither prose nor source
+formatting. The public edition preserves 18 source documents, 27 amendment
+structures, 3,066 transiently read words, 36 concepts, 180 relations, a
+55-node visual topology, and an 84-event FoldForge v10 resonant score.
+
 ### The Living Object
 
 The public threshold is now the **Living Object**: one slow, dimensional,
@@ -671,12 +680,13 @@ or competing with its nodes and engraved edges.
 
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
-All 1,681 current Catholic-corpus relations enter the engraving. The three
-independently bounded works contribute another 540 internal relations and 185
-structural points, bringing the present Living Object to 2,221 witnessed
-relations. Ornament of Abhidharma therefore changes the object as a complete
-internal topology rather than merely increasing its work count. Weight, depth,
-luminance, rotation, and motion carry the resulting density.
+All 1,681 current Catholic-corpus relations enter the engraving. The five
+independently bounded external works contribute another 900 internal relations
+and 279 structural points, bringing that Library field to 2,581 witnessed
+relations beyond the constitutional root. Each work therefore changes the
+object as a complete internal topology rather than merely increasing its work
+count. Weight, depth, luminance, rotation, and motion carry the resulting
+density.
 
 The same complete field enters the sovereign voice. Every relation contributes
 its endpoints, type, phase, and derived weight to a deterministic harmonic
@@ -984,15 +994,17 @@ each sounding returnable to its originating book, relation, and derived rule.
 The public library applies the same boundary: the Founding Constitution is
 work `00`, the complete Bible is `01`, The Odyssey is `02`, Ornament of
 Abhidharma is `03`, the Bitcoin white paper is `04`, and the signed 1787 U.S.
-Constitution is `05`. The Bible's 73 books remain visible and inspectable as
+Constitution is `05`. The twenty-seven ratified amendments form related work
+`06`. The Bible's 73 books remain visible and inspectable as
 nodes within the `01` topology, but no longer appear as 73 competing library selections.
 Future complete works receive the next stable library ordinal at ingestion.
 The public Library surface is intentionally limited to three things: the stable
 list of coherent works, the selected work's description, and its navigable
 visual model. A single listening action belongs to the selected work, while a
 sparse red event signal identifies sounding and rest without adding a mixing
-control. The full compositional instrument remains in the Resonant Chamber. Measures,
-concepts, edition navigation, filters, and persistent inspectors were removed.
+control. The full compositional instrument is embodied by the continuous
+sovereign hum and the selected work's bounded recording. Measures, concepts,
+edition navigation, filters, and persistent inspectors were removed.
 Structural detail appears only when a node is selected, beside the selected
 point, and may be dismissed without changing the work description. Pointer
 hover previews each node's title, type, coordinate, and relation count in that
@@ -1008,8 +1020,8 @@ detail, and the listening signal use explicit black, white, and white opacity.
 No inversion or parent grayscale filter is used to conceal tinted source color.
 The same authored monochrome law now governs every archive surface beyond the
 Living Object: constitutional field, Library, formative identity, cultivation,
-memory, judgment, membrane, connected sources, Resonant Chamber, Observatory,
-and footer. Shared tokens resolve to black, white, and white opacity; hardcoded
+memory, judgment, membrane, connected sources, Observatory, and footer. Shared
+tokens resolve to black, white, and white opacity; hardcoded
 atmospheres, canvas highlights, glows, active states, and mobile overrides are
 likewise emitted directly in monochrome. The Living Object alone retains its
 separate provenance-bearing spectral identity.

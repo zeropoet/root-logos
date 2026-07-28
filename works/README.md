@@ -101,6 +101,13 @@ private-source membrane; the public Library retains the immutable Git commit
 witness, source hash, derived topology, resonant score, and Root Logos lineage,
 but no transcription.
 
+The twenty-seven ratified amendments are a second coherent work rather than a
+silent mutation of the signed 1787 instrument. Their 18 GitHub source files
+resolve into 27 internal amendment structures and share the `United States
+Constitutional Instruments` collection with the signed Constitution. This
+witnesses their legal relation while preserving separate source hashes,
+topologies, scores, ordinals, and edition lineages.
+
 ## Spatial grammar
 
 Living Works uses a deep-space architectural grammar because its archive is
