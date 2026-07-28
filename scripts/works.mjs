@@ -218,6 +218,44 @@ export const parsePerseusTei = (text) => {
   };
 };
 
+const romanValue = (value) => {
+  const values = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+  return [...String(value).toUpperCase()].reduce((total, symbol, index, symbols) => {
+    const current = values[symbol] || 0;
+    const next = values[symbols[index + 1]] || 0;
+    return total + (current < next ? -current : current);
+  }, 0);
+};
+
+export const parseGutenbergBookText = (text) => {
+  const normalized = text.replace(/\r\n/g, "\n");
+  const startMarker = normalized.match(/^\*{3}\s*START OF (?:THIS|THE) PROJECT GUTENBERG EBOOK[^\n]*\*{3}\s*$/mi);
+  const endMarker = normalized.match(/^\*{3}\s*END OF (?:THIS|THE) PROJECT GUTENBERG EBOOK[^\n]*\*{3}\s*$/mi);
+  const bodyStart = startMarker ? startMarker.index + startMarker[0].length : 0;
+  const bodyEnd = endMarker ? endMarker.index : normalized.length;
+  const body = normalized.slice(bodyStart, bodyEnd).trim();
+  const headings = [...body.matchAll(/^BOOK\s+([IVXLCDM]+)\s*$/gmi)];
+  if (!headings.length) throw new Error("The Gutenberg text does not contain any BOOK divisions.");
+  const documents = headings.map((heading, index) => {
+    const bookRoman = heading[1].toUpperCase();
+    const bookNumber = romanValue(bookRoman) || index + 1;
+    const passageStart = heading.index + heading[0].length;
+    const passageEnd = headings[index + 1]?.index ?? body.length;
+    const passage = body.slice(passageStart, passageEnd).trim();
+    return {
+      path: `book:${bookNumber}`,
+      title: `Book ${bookRoman}`,
+      sections: [{
+        coordinate: `book:${bookNumber}`,
+        level: 2,
+        title: `Book ${bookRoman}`,
+        text: passage
+      }]
+    };
+  });
+  return { documents };
+};
+
 const deriveWork = ({ title, author, kind, source, translation, language, rights, documents, sourceHash, workId, editionId, rootRevision, transformation, readingContext }) => {
   const sectionRows = documents.flatMap((document, documentIndex) => document.sections.map((section, sectionIndex) => ({
     ...section, documentIndex, sectionIndex, document: document.path
@@ -327,6 +365,7 @@ export const ingestWork = async ({
   const sourceStat = await import("node:fs/promises").then(({ stat }) => stat(sourcePath));
   const douayJson = sourceStat.isFile() && (format === "douay-rheims-json" || (format === "auto" && extname(sourcePath).toLowerCase() === ".json"));
   const perseusTei = sourceStat.isFile() && (format === "perseus-tei" || (format === "auto" && extname(sourcePath).toLowerCase() === ".xml"));
+  const gutenbergText = sourceStat.isFile() && (format === "gutenberg-book-text" || (format === "auto" && extname(sourcePath).toLowerCase() === ".txt"));
   let documents;
   let canonicalSource;
   let inferredTitle;
@@ -340,6 +379,9 @@ export const ingestWork = async ({
     const parsed = parsePerseusTei(canonicalSource);
     documents = parsed.documents;
     inferredTitle = parsed.title;
+  } else if (gutenbergText) {
+    canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
+    documents = parseGutenbergBookText(canonicalSource).documents;
   } else {
     const files = await walkMarkdown(sourcePath);
     if (!files.length) throw new Error("No Markdown files were found in the supplied work.");
@@ -492,7 +534,7 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|perseus-tei>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|perseus-tei|gutenberg-book-text>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();

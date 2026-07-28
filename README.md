@@ -565,8 +565,10 @@ Shakespeare's **The Tempest** is work `09` and **Hamlet** is work `10`; together
 they establish Shakespearean Drama as a collection while remaining distinct
 late-romance and tragedy bodies. Euclid's complete **Thirteen Books of the
 Elements** is work `11`, introducing a thirteen-book architecture of
-definitions, postulates, common notions, and propositions. Ingestion assigns
-each future coherent work the next stable ordinal.
+definitions, postulates, common notions, and propositions. Homer's **Iliad** in
+Samuel Butler's prose translation is work `12`, joining *The Odyssey* in
+Classical Epics while retaining its own twenty-four-book body. Ingestion
+assigns each future coherent work the next stable ordinal.
 
 The Bitcoin white paper also has an explicit, sealed relation to Telos. The
 exact Library work and edition ground Telos's declared BTC settled value layer
@@ -575,10 +577,10 @@ custody, execution, trading, or interpretive authority: Telos cannot alter the
 source work's meaning, and the work does not authorize Telos. The bounded bridge
 is visible from both the Telos public witness and the Bitcoin Library reading.
 
-The Founding Constitution now holds twenty-one immutable readings. Its current
+The Founding Constitution now holds twenty-two immutable readings. Its current
 v1.2 Library-addition edition preserves 21 constitutional sections, 2,838 words,
 36 concepts, 180 internal relations, and an 84-event resonant score with
-signature `17acc8dc167a`. The current identity, canonical graph,
+signature `7888de28fd00`. The current identity, canonical graph,
 constitutional prose, resonant grammar, Library UX, archive, and sovereign
 voice now describe the same boundary.
 
@@ -753,6 +755,16 @@ generic prose. Its derived edition contains 178,329 words, 36 concepts, 180
 relations, a 50-node topology, and an 84-event resonant score. The source
 remains publicly attributable while Root Logos archives the transformed work
 and lineage as its own navigable visual-resonant reading.
+
+Homer's **The Iliad** enters as work `12` from Project Gutenberg ebook 2199 in
+Samuel Butler's public-domain prose translation. Its GITenberg witness is
+pinned to commit `f12180f6352c763be11901f7ca6b04cb4737409e`. A native
+Gutenberg-text membrane removes the repository framing and preserves all
+twenty-four `BOOK` divisions as canonical coordinates. The derived edition
+contains 154,003 words, 36 concepts, 180 relations, a 61-node topology, and an
+84-event resonant score. It joins *The Odyssey* inside Classical Epics without
+being merged into it: the two Homeric bodies remain independently attributable
+works whose shared collection creates new cross-work pressure in Root Logos.
 
 ### The Living Object
 
@@ -1089,9 +1101,10 @@ Abhidharma is `03`, the Bitcoin white paper is `04`, and the signed 1787 U.S.
 Constitution is `05`. The twenty-seven ratified amendments form related work
 `06`, followed by Plato's *Republic* as `07`, *The Federalist Papers* as `08`,
 *The Tempest* as `09`, *Hamlet* as `10`, and Euclid's complete *Elements* as
-`11`. The Bible's 73 books remain visible and inspectable as nodes within the
-`01` topology, but no longer appear as 73 competing library selections. Future
-complete works receive the next stable library ordinal at ingestion.
+`11`, followed by Homer's *Iliad* as `12`. The Bible's 73 books remain visible
+and inspectable as nodes within the `01` topology, but no longer appear as 73
+competing library selections. Future complete works receive the next stable
+library ordinal at ingestion.
 The public Library surface is intentionally limited to three things: the stable
 list of coherent works, the selected work's description, and its navigable
 visual model. A single listening action belongs to the selected work, while a

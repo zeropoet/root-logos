@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { coherentLibraryIdentity, ingestWork, parsePerseusTei } from "./works.mjs";
+import { coherentLibraryIdentity, ingestWork, parseGutenbergBookText, parsePerseusTei } from "./works.mjs";
 import { CATHOLIC_CANON } from "./works-corpus.mjs";
 
 const fixture = await mkdtemp(join(tmpdir(), "root-logos-work-"));
@@ -41,6 +41,21 @@ assert.equal(euclidFixture.documents[0].title, "Book I");
 assert.deepEqual(euclidFixture.documents[0].sections.map(({ coordinate }) => coordinate), [
   "book:1:def:1", "book:1:prop:1"
 ]);
+const gutenbergFixture = parseGutenbergBookText(`Project Gutenberg header
+*** START OF THIS PROJECT GUTENBERG EBOOK TEST ***
+
+BOOK I
+
+The first book begins.
+
+BOOK II
+
+The second book answers.
+
+*** END OF THIS PROJECT GUTENBERG EBOOK TEST ***`);
+assert.deepEqual(gutenbergFixture.documents.map(({ path }) => path), ["book:1", "book:2"]);
+assert.equal(gutenbergFixture.documents[0].sections[0].text, "The first book begins.");
+assert.equal(gutenbergFixture.documents[1].sections[0].text, "The second book answers.");
 await mkdir(book);
 await writeFile(join(book, "01.md"), "# Part One\n\nLight enters the chamber. Memory answers light.\n\n## Scene\n\nA witness returns through time.\n");
 await writeFile(join(book, "02.md"), "# Part Two\n\nThe chamber holds silence. Light and witness become relation.\n");
