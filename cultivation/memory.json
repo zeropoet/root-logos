@@ -345,11 +345,11 @@
       "evidence_hash": "1a8637ee620cf9b0db720ac2013a10488645a6004cbebd3cbef5846da58208af",
       "policy_hash": "077f46170043519e0f4144e97b8ea8b8d7a664fbe5f35ddc8723d782a822a7b7",
       "first_cycle": "RL-CULTIVATE-0016",
-      "last_cycle": "RL-CULTIVATE-0036",
-      "last_cycle_index": 36,
-      "considerations": 6,
+      "last_cycle": "RL-CULTIVATE-0046",
+      "last_cycle_index": 46,
+      "considerations": 8,
       "status": "autonomously-rejected",
-      "last_novelty_reason": "policy-changed",
+      "last_novelty_reason": "incubation-elapsed",
       "last_evaluation": {
         "dimensions": {
           "source_fidelity": 4,
@@ -667,7 +667,7 @@
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 1,
+    "consecutive_low_yield_cycles": 2,
     "last_score": 1,
     "history": [
       {
@@ -928,6 +928,13 @@
         "reason": "incubation-elapsed",
         "status": "autonomously-rejected",
         "at": "2026-07-28T13:47:05.424Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0046",
+        "score": 1,
+        "reason": "incubation-elapsed",
+        "status": "autonomously-rejected",
+        "at": "2026-07-28T14:02:59.609Z"
       }
     ]
   },
