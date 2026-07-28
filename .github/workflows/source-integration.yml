@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types:
+      - foldforge-published
       - sovereign-standard-witness-published
 
 permissions:
@@ -31,6 +32,7 @@ jobs:
         with:
           repository: zeropoet/FoldForge
           path: FoldForge
+          ref: ${{ github.event.action == 'foldforge-published' && github.event.client_payload.revision || 'main' }}
           fetch-depth: 1
 
       - name: Set up Node
@@ -43,11 +45,17 @@ jobs:
         working-directory: root-logos
         env:
           EVENT_NAME: ${{ github.event_name }}
+          EVENT_ACTION: ${{ github.event.action }}
+          FOLDFORGE_REVISION: ${{ github.event.client_payload.revision }}
           SOVEREIGN_STANDARD_WITNESS: ${{ github.event.client_payload.witness }}
         run: |
+          if [ "$EVENT_ACTION" = "foldforge-published" ]; then
+            node -e 'if (!/^[a-f0-9]{40}$/.test(process.env.FOLDFORGE_REVISION || "")) process.exit(1)'
+            test "$(git -C ../FoldForge rev-parse HEAD)" = "$FOLDFORGE_REVISION"
+          fi
           node scripts/sources.mjs sync ../FoldForge
           sovereign_source=https://sovereignstandard.co/root-logos-witness-export.json
-          if [ "$EVENT_NAME" = "repository_dispatch" ]; then
+          if [ "$EVENT_ACTION" = "sovereign-standard-witness-published" ]; then
             node -e 'if (!/^sha256:[a-f0-9]{64}$/.test(process.env.SOVEREIGN_STANDARD_WITNESS || "")) process.exit(1)'
             sovereign_source="https://raw.githubusercontent.com/zeropoet/sovereign-standard-site/main/root-logos-witness-export.json?witness=${SOVEREIGN_STANDARD_WITNESS#sha256:}"
           fi

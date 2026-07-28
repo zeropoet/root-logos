@@ -24,7 +24,7 @@ assert.equal(firstBytes, secondBytes, "Source synchronization must be determinis
 assert.equal(materialFirst.witness, materialSecond.witness, "Unchanged material evidence must preserve its witness.");
 assert.equal(materialFirstBytes, materialSecondBytes, "Material witness synchronization must be deterministic.");
 assert.equal(first.status, "witnessed");
-assert.equal(first.compositions.length, 3);
+assert.equal(first.compositions.length, 4);
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").status, "active");
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").public_url, "https://foldforge.xyz");
 assert.equal(validated.registry.sources.find(({ id }) => id === "x").public_url, "https://x.com/rootlogos");

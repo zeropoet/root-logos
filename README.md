@@ -98,9 +98,10 @@ of carrying them without doctrinal repetition.
   silent mutation invalidates their digests. The material adapter rejects
   private identity, claim, order, payment, credential, signing, custody, and
   minting-authority fields. `.github/workflows/source-integration.yml` checks
-  connected evidence daily; a changed public export produces a Root Logos
-  commit, wakes cultivation, converges the always-awake runtime, and becomes
-  visible in the Observatory.
+  connected evidence daily and receives immediate publication dispatches from
+  FoldForge and Sovereign Standard. A changed public export produces a Root
+  Logos commit, wakes cultivation, converges the always-awake runtime, and
+  becomes visible in the Observatory.
 - `content/coherent-field.md` defines the constitutional standard for building
   one coherent account across distinct sources without possession or collapse,
   including the separate compositional, economic, material, and public-exchange
