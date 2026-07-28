@@ -13,6 +13,14 @@ const canonicalCycle = (cycle) => ({
   proposal: cycle.proposal ? { ...cycle.proposal, cultivation_id: canonicalCultivationId(cycle.proposal.cultivation_id) } : cycle.proposal
 });
 const shortDate = (value) => value ? new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(new Date(value)) : "Never";
+const latestWakeAt = () => {
+  const candidates = [
+    app.runtime?.service?.last_wake_at,
+    ...(app.runtime?.dormancy?.wake_history || []).map(({ at }) => at),
+    ...(app.latest?.events || []).filter(({ type }) => type === "cycle-started").map(({ at }) => at)
+  ].filter(Boolean);
+  return candidates.sort((left, right) => new Date(right) - new Date(left))[0] || null;
+};
 const hash = (value) => [...String(value)].reduce((sum, character) => ((sum << 5) - sum + character.charCodeAt(0)) | 0, 0);
 const seeded = (value) => {
   const x = Math.sin(hash(value) * 91.173) * 43758.5453;
@@ -116,28 +124,18 @@ const renderPresence = () => {
 
   const sleeping = status === "sleeping";
   const running = status === "running";
-  const chamber = $(".chamber-space");
-  if (chamber) chamber.dataset.runtimeState = running ? "running" : sleeping ? "sleeping" : status;
-  $("#phase-resolution").textContent = running ? "Resolve" : "Sleep";
-  $("#phase-resolution-detail").textContent = running
-    ? "Cultivation active"
-    : app.runtime.dormancy?.active
-      ? app.runtime.dormancy.reason || "Low-yield dormancy"
-      : "No wake condition";
-  $("#chamber-condition").textContent = running ? "Awake" : app.runtime.dormancy?.active ? "Dormant" : "At rest";
-  $("#chamber-condition-copy").textContent = running
+  const state = $(".state-space");
+  if (state) state.dataset.runtimeState = running ? "running" : sleeping ? "sleeping" : status;
+  $("#state-condition").textContent = running ? "Awake" : app.runtime.dormancy?.active ? "Dormant" : "At rest";
+  $("#state-condition-copy").textContent = running
     ? "A serialized inquiry is moving through the chamber."
     : app.runtime.dormancy?.active
       ? app.runtime.dormancy.reason || "Inquiry methods have earned a period of dormancy."
       : "The worker is listening. No policy-authorized wake remains.";
-  $("#last-wake").textContent = shortDate(service.last_wake_at);
-  $("#novelty-score").textContent = app.runtime.novelty?.last_score == null ? "Unscored" : `${app.runtime.novelty.last_score} / 4`;
-  $("#dormancy-state").textContent = app.runtime.dormancy?.active ? "Active" : "Open";
-  $("#wake-queue").textContent = String(service.queued_triggers?.length || 0).padStart(2, "0");
-  $("#phase-wake").textContent = app.latest?.events?.[0]?.type ? sentence(app.latest.events[0].type) : "Source revision";
-  $("#phase-resolution").textContent = running ? "Cultivating" : "Sleep";
-  $("#phase-resolution-detail").textContent = running ? "Serialized inquiry" : "No wake condition";
-  $("#memory-count-large").textContent = String(app.runtime.hypothesis_count || Object.keys(app.memory?.hypotheses || {}).length).padStart(2, "0");
+  $("#state-last-wake").textContent = shortDate(latestWakeAt());
+  $("#state-novelty").textContent = app.runtime.novelty?.last_score == null ? "Unscored" : `${app.runtime.novelty.last_score} / 4`;
+  $("#state-memory").textContent = String(app.runtime.hypothesis_count || Object.keys(app.memory?.hypotheses || {}).length).padStart(2, "0");
+  $("#state-queue").textContent = String(service.queued_triggers?.length || 0).padStart(2, "0");
 };
 
 const renderSources = () => {
@@ -240,15 +238,6 @@ const renderSources = () => {
   });
   selectSource("foldforge");
 
-  const compositions = app.foldforge?.compositions || [];
-  $("#composition-ledger").innerHTML = compositions.map((composition, index) => `
-    <article>
-      <span>${String(index + 1).padStart(2, "0")}</span>
-      <div><small>${escapeHtml(composition.id)} / v${escapeHtml(composition.version)}</small><h4>${escapeHtml(composition.title)}</h4><p>${escapeHtml(composition.discovery)}</p></div>
-      <ol>${composition.operations.slice(0, 5).map((operation) => `<li>${escapeHtml(sentence(operation))}</li>`).join("")}</ol>
-      <i>${escapeHtml(composition.witness.slice(0, 10))}</i>
-    </article>
-  `).join("");
 };
 
 const submitObservation = async (form) => {
@@ -918,10 +907,6 @@ const bindInterface = () => {
     $("#cycle-drawer").hidden = true;
     document.body.style.overflow = "";
   }));
-  $("#proposal-stack").addEventListener("click", (event) => {
-    const card = event.target.closest("[data-proposal]");
-    if (card) selectProposal(card.dataset.proposal);
-  });
   $("#observation-form").addEventListener("submit", (event) => {
     event.preventDefault();
     submitObservation(event.currentTarget);
@@ -955,8 +940,6 @@ const initialize = async () => {
     renderPresence();
     renderSources();
     renderLatestCycle();
-    renderMemory();
-    renderProposals();
     renderHealth();
     field = new ConstitutionalField($("#field-canvas"), app.graph);
     if (!resolveFieldDeepLink()) {

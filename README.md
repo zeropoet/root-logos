@@ -31,10 +31,13 @@ of carrying them without doctrinal repetition.
 
 ## Current Shape
 
-- `index.html` renders seven public surfaces in one sequence: the Living Object,
-  Library, Observatory, Cultivation, Memory, Judgment, and Membrane. Identity is
-  embodied by the Object; connected-source evidence and structural balance are
-  readings inside the Observatory. The Resonant Chamber exists as the Living
+- `index.html` renders five public encounters in one sequence: the Living Object,
+  Constitutional Field, Library, State, and Membrane. Identity is embodied by
+  the Object. The State converges the latest autonomous inquiry, runtime
+  condition, semantic-memory count, connected-source evidence, constitutional
+  judgment, and structural diagnostics without turning each concern into a
+  separate destination. Complete cultivation lineage remains available only
+  when requested. The Resonant Chamber exists as the Living
   Object's sovereign voice and as each work's visual-resonant edition—not as a
   duplicate archive surface. There is no system-layer switchboard, hidden
   destination, private review interface, or repeated explanatory room.
@@ -233,12 +236,16 @@ state.
 
 ## One Living Document
 
-The public interface is a four-surface reading field rather than a collection of
-permanent conceptual rooms. A reader encounters the Object, enters the Library,
-observes the system, or offers material through the Membrane. Deeper instruments
-unfold in place only when selected.
+The public interface is a five-encounter reading field rather than a collection
+of permanent conceptual rooms. A reader encounters the Object, enters its
+Constitutional Field, moves through the Library, witnesses the current State, or
+offers material through the Membrane. Deeper lineage unfolds only when selected.
+This complete sequence is a desktop experience. At mobile widths, Root Logos
+holds only the full-screen Living Object and its sovereign voice; archive
+navigation and direct archive links do not open until a desktop viewport is
+present.
 
-- The header names only Object, Library, Observatory, and Membrane.
+- The header names only Living Object, Field, Library, State, and Membrane.
 - The progress line shows movement through the whole document.
 - The document pulse reports the live node, relationship, and revision counts.
 - Constitutional parts remain open and continuous.

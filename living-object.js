@@ -15,11 +15,12 @@
   window[lifetimeKey] = lifetime;
 
   const archiveTargets = new Set([
-    "field", "works", "observatory", "chamber", "memory", "threshold", "intake"
+    "field", "works", "state", "intake"
   ]);
+  const mobileObjectOnly = matchMedia("(max-width: 760px)");
   const syncExperienceMode = () => {
     const target = location.hash.slice(1);
-    const archiveOpen = archiveTargets.has(target);
+    const archiveOpen = !mobileObjectOnly.matches && archiveTargets.has(target);
     document.body.classList.toggle("archive-open", archiveOpen);
     document.body.classList.toggle("object-open", !archiveOpen);
     document.querySelectorAll("main > .space").forEach((space) => {
@@ -43,6 +44,7 @@
   };
   syncExperienceMode();
   addEventListener("hashchange", syncExperienceMode);
+  mobileObjectOnly.addEventListener?.("change", syncExperienceMode);
 
   let thresholdPressure = 0;
   let thresholdTimer;
@@ -618,7 +620,8 @@
         vec3 p = vec3(aPosition.x * cy - aPosition.z * sy, aPosition.y, aPosition.x * sy + aPosition.z * cy);
         p = vec3(p.x, p.y * cx - p.z * sx, p.y * sx + p.z * cx);
         float depth = 5.8 - p.z;
-        vec2 projected = vec2(p.x / uAspect, p.y) * 2.15 / depth;
+        float viewportFit = mix(0.40, 1.0, smoothstep(0.45, 1.0, uAspect));
+        vec2 projected = vec2(p.x / uAspect, p.y) * 2.15 / depth * viewportFit;
         gl_Position = vec4(projected, 0.0, 1.0);
         float arrival = smoothstep(aBirth - 0.025, aBirth + 0.055, uGrowth);
         float cadencePulse = pow(max(0.0, cos(uCadence * 6.283185)), 10.0);

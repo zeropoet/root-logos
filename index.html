@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=2.15-topology-score">
+    <link rel="stylesheet" href="styles.css?v=2.16-naked-state">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the object</a>
@@ -28,7 +28,7 @@
         <a href="#object" data-space="object">Living Object</a>
         <a href="#field" data-space="field">Field</a>
         <a href="#works" data-space="works">Library</a>
-        <a href="#observatory" data-space="observatory">Observatory</a>
+        <a href="#state" data-space="state">State</a>
         <a href="#intake" data-space="intake">Membrane</a>
       </nav>
 
@@ -99,7 +99,7 @@
           <p id="inspector-summary">Rotate the object and select a structure to witness its position in the constitutional field.</p>
           <p class="inspector-provenance" id="inspector-provenance" hidden></p>
           <div class="inspector-relations" id="inspector-relations"></div>
-          <a id="inspector-source" href="#chamber">Trace into the chamber <span>↗</span></a>
+          <a id="inspector-source" href="#state">Trace into current state <span>↗</span></a>
         </aside>
 
         <div class="scroll-cue" aria-hidden="true"><span>Drag to rotate · Alt / Option + scroll for depth</span><i></i></div>
@@ -147,189 +147,79 @@
         </div>
       </section>
 
-      <section class="space observatory-space" id="observatory" data-space-name="Observatory" aria-label="Living Observatory">
-        <header class="section-heading">
-          <p class="coordinate" data-module="02">Observatory</p>
-          <h2>Root Logos observed</h2>
+      <section class="space state-space" id="state" data-space-name="State" aria-labelledby="state-title">
+        <header class="section-heading state-heading">
+          <p class="coordinate" data-module="02">State</p>
+          <h2 id="state-title">Root Logos, now.</h2>
         </header>
-        <div class="observatory-substrate">
-          <header>
-            <div>
-              <p class="coordinate" data-module="02.02">External witnesses</p>
-              <h3>What Root Logos is witnessing</h3>
+
+        <div class="state-primary">
+          <article class="state-cycle" id="latest-cycle">
+            <header>
+              <p class="micro-label" data-module="02.01">Latest autonomous inquiry</p>
+              <span class="decision-seal" id="cycle-decision">—</span>
+            </header>
+            <h3 id="cycle-id">Loading lineage</h3>
+            <blockquote id="cycle-question">Contacting the cultivation archive.</blockquote>
+            <div hidden aria-hidden="true">
+              <p id="cycle-proposal">—</p>
+              <p id="cycle-counterargument">—</p>
+              <div id="cycle-gates"></div>
             </div>
+            <button class="text-action" type="button" id="open-cycle">Open lineage <span>↗</span></button>
+          </article>
+
+          <aside class="state-condition">
+            <p class="micro-label" data-module="02.02">System condition</p>
+            <strong id="state-condition">Listening</strong>
+            <p id="state-condition-copy">The runtime is resolving its present boundary.</p>
+            <dl>
+              <div><dt>Last wake</dt><dd id="state-last-wake">—</dd></div>
+              <div><dt>Novelty</dt><dd id="state-novelty">—</dd></div>
+              <div><dt>Memory</dt><dd id="state-memory">—</dd></div>
+              <div><dt>Queue</dt><dd id="state-queue">—</dd></div>
+            </dl>
+          </aside>
+        </div>
+
+        <div class="state-sources">
+          <header>
+            <p class="coordinate" data-module="02.03">Witnessed sources</p>
             <p><span id="source-count">— sources</span><i></i><span id="source-witness">Awaiting witness</span></p>
           </header>
-          <div class="coherence-instrument">
-            <div class="source-field" id="source-field" aria-label="Connected source field">
-              <div class="source-field-rings" aria-hidden="true"><i></i><i></i><i></i></div>
-              <div class="source-field-core">
-                <span>Current account</span>
-                <strong>Root<br>Logos</strong>
-                <small>Witnessed sources</small>
-              </div>
-              <div class="source-nodes" id="source-nodes"></div>
-            </div>
+          <div class="state-source-layout">
+            <div class="source-nodes" id="source-nodes" aria-label="Connected source field"></div>
             <aside class="source-reading" id="source-reading" aria-live="polite">
-              <p class="coordinate" id="source-coordinate" data-module="02.02.R">Active source / establishing witness</p>
+              <p class="coordinate" id="source-coordinate" data-module="02.03.R">Active source / establishing witness</p>
               <h3 id="source-title">FoldForge</h3>
               <p class="source-role" id="source-role">Identity composition and evidence-to-grammar research</p>
               <blockquote id="source-discovery">Reading public constitutional and composition evidence.</blockquote>
               <div class="source-measures" id="source-measures"></div>
               <p class="source-boundary" id="source-boundary"></p>
               <div class="material-witness" id="source-material-witness" hidden>
-                <header>
-                  <small>Material witness lineage</small>
-                  <b id="material-witness-summary">Resolving vessels</b>
-                </header>
+                <header><small>Material witness lineage</small><b id="material-witness-summary">Resolving vessels</b></header>
                 <div id="material-witness-works"></div>
               </div>
               <a class="source-work-relation" id="source-work-relation" href="#works" hidden>
-                <small>Linked Library work</small>
-                <b id="source-work-title">Work</b>
-                <span id="source-work-relation-label">Relation</span>
+                <small>Linked Library work</small><b id="source-work-title">Work</b><span id="source-work-relation-label">Relation</span>
               </a>
-              <a id="source-repository" href="https://foldforge.xyz" target="_blank" rel="noreferrer">Enter source field <span>↗</span></a>
+              <a id="source-repository" href="https://foldforge.xyz" target="_blank" rel="noreferrer">Enter source <span>↗</span></a>
             </aside>
           </div>
-          <div class="composition-ledger">
-            <header>
-              <p class="coordinate" data-module="02.03">FoldForge / live evidence</p>
-              <h3>Tested compositional grammars</h3>
-              <p>Versioned methods Root Logos may test against its own knowledge.</p>
-            </header>
-            <div id="composition-ledger"></div>
-          </div>
         </div>
 
-        <div class="observatory-health" aria-labelledby="health-title">
-          <header>
-            <p class="coordinate" data-module="02.04">Diagnostic profile / not a score</p>
-            <h3 id="health-title">Structural balance</h3>
-            <p>Relation, uncertainty, memory, provenance, corrigibility, and integration remain visible without becoming another destination.</p>
-          </header>
+        <div class="state-health">
+          <header><p class="coordinate" data-module="02.04">Structural fidelity</p></header>
           <div class="health-profile" id="health-profile"></div>
-        </div>
-      </section>
-
-      <section class="space chamber-space" id="chamber" data-space-name="Chamber" aria-labelledby="chamber-title">
-        <div class="section-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
-        <header class="space-heading">
-          <p class="coordinate" data-module="03">Cultivation Chamber</p>
-          <div>
-            <h2 id="chamber-title">The architecture<br><em>turns inward.</em></h2>
-            <p>Every inquiry leaves a trace. Every proposal must survive its own strongest objection.</p>
-          </div>
-        </header>
-
-        <div class="chamber-instrument">
-          <div class="cycle-spine" aria-label="Cultivation cycle phases">
-            <div class="cycle-phase is-complete"><span>01</span><b>Wake</b><small id="phase-wake">Source revision</small></div>
-            <div class="cycle-phase is-complete"><span>02</span><b>Prompt</b><small>Self-interrogation</small></div>
-            <div class="cycle-phase is-complete"><span>03</span><b>Search</b><small>Distinct method</small></div>
-            <div class="cycle-phase is-complete"><span>04</span><b>Finding</b><small>Structural pressure</small></div>
-            <div class="cycle-phase is-complete"><span>05</span><b>Judgment</b><small>Adversarial gates</small></div>
-            <div class="cycle-phase is-current"><span>06</span><b id="phase-resolution">Sleep</b><small id="phase-resolution-detail">No wake condition</small></div>
-          </div>
-
-          <article class="latest-cycle" id="latest-cycle">
-            <header>
-              <div>
-                <p class="micro-label" data-module="03.01">Latest completed inquiry</p>
-                <h3 id="cycle-id">Loading lineage</h3>
-              </div>
-              <span class="decision-seal" id="cycle-decision">—</span>
-            </header>
-            <div class="cycle-question">
-              <p class="micro-label">The question it asked itself</p>
-              <blockquote id="cycle-question">Contacting the cultivation archive.</blockquote>
-            </div>
-            <div class="argument-pair">
-              <div>
-                <p class="micro-label">Proposal</p>
-                <p id="cycle-proposal">—</p>
-              </div>
-              <div class="counterargument">
-                <p class="micro-label">Counterargument</p>
-                <p id="cycle-counterargument">—</p>
-              </div>
-            </div>
-            <footer>
-              <div class="gate-row" id="cycle-gates"></div>
-              <button class="text-action" type="button" id="open-cycle">Open complete lineage <span>↗</span></button>
-            </footer>
-          </article>
-
-          <aside class="chamber-readout">
-            <p class="micro-label" data-module="03.02">Current condition</p>
-            <strong id="chamber-condition">Listening</strong>
-            <p id="chamber-condition-copy">The runtime is resolving its present boundary.</p>
-            <dl>
-              <div><dt>Last wake</dt><dd id="last-wake">—</dd></div>
-              <div><dt>Novelty</dt><dd id="novelty-score">—</dd></div>
-              <div><dt>Dormancy</dt><dd id="dormancy-state">—</dd></div>
-              <div><dt>Queue</dt><dd id="wake-queue">—</dd></div>
-            </dl>
-          </aside>
         </div>
 
         <div class="cycle-drawer" id="cycle-drawer" hidden>
           <div class="drawer-scrim" data-close-drawer></div>
           <article role="dialog" aria-modal="true" aria-labelledby="drawer-title">
             <button type="button" class="drawer-close" data-close-drawer aria-label="Close lineage">×</button>
-            <p class="coordinate" data-module="03.01.R">Complete cultivation lineage</p>
+            <p class="coordinate" data-module="02.01.R">Complete cultivation lineage</p>
             <h2 id="drawer-title">Cycle</h2>
             <div id="drawer-content"></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="space memory-space" id="memory" data-space-name="Memory" aria-labelledby="memory-title">
-        <header class="space-heading">
-          <p class="coordinate" data-module="04">Semantic Memory</p>
-          <div>
-            <h2 id="memory-title">Nothing returns<br><em>disguised as new.</em></h2>
-            <p>Rejected ideas are not erased. They remain available as disciplined memory, eligible to return only when evidence, policy, or time has changed.</p>
-          </div>
-        </header>
-
-        <div class="memory-ledger-head">
-          <span>Hypothesis / identity</span><span>Disposition</span><span>Evidence</span><span>Return condition</span>
-        </div>
-        <div class="memory-ledger" id="memory-ledger" aria-live="polite">
-          <div class="memory-loading">Reconstructing semantic memory…</div>
-        </div>
-        <div class="memory-ethos">
-          <p>Memory is not accumulation.</p>
-          <blockquote>It is the refusal to mistake repetition for growth.</blockquote>
-          <div class="memory-pulse"><span id="memory-count-large">—</span><small>distinct hypotheses<br>preserved</small></div>
-        </div>
-      </section>
-
-      <section class="space threshold-space" id="threshold" data-space-name="Threshold" aria-label="The Threshold">
-        <header class="section-heading">
-          <p class="coordinate" data-module="05">Constitutional Judgment</p>
-          <h2>The Threshold</h2>
-        </header>
-        <div class="threshold-line" aria-hidden="true"><span>Delegated constitution</span><i></i><span>Autonomous judgment</span></div>
-        <div class="threshold-layout">
-          <div class="proposal-stack" id="proposal-stack" aria-live="polite"></div>
-          <article class="review-surface" id="review-surface">
-            <header>
-              <div><p class="micro-label" data-module="05.01">Proposal under review</p><h3 id="review-title">Select a proposal</h3></div>
-              <span id="review-risk">—</span>
-            </header>
-            <p class="review-claim" id="review-claim">The complete evidence and judgment record will appear here.</p>
-            <div class="review-grid">
-              <div><p class="micro-label">System judgment</p><p id="review-judgment">—</p></div>
-              <div><p class="micro-label">Reversibility</p><p id="review-reversibility">—</p></div>
-              <div><p class="micro-label">Affected structures</p><p id="review-nodes">—</p></div>
-              <div><p class="micro-label">Authority</p><p id="review-authority">—</p></div>
-            </div>
-            <div class="human-boundary">
-              <span class="boundary-mark">C</span>
-              <div><p class="micro-label">Constitutional boundary</p><p>Authorized material may change the system without recurring approval. Every change still requires attributable reasoning, bounded authority, and a recoverable path.</p></div>
-            </div>
           </article>
         </div>
       </section>
@@ -337,9 +227,9 @@
       <section class="space intake-space" id="intake" data-space-name="Intake" aria-label="The Membrane">
         <div class="observation-instrument">
           <header>
-            <p class="coordinate" id="intake-coordinate" data-module="06">The public terminal / Offer an entry</p>
-            <h3 id="intake-terminal-title">Bring reality into contact<br><em>with the grammar.</em></h3>
-            <p id="intake-terminal-copy">Offer what may place pressure upon an existing distinction. Root Logos will transform it, judge what remains, and cultivate only what survives.</p>
+            <p class="coordinate" id="intake-coordinate" data-module="03">Membrane</p>
+            <h3 id="intake-terminal-title">Offer an entry.</h3>
+            <p id="intake-terminal-copy">Root Logos will transform it, judge what remains, and release the source wording.</p>
           </header>
           <form id="observation-form">
             <div class="intake-mode-fields field-wide">
@@ -378,8 +268,8 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
-    <script src="living-object.js?v=2.10-apple-output" defer></script>
-    <script src="script.js?v=2.13-observatory-convergence" defer></script>
+    <script src="living-object.js?v=2.14-responsive-object" defer></script>
+    <script src="script.js?v=2.15-attributable-wake" defer></script>
     <script src="works.js?v=2.15-apple-output" defer></script>
   </body>
 </html>
