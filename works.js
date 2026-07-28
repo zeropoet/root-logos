@@ -319,72 +319,152 @@
       }, null);
     }
 
-    arrangeWork(kind = "") {
-      const concepts = this.nodes.filter(({ type }) => type === "concept");
-      const documents = this.nodes.filter(({ type }) => type === "document");
+    arrangeWork() {
+      const edges = this.edition.visual.topology.edges;
+      const byId = new Map(this.nodes.map((node) => [node.id, node]));
+      const adjacency = new Map(this.nodes.map((node) => [node.id, []]));
+      const nodeWeights = this.nodes.map(({ weight }) => Math.max(0, Number(weight) || 0));
+      const edgeWeights = edges.map(({ weight }) => Math.max(0, Number(weight) || 0));
+      const maxNodeWeight = Math.max(1, ...nodeWeights);
+      const maxEdgeWeight = Math.max(1, ...edgeWeights);
+      const hash = (value) => {
+        let result = 2166136261;
+        for (const character of String(value)) {
+          result ^= character.charCodeAt(0);
+          result = Math.imul(result, 16777619);
+        }
+        return (result >>> 0) / 4294967295;
+      };
+      const weightScale = (weight, maximum) => Math.log1p(Math.max(0, Number(weight) || 0)) / Math.log1p(maximum);
+
+      edges.forEach((edge) => {
+        const weight = Math.max(0, Number(edge.weight) || 0);
+        edge.morphWeight = weightScale(weight, maxEdgeWeight);
+        adjacency.get(edge.from)?.push({ id: edge.to, weight, edge });
+        adjacency.get(edge.to)?.push({ id: edge.from, weight, edge });
+      });
+      this.nodes.forEach((node) => {
+        const relations = adjacency.get(node.id) || [];
+        node.weightMass = weightScale(node.weight, maxNodeWeight);
+        node.relationMass = weightScale(relations.reduce((sum, relation) => sum + relation.weight, 0), Math.max(1, maxEdgeWeight * relations.length));
+        node.visualMass = clamp(node.weightMass * .58 + node.relationMass * .42, 0, 1);
+      });
+
       const work = this.nodes.find(({ type }) => type === "work");
+      const documents = this.nodes.filter(({ type }) => type === "document");
+      const concepts = this.nodes
+        .filter(({ type }) => type === "concept")
+        .sort((a, b) => b.visualMass - a.visualMass || a.id.localeCompare(b.id));
+      concepts.forEach((node, index) => { node.massRank = index; });
+      const signature = `${this.edition.source_hash}:${this.edition.edition_id}`;
+      const phase = hash(signature) * Math.PI * 2;
+      const golden = Math.PI * (3 - Math.sqrt(5));
       const place = (node, x, y, z = 0) => Object.assign(node, { layoutX: x, layoutY: y, layoutZ: z });
+      this.morphology = {
+        phase,
+        chambers: Math.max(1, documents.length),
+        density: clamp(edges.length / Math.max(1, this.nodes.length * (this.nodes.length - 1) / 2), 0, 1),
+        concentration: this.nodes.reduce((sum, node) => sum + node.visualMass, 0) / Math.max(1, this.nodes.length)
+      };
 
-      if (kind === "constitution") {
-        this.layoutMode = "authority-tree";
-        if (work) place(work, 0, .88, 0);
-        documents.forEach((node, index) => place(node, (index - (documents.length - 1) / 2) * .24, .56, index % 2 ? .12 : -.12));
-        concepts.forEach((node, index) => {
-          const columns = 8;
-          const tier = Math.floor(index / columns);
-          const column = index % columns;
-          const members = Math.min(columns, concepts.length - tier * columns);
-          place(node, (column - (members - 1) / 2) * .23, .27 - tier * .29, Math.sin(index * 2.17) * .34);
+      if (work) place(work, 0, 0, 0);
+      documents.forEach((node, index) => {
+        const progress = documents.length === 1 ? .5 : index / (documents.length - 1);
+        const angle = phase + index * golden;
+        const reach = documents.length === 1 ? .12 : .18 + Math.sin(progress * Math.PI) * .38;
+        place(
+          node,
+          Math.cos(angle) * reach,
+          (progress - .5) * 1.45,
+          Math.sin(angle) * reach
+        );
+        node.sequence = progress;
+      });
+
+      concepts.forEach((node, index) => {
+        const documentRelations = (adjacency.get(node.id) || [])
+          .map((relation) => ({ ...relation, node: byId.get(relation.id) }))
+          .filter(({ node: related }) => related?.type === "document")
+          .sort((a, b) => b.weight - a.weight);
+        const anchor = documentRelations[0]?.node || work;
+        const angle = phase + index * golden + hash(node.id) * .72;
+        const pull = node.visualMass;
+        const reach = .22 + (1 - pull) * .48;
+        const chamberX = (anchor?.layoutX || 0) * .62;
+        const chamberY = (anchor?.layoutY || 0) * .62;
+        const chamberZ = (anchor?.layoutZ || 0) * .62;
+        place(
+          node,
+          chamberX + Math.cos(angle) * reach,
+          chamberY + Math.sin(angle * 1.37) * reach * .7,
+          chamberZ + Math.sin(angle) * reach
+        );
+        node.community = anchor?.id || "work";
+      });
+
+      const movable = this.nodes.filter((node) => node !== work);
+      for (let iteration = 0; iteration < 72; iteration += 1) {
+        const cooling = 1 - iteration / 90;
+        const force = new Map(movable.map((node) => [node.id, { x: 0, y: 0, z: 0 }]));
+        for (let leftIndex = 0; leftIndex < movable.length; leftIndex += 1) {
+          const left = movable[leftIndex];
+          for (let rightIndex = leftIndex + 1; rightIndex < movable.length; rightIndex += 1) {
+            const right = movable[rightIndex];
+            const dx = left.layoutX - right.layoutX;
+            const dy = left.layoutY - right.layoutY;
+            const dz = left.layoutZ - right.layoutZ;
+            const distanceSquared = Math.max(.008, dx * dx + dy * dy + dz * dz);
+            const repulsion = (.0007 + (left.visualMass + right.visualMass) * .00045) / distanceSquared;
+            const leftForce = force.get(left.id);
+            const rightForce = force.get(right.id);
+            leftForce.x += dx * repulsion; leftForce.y += dy * repulsion; leftForce.z += dz * repulsion;
+            rightForce.x -= dx * repulsion; rightForce.y -= dy * repulsion; rightForce.z -= dz * repulsion;
+          }
+        }
+        edges.forEach((edge) => {
+          const from = byId.get(edge.from);
+          const to = byId.get(edge.to);
+          if (!from || !to || (from === work && to === work)) return;
+          const dx = to.layoutX - from.layoutX;
+          const dy = to.layoutY - from.layoutY;
+          const dz = to.layoutZ - from.layoutZ;
+          const distance = Math.max(.01, Math.hypot(dx, dy, dz));
+          const desired = .17 + (1 - edge.morphWeight) * .36;
+          const spring = (distance - desired) * (.0018 + edge.morphWeight * .0045);
+          const apply = (node, direction) => {
+            const nodeForce = force.get(node.id);
+            if (!nodeForce) return;
+            nodeForce.x += dx / distance * spring * direction;
+            nodeForce.y += dy / distance * spring * direction;
+            nodeForce.z += dz / distance * spring * direction;
+          };
+          apply(from, 1);
+          apply(to, -1);
         });
-        return;
+        movable.forEach((node) => {
+          const nodeForce = force.get(node.id);
+          const gravity = .0012 + node.visualMass * .0022;
+          nodeForce.x -= node.layoutX * gravity;
+          nodeForce.y -= node.layoutY * gravity * .42;
+          nodeForce.z -= node.layoutZ * gravity;
+          node.layoutX += clamp(nodeForce.x, -.025, .025) * cooling;
+          node.layoutY += clamp(nodeForce.y, -.025, .025) * cooling;
+          node.layoutZ += clamp(nodeForce.z, -.025, .025) * cooling;
+        });
       }
 
-      if (kind === "whitepaper") {
-        this.layoutMode = "dependency-lattice";
-        if (work) place(work, -.96, 0, 0);
-        documents.forEach((node, index) => place(node, -.72, (index - (documents.length - 1) / 2) * .34, index % 2 ? .16 : -.16));
-        concepts.forEach((node, index) => {
-          const rows = 6;
-          const column = Math.floor(index / rows);
-          const row = index % rows;
-          place(node, -.43 + column * .27, (row - (rows - 1) / 2) * .25, Math.sin(column * 1.31 + row * 2.03) * .38);
-        });
-        return;
-      }
-
-      if (kind === "epic-poetry") {
-        this.layoutMode = "narrative-spiral";
-        if (work) place(work, 0, 0, 0);
-        documents.forEach((node, index) => {
-          const angle = index / Math.max(1, documents.length) * Math.PI * 4.5;
-          const reach = .16 + index / Math.max(1, documents.length) * .78;
-          place(node, Math.cos(angle) * reach, -.72 + index / Math.max(1, documents.length) * 1.44, Math.sin(angle) * reach);
-        });
-        concepts.forEach((node, index) => {
-          const angle = index / Math.max(1, concepts.length) * Math.PI * 7;
-          const reach = .32 + index / Math.max(1, concepts.length) * .62;
-          place(node, Math.cos(angle) * reach, -.68 + index / Math.max(1, concepts.length) * 1.36, Math.sin(angle) * reach);
-        });
-        return;
-      }
-
-      if (kind.includes("commentary")) {
-        this.layoutMode = "nested-commentary";
-        if (work) place(work, 0, 0, 0);
-        documents.forEach((node, index) => {
-          const angle = index / Math.max(1, documents.length) * Math.PI * 2;
-          place(node, Math.cos(angle) * .22, Math.sin(angle) * .22, Math.sin(angle * 2) * .14);
-        });
-        concepts.forEach((node, index) => {
-          const ring = 1 + (index % 3);
-          const angle = index / Math.max(1, concepts.length) * Math.PI * 6;
-          const reach = .24 + ring * .2;
-          place(node, Math.cos(angle) * reach, Math.sin(angle) * reach * .78, Math.sin(angle * 1.7) * .34);
-        });
-        return;
-      }
-
-      this.layoutMode = "orbital";
+      const extent = Math.max(.5, ...this.nodes.flatMap((node) => [
+        Math.abs(node.layoutX || 0),
+        Math.abs(node.layoutY || 0) * .78,
+        Math.abs(node.layoutZ || 0)
+      ]));
+      const normalization = .94 / extent;
+      this.nodes.forEach((node) => {
+        node.layoutX *= normalization;
+        node.layoutY *= normalization;
+        node.layoutZ *= normalization;
+      });
+      this.layoutMode = "weighted-morphology";
     }
 
     showDetail(node, x, y, pinned) {
@@ -392,7 +472,8 @@
       const relations = this.edition.visual.topology.edges.filter(({ from, to }) => from === node.id || to === node.id);
       $("#work-node-detail-type").textContent = `${node.type} / ${node.coordinate}`;
       $("#work-node-detail-title").textContent = node.label;
-      $("#work-node-detail-body").textContent = `${relations.length} witnessed relation${relations.length === 1 ? "" : "s"} connect this structure to the selected model.${pinned ? " Detail pinned." : " Select to hold."}`;
+      const mass = Math.round((node.visualMass || 0) * 100);
+      $("#work-node-detail-body").textContent = `${relations.length} witnessed relation${relations.length === 1 ? "" : "s"} hold this structure at ${mass}% of the work’s mapped gravitational weight.${pinned ? " Detail pinned." : " Select to hold."}`;
       const detail = $("#work-node-detail");
       detail.dataset.state = pinned ? "pinned" : "preview";
       detail.style.left = `${clamp(x + 24, 20, Math.max(20, this.width - 360))}px`;
@@ -418,34 +499,22 @@
         context.save();
         context.translate(centerX, centerY);
         context.lineWidth = .55;
-        if (structured && this.layoutMode === "dependency-lattice") {
-          for (let station = 0; station < 7; station += 1) {
-            const x = radius * (-.96 + station * .3);
-            context.strokeStyle = station === 0 ? "rgba(255,255,255,.12)" : "rgba(255,255,255,.035)";
+        if (structured) {
+          const morphology = this.morphology || { phase: 0, chambers: 1, density: 0, concentration: 0 };
+          const shells = clamp(Math.round(2 + Math.sqrt(morphology.chambers)), 3, 8);
+          for (let shell = 1; shell <= shells; shell += 1) {
+            const scale = shell / shells;
+            context.strokeStyle = `rgba(255,255,255,${.014 + morphology.density * .045 - shell * .001})`;
             context.beginPath();
-            context.moveTo(x, -radius * .82);
-            context.lineTo(x, radius * .82);
-            context.stroke();
-          }
-          for (let lane = -3; lane <= 3; lane += 1) {
-            context.strokeStyle = "rgba(255,255,255,.025)";
-            context.beginPath();
-            context.moveTo(-radius * 1.04, lane * radius * .18);
-            context.lineTo(radius * .92, lane * radius * .18);
-            context.stroke();
-          }
-        } else if (structured && this.layoutMode === "authority-tree") {
-          context.strokeStyle = "rgba(255,255,255,.12)";
-          context.beginPath();
-          context.moveTo(0, radius * .96);
-          context.lineTo(0, -radius * .96);
-          context.stroke();
-          for (let tier = 0; tier < 5; tier += 1) {
-            const y = radius * (.58 - tier * .29);
-            context.strokeStyle = "rgba(255,255,255,.035)";
-            context.beginPath();
-            context.moveTo(-radius, y);
-            context.lineTo(radius, y);
+            context.ellipse(
+              0,
+              0,
+              radius * scale * (.7 + morphology.concentration * .28),
+              radius * scale * (.34 + morphology.density * .34),
+              morphology.phase * .08 + this.rotation * .04,
+              0,
+              Math.PI * 2
+            );
             context.stroke();
           }
         } else {
@@ -509,13 +578,15 @@
           const to = this.nodes.find(({ id }) => id === edge.to);
           if (!from || !to) continue;
           const corpusRelation = this.isCorpus && edge.relation === "shared-derived-language";
+          const edgeEmphasis = edge.morphWeight ?? clamp(Math.log1p(Number(edge.weight) || 0) / Math.log(13), 0, 1);
           context.strokeStyle = corpusRelation
             ? `rgba(174,174,174,${clamp(.012 + edge.weight * .006, .018, .075)})`
-            : `rgba(198,198,198,${this.isCorpus ? .055 : clamp(.025 + edge.weight * .018, .03, .2)})`;
+            : `rgba(198,198,198,${this.isCorpus ? .055 : clamp(.025 + edgeEmphasis * .2, .03, .225)})`;
+          context.lineWidth = this.isCorpus ? .65 : .35 + edgeEmphasis * 1.55;
           context.beginPath();
           context.moveTo(from.screenX, from.screenY);
           if (structured) {
-            const direction = this.layoutMode === "dependency-lattice" ? 1 : -1;
+            const direction = from.community && from.community === to.community ? -1 : 1;
             const controlX = (from.screenX + to.screenX) / 2;
             const controlY = (from.screenY + to.screenY) / 2 + direction * Math.min(24, Math.abs(to.screenX - from.screenX) * .08);
             context.quadraticCurveTo(controlX, controlY, to.screenX, to.screenY);
@@ -528,7 +599,11 @@
           this.nodes.filter(({ type }) => type === "document").map((node, index) => [node.id, index])
         );
         [...this.nodes].sort((a, b) => a.depth - b.depth).forEach((node, index) => {
-          const size = node.type === "work" ? 11 : node.type === "document" ? 5 : clamp(1.5 + Math.sqrt(node.weight), 2, 6);
+          const size = node.type === "work"
+            ? 11
+            : node.type === "document"
+              ? 3.6 + (node.visualMass ?? .3) * 3.8
+              : 1.7 + (node.visualMass ?? clamp(Math.log1p(Number(node.weight) || 0) / Math.log(13), 0, 1)) * 5.3;
           context.fillStyle = "#ffffff";
           context.globalAlpha = clamp(.2 + node.depth * .65, .25, .95);
           context.beginPath();
@@ -541,7 +616,7 @@
           );
           const labelBook = node.type === "book" && (node.canonical_order === 1 || node.canonical_order === 47 || node.canonical_order % 6 === 0);
           const labelCollection = node.type === "collection";
-          const labelConcept = node.type === "concept" && ((this.width >= 600 && node.weight > 3) || (this.width < 600 && node.weight > 12));
+          const labelConcept = node.type === "concept" && node.massRank < (this.width >= 600 ? 6 : 2);
           if (node.type === "work" || labelCollection || labelDocument || labelBook || labelConcept) {
             context.globalAlpha = clamp(node.depth - .12, .2, .8);
             context.fillStyle = "#e8e8e8";

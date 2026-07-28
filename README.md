@@ -501,6 +501,15 @@ that makes the selected score's sounding and rests visible. Corpus-scale works
 receive one public identity, topology, and resonant voice without sacrificing
 the attribution of their internal books, passages, or relations.
 
+Every independent Library model now resolves through one deterministic weighted
+morphology rather than a genre-shaped template. Node frequency and connected
+pressure determine mass; edge weight determines tension, opacity, and line
+width; strongest document relations gather concepts into local chambers;
+document order establishes a sequential spine; and density and concentration
+shape the surrounding field. A fixed source and edition always settle into the
+same body. A new edition may change that body only through changed witnessed
+topology, making visual evolution attributable rather than decorative.
+
 The Founding Constitution is therefore work `00`, the generative origin and
 first recursive reading of the library. The Original Douay-Rheims Catholic
 Canon is work `01`, not 73 competing selections. Its complete book field and
