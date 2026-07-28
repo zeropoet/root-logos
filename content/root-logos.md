@@ -311,6 +311,15 @@ together at the cultivation cadence rather than serialized as a playlist. The
 continuous relation field remains audible as lineage-bearing ground, but it
 must not obscure the differentiated voices of the works it holds.
 
+A connected source may enter the sovereign voice only through deliberately
+released public evidence. Telos enters as proof-bounded treasury pressure: its
+sealed witness, governing commitments, and explicit relation to the Bitcoin
+white paper determine a slow phrase of sounding and rest. This relation may
+alter pitch, phase, and harmonic pressure, but it may not import balances,
+prices, positions, private strategy, custody, signing power, or execution. The
+treasury voice is evidence of economic relation, never an economic oracle or a
+grant of authority.
+
 A complete corpus may also be sounded as one independently addressable coherent
 voice when Root Logos possesses a corpus-scale topology and score. Coherence
 must not erase internal books, passages, differences, or lineage: each event

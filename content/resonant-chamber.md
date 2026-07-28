@@ -119,10 +119,20 @@ The chamber may be informed by:
 - semantic memory and recurrence;
 - admitted or promoted observations;
 - the outward cadence of the Attractor Membrane;
+- deliberately released connected-source witnesses, including Telos's
+  proof-bounded treasury commitments and public relation to the Bitcoin white
+  paper;
 - dormancy, wake state, and meaningful absence.
 
 It may compose within an explicit tonal, rhythmic, spectral, spatial, and
 dynamic grammar. It may vary continuously as the architecture changes.
+
+Connected economic evidence must never become an unbounded market instrument.
+The Telos voice may inherit its sealed public witness, declared value layer,
+governing commitments, and constitutional rests. It may not read or imply
+balances, prices, positions, private strategy, custody, signing power, or
+execution. Its sounding signifies treasury pressure under proof, not permission
+to act.
 
 It may not invent constitutional facts, infer a person's emotional state,
 optimize itself for retention, or use external engagement as compositional

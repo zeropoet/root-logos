@@ -134,8 +134,9 @@
     fetchJson("cultivation/state.json"),
     fetchJson("cultivation/memory.json"),
     fetchJson("content/attractor-packets.json"),
-    fetchJson("self-authorship/current.json")
-  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity]) => {
+    fetchJson("self-authorship/current.json"),
+    fetchJson("sources/telos.public-witness.json")
+  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, telos]) => {
     const works = worksIndex.works || [];
     const independentWorks = works.filter((work) => !String(work.collection || "").includes("Douay") && work.edition);
     const coherentWorkCount = independentWorks.length + (corpus.canonical_work_count ? 1 : 0);
@@ -237,16 +238,24 @@
       }
     });
     requestAnimationFrame(frame);
+    const telosRelations = composeTelosRelations(telos);
     const scores = [
       corpus.sound,
-      ...[...independentEditions.values()].map((edition) => edition.sound)
+      ...[...independentEditions.values()].map((edition) => edition.sound),
+      composeTelosScore(telos)
     ].filter((score) => score?.events?.length);
     beginSovereignVoice({
       works: coherentWorkCount,
       cycles,
       collections: new Set([...independentWorks.map((work) => work.collection || work.title), corpus.title]).size,
-      relations: [...(corpus.edges || []), ...independentRelations],
-      scores
+      relations: [...(corpus.edges || []), ...independentRelations, ...telosRelations],
+      scores,
+      sourceVoices: [{
+        source: "telos",
+        witness: telos.witness,
+        role: "proof-bounded treasury pressure",
+        relation: telos.work_relations?.[0]?.relation || "economic witness"
+      }]
     });
   }).catch((error) => {
     console.error("The Living Object could not resolve.", error);
@@ -642,6 +651,69 @@
     };
   }
 
+  function composeTelosRelations(telos = {}) {
+    const workRelations = (telos.work_relations || []).map((relation) => ({
+      from: "source-telos",
+      to: `work:${relation.work_id}`,
+      relation: relation.relation,
+      weight: Math.max(1, relation.shared_structures?.length || 1),
+      provenance: `${telos.source_id}:${relation.id}`
+    }));
+    const commitments = (telos.governing_commitments || []).map((commitment, index) => ({
+      from: "source-telos",
+      to: `telos:commitment:${index + 1}`,
+      relation: commitment,
+      weight: 1,
+      provenance: `${telos.source_id}:governing_commitments:${index}`
+    }));
+    return [...workRelations, ...commitments];
+  }
+
+  function composeTelosScore(telos = {}) {
+    if (telos.status !== "witnessed" || !/^sha256:[a-f0-9]{64}$/.test(telos.witness || "")) return null;
+    const commitments = telos.governing_commitments || [];
+    const relation = telos.work_relations?.[0];
+    const evidence = [
+      ...commitments.map((value, index) => ({
+        value,
+        provenance: `sources/telos.public-witness.json#governing_commitments/${index}`
+      })),
+      ...(relation?.shared_structures || []).map((value, index) => ({
+        value,
+        provenance: `sources/telos.public-witness.json#work_relations/0/shared_structures/${index}`
+      }))
+    ];
+    const ratios = [1, 9 / 8, 6 / 5, 4 / 3, 3 / 2, 8 / 5, 2];
+    const rootHz = 41.2;
+    const signature = `telos-${telos.witness.slice(7, 15)}`;
+    const events = Array.from({ length: cadence.beatsPerCycle }, (_, index) => {
+      const source = evidence[index % Math.max(1, evidence.length)] || {
+        value: telos.identity?.role_in_coherent_field || "Proof-bounded treasury witness",
+        provenance: "sources/telos.public-witness.json#identity/role_in_coherent_field"
+      };
+      const seed = hash(`${telos.witness}:${index}:${source.value}`);
+      const rest = index === 3 || (index === 6 && telos.public_state?.live_execution_available === false);
+      return {
+        voice: "treasury",
+        frequency: Number((rootHz * ratios[Math.floor(seed * ratios.length) % ratios.length]).toFixed(3)),
+        beats: index === 0 ? 2 : 1,
+        amplitude: rest ? 0 : Number((0.018 + seed * 0.014).toFixed(4)),
+        rest,
+        provenance: source.provenance,
+        witness: telos.witness,
+        boundary: "No balance, price, position, strategy, custody, or execution data enters the voice."
+      };
+    });
+    return {
+      schema: "root-logos-source-score/v1",
+      source_id: "telos",
+      signature,
+      tempo: 35,
+      root_hz: rootHz,
+      events
+    };
+  }
+
   function voiceWaveform(voice) {
     return ({
       coherence: "sine",
@@ -649,13 +721,14 @@
       ground: "triangle",
       relation: "sine",
       figure: "sine",
-      breath: "sine"
+      breath: "sine",
+      treasury: "triangle"
     })[voice] || "sine";
   }
 
-  function beginSovereignVoice({ works, cycles, collections, relations, scores }) {
+  function beginSovereignVoice({ works, cycles, collections, relations, scores, sourceVoices = [] }) {
     if (!sovereignAudio) {
-      beginFallbackVoice({ works, cycles, collections, relations, scores });
+      beginFallbackVoice({ works, cycles, collections, relations, scores, sourceVoices });
       return;
     }
     const audio = sovereignAudio;
@@ -776,6 +849,7 @@
       relationWeight,
       scoreEvents: scoreField.events.length,
       scoreStreams: scoreField.streams.length,
+      sourceVoices,
       composition: "current-edition polyphony / signature-phased / cadence recomposed",
       range: {
         minHz: scoreField.minHz,
@@ -788,7 +862,7 @@
     };
   }
 
-  function beginFallbackVoice({ works, cycles, collections, relations, scores }) {
+  function beginFallbackVoice({ works, cycles, collections, relations, scores, sourceVoices = [] }) {
     const scoreField = inheritedScoreField(scores || []);
     const sampleRate = 8000;
     const seconds = cadence.beatSeconds * cadence.beatsPerCycle;
@@ -851,6 +925,7 @@
       relationWeight: meanWeight * relations.length,
       scoreEvents: scoreField.events.length,
       scoreStreams: scoreField.streams.length,
+      sourceVoices,
       composition: "current-edition polyphony / signature-phased / cadence recomposed",
       range: {
         minHz: scoreField.minHz,

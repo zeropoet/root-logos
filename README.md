@@ -660,6 +660,15 @@ signature-derived phase so no work is reduced to a turn in a long playlist.
 The continuous relational tone remains beneath that polyphony at witness level,
 not as the dominant electrical buzz.
 
+Telos now enters this refresh-time composition as a source voice rather than a
+market feed. Its sealed public witness, governing commitments, and explicit
+relation to the Bitcoin white paper generate a slow seven-event treasury phrase
+with proof-bounded rests. The witness determines pitch, phase, and harmonic
+pressure, so a future public Telos revision recomposes the sovereign voice.
+Balances, prices, positions, private strategy, custody, and execution never
+enter the instrument; Telos contributes material economic pressure without
+acquiring constitutional authority.
+
 The object is deliberately beheld before it is explained. Its threshold is
 visually naked: no site navigation, title treatment, measures, identity
 statement, or interpretive panel precedes the encounter. A single quiet passage
