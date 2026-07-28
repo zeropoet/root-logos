@@ -222,6 +222,8 @@
     $("#object-work-count").textContent = `${coherentWorkCount} coherent works`;
     $("#object-cycle-count").textContent = `${cycles} cycles`;
     $("#object-revision").textContent = `Revision ${revision}`;
+    $("#archive-works").textContent = `${coherentWorkCount} works`;
+    $("#archive-revision").textContent = `Revision ${revision}`;
     const crossRelations = (corpus.edges?.length || 0) + independentRelations.length;
     const outwardPressure = corpus.measures?.mean_outward_pressure;
     $("#object-state").textContent = `The Bible holds as one ${corpus.canonical_work_count || 73}-book body within ${coherentWorkCount} coherent works. Gravity seeks coherence through ${crossRelations.toLocaleString()} witnessed tensions${outwardPressure ? ` while the canon sustains ${outwardPressure} mean outward pressure` : ""}.`;

@@ -1102,6 +1102,8 @@ likewise emitted directly in monochrome. The Living Object alone retains its
 separate provenance-bearing spectral identity. The opening object occupies
 exactly one visible viewport, so its WebGL projection resolves around the true
 above-the-fold center rather than the center of a taller minimum-height stage.
+The vertical archive rail is a live condition register rather than decoration:
+it carries runtime state, current identity revision, and coherent-work count.
 
 The Sovereign Standard tea invitation is the archive's quiet terminal chamber
 rather than a footer annotation: Root Logos resolves into an embodied

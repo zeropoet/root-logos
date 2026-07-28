@@ -119,8 +119,11 @@ const renderPresence = () => {
   const status = service.status || "unknown";
   const header = $(".system-presence");
   header.dataset.state = status;
-  $("#header-state").textContent = sentence(status === "archive" ? "Archive mode" : status);
+  const displayedStatus = sentence(status === "archive" ? "Archive mode" : status);
+  $("#header-state").textContent = displayedStatus;
   $("#header-detail").textContent = app.runtime.archival_fallback ? "Runtime / archival witness" : "Runtime / live contact";
+  $("#archive-runtime").textContent = `Runtime / ${displayedStatus}`;
+  $("#archive-revision").textContent = `Revision ${app.identity?.revision || app.graph.meta?.revision || "—"}`;
 
   const sleeping = status === "sleeping";
   const running = status === "running";
