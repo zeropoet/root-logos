@@ -34,7 +34,8 @@ const app = {
   identity: null,
   sources: null,
   foldforge: null,
-  sourceWitnesses: {}
+  sourceWitnesses: {},
+  materialWitnesses: {}
 };
 
 const fetchJson = async (url) => {
@@ -44,7 +45,7 @@ const fetchJson = async (url) => {
 };
 
 const loadData = async () => {
-  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult] = await Promise.allSettled([
+  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult, sovereignMaterialResult] = await Promise.allSettled([
     fetchJson("content/constitutional-graph.json"),
     fetchJson(`${RUNTIME}/v1/status`),
     fetchJson(`${RUNTIME}/v1/cycles`),
@@ -55,7 +56,8 @@ const loadData = async () => {
     fetchJson("sources/registry.json"),
     fetchJson("sources/foldforge.snapshot.json"),
     fetchJson("sources/telos.public-witness.json"),
-    fetchJson("sources/sovereign-standard.public-witness.json")
+    fetchJson("sources/sovereign-standard.public-witness.json"),
+    fetchJson("sources/sovereign-standard.snapshot.json")
   ]);
 
   if (graphResult.status !== "fulfilled") throw graphResult.reason;
@@ -68,6 +70,11 @@ const loadData = async () => {
   app.sourceWitnesses = Object.fromEntries([
     telosResult.status === "fulfilled" ? [telosResult.value.source_id, telosResult.value] : null,
     sovereignStandardResult.status === "fulfilled" ? [sovereignStandardResult.value.source_id, sovereignStandardResult.value] : null
+  ].filter(Boolean));
+  app.materialWitnesses = Object.fromEntries([
+    sovereignMaterialResult.status === "fulfilled"
+      ? [sovereignMaterialResult.value.source_id, sovereignMaterialResult.value]
+      : null
   ].filter(Boolean));
   app.cycles = cyclesResult.status === "fulfilled" ? cyclesResult.value.cycles.map(canonicalCycle) : [];
 
@@ -151,7 +158,8 @@ const renderSources = () => {
     const source = sources.find((candidate) => candidate.id === id) || sources[0];
     const foldForgeLive = source.id === "foldforge" && app.foldforge?.status === "witnessed";
     const publicWitness = app.sourceWitnesses[source.id];
-    const live = foldForgeLive || publicWitness?.status === "witnessed";
+    const materialWitness = app.materialWitnesses[source.id];
+    const live = foldForgeLive || publicWitness?.status === "witnessed" || Boolean(materialWitness);
     $$("[data-source-id]").forEach((button) => button.classList.toggle("is-active", button.dataset.sourceId === source.id));
     $("#source-coordinate").textContent = `${sentence(source.status)} source / ${source.visibility}`;
     $("#source-title").textContent = source.name;
@@ -168,10 +176,29 @@ const renderSources = () => {
       measures = [["Mode", sentence(publicWitness.public_state.operational_mode)], ["Value layer", publicWitness.public_state.settled_value_layer], ["Linked works", publicWitness.work_relations?.length || 0], ["RL custody", "None"]];
     }
     if (source.id === "sovereign-standard" && publicWitness) {
-      measures = [["Public records", publicWitness.public_state.published_vessel_records], ["Physical form", "Black Tin Vessel"], ["Private orders", "Excluded"], ["Witness", "Current"]];
+      measures = materialWitness
+        ? [["Vessels", materialWitness.measures.public_vessel_records], ["Witness works", materialWitness.measures.witness_works], ["Embodied", materialWitness.measures.vessel_work_relations], ["Minted", materialWitness.measures.minted_works]]
+        : [["Public records", publicWitness.public_state.published_vessel_records], ["Physical form", "Black Tin Vessel"], ["Private orders", "Excluded"], ["Witness", "Current"]];
     }
     $("#source-measures").innerHTML = measures.map(([label, value]) => `<span><small>${escapeHtml(label)}</small><b>${escapeHtml(value)}</b></span>`).join("");
     $("#source-boundary").textContent = source.boundary;
+    const materialPanel = $("#source-material-witness");
+    materialPanel.hidden = !materialWitness;
+    if (materialWitness) {
+      const linkedWorks = materialWitness.works
+        .filter(({ vessels }) => vessels.length)
+        .sort((left, right) => left.vessels[0].vessel_number.localeCompare(right.vessels[0].vessel_number));
+      $("#material-witness-summary").textContent = `${linkedWorks.length} works / ${materialWitness.measures.vessels_with_witness_works} vessels`;
+      $("#material-witness-works").innerHTML = linkedWorks.map((work) => `
+        <div>
+          <a class="witness-vessel" href="${escapeHtml(work.vessels[0].public_url)}" target="_blank" rel="noreferrer">${escapeHtml(work.vessels.map(({ vessel_number }) => vessel_number).join(" · "))}</a>
+          <a class="witness-work" href="${escapeHtml(work.manifest_url)}" target="_blank" rel="noreferrer">${escapeHtml(work.title)}</a>
+          <small>${escapeHtml(sentence(work.mint_status))}</small>
+        </div>
+      `).join("");
+    } else {
+      $("#material-witness-works").innerHTML = "";
+    }
     const workRelation = publicWitness?.work_relations?.[0];
     const relationLink = $("#source-work-relation");
     relationLink.hidden = !workRelation;
@@ -182,7 +209,9 @@ const renderSources = () => {
     }
     $("#source-witness").textContent = foldForgeLive
       ? app.foldforge.witness.replace("sha256:", "").slice(0, 16)
-      : publicWitness?.witness
+      : materialWitness?.witness
+        ? materialWitness.witness.replace("sha256:", "").slice(0, 16)
+        : publicWitness?.witness
         ? publicWitness.witness.replace("sha256:", "").slice(0, 16)
         : "Channel witness";
     const repository = $("#source-repository");

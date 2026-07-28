@@ -63,9 +63,12 @@
       "status": "active",
       "visibility": "public-witness",
       "adapter": "sovereign-standard-public-v1",
-      "reads": ["sources/sovereign-standard.public-witness.json"],
-      "receives": "Public product canon, vessel records, material practice, and explicitly released community evidence",
-      "returns": "Material tests of coherence, stewardship, and participation",
+      "reads": [
+        "sources/sovereign-standard.public-witness.json",
+        "sources/sovereign-standard.snapshot.json"
+      ],
+      "receives": "A sealed public material-witness export carrying work hashes, preparation and mint state, public archive URLs, ledger witnesses, and explicit Black Tin Vessel relations",
+      "returns": "Material tests of coherence, stewardship, preparation, embodiment, and archival continuity",
       "connection_message": "Sovereign Standard is present through its public product canon and vessel field. Private collector and order records remain outside the connection.",
       "boundary": "Private customer, order, claim, registry, and community records remain outside Root Logos by default."
     }

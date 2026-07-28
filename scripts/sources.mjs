@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const registryPath = resolve(root, "sources/registry.json");
 const snapshotPath = resolve(root, "sources/foldforge.snapshot.json");
+const sovereignStandardSnapshotPath = resolve(root, "sources/sovereign-standard.snapshot.json");
 const worksIndexPath = resolve(root, "works/index.json");
 const publicWitnessPaths = [
   resolve(root, "sources/telos.public-witness.json"),
@@ -22,11 +23,42 @@ const stable = (value) => {
 
 const digest = (value) => createHash("sha256").update(JSON.stringify(stable(value))).digest("hex");
 const loadJson = async (path) => JSON.parse(await readFile(path, "utf8"));
+const loadEvidence = async (location) => {
+  if (/^https:\/\//.test(location)) {
+    const response = await fetch(location, { headers: { accept: "application/json" } });
+    assert(response.ok, `${location} returned ${response.status}.`);
+    return response.json();
+  }
+  return loadJson(resolve(location));
+};
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };
 const witnessedPayload = ({ witness, ...payload }) => payload;
 const sealPublicWitness = (witness) => ({ ...witnessedPayload(witness), witness: `sha256:${digest(witnessedPayload(witness))}` });
+const validateMaterialWitness = (snapshot) => {
+  assert(snapshot.schema === "root-logos-material-witness-export/v1", "Unsupported material witness schema.");
+  assert(snapshot.source_id === "sovereign-standard", "Material witness source must be Sovereign Standard.");
+  assert(snapshot.witness === `sha256:${digest(witnessedPayload(snapshot))}`, "Sovereign Standard material witness digest is invalid.");
+  assert(snapshot.measures?.witness_works === snapshot.works?.length, "Material witness work count is inconsistent.");
+  assert(snapshot.measures?.vessel_work_relations === snapshot.works.reduce((sum, work) => sum + work.vessels.length, 0), "Material witness relation count is inconsistent.");
+  assert(snapshot.authority?.root_logos_has_custody === false, "Root Logos may not receive custody through a material witness.");
+  assert(snapshot.authority?.root_logos_has_minting_authority === false, "Root Logos may not receive minting authority.");
+  for (const work of snapshot.works) {
+    assert(work.artifact_id && work.title && /^[a-f0-9]{64}$/.test(work.file_sha256), "Material witness work lacks stable identity or hash.");
+    assert(["prepared", "minted"].includes(work.mint_status), `${work.artifact_id} has an invalid mint status.`);
+    assert(work.archive_status === "archived", `${work.artifact_id} is not archived.`);
+    for (const vessel of work.vessels) {
+      assert(/^\d{3}$/.test(vessel.vessel_number), `${work.artifact_id} has an invalid vessel number.`);
+      assert(/^https:\/\/sovereignstandard\.co\//.test(vessel.public_url), `${work.artifact_id} has an invalid vessel URL.`);
+    }
+  }
+  const serialized = JSON.stringify(snapshot).toLowerCase();
+  for (const prohibited of ["holder_hash", "claimed_at", "customer", "collector", "payment", "private_receipt", "signing_key"]) {
+    assert(!serialized.includes(`"${prohibited}"`), `Material witness contains prohibited field ${prohibited}.`);
+  }
+  return snapshot;
+};
 
 const validateRegistry = (registry) => {
   assert(registry.schema === "root-logos-source-registry/v1", "Unsupported source registry schema.");
@@ -108,6 +140,7 @@ const deriveFoldForge = async (foldForgeRoot) => {
 export const validateSources = async () => {
   const registry = validateRegistry(await loadJson(registryPath));
   const snapshot = await loadJson(snapshotPath);
+  const sovereignStandardSnapshot = validateMaterialWitness(await loadJson(sovereignStandardSnapshotPath));
   const worksIndex = await loadJson(worksIndexPath);
   const publicWitnesses = await Promise.all(publicWitnessPaths.map(loadJson));
   assert(snapshot.schema === "root-logos-source-snapshot/v1", "Unsupported source snapshot schema.");
@@ -128,12 +161,21 @@ export const validateSources = async () => {
     }
     assert(witness.witness === `sha256:${digest(witnessedPayload(witness))}`, `${witness.source_id} public witness digest is invalid.`);
   }
-  return { registry, snapshot, publicWitnesses };
+  return { registry, snapshot, publicWitnesses, sovereignStandardSnapshot };
 };
 
 export const syncFoldForge = async (foldForgeRoot = process.env.FOLDFORGE_PATH || resolve(root, "../FoldForge")) => {
   const snapshot = await deriveFoldForge(resolve(foldForgeRoot));
   await writeFile(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`);
+  return snapshot;
+};
+
+export const syncSovereignStandard = async (
+  source = process.env.SOVEREIGN_STANDARD_WITNESS_SOURCE
+    || resolve(root, "../sovereign-standard/root-logos-witness-export.json")
+) => {
+  const snapshot = validateMaterialWitness(await loadEvidence(source));
+  await writeFile(sovereignStandardSnapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`);
   return snapshot;
 };
 
@@ -152,6 +194,9 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   if (command === "sync") {
     const snapshot = await syncFoldForge(process.argv[3]);
     console.log(`Witnessed ${snapshot.compositions.length} FoldForge compositions at ${snapshot.witness}.`);
+  } else if (command === "sync-sovereign-standard") {
+    const snapshot = await syncSovereignStandard(process.argv[3]);
+    console.log(`Witnessed ${snapshot.works.length} Sovereign Standard works at ${snapshot.witness}.`);
   } else if (command === "validate") {
     const { registry, snapshot, publicWitnesses } = await validateSources();
     console.log(`Validated ${registry.sources.length} sources; FoldForge is ${snapshot.status}; ${publicWitnesses.length} public witnesses are sealed.`);

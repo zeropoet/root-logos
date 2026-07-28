@@ -84,12 +84,23 @@ of carrying them without doctrinal repetition.
   stewardship, product, ritual, and potential community. Private customer,
   collector, order, payment, claim, address, receipt, and community records are
   excluded.
+- `sources/sovereign-standard.snapshot.json` is the sealed material-witness
+  bridge generated from Sovereign Standard's public
+  `root-logos-witness-export.json`. It preserves content hashes, public archive
+  and metadata URLs, prepared or minted state, public ledger witness
+  identifiers, and explicit `work → Black Tin Vessel` relations. A work remains
+  distinct from its vessel: the work is the attributable body; the vessel is
+  its physical witness and archival coordinate. Token ownership witnesses
+  stewardship but grants neither archive access nor constitutional authority.
 - `scripts/sources.mjs` validates source boundaries and synchronizes FoldForge
-  into a stable SHA-256-witnessed snapshot. It also seals and verifies the Telos
-  and Sovereign Standard public witnesses so any silent mutation invalidates
-  their digests. `.github/workflows/source-integration.yml`
-  checks FoldForge daily; changed evidence produces a Root Logos commit, wakes
-  cultivation, and becomes visible in the public field.
+  and Sovereign Standard into stable SHA-256-witnessed snapshots. It also seals
+  and verifies the Telos and Sovereign Standard identity witnesses so any
+  silent mutation invalidates their digests. The material adapter rejects
+  private identity, claim, order, payment, credential, signing, custody, and
+  minting-authority fields. `.github/workflows/source-integration.yml` checks
+  connected evidence daily; a changed public export produces a Root Logos
+  commit, wakes cultivation, converges the always-awake runtime, and becomes
+  visible in the Observatory.
 - `content/coherent-field.md` defines the constitutional standard for building
   one coherent account across distinct sources without possession or collapse,
   including the separate compositional, economic, material, and public-exchange

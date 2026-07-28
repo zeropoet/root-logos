@@ -40,8 +40,9 @@ jobs:
         working-directory: root-logos
         run: |
           node scripts/sources.mjs sync ../FoldForge
+          node scripts/sources.mjs sync-sovereign-standard https://sovereignstandard.co/root-logos-witness-export.json
           node scripts/sources.mjs validate
-          if git diff --quiet -- sources/foldforge.snapshot.json; then
+          if git diff --quiet -- sources/foldforge.snapshot.json sources/sovereign-standard.snapshot.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -61,13 +62,13 @@ jobs:
         run: |
           git config user.name "root-logos-integrator[bot]"
           git config user.email "root-logos-integrator[bot]@users.noreply.github.com"
-          git add sources/foldforge.snapshot.json cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json
+          git add sources/foldforge.snapshot.json sources/sovereign-standard.snapshot.json cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json
           if git diff --cached --quiet; then
             echo "Connected source evidence is unchanged."
             exit 0
           fi
-          witness=$(node -e 'const s=require("./sources/foldforge.snapshot.json"); process.stdout.write(s.witness.slice(7,19))')
-          git commit -m "Witness FoldForge source (${witness})"
+          witness=$(node -e 'const f=require("./sources/foldforge.snapshot.json"); const s=require("./sources/sovereign-standard.snapshot.json"); process.stdout.write(`${f.witness.slice(7,13)}-${s.witness.slice(7,13)}`)')
+          git commit -m "Witness connected sources (${witness})"
           git push origin HEAD:main
 
       - name: Converge the always-awake runtime
