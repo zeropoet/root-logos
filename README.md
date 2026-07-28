@@ -73,8 +73,8 @@ of carrying them without doctrinal repetition.
   cross-book relations remain drawn, and each book simultaneously expresses
   gravitational coherence and measured outward pressure.
 - `assets/library-first-frames/` holds one canonical 2400×2400 PNG portrait for
-  every coherent Library selection. Each is the work's naked weighted topology
-  at its initial orientation; the adjacent manifest binds the image to its
+  every coherent Library selection. Each is the work's naked, solid-white
+  weighted topology on pure black at its initial orientation; the adjacent manifest binds the image to its
   Library order, current edition, renderer, dimensions, and SHA-256.
 - `scripts/works.mjs` ingests a Markdown file or directory in natural order,
   preserves file and heading coordinates, derives concepts and relations,

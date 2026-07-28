@@ -267,7 +267,7 @@ const renderWeighted = (edition) => {
       radius * scale * (.7 + morphology.concentration * .28),
       radius * scale * (.34 + morphology.density * .34),
       morphology.phase * .08,
-      .035 + morphology.density * .08 - shell * .0015);
+      1);
   }
   nodes.forEach((node) => {
     node.screenX = centerX + (node.layoutX || 0) * radius;
@@ -281,7 +281,7 @@ const renderWeighted = (edition) => {
     if (!from || !to) return;
     const emphasis = edge.morphWeight ?? 0;
     const direction = from.community && from.community === to.community ? -1 : 1;
-    raster.line(from, to, 1.5 + emphasis * 3.4, .045 + emphasis * .2, {
+    raster.line(from, to, 1.5 + emphasis * 3.4, 1, {
       x: (from.screenX + to.screenX) / 2,
       y: (from.screenY + to.screenY) / 2 + direction * Math.min(60, Math.abs(to.screenX - from.screenX) * .08)
     });
@@ -292,7 +292,7 @@ const renderWeighted = (edition) => {
       : node.type === "document"
         ? 7.2 + (node.visualMass ?? .3) * 8
         : 3.6 + (node.visualMass ?? .3) * 10.5;
-    raster.circle(node.screenX, node.screenY, size * node.depth, clamp(.28 + node.depth * .62, .3, 1));
+    raster.circle(node.screenX, node.screenY, size * node.depth, 1);
   });
   return raster.pixels;
 };
@@ -318,11 +318,11 @@ const renderCorpus = (corpus) => {
     const from = byId.get(edge.from);
     const to = byId.get(edge.to);
     if (!from || !to) return;
-    raster.line(from, to, 1.5, clamp(.03 + Number(edge.weight || 1) * .006, .035, .095), { x: centerX, y: centerY });
+    raster.line(from, to, 1.5, 1, { x: centerX, y: centerY });
   });
   nodes.sort((left, right) => left.depth - right.depth).forEach((node) => {
     const size = node.type === "work" ? 22 : node.type === "document" ? 10 : 5;
-    raster.circle(node.screenX, node.screenY, size * node.depth, clamp(.3 + node.depth * .62, .35, 1));
+    raster.circle(node.screenX, node.screenY, size * node.depth, 1);
   });
   return raster.pixels;
 };
@@ -372,7 +372,7 @@ export const renderLibraryFirstFrames = async () => {
   const manifest = {
     schema: "root-logos-library-first-frames/v1",
     generated_at: new Date().toISOString(),
-    renderer: "deterministic-weighted-topology-raster/v1",
+    renderer: "deterministic-weighted-topology-raster/v2-solid-white",
     resolution: { width: WIDTH, height: HEIGHT },
     frames
   };
