@@ -1927,13 +1927,6 @@ body.archive-open .site-footer nav {
   gap:40px;
   margin-bottom:clamp(54px,7vw,92px);
 }
-.state-heading h2 {
-  margin:0;
-  color:#fff;
-  font:300 clamp(2.25rem,5vw,5.7rem)/.9 var(--display);
-  letter-spacing:-.055em;
-  text-transform:none;
-}
 .state-primary {
   display:grid;
   grid-template-columns:minmax(0,1.55fr) minmax(290px,.6fr);
@@ -2083,7 +2076,6 @@ body.archive-open .site-footer nav {
 @media (max-width:640px) {
   .state-space { padding:104px 20px 90px; }
   .state-heading { display:block; }
-  .state-heading h2 { margin-top:22px; }
   .state-cycle h3 { margin-top:48px; }
   .state-sources > header { display:block; }
   .state-sources > header > p:last-child { margin-top:18px; }
@@ -2353,18 +2345,11 @@ body.archive-open .state-space {
   padding-bottom:160px;
 }
 body.archive-open .state-heading {
-  min-height:116px;
+  min-height:0;
   align-items:start;
   margin-bottom:0;
   padding-bottom:34px;
   border-bottom:1px solid rgba(255,255,255,.46);
-}
-body.archive-open .state-heading h2 {
-  align-self:end;
-  font-family:var(--mono);
-  font-size:clamp(2rem,4.6vw,5.2rem);
-  font-weight:400;
-  letter-spacing:-.07em;
 }
 body.archive-open .state-primary { border-top:0; }
 body.archive-open .state-cycle,
@@ -2461,7 +2446,6 @@ body.archive-open .site-footer > div small {
   }
   body.archive-open .state-space { padding-top:118px; }
   body.archive-open .state-heading { min-height:0;padding-bottom:28px; }
-  body.archive-open .state-heading h2 { font-size:clamp(2rem,11vw,3.4rem); }
   body.archive-open .observation-instrument > header {
     border-right:0;
     border-bottom:1px solid rgba(255,255,255,.16);
