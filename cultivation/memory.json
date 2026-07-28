@@ -251,14 +251,14 @@
       ],
       "claim": "The Living Membrane Principle is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
       "proposed_question": "What observable failure would show that the Cultivation Chamber violates The Living Membrane Principle?",
-      "evidence_hash": "04882f61a1971b2af8bc6a9cdd5016992ba1d8aff65d15d93083178e1c7239ac",
-      "policy_hash": "967b44370f0c53e2d44071fb82e6eb3f158a94c079aa0c4efd9bae93340c3b1c",
+      "evidence_hash": "15a5dd2eadf69b950f487b088549590835fad67759a20a8982a644d2930cd9e3",
+      "policy_hash": "077f46170043519e0f4144e97b8ea8b8d7a664fbe5f35ddc8723d782a822a7b7",
       "first_cycle": "RL-CULTIVATE-0012",
-      "last_cycle": "RL-CULTIVATE-0029",
-      "last_cycle_index": 29,
-      "considerations": 3,
+      "last_cycle": "RL-CULTIVATE-0034",
+      "last_cycle_index": 34,
+      "considerations": 5,
       "status": "autonomously-rejected",
-      "last_novelty_reason": "incubation-elapsed",
+      "last_novelty_reason": "evidence-changed",
       "last_evaluation": {
         "dimensions": {
           "source_fidelity": 4,
@@ -576,7 +576,7 @@
   },
   "novelty": {
     "consecutive_low_yield_cycles": 0,
-    "last_score": 2,
+    "last_score": 3,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -752,6 +752,13 @@
         "reason": "policy-changed",
         "status": "autonomously-rejected",
         "at": "2026-07-27T23:49:56.148Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0034",
+        "score": 3,
+        "reason": "evidence-changed",
+        "status": "autonomously-rejected",
+        "at": "2026-07-28T01:28:59.214Z"
       }
     ]
   },
