@@ -1070,9 +1070,11 @@ The public library applies the same boundary: the Founding Constitution is
 work `00`, the complete Bible is `01`, The Odyssey is `02`, Ornament of
 Abhidharma is `03`, the Bitcoin white paper is `04`, and the signed 1787 U.S.
 Constitution is `05`. The twenty-seven ratified amendments form related work
-`06`. The Bible's 73 books remain visible and inspectable as
-nodes within the `01` topology, but no longer appear as 73 competing library selections.
-Future complete works receive the next stable library ordinal at ingestion.
+`06`, followed by Plato's *Republic* as `07`, *The Federalist Papers* as `08`,
+*The Tempest* as `09`, and *Hamlet* as `10`. The Bible's 73 books remain visible
+and inspectable as nodes within the `01` topology, but no longer appear as 73
+competing library selections. Future complete works receive the next stable
+library ordinal at ingestion.
 The public Library surface is intentionally limited to three things: the stable
 list of coherent works, the selected work's description, and its navigable
 visual model. A single listening action belongs to the selected work, while a
@@ -1087,7 +1089,10 @@ same local card; selection pins the detail for sustained reading. Deeper
 evidence remains in the underlying archive. The complete Library composition is
 bounded to one viewport: work selection, model, description, contextual detail,
 and listening state remain simultaneously visible. Only the work list acquires
-local overflow when future growth exceeds its allotted field. The model is held
+local overflow when future growth exceeds its allotted field. Every Library
+object rotates continuously at a slow, frame-rate-independent cadence. It
+offers no manual rotation or drag affordance; hover and selection reveal
+structure without transferring control of the object. The model is held
 against absolute black without atmospheric gradient, radial field, grid plane,
 or veil; all depth must come from the topology itself. Its monochrome state is
 authored natively: nodes, relations, type, cards, selection states, structural
@@ -1104,6 +1109,12 @@ exactly one visible viewport, so its WebGL projection resolves around the true
 above-the-fold center rather than the center of a taller minimum-height stage.
 The vertical archive rail is a live condition register rather than decoration:
 it carries runtime state, current identity revision, and coherent-work count.
+Runtime vitality is expressed consistently across the archive. Whenever the
+system is neither sleeping nor constitutionally dormant, the top-right runtime
+witness and the central Root Logos node pulse together in the interface's
+single solid red accent. Both return to still white when the system sleeps or
+enters dormancy; reduced-motion preferences suppress the geometric pulse
+without changing the reported state or active red witness.
 
 The Sovereign Standard tea invitation is the archive's quiet terminal chamber
 rather than a footer annotation: Root Logos resolves into an embodied

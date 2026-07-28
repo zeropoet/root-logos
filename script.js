@@ -21,6 +21,10 @@ const latestWakeAt = () => {
   ].filter(Boolean);
   return candidates.sort((left, right) => new Date(right) - new Date(left))[0] || null;
 };
+const runtimeIsAwake = () => {
+  const status = String(app.runtime?.service?.status || "unknown").toLowerCase();
+  return !app.runtime?.dormancy?.active && !["sleeping", "dormant"].includes(status);
+};
 const hash = (value) => [...String(value)].reduce((sum, character) => ((sum << 5) - sum + character.charCodeAt(0)) | 0, 0);
 const seeded = (value) => {
   const x = Math.sin(hash(value) * 91.173) * 43758.5453;
@@ -119,6 +123,7 @@ const renderPresence = () => {
   const status = service.status || "unknown";
   const header = $(".system-presence");
   header.dataset.state = status;
+  header.dataset.pulsing = String(runtimeIsAwake());
   const displayedStatus = sentence(status === "archive" ? "Archive mode" : status);
   $("#header-state").textContent = displayedStatus;
   $("#header-detail").textContent = app.runtime.archival_fallback ? "Runtime / archival witness" : "Runtime / live contact";
@@ -784,21 +789,28 @@ class ConstitutionalField {
       const hover = this.hovered?.id === node.id;
       const depth = Math.max(.22, Math.min(1, (node.pz + 1.2) / 2.1));
       const radius = Math.max(1.3, node.radius * node.scale * (.72 + depth * .35));
+      const rootPulse = node.type === "root" && runtimeIsAwake() && !this.reducedMotion
+        ? Math.sin(this.time * 1.7) * 1.5
+        : 0;
+      const rootAwake = node.type === "root" && runtimeIsAwake();
+      const rootColor = rootAwake ? "226,27,27" : "255,255,255";
       if (node.type === "root") {
-        const glow = ctx.createRadialGradient(node.px, node.py, 0, node.px, node.py, 52 * this.zoom);
-        glow.addColorStop(0, "rgba(255,255,255,.16)"); glow.addColorStop(1, "rgba(255,255,255,0)");
-        ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(node.px, node.py, 52 * this.zoom, 0, Math.PI * 2); ctx.fill();
+        const glowRadius = (52 + rootPulse * 2) * this.zoom;
+        const glow = ctx.createRadialGradient(node.px, node.py, 0, node.px, node.py, glowRadius);
+        glow.addColorStop(0, `rgba(${rootColor},.18)`); glow.addColorStop(1, `rgba(${rootColor},0)`);
+        ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(node.px, node.py, glowRadius, 0, Math.PI * 2); ctx.fill();
       }
       if (active || hover || node.type === "root") {
         ctx.beginPath();
-        ctx.arc(node.px, node.py, radius + (active ? 12 : 7) + Math.sin(this.time * 1.7) * 1.5, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(255,255,255,${active ? .48 : .2})`;
+        const selectionPulse = (active || hover) && !this.reducedMotion ? Math.sin(this.time * 1.7) * 1.5 : 0;
+        ctx.arc(node.px, node.py, radius + (active ? 12 : 7) + (node.type === "root" ? rootPulse : selectionPulse), 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${node.type === "root" ? rootColor : "255,255,255"},${active ? .48 : .2})`;
         ctx.lineWidth = .7;
         ctx.stroke();
       }
       ctx.beginPath();
-      ctx.arc(node.px, node.py, active ? radius + 2 : radius, 0, Math.PI * 2);
-      ctx.fillStyle = "#fff";
+      ctx.arc(node.px, node.py, (active ? radius + 2 : radius) + rootPulse * .24, 0, Math.PI * 2);
+      ctx.fillStyle = rootAwake ? "#e21b1b" : "#fff";
       ctx.fill();
       if (hover || active || node.type === "root") {
         ctx.fillStyle = "#fff";
