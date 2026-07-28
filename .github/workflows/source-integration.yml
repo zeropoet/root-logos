@@ -75,6 +75,8 @@ jobs:
         if: steps.source.outputs.changed == 'true'
         working-directory: root-logos
         run: |
+          npm run works:recompose-foldforge
+          npm run works:check-foldforge
           node scripts/cultivate.mjs cycle
           node scripts/cultivate.mjs validate
           node scripts/attractors.mjs validate
@@ -85,7 +87,7 @@ jobs:
         run: |
           git config user.name "root-logos-integrator[bot]"
           git config user.email "root-logos-integrator[bot]@users.noreply.github.com"
-          git add sources/foldforge.snapshot.json sources/sovereign-standard.snapshot.json cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json
+          git add sources/foldforge.snapshot.json sources/sovereign-standard.snapshot.json cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json works/index.json works/corpora works/*/manifest.json works/*/editions
           if git diff --cached --quiet; then
             echo "Connected source evidence is unchanged."
             exit 0

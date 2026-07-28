@@ -1,6 +1,19 @@
 (() => {
   "use strict";
 
+  // The Living Object belongs to the lifetime of this document. In-page
+  // navigation, restored visibility, or an accidental second evaluation of
+  // this script must not regrow the form or construct another voice. A real
+  // page refresh creates a new window and therefore a new lifetime.
+  const lifetimeKey = "__rootLogosLivingObjectLifetime";
+  if (window[lifetimeKey]) return;
+  const lifetime = {
+    growthStartedAt: performance.now(),
+    frameRequest: 0,
+    voiceStarted: false
+  };
+  window[lifetimeKey] = lifetime;
+
   const archiveTargets = new Set([
     "field", "works", "observatory", "chamber", "memory", "threshold", "intake"
   ]);
@@ -235,9 +248,7 @@
     let pointerY = 0;
     let targetX = 0;
     let targetY = 0;
-    let visible = true;
-    let started = performance.now();
-
+    let visible = !document.hidden;
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       const dpr = Math.min(devicePixelRatio || 1, 1.75);
@@ -251,10 +262,11 @@
     };
 
     const frame = (now) => {
+      lifetime.frameRequest = 0;
       resize();
       targetX += (pointerX - targetX) * 0.025;
       targetY += (pointerY - targetY) * 0.025;
-      const elapsed = (now - started) / 1000;
+      const elapsed = Math.max(0, (now - lifetime.growthStartedAt) / 1000);
       const growth = reducedMotion ? 1 : Math.min(1, elapsed / 14);
       const rotation = reducedMotion ? 0.35 : elapsed * 0.022 + targetX * 0.11;
       const pulse = cadenceState();
@@ -268,7 +280,7 @@
         cadenceAccent: pulse.cycleBeat === 0 ? 1 : 0,
         focus: constellationFocus
       });
-      if (visible) requestAnimationFrame(frame);
+      if (visible) lifetime.frameRequest = requestAnimationFrame(frame);
     };
 
     addEventListener("pointermove", (event) => {
@@ -278,11 +290,13 @@
     document.addEventListener("visibilitychange", () => {
       visible = !document.hidden;
       if (visible) {
-        started = performance.now() - 14000;
-        requestAnimationFrame(frame);
+        if (!lifetime.frameRequest) lifetime.frameRequest = requestAnimationFrame(frame);
+      } else if (lifetime.frameRequest) {
+        cancelAnimationFrame(lifetime.frameRequest);
+        lifetime.frameRequest = 0;
       }
     });
-    requestAnimationFrame(frame);
+    if (visible) lifetime.frameRequest = requestAnimationFrame(frame);
     const lexicalRelations = composeLexicalRelations(foldforge.language_composition);
     const scores = [
       corpus.sound,
@@ -816,6 +830,8 @@
   }
 
   function beginSovereignVoice({ works, cycles, collections, relations, scores, sourceVoices = [] }) {
+    if (lifetime.voiceStarted) return;
+    lifetime.voiceStarted = true;
     if (!sovereignAudio) {
       beginFallbackVoice({ works, cycles, collections, relations, scores, sourceVoices });
       return;

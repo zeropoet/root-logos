@@ -4,9 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node scripts/sources.test.mjs && node scripts/works.test.mjs && node scripts/cultivate.test.mjs && node scripts/self-author.test.mjs && node runtime/journal.test.mjs && node runtime/runtime.test.mjs",
+    "test": "node scripts/sources.test.mjs && node scripts/works.test.mjs && node scripts/recompose-foldforge.mjs --check && node scripts/cultivate.test.mjs && node scripts/self-author.test.mjs && node runtime/journal.test.mjs && node runtime/runtime.test.mjs",
     "works:ingest": "node scripts/works.mjs ingest",
     "works:corpus": "node scripts/works-corpus.mjs",
+    "works:recompose-foldforge": "node scripts/recompose-foldforge.mjs",
+    "works:check-foldforge": "node scripts/recompose-foldforge.mjs --check",
     "sources:sync": "node scripts/sources.mjs sync",
     "sources:sync-sovereign-standard": "node scripts/sources.mjs sync-sovereign-standard",
     "sources:seal-public": "node scripts/sources.mjs seal-public",

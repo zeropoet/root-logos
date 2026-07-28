@@ -3,6 +3,7 @@
 import { createHash } from "node:crypto";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, extname, join, relative, resolve } from "node:path";
+import { applyFoldForgeComposition, foldForgeCompositionIdentity } from "./foldforge-score.mjs";
 
 const root = resolve(new URL("..", import.meta.url).pathname);
 const archiveRoot = join(root, "works");
@@ -15,6 +16,7 @@ const words = (value) => String(value).toLowerCase().match(/[\p{L}\p{N}'’]+/gu
 const STOP = new Set("a an and are as at be been but by can could did do does for from had has have he her hers him his how i if in into is it its may me more most my no nor not of on one only or our ours she so than that the their them then there these they this those through to too under up upon us was we were what when where which who will with would you your".split(" "));
 const DEFAULT_TRANSFORMATION = "deterministic-structural-reading/v3";
 const COMPILED_CORPUS_COLLECTION = "Original Douay-Rheims Catholic Canon";
+const foldForgeSnapshot = JSON.parse(await readFile(join(root, "sources", "foldforge.snapshot.json"), "utf8"));
 
 const walkMarkdown = async (path) => {
   const stat = await import("node:fs/promises").then(({ stat }) => stat(path));
@@ -139,7 +141,10 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
   const palette = ["#cbb77a", "#e9e5d8", "#93b9bb", "#9a8cb6", "#ad7159", "#8aa681"];
   const scale = [1, 1.125, 1.25, 1.333333, 1.5, 1.666667, 1.875, 2];
   const graphEdges = edges.sort((a, b) => b.weight - a.weight).slice(0, 180);
-  const readingHash = digest(JSON.stringify({ sourceHash, transformation, readingContext, concepts, graphEdges }));
+  const readingHash = digest(JSON.stringify({
+    sourceHash, transformation, readingContext, concepts, graphEdges,
+    foldforge: foldForgeCompositionIdentity(foldForgeSnapshot)
+  }));
   const seed = Number.parseInt(readingHash.slice(0, 8), 16) >>> 0;
   const scoreEvents = Array.from({ length: 72 }, (_, index) => {
     const concept = concepts[(seed + index * 7) % Math.max(1, concepts.length)] || ["silence", 1];
@@ -175,10 +180,10 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
         topology: { nodes, edges: graphEdges },
         motion: { drift: .16 + (seed % 20) / 100, pulse: 7 + (seed % 9), fold: (seed % 7) + 3 }
       },
-      sound: {
+      sound: applyFoldForgeComposition({ workId, snapshot: foldForgeSnapshot, score: {
         schema: "root-logos-work-score/v1", signature: readingHash.slice(0, 12),
         tempo: 44 + (seed % 21), root_hz: 55, events: scoreEvents
-      },
+      } }),
       reading: {
         dominant_concepts: concepts.slice(0, 12).map(([concept, count]) => ({ concept, count })),
         statement: `${title} resolves as ${documents.length} document${documents.length === 1 ? "" : "s"}, ${sectionRows.length} structural passage${sectionRows.length === 1 ? "" : "s"}, and ${graphEdges.length} witnessed relations.`
@@ -216,7 +221,7 @@ export const ingestWork = async ({
   const sourceHash = digest(canonicalSource);
   const resolvedTitle = title || inferredTitle || basename(sourcePath, extname(sourcePath));
   const workId = `${slug(resolvedTitle)}-${digest(`${resolvedTitle}\n${author}`).slice(0, 8)}`;
-  const transformationId = `read-${digest(`${transformation}\n${JSON.stringify(readingContext || null)}`).slice(0, 6)}`;
+  const transformationId = `read-${digest(`${transformation}\n${JSON.stringify(readingContext || null)}\n${foldForgeSnapshot.witness}`).slice(0, 6)}`;
   const editionId = `${workId}--${slug(rootRevision)}-${transformationId}-${sourceHash.slice(8, 16)}`;
   const derived = deriveWork({
     title: resolvedTitle, author, kind,

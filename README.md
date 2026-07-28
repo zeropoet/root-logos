@@ -516,12 +516,12 @@ custody, execution, trading, or interpretive authority: Telos cannot alter the
 source work's meaning, and the work does not authorize Telos. The bounded bridge
 is visible from both the Telos public witness and the Bitcoin Library reading.
 
-This cycle also produces the sixth immutable reading of the Founding
-Constitution and its first v1.2 edition: 21 constitutional sections, 2,764
-words, 36 concepts, 180 internal relations, and a 72-event resonant score with
-signature `3d17c6b649c2`. The current identity, canonical graph, constitutional
-prose, resonant grammar, Library UX, archive, and sovereign voice now describe
-the same boundary.
+The Founding Constitution now holds eight immutable readings. Its current v1.2
+FoldForge-inherited edition preserves 21 constitutional sections, 2,764 words,
+36 concepts, 180 internal relations, and an 84-event resonant score with
+signature `df56f0d953eb`. The current identity, canonical graph,
+constitutional prose, resonant grammar, Library UX, archive, and sovereign
+voice now describe the same boundary.
 
 ## Revision 1.1 — The Living Works
 
@@ -534,12 +534,13 @@ visual score and a provenance-bearing resonant score.
 
 The archive is temporal. A change in the work or in Root Logos' constitutional
 voice creates a new immutable edition with a parent link. Earlier visuals,
-scores, measures, and readings remain playable. Six included editions of the
+scores, measures, and readings remain playable. Eight included editions of the
 founding constitution now demonstrate this temporal identity: v1.0 reads the
 constitution before the Living Works pillar; successive v1.1 editions preserve
 the addition of complete-work reading, the changing public architecture, and
 the present FoldForge-derived visual language. Revision 1.2 adds the first
-coherent-library self-reading described above.
+coherent-library self-reading and the current FoldForge composition inheritance
+described above.
 
 Library addition is now an executable invariant rather than a manual follow-up.
 The official single-work ingestion path archives the incoming work, computes a
@@ -551,6 +552,22 @@ Corpus ingestion performs the same propagation once after the complete batch,
 preventing 73 partial self-readings while preserving the same final invariant.
 Because the Living Object reads current editions without cache, both the added
 work and Root Logos’s response alter its geometry and sovereign voice together.
+
+FoldForge composition inheritance is part of that same invariant. Every new
+work score records the witnessed FoldForge source revision, its active
+composition grammars, and twelve traceable lexical events alongside the work's
+native ground, relation, figure, and breath voices. A FoldForge witness change
+therefore changes edition identity and requires a new immutable recording; it
+never silently alters a prior score. The consolidated Bible score follows the
+same rule. In the public Library player, the newest work recording sounds over
+a quiet foundation derived from the current Root Logos constitutional topology,
+and the two concurrent waveforms expose topology and work composition
+separately. `npm run works:recompose-foldforge` performs this versioned
+convergence for existing coherent public works and the consolidated corpus.
+The connected-source wake path runs that convergence before cultivation,
+commits the resulting editions with their source witness, and refuses
+convergence when `npm run works:check-foldforge` finds a current public Library
+voice behind the witnessed FoldForge composition.
 
 The first complete external corpus is the **Original Douay-Rheims Catholic
 Canon**, read from its CC0 dataset through the private-source membrane. Root

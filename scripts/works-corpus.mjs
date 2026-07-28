@@ -4,12 +4,14 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { createHash } from "node:crypto";
 import { ingestWork, refreshFoundingConstitution } from "./works.mjs";
+import { applyFoldForgeComposition } from "./foldforge-score.mjs";
 
 const root = resolve(new URL("..", import.meta.url).pathname);
 const archiveRoot = join(root, "works");
 const iso = () => new Date().toISOString();
 const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const digest = (value) => createHash("sha256").update(value).digest("hex");
+const foldForgeSnapshot = JSON.parse(await readFile(join(root, "sources", "foldforge.snapshot.json"), "utf8"));
 
 const OLD_TESTAMENT = [
   "genesis", "exodus", "leviticus", "numbers", "deuteronomy",
@@ -150,13 +152,13 @@ export const buildCorpusTopology = async (entries, sourceWitness) => {
       topology: { nodes: visualNodes, edges: visualEdges },
       motion: { drift: .11, pulse: 11, fold: 7 }
     },
-    sound: {
+    sound: applyFoldForgeComposition({ workId: "original-douay-rheims-catholic-canon", snapshot: foldForgeSnapshot, score: {
       schema: "root-logos-corpus-score/v1",
       signature: corpusSignature.slice(0, 12),
       tempo: 47 + (seed % 12),
       root_hz: 55,
       events: scoreEvents
-    }
+    } })
   };
 };
 

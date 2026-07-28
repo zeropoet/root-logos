@@ -26,6 +26,17 @@ Each ingestion writes:
 - `edition.json`: the derived Work Graph, visual score, resonant score, and interpretation;
 - `index.json`: the public archive entry used by the Root Logos interface.
 
+Every resonant edition also inherits the current witnessed FoldForge
+composition contract. The edition preserves the FoldForge source witness,
+active grammar IDs and versions, and attributable lexical score events. Because
+that witness participates in edition identity, a changed FoldForge composition
+creates a child recording rather than mutating an earlier one. Existing
+coherent works and the consolidated corpus can be converged explicitly with:
+
+```sh
+npm run works:recompose-foldforge
+```
+
 Re-reading the same source under a later Root Logos revision creates another edition. Editions are intended to be immutable and navigable through time.
 
 ## Private-source membrane

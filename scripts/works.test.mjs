@@ -31,8 +31,10 @@ assert.equal(edition.measures.documents, 2);
 assert.ok(edition.measures.sections >= 3);
 assert.ok(edition.visual.topology.nodes.length > 3);
 assert.ok(edition.visual.topology.edges.length > 1);
-assert.equal(edition.sound.events.length, 72);
+assert.equal(edition.sound.events.length, 84);
 assert.match(edition.sound.signature, /^[0-9a-f]{12}$/);
+assert.equal(edition.sound.composition_inheritance.source_id, "foldforge");
+assert.equal(edition.sound.events.filter(({ composition_source }) => composition_source === "foldforge").length, 12);
 
 const contextual = await ingestWork({
   input: book, title: "Test Work", author: "Root Logos Test", kind: "novel",

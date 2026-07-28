@@ -9,12 +9,22 @@
   })[character]);
   const BIBLE_COLLECTION = "Original Douay-Rheims Catholic Canon";
   const isBibleBook = ({ collection }) => collection === BIBLE_COLLECTION;
+  const topologyHash = (value) => {
+    let result = 2166136261;
+    for (const character of String(value)) {
+      result ^= character.charCodeAt(0);
+      result = Math.imul(result, 16777619);
+    }
+    return result >>> 0;
+  };
 
   class LivingWorks {
-    constructor(index, corpus = null, sourceRelations = []) {
+    constructor(index, corpus = null, sourceRelations = [], topology = null, editionScores = new Map()) {
       this.index = index;
       this.corpus = corpus;
       this.sourceRelations = sourceRelations;
+      this.topology = topology;
+      this.editionScores = editionScores;
       this.canvas = $("#work-canvas");
       this.context = this.canvas.getContext("2d");
       this.entry = null;
@@ -26,6 +36,7 @@
       this.audio = null;
       this.master = null;
       this.volume = null;
+      this.topologyVoices = [];
       this.timer = null;
       this.cursor = 0;
       this.detailPinned = false;
@@ -209,20 +220,32 @@
         for (const character of `${work.work_id}:${work.current_edition}`) value = (value * 31 + character.charCodeAt(0)) >>> 0;
         return value;
       }, 2166136261);
-      const events = works.slice(0, 96).map((work, index) => ({
-        voice: "library",
-        frequency: Number((82.41 * Math.pow(2, ((seed + index * 7) % 25) / 12)).toFixed(2)),
-        amplitude: .025 + (work.editions || 1) * .004,
-        beats: index % 5 === 0 ? 2 : 1,
-        provenance: `${work.collection || "Root Logos"} / ${work.title}`
-      }));
+      const streams = works.map((work) => ({
+        work,
+        events: work.work_id === this.corpus?.corpus_id
+          ? this.corpus.sound.events
+          : this.editionScores.get(work.work_id)?.events || []
+      })).filter(({ events }) => events.length);
+      const eventCount = Math.min(96, Math.max(12, streams.reduce((sum, { events }) => sum + events.length, 0)));
+      const events = Array.from({ length: eventCount }, (_, index) => {
+        const stream = streams[index % streams.length];
+        const sourceEvent = stream.events[Math.floor(index / streams.length) % stream.events.length];
+        return {
+          ...sourceEvent,
+          provenance: `${stream.work.title} / ${sourceEvent.provenance}`,
+          library_work_id: stream.work.work_id
+        };
+      });
+      const compositionInheritance = streams
+        .map(({ events, work }) => this.editionScores.get(work.work_id)?.composition_inheritance || (work.work_id === this.corpus?.corpus_id ? this.corpus.sound.composition_inheritance : null))
+        .find(Boolean) || null;
       this.edition = {
         edition_id: `library-${seed.toString(16)}`,
         root_logos_revision: "v1.1",
         source_hash: seed.toString(16).padStart(12, "0"),
         measures: { works: works.length, collections: collectionNames.length, editions: works.reduce((sum, work) => sum + work.editions, 0), witnessed_relations: edges.length },
         visual: { palette: collectionColors, motion: { drift: .65 }, topology: { nodes, edges } },
-        sound: { tempo: 53, signature: seed.toString(16).padStart(12, "0"), events },
+        sound: { schema: "root-logos-library-score/v2", tempo: 53, signature: seed.toString(16).padStart(12, "0"), composition_inheritance: compositionInheritance, events },
         reading: { statement: `${works.length} living works now occupy ${collectionNames.length} independently bounded fields. Collection is witnessed as containment; relation between fields remains open until derived.` }
       };
       this.nodes = nodes.map((node, index) => ({ ...node, angle: node.angle ?? index / nodes.length * Math.PI * 2, screenX: 0, screenY: 0 }));
@@ -558,6 +581,7 @@
       this.master.gain.value = .043;
       this.volume.gain.value = 2.1;
       this.master.connect(this.volume).connect(this.audio.destination);
+      this.beginTopologyFoundation();
       this.cursor = 0;
       $("#work-listen").setAttribute("aria-pressed", "true");
       $("#work-listen-label").textContent = "Stop";
@@ -567,6 +591,53 @@
       this.schedule();
     }
 
+    beginTopologyFoundation() {
+      if (!this.audio || !this.master || !this.topology) return;
+      const nodes = this.topology.nodes || [];
+      const edges = this.topology.edges || [];
+      const root = 31 + (nodes.length % 11);
+      const harmonicCount = 64;
+      const real = new Float32Array(harmonicCount);
+      const imaginary = new Float32Array(harmonicCount);
+      edges.forEach((edge) => {
+        const signature = topologyHash(`${edge.from}:${edge.to}:${edge.type || edge.relation || "relation"}`);
+        const harmonic = 1 + signature % (harmonicCount - 1);
+        const phase = topologyHash(`${edge.to}:${edge.from}`) / 4294967295 * Math.PI * 2;
+        const weight = Math.max(1, Number(edge.weight || 1));
+        real[harmonic] += Math.cos(phase) * weight;
+        imaginary[harmonic] += Math.sin(phase) * weight;
+      });
+
+      const topologyBus = this.audio.createGain();
+      topologyBus.gain.value = .0048;
+      topologyBus.connect(this.master);
+
+      const relationVoice = this.audio.createOscillator();
+      relationVoice.setPeriodicWave(this.audio.createPeriodicWave(real, imaginary, { disableNormalization: false }));
+      relationVoice.frequency.value = root;
+      relationVoice.connect(topologyBus);
+      relationVoice.start();
+
+      const rootVoice = this.audio.createOscillator();
+      const rootGain = this.audio.createGain();
+      rootVoice.type = "sine";
+      rootVoice.frequency.value = root * .5;
+      rootGain.gain.value = .46;
+      rootVoice.connect(rootGain).connect(topologyBus);
+      rootVoice.start();
+
+      const breath = this.audio.createOscillator();
+      const breathDepth = this.audio.createGain();
+      breath.type = "sine";
+      breath.frequency.value = .07 + (edges.length % 5) * .008;
+      breathDepth.gain.value = .0012;
+      breath.connect(breathDepth).connect(topologyBus.gain);
+      breath.start();
+
+      this.topologyVoices = [relationVoice, rootVoice, breath];
+      document.documentElement.dataset.libraryFoundation = "root-logos-topology";
+    }
+
     schedule() {
       if (!this.audio) return;
       const event = this.edition.sound.events[this.cursor % this.edition.sound.events.length];
@@ -574,7 +645,7 @@
       if (!event.rest) {
         const oscillator = this.audio.createOscillator();
         const envelope = this.audio.createGain();
-        oscillator.type = ["ground", "antigravity"].includes(event.voice) ? "triangle" : "sine";
+        oscillator.type = event.waveform || (["ground", "antigravity", "foldforge"].includes(event.voice) ? "triangle" : "sine");
         oscillator.frequency.value = event.frequency;
         const peak = clamp(Number(event.amplitude || .05), .018, .1);
         envelope.gain.setValueAtTime(.0001, this.audio.currentTime);
@@ -586,7 +657,7 @@
       }
       $("#work-sound-signal").dataset.state = event.rest ? "rest" : "sounding";
       $("#work-sound-signal").style.setProperty("--event-duration", `${Math.max(.3, beat * event.beats)}s`);
-      $("#work-sound-status").textContent = event.rest ? "Structural rest" : `${event.voice} / ${event.provenance}`;
+      $("#work-sound-status").textContent = event.rest ? "Structural rest / Root Logos topology holds" : `${event.voice} against Root Logos / ${event.provenance}`;
       this.cursor += 1;
       this.timer = window.setTimeout(() => this.schedule(), beat * event.beats * 1000);
     }
@@ -598,6 +669,8 @@
       this.audio = null;
       this.master = null;
       this.volume = null;
+      this.topologyVoices = [];
+      delete document.documentElement.dataset.libraryFoundation;
       document.documentElement.dataset.libraryVoice = "silent";
       window.dispatchEvent(new CustomEvent("rootlogos:library-voice-stop"));
       if (this.edition) {
@@ -610,16 +683,28 @@
 
   const initialize = async () => {
     try {
-      const [indexResponse, corpusResponse, telosResponse] = await Promise.all([
+      const [indexResponse, corpusResponse, telosResponse, topologyResponse] = await Promise.all([
         fetch("works/index.json", { cache: "no-store" }),
         fetch("works/corpora/original-douay-rheims.json", { cache: "no-store" }),
-        fetch("sources/telos.public-witness.json", { cache: "no-store" }).catch(() => null)
+        fetch("sources/telos.public-witness.json", { cache: "no-store" }).catch(() => null),
+        fetch("content/constitutional-graph.json", { cache: "no-store" })
       ]);
       if (!indexResponse.ok) throw new Error("The living works index is unavailable.");
       const index = await indexResponse.json();
       const corpus = corpusResponse.ok ? await corpusResponse.json() : null;
       const telos = telosResponse?.ok ? await telosResponse.json() : null;
-      window.rootLogosWorks = new LivingWorks(index, corpus, telos?.work_relations || []);
+      const topology = topologyResponse.ok ? await topologyResponse.json() : null;
+      const publicEntries = (index.works || []).filter(({ collection, edition }) => !isBibleBook({ collection }) && edition);
+      const editionScores = new Map((await Promise.all(publicEntries.map(async (entry) => {
+        try {
+          const response = await fetch(entry.edition, { cache: "no-store" });
+          const edition = response.ok ? await response.json() : null;
+          return edition ? [entry.work_id, edition.sound] : null;
+        } catch {
+          return null;
+        }
+      }))).filter(Boolean));
+      window.rootLogosWorks = new LivingWorks(index, corpus, telos?.work_relations || [], topology, editionScores);
       window.dispatchEvent(new CustomEvent("rootlogos:works-ready"));
     } catch (error) {
       console.error(error);
