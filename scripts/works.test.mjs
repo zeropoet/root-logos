@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { coherentLibraryIdentity, ingestWork, parseGutenbergBookText, parsePerseusTei } from "./works.mjs";
+import { coherentLibraryIdentity, ingestWork, parseGutenbergBookText, parseMidvashBible, parsePerseusTei } from "./works.mjs";
 import { CATHOLIC_CANON } from "./works-corpus.mjs";
 
 const fixture = await mkdtemp(join(tmpdir(), "root-logos-work-"));
@@ -56,6 +56,24 @@ The second book answers.
 assert.deepEqual(gutenbergFixture.documents.map(({ path }) => path), ["book:1", "book:2"]);
 assert.equal(gutenbergFixture.documents[0].sections[0].text, "The first book begins.");
 assert.equal(gutenbergFixture.documents[1].sections[0].text, "The second book answers.");
+const protestantFixture = parseMidvashBible(JSON.stringify({
+  name: "Test Protestant Bible",
+  books: [
+    ...Array.from({ length: 39 }, (_, index) => ({
+      book: `OT${index + 1}`, englishName: `Old Book ${index + 1}`, testament: "OT",
+      chapters: [{ chapter: 1, verses: [{ number: 1, text: `Old witness ${index + 1}.` }] }]
+    })),
+    ...Array.from({ length: 27 }, (_, index) => ({
+      book: `NT${index + 1}`, englishName: `New Book ${index + 1}`, testament: "NT",
+      chapters: [{ chapter: 1, verses: [{ number: 1, text: `New witness ${index + 1}.` }] }]
+    }))
+  ]
+}));
+assert.equal(protestantFixture.documents.length, 66);
+assert.equal(protestantFixture.measures.chapters, 66);
+assert.equal(protestantFixture.measures.verses, 66);
+assert.equal(protestantFixture.documents[0].path, "book:OT1");
+assert.equal(protestantFixture.documents.at(-1).title, "New Book 27");
 await mkdir(book);
 await writeFile(join(book, "01.md"), "# Part One\n\nLight enters the chamber. Memory answers light.\n\n## Scene\n\nA witness returns through time.\n");
 await writeFile(join(book, "02.md"), "# Part Two\n\nThe chamber holds silence. Light and witness become relation.\n");

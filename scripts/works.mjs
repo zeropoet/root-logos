@@ -109,6 +109,37 @@ const parseDouayRheimsBook = (text) => {
   return { title: book.short_title, documents };
 };
 
+export const parseMidvashBible = (text) => {
+  const bible = JSON.parse(text);
+  if (!bible?.name || !Array.isArray(bible.books) || bible.books.length !== 66) {
+    throw new Error("The JSON source is not a complete 66-book Midvash Bible.");
+  }
+  const oldTestament = bible.books.filter(({ testament }) => testament === "OT");
+  const newTestament = bible.books.filter(({ testament }) => testament === "NT");
+  if (oldTestament.length !== 39 || newTestament.length !== 27) {
+    throw new Error(`The Protestant canon requires 39 Old Testament and 27 New Testament books; found ${oldTestament.length} and ${newTestament.length}.`);
+  }
+  const documents = bible.books.map((book, bookIndex) => {
+    if (!book.book || !book.englishName || !Array.isArray(book.chapters) || !book.chapters.length) {
+      throw new Error(`Invalid Bible book at canonical position ${bookIndex + 1}.`);
+    }
+    return {
+      path: `book:${book.book}`,
+      title: book.englishName,
+      sections: book.chapters.map((chapter) => ({
+        coordinate: `${book.book}:${chapter.chapter}`,
+        level: 2,
+        title: `${book.englishName} ${chapter.chapter}`,
+        text: (chapter.verses || []).map(({ text: verse }) => stripMarkup(verse)).filter(Boolean).join(" ")
+      }))
+    };
+  });
+  const chapters = documents.reduce((sum, document) => sum + document.sections.length, 0);
+  const verses = bible.books.reduce((sum, book) =>
+    sum + book.chapters.reduce((chapterSum, chapter) => chapterSum + (chapter.verses || []).length, 0), 0);
+  return { title: bible.name, documents, measures: { books: documents.length, chapters, verses } };
+};
+
 const decodeXml = (value) => String(value || "")
   .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCodePoint(Number.parseInt(code, 16)))
   .replace(/&#([0-9]+);/g, (_, code) => String.fromCodePoint(Number.parseInt(code, 10)))
@@ -365,12 +396,18 @@ export const ingestWork = async ({
   const sourcePath = resolve(input);
   const sourceStat = await import("node:fs/promises").then(({ stat }) => stat(sourcePath));
   const douayJson = sourceStat.isFile() && (format === "douay-rheims-json" || (format === "auto" && extname(sourcePath).toLowerCase() === ".json"));
+  const midvashBible = sourceStat.isFile() && format === "midvash-bible-json";
   const perseusTei = sourceStat.isFile() && (format === "perseus-tei" || (format === "auto" && extname(sourcePath).toLowerCase() === ".xml"));
   const gutenbergText = sourceStat.isFile() && (format === "gutenberg-book-text" || (format === "auto" && extname(sourcePath).toLowerCase() === ".txt"));
   let documents;
   let canonicalSource;
   let inferredTitle;
-  if (douayJson) {
+  if (midvashBible) {
+    canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
+    const parsed = parseMidvashBible(canonicalSource);
+    documents = parsed.documents;
+    inferredTitle = parsed.title;
+  } else if (douayJson) {
     canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
     const parsed = parseDouayRheimsBook(canonicalSource);
     documents = parsed.documents;
@@ -540,7 +577,7 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|perseus-tei|gutenberg-book-text>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|perseus-tei|gutenberg-book-text>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();

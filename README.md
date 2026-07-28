@@ -571,8 +571,10 @@ late-romance and tragedy bodies. Euclid's complete **Thirteen Books of the
 Elements** is work `11`, introducing a thirteen-book architecture of
 definitions, postulates, common notions, and propositions. Homer's **Iliad** in
 Samuel Butler's prose translation is work `12`, joining *The Odyssey* in
-Classical Epics while retaining its own twenty-four-book body. Ingestion
-assigns each future coherent work the next stable ordinal.
+Classical Epics while retaining its own twenty-four-book body. The **King James
+Bible (1769)** is work `13`: one coherent Protestant scriptural corpus whose 66
+books remain internal, attributable structures rather than competing Library
+selections. Ingestion assigns each future coherent work the next stable ordinal.
 
 The Bitcoin white paper also has an explicit, sealed relation to Telos. The
 exact Library work and edition ground Telos's declared BTC settled value layer
@@ -581,10 +583,10 @@ custody, execution, trading, or interpretive authority: Telos cannot alter the
 source work's meaning, and the work does not authorize Telos. The bounded bridge
 is visible from both the Telos public witness and the Bitcoin Library reading.
 
-The Founding Constitution now holds twenty-two immutable readings. Its current
+The Founding Constitution now holds twenty-six immutable readings. Its current
 v1.2 Library-addition edition preserves 21 constitutional sections, 2,838 words,
 36 concepts, 180 internal relations, and an 84-event resonant score with
-signature `7888de28fd00`. The current identity, canonical graph,
+signature `131f568b2b0b`. The current identity, canonical graph,
 constitutional prose, resonant grammar, Library UX, archive, and sovereign
 voice now describe the same boundary.
 
@@ -662,6 +664,17 @@ coordinates internally while releasing the source language after derivation.
 visual-resonant object, and emits the aggregate corpus topology. Four
 supplemental repository sources remain witnessed but unclassified rather than
 being silently promoted into the 73-book canon.
+
+The second complete scriptural body is the **King James Bible (1769)**, ingested
+as work `13` from `midvash/bible-data` at commit
+`d9fe1779447717bbfcb578e505b893125cad581c`. The adapter verifies the declared
+public-domain 1769 witness and the exact 66-book Protestant boundary—39 Old
+Testament and 27 New Testament books, 1,189 chapters, and 31,102 verses—before
+reading. The source remains behind the private-source membrane. The public
+edition retains its pinned witness and content digest, 66 attributable book
+structures, 1,189 chapter passages, 789,649 transiently read words, 36 derived
+concepts, 180 relations, a 103-node topology, an 84-event FoldForge-inherited
+score, immutable lineage, and a canonical solid-white first-frame portrait.
 
 The Whole Canon object establishes the governing geometry for multi-work
 fields: **coherence is gravity, living works are antigravity, and their
@@ -791,9 +804,9 @@ or competing with its nodes and engraved edges.
 
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
-All 1,681 current Catholic-corpus relations enter the engraving. The nine
-independently bounded external works contribute another 1,620 internal relations
-and 279 structural points, bringing that Library field to 2,581 witnessed
+All 1,681 current Catholic-corpus relations enter the engraving. The twelve
+independently bounded external works contribute another 2,160 internal relations
+and 656 structural points, bringing that Library field to 3,841 witnessed
 relations beyond the constitutional root. Each work therefore changes the
 object as a complete internal topology rather than merely increasing its work
 count. Weight, depth, luminance, rotation, and motion carry the resulting
@@ -1110,9 +1123,10 @@ Abhidharma is `03`, the Bitcoin white paper is `04`, and the signed 1787 U.S.
 Constitution is `05`. The twenty-seven ratified amendments form related work
 `06`, followed by Plato's *Republic* as `07`, *The Federalist Papers* as `08`,
 *The Tempest* as `09`, *Hamlet* as `10`, and Euclid's complete *Elements* as
-`11`, followed by Homer's *Iliad* as `12`. The Bible's 73 books remain visible
-and inspectable as nodes within the `01` topology, but no longer appear as 73
-competing library selections. Future complete works receive the next stable
+`11`, followed by Homer's *Iliad* as `12` and the King James Bible (1769) as
+`13`. The Douay-Rheims Bible's 73 books and the KJV's 66 books remain visible
+and inspectable as nodes within their respective topologies, but no longer appear as 73
+or 66 competing library selections. Future complete works receive the next stable
 library ordinal at ingestion.
 The public Library surface is intentionally limited to three things: the stable
 list of coherent works, the selected work's description, and its navigable

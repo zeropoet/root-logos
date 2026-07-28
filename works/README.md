@@ -107,6 +107,22 @@ concepts, cross-work relations, a navigable Whole Canon visual object, and a
 deterministic corpus score. Every book remains independently addressable and
 retains its own future edition lineage.
 
+The 66-book King James Bible uses the same completed-work boundary without
+publishing its source prose:
+
+```sh
+npm run works:protestant-corpus -- /private/path/bible-data \
+  --source-witness "midvash/bible-data@<pinned-commit>" \
+  --revision "v1.2"
+```
+
+The adapter accepts only the declared public-domain Oxford 1769 KJV witness and
+requires exactly 39 Old Testament books, 27 New Testament books, 1,189
+chapters, and 31,102 verses. It then compiles one coherent Library selection:
+the 66 books become attributable internal documents, chapters become structural
+passages, and the source language is released after topology, score, lineage,
+Founding Constitution reread, and first-frame portrait have been derived.
+
 The archive’s highest-level view is the **Library Field**, derived directly
 from `index.json`. Collections form independently bounded middle-distance
 structures; works occupy their deep-field orbits. These edges witness
