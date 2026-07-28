@@ -526,8 +526,10 @@ of Abhidharma is `03`, the Bitcoin white paper is `04`, and the signed 1787
 Constitution of the United States is `05`. The twenty-seven ratified amendments
 are the related but independently bounded work `06`. Plato's **Republic**,
 in Benjamin Jowett's public-domain translation, is work `07` and establishes
-Classical Philosophy as its own collection. Ingestion assigns each future
-coherent work the next stable ordinal.
+Classical Philosophy as its own collection. **The Federalist Papers** is work
+`08`, returning the field to the United States Constitutional Instruments as
+the ratification-era interpretive body surrounding the signed Constitution.
+Ingestion assigns each future coherent work the next stable ordinal.
 
 The Bitcoin white paper also has an explicit, sealed relation to Telos. The
 exact Library work and edition ground Telos's declared BTC settled value layer
@@ -682,6 +684,15 @@ formatting. The public edition preserves 18 source documents, 27 amendment
 structures, 3,066 transiently read words, 36 concepts, 180 relations, a
 55-node visual topology, and an 84-event FoldForge v10 resonant score.
 
+**The Federalist Papers** enter the same collection as a third, independently
+bounded constitutional work. The complete Project Gutenberg ebook 18 is
+witnessed from `GITenberg/The-Federalist-Papers_18` at commit
+`fc8172eca561443699d3b0fd6c0387e89f0d9f00`. Its 85 numbered essays—including
+both historical versions of Federalist No. 70—remain structurally legible
+inside one public model while the transcription remains private. The derived
+edition preserves 87 passages, 198,322 transiently read words, 36 concepts,
+180 relations, a 38-node topology, and an 84-event resonant score.
+
 ### The Living Object
 
 The public threshold is now the **Living Object**: one slow, dimensional,
@@ -698,8 +709,8 @@ or competing with its nodes and engraved edges.
 
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
-All 1,681 current Catholic-corpus relations enter the engraving. The six
-independently bounded external works contribute another 1,080 internal relations
+All 1,681 current Catholic-corpus relations enter the engraving. The seven
+independently bounded external works contribute another 1,260 internal relations
 and 279 structural points, bringing that Library field to 2,581 witnessed
 relations beyond the constitutional root. Each work therefore changes the
 object as a complete internal topology rather than merely increasing its work

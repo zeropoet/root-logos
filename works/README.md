@@ -116,6 +116,15 @@ Gutenberg ebook 1497 through the private-source membrane, witnessed from
 public edition preserves the source hash, 11 structural passages, derived
 topology, resonant score, and Root Logos lineage.
 
+**The Federalist Papers** form the third independently bounded work in the
+`United States Constitutional Instruments` collection. Root Logos reads all 85
+numbered essays from Project Gutenberg ebook 18, including both transmitted
+versions of Federalist No. 70, witnessed from
+`GITenberg/The-Federalist-Papers_18` at commit
+`fc8172eca561443699d3b0fd6c0387e89f0d9f00`. The raw transcription is not
+retained; the public archive preserves 87 structural passages, source hash,
+derived topology, resonant score, and edition lineage.
+
 ## Spatial grammar
 
 Living Works uses a deep-space architectural grammar because its archive is
