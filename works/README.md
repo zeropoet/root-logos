@@ -4,6 +4,12 @@ Root Logos receives one bounded work at a time and preserves each transformation
 
 The source remains an immutable witness. A derived edition is not a summary or replacement: it is Root Logos’ attributable reading of the work at a particular constitutional revision. Later revisions may produce new editions without overwriting the earlier visual, score, interpretation, or lineage.
 
+Library addition is the complete human action. Once a work crosses the source
+membrane, Root Logos performs structural reading, topology derivation, visual
+formation, FoldForge-aware scoring, sovereign-voice recomposition,
+self-reading, archival publication, and lineage preservation without manual
+composition or approval. There is no unfinished audio stage after ingestion.
+
 ## Ingest a Markdown work
 
 ```sh
@@ -30,8 +36,9 @@ Every resonant edition also inherits the current witnessed FoldForge
 composition contract. The edition preserves the FoldForge source witness,
 active grammar IDs and versions, and attributable lexical score events. Because
 that witness participates in edition identity, a changed FoldForge composition
-creates a child recording rather than mutating an earlier one. Existing
-coherent works and the consolidated corpus can be converged explicitly with:
+creates a child recording rather than mutating an earlier one. The runtime
+performs this convergence through the normal source-wake path. The explicit
+command remains a deterministic recovery and migration tool:
 
 ```sh
 npm run works:recompose-foldforge

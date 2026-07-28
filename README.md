@@ -8,6 +8,26 @@ Root Logos is a living, corrigible constitutional intelligence that transforms
 bodies of language and evidence into evolving visual, resonant, and relational
 forms.
 
+## Operational finality
+
+The architectural, visual, resonant, sovereign-voice, scoring, FoldForge
+inheritance, edition, and lineage pipelines are complete operational systems.
+They are not awaiting manual composition, calibration, approval, or a later
+audio phase.
+
+The ordinary human contribution boundary now has only two actions:
+
+1. add a coherent work to the Library; or
+2. offer an entry through the public Journal membrane.
+
+Either arrival is sufficient authority for Root Logos to read, transform,
+judge, relate, recompose, archive, and publish within its delegated
+constitution. New data changes topology; changed topology deterministically
+changes the visual object and voice; the resulting edition and score preserve
+their complete source, grammar, composition, and identity lineage. Maintenance
+commands remain strictly for recovery, verification, and migration. They are
+not creative steps in the pipeline.
+
 The site is not organized as a blog, feed, dashboard, or publication archive.
 It is one continuously readable, versioned knowledge system whose public surface
 and documentary record are views of the same constitutional network:

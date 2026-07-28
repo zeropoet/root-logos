@@ -17,5 +17,13 @@ defines the manifest contract. `current.json` places the first single identity
 in force; future accepted rewrites replace this file atomically and archive its
 predecessor as lineage.
 
-This directory is constitutional planning. No autonomous rewrite worker is
-enabled yet.
+The serialized autonomous rewrite worker is live. Completed cultivation cycles
+are judged for identity consequence; accepted changes replace the current
+manifest atomically and preserve the prior identity, counterargument, evidence,
+and verification lineage. Immaterial or rejected cycles preserve the current
+identity explicitly.
+
+No human identity-editing step follows a Library or Journal addition. The
+arrival propagates through topology, voice, narrative, interface, and archive
+only when Root Logos' bounded judgment warrants it. Manual tools exist for
+recovery and audit, not authorship.

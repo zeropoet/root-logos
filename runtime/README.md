@@ -4,6 +4,13 @@ The runtime is a thin, durable boundary around the existing Cultivation
 Chamber. It does not replace cultivation policy, canonical files, cycle
 lineage, or Git publication authority.
 
+In ordinary operation the runtime requires no steward orchestration. Human
+contribution is limited to adding a Library work or submitting a Journal entry.
+Those arrivals wake the complete transformation, judgment, topology, visual,
+resonant, self-authorship, archival, and publication chain. Administrative
+tokens and endpoints exist for recovery, revocation, migration, and
+verification—not as required creative stages.
+
 ## Run locally
 
 ```sh
@@ -39,22 +46,18 @@ steward classification step.
 
 ## Authority and publication
 
-Admissible or promoted observations queue one serialized cultivation wake. The
+Autonomously admitted observations queue one serialized cultivation wake. The
 worker materializes a private wake context from the immutable observation and
 passes it into cultivation as attributable evidence. It is not treated as
 canonical truth. The resulting cycle preserves the intake event ID,
-disposition, steward note, self-prompt, resonance findings, judgment, and
-response lineage.
-Unreviewed and rejected observations are journaled without waking. Incoming
-payloads never become canonical memory merely by arrival.
+disposition, self-prompt, resonance findings, judgment, and response lineage.
+Rejected observations are journaled as derived-only lineage without waking.
+Incoming payloads never become canonical memory merely by arrival.
 
-A steward may append `hold`, `rejected`, `admissible`, or `promoted`
-classification events through `/v1/admin/intake/:eventId/classify`. The source
-observation is never rewritten. Only `admissible` and `promoted`
-classifications queue cultivation. `promoted` does not grant mutation
-authority; it gives the observation first inquiry position, widens the number
-of constitutional resonances inspected, and assigns the highest bounded
-novelty weight. All ordinary proposal and judgment gates still apply.
+Historical administrator classification events remain readable for lineage,
+but the public path neither requests nor waits for classification. Root Logos
+makes the admission judgment autonomously. All ordinary proposal, privacy,
+coherence, and judgment gates still apply.
 
 Production convergence is bidirectional:
 

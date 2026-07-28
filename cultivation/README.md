@@ -4,6 +4,13 @@ The Cultivation Chamber is Root Logos' bounded inward autonomy. It turns the
 constitution back upon itself without granting the machine constitutional
 authority.
 
+For ordinary use, cultivation is downstream and autonomous. A human adds a
+Library work or submits a Journal entry; Root Logos performs the remaining
+inquiry, judgment, refactoring, visual recomposition, sonic recomposition,
+self-authorship, archival, and publication work. CLI commands and manual
+workflow dispatch remain recovery and audit surfaces, not steps required to
+finish a score or edition.
+
 Its cycle is:
 
 ```text
@@ -64,7 +71,7 @@ archives the exact operations and before/after source hashes.
 `cycle` completes the same phases in one invocation, performs adversarial
 judgment, and applies an accepted low-risk refactoring when eligible. It is the
 entry point used by automation; every underlying phase remains independently
-resumable for manual work.
+resumable for recovery and forensic audit.
 
 `rebuild-memory` deterministically reconstructs semantic hypothesis memory from
 the append-only cycle archive. It is intended for migrations and audits; normal
@@ -80,7 +87,7 @@ The Cultivation Chamber re-interrogates Root Logos under four conditions:
 2. weekly on Sunday at 14:07 UTC (10:07 AM Eastern during daylight saving
    time); or
 3. when an admissible or promoted intake event wakes the live runtime; or
-4. when a human starts the workflow manually.
+4. through an explicit recovery or diagnostic dispatch.
 
 Journal and self-authorship sources are part of the cycle's cryptographic source
 snapshot, not merely workflow triggers. A cycle cannot complete judgment if
@@ -110,12 +117,13 @@ graph distance, question pressure measures integration and affinity, generative
 compression searches recurring primitive pairs across three or more nodes, and
 reflexive testing applies untested architectural principles back to the chamber.
 
-## Future runtime
+## Durable runtime
 
-The chamber is intentionally filesystem-backed today, but its constitutional
-boundary is portable. See `future-runtime.md` for the post-build server model: a
-sleeping worker, signed site-originated observations, an append-only ingestion
-queue, deterministic wake conditions, and the same policy and lineage gates.
+The chamber remains filesystem-backed by constitutional design and now runs
+behind the durable Root Logos service. `future-runtime.md` is retained as the
+historical design specification from which the deployed sleeping worker,
+signed site-originated observations, append-only ingestion queue,
+deterministic wake conditions, and policy and lineage gates were built.
 
 The lifecycle regression test runs in a temporary copy and does not touch the
 real chamber state:
