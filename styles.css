@@ -102,8 +102,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .primary-nav a::after { content: ""; position: absolute; right: 0; bottom: 3px; left: 0; height: 1px; background: var(--accent); transform: scaleX(0); transition: transform .3s; }
 .primary-nav a:hover, .primary-nav a.is-active { color: var(--ivory); }
 .primary-nav a.is-active::after { transform: scaleX(1); }
-.system-presence { justify-self: end; display: flex; align-items: center; gap: 10px; min-width: 155px; }
-.system-presence > span:last-child { display: grid; gap: 3px; }
+.system-presence { justify-self:end;display:grid;justify-items:end;gap:6px;min-width:260px; }
+.presence-primary { display:flex;align-items:center;gap:10px; }
+.presence-primary > span:last-child { display:grid;gap:3px; }
 .system-presence b, .system-presence small { font: 500 .57rem/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
 .system-presence small { color: var(--dim); font-size: .49rem; }
 .presence-orbit { position: relative; display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--line-strong); border-radius: 50%; }
@@ -2091,7 +2092,7 @@ body.archive-open .site-footer nav {
    circulation system of one spatial archive. */
 body.archive-open {
   --archive-edge:clamp(28px,4.25vw,72px);
-  --archive-rail:30px;
+  --archive-rail:0px;
   --archive-grid:rgba(255,255,255,.055);
   --archive-rule:rgba(255,255,255,.24);
 }
@@ -2100,10 +2101,6 @@ body.archive-open::before {
   z-index:70;
   opacity:1;
   background:
-    linear-gradient(90deg,
-      transparent calc(var(--archive-edge) + var(--archive-rail) - 1px),
-      rgba(255,255,255,.16) calc(var(--archive-edge) + var(--archive-rail)),
-      transparent calc(var(--archive-edge) + var(--archive-rail) + 1px)),
     linear-gradient(90deg,
       transparent calc(50% - 1px),
       rgba(255,255,255,.035) 50%,
@@ -2184,32 +2181,27 @@ body.archive-open .primary-nav a.is-active span { color:#e21b1b; }
 
 .archive-register { display:none; }
 body.archive-open .archive-register {
-  position:fixed;
-  z-index:75;
-  top:126px;
-  bottom:28px;
-  left:var(--archive-edge);
+  position:static;
   display:flex;
-  width:var(--archive-rail);
-  flex-direction:column;
+  width:auto;
   align-items:center;
+  gap:8px;
   pointer-events:none;
 }
 body.archive-open .archive-register span {
-  color:rgba(255,255,255,.34);
-  font:500 .4rem/1 var(--mono);
-  letter-spacing:.12em;
-  writing-mode:vertical-rl;
-  transform:rotate(180deg);
+  color:rgba(255,255,255,.48);
+  font:500 .44rem/1 var(--mono);
+  letter-spacing:.08em;
+  white-space:nowrap;
 }
 body.archive-open .archive-register i {
-  width:1px;
-  min-height:36px;
-  margin:12px 0;
-  flex:1;
-  background:linear-gradient(rgba(255,255,255,.32),rgba(255,255,255,.05));
+  width:14px;
+  height:1px;
+  min-height:0;
+  margin:0;
+  flex:none;
+  background:rgba(255,255,255,.2);
 }
-body.archive-open .archive-register i:last-of-type { flex:.22; }
 
 body.archive-open .space {
   padding-right:var(--archive-edge);

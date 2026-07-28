@@ -1121,8 +1121,10 @@ atmospheres, canvas highlights, glows, active states, and mobile overrides are
 likewise emitted directly in monochrome. The opening object occupies
 exactly one visible viewport, so its WebGL projection resolves around the true
 above-the-fold center rather than the center of a taller minimum-height stage.
-The vertical archive rail is a live condition register rather than decoration:
-it carries runtime state, current identity revision, and coherent-work count.
+The live condition register sits directly beneath the top-right archive-state
+witness, carrying runtime state, current identity revision, and coherent-work
+count as one compact cluster. The left edge remains clear for the archive
+itself.
 Runtime vitality is expressed consistently across the archive. Whenever the
 system is neither sleeping nor constitutionally dormant, the top-right runtime
 witness and the permanently red central Root Logos node pulse together.

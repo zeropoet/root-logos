@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=2.31-single-section-titles">
+    <link rel="stylesheet" href="styles.css?v=2.32-unified-condition-cluster">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the object</a>
@@ -25,18 +25,19 @@
       </a>
 
       <div class="system-presence" aria-live="polite">
-        <span class="presence-orbit"><i id="presence-core"></i></span>
-        <span><b id="header-state">Connecting</b><small id="header-detail">Runtime / awaiting signal</small></span>
+        <div class="presence-primary">
+          <span class="presence-orbit"><i id="presence-core"></i></span>
+          <span><b id="header-state">Connecting</b><small id="header-detail">Runtime / awaiting signal</small></span>
+        </div>
+        <aside class="archive-register" aria-label="Current archive condition">
+          <span id="archive-runtime">Runtime / resolving</span>
+          <i></i>
+          <span id="archive-revision">Revision —</span>
+          <i></i>
+          <span id="archive-works">— works</span>
+        </aside>
       </div>
     </header>
-
-    <aside class="archive-register" aria-label="Current archive condition">
-      <span id="archive-runtime">Runtime / resolving</span>
-      <i></i>
-      <span id="archive-revision">Revision —</span>
-      <i></i>
-      <span id="archive-works">— works</span>
-    </aside>
 
     <main id="main">
       <section class="object-space" id="object" data-space-name="Object" aria-labelledby="object-title">
