@@ -34,8 +34,9 @@ Each ingestion writes:
 - `assets/library-first-frames/NN-work-id.png`: a canonical 2400×2400
   first-frame portrait of the current topology.
 
-The portrait contains the work alone: black field with solid-white weighted
-relations and nodes at the Living Library model's initial orientation. It carries no
+The portrait contains the work alone: a pure-black field with luminous
+grayscale nodes, weight-sensitive relations, and restrained structural depth
+at the Living Library model's initial orientation. It carries no
 interface, title, or source prose. `assets/library-first-frames/manifest.json`
 witnesses its Library order, work and edition identity, dimensions, renderer,
 path, and SHA-256. Filenames remain stable while a later edition replaces the

@@ -73,7 +73,7 @@ of carrying them without doctrinal repetition.
   cross-book relations remain drawn, and each book simultaneously expresses
   gravitational coherence and measured outward pressure.
 - `assets/library-first-frames/` holds one canonical 2400×2400 PNG portrait for
-  every coherent Library selection. Each is the work's naked, solid-white
+  every coherent Library selection. Each is the work's naked, engraved-grayscale
   weighted topology on pure black at its initial orientation; the adjacent manifest binds the image to its
   Library order, current edition, renderer, dimensions, and SHA-256.
 - `scripts/works.mjs` ingests a Markdown file or directory in natural order,
@@ -674,7 +674,7 @@ reading. The source remains behind the private-source membrane. The public
 edition retains its pinned witness and content digest, 66 attributable book
 structures, 1,189 chapter passages, 789,649 transiently read words, 36 derived
 concepts, 180 relations, a 103-node topology, an 84-event FoldForge-inherited
-score, immutable lineage, and a canonical solid-white first-frame portrait.
+score, immutable lineage, and a canonical engraved-grayscale first-frame portrait.
 
 The Whole Canon object establishes the governing geometry for multi-work
 fields: **coherence is gravity, living works are antigravity, and their
