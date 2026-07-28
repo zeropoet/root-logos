@@ -872,15 +872,6 @@ const bindInterface = () => {
   };
 
   $("[data-field-inspector-close]").addEventListener("click", closeFieldInspector);
-  $(".nav-toggle").addEventListener("click", (event) => {
-    const open = $(".primary-nav").classList.toggle("is-open");
-    event.currentTarget.setAttribute("aria-expanded", String(open));
-  });
-  navLinks.forEach((link) => link.addEventListener("click", () => {
-    $(".primary-nav").classList.remove("is-open");
-    $(".nav-toggle").setAttribute("aria-expanded", "false");
-    requestAnimationFrame(() => requestAnimationFrame(alignHashTarget));
-  }));
   $$(".field-control").forEach((control) => control.addEventListener("click", () => {
     app.filter = control.dataset.filter;
     $$(".field-control").forEach((item) => item.classList.toggle("is-active", item === control));

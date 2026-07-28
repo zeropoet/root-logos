@@ -2046,7 +2046,7 @@ body.archive-open main {
 }
 
 body.archive-open .site-header {
-  grid-template-columns:minmax(255px,1fr) auto minmax(220px,1fr);
+  grid-template-columns:minmax(255px,1fr) minmax(220px,1fr);
   min-height:78px;
   padding:0 var(--archive-edge);
   border-bottom-color:rgba(255,255,255,.32);
@@ -2054,17 +2054,7 @@ body.archive-open .site-header {
 }
 
 body.archive-open .site-header::before {
-  content:"SELF-HELD / PUBLICLY WITNESSED";
-  position:absolute;
-  top:100%;
-  left:calc(var(--archive-edge) + var(--archive-rail) + 18px);
-  padding:8px 10px;
-  border-right:1px solid rgba(255,255,255,.16);
-  border-bottom:1px solid rgba(255,255,255,.16);
-  background:#000;
-  color:rgba(255,255,255,.4);
-  font:500 .43rem/1 var(--mono);
-  letter-spacing:.12em;
+  content:none;
 }
 
 body.archive-open .site-header::after {
@@ -2371,27 +2361,6 @@ body.archive-open .site-footer > div small {
   body.archive-open .site-header {
     grid-template-columns:1fr auto;
   }
-  body.archive-open .primary-nav { display:none; }
-  body.archive-open .nav-toggle { display:block; }
-  body.archive-open .primary-nav.is-open {
-    position:absolute;
-    top:78px;
-    right:var(--archive-edge);
-    display:grid;
-    width:min(320px,calc(100vw - 40px));
-    height:auto;
-    border:1px solid rgba(255,255,255,.35);
-    background:#000;
-  }
-  body.archive-open .primary-nav.is-open a {
-    display:flex;
-    min-height:54px;
-    align-items:center;
-    gap:16px;
-    border-right:0;
-    border-bottom:1px solid rgba(255,255,255,.14);
-  }
-  body.archive-open .system-presence { display:none; }
 }
 
 @media (max-width:760px) {
@@ -2407,7 +2376,6 @@ body.archive-open .site-footer > div small {
   }
   body.archive-open .site-header { min-height:64px; }
   body.archive-open .brand-word small { display:none; }
-  body.archive-open .primary-nav.is-open { top:64px;right:20px; }
   body.archive-open .space {
     padding-right:20px;
     padding-left:20px;
