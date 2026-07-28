@@ -604,6 +604,35 @@
         },
         "total": 20
       }
+    },
+    "88a3657c985913c0743341ca5fa486056917af411a46db73f1bdb72a0a4304f7": {
+      "fingerprint": "88a3657c985913c0743341ca5fa486056917af411a46db73f1bdb72a0a4304f7",
+      "kind": "reflexive-test",
+      "nodes": [
+        "cultivation-chamber",
+        "principle-creators-threshold"
+      ],
+      "claim": "The Creator’s Threshold Principle is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
+      "proposed_question": "What observable failure would show that the Cultivation Chamber violates The Creator’s Threshold Principle?",
+      "evidence_hash": "21a7e162da2176f5b859e1302bc5683abb5d7bbea24d037e61a7f6c45e007001",
+      "policy_hash": "077f46170043519e0f4144e97b8ea8b8d7a664fbe5f35ddc8723d782a822a7b7",
+      "first_cycle": "RL-CULTIVATE-0039",
+      "last_cycle": "RL-CULTIVATE-0039",
+      "last_cycle_index": 39,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
     }
   },
   "novelty": {
@@ -819,6 +848,13 @@
         "reason": "new-hypothesis",
         "status": "autonomously-rejected",
         "at": "2026-07-28T02:55:26.308Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0039",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-07-28T03:06:46.996Z"
       }
     ]
   },
