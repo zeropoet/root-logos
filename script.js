@@ -666,7 +666,7 @@ class ConstitutionalField {
 
   setFold(target) {
     this.targetExpansion = target;
-    $("#field-fold-state").textContent = target < .3 ? "Held in seed form" : "Open constellation";
+    $("#field-fold-state").textContent = target < .3 ? "Root Logos / seed" : "Root Logos / open";
     $$("[data-field-action]").forEach((button) => button.classList.toggle("is-active",
       (target < .3 && button.dataset.fieldAction === "refold") || (target >= .3 && button.dataset.fieldAction === "unfold")));
   }
@@ -874,7 +874,8 @@ const bindInterface = () => {
     navLinks.forEach((link) => link.classList.toggle("is-active", link === current?.link));
   };
   const alignHashTarget = () => {
-    const target = document.querySelector(location.hash);
+    const hash = location.hash;
+    const target = hash ? document.querySelector(hash) : null;
     if (!target || !target.matches("main > section")) {
       updateNavigationState();
       return;

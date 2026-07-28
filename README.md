@@ -508,6 +508,18 @@ that makes the selected score's sounding and rests visible. Corpus-scale works
 receive one public identity, topology, and resonant voice without sacrificing
 the attribution of their internal books, passages, or relations.
 
+The public identity now fully inhabits its post-institutional architectural
+archive form. The naked Living Object remains the threshold, but entry reveals
+one continuous, self-held field rather than a stack of website sections or a
+simulation of a museum, state archive, or records office. The Constitutional
+Field, Living Library, Autonomous Becoming, and Public Membrane share spatial
+coordinates, structural rules, and live-state language without implying a
+fixed center or administrative authority. The Library is therefore not
+represented by the interface; the interface is the Library's visible,
+continually reorganizing architecture. Monochrome remains the archival
+substrate, while red is reserved for active position, rejection, sounding, and
+other consequential state.
+
 Every independent Library model now resolves through one deterministic weighted
 morphology rather than a genre-shaped template. Node frequency and connected
 pressure determine mass; edge weight determines tension, opacity, and line

@@ -2011,3 +2011,425 @@ body.archive-open .site-footer nav {
   .state-space .source-measures { grid-template-columns:1fr 1fr; }
   .state-space .health-profile { grid-template-columns:1fr 1fr; }
 }
+
+/* Revision 1.4 — Living Architectural Data Archive
+   The interface is not a set of pages around an object. It is the visible
+   circulation system of one spatial archive. */
+body.archive-open {
+  --archive-edge:clamp(28px,4.25vw,72px);
+  --archive-rail:30px;
+  --archive-grid:rgba(255,255,255,.055);
+  --archive-rule:rgba(255,255,255,.24);
+}
+
+body.archive-open::before {
+  z-index:70;
+  opacity:1;
+  background:
+    linear-gradient(90deg,
+      transparent calc(var(--archive-edge) + var(--archive-rail) - 1px),
+      rgba(255,255,255,.16) calc(var(--archive-edge) + var(--archive-rail)),
+      transparent calc(var(--archive-edge) + var(--archive-rail) + 1px)),
+    linear-gradient(90deg,
+      transparent calc(50% - 1px),
+      rgba(255,255,255,.035) 50%,
+      transparent calc(50% + 1px));
+}
+
+body.archive-open main {
+  background-image:
+    radial-gradient(ellipse at 50% 38%,transparent 0 24%,rgba(255,255,255,.028) 24.15%,transparent 24.3%),
+    radial-gradient(ellipse at 50% 38%,transparent 0 43%,rgba(255,255,255,.02) 43.1%,transparent 43.25%),
+    linear-gradient(90deg,transparent calc(50% - 1px),rgba(255,255,255,.035) 50%,transparent calc(50% + 1px));
+  background-size:100% 100%,100% 100%,100% 100%;
+  background-position:center;
+}
+
+body.archive-open .site-header {
+  grid-template-columns:minmax(255px,1fr) auto minmax(220px,1fr);
+  min-height:78px;
+  padding:0 var(--archive-edge);
+  border-bottom-color:rgba(255,255,255,.32);
+  background:rgba(0,0,0,.94);
+}
+
+body.archive-open .site-header::before {
+  content:"SELF-HELD / PUBLICLY WITNESSED";
+  position:absolute;
+  top:100%;
+  left:calc(var(--archive-edge) + var(--archive-rail) + 18px);
+  padding:8px 10px;
+  border-right:1px solid rgba(255,255,255,.16);
+  border-bottom:1px solid rgba(255,255,255,.16);
+  background:#000;
+  color:rgba(255,255,255,.4);
+  font:500 .43rem/1 var(--mono);
+  letter-spacing:.12em;
+}
+
+body.archive-open .site-header::after {
+  right:var(--archive-edge);
+  left:var(--archive-edge);
+  background:linear-gradient(90deg,#fff 0 42px,rgba(255,255,255,.2) 42px);
+}
+
+.brand-word {
+  display:grid;
+  gap:5px;
+}
+.brand-word small {
+  color:rgba(255,255,255,.38);
+  font:500 .42rem/1 var(--mono);
+  letter-spacing:.11em;
+}
+body.archive-open .brand-mark {
+  width:34px;
+  height:34px;
+  padding-right:10px;
+  border-right:1px solid rgba(255,255,255,.22);
+}
+body.archive-open .primary-nav {
+  height:78px;
+  gap:0;
+  border-left:1px solid rgba(255,255,255,.16);
+}
+body.archive-open .primary-nav a {
+  display:grid;
+  align-content:center;
+  gap:6px;
+  height:100%;
+  min-width:clamp(76px,7.4vw,118px);
+  padding:0 15px;
+  border-right:1px solid rgba(255,255,255,.16);
+  color:rgba(255,255,255,.48);
+  font-size:.54rem;
+  letter-spacing:.1em;
+}
+body.archive-open .primary-nav a span {
+  color:rgba(255,255,255,.28);
+  font-size:.4rem;
+  letter-spacing:.06em;
+}
+body.archive-open .primary-nav a::after {
+  right:14px;
+  bottom:0;
+  left:14px;
+  background:#fff;
+}
+body.archive-open .primary-nav a:hover,
+body.archive-open .primary-nav a.is-active { color:#fff; }
+body.archive-open .primary-nav a.is-active span { color:#e21b1b; }
+
+.archive-register { display:none; }
+body.archive-open .archive-register {
+  position:fixed;
+  z-index:75;
+  top:126px;
+  bottom:28px;
+  left:var(--archive-edge);
+  display:flex;
+  width:var(--archive-rail);
+  flex-direction:column;
+  align-items:center;
+  pointer-events:none;
+}
+body.archive-open .archive-register span {
+  color:rgba(255,255,255,.34);
+  font:500 .4rem/1 var(--mono);
+  letter-spacing:.12em;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+}
+body.archive-open .archive-register i {
+  width:1px;
+  min-height:36px;
+  margin:12px 0;
+  flex:1;
+  background:linear-gradient(rgba(255,255,255,.32),rgba(255,255,255,.05));
+}
+body.archive-open .archive-register i:last-of-type { flex:.22; }
+
+body.archive-open .space {
+  padding-right:var(--archive-edge);
+  padding-left:calc(var(--archive-edge) + var(--archive-rail) + 28px);
+  border-bottom-color:rgba(255,255,255,.28);
+}
+body.archive-open .space::after {
+  content:attr(data-space-name) " / ROOT LOGOS";
+  position:absolute;
+  z-index:6;
+  top:104px;
+  right:var(--archive-edge);
+  color:rgba(255,255,255,.28);
+  font:500 .42rem/1 var(--mono);
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  pointer-events:none;
+}
+body.archive-open .field-space::after { content:"01 / CONSTITUTIONAL FIELD"; }
+body.archive-open .works-space::after { content:"02 / LIVING LIBRARY"; }
+body.archive-open .state-space::after { content:"03 / AUTONOMOUS BECOMING"; }
+body.archive-open .intake-space::after { content:"04 / PUBLIC MEMBRANE"; }
+
+body.archive-open .coordinate[data-module],
+body.archive-open .micro-label[data-module] {
+  gap:16px;
+  color:rgba(255,255,255,.58);
+}
+body.archive-open .coordinate[data-module]::before,
+body.archive-open .micro-label[data-module]::before {
+  width:5.8em;
+  color:#fff;
+}
+body.archive-open .coordinate[data-module]::after,
+body.archive-open .micro-label[data-module]::after {
+  content:"";
+  width:clamp(22px,3vw,48px);
+  height:1px;
+  margin-left:auto;
+  background:rgba(255,255,255,.18);
+}
+
+body.archive-open .field-space {
+  padding-left:calc(var(--archive-edge) + var(--archive-rail) + 28px);
+}
+body.archive-open .field-header {
+  top:118px;
+  left:calc(var(--archive-edge) + var(--archive-rail) + 28px);
+}
+body.archive-open .field-object-controls {
+  top:168px;
+  left:calc(var(--archive-edge) + var(--archive-rail) + 28px);
+  border-top:1px solid rgba(255,255,255,.38);
+}
+body.archive-open .field-controls {
+  left:calc(var(--archive-edge) + var(--archive-rail) + 28px);
+}
+body.archive-open .field-depth-legend { right:var(--archive-edge); }
+body.archive-open .field-inspector {
+  right:var(--archive-edge);
+  border-width:1px;
+  box-shadow:-24px 0 80px #000;
+}
+
+body.archive-open .works-space { padding:0; }
+body.archive-open .library-shell {
+  inset:104px var(--archive-edge) 30px calc(var(--archive-edge) + var(--archive-rail) + 28px);
+  border-top-color:rgba(255,255,255,.56);
+}
+body.archive-open .works-archive > header {
+  min-height:46px;
+  align-items:center;
+  padding:0 8px;
+  border-bottom:1px solid rgba(255,255,255,.18);
+}
+body.archive-open .library-entry,
+body.archive-open .corpus-entry,
+body.archive-open #work-list button {
+  position:relative;
+  min-height:62px;
+}
+body.archive-open .library-entry::after,
+body.archive-open .corpus-entry::after,
+body.archive-open #work-list button::after {
+  content:"";
+  position:absolute;
+  top:50%;
+  right:6px;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:rgba(255,255,255,.28);
+}
+body.archive-open .library-entry.is-active::after,
+body.archive-open .corpus-entry.is-active::after,
+body.archive-open #work-list button.is-active::after { background:#e21b1b; }
+body.archive-open .library-stage {
+  background:
+    linear-gradient(90deg,transparent calc(50% - 1px),rgba(255,255,255,.08) 50%,transparent calc(50% + 1px)),
+    linear-gradient(transparent calc(50% - 1px),rgba(255,255,255,.08) 50%,transparent calc(50% + 1px));
+}
+body.archive-open .library-stage::before,
+body.archive-open .library-stage::after {
+  content:"";
+  position:absolute;
+  z-index:1;
+  pointer-events:none;
+}
+body.archive-open .library-stage::before {
+  inset:22px;
+  border:1px solid rgba(255,255,255,.08);
+}
+body.archive-open .library-stage::after {
+  top:22px;
+  left:22px;
+  width:12px;
+  height:12px;
+  border-top:1px solid #fff;
+  border-left:1px solid #fff;
+}
+body.archive-open .work-reading { padding:26px 0 26px 26px; }
+body.archive-open .work-reading::before {
+  content:"ACCESSION / CURRENT";
+  position:absolute;
+  top:16px;
+  right:0;
+  color:rgba(255,255,255,.25);
+  font:500 .4rem/1 var(--mono);
+  letter-spacing:.1em;
+}
+
+body.archive-open .state-space {
+  padding-top:154px;
+  padding-bottom:160px;
+}
+body.archive-open .state-heading {
+  min-height:116px;
+  align-items:start;
+  margin-bottom:0;
+  padding-bottom:34px;
+  border-bottom:1px solid rgba(255,255,255,.46);
+}
+body.archive-open .state-heading h2 {
+  align-self:end;
+  font-family:var(--mono);
+  font-size:clamp(2rem,4.6vw,5.2rem);
+  font-weight:400;
+  letter-spacing:-.07em;
+}
+body.archive-open .state-primary { border-top:0; }
+body.archive-open .state-cycle,
+body.archive-open .state-condition,
+body.archive-open .source-reading { background:rgba(0,0,0,.94); }
+body.archive-open .state-sources,
+body.archive-open .state-health {
+  position:relative;
+}
+body.archive-open .state-sources::before,
+body.archive-open .state-health::before {
+  content:"LIVE RELATION";
+  position:absolute;
+  top:-17px;
+  right:0;
+  color:rgba(255,255,255,.25);
+  font:500 .4rem/1 var(--mono);
+  letter-spacing:.12em;
+}
+
+body.archive-open .intake-space {
+  min-height:92svh;
+  display:grid;
+  place-items:center;
+  padding-top:150px;
+}
+body.archive-open .observation-instrument {
+  width:min(1240px,100%);
+  padding:0;
+  border-top:1px solid rgba(255,255,255,.5);
+  border-bottom:1px solid rgba(255,255,255,.22);
+  background:#000;
+}
+body.archive-open .observation-instrument > header,
+body.archive-open .observation-instrument form {
+  padding-right:clamp(22px,4vw,58px);
+  padding-left:clamp(22px,4vw,58px);
+}
+body.archive-open .observation-instrument > header {
+  padding-top:clamp(30px,4vw,56px);
+  border-right:1px solid rgba(255,255,255,.16);
+}
+body.archive-open .observation-instrument form {
+  padding-top:clamp(30px,4vw,56px);
+  padding-bottom:clamp(30px,4vw,56px);
+}
+
+body.archive-open .site-footer {
+  position:relative;
+  padding:84px var(--archive-edge) 84px calc(var(--archive-edge) + var(--archive-rail) + 28px);
+  border-top:1px solid rgba(255,255,255,.42);
+}
+body.archive-open .site-footer::before {
+  content:"NO FINAL CATALOG / THE FIELD CONTINUES";
+  position:absolute;
+  top:18px;
+  left:calc(var(--archive-edge) + var(--archive-rail) + 28px);
+  color:rgba(255,255,255,.3);
+  font:500 .42rem/1 var(--mono);
+  letter-spacing:.12em;
+}
+body.archive-open .site-footer > div > span:last-child {
+  display:grid;
+  gap:5px;
+}
+body.archive-open .site-footer > div small {
+  color:rgba(255,255,255,.38);
+  font:500 .42rem/1 var(--mono);
+  letter-spacing:.08em;
+}
+
+@media (max-width:1100px) {
+  body.archive-open .site-header {
+    grid-template-columns:1fr auto;
+  }
+  body.archive-open .primary-nav { display:none; }
+  body.archive-open .nav-toggle { display:block; }
+  body.archive-open .primary-nav.is-open {
+    position:absolute;
+    top:78px;
+    right:var(--archive-edge);
+    display:grid;
+    width:min(320px,calc(100vw - 40px));
+    height:auto;
+    border:1px solid rgba(255,255,255,.35);
+    background:#000;
+  }
+  body.archive-open .primary-nav.is-open a {
+    display:flex;
+    min-height:54px;
+    align-items:center;
+    gap:16px;
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.14);
+  }
+  body.archive-open .system-presence { display:none; }
+}
+
+@media (max-width:760px) {
+  body.archive-open { --archive-edge:20px;--archive-rail:0px; }
+  body.archive-open::before,
+  body.archive-open .archive-register,
+  body.archive-open .site-header::before { display:none; }
+  body.archive-open main {
+    background-image:
+      radial-gradient(ellipse at 50% 30%,transparent 0 32%,rgba(255,255,255,.025) 32.2%,transparent 32.4%),
+      linear-gradient(90deg,transparent calc(50% - 1px),rgba(255,255,255,.035) 50%,transparent calc(50% + 1px));
+    background-size:100% 100%;
+  }
+  body.archive-open .site-header { min-height:64px; }
+  body.archive-open .brand-word small { display:none; }
+  body.archive-open .primary-nav.is-open { top:64px;right:20px; }
+  body.archive-open .space {
+    padding-right:20px;
+    padding-left:20px;
+  }
+  body.archive-open .space::after {
+    top:82px;
+    right:20px;
+  }
+  body.archive-open .works-space { padding:0; }
+  body.archive-open .library-shell {
+    inset:auto;
+    margin:86px 20px 24px;
+  }
+  body.archive-open .state-space { padding-top:118px; }
+  body.archive-open .state-heading { min-height:0;padding-bottom:28px; }
+  body.archive-open .state-heading h2 { font-size:clamp(2rem,11vw,3.4rem); }
+  body.archive-open .observation-instrument > header {
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.16);
+  }
+  body.archive-open .site-footer {
+    padding:78px 20px 64px;
+  }
+  body.archive-open .site-footer::before { left:20px; }
+}
