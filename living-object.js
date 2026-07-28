@@ -96,11 +96,13 @@
   let fallbackFadeFrame = 0;
   let sovereignMaster = null;
   let libraryVoiceActive = false;
-  const fadeFallbackVoice = (active, duration) => {
+  let libraryVoiceUnderlay = false;
+  const sovereignWhisperLevel = 0.072;
+  const fadeFallbackVoice = (active, duration, level = 1) => {
     if (!fallbackAudio) return;
     cancelAnimationFrame(fallbackFadeFrame);
     const from = fallbackAudio.volume;
-    const to = active ? fallbackVolume : 0;
+    const to = active ? fallbackVolume * level : 0;
     const started = performance.now();
     if (active) fallbackAudio.play().catch(() => {});
     const frame = (now) => {
@@ -111,8 +113,9 @@
     };
     fallbackFadeFrame = requestAnimationFrame(frame);
   };
-  const setSovereignVoiceActive = (active, transitionSeconds = active ? .55 : .3) => {
+  const setSovereignVoiceActive = (active, transitionSeconds = active ? .55 : .3, underLibrary = false) => {
     libraryVoiceActive = !active;
+    libraryVoiceUnderlay = underLibrary;
     const foreground = active
       ? "living-object"
       : document.documentElement.dataset.libraryVoice === "sounding" ? "library" : "silent";
@@ -123,21 +126,22 @@
       const now = sovereignAudio.currentTime;
       sovereignMaster.gain.cancelScheduledValues(now);
       sovereignMaster.gain.setValueAtTime(Math.max(.0001, sovereignMaster.gain.value), now);
-      sovereignMaster.gain.exponentialRampToValueAtTime(active ? .27 : .0001, now + transitionSeconds);
+      const target = active ? sovereignWhisperLevel : underLibrary ? sovereignWhisperLevel * .34 : .0001;
+      sovereignMaster.gain.exponentialRampToValueAtTime(target, now + transitionSeconds);
     }
-    fadeFallbackVoice(active, transitionSeconds);
+    fadeFallbackVoice(active || underLibrary, transitionSeconds, underLibrary ? .34 : 1);
   };
   const ensureVoiceAwake = () => {
     if (sovereignAudio?.state !== "running") sovereignAudio?.resume().catch(() => {});
     if (!libraryVoiceActive && fallbackAudio?.paused) fallbackAudio.play().catch(() => {});
   };
-  addEventListener("rootlogos:library-voice-start", () => setSovereignVoiceActive(false, .28));
+  addEventListener("rootlogos:library-voice-start", () => setSovereignVoiceActive(false, .42, true));
   addEventListener("rootlogos:library-voice-stop", () => {
-    setSovereignVoiceActive(document.body.classList.contains("object-open"), .55);
+    setSovereignVoiceActive(true, .55);
   });
-  addEventListener("rootlogos:living-voice-background", () => setSovereignVoiceActive(false, 1.15));
+  addEventListener("rootlogos:living-voice-background", () => setSovereignVoiceActive(true, 1.15));
   addEventListener("rootlogos:living-voice-foreground", () => setSovereignVoiceActive(true, .65));
-  setSovereignVoiceActive(document.body.classList.contains("object-open"), .01);
+  setSovereignVoiceActive(true, .01);
   ensureVoiceAwake();
   ["pointerdown", "keydown", "touchstart", "wheel"].forEach((eventName) => {
     addEventListener(eventName, ensureVoiceAwake, { passive: true });
@@ -844,18 +848,20 @@
     const compressor = audio.createDynamicsCompressor();
     const root = 38 + (cycles % 12);
     sovereignMaster = master;
-    master.gain.value = libraryVoiceActive ? 0.0001 : 0.27;
+    master.gain.value = libraryVoiceActive
+      ? libraryVoiceUnderlay ? sovereignWhisperLevel * .34 : 0.0001
+      : sovereignWhisperLevel;
     highpass.type = "highpass";
     highpass.frequency.value = 28;
     highpass.Q.value = 0.7;
     lowpass.type = "lowpass";
-    lowpass.frequency.value = Math.min(7000, Math.max(1400, scoreField.maxHz * 1.35));
-    lowpass.Q.value = 0.8 + collections * 0.08;
-    compressor.threshold.value = -22;
-    compressor.knee.value = 18;
-    compressor.ratio.value = 5;
-    compressor.attack.value = 0.012;
-    compressor.release.value = 0.42;
+    lowpass.frequency.value = Math.min(1800, Math.max(760, scoreField.maxHz * 0.62));
+    lowpass.Q.value = 0.55 + collections * 0.035;
+    compressor.threshold.value = -34;
+    compressor.knee.value = 24;
+    compressor.ratio.value = 8;
+    compressor.attack.value = 0.028;
+    compressor.release.value = 0.72;
     master.connect(highpass).connect(lowpass).connect(compressor).connect(audio.destination);
 
     [1, 1.5, 2.25].forEach((ratio, index) => {
@@ -863,7 +869,7 @@
       const gain = audio.createGain();
       oscillator.type = index === 1 ? "triangle" : "sine";
       oscillator.frequency.value = root * ratio;
-      gain.gain.value = [0.0055, 0.0018, 0.0007][index];
+      gain.gain.value = [0.0032, 0.0009, 0.00028][index];
       oscillator.connect(gain).connect(master);
       oscillator.start();
     });
@@ -888,7 +894,7 @@
     const relationGain = audio.createGain();
     relationOscillator.setPeriodicWave(audio.createPeriodicWave(real, imaginary, { disableNormalization: false }));
     relationOscillator.frequency.value = root * (1 + (relations.length % 29) / 100);
-    relationGain.gain.value = 0.0024;
+    relationGain.gain.value = 0.00115;
     relationOscillator.connect(relationGain).connect(master);
     relationOscillator.start();
 
@@ -904,8 +910,8 @@
       const state = cadenceState();
       const now = audio.currentTime;
       const meanRelationWeight = relationWeight / Math.max(1, relations.length);
-      const relationalPressure = Math.min(0.004, meanRelationWeight * 0.00035);
-      const strength = (state.cycleBeat === 0 ? 0.021 : 0.009) + relationalPressure;
+      const relationalPressure = Math.min(0.0012, meanRelationWeight * 0.00012);
+      const strength = (state.cycleBeat === 0 ? 0.0065 : 0.0028) + relationalPressure;
       pulseGain.gain.cancelScheduledValues(now);
       pulseGain.gain.setValueAtTime(0.0001, now);
       pulseGain.gain.exponentialRampToValueAtTime(strength, now + 0.07);
@@ -927,7 +933,7 @@
         const frequency = Math.min(4000, Math.max(32, Number(event.frequency || event.rootHz)));
         const beatDuration = 60 / event.tempo;
         const duration = Math.min(3.5, Math.max(0.25, Number(event.beats || 1) * beatDuration));
-        const amplitude = Math.min(0.052, Math.max(0.006, Number(event.amplitude || 0.04) * 0.42)) * polyphonyScale;
+        const amplitude = Math.min(0.015, Math.max(0.0018, Number(event.amplitude || 0.04) * 0.13)) * polyphonyScale;
         const onset = now + voiceIndex * 0.055;
         voice.type = voiceWaveform(event.voice);
         voice.frequency.setValueAtTime(frequency, onset);
@@ -1002,17 +1008,17 @@
         const offset = Math.floor(hash(stream[0].signature) * stream.length);
         return stream[(beat + offset) % stream.length];
       }).filter((event) => event && !event.rest);
-      const pulse = Math.exp(-phase * 3.4) * (.12 + Math.min(.05, meanWeight * .002));
+      const pulse = Math.exp(-phase * 3.4) * (.035 + Math.min(.012, meanWeight * .0007));
       const polyphonyScale = 1 / Math.sqrt(Math.max(1, currentEvents.length));
       const composition = currentEvents.reduce((sum, event) => {
         const eventFrequency = Math.min(4000, Math.max(32, Number(event.frequency || root * 2)));
-        const eventAmplitude = Math.min(.14, Math.max(.018, Number(event.amplitude || .04) * 1.15)) * polyphonyScale;
+        const eventAmplitude = Math.min(.038, Math.max(.0045, Number(event.amplitude || .04) * .28)) * polyphonyScale;
         const eventEnvelope = Math.min(1, phase * 6) * Math.exp(-phase / Math.max(.3, Number(event.beats || 1) * 60 / Number(event.tempo || 48)));
         return sum + Math.sin(Math.PI * 2 * eventFrequency * time) * eventAmplitude * eventEnvelope;
       }, 0);
-      const body = Math.sin(Math.PI * 2 * root * time) * .055
-        + Math.sin(Math.PI * 2 * root * 1.5 * time) * .018
-        + Math.sin(Math.PI * 2 * relationTone * time) * .024
+      const body = Math.sin(Math.PI * 2 * root * time) * .022
+        + Math.sin(Math.PI * 2 * root * 1.5 * time) * .006
+        + Math.sin(Math.PI * 2 * relationTone * time) * .009
         + Math.sin(Math.PI * 2 * root * 2 * time) * pulse
         + composition;
       view.setInt16(44 + index * 2, Math.max(-1, Math.min(1, body)) * 32760, true);
@@ -1021,8 +1027,10 @@
     fallbackAudio.src = URL.createObjectURL(new Blob([buffer], { type: "audio/wav" }));
     fallbackAudio.loop = true;
     fallbackAudio.preload = "auto";
-    fallbackVolume = Math.min(.72, .42 + works / 1000 + collections / 100);
-    fallbackAudio.volume = libraryVoiceActive ? 0 : fallbackVolume;
+    fallbackVolume = Math.min(.2, .12 + works / 5000 + collections / 500);
+    fallbackAudio.volume = libraryVoiceActive
+      ? libraryVoiceUnderlay ? fallbackVolume * .34 : 0
+      : fallbackVolume;
     fallbackAudio.setAttribute("playsinline", "");
     fallbackAudio.hidden = true;
     document.body.append(fallbackAudio);

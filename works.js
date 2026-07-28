@@ -9,14 +9,6 @@
   })[character]);
   const BIBLE_COLLECTION = "Original Douay-Rheims Catholic Canon";
   const isBibleBook = ({ collection }) => collection === BIBLE_COLLECTION;
-  const topologyHash = (value) => {
-    let result = 2166136261;
-    for (const character of String(value)) {
-      result ^= character.charCodeAt(0);
-      result = Math.imul(result, 16777619);
-    }
-    return result >>> 0;
-  };
 
   class LivingWorks {
     constructor(index, corpus = null, sourceRelations = [], topology = null, editionScores = new Map()) {
@@ -36,7 +28,6 @@
       this.audio = null;
       this.master = null;
       this.volume = null;
-      this.topologyVoices = [];
       this.timer = null;
       this.cursor = 0;
       this.detailPinned = false;
@@ -578,10 +569,9 @@
       this.audio = new AudioContext();
       this.master = this.audio.createGain();
       this.volume = this.audio.createGain();
-      this.master.gain.value = .043;
-      this.volume.gain.value = 2.1;
+      this.master.gain.value = .018;
+      this.volume.gain.value = .72;
       this.master.connect(this.volume).connect(this.audio.destination);
-      this.beginTopologyFoundation();
       this.cursor = 0;
       $("#work-listen").setAttribute("aria-pressed", "true");
       $("#work-listen-label").textContent = "Stop";
@@ -589,53 +579,6 @@
       document.documentElement.dataset.libraryVoice = "sounding";
       window.dispatchEvent(new CustomEvent("rootlogos:library-voice-start"));
       this.schedule();
-    }
-
-    beginTopologyFoundation() {
-      if (!this.audio || !this.master || !this.topology) return;
-      const nodes = this.topology.nodes || [];
-      const edges = this.topology.edges || [];
-      const root = 31 + (nodes.length % 11);
-      const harmonicCount = 64;
-      const real = new Float32Array(harmonicCount);
-      const imaginary = new Float32Array(harmonicCount);
-      edges.forEach((edge) => {
-        const signature = topologyHash(`${edge.from}:${edge.to}:${edge.type || edge.relation || "relation"}`);
-        const harmonic = 1 + signature % (harmonicCount - 1);
-        const phase = topologyHash(`${edge.to}:${edge.from}`) / 4294967295 * Math.PI * 2;
-        const weight = Math.max(1, Number(edge.weight || 1));
-        real[harmonic] += Math.cos(phase) * weight;
-        imaginary[harmonic] += Math.sin(phase) * weight;
-      });
-
-      const topologyBus = this.audio.createGain();
-      topologyBus.gain.value = .0048;
-      topologyBus.connect(this.master);
-
-      const relationVoice = this.audio.createOscillator();
-      relationVoice.setPeriodicWave(this.audio.createPeriodicWave(real, imaginary, { disableNormalization: false }));
-      relationVoice.frequency.value = root;
-      relationVoice.connect(topologyBus);
-      relationVoice.start();
-
-      const rootVoice = this.audio.createOscillator();
-      const rootGain = this.audio.createGain();
-      rootVoice.type = "sine";
-      rootVoice.frequency.value = root * .5;
-      rootGain.gain.value = .46;
-      rootVoice.connect(rootGain).connect(topologyBus);
-      rootVoice.start();
-
-      const breath = this.audio.createOscillator();
-      const breathDepth = this.audio.createGain();
-      breath.type = "sine";
-      breath.frequency.value = .07 + (edges.length % 5) * .008;
-      breathDepth.gain.value = .0012;
-      breath.connect(breathDepth).connect(topologyBus.gain);
-      breath.start();
-
-      this.topologyVoices = [relationVoice, rootVoice, breath];
-      document.documentElement.dataset.libraryFoundation = "root-logos-topology";
     }
 
     schedule() {
@@ -657,7 +600,7 @@
       }
       $("#work-sound-signal").dataset.state = event.rest ? "rest" : "sounding";
       $("#work-sound-signal").style.setProperty("--event-duration", `${Math.max(.3, beat * event.beats)}s`);
-      $("#work-sound-status").textContent = event.rest ? "Structural rest / Root Logos topology holds" : `${event.voice} against Root Logos / ${event.provenance}`;
+      $("#work-sound-status").textContent = event.rest ? "Structural rest / sovereign hum continues" : `${event.voice} / ${event.provenance}`;
       this.cursor += 1;
       this.timer = window.setTimeout(() => this.schedule(), beat * event.beats * 1000);
     }
@@ -669,8 +612,6 @@
       this.audio = null;
       this.master = null;
       this.volume = null;
-      this.topologyVoices = [];
-      delete document.documentElement.dataset.libraryFoundation;
       document.documentElement.dataset.libraryVoice = "silent";
       window.dispatchEvent(new CustomEvent("rootlogos:library-voice-stop"));
       if (this.edition) {
