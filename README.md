@@ -805,8 +805,10 @@ truth, value, or authority.
 
 The object is deliberately beheld before it is explained. Its threshold is
 visually naked: no site navigation, title treatment, measures, identity
-statement, or interpretive panel precedes the encounter. A single quiet passage
-leads into the architecture where explanation and operation become available.
+statement, interpretive panel, or “Enter the archive” action precedes the
+encounter. The visitor may remain with the object or move by scrolling; no
+interface prompt competes with the form. A single quiet passage leads into the
+architecture where explanation and operation become available.
 The void is absolute black; it contributes no atmospheric gradient, horizon,
 or decorative light. Dimensionality is carried by the engraving itself: near
 relations cut brighter, distant relations recede, and tonal work-points remain
@@ -1124,7 +1126,10 @@ above-the-fold center rather than the center of a taller minimum-height stage.
 The live condition register sits directly beneath the top-right archive-state
 witness, carrying runtime state, current identity revision, and coherent-work
 count as one compact cluster. The left edge remains clear for the archive
-itself.
+itself. Section identity is stated once through the numbered heading at the
+left; the former faint right-edge duplicates have been removed. Autonomous
+Becoming likewise retains its coordinate heading without an additional
+declarative quotation.
 Runtime vitality is expressed consistently across the archive. Whenever the
 system is neither sleeping nor constitutionally dormant, the top-right runtime
 witness and the permanently red central Root Logos node pulse together.
