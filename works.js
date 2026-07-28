@@ -25,6 +25,7 @@
       this.nodes = [];
       this.rotation = 0;
       this.targetRotation = 0;
+      this.lastFrameAt = performance.now();
       this.pointer = null;
       this.audio = null;
       this.master = null;
@@ -38,7 +39,7 @@
       this.bind();
       this.resize();
       this.renderArchive();
-      requestAnimationFrame(() => this.draw());
+      requestAnimationFrame((timestamp) => this.draw(timestamp));
       if (index.works?.length) this.openLibrary();
       else this.renderEmpty();
     }
@@ -487,7 +488,9 @@
       $("#work-node-detail").hidden = true;
     }
 
-    draw() {
+    draw(timestamp = performance.now()) {
+      const elapsedSeconds = clamp((timestamp - this.lastFrameAt) / 1000, 0, .05);
+      this.lastFrameAt = timestamp;
       const context = this.context;
       context.clearRect(0, 0, this.width, this.height);
       if (this.edition) {
@@ -627,9 +630,12 @@
           }
         });
         context.globalAlpha = 1;
-        if (!this.pointer) this.targetRotation += .0007 * this.edition.visual.motion.drift;
+        if (!this.pointer) {
+          const orbitalVelocity = .022 + this.edition.visual.motion.drift * .025;
+          this.targetRotation += elapsedSeconds * orbitalVelocity;
+        }
       }
-      requestAnimationFrame(() => this.draw());
+      requestAnimationFrame((nextTimestamp) => this.draw(nextTimestamp));
     }
 
     resetSoundStatus(scope) {
