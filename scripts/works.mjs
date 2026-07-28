@@ -4,6 +4,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, extname, join, relative, resolve } from "node:path";
 import { applyFoldForgeComposition, foldForgeCompositionIdentity } from "./foldforge-score.mjs";
+import { renderLibraryFirstFrames } from "./work-first-frame.mjs";
 
 const root = resolve(new URL("..", import.meta.url).pathname);
 const archiveRoot = join(root, "works");
@@ -527,7 +528,12 @@ export const refreshFoundingConstitution = async (triggerEntry) => {
 export const ingestLibraryWork = async (options) => {
   const entry = await ingestWork(options);
   const foundingConstitution = await refreshFoundingConstitution(entry);
-  return { entry, founding_constitution: foundingConstitution };
+  const firstFrames = await renderLibraryFirstFrames();
+  return {
+    entry,
+    founding_constitution: foundingConstitution,
+    first_frame: firstFrames.frames.find(({ work_id }) => work_id === entry.work_id) || null
+  };
 };
 
 const args = process.argv.slice(2);

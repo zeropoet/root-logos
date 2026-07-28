@@ -72,6 +72,10 @@ of carrying them without doctrinal repetition.
   corpus barycenter, canonical order supplies a continuous spine, all derived
   cross-book relations remain drawn, and each book simultaneously expresses
   gravitational coherence and measured outward pressure.
+- `assets/library-first-frames/` holds one canonical 2400×2400 PNG portrait for
+  every coherent Library selection. Each is the work's naked weighted topology
+  at its initial orientation; the adjacent manifest binds the image to its
+  Library order, current edition, renderer, dimensions, and SHA-256.
 - `scripts/works.mjs` ingests a Markdown file or directory in natural order,
   preserves file and heading coordinates, derives concepts and relations,
   composes the paired scores, and updates the public archive. It also accepts
@@ -607,10 +611,15 @@ Library addition is now an executable invariant rather than a manual follow-up.
 The official single-work ingestion path archives the incoming work, computes a
 signature of the resulting whole library, and immediately creates a new
 immutable Founding Constitution edition with that library addition as its
-reading context. The new self-reading receives a distinct topology and resonant
-signature even when the constitutional source prose itself has not changed.
+reading context. It then renders the canonical 2400×2400 first-frame portrait
+of every current coherent Library work into
+`assets/library-first-frames/`, replacing only a work's current portrait while
+preserving immutable edition lineage in `works/`. The new self-reading receives
+a distinct topology and resonant signature even when the constitutional source
+prose itself has not changed.
 Corpus ingestion performs the same propagation once after the complete batch,
-preventing 73 partial self-readings while preserving the same final invariant.
+preventing 73 partial self-readings while preserving the same final invariant
+and regenerating the consolidated corpus portrait.
 Because the Living Object reads current editions without cache, both the added
 work and Root Logos’s response alter its geometry and sovereign voice together.
 

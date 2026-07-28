@@ -5,6 +5,7 @@ import { join, resolve } from "node:path";
 import { createHash } from "node:crypto";
 import { ingestWork, refreshFoundingConstitution } from "./works.mjs";
 import { applyFoldForgeComposition } from "./foldforge-score.mjs";
+import { renderLibraryFirstFrames } from "./work-first-frame.mjs";
 
 const root = resolve(new URL("..", import.meta.url).pathname);
 const archiveRoot = join(root, "works");
@@ -224,6 +225,7 @@ export const ingestDouayRheimsCorpus = async ({ sourceRoot, sourceWitness, rootR
   await mkdir(join(archiveRoot, "corpora"), { recursive: true });
   await writeFile(join(archiveRoot, "corpora", "original-douay-rheims.json"), json(corpus));
   await refreshFoundingConstitution(normalized.at(-1));
+  await renderLibraryFirstFrames();
   return corpus;
 };
 

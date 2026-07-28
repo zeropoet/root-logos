@@ -30,7 +30,25 @@ Each ingestion writes:
 
 - `manifest.json`: stable identity and source witness for the work;
 - `edition.json`: the derived Work Graph, visual score, resonant score, and interpretation;
-- `index.json`: the public archive entry used by the Root Logos interface.
+- `index.json`: the public archive entry used by the Root Logos interface;
+- `assets/library-first-frames/NN-work-id.png`: a canonical 2400×2400
+  first-frame portrait of the current topology.
+
+The portrait contains the work alone: black field, weighted relations, and
+white nodes at the Living Library model's initial orientation. It carries no
+interface, title, or source prose. `assets/library-first-frames/manifest.json`
+witnesses its Library order, work and edition identity, dimensions, renderer,
+path, and SHA-256. Filenames remain stable while a later edition replaces the
+current portrait; immutable edition history remains in `works/`.
+
+First-frame rendering is part of both the single-work and complete-corpus
+ingestion paths. It is not a manual publication step. Recovery and validation
+remain available explicitly:
+
+```sh
+npm run works:first-frames
+node scripts/work-first-frame.mjs --check
+```
 
 Every resonant edition also inherits the current witnessed FoldForge
 composition contract. The edition preserves the FoldForge source witness,
