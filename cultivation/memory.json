@@ -572,11 +572,43 @@
         },
         "total": 23
       }
+    },
+    "0e9844f21a6c32348f7a6dbed733cb88bef9caf437971edd09a2306226642e51": {
+      "fingerprint": "0e9844f21a6c32348f7a6dbed733cb88bef9caf437971edd09a2306226642e51",
+      "kind": "generative-compression",
+      "nodes": [
+        "participation",
+        "freedom",
+        "living-statement-004",
+        "bridge-002",
+        "field-note-nihilism-freedom"
+      ],
+      "claim": "freedom + participation recurs across 5 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can freedom and participation be composed as a primitive relation that regenerates these 5 appearances without collapsing their differences?",
+      "evidence_hash": "a15d40c58453a5929484bf94f2c57bd0eb1bf1bbbf133ae280a50925f3e44fb3",
+      "policy_hash": "077f46170043519e0f4144e97b8ea8b8d7a664fbe5f35ddc8723d782a822a7b7",
+      "first_cycle": "RL-CULTIVATE-0038",
+      "last_cycle": "RL-CULTIVATE-0038",
+      "last_cycle_index": 38,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
     }
   },
   "novelty": {
     "consecutive_low_yield_cycles": 0,
-    "last_score": 2,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -780,6 +812,13 @@
         "reason": "policy-changed",
         "status": "autonomously-rejected",
         "at": "2026-07-28T02:36:25.089Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0038",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-07-28T02:55:26.308Z"
       }
     ]
   },
