@@ -29,7 +29,7 @@ const app = {
   selectedProposal: null,
   attractors: null,
   filter: "all",
-  observatoryMode: "lineage",
+  observatoryMode: "causality",
   observatorySelection: null,
   identity: null,
   sources: null,
@@ -379,7 +379,6 @@ const buildWaveform = () => {
 };
 
 const observatoryModes = {
-  lineage: ["Temporal constitution", "The Living History", "Move through the preserved cycles to witness the constitution becoming itself."],
   causality: ["Consequence lineage", "The Causal Thread", "Trace an arrival through admission, wake, inquiry, judgment, and structural consequence."],
   epistemic: ["Kinds of knowing", "The Epistemic Field", "See what is canonical, interrogative, provisional, remembered, rejected, and implemented."],
   pressure: ["Attention topology", "Pressure + Attention", "Witness where recent inquiry, structural connectivity, and unresolved questions gather force."],
@@ -417,18 +416,16 @@ class LivingObservatory {
   constructor(canvas) {
     this.canvas = canvas;
     this.context = canvas.getContext("2d");
-    this.mode = "lineage";
+    this.mode = "causality";
     this.points = [];
     this.hovered = null;
     this.pointer = { x: -1000, y: -1000 };
     this.time = 0;
-    this.timelineIndex = Math.max(0, app.cycles.length - 1);
-    this.playTimer = null;
     this.resize = this.resize.bind(this);
     this.draw = this.draw.bind(this);
     this.resize();
     this.bind();
-    this.setMode("lineage");
+    this.setMode("causality");
     requestAnimationFrame(this.draw);
   }
 
@@ -463,34 +460,19 @@ class LivingObservatory {
     $("#observatory-mode-copy").textContent = copy;
     $(".observatory-stage").dataset.mode = mode;
     $$("[data-observatory-mode]").forEach((button) => button.classList.toggle("is-active", button.dataset.observatoryMode === mode));
-    $("#observatory-timeline").hidden = mode !== "lineage";
     this.compose();
     this.renderLegend();
-    const initial = mode === "lineage" ? this.points[Math.min(this.timelineIndex, this.points.length - 1)] : this.points[0];
+    const initial = this.points[0];
     if (initial) this.select(initial, false);
   }
 
   compose() {
     if (!this.width) return;
     const builders = {
-      lineage: () => this.lineage(), causality: () => this.causality(), epistemic: () => this.epistemic(),
+      causality: () => this.causality(), epistemic: () => this.epistemic(),
       pressure: () => this.pressure(), absence: () => this.absence(), authority: () => this.authority(), respiration: () => this.respiration()
     };
     this.points = builders[this.mode]();
-  }
-
-  lineage() {
-    const cycles = [...app.cycles].reverse();
-    const max = Math.max(1, cycles.length - 1);
-    $("#timeline-range").max = String(Math.max(0, cycles.length - 1));
-    $("#timeline-range").value = String(Math.min(this.timelineIndex, max));
-    $("#timeline-output").textContent = cycles[this.timelineIndex]?.cultivation_id || "Origin";
-    return cycles.map((cycle, index) => ({
-      x: this.width * (.1 + .8 * index / max), y: this.height * (.58 + Math.sin(index * .9) * .12), r: cycle.status === "implemented" ? 8 : 5,
-      kind: cycle.status, title: cycle.cultivation_id, body: cycle.selected_finding?.claim || cycle.self_prompt,
-      measures: [["Disposition", sentence(cycle.status)], ["Lens", sentence(cycle.lens?.id)], ["Novelty", `${cycle.novelty?.score ?? "—"} / 4`]],
-      trace: (cycle.events || []).map(({ type }) => sentence(type)), color: cycle.status === "implemented" ? "gold" : String(cycle.status).includes("rejected") ? "rust" : "inquiry", data: cycle
-    }));
   }
 
   causality() {
@@ -562,7 +544,7 @@ class LivingObservatory {
 
   renderLegend() {
     const legends = {
-      lineage: [["gold", "Implemented"], ["rust", "Rejected"], ["inquiry", "Preserved inquiry"]], causality: [["inquiry", "Arrival"], ["memory", "Interpretation"], ["gold", "Consequence"]],
+      causality: [["inquiry", "Arrival"], ["memory", "Interpretation"], ["gold", "Consequence"]],
       epistemic: [["gold", "Canonical"], ["inquiry", "Open question"], ["memory", "Historical"]], pressure: [["rust", "High pressure"], ["inquiry", "Question pressure"], ["gold", "Relational attention"]],
       absence: [["void", "Computed absence"]], authority: [["gold", "Autonomous authority"], ["inquiry", "Constitutional judgment"], ["memory", "Witness layer"]], respiration: [["gold", "Emitted"], ["memory", "Scheduled"], ["inquiry", "Constitutional source"]]
     };
@@ -591,7 +573,7 @@ class LivingObservatory {
     this.time = timestamp * .001; const ctx = this.context;
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0); ctx.clearRect(0, 0, this.width, this.height);
     const selected = app.observatorySelection;
-    if (["lineage", "causality", "authority"].includes(this.mode)) {
+    if (["causality", "authority"].includes(this.mode)) {
       ctx.beginPath(); this.points.forEach((point, index) => index ? ctx.lineTo(point.x, point.y) : ctx.moveTo(point.x, point.y));
       ctx.strokeStyle = "rgba(255,255,255,.16)"; ctx.lineWidth = .7; ctx.stroke();
     }
@@ -878,46 +860,45 @@ const resolveFieldDeepLink = ({ scroll = false } = {}) => {
 };
 
 const bindInterface = () => {
+  const navLinks = $$(".primary-nav a");
+  const navTargets = navLinks
+    .map((link) => ({ link, target: document.querySelector(link.getAttribute("href")) }))
+    .filter(({ target }) => target);
+  const updateNavigationState = () => {
+    if (document.body.classList.contains("object-open")) {
+      navLinks.forEach((link) => link.classList.toggle("is-active", link.dataset.space === "object"));
+      return;
+    }
+    const readingLine = Math.min(innerHeight * .3, 220);
+    const current = navTargets
+      .filter(({ target }) => target.id !== "object" && target.getBoundingClientRect().top <= readingLine)
+      .at(-1);
+    navLinks.forEach((link) => link.classList.toggle("is-active", link === current?.link));
+  };
+  const alignHashTarget = () => {
+    const target = document.querySelector(location.hash);
+    if (!target || !target.matches("main > section")) {
+      updateNavigationState();
+      return;
+    }
+    target.scrollIntoView({ behavior: "auto", block: "start" });
+    updateNavigationState();
+  };
+
   $("[data-field-inspector-close]").addEventListener("click", closeFieldInspector);
   $(".nav-toggle").addEventListener("click", (event) => {
     const open = $(".primary-nav").classList.toggle("is-open");
     event.currentTarget.setAttribute("aria-expanded", String(open));
   });
-  $$(".primary-nav a").forEach((link) => link.addEventListener("click", () => $(".primary-nav").classList.remove("is-open")));
+  navLinks.forEach((link) => link.addEventListener("click", () => {
+    $(".primary-nav").classList.remove("is-open");
+    $(".nav-toggle").setAttribute("aria-expanded", "false");
+    requestAnimationFrame(() => requestAnimationFrame(alignHashTarget));
+  }));
   $$(".field-control").forEach((control) => control.addEventListener("click", () => {
     app.filter = control.dataset.filter;
     $$(".field-control").forEach((item) => item.classList.toggle("is-active", item === control));
   }));
-  $$("[data-observatory-mode]").forEach((button) => button.addEventListener("click", () => observatory?.setMode(button.dataset.observatoryMode)));
-  $("#observatory-selection").addEventListener("click", () => {
-    const reading = $("#observatory-reading");
-    const open = reading.classList.toggle("is-open");
-    $("#observatory-selection").setAttribute("aria-expanded", String(open));
-  });
-  $("#close-observatory-reading").addEventListener("click", () => {
-    $("#observatory-reading").classList.remove("is-open");
-    $("#observatory-selection").setAttribute("aria-expanded", "false");
-  });
-  $("#timeline-range").addEventListener("input", (event) => {
-    if (!observatory) return;
-    observatory.timelineIndex = Number(event.target.value);
-    observatory.compose();
-    const point = observatory.points[observatory.timelineIndex];
-    if (point) observatory.select(point, false);
-    $("#timeline-output").textContent = point?.title || "Origin";
-  });
-  $("#timeline-play").addEventListener("click", (event) => {
-    if (!observatory) return;
-    if (observatory.playTimer) {
-      clearInterval(observatory.playTimer); observatory.playTimer = null; event.currentTarget.textContent = "Play"; return;
-    }
-    event.currentTarget.textContent = "Pause";
-    observatory.playTimer = setInterval(() => {
-      const range = $("#timeline-range");
-      observatory.timelineIndex = (observatory.timelineIndex + 1) % Math.max(1, observatory.points.length);
-      range.value = String(observatory.timelineIndex); range.dispatchEvent(new Event("input"));
-    }, 1100);
-  });
   $("#open-cycle").addEventListener("click", () => {
     renderDrawer();
     $("#cycle-drawer").hidden = false;
@@ -936,18 +917,6 @@ const bindInterface = () => {
     event.preventDefault();
     submitObservation(event.currentTarget);
   });
-  $("#reading-actions").addEventListener("click", (event) => {
-    const link = event.target.closest("[data-fragment-source]");
-    if (!link) return;
-    const node = field?.nodeMap.get(link.dataset.fragmentSource);
-    if (!node) return;
-    event.preventDefault();
-    const fragmentId = link.dataset.fragmentId;
-    history.replaceState(null, "", `?from=${encodeURIComponent(fragmentId)}#field`);
-    selectNode(node, fragmentId);
-    $("#observatory-reading").classList.remove("is-open");
-    $("#field").scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-  });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && $("#field-inspector").classList.contains("is-visible")) {
       closeFieldInspector();
@@ -957,16 +926,16 @@ const bindInterface = () => {
       document.body.style.overflow = "";
     }
   });
-  window.addEventListener("hashchange", () => resolveFieldDeepLink({ scroll: true }));
-
-  const spaces = $$(".space[data-space-name]");
-  const observer = new IntersectionObserver((entries) => {
-    const visible = entries.filter(({ isIntersecting }) => isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (!visible) return;
-    const id = visible.target.id;
-    $$(".primary-nav a").forEach((link) => link.classList.toggle("is-active", link.dataset.space === id));
-  }, { threshold: [.24, .52] });
-  spaces.forEach((space) => observer.observe(space));
+  window.addEventListener("hashchange", () => {
+    resolveFieldDeepLink({ scroll: true });
+    requestAnimationFrame(() => requestAnimationFrame(alignHashTarget));
+  });
+  window.addEventListener("scroll", updateNavigationState, { passive: true });
+  window.addEventListener("resize", updateNavigationState, { passive: true });
+  window.addEventListener("rootlogos:ready", alignHashTarget);
+  window.addEventListener("rootlogos:works-ready", alignHashTarget);
+  window.addEventListener("load", alignHashTarget, { once: true });
+  updateNavigationState();
 };
 
 const initialize = async () => {
@@ -981,7 +950,6 @@ const initialize = async () => {
     renderProposals();
     renderHealth();
     field = new ConstitutionalField($("#field-canvas"), app.graph);
-    observatory = new LivingObservatory($("#observatory-canvas"));
     if (!resolveFieldDeepLink()) {
       const returningFragmentId = new URLSearchParams(location.search).get("from");
       const returningPacket = (app.attractors?.packets || []).find(({ attractor_id: id }) => id === returningFragmentId);

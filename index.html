@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=2.11-material-witness-field">
+    <link rel="stylesheet" href="styles.css?v=2.14-observatory-convergence">
   </head>
   <body>
     <a class="skip-link" href="#main">Enter the object</a>
@@ -25,7 +25,8 @@
       </a>
 
       <nav class="primary-nav" aria-label="Root Logos instruments">
-        <a href="#object" data-space="object">Object</a>
+        <a href="#object" data-space="object">Living Object</a>
+        <a href="#field" data-space="field">Field</a>
         <a href="#works" data-space="works">Library</a>
         <a href="#observatory" data-space="observatory">Observatory</a>
         <a href="#intake" data-space="intake">Membrane</a>
@@ -135,7 +136,7 @@
 
           <aside class="work-reading">
             <p class="micro-label" id="work-coordinate" data-module="01.01">Current visual-resonant edition</p>
-            <h3 id="work-title">Resolving the first work</h3>
+            <h3 id="work-title" role="button" tabindex="0" aria-describedby="work-sound-status">Resolving the first work</h3>
             <p id="work-statement">The archive is establishing its shape.</p>
             <div class="work-listening">
               <button type="button" id="work-listen" aria-pressed="false">
@@ -155,47 +156,6 @@
           <p class="coordinate" data-module="02">Observatory</p>
           <h2>Root Logos observed</h2>
         </header>
-        <div class="observatory-instrument">
-          <nav class="observatory-modes" aria-label="Ways of seeing Root Logos">
-            <button type="button" class="is-active" data-observatory-mode="lineage"><span>01</span><b>Lineage</b><small>How it became</small></button>
-            <button type="button" data-observatory-mode="causality"><span>02</span><b>Causal thread</b><small>What led to what</small></button>
-            <button type="button" data-observatory-mode="epistemic"><span>03</span><b>Epistemic field</b><small>What kind of knowing</small></button>
-            <button type="button" data-observatory-mode="pressure"><span>04</span><b>Pressure</b><small>Where inquiry gathers</small></button>
-            <button type="button" data-observatory-mode="absence"><span>05</span><b>Absence</b><small>What is not yet related</small></button>
-            <button type="button" data-observatory-mode="authority"><span>06</span><b>Authority</b><small>What may act</small></button>
-            <button type="button" data-observatory-mode="respiration"><span>07</span><b>Respiration</b><small>How the world enters</small></button>
-          </nav>
-
-          <div class="observatory-stage" data-mode="lineage">
-            <canvas id="observatory-canvas" aria-label="Living data visualization of Root Logos"></canvas>
-            <div class="observatory-grid" aria-hidden="true"></div>
-            <header class="observatory-stage-head">
-              <div><p class="micro-label" id="observatory-coordinate" data-module="02.01">Temporal constitution</p><h3 id="observatory-mode-title">The Living History</h3></div>
-              <p id="observatory-mode-copy">Move through the preserved cycles to witness the constitution becoming itself.</p>
-            </header>
-            <div class="observatory-legend" id="observatory-legend"></div>
-            <div class="observatory-timeline" id="observatory-timeline">
-              <button type="button" id="timeline-play" aria-label="Play constitutional history">Play</button>
-              <input type="range" id="timeline-range" min="0" max="0" value="0" aria-label="Constitutional history position">
-              <output id="timeline-output">Origin</output>
-            </div>
-            <button class="observatory-selection" id="observatory-selection" type="button" aria-expanded="false">
-              <span id="selection-index">00</span>
-              <span><small id="selection-kind">Field reading</small><b id="selection-title">Root Logos</b></span>
-              <i>Open reading</i>
-            </button>
-          </div>
-
-          <aside class="observatory-reading" id="observatory-reading" aria-live="polite">
-            <header><p class="coordinate" id="reading-coordinate" data-module="02.01.R">Lineage / present</p><button type="button" id="close-observatory-reading" aria-label="Close reading">×</button></header>
-            <h3 id="reading-title">A constitution with memory</h3>
-            <p id="reading-body">Every cycle is preserved as a distinct stratum. Rejection remains visible; implementation never erases the inquiry that produced it.</p>
-            <div class="reading-measures" id="reading-measures"></div>
-            <div class="reading-trace" id="reading-trace"></div>
-            <div class="reading-actions" id="reading-actions"></div>
-          </aside>
-        </div>
-
         <div class="observatory-substrate">
           <header>
             <div>
@@ -422,8 +382,8 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field. The constitutional archive remains available through “Read the constitution.”</p></noscript>
-    <script src="living-object.js?v=2.5-subtle-facets" defer></script>
-    <script src="script.js?v=2.6-vessel-only-witness-links" defer></script>
-    <script src="works.js?v=2.3-bitcoin-telos-bridge" defer></script>
+    <script src="living-object.js?v=2.8-departure-fade" defer></script>
+    <script src="script.js?v=2.13-observatory-convergence" defer></script>
+    <script src="works.js?v=2.12-library-title-playback" defer></script>
   </body>
 </html>

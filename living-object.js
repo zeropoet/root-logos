@@ -19,10 +19,13 @@
       object.setAttribute("aria-hidden", String(archiveOpen));
     }
     if (archiveOpen) {
+      dispatchEvent(new CustomEvent("rootlogos:living-voice-background"));
       requestAnimationFrame(() => {
         dispatchEvent(new Event("resize"));
         requestAnimationFrame(() => dispatchEvent(new Event("resize")));
       });
+    } else {
+      dispatchEvent(new CustomEvent("rootlogos:living-voice-foreground"));
     }
   };
   syncExperienceMode();
@@ -76,10 +79,52 @@
   const AudioContextClass = window.AudioContext || window.webkitAudioContext;
   const sovereignAudio = AudioContextClass ? new AudioContextClass() : null;
   let fallbackAudio = null;
+  let fallbackVolume = 0;
+  let fallbackFadeFrame = 0;
+  let sovereignMaster = null;
+  let libraryVoiceActive = false;
+  const fadeFallbackVoice = (active, duration) => {
+    if (!fallbackAudio) return;
+    cancelAnimationFrame(fallbackFadeFrame);
+    const from = fallbackAudio.volume;
+    const to = active ? fallbackVolume : 0;
+    const started = performance.now();
+    if (active) fallbackAudio.play().catch(() => {});
+    const frame = (now) => {
+      const progress = Math.min(1, (now - started) / Math.max(1, duration * 1000));
+      fallbackAudio.volume = from + (to - from) * (1 - Math.pow(1 - progress, 2));
+      if (progress < 1) fallbackFadeFrame = requestAnimationFrame(frame);
+      else if (!active) fallbackAudio.pause();
+    };
+    fallbackFadeFrame = requestAnimationFrame(frame);
+  };
+  const setSovereignVoiceActive = (active, transitionSeconds = active ? .55 : .3) => {
+    libraryVoiceActive = !active;
+    const foreground = active
+      ? "living-object"
+      : document.documentElement.dataset.libraryVoice === "sounding" ? "library" : "silent";
+    document.documentElement.dataset.voiceForeground = foreground;
+    document.documentElement.dataset.voiceTransition = String(transitionSeconds);
+    if (window.__rootLogosVoice) window.__rootLogosVoice.foreground = foreground;
+    if (sovereignMaster && sovereignAudio) {
+      const now = sovereignAudio.currentTime;
+      sovereignMaster.gain.cancelScheduledValues(now);
+      sovereignMaster.gain.setValueAtTime(Math.max(.0001, sovereignMaster.gain.value), now);
+      sovereignMaster.gain.exponentialRampToValueAtTime(active ? .27 : .0001, now + transitionSeconds);
+    }
+    fadeFallbackVoice(active, transitionSeconds);
+  };
   const ensureVoiceAwake = () => {
     if (sovereignAudio?.state !== "running") sovereignAudio?.resume().catch(() => {});
-    if (fallbackAudio?.paused) fallbackAudio.play().catch(() => {});
+    if (!libraryVoiceActive && fallbackAudio?.paused) fallbackAudio.play().catch(() => {});
   };
+  addEventListener("rootlogos:library-voice-start", () => setSovereignVoiceActive(false, .28));
+  addEventListener("rootlogos:library-voice-stop", () => {
+    setSovereignVoiceActive(document.body.classList.contains("object-open"), .55);
+  });
+  addEventListener("rootlogos:living-voice-background", () => setSovereignVoiceActive(false, 1.15));
+  addEventListener("rootlogos:living-voice-foreground", () => setSovereignVoiceActive(true, .65));
+  setSovereignVoiceActive(document.body.classList.contains("object-open"), .01);
   ensureVoiceAwake();
   ["pointerdown", "keydown", "touchstart", "wheel"].forEach((eventName) => {
     addEventListener(eventName, ensureVoiceAwake, { passive: true });
@@ -782,7 +827,8 @@
     const lowpass = audio.createBiquadFilter();
     const compressor = audio.createDynamicsCompressor();
     const root = 38 + (cycles % 12);
-    master.gain.value = 0.27;
+    sovereignMaster = master;
+    master.gain.value = libraryVoiceActive ? 0.0001 : 0.27;
     highpass.type = "highpass";
     highpass.frequency.value = 28;
     highpass.Q.value = 0.7;
@@ -888,6 +934,8 @@
     ensureVoiceAwake();
     window.__rootLogosVoice = {
       context: audio,
+      master,
+      foreground: document.documentElement.dataset.voiceForeground || "silent",
       cadence: "weekly / Sunday 10:07 Eastern / seven-beat live phrase",
       relations: relations.length,
       relationWeight,
@@ -957,7 +1005,8 @@
     fallbackAudio.src = URL.createObjectURL(new Blob([buffer], { type: "audio/wav" }));
     fallbackAudio.loop = true;
     fallbackAudio.preload = "auto";
-    fallbackAudio.volume = Math.min(.72, .42 + works / 1000 + collections / 100);
+    fallbackVolume = Math.min(.72, .42 + works / 1000 + collections / 100);
+    fallbackAudio.volume = libraryVoiceActive ? 0 : fallbackVolume;
     fallbackAudio.setAttribute("playsinline", "");
     fallbackAudio.hidden = true;
     document.body.append(fallbackAudio);

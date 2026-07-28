@@ -25,6 +25,7 @@
       this.pointer = null;
       this.audio = null;
       this.master = null;
+      this.volume = null;
       this.timer = null;
       this.cursor = 0;
       this.detailPinned = false;
@@ -69,8 +70,22 @@
         const entry = this.index.works.find(({ work_id: id }) => id === button?.dataset.work);
         if (entry) this.open(entry);
       });
-      $("#library-entry").addEventListener("click", () => this.openLibrary());
+      $("#library-entry").addEventListener("click", () => {
+        this.openLibrary();
+        this.start();
+      });
       $("#work-listen").addEventListener("click", () => this.audio ? this.stop() : this.start());
+      $("#work-title").addEventListener("click", () => {
+        if (!this.audio) this.start();
+      });
+      $("#work-title").addEventListener("keydown", (event) => {
+        if (!["Enter", " "].includes(event.key) || this.audio) return;
+        event.preventDefault();
+        this.start();
+      });
+      window.addEventListener("rootlogos:living-voice-foreground", () => {
+        if (this.audio) this.stop();
+      });
       $("#work-node-detail-close").addEventListener("click", () => this.hideDetail());
       document.addEventListener("visibilitychange", () => { if (document.hidden && this.audio) this.stop(); });
     }
@@ -532,17 +547,23 @@
       $("#work-listen-label").textContent = "Listen";
       $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / ${scope} ${this.edition.sound.signature}`;
       $("#work-sound-signal").dataset.state = "silent";
+      $("#work-sound-signal").dataset.playing = "false";
     }
 
     start() {
       if (!this.edition || !window.AudioContext) return;
       this.audio = new AudioContext();
       this.master = this.audio.createGain();
+      this.volume = this.audio.createGain();
       this.master.gain.value = .043;
-      this.master.connect(this.audio.destination);
+      this.volume.gain.value = 2.1;
+      this.master.connect(this.volume).connect(this.audio.destination);
       this.cursor = 0;
       $("#work-listen").setAttribute("aria-pressed", "true");
       $("#work-listen-label").textContent = "Stop";
+      $("#work-sound-signal").dataset.playing = "true";
+      document.documentElement.dataset.libraryVoice = "sounding";
+      window.dispatchEvent(new CustomEvent("rootlogos:library-voice-start"));
       this.schedule();
     }
 
@@ -576,6 +597,9 @@
       this.timer = null;
       this.audio = null;
       this.master = null;
+      this.volume = null;
+      document.documentElement.dataset.libraryVoice = "silent";
+      window.dispatchEvent(new CustomEvent("rootlogos:library-voice-stop"));
       if (this.edition) {
         const scope = this.isLibrary ? "library score" : this.isCorpus ? "corpus score" : "score";
         this.resetSoundStatus(scope);
@@ -596,6 +620,7 @@
       const corpus = corpusResponse.ok ? await corpusResponse.json() : null;
       const telos = telosResponse?.ok ? await telosResponse.json() : null;
       window.rootLogosWorks = new LivingWorks(index, corpus, telos?.work_relations || []);
+      window.dispatchEvent(new CustomEvent("rootlogos:works-ready"));
     } catch (error) {
       console.error(error);
       $("#work-title").textContent = "The archive remains closed";
