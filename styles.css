@@ -2216,23 +2216,6 @@ body.archive-open .space {
   padding-left:calc(var(--archive-edge) + var(--archive-rail) + 28px);
   border-bottom-color:rgba(255,255,255,.28);
 }
-body.archive-open .space::after {
-  content:attr(data-space-name) " / ROOT LOGOS";
-  position:absolute;
-  z-index:6;
-  top:104px;
-  right:var(--archive-edge);
-  color:rgba(255,255,255,.28);
-  font:500 .42rem/1 var(--mono);
-  letter-spacing:.13em;
-  text-transform:uppercase;
-  pointer-events:none;
-}
-body.archive-open .field-space::after { content:"01 / CONSTITUTIONAL FIELD"; }
-body.archive-open .works-space::after { content:"02 / LIVING LIBRARY"; }
-body.archive-open .state-space::after { content:"03 / AUTONOMOUS BECOMING"; }
-body.archive-open .intake-space::after { content:"04 / PUBLIC MEMBRANE"; }
-
 body.archive-open .coordinate[data-module],
 body.archive-open .micro-label[data-module] {
   gap:16px;
@@ -2434,10 +2417,6 @@ body.archive-open .site-footer > div small {
   body.archive-open .space {
     padding-right:20px;
     padding-left:20px;
-  }
-  body.archive-open .space::after {
-    top:82px;
-    right:20px;
   }
   body.archive-open .works-space { padding:0; }
   body.archive-open .library-shell {
