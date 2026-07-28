@@ -232,22 +232,6 @@
 
     const geometry = formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions });
     const renderer = createRenderer(gl, geometry);
-    let constellationFocus = -1;
-    const switchboard = $("#object-switchboard-options");
-    switchboard.innerHTML = geometry.focuses.map(({ cluster, shortLabel, label }) => `
-      <button type="button" data-object-focus="${cluster}" aria-pressed="${cluster === -1}" aria-label="Focus ${label}">
-        ${shortLabel}
-      </button>
-    `).join("");
-    switchboard.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-object-focus]");
-      if (!button) return;
-      constellationFocus = Number(button.dataset.objectFocus);
-      switchboard.querySelectorAll("button").forEach((candidate) => {
-        candidate.setAttribute("aria-pressed", String(candidate === button));
-      });
-      $("#object-focus-label").textContent = geometry.focuses.find(({ cluster }) => cluster === constellationFocus)?.label || "Whole object";
-    });
     let pointerX = 0;
     let pointerY = 0;
     let targetX = 0;
@@ -281,8 +265,7 @@
         pitch: -0.08 + targetY * 0.055,
         aspect: canvas.width / canvas.height,
         cadence: pulse.beatPhase,
-        cadenceAccent: pulse.cycleBeat === 0 ? 1 : 0,
-        focus: constellationFocus
+        cadenceAccent: pulse.cycleBeat === 0 ? 1 : 0
       });
       if (visible) lifetime.frameRequest = requestAnimationFrame(frame);
     };
@@ -335,21 +318,13 @@
       .filter(({ work_id: id }) => independentEditions.has(id))
       .sort((a, b) => Number(a.library_order ?? 9999) - Number(b.library_order ?? 9999));
     const clusterForWork = new Map();
-    const focuses = [{ cluster: -1, shortLabel: "ALL", label: "Whole object" }];
     const constitution = independentWorks.find(({ kind }) => kind === "constitution");
     if (constitution) {
       clusterForWork.set(constitution.work_id, 0);
-      focuses.push({ cluster: 0, shortLabel: "00", label: constitution.title.replace(/^Root Logos:\s*/, "") });
     }
-    focuses.push({ cluster: 1, shortLabel: "01", label: corpus.title.replace(/ Catholic Canon$/, "") });
     let nextCluster = 2;
     independentWorks.filter(({ kind }) => kind !== "constitution").forEach((work) => {
       clusterForWork.set(work.work_id, nextCluster);
-      focuses.push({
-        cluster: nextCluster,
-        shortLabel: String(work.library_order ?? nextCluster).padStart(2, "0"),
-        label: work.title
-      });
       nextCluster += 1;
     });
     const cycles = Math.max(1, Number(cultivation.next_cycle || 1) - 1);
@@ -616,8 +591,7 @@
       facets: new Float32Array(facets),
       lines: new Float32Array(lines),
       points: new Float32Array(points),
-      pulsePaths,
-      focuses
+      pulsePaths
     };
   }
 
@@ -635,7 +609,6 @@
       uniform float uAspect;
       uniform float uCadence;
       uniform float uCadenceAccent;
-      uniform float uFocus;
       varying vec4 vColor;
       varying float vVisible;
       void main() {
@@ -651,8 +624,7 @@
         float breath = 1.0 + sin(uTime * 0.62 + aBirth * 16.0) * 0.055 + cadencePulse * (0.16 + uCadenceAccent * 0.12);
         gl_PointSize = aSize * arrival * breath * (5.3 / depth);
         float engravingDepth = clamp((p.z + 2.4) / 4.8, 0.0, 1.0);
-        float focusWeight = uFocus < -0.5 || abs(aCluster - uFocus) < 0.25 ? 1.0 : 0.025;
-        vColor = vec4(vec3(1.0), aColor.a * arrival * mix(0.34, 1.0, engravingDepth) * focusWeight);
+        vColor = vec4(vec3(1.0), aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
         vVisible = arrival;
       }
     `;
@@ -708,7 +680,7 @@
 
     const uniforms = (shader, state) => {
       context.useProgram(shader);
-      [["uTime", state.time], ["uGrowth", state.growth], ["uYaw", state.rotation], ["uPitch", state.pitch], ["uAspect", state.aspect], ["uCadence", state.cadence], ["uCadenceAccent", state.cadenceAccent], ["uFocus", state.focus]].forEach(([name, value]) => {
+      [["uTime", state.time], ["uGrowth", state.growth], ["uYaw", state.rotation], ["uPitch", state.pitch], ["uAspect", state.aspect], ["uCadence", state.cadence], ["uCadenceAccent", state.cadenceAccent]].forEach(([name, value]) => {
         context.uniform1f(context.getUniformLocation(shader, name), value);
       });
     };
