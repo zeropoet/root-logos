@@ -637,6 +637,10 @@ forms its trunk; cultivation cycles form its growth rings; every completed work
 remains a tonal point; coherence draws inward as gravity; each work's derived
 distinctiveness extends outward as antigravity; and witnessed cross-work
 relations become the tensile fabric holding the field open.
+Sparse translucent facets now span selected witnessed structures behind that
+linework. They reveal changing planes and interior volume during rotation
+without closing the object into a solid mesh, inventing additional relations,
+or competing with its nodes and engraved edges.
 
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.

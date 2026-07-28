@@ -266,6 +266,7 @@
   function formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions = new Map() }) {
     const lines = [];
     const points = [];
+    const facets = [];
     const pulsePaths = [];
     const independentWorks = works
       .filter(({ work_id: id }) => independentEditions.has(id))
@@ -292,6 +293,9 @@
     const trunk = [];
     const addLine = (a, b, color, birth = 0, cluster = 0) => lines.push(...a, ...color, 1, birth, cluster, ...b, ...color, 1, birth, cluster);
     const addPoint = (position, color, size, birth, cluster = 0) => points.push(...position, ...color, size, birth, cluster);
+    const addFacet = (a, b, c, color, birth = 0, cluster = 0) => {
+      [a, b, c].forEach((position) => facets.push(...position, ...color, 1, birth, cluster));
+    };
 
     for (let index = 0; index <= cycles; index += 1) {
       const t = index / cycles;
@@ -311,7 +315,12 @@
         for (let r = 0; r <= 24; r += 1) {
           const a = r / 24 * Math.PI * 2;
           ring.push([Math.cos(a) * ringRadius, position[1], Math.sin(a) * ringRadius]);
-          if (r) addLine(ring[r - 1], ring[r], palette.structure, t * 0.45);
+          if (r) {
+            addLine(ring[r - 1], ring[r], palette.structure, t * 0.45);
+            if (r % 4 === 0) {
+              addFacet(position, ring[r - 1], ring[r], [...palette.structure.slice(0, 3), 0.022], t * 0.45, 0);
+            }
+          }
         }
       }
     }
@@ -330,6 +339,20 @@
       graphPosition.set(node.id, position);
       addPoint(position, palette.constitutional, node.type === "logos" ? 7.5 : 5.2, 0.31 + t * 0.28);
     });
+    const graphFacetNodes = graphNodes
+      .filter(({ id }) => id !== "root-logos")
+      .map(({ id }) => graphPosition.get(id))
+      .filter(Boolean);
+    for (let index = 2; index < graphFacetNodes.length; index += 5) {
+      addFacet(
+        graphFacetNodes[index - 2],
+        graphFacetNodes[index - 1],
+        graphFacetNodes[index],
+        [...palette.constitutional.slice(0, 3), 0.015],
+        0.34 + index / Math.max(1, graphFacetNodes.length) * 0.22,
+        0
+      );
+    }
     (graph.edges || []).forEach((edge, index) => {
       const a = graphPosition.get(edge.from);
       const b = graphPosition.get(edge.to);
@@ -409,6 +432,16 @@
       const crossesTestament = corpusNodes[index - 1].division !== node.division;
       addLine(previous, current, [...palette.canon.slice(0, 3), crossesTestament ? 0.78 : 0.31], 0.6 + index / corpusNodes.length * 0.18, 1);
       if (crossesTestament || index % 7 === 0) pulsePaths.push([previous, current]);
+      if (index % 2 === 0) {
+        addFacet(
+          corpusCenter,
+          previous,
+          current,
+          [...palette.canon.slice(0, 3), crossesTestament ? 0.035 : 0.018],
+          0.6 + index / corpusNodes.length * 0.18,
+          1
+        );
+      }
     });
 
     const witnessedTensions = (corpus.edges || [])
@@ -466,6 +499,7 @@
         const birth = 0.58 + (groupIndex / Math.max(1, allGroups.length) * 0.08) + t * 0.28;
         addLine(shoulder, joint, [...color.slice(0, 3), 0.32], birth, cluster);
         addLine(joint, leaf, [...color.slice(0, 3), 0.5], birth + 0.025, cluster);
+        addFacet(shoulder, joint, leaf, [...color.slice(0, 3), 0.018], birth + 0.018, cluster);
         addPoint(leaf, color, collection.includes("Douay") ? 5.3 : 7.2, birth + 0.04, cluster);
         const edition = independentEditions.get(work.work_id);
         const topology = edition?.visual?.topology;
@@ -491,6 +525,17 @@
             addLine(from, to, [...color.slice(0, 3), .035 + weight * .08], birth + 0.05 + edgeIndex / Math.max(1, internalEdges.length) * .04, cluster);
             if (edgeIndex % 29 === 0) pulsePaths.push([from, to]);
           });
+          const internalFacetNodes = [...internalPositions.values()].slice(1);
+          for (let nodeIndex = 1; nodeIndex < internalFacetNodes.length; nodeIndex += 6) {
+            addFacet(
+              leaf,
+              internalFacetNodes[nodeIndex - 1],
+              internalFacetNodes[nodeIndex],
+              [...color.slice(0, 3), 0.012],
+              birth + 0.055,
+              cluster
+            );
+          }
         }
         if (index % Math.max(1, Math.floor(collectionWorks.length / 9)) === 0) pulsePaths.push([shoulder, joint, leaf]);
       });
@@ -505,6 +550,7 @@
     }
 
     return {
+      facets: new Float32Array(facets),
       lines: new Float32Array(lines),
       points: new Float32Array(points),
       pulsePaths,
@@ -548,6 +594,15 @@
       }
     `;
     const lineFragment = `precision mediump float; varying vec4 vColor; void main(){ gl_FragColor=vColor; }`;
+    const facetFragment = `
+      precision mediump float;
+      varying vec4 vColor;
+      varying float vVisible;
+      void main() {
+        if (vVisible < .01) discard;
+        gl_FragColor = vec4(vColor.rgb, vColor.a * .72);
+      }
+    `;
     const pointFragment = `
       precision mediump float;
       varying vec4 vColor;
@@ -560,8 +615,10 @@
         gl_FragColor = vec4(vColor.rgb, vColor.a * core);
       }
     `;
+    const facetProgram = program(context, vertex, facetFragment);
     const lineProgram = program(context, vertex, lineFragment);
     const pointProgram = program(context, vertex, pointFragment);
+    const facetBuffer = buffer(context, geometry.facets);
     const lineBuffer = buffer(context, geometry.lines);
     const pointBuffer = buffer(context, geometry.points);
     context.enable(context.BLEND);
@@ -597,6 +654,8 @@
       draw(state) {
         context.clearColor(0, 0, 0, 1);
         context.clear(context.COLOR_BUFFER_BIT);
+        uniforms(facetProgram, state);
+        drawBuffer(facetProgram, facetBuffer, geometry.facets.length / 10, context.TRIANGLES, 10);
         uniforms(lineProgram, state);
         drawBuffer(lineProgram, lineBuffer, geometry.lines.length / 10, context.LINES, 10);
         uniforms(pointProgram, state);
