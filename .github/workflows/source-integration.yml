@@ -47,13 +47,17 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           EVENT_ACTION: ${{ github.event.action }}
           FOLDFORGE_REVISION: ${{ github.event.client_payload.revision }}
+          FOLDFORGE_LANGUAGE_WITNESS: ${{ github.event.client_payload.language_witness }}
           SOVEREIGN_STANDARD_WITNESS: ${{ github.event.client_payload.witness }}
         run: |
+          foldforge_language_source=https://foldforge.xyz/root-logos-language-composition.json
           if [ "$EVENT_ACTION" = "foldforge-published" ]; then
             node -e 'if (!/^[a-f0-9]{40}$/.test(process.env.FOLDFORGE_REVISION || "")) process.exit(1)'
+            node -e 'if (!/^sha256:[a-f0-9]{64}$/.test(process.env.FOLDFORGE_LANGUAGE_WITNESS || "")) process.exit(1)'
             test "$(git -C ../FoldForge rev-parse HEAD)" = "$FOLDFORGE_REVISION"
+            foldforge_language_source="https://foldforge.xyz/root-logos-language-composition.json?witness=${FOLDFORGE_LANGUAGE_WITNESS#sha256:}"
           fi
-          node scripts/sources.mjs sync ../FoldForge
+          node scripts/sources.mjs sync ../FoldForge "$foldforge_language_source"
           sovereign_source=https://sovereignstandard.co/root-logos-witness-export.json
           if [ "$EVENT_ACTION" = "sovereign-standard-witness-published" ]; then
             node -e 'if (!/^sha256:[a-f0-9]{64}$/.test(process.env.SOVEREIGN_STANDARD_WITNESS || "")) process.exit(1)'

@@ -3,7 +3,7 @@
   "source_id": "foldforge",
   "status": "witnessed",
   "source_revision": "v0.1",
-  "witness": "sha256:e579cc168278a95c09dff9f4eb703c67019f955de0088db99823719909f43953",
+  "witness": "sha256:f332856a697c1349f839e1047543354f5b32553db227635fcc56c061060c1a6d",
   "identity": {
     "name": "FoldForge",
     "definition": "An Ethereum NFT data composer that discovers, versions, and renders grammars latent within held works and their relationships.",
@@ -108,6 +108,100 @@
       "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
     }
   ],
+  "language_composition": {
+    "schema": "foldforge-language-composition-export/v1",
+    "source_id": "foldforge",
+    "source_url": "https://foldforge.xyz/?owner=zeropoet.eth",
+    "grammar": {
+      "id": "FF-COMP-0002",
+      "version": "1.0.0",
+      "title": "Lexical Field",
+      "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+    },
+    "archive": {
+      "owner": "zeropoet.eth",
+      "address": "0xbd4b3a05c6a585f226afb1952cedd8c410c52e8f",
+      "source_works": 241,
+      "state_witness": "sha256:5406959f49fe4ccaf7c26033ce8a900f9b3d63296c1d892fa0f1a6728aecaa40"
+    },
+    "terms": [
+      {
+        "rank": 1,
+        "term": "archive",
+        "works": 51,
+        "traces": 51
+      },
+      {
+        "rank": 2,
+        "term": "rwl",
+        "works": 43,
+        "traces": 43
+      },
+      {
+        "rank": 3,
+        "term": "void",
+        "works": 43,
+        "traces": 43
+      },
+      {
+        "rank": 4,
+        "term": "architecture",
+        "works": 41,
+        "traces": 41
+      },
+      {
+        "rank": 5,
+        "term": "hært",
+        "works": 41,
+        "traces": 41
+      },
+      {
+        "rank": 6,
+        "term": "ritual",
+        "works": 22,
+        "traces": 22
+      },
+      {
+        "rank": 7,
+        "term": "vow",
+        "works": 17,
+        "traces": 17
+      },
+      {
+        "rank": 8,
+        "term": "silence",
+        "works": 16,
+        "traces": 16
+      },
+      {
+        "rank": 9,
+        "term": "function",
+        "works": 15,
+        "traces": 15
+      },
+      {
+        "rank": 10,
+        "term": "core",
+        "works": 14,
+        "traces": 14
+      },
+      {
+        "rank": 11,
+        "term": "actions",
+        "works": 12,
+        "traces": 12
+      },
+      {
+        "rank": 12,
+        "term": "closure",
+        "works": 12,
+        "traces": 12
+      }
+    ],
+    "claim": "These twelve terms are the strongest current recurrences in FoldForge's selected archive source language.",
+    "boundary": "Recurrence witnesses presence. It does not determine authorial intention, semantic truth, final interpretation, value, or authority.",
+    "witness": "sha256:5eca8d27a1319365f73702b1301dd62624b566d171f5de92904f57be21de9181"
+  },
   "relations": [
     "visible held tokens → resolve → token-specific canonical media",
     "token image → sample → 24 by 24 pixel derivative",

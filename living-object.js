@@ -135,8 +135,8 @@
     fetchJson("cultivation/memory.json"),
     fetchJson("content/attractor-packets.json"),
     fetchJson("self-authorship/current.json"),
-    fetchJson("sources/telos.public-witness.json")
-  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, telos]) => {
+    fetchJson("sources/foldforge.snapshot.json")
+  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge]) => {
     const works = worksIndex.works || [];
     const independentWorks = works.filter((work) => !String(work.collection || "").includes("Douay") && work.edition);
     const coherentWorkCount = independentWorks.length + (corpus.canonical_work_count ? 1 : 0);
@@ -238,23 +238,24 @@
       }
     });
     requestAnimationFrame(frame);
-    const telosRelations = composeTelosRelations(telos);
+    const lexicalRelations = composeLexicalRelations(foldforge.language_composition);
     const scores = [
       corpus.sound,
       ...[...independentEditions.values()].map((edition) => edition.sound),
-      composeTelosScore(telos)
+      composeLexicalScore(foldforge.language_composition)
     ].filter((score) => score?.events?.length);
     beginSovereignVoice({
       works: coherentWorkCount,
       cycles,
       collections: new Set([...independentWorks.map((work) => work.collection || work.title), corpus.title]).size,
-      relations: [...(corpus.edges || []), ...independentRelations, ...telosRelations],
+      relations: [...(corpus.edges || []), ...independentRelations, ...lexicalRelations],
       scores,
       sourceVoices: [{
-        source: "telos",
-        witness: telos.witness,
-        role: "proof-bounded treasury pressure",
-        relation: telos.work_relations?.[0]?.relation || "economic witness"
+        source: "foldforge",
+        witness: foldforge.language_composition?.witness,
+        role: "twelve-term language composition",
+        relation: "recurrence becomes attributable lexical pressure",
+        terms: foldforge.language_composition?.terms?.map(({ term }) => term) || []
       }]
     });
   }).catch((error) => {
@@ -651,64 +652,48 @@
     };
   }
 
-  function composeTelosRelations(telos = {}) {
-    const workRelations = (telos.work_relations || []).map((relation) => ({
-      from: "source-telos",
-      to: `work:${relation.work_id}`,
-      relation: relation.relation,
-      weight: Math.max(1, relation.shared_structures?.length || 1),
-      provenance: `${telos.source_id}:${relation.id}`
+  function composeLexicalRelations(composition = {}) {
+    return (composition.terms || []).map(({ rank, term, works, traces }) => ({
+      from: "foldforge-composition-lexical",
+      to: `foldforge:language:${term}`,
+      relation: "recurs through source language",
+      weight: Math.max(1, Number(works || 1)),
+      traces,
+      rank,
+      provenance: `public/root-logos-language-composition.json#terms/${rank - 1}`
     }));
-    const commitments = (telos.governing_commitments || []).map((commitment, index) => ({
-      from: "source-telos",
-      to: `telos:commitment:${index + 1}`,
-      relation: commitment,
-      weight: 1,
-      provenance: `${telos.source_id}:governing_commitments:${index}`
-    }));
-    return [...workRelations, ...commitments];
   }
 
-  function composeTelosScore(telos = {}) {
-    if (telos.status !== "witnessed" || !/^sha256:[a-f0-9]{64}$/.test(telos.witness || "")) return null;
-    const commitments = telos.governing_commitments || [];
-    const relation = telos.work_relations?.[0];
-    const evidence = [
-      ...commitments.map((value, index) => ({
-        value,
-        provenance: `sources/telos.public-witness.json#governing_commitments/${index}`
-      })),
-      ...(relation?.shared_structures || []).map((value, index) => ({
-        value,
-        provenance: `sources/telos.public-witness.json#work_relations/0/shared_structures/${index}`
-      }))
-    ];
+  function composeLexicalScore(composition = {}) {
+    if (!/^sha256:[a-f0-9]{64}$/.test(composition.witness || "") || composition.terms?.length !== 12) return null;
     const ratios = [1, 9 / 8, 6 / 5, 4 / 3, 3 / 2, 8 / 5, 2];
-    const rootHz = 41.2;
-    const signature = `telos-${telos.witness.slice(7, 15)}`;
-    const events = Array.from({ length: cadence.beatsPerCycle }, (_, index) => {
-      const source = evidence[index % Math.max(1, evidence.length)] || {
-        value: telos.identity?.role_in_coherent_field || "Proof-bounded treasury witness",
-        provenance: "sources/telos.public-witness.json#identity/role_in_coherent_field"
-      };
-      const seed = hash(`${telos.witness}:${index}:${source.value}`);
-      const rest = index === 3 || (index === 6 && telos.public_state?.live_execution_available === false);
+    const rootHz = 55;
+    const signature = `foldforge-lexical-${composition.witness.slice(7, 15)}`;
+    const maximumWorks = Math.max(...composition.terms.map(({ works }) => Number(works || 1)));
+    const events = composition.terms.map(({ rank, term, works, traces }, index) => {
+      const seed = hash(`${composition.witness}:${rank}:${term}:${works}:${traces}`);
+      const density = Number(works || 1) / maximumWorks;
       return {
-        voice: "treasury",
+        voice: "lexical",
         frequency: Number((rootHz * ratios[Math.floor(seed * ratios.length) % ratios.length]).toFixed(3)),
-        beats: index === 0 ? 2 : 1,
-        amplitude: rest ? 0 : Number((0.018 + seed * 0.014).toFixed(4)),
-        rest,
-        provenance: source.provenance,
-        witness: telos.witness,
-        boundary: "No balance, price, position, strategy, custody, or execution data enters the voice."
+        beats: rank === 1 ? 2 : 1,
+        amplitude: Number((0.012 + density * 0.024).toFixed(4)),
+        rest: false,
+        term,
+        rank,
+        recurrence: works,
+        traces,
+        provenance: `public/root-logos-language-composition.json#terms/${index}`,
+        witness: composition.witness,
+        boundary: composition.boundary
       };
     });
     return {
       schema: "root-logos-source-score/v1",
-      source_id: "telos",
+      source_id: "foldforge",
+      composition_id: composition.grammar?.id,
       signature,
-      tempo: 35,
+      tempo: 48,
       root_hz: rootHz,
       events
     };
@@ -722,7 +707,7 @@
       relation: "sine",
       figure: "sine",
       breath: "sine",
-      treasury: "triangle"
+      lexical: "triangle"
     })[voice] || "sine";
   }
 

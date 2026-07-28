@@ -77,10 +77,28 @@ const validateRegistry = (registry) => {
   return registry;
 };
 
-const deriveFoldForge = async (foldForgeRoot) => {
+const validateFoldForgeLanguageComposition = (composition) => {
+  assert(composition.schema === "foldforge-language-composition-export/v1", "Unsupported FoldForge language composition schema.");
+  assert(composition.source_id === "foldforge", "Language composition source must be FoldForge.");
+  assert(composition.grammar?.id === "FF-COMP-0002", "Language composition must use FoldForge Lexical Field.");
+  assert(composition.terms?.length === 12, "FoldForge language composition requires exactly twelve ranked terms.");
+  assert(composition.witness === `sha256:${digest(witnessedPayload(composition))}`, "FoldForge language composition witness is invalid.");
+  composition.terms.forEach((term, index) => {
+    assert(term.rank === index + 1, "FoldForge language composition ranks must be sequential.");
+    assert(/^[\p{L}\p{N}][\p{L}\p{N}'’\-]*$/u.test(term.term), `Invalid FoldForge lexical term ${term.term}.`);
+    assert(Number.isInteger(term.works) && term.works > 0, `${term.term} lacks a positive work count.`);
+    assert(Number.isInteger(term.traces) && term.traces >= term.works, `${term.term} has inconsistent trace evidence.`);
+  });
+  return composition;
+};
+
+const deriveFoldForge = async (foldForgeRoot, languageCompositionSource) => {
   const constitutionPath = resolve(foldForgeRoot, "constitution/foldforge-constitution.json");
   const grammarRoot = resolve(foldForgeRoot, "grammar");
   const constitution = await loadJson(constitutionPath);
+  const languageComposition = validateFoldForgeLanguageComposition(await loadEvidence(
+    languageCompositionSource || resolve(foldForgeRoot, "public/root-logos-language-composition.json")
+  ));
   const grammarFiles = (await readdir(grammarRoot))
     .filter((name) => /^composition-\d+-.+\.json$/.test(name))
     .sort();
@@ -93,7 +111,7 @@ const deriveFoldForge = async (foldForgeRoot) => {
     assert(grammar.authority?.claims && grammar.authority?.doesNotClaim, `${grammar.id} lacks an authority boundary.`);
   }
 
-  const evidence = { constitution, grammars };
+  const evidence = { constitution, grammars, languageComposition };
   const compositions = grammars.map((grammar) => ({
     id: grammar.id,
     title: grammar.title,
@@ -128,6 +146,7 @@ const deriveFoldForge = async (foldForgeRoot) => {
     primitives: constitution.primitives,
     movement: constitution.movement,
     compositions,
+    language_composition: languageComposition,
     relations: [...relationSet],
     questions: [
       "Which relations found in one evidence domain remain valid when tested against another?",
@@ -147,6 +166,7 @@ export const validateSources = async () => {
   if (snapshot.status === "witnessed") {
     assert(snapshot.witness?.startsWith("sha256:"), "Witnessed source requires a SHA-256 witness.");
     assert(snapshot.compositions.length > 0, "Witnessed FoldForge source requires compositions.");
+    validateFoldForgeLanguageComposition(snapshot.language_composition);
   }
   for (const witness of publicWitnesses) {
     assert(witness.schema === "root-logos-public-source-witness/v1", `Unsupported ${witness.source_id} public witness schema.`);
@@ -164,8 +184,11 @@ export const validateSources = async () => {
   return { registry, snapshot, publicWitnesses, sovereignStandardSnapshot };
 };
 
-export const syncFoldForge = async (foldForgeRoot = process.env.FOLDFORGE_PATH || resolve(root, "../FoldForge")) => {
-  const snapshot = await deriveFoldForge(resolve(foldForgeRoot));
+export const syncFoldForge = async (
+  foldForgeRoot = process.env.FOLDFORGE_PATH || resolve(root, "../FoldForge"),
+  languageCompositionSource = process.env.FOLDFORGE_LANGUAGE_SOURCE
+) => {
+  const snapshot = await deriveFoldForge(resolve(foldForgeRoot), languageCompositionSource);
   await writeFile(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`);
   return snapshot;
 };
@@ -192,7 +215,7 @@ export const sealPublicWitnesses = async () => {
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const command = process.argv[2] || "validate";
   if (command === "sync") {
-    const snapshot = await syncFoldForge(process.argv[3]);
+    const snapshot = await syncFoldForge(process.argv[3], process.argv[4]);
     console.log(`Witnessed ${snapshot.compositions.length} FoldForge compositions at ${snapshot.witness}.`);
   } else if (command === "sync-sovereign-standard") {
     const snapshot = await syncSovereignStandard(process.argv[3]);

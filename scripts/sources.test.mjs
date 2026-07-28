@@ -25,6 +25,12 @@ assert.equal(materialFirst.witness, materialSecond.witness, "Unchanged material 
 assert.equal(materialFirstBytes, materialSecondBytes, "Material witness synchronization must be deterministic.");
 assert.equal(first.status, "witnessed");
 assert.equal(first.compositions.length, 4);
+assert.equal(first.language_composition.terms.length, 12);
+assert.deepEqual(first.language_composition.terms.map(({ term }) => term), [
+  "archive", "rwl", "void", "architecture", "hært", "ritual",
+  "vow", "silence", "function", "core", "actions", "closure"
+]);
+assert.match(first.language_composition.witness, /^sha256:[a-f0-9]{64}$/);
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").status, "active");
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").public_url, "https://foldforge.xyz");
 assert.equal(validated.registry.sources.find(({ id }) => id === "x").public_url, "https://x.com/rootlogos");

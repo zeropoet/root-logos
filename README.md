@@ -101,7 +101,9 @@ of carrying them without doctrinal repetition.
   connected evidence daily and receives immediate publication dispatches from
   FoldForge and Sovereign Standard. A changed public export produces a Root
   Logos commit, wakes cultivation, converges the always-awake runtime, and
-  becomes visible in the Observatory.
+  becomes visible in the Observatory. FoldForge also republishes its current
+  twelve-term Language Composition hourly, so a holdings-driven lexical shift
+  can propagate without requiring a source-code change.
 - `content/coherent-field.md` defines the constitutional standard for building
   one coherent account across distinct sources without possession or collapse,
   including the separate compositional, economic, material, and public-exchange
@@ -660,14 +662,15 @@ signature-derived phase so no work is reduced to a turn in a long playlist.
 The continuous relational tone remains beneath that polyphony at witness level,
 not as the dominant electrical buzz.
 
-Telos now enters this refresh-time composition as a source voice rather than a
-market feed. Its sealed public witness, governing commitments, and explicit
-relation to the Bitcoin white paper generate a slow seven-event treasury phrase
-with proof-bounded rests. The witness determines pitch, phase, and harmonic
-pressure, so a future public Telos revision recomposes the sovereign voice.
-Balances, prices, positions, private strategy, custody, and execution never
-enter the instrument; Telos contributes material economic pressure without
-acquiring constitutional authority.
+FoldForge's Language Composition now enters this refresh-time composition as a
+source voice. Its twelve strongest current recurrences—`archive`, `rwl`, `void`,
+`architecture`, `hært`, `ritual`, `vow`, `silence`, `function`, `core`,
+`actions`, and `closure`—form an attributable lexical phrase. Rank,
+distinct-work count, trace count, grammar witness, and archive-state witness
+determine pitch, amplitude, phase, and harmonic pressure. A changed FoldForge
+lexical export therefore wakes Root Logos and recomposes the sovereign voice.
+Recurrence witnesses presence; it does not establish intention, semantic
+truth, value, or authority.
 
 The object is deliberately beheld before it is explained. Its threshold is
 visually naked: no site navigation, title treatment, measures, identity

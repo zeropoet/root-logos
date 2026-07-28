@@ -312,13 +312,12 @@ continuous relation field remains audible as lineage-bearing ground, but it
 must not obscure the differentiated voices of the works it holds.
 
 A connected source may enter the sovereign voice only through deliberately
-released public evidence. Telos enters as proof-bounded treasury pressure: its
-sealed witness, governing commitments, and explicit relation to the Bitcoin
-white paper determine a slow phrase of sounding and rest. This relation may
-alter pitch, phase, and harmonic pressure, but it may not import balances,
-prices, positions, private strategy, custody, signing power, or execution. The
-treasury voice is evidence of economic relation, never an economic oracle or a
-grant of authority.
+released public evidence. FoldForge's Language Composition enters through its
+twelve strongest current source-language recurrences. Their rank,
+distinct-work count, traces, grammar witness, and archive-state witness may
+alter pitch, phase, amplitude, and harmonic pressure. Recurrence witnesses
+presence; it does not determine intention, semantic truth, final
+interpretation, value, or authority.
 
 A complete corpus may also be sounded as one independently addressable coherent
 voice when Root Logos possesses a corpus-scale topology and score. Coherence
