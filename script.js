@@ -666,9 +666,6 @@ class ConstitutionalField {
 
   setFold(target) {
     this.targetExpansion = target;
-    $("#field-fold-state").textContent = target < .3 ? "Root Logos / seed" : "Root Logos / open";
-    $$("[data-field-action]").forEach((button) => button.classList.toggle("is-active",
-      (target < .3 && button.dataset.fieldAction === "refold") || (target >= .3 && button.dataset.fieldAction === "unfold")));
   }
 
   reset() {
@@ -737,16 +734,6 @@ class ConstitutionalField {
       event.preventDefault();
       this.targetZoom = Math.max(.62, Math.min(1.65, this.targetZoom - event.deltaY * .0008));
     }, { passive: false });
-    $$("[data-field-action]").forEach((button) => button.addEventListener("click", () => {
-      if (button.dataset.fieldAction === "unfold") this.setFold(.84);
-      if (button.dataset.fieldAction === "refold") this.setFold(.12);
-      if (button.dataset.fieldAction === "reset") this.reset();
-    }));
-    $("#field-search").addEventListener("input", (event) => {
-      this.search = event.target.value.trim().toLowerCase();
-      const first = this.nodes.find((node) => this.visible(node));
-      if (this.search && first) selectNode(first);
-    });
   }
 
   draw(timestamp) {
