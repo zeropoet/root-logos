@@ -108,6 +108,14 @@ Constitutional Instruments` collection with the signed Constitution. This
 witnesses their legal relation while preserving separate source hashes,
 topologies, scores, ordinals, and edition lineages.
 
+Plato's **Republic** enters as one coherent philosophical dialogue containing
+its ten books and Jowett's introductory apparatus. Root Logos reads Project
+Gutenberg ebook 1497 through the private-source membrane, witnessed from
+`GITenberg/The-Republic_1497` at commit
+`013f8ef56b6abf6165755ed1a88d4cdcc512be6c`, and retains no source prose. Its
+public edition preserves the source hash, 11 structural passages, derived
+topology, resonant score, and Root Logos lineage.
+
 ## Spatial grammar
 
 Living Works uses a deep-space architectural grammar because its archive is

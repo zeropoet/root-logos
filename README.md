@@ -524,8 +524,10 @@ Canon is work `01`, not 73 competing selections. Its complete book field and
 corpus score can be heard as one coherent voice. The Odyssey is `02`, Ornament
 of Abhidharma is `03`, the Bitcoin white paper is `04`, and the signed 1787
 Constitution of the United States is `05`. The twenty-seven ratified amendments
-are the related but independently bounded work `06`; ingestion assigns each
-future coherent work the next stable ordinal.
+are the related but independently bounded work `06`. Plato's **Republic**,
+in Benjamin Jowett's public-domain translation, is work `07` and establishes
+Classical Philosophy as its own collection. Ingestion assigns each future
+coherent work the next stable ordinal.
 
 The Bitcoin white paper also has an explicit, sealed relation to Telos. The
 exact Library work and edition ground Telos's declared BTC settled value layer
@@ -696,8 +698,8 @@ or competing with its nodes and engraved edges.
 
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
-All 1,681 current Catholic-corpus relations enter the engraving. The five
-independently bounded external works contribute another 900 internal relations
+All 1,681 current Catholic-corpus relations enter the engraving. The six
+independently bounded external works contribute another 1,080 internal relations
 and 279 structural points, bringing that Library field to 2,581 witnessed
 relations beyond the constitutional root. Each work therefore changes the
 object as a complete internal topology rather than merely increasing its work
