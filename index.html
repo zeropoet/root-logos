@@ -6,6 +6,11 @@
       html, body { background: #000; }
       html.style-pending body { visibility: hidden; }
     </style>
+    <script>
+      if (new URLSearchParams(location.search).has("library-capture")) {
+        document.documentElement.dataset.libraryCapture = "true";
+      }
+    </script>
     <noscript><style>html.style-pending body { visibility: visible; }</style></noscript>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Root Logos — Living Architectural Archive</title>

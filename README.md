@@ -615,8 +615,10 @@ signature of the resulting whole library, and immediately creates a new
 immutable Founding Constitution edition with that library addition as its
 reading context. It then renders the canonical 2400×2400 first-frame portrait
 of every current coherent Library work into
-`assets/library-first-frames/`, replacing only a work's current portrait while
-preserving immutable edition lineage in `works/`. The new self-reading receives
+`assets/library-first-frames/` by opening each current edition in the actual
+Living Library render window and flattening that canvas at 2400×2400. This
+replaces only a work's current capture while preserving immutable edition
+lineage in `works/`. The new self-reading receives
 a distinct topology and resonant signature even when the constitutional source
 prose itself has not changed.
 Corpus ingestion performs the same propagation once after the complete batch,

@@ -608,6 +608,40 @@ body.archive-open #intake { order: 4; }
 .work-node-detail[data-state="preview"] { pointer-events:none;border-color:rgba(255,255,255,.24); }
 .work-node-detail[data-state="preview"] > button { display:none; }
 .work-node-detail[data-state="pinned"] { border-color:#fff; }
+
+/* Canonical Library portrait capture: the public renderer, isolated at a
+   1200px square and flattened at 2× device scale. */
+html[data-library-capture="true"],
+html[data-library-capture="true"] body {
+  width:1200px;
+  height:1200px;
+  min-width:1200px;
+  min-height:1200px;
+  margin:0;
+  overflow:hidden;
+  background:#000;
+}
+html[data-library-capture="true"] body > :not(main),
+html[data-library-capture="true"] main > :not(#works),
+html[data-library-capture="true"] .works-archive,
+html[data-library-capture="true"] .work-reading {
+  display:none !important;
+}
+html[data-library-capture="true"] main,
+html[data-library-capture="true"] #works,
+html[data-library-capture="true"] .library-shell,
+html[data-library-capture="true"] .library-stage {
+  position:absolute;
+  inset:0;
+  width:1200px;
+  height:1200px;
+  min-height:1200px;
+  margin:0;
+  border:0;
+}
+html[data-library-capture="true"] .library-shell {
+  display:block;
+}
 .work-node-detail > button { position:absolute;top:9px;right:10px;border:0;background:#000;color:#fff;cursor:pointer;font:400 1.1rem/1 var(--mono); }
 .work-node-detail h3 { margin:10px 0 9px;font:400 1.15rem/1.15 var(--display); }
 .work-node-detail > p:last-child { margin:0;color:#fff;font-size:.76rem;line-height:1.55; }

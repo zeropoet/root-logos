@@ -32,15 +32,17 @@ Each ingestion writes:
 - `edition.json`: the derived Work Graph, visual score, resonant score, and interpretation;
 - `index.json`: the public archive entry used by the Root Logos interface;
 - `assets/library-first-frames/NN-work-id.png`: a canonical 2400×2400
-  first-frame portrait of the current topology.
+  flattened capture of the current work inside the Living Library render
+  window.
 
-The portrait contains the work alone: a pure-black field with luminous
-grayscale nodes, weight-sensitive relations, and restrained structural depth
-at the Living Library model's initial orientation. It carries no
-interface, title, or source prose. `assets/library-first-frames/manifest.json`
-witnesses its Library order, work and edition identity, dimensions, renderer,
-path, and SHA-256. Filenames remain stable while a later edition replaces the
-current portrait; immutable edition history remains in `works/`.
+The capture isolates the public canvas at its actual initial orientation and
+2× device scale. It is therefore the same composition, geometry, line
+behavior, depth, and spatial framing seen in the Living Library—not a parallel
+portrait renderer. The browser canvas is then flattened into the PNG.
+`assets/library-first-frames/manifest.json` witnesses its Library order, work
+and edition identity, dimensions, capture renderer, path, and SHA-256.
+Filenames remain stable while a later edition replaces the current capture;
+immutable edition history remains in `works/`.
 
 First-frame rendering is part of both the single-work and complete-corpus
 ingestion paths. It is not a manual publication step. Recovery and validation
