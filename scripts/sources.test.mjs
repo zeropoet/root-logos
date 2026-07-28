@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { sealPublicWitnesses, syncFoldForge, syncSovereignStandard, validateSources } from "./sources.mjs";
@@ -7,6 +7,10 @@ import { sealPublicWitnesses, syncFoldForge, syncSovereignStandard, validateSour
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const foldForge = resolve(root, "../FoldForge");
 const sovereignStandard = resolve(root, "../sovereign-standard/root-logos-witness-export.json");
+const foldForgeSnapshotPath = resolve(root, "sources/foldforge.snapshot.json");
+const sovereignStandardSnapshotPath = resolve(root, "sources/sovereign-standard.snapshot.json");
+const originalFoldForgeSnapshot = await readFile(foldForgeSnapshotPath, "utf8");
+const originalSovereignStandardSnapshot = await readFile(sovereignStandardSnapshotPath, "utf8");
 
 const first = await syncFoldForge(foldForge);
 const firstBytes = await readFile(resolve(root, "sources/foldforge.snapshot.json"), "utf8");
@@ -51,5 +55,8 @@ assert.equal(validated.sovereignStandardSnapshot.authority.root_logos_has_custod
 assert.equal(validated.sovereignStandardSnapshot.authority.root_logos_has_minting_authority, false);
 assert.ok(validated.publicWitnesses.every(({ witness }) => /^sha256:[a-f0-9]{64}$/.test(witness)));
 assert.match(first.compositions[0].witness, /^[a-f0-9]{64}$/);
+
+await writeFile(foldForgeSnapshotPath, originalFoldForgeSnapshot);
+await writeFile(sovereignStandardSnapshotPath, originalSovereignStandardSnapshot);
 
 console.log("Source integration tests passed.");
