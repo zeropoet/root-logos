@@ -93,7 +93,56 @@ const captureLiveLibraryFrames = async ({ corpus, works }) => {
         library.rotation = 0;
         library.targetRotation = 0;
         library.resize();
-        library.draw(performance.now());
+        Object.getPrototypeOf(library).draw.call(library, performance.now());
+        const context = library.context;
+        const centerX = library.width * .5;
+        const centerY = library.height * .54;
+        const bounded = (value, minimum, maximum) => Math.max(minimum, Math.min(maximum, value));
+        const structured = library.layoutMode !== "orbital" && !library.isCorpus && !library.isLibrary;
+        const nodesById = new Map(library.nodes.map((node) => [node.id, node]));
+        context.clearRect(0, 0, library.width, library.height);
+        context.fillStyle = "#000";
+        context.fillRect(0, 0, library.width, library.height);
+        context.globalAlpha = 1;
+        for (const edge of library.edition.visual.topology.edges) {
+          const from = nodesById.get(edge.from);
+          const to = nodesById.get(edge.to);
+          if (!from || !to) continue;
+          const emphasis = edge.morphWeight
+            ?? bounded(Math.log1p(Number(edge.weight) || 0) / Math.log(13), 0, 1);
+          context.strokeStyle = `rgba(255,255,255,${library.isCorpus
+            ? bounded(.045 + Number(edge.weight || 1) * .008, .055, .22)
+            : bounded(.08 + emphasis * .5, .1, .58)})`;
+          context.lineWidth = library.isCorpus ? .85 : .65 + emphasis * 1.8;
+          context.beginPath();
+          context.moveTo(from.screenX, from.screenY);
+          if (structured) {
+            const direction = from.community && from.community === to.community ? -1 : 1;
+            context.quadraticCurveTo(
+              (from.screenX + to.screenX) / 2,
+              (from.screenY + to.screenY) / 2 + direction * Math.min(24, Math.abs(to.screenX - from.screenX) * .08),
+              to.screenX,
+              to.screenY
+            );
+          } else {
+            context.quadraticCurveTo(centerX, centerY, to.screenX, to.screenY);
+          }
+          context.stroke();
+        }
+        [...library.nodes].sort((left, right) => left.depth - right.depth).forEach((node) => {
+          const size = node.type === "work"
+            ? 11
+            : node.type === "document"
+              ? 3.6 + (node.visualMass ?? .3) * 3.8
+              : 1.7 + (node.visualMass ?? bounded(Math.log1p(Number(node.weight) || 0) / Math.log(13), 0, 1)) * 5.3;
+          context.fillStyle = "#fff";
+          context.globalAlpha = bounded(.55 + node.depth * .4, .62, 1);
+          context.beginPath();
+          context.arc(node.screenX, node.screenY, size * node.depth, 0, Math.PI * 2);
+          context.fill();
+        });
+        context.globalAlpha = 1;
+        library.draw = () => {};
       }, workId);
       const image = await page.locator("#work-canvas").evaluate((canvas) => ({
         width: canvas.width,
@@ -160,9 +209,9 @@ export const renderLibraryFirstFrames = async () => {
     if (filename.endsWith(".png") && !expected.has(filename)) await unlink(join(outputRoot, filename));
   }
   const manifest = {
-    schema: "root-logos-library-first-frames/v2",
+    schema: "root-logos-library-first-frames/v3",
     generated_at: new Date().toISOString(),
-    renderer: "living-library-render-window/v1-flattened-canvas",
+    renderer: "isolated-relational-portrait/v1-lines-and-nodes",
     resolution: { width: WIDTH, height: HEIGHT },
     frames
   };
@@ -175,9 +224,9 @@ export const validateLibraryFirstFrames = async () => {
     currentLibraryFrames(),
     readFile(join(outputRoot, "manifest.json"), "utf8").then(JSON.parse)
   ]);
-  if (manifest.schema !== "root-logos-library-first-frames/v2") throw new Error("Unexpected first-frame manifest schema.");
-  if (manifest.renderer !== "living-library-render-window/v1-flattened-canvas") {
-    throw new Error("First frames must be flattened from the Living Library render window.");
+  if (manifest.schema !== "root-logos-library-first-frames/v3") throw new Error("Unexpected first-frame manifest schema.");
+  if (manifest.renderer !== "isolated-relational-portrait/v1-lines-and-nodes") {
+    throw new Error("First frames must contain only the isolated relational portrait.");
   }
   if (manifest.resolution?.width !== WIDTH || manifest.resolution?.height !== HEIGHT) {
     throw new Error(`First-frame resolution must remain ${WIDTH}×${HEIGHT}.`);
