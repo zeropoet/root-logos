@@ -563,8 +563,10 @@ Classical Philosophy as its own collection. **The Federalist Papers** is work
 the ratification-era interpretive body surrounding the signed Constitution.
 Shakespeare's **The Tempest** is work `09` and **Hamlet** is work `10`; together
 they establish Shakespearean Drama as a collection while remaining distinct
-late-romance and tragedy bodies. Ingestion assigns each future coherent work
-the next stable ordinal.
+late-romance and tragedy bodies. Euclid's complete **Thirteen Books of the
+Elements** is work `11`, introducing a thirteen-book architecture of
+definitions, postulates, common notions, and propositions. Ingestion assigns
+each future coherent work the next stable ordinal.
 
 The Bitcoin white paper also has an explicit, sealed relation to Telos. The
 exact Library work and edition ground Telos's declared BTC settled value layer
@@ -573,10 +575,10 @@ custody, execution, trading, or interpretive authority: Telos cannot alter the
 source work's meaning, and the work does not authorize Telos. The bounded bridge
 is visible from both the Telos public witness and the Bitcoin Library reading.
 
-The Founding Constitution now holds sixteen immutable readings. Its current
+The Founding Constitution now holds twenty-one immutable readings. Its current
 v1.2 Library-addition edition preserves 21 constitutional sections, 2,838 words,
 36 concepts, 180 internal relations, and an 84-event resonant score with
-signature `3900a464a425`. The current identity, canonical graph,
+signature `17acc8dc167a`. The current identity, canonical graph,
 constitutional prose, resonant grammar, Library UX, archive, and sovereign
 voice now describe the same boundary.
 
@@ -738,6 +740,19 @@ topology, and an 84-event resonant score. *Hamlet* preserves six documents, 21
 structural passages, 31,384 transiently read words, 36 concepts, 180 relations,
 a 43-node topology, and an 84-event resonant score. Their separate
 constitutional self-readings preserve the requested order of arrival.
+
+Euclid's **The Thirteen Books of Euclid's Elements** enters as work `11` from
+the complete Thomas Little Heath 1908 translation encoded by the Perseus
+Digital Library. The public source is pinned to
+`PerseusDL/canonical-greekLit` commit
+`91595f89e15b4d3000cd93efcf8990720c8be2b9`; the translation is public domain
+and the Perseus TEI witness is attributed under CC BY-SA 4.0. TEI-native
+ingestion preserves all thirteen books and 607 definition, postulate, common
+notion, and proposition coordinates rather than flattening the treatise into
+generic prose. Its derived edition contains 178,329 words, 36 concepts, 180
+relations, a 50-node topology, and an 84-event resonant score. The source
+remains publicly attributable while Root Logos archives the transformed work
+and lineage as its own navigable visual-resonant reading.
 
 ### The Living Object
 
@@ -1071,10 +1086,10 @@ work `00`, the complete Bible is `01`, The Odyssey is `02`, Ornament of
 Abhidharma is `03`, the Bitcoin white paper is `04`, and the signed 1787 U.S.
 Constitution is `05`. The twenty-seven ratified amendments form related work
 `06`, followed by Plato's *Republic* as `07`, *The Federalist Papers* as `08`,
-*The Tempest* as `09`, and *Hamlet* as `10`. The Bible's 73 books remain visible
-and inspectable as nodes within the `01` topology, but no longer appear as 73
-competing library selections. Future complete works receive the next stable
-library ordinal at ingestion.
+*The Tempest* as `09`, *Hamlet* as `10`, and Euclid's complete *Elements* as
+`11`. The Bible's 73 books remain visible and inspectable as nodes within the
+`01` topology, but no longer appear as 73 competing library selections. Future
+complete works receive the next stable library ordinal at ingestion.
 The public Library surface is intentionally limited to three things: the stable
 list of coherent works, the selected work's description, and its navigable
 visual model. A single listening action belongs to the selected work, while a

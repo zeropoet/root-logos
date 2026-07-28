@@ -108,6 +108,116 @@ const parseDouayRheimsBook = (text) => {
   return { title: book.short_title, documents };
 };
 
+const decodeXml = (value) => String(value || "")
+  .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCodePoint(Number.parseInt(code, 16)))
+  .replace(/&#([0-9]+);/g, (_, code) => String.fromCodePoint(Number.parseInt(code, 10)))
+  .replace(/&(amp|lt|gt|quot|apos);/g, (_, entity) => ({
+    amp: "&", lt: "<", gt: ">", quot: "\"", apos: "'"
+  })[entity]);
+
+const parseXmlTree = (text) => {
+  const rootNode = { name: "#document", attributes: {}, children: [] };
+  const stack = [rootNode];
+  for (const token of text.match(/<!--[\s\S]*?-->|<\?[\s\S]*?\?>|<![^>]*>|<\/?[^>]+>|[^<]+/g) || []) {
+    if (token.startsWith("<!--") || token.startsWith("<?") || token.startsWith("<!")) continue;
+    if (token.startsWith("</")) {
+      if (stack.length > 1) stack.pop();
+      continue;
+    }
+    if (token.startsWith("<")) {
+      const match = token.match(/^<([^\s/>]+)([\s\S]*?)\/?>$/);
+      if (!match) continue;
+      const attributes = {};
+      for (const attribute of match[2].matchAll(/([:\w.-]+)\s*=\s*(["'])([\s\S]*?)\2/g)) {
+        attributes[attribute[1]] = decodeXml(attribute[3]);
+      }
+      const node = { name: match[1].replace(/^.*:/, ""), attributes, children: [] };
+      stack.at(-1).children.push(node);
+      if (!token.endsWith("/>")) stack.push(node);
+      continue;
+    }
+    const value = decodeXml(token).replace(/\s+/g, " ").trim();
+    if (value) stack.at(-1).children.push(value);
+  }
+  return rootNode;
+};
+
+const xmlText = (node) => (typeof node === "string"
+  ? node
+  : (node?.children || []).map(xmlText).filter(Boolean).join(" ")
+).replace(/\s+/g, " ").trim();
+
+const xmlDescendants = (node, predicate, matches = []) => {
+  if (!node || typeof node === "string") return matches;
+  if (predicate(node)) matches.push(node);
+  for (const child of node.children || []) xmlDescendants(child, predicate, matches);
+  return matches;
+};
+
+const roman = (value) => {
+  const numerals = [["M", 1000], ["CM", 900], ["D", 500], ["CD", 400], ["C", 100], ["XC", 90],
+    ["L", 50], ["XL", 40], ["X", 10], ["IX", 9], ["V", 5], ["IV", 4], ["I", 1]];
+  let number = Number(value);
+  if (!Number.isFinite(number) || number < 1) return String(value);
+  return numerals.reduce((result, [symbol, magnitude]) => {
+    while (number >= magnitude) {
+      result += symbol;
+      number -= magnitude;
+    }
+    return result;
+  }, "");
+};
+
+export const parsePerseusTei = (text) => {
+  const tree = parseXmlTree(text);
+  const titleNode = xmlDescendants(tree, ({ name }) => name === "title")[0];
+  const books = xmlDescendants(tree, ({ name, attributes }) =>
+    name === "div" && attributes.type === "textpart" && attributes.subtype === "book");
+  if (!books.length) throw new Error("The TEI source does not contain any CTS book divisions.");
+  const labels = {
+    def: "Definition", post: "Postulate", comm_not: "Common Notion",
+    prop: "Proposition", lemma: "Lemma", porism: "Porism"
+  };
+  const documents = books.map((book, bookIndex) => {
+    const bookNumber = book.attributes.n || String(bookIndex + 1);
+    const typeDivisions = (book.children || []).filter((child) =>
+      typeof child !== "string" && child.name === "div" && child.attributes.subtype === "type");
+    const sections = typeDivisions.flatMap((division) => {
+      const type = division.attributes.n || "passage";
+      const label = labels[type] || type.replaceAll("_", " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
+      const numbered = xmlDescendants(division, ({ name, attributes }) =>
+        name === "div" && attributes.subtype === "number");
+      if (!numbered.length) {
+        const textValue = xmlText(division);
+        return textValue ? [{
+          coordinate: `book:${bookNumber}:${type}`,
+          level: 2,
+          title: `Book ${roman(bookNumber)} / ${label}`,
+          text: textValue
+        }] : [];
+      }
+      return numbered.map((passage, passageIndex) => {
+        const passageNumber = passage.attributes.n || String(passageIndex + 1);
+        return {
+          coordinate: `book:${bookNumber}:${type}:${passageNumber}`,
+          level: 3,
+          title: `Book ${roman(bookNumber)} / ${label} ${passageNumber}`,
+          text: xmlText(passage)
+        };
+      }).filter(({ text: textValue }) => textValue);
+    });
+    return {
+      path: `book:${bookNumber}`,
+      title: `Book ${roman(bookNumber)}`,
+      sections
+    };
+  });
+  return {
+    title: xmlText(titleNode) || "Untitled TEI work",
+    documents
+  };
+};
+
 const deriveWork = ({ title, author, kind, source, translation, language, rights, documents, sourceHash, workId, editionId, rootRevision, transformation, readingContext }) => {
   const sectionRows = documents.flatMap((document, documentIndex) => document.sections.map((section, sectionIndex) => ({
     ...section, documentIndex, sectionIndex, document: document.path
@@ -216,12 +326,18 @@ export const ingestWork = async ({
   const sourcePath = resolve(input);
   const sourceStat = await import("node:fs/promises").then(({ stat }) => stat(sourcePath));
   const douayJson = sourceStat.isFile() && (format === "douay-rheims-json" || (format === "auto" && extname(sourcePath).toLowerCase() === ".json"));
+  const perseusTei = sourceStat.isFile() && (format === "perseus-tei" || (format === "auto" && extname(sourcePath).toLowerCase() === ".xml"));
   let documents;
   let canonicalSource;
   let inferredTitle;
   if (douayJson) {
     canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
     const parsed = parseDouayRheimsBook(canonicalSource);
+    documents = parsed.documents;
+    inferredTitle = parsed.title;
+  } else if (perseusTei) {
+    canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
+    const parsed = parsePerseusTei(canonicalSource);
     documents = parsed.documents;
     inferredTitle = parsed.title;
   } else {
@@ -376,7 +492,7 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|perseus-tei>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();

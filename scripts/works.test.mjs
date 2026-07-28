@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { coherentLibraryIdentity, ingestWork } from "./works.mjs";
+import { coherentLibraryIdentity, ingestWork, parsePerseusTei } from "./works.mjs";
 import { CATHOLIC_CANON } from "./works-corpus.mjs";
 
 const fixture = await mkdtemp(join(tmpdir(), "root-logos-work-"));
@@ -23,6 +23,24 @@ const coherentIdentity = coherentLibraryIdentity({
 }, { corpus_id: "bible", current_sound_edition: "bible-v1" });
 assert.equal(coherentIdentity.workCount, 2);
 assert.match(coherentIdentity.signature, /^[0-9a-f]{64}$/);
+const euclidFixture = parsePerseusTei(`<?xml version="1.0"?>
+<TEI><teiHeader><fileDesc><titleStmt><title>Euclid Test</title></titleStmt></fileDesc></teiHeader>
+<text><body><div type="translation">
+<div type="textpart" subtype="book" n="1">
+  <div type="textpart" subtype="type" n="def">
+    <div type="textpart" subtype="number" n="1"><p>A point is that which has no part.</p></div>
+  </div>
+  <div type="textpart" subtype="type" n="prop">
+    <div type="textpart" subtype="number" n="1"><p>On a given finite straight line to construct an equilateral triangle.</p></div>
+  </div>
+</div>
+</div></body></text></TEI>`);
+assert.equal(euclidFixture.title, "Euclid Test");
+assert.equal(euclidFixture.documents.length, 1);
+assert.equal(euclidFixture.documents[0].title, "Book I");
+assert.deepEqual(euclidFixture.documents[0].sections.map(({ coordinate }) => coordinate), [
+  "book:1:def:1", "book:1:prop:1"
+]);
 await mkdir(book);
 await writeFile(join(book, "01.md"), "# Part One\n\nLight enters the chamber. Memory answers light.\n\n## Scene\n\nA witness returns through time.\n");
 await writeFile(join(book, "02.md"), "# Part Two\n\nThe chamber holds silence. Light and witness become relation.\n");
