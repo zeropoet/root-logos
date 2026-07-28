@@ -19,6 +19,7 @@
       this.editionScores = editionScores;
       this.canvas = $("#work-canvas");
       this.context = this.canvas.getContext("2d");
+      this.AudioContextClass = window.AudioContext || window.webkitAudioContext;
       this.entry = null;
       this.edition = null;
       this.nodes = [];
@@ -640,12 +641,12 @@
     }
 
     start() {
-      if (!this.edition || !window.AudioContext) return;
-      this.audio = new AudioContext();
+      if (!this.edition || !this.AudioContextClass) return;
+      this.audio = new this.AudioContextClass();
       this.master = this.audio.createGain();
       this.volume = this.audio.createGain();
       this.master.gain.value = .018;
-      this.volume.gain.value = .72;
+      this.volume.gain.value = 3.2;
       this.master.connect(this.volume).connect(this.audio.destination);
       this.cursor = 0;
       $("#work-listen").setAttribute("aria-pressed", "true");

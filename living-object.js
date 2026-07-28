@@ -98,6 +98,7 @@
   let libraryVoiceActive = false;
   let libraryVoiceUnderlay = false;
   const sovereignWhisperLevel = 0.072;
+  const sovereignOutputVolume = 4;
   const fadeFallbackVoice = (active, duration, level = 1) => {
     if (!fallbackAudio) return;
     cancelAnimationFrame(fallbackFadeFrame);
@@ -818,6 +819,7 @@
     const highpass = audio.createBiquadFilter();
     const lowpass = audio.createBiquadFilter();
     const compressor = audio.createDynamicsCompressor();
+    const output = audio.createGain();
     const root = 38 + (cycles % 12);
     sovereignMaster = master;
     master.gain.value = libraryVoiceActive
@@ -834,7 +836,8 @@
     compressor.ratio.value = 8;
     compressor.attack.value = 0.028;
     compressor.release.value = 0.72;
-    master.connect(highpass).connect(lowpass).connect(compressor).connect(audio.destination);
+    output.gain.value = sovereignOutputVolume;
+    master.connect(highpass).connect(lowpass).connect(compressor).connect(output).connect(audio.destination);
 
     [1, 1.5, 2.25].forEach((ratio, index) => {
       const oscillator = audio.createOscillator();
@@ -999,7 +1002,7 @@
     fallbackAudio.src = URL.createObjectURL(new Blob([buffer], { type: "audio/wav" }));
     fallbackAudio.loop = true;
     fallbackAudio.preload = "auto";
-    fallbackVolume = Math.min(.2, .12 + works / 5000 + collections / 500);
+    fallbackVolume = Math.min(.42, .3 + works / 5000 + collections / 500);
     fallbackAudio.volume = libraryVoiceActive
       ? libraryVoiceUnderlay ? fallbackVolume * .34 : 0
       : fallbackVolume;
