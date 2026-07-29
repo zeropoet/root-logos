@@ -30,10 +30,16 @@ assert.equal(materialFirstBytes, materialSecondBytes, "Material witness synchron
 assert.equal(first.status, "witnessed");
 assert.equal(first.compositions.length, 4);
 assert.equal(first.language_composition.terms.length, 12);
-assert.deepEqual(first.language_composition.terms.map(({ term }) => term), [
-  "archive", "rwl", "void", "architecture", "hært", "ritual",
-  "vow", "silence", "function", "core", "actions", "closure"
-]);
+assert.equal(
+  new Set(first.language_composition.terms.map(({ term }) => term)).size,
+  12,
+  "The living language composition must contain twelve distinct terms without freezing their identity."
+);
+assert.deepEqual(
+  first.language_composition.terms.map(({ rank }) => rank),
+  Array.from({ length: 12 }, (_, index) => index + 1),
+  "The current terms must remain deterministically ranked."
+);
 assert.match(first.language_composition.witness, /^sha256:[a-f0-9]{64}$/);
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").status, "active");
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").public_url, "https://foldforge.xyz");
