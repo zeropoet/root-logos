@@ -633,7 +633,10 @@
       uniform float uRelease;
       uniform float uReleasePhase;
       uniform float uReleaseSeed;
-      uniform float uReleaseDepth;
+      uniform float uReleaseCenterX;
+      uniform float uReleaseCenterY;
+      uniform float uReleaseCenterZ;
+      uniform float uReleaseRadius;
       varying vec4 vColor;
       varying float vVisible;
       void main() {
@@ -651,16 +654,13 @@
         gl_PointSize = aSize * arrival * breath * (5.3 / depth);
         float engravingDepth = clamp((p.z + 2.4) / 4.8, 0.0, 1.0);
         vec3 canonical = vec3(0.941, 0.094, 0.094);
-        float inward = smoothstep(0.0, 0.52, uReleasePhase);
-        float outward = smoothstep(0.52, 1.0, uReleasePhase);
-        float targetRadius = 0.16 + (1.0 - uReleaseDepth) * 1.84;
-        float fieldRadius = mix(2.75, targetRadius, inward);
-        fieldRadius = mix(fieldRadius, 3.05, outward);
-        float radialBand = exp(-pow((length(aPosition) - fieldRadius) * 3.6, 2.0));
+        vec3 affectedCenter = vec3(uReleaseCenterX, uReleaseCenterY, uReleaseCenterZ);
+        float affectedDistance = length(aPosition - affectedCenter);
+        float affectedRadius = max(0.0001, uReleaseRadius);
+        float affectedMap = 1.0 - smoothstep(affectedRadius * 0.34, affectedRadius, affectedDistance);
         float interference = sin(dot(aPosition, vec3(2.7, 3.9, 4.6)) + uReleaseSeed * 6.283185 + uReleasePhase * 6.283185);
-        float seededField = 0.62 + 0.38 * interference;
-        float cycleRelease = uCadenceAccent * (1.0 - smoothstep(0.04, 1.0, uCadence));
-        float releaseField = clamp(radialBand * seededField + cycleRelease * 0.1, 0.0, 1.0) * cycleRelease * uRelease;
+        float mappedTexture = 0.72 + 0.28 * interference;
+        float releaseField = affectedMap * mappedTexture * uRelease;
         float azimuth = atan(aPosition.z, aPosition.x) / 6.283185;
         float hue = uReleasePhase * 0.72 + azimuth * 0.18 + length(aPosition) * 0.065 + interference * 0.055;
         vec3 spectral = 0.5 + 0.5 * cos(6.283185 * (hue + vec3(0.00, 0.67, 0.33)));
@@ -735,7 +735,10 @@
         ["uRelease", state.release ?? 0],
         ["uReleasePhase", state.releasePhase ?? 0],
         ["uReleaseSeed", state.releaseSeed ?? 0],
-        ["uReleaseDepth", state.releaseDepth ?? 0]
+        ["uReleaseCenterX", state.releaseCenterX ?? 0],
+        ["uReleaseCenterY", state.releaseCenterY ?? 0],
+        ["uReleaseCenterZ", state.releaseCenterZ ?? 0],
+        ["uReleaseRadius", state.releaseRadius ?? 0]
       ].forEach(([name, value]) => {
         context.uniform1f(context.getUniformLocation(shader, name), value);
       });
@@ -746,22 +749,38 @@
         release = { detail, startedAt: performance.now() };
       },
       draw(state) {
-        let releaseState = { release: 0, releasePhase: 0, releaseSeed: 0, releaseDepth: 0 };
+        let releaseState = {
+          release: 0,
+          releasePhase: 0,
+          releaseSeed: 0,
+          releaseCenterX: 0,
+          releaseCenterY: 0,
+          releaseCenterZ: 0,
+          releaseRadius: 0
+        };
         if (release) {
           const voiceCycleDuration = cadence.beatSeconds * cadence.beatsPerCycle * 1000;
-          const colorFieldDuration = voiceCycleDuration / 10;
           const maximumSessionDuration = 60 * 60 * 1000;
           const elapsed = Math.max(0, performance.now() - release.startedAt);
           if (elapsed >= maximumSessionDuration) {
             release = null;
           } else {
-            const phase = (elapsed % colorFieldDuration) / colorFieldDuration;
+            const seed = hash(release.detail.event_id || "journal-release");
+            const depth = Math.max(.04, Math.min(1, Number(release.detail.depth || 0)));
+            const breadth = Math.max(0, Math.min(1, Number(release.detail.dimensions?.breadth || 0)));
+            const azimuth = seed * Math.PI * 2;
+            const elevation = (hash(`${release.detail.event_id}:elevation`) - .5) * .72;
+            const targetRadius = .16 + (1 - depth) * 1.84;
+            const horizontal = Math.cos(elevation) * targetRadius;
             const finalCycleFade = Math.min(1, (maximumSessionDuration - elapsed) / voiceCycleDuration);
             releaseState = {
-              release: (reducedMotion ? .42 : 1) * finalCycleFade,
-              releasePhase: phase,
-              releaseSeed: hash(release.detail.event_id || "journal-release"),
-              releaseDepth: Math.max(.04, Math.min(1, Number(release.detail.depth || 0)))
+              release: (reducedMotion ? .48 : .9) * finalCycleFade,
+              releasePhase: reducedMotion ? 0 : (elapsed % 18_000) / 18_000,
+              releaseSeed: seed,
+              releaseCenterX: Math.cos(azimuth) * horizontal,
+              releaseCenterY: Math.sin(elevation) * targetRadius,
+              releaseCenterZ: Math.sin(azimuth) * horizontal,
+              releaseRadius: .42 + breadth * .78
             };
           }
         }

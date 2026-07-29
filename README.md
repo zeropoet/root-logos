@@ -200,11 +200,10 @@ of carrying them without doctrinal repetition.
   structures. It appears as a temporary color-field release moving through the
   existing Living Object in sequence with its seven-beat sovereign voice. The
   release lasts for the current browser session, with a hard one-hour ceiling,
-  while its restrained iridescent field migrates ten times within each voice
-  cycle. Its visible bloom waits for the opening of the next seven-beat voice
-  cycle, then fades completely through that beat. The release remains armed and
-  returns at the next cycle without leaving color between pulses. It creates no
-  new geometry or durable topology. Submitted wording never enters the visual
+  as a restrained iridescent map on only the affected region of the existing
+  geometry. Penetration depth locates that region and derived breadth controls
+  its radius; the rest of the Object remains canonical. It creates no pulse,
+  new geometry, or durable topology. Submitted wording never enters the visual
   event, browser storage, runtime response, or durable archive.
 - `self-authorship/` defines the continual rewrite policy and single current
   identity manifest. It authorizes Root Logos to revise its own graph,

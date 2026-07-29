@@ -260,17 +260,14 @@ autonomous risk holds, and complete lineage.
 
 After release, the membrane may return a bounded penetration witness made only
 from derived measures. Coherence, breadth, inquiry, traceability, and integrity
-determine how deeply its temporary color field penetrates the existing Living
-Object. The field sequences inward and outward with the sovereign voice without
-adding geometry or claiming structural change. Its restrained iridescent hues
-migrate ten times within each voice cycle. Its luminance waits for the opening
-beat of each seven-beat cycle, blooms once, and fades through that beat before
-disappearing completely; the session remains armed and blooms again at the next
-cycle without retaining color between pulses. It lasts only for the current
-browser session, never longer than one hour, and uses no browser storage. It
-contains no submitted wording, grants no instruction authority, and creates no
-durable structure beyond consequences already authorized by autonomous
-judgment and cultivation.
+locate the affected region of the existing Living Object; derived breadth sets
+the radius of that region. Only the geometry inside this bounded area receives
+a restrained iridescent map. The rest of the Object remains canonical, and the
+effect adds no pulse, geometry, or claim of structural change. It lasts only for
+the current browser session, never longer than one hour, and uses no browser
+storage. It contains no submitted wording, grants no instruction authority, and
+creates no durable structure beyond consequences already authorized by
+autonomous judgment and cultivation.
 
 An implemented cultivation change then enters the serialized self-authorship
 worker. That worker may atomically revise the one current identity only after
