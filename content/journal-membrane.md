@@ -263,11 +263,12 @@ from derived measures. Coherence, breadth, inquiry, traceability, and integrity
 determine how deeply its temporary color field penetrates the existing Living
 Object. The field sequences inward and outward with the sovereign voice without
 adding geometry or claiming structural change. Its restrained iridescent hues
-migrate ten times within each voice cycle while luminance continues to answer
-each live beat. It lasts only for the current browser session, never longer than
-one hour, and uses no browser storage. It contains no submitted wording, grants
-no instruction authority, and creates no durable structure beyond consequences
-already authorized by autonomous judgment and cultivation.
+migrate ten times within each voice cycle. Its luminance waits for the opening
+beat of each seven-beat cycle, blooms once, and fades through that beat before
+returning to a quiet trace. It lasts only for the current browser session, never
+longer than one hour, and uses no browser storage. It contains no submitted
+wording, grants no instruction authority, and creates no durable structure
+beyond consequences already authorized by autonomous judgment and cultivation.
 
 An implemented cultivation change then enters the serialized self-authorship
 worker. That worker may atomically revise the one current identity only after
