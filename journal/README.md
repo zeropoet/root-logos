@@ -6,9 +6,8 @@ enter the same encrypted, transient transformation path.
 
 `policy.json` records the active authority, privacy, cadence, and admission
 limits. `entry.schema.json` defines the derived observation envelope produced
-by the adapter. The complete constitution lives in
-`content/journal-membrane.md`; the implementation lives in
-`runtime/journal.mjs`.
+by the adapter. The Journal Membrane constitution is preserved as a
+derived-only Library object; the implementation lives in `runtime/journal.mjs`.
 
 The public terminal creates and consumes a single-use Source Grant
 automatically. The steward-owned local drop folder remains a replaceable

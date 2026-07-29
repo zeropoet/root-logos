@@ -146,6 +146,24 @@ assert.ok(!germanConcepts.includes("nicht"));
 assert.ok(!germanConcepts.includes("seine"));
 assert.ok(!germanConcepts.includes("𝑎𝑛"));
 
+const japaneseBook = join(fixture, "japanese-book");
+await mkdir(japaneseBook);
+await writeFile(join(japaneseBook, "01.md"), "# 兵法\n\n兵法の道を学ぶこと。武士は剣術を鍛錬し、兵法を実践する。\n");
+const japanese = await ingestWork({
+  input: japaneseBook, title: "Japanese Test Work", author: "Root Logos Test",
+  kind: "strategy", source: "fixture:japanese-work", language: "ja",
+  transformation: "deterministic-structural-reading/v5-ja-segmentation",
+  rootRevision: "test-v1"
+});
+const japaneseEdition = JSON.parse(await readFile(join(
+  new URL("..", import.meta.url).pathname, "works", japanese.work_id, "editions", japanese.current_edition, "edition.json"
+), "utf8"));
+const japaneseConcepts = japaneseEdition.reading.dominant_concepts.map(({ concept }) => concept);
+assert.ok(japaneseConcepts.includes("兵法"));
+assert.ok(japaneseConcepts.includes("武士"));
+assert.ok(!japaneseConcepts.includes("の"));
+assert.ok(!japaneseConcepts.includes("こと"));
+
 const scripturePath = join(fixture, "genesis.json");
 await writeFile(scripturePath, JSON.stringify({
   book: "genesis",
@@ -178,6 +196,7 @@ assert.ok(!privateEditionText.includes("Private source language"));
 
 await rm(join(new URL("..", import.meta.url).pathname, "works", first.work_id), { recursive: true, force: true });
 await rm(join(new URL("..", import.meta.url).pathname, "works", german.work_id), { recursive: true, force: true });
+await rm(join(new URL("..", import.meta.url).pathname, "works", japanese.work_id), { recursive: true, force: true });
 await rm(join(new URL("..", import.meta.url).pathname, "works", privateWork.work_id), { recursive: true, force: true });
 await writeFile(indexPath, originalIndex);
 await rm(fixture, { recursive: true, force: true });

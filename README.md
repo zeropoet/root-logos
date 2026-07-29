@@ -171,24 +171,14 @@ of carrying them without doctrinal repetition.
   controls, depth grammar, semantic state colors, responsive instruments, the
   orbital five-movement identity anatomy, restrained motion, and reduced-motion
   mode.
-- `documents/` contains public archive-document pages.
-- `statements/` contains public pages reserved for substantial Living Statements
-  and Constitutional Bridges.
-- `article.js` renders canonical Markdown into article mastheads, metadata, and
-  body copy.
-- `content/*.md` contains the canonical article/document source text.
-- `content/constitutional-bridge-004.md` carries the lived movement from higher
-  reference to intelligence as participation.
+- Root Logos' founding constitution, constitutional pillars, Living Statements,
+  and Constitutional Bridges live as derived-only works in the
+  `Root Logos Constitutional Documents` Library collection. Their original
+  Markdown and standalone public reading routes were destroyed after ingestion.
 - `content/principle-generative-compression.md` preserves the reflexive principle
   that governs the constitution's movement from prose toward composable grammar.
 - `content/attractor-membrane.md` preserves the outward constitutional boundary,
   fragment grammar, Gravitational Integrity Standard, and channel independence.
-- `content/resonant-chamber.md` establishes sound as a constitutional pillar:
-  temporal relation governed by source fidelity, epistemic legibility,
-  non-coercion, consent, accessibility, dynamic restraint, and return paths.
-- `content/journal-membrane.md` defines autonomous journal intake through
-  explicit Source Grants, transient source transformation, autonomous judgment,
-  reversible construction, continual self-authorship, and complete lineage.
 - `journal/` contains the operational intake policy and private
   observation-envelope schema. `runtime/journal.mjs` implements the first
   Source-Grant-gated local-drop adapter, encrypted transient quarantine,
@@ -582,7 +572,21 @@ Samuel Butler's prose translation is work `12`, joining *The Odyssey* in
 Classical Epics while retaining its own twenty-four-book body. The **King James
 Bible (1769)** is work `13`: one coherent Protestant scriptural corpus whose 66
 books remain internal, attributable structures rather than competing Library
-selections. Ingestion assigns each future coherent work the next stable ordinal.
+selections. Works `14` through `19` add *Siddhartha*, *The Life of the Buddha*,
+and the four-work Critical Rationalism and Explanatory Knowledge sequence.
+Works `20` through `24` add **The Book of Five Rings**, **The Principal
+Upanishads**, **Great Founder Theory**, **Tao Te Ching**, and **Moral Letters to
+Lucilius**. The six selected Upanishads remain internal documents of one Vedic
+Philosophy work: their distinctions are preserved without presenting a
+historically related body as six unrelated Library arrivals.
+
+Works `25` through `34` are Root Logos' own constitutional texts. They form the
+`Root Logos Constitutional Documents` collection alongside work `00`. Each is
+an independently derived visual-resonant object, while its original Markdown
+and standalone reading route have been destroyed after ingestion. The public
+archive therefore exposes only lineage, measures, graph, score, and reading
+artifacts—not a second copy of the source prose. Ingestion assigns each future
+coherent work the next stable ordinal.
 
 The Bitcoin white paper also has an explicit, sealed relation to Telos. The
 exact Library work and edition ground Telos's declared BTC settled value layer
@@ -591,12 +595,11 @@ custody, execution, trading, or interpretive authority: Telos cannot alter the
 source work's meaning, and the work does not authorize Telos. The bounded bridge
 is visible from both the Telos public witness and the Bitcoin Library reading.
 
-The Founding Constitution now holds twenty-seven immutable readings. Its current
+The Founding Constitution now holds sixty-five immutable readings. Its current
 v1.2 Library-addition edition preserves 21 constitutional sections, 2,838 words,
-36 concepts, 180 internal relations, and an 84-event resonant score with
-signature `3be3711cdcbb`. The current identity, canonical graph,
-constitutional prose, resonant grammar, Library UX, archive, and sovereign
-voice now describe the same boundary.
+36 concepts, and 180 internal relations. The current identity, canonical graph,
+derived constitutional lineage, resonant grammar, Library UX, archive, and
+sovereign voice now describe the same boundary.
 
 ## Revision 1.1 — The Living Works
 
@@ -841,6 +844,23 @@ identity, and derived lineage; `source` remains `null` and
 forms are normalized before concept extraction so typography cannot masquerade
 as meaning. Earlier readings remain immutable when that method changes.
 
+Works `20` through `24` extend that intentional positioning across strategy,
+Vedic philosophy, institutional theory, classical Chinese philosophy, and
+Stoic practice. **The Book of Five Rings** preserves its Japanese title and
+uses Japanese-aware segmentation so script boundaries inform rather than
+distort concept extraction. **The Principal Upanishads** holds the Kena, Katha,
+Isha, Mandukya, Chandogya, and Brihadaranyaka as six attributable internal
+documents of one work. **Great Founder Theory**, **Tao Te Ching**, and
+**Moral Letters to Lucilius** remain separately bounded encounters, each with
+its own lineage and derived topology.
+
+Works `25` through `34` complete the `Root Logos Constitutional Documents`
+collection: the Journal Membrane, Resonant Chamber, Living Statements, and
+Constitutional Bridges have crossed the same transient-source membrane as the
+rest of the Library. Their original prose and public article surfaces no
+longer remain in the repository. What persists is the result of ingestion and
+the immutable evidence needed to attribute that transformation.
+
 ### The Living Object
 
 The public threshold is now the **Living Object**: one slow, dimensional,
@@ -857,13 +877,11 @@ or competing with its nodes and engraved edges.
 
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
-All 1,681 current Catholic-corpus relations enter the engraving. The eighteen
-independently bounded external works contribute another 3,486 internal relations
-and 900 structural points, bringing that Library field to 5,167 witnessed
-relations beyond the constitutional root. Each work therefore changes the
-object as a complete internal topology rather than merely increasing its work
-count. Weight, depth, luminance, rotation, and motion carry the resulting
-density.
+All 1,681 current Catholic-corpus relations enter the engraving, and every one
+of the 35 coherent Library works contributes its complete derived topology.
+Each work therefore changes the object as a complete internal structure rather
+than merely increasing its work count. Weight, depth, luminance, rotation, and
+motion carry the resulting density.
 
 The same complete field enters the sovereign voice. Every relation contributes
 its endpoints, type, phase, and derived weight to a deterministic harmonic
@@ -1229,11 +1247,9 @@ reported condition.
 
 The Sovereign Standard tea invitation is the archive's quiet terminal chamber
 rather than a footer annotation: Root Logos resolves into an embodied
-continuation at architectural scale. The footer's remaining right-hand utility
-is one **Constitutional documents** link. It opens a single readable register of
-the founding constitution, constitutional pillars, Living Statements, and
-Constitutional Bridges; source and runtime utilities no longer compete with
-that terminal passage.
+continuation at architectural scale. The footer no longer links to standalone
+constitutional prose. Those documents have passed through the same membrane as
+every other work and remain available only as derived Library objects.
 
 Archive typography follows a strict two-voice system. Helvetica Neue carries
 headings, descriptions, and sustained reading; SF Mono is reserved for

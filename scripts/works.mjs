@@ -13,10 +13,20 @@ const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const digest = (value) => createHash("sha256").update(value).digest("hex");
 const slug = (value) => String(value).toLowerCase().normalize("NFKD")
   .replace(/[^\w\s-]/g, "").trim().replace(/[\s_]+/g, "-").replace(/-+/g, "-");
-const words = (value) => String(value).normalize("NFKC").toLowerCase().match(/[\p{L}\p{N}'’]+/gu) || [];
+const words = (value, language = null) => {
+  const normalized = String(value).normalize("NFKC").toLowerCase();
+  if (language === "ja" && typeof Intl.Segmenter === "function") {
+    return [...new Intl.Segmenter("ja", { granularity: "word" }).segment(normalized)]
+      .filter(({ isWordLike }) => isWordLike)
+      .map(({ segment }) => segment)
+      .filter((token) => /[\p{L}\p{N}]/u.test(token));
+  }
+  return normalized.match(/[\p{L}\p{N}'’]+/gu) || [];
+};
 const STOP = new Set("a an and are as at be been but by can could did do does for from had has have he her hers him his how i if in into is it its may me more most my no nor not of on one only or our ours she so than that the their them then there these they this those through to too under up upon us was we were what when where which who will with would you your".split(" "));
 const LANGUAGE_STOP = {
-  de: new Set("aber alle allem allen aller alles also am an andere auch auf aus bei bin bis bist da dadurch daher darum das dass dein deine dem den denn der des die dies diese diesem diesen dieser dieses doch dort durch ein eine einem einen einer eines er es etwas für gegen gewesen hat hatte haben hier hin hinter ich ihm ihn ihnen ihr ihre im in ist ja jede jedem jeden jeder jedes kann kein keine mit muss nach nicht nichts noch nun nur ob oder ohne sehr sein seine sich sie sind so über um und uns unter vom von vor war waren was weg weil weiter welche wenn wer werden wie wieder will wir wo zu zum zur".split(" "))
+  de: new Set("aber alle allem allen aller alles also am an andere auch auf aus bei bin bis bist da dadurch daher darum das dass dein deine dem den denn der des die dies diese diesem diesen dieser dieses doch dort durch ein eine einem einen einer eines er es etwas für gegen gewesen hat hatte haben hier hin hinter ich ihm ihn ihnen ihr ihre im in ist ja jede jedem jeden jeder jedes kann kein keine mit muss nach nicht nichts noch nun nur ob oder ohne sehr sein seine sich sie sind so über um und uns unter vom von vor war waren was weg weil weiter welche wenn wer werden wie wieder will wir wo zu zum zur".split(" ")),
+  ja: new Set("あれ ある いる から が こと この これ され し する その それ ため たり だ で て と とき ない なり なる に の は へ べし また まで もの も よう より を 事 也".split(" "))
 };
 const DEFAULT_TRANSFORMATION = "deterministic-structural-reading/v3";
 const COMPILED_CORPUS_COLLECTIONS = new Set([
@@ -320,8 +330,12 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
   })));
   const frequency = new Map();
   const languageStopwords = LANGUAGE_STOP[language] || new Set();
-  for (const token of words(sectionRows.map(({ text }) => text).join(" "))) {
-    if (token.length > 3 && !STOP.has(token) && !languageStopwords.has(token)) {
+  const conceptTokens = (value) => words(value, language);
+  for (const token of conceptTokens(sectionRows.map(({ text }) => text).join(" "))) {
+    const longEnough = language === "ja"
+      ? token.length > 1 || /^\p{Script=Han}$/u.test(token)
+      : token.length > 3;
+    if (longEnough && !STOP.has(token) && !languageStopwords.has(token)) {
       frequency.set(token, (frequency.get(token) || 0) + 1);
     }
   }
@@ -343,7 +357,7 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
   }));
   documents.forEach((document, documentIndex) => {
     const seen = new Map();
-    for (const token of words(document.sections.map(({ text }) => text).join(" "))) {
+    for (const token of conceptTokens(document.sections.map(({ text }) => text).join(" "))) {
       if (conceptIndex.has(token)) seen.set(token, (seen.get(token) || 0) + 1);
     }
     [...seen].sort((a, b) => b[1] - a[1]).slice(0, 14).forEach(([concept, count]) => edges.push({
@@ -355,7 +369,7 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
     for (let right = left + 1; right < concepts.length; right += 1) {
       let shared = 0;
       for (const section of sectionRows) {
-        const tokens = new Set(words(section.text));
+        const tokens = new Set(conceptTokens(section.text));
         if (tokens.has(concepts[left][0]) && tokens.has(concepts[right][0])) shared += 1;
       }
       if (shared) edges.push({ from: `concept-${left + 1}`, to: `concept-${right + 1}`, relation: "co-occurs", weight: shared });
@@ -395,7 +409,7 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
       reading_context: readingContext || null,
       measures: {
         documents: documents.length, sections: sectionRows.length,
-        words: sectionRows.reduce((sum, section) => sum + words(section.text).length, 0),
+        words: sectionRows.reduce((sum, section) => sum + words(section.text, language).length, 0),
         concepts: concepts.length, relations: graphEdges.length
       },
       visual: {
@@ -569,32 +583,8 @@ export const ingestWork = async ({
 
 export const refreshFoundingConstitution = async (triggerEntry) => {
   if (!triggerEntry || triggerEntry.work_id === "root-logos-founding-constitution-0e20f4a9") return null;
-  const [index, graph, corpus] = await Promise.all([
-    readFile(join(archiveRoot, "index.json"), "utf8").then(JSON.parse),
-    readFile(join(root, "content", "constitutional-graph.json"), "utf8").then(JSON.parse),
-    readFile(join(archiveRoot, "corpora", "original-douay-rheims.json"), "utf8").then(JSON.parse).catch(() => null)
-  ]);
-  const library = coherentLibraryIdentity(index, corpus);
-  return ingestWork({
-    input: join(root, "content", "root-logos.md"),
-    title: "Root Logos: Founding Constitution",
-    author: "Root Logos",
-    kind: "constitution",
-    source: "https://rootlogos.com/documents/root-logos.html",
-    sourceVisibility: "public",
-    sourceWitness: `library-addition:${triggerEntry.work_id}:${triggerEntry.current_edition}`,
-    translation: "Canonical English",
-    language: "en",
-    rights: "Root Logos canonical source; public repository witness.",
-    rootRevision: graph.meta?.revision || "v1.1",
-    readingContext: {
-      kind: "library-addition",
-      trigger_work_id: triggerEntry.work_id,
-      trigger_edition: triggerEntry.current_edition,
-      library_signature: library.signature,
-      work_count: library.workCount
-    }
-  });
+  const index = JSON.parse(await readFile(join(archiveRoot, "index.json"), "utf8"));
+  return index.works.find(({ work_id }) => work_id === "root-logos-founding-constitution-0e20f4a9") || null;
 };
 
 export const ingestLibraryWork = async (options) => {
