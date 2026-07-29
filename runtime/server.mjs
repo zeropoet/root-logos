@@ -310,7 +310,7 @@ export const createRuntime = async (options = {}) => {
     }, "Root Logos migration");
     try {
       const result = await journalMembrane.addEntry(grant.source_grant_id, { source_entry_id: observation.event_id, content });
-      await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos migration", "Legacy public entry completed its gauntlet");
+      await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos migration", "Legacy public entry completed constitutional filtering and archival weighting");
       const migration = { type: "observation-gauntlet-migrated", at: iso(), event_id: observation.event_id, journal_event_id: result.event_id, status: result.status, wake_queued: result.wake_queued, source_released: true };
       await appendRecord(migration);
       migratedObservations.set(observation.event_id, migration);
@@ -520,8 +520,15 @@ export const createRuntime = async (options = {}) => {
             source_entry_id: `public-${Date.now()}-${randomUUID().slice(0, 8)}`,
             content
           });
-          await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "Public entry completed its gauntlet and source was released");
-          return send(res, 202, { accepted: true, event_id: result.event_id, status: result.status, wake_queued: result.wake_queued, source_released: true }, cors);
+          await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "Public entry completed constitutional filtering and archival weighting; source was released");
+          return send(res, 202, {
+            accepted: true,
+            event_id: result.event_id,
+            status: result.status,
+            wake_queued: result.wake_queued,
+            source_released: true,
+            penetration: result.penetration
+          }, cors);
         } catch (error) {
           await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "Public entry failed; one-time authority closed").catch(() => {});
           throw error;

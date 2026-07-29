@@ -136,6 +136,8 @@ try {
   assert.equal(collection.status, 202);
   const collectionResult = await collection.json();
   assert.equal(collectionResult.status, "admissible");
+  assert.equal(collectionResult.penetration.schema, "root-logos-penetration-witness/v1");
+  assert.ok(collectionResult.penetration.depth > 0);
   await runtime.waitForIdle();
   assert.ok(calls.at(-1).includes("--intake-context"));
   assert.ok(calls.at(-1).includes("admissible"));

@@ -48,10 +48,14 @@ const recovered = await createJournalMembrane({
 const results = await recovered.recover();
 assert.equal(results.length, 1);
 assert.equal(results[0].status, "admissible");
+assert.equal(results[0].penetration.schema, "root-logos-penetration-witness/v1");
+assert.ok(results[0].penetration.depth > 0 && results[0].penetration.depth <= 1);
+assert.ok(results[0].penetration.activated_structures.length >= 3);
 assert.equal(admitted.length, 1);
 assert.equal((await readdir(join(dataDir, "journal-quarantine"))).length, 0);
 const records = await readFile(join(dataDir, "journal-records.json"), "utf8");
 assert.doesNotMatch(records, new RegExp(rawPhrase));
 assert.match(records, /"recovered_after_interruption": true/);
+assert.match(records, /"penetration"/);
 
 process.stdout.write("PASS encrypted quarantine recovery, resumed autonomous judgment, raw-source release, and derived-only persistence after interruption.\n");

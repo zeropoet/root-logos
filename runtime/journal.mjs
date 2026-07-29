@@ -70,6 +70,33 @@ const derive = (text) => {
   };
 };
 
+const penetrationWitness = (derived, flags, status) => {
+  const conceptCount = derived.concepts.length;
+  const recurrence = derived.concepts.reduce((sum, concept) => sum + concept.recurrence, 0);
+  const coherence = Math.min(1, conceptCount / 8 * 0.58 + Math.min(1, recurrence / Math.max(1, derived.word_count) * 5) * 0.42);
+  const breadth = Math.min(1, conceptCount / 12 * 0.72 + derived.tensions.length / 3 * 0.28);
+  const inquiry = Math.min(1, derived.question_count / 3 * 0.68 + derived.tensions.length / 3 * 0.32);
+  const traceability = flags.length ? 0.12 : status === "admissible" ? 0.86 : 0.48;
+  const integrity = flags.length ? 0 : status === "admissible" ? 0.9 : 0.56;
+  const depth = Math.max(0.04, Math.min(1,
+    coherence * 0.28 + breadth * 0.22 + inquiry * 0.18 + traceability * 0.14 + integrity * 0.18
+  ));
+  return {
+    schema: "root-logos-penetration-witness/v1",
+    depth: Number(depth.toFixed(3)),
+    dimensions: {
+      coherence: Number(coherence.toFixed(3)),
+      breadth: Number(breadth.toFixed(3)),
+      inquiry: Number(inquiry.toFixed(3)),
+      traceability: Number(traceability.toFixed(3)),
+      integrity: Number(integrity.toFixed(3))
+    },
+    activated_structures: derived.concepts.slice(0, 8).map(({ concept, recurrence }) => ({ concept, recurrence })),
+    tensions: derived.tensions,
+    disposition: status
+  };
+};
+
 const encrypt = (plaintext, key) => {
   const iv = randomBytes(12);
   const cipher = createCipheriv("aes-256-gcm", key, iv);
@@ -175,6 +202,7 @@ export const createJournalMembrane = async ({
       const flags = riskFlags(plaintext);
       const derived = derive(plaintext);
       const status = flags.length ? "held" : derived.word_count < 20 || derived.concepts.length < 3 ? "rejected" : "admissible";
+      const penetration = penetrationWitness(derived, flags, status);
       const dispositionReason = flags.length
         ? "Sensitive or third-party risk requires a hold outside autonomous cultivation."
         : status === "rejected"
@@ -191,6 +219,7 @@ export const createJournalMembrane = async ({
         privacy: { retention_class: grant.retention_class, sensitivity: flags.length ? "held" : "derived-only", third_party_review: flags.includes("third-party-material") },
         status,
         derived,
+        penetration,
         triage: {
           recommended_disposition: status,
           reason: dispositionReason,
@@ -227,7 +256,12 @@ export const createJournalMembrane = async ({
     await persist();
     await audit({ type: "journal-entry-transformed-and-released", event_id: eventId, disposition: record.status, content_digest: record.content_digest });
     if (record.status === "admissible" || record.status === "promoted") await onAdmitted(record);
-    return { event_id: eventId, status: record.status, wake_queued: ["admissible", "promoted"].includes(record.status) };
+    return {
+      event_id: eventId,
+      status: record.status,
+      wake_queued: ["admissible", "promoted"].includes(record.status),
+      penetration: record.penetration
+    };
   };
 
   const processFile = async (grant, name) => {

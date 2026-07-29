@@ -258,6 +258,14 @@ collect again or widen itself. This single public path requires no login or
 later review while preserving attribution, bounded authority, rate limits,
 autonomous risk holds, and complete lineage.
 
+After release, the membrane may return a bounded penetration witness made only
+from derived measures. Coherence, breadth, inquiry, traceability, and integrity
+determine how deeply the encounter appears to enter the Living Object; derived
+concepts determine the temporary constellation it activates. The constellation
+fades into a disposition ring. It contains no submitted wording, grants no
+instruction authority, and creates no durable structure beyond consequences
+already authorized by autonomous judgment and cultivation.
+
 An implemented cultivation change then enters the serialized self-authorship
 worker. That worker may atomically revise the one current identity only after
 privacy, source fidelity, drift, coherence, counterargument, and reversibility

@@ -69,7 +69,7 @@ paths:
           application/json:
             schema: { $ref: "#/components/schemas/PublicObservation" }
       responses:
-        "202": { description: Entry completed the gauntlet; source released and derived disposition returned }
+        "202": { description: Entry completed constitutional filtering and archival weighting; source released and derived disposition returned }
         "403": { description: Origin not permitted }
         "422": { description: Invalid entry or missing authorization }
         "429": { description: Intake rate limit reached }

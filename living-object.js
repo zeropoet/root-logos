@@ -82,9 +82,71 @@
 
   const canvas = document.querySelector("#living-object-canvas");
   if (!canvas) return;
+  const encounterCanvas = document.querySelector("#object-encounter-canvas");
+  const encounterContext = encounterCanvas?.getContext("2d");
+  let encounter = null;
+  let encounterFrame = 0;
 
   const $ = (selector) => document.querySelector(selector);
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const drawEncounter = (now) => {
+    encounterFrame = 0;
+    if (!encounterContext || !encounter) return;
+    const rect = encounterCanvas.getBoundingClientRect();
+    const dpr = Math.min(devicePixelRatio || 1, 1.75);
+    const width = Math.max(1, Math.round(rect.width * dpr));
+    const height = Math.max(1, Math.round(rect.height * dpr));
+    if (encounterCanvas.width !== width || encounterCanvas.height !== height) {
+      encounterCanvas.width = width;
+      encounterCanvas.height = height;
+    }
+    encounterContext.clearRect(0, 0, width, height);
+    const elapsed = Math.max(0, now - encounter.startedAt);
+    const travel = reducedMotion ? 1 : Math.min(1, elapsed / 5200);
+    const settling = Math.max(0, Math.min(1, (elapsed - 5200) / 7600));
+    const depth = Math.max(.04, Math.min(1, Number(encounter.depth || 0)));
+    const cx = width * .5;
+    const cy = height * .49;
+    const outer = Math.min(width, height) * .46;
+    const radius = outer * (1 - travel * (.24 + depth * .68));
+    const structures = encounter.activated_structures || [];
+    encounterContext.save();
+    encounterContext.globalCompositeOperation = "lighter";
+    structures.forEach((structure, index) => {
+      const angle = index / Math.max(1, structures.length) * Math.PI * 2 + elapsed * .00008;
+      const spread = radius * (.72 + (index % 3) * .12);
+      const x = cx + Math.cos(angle) * spread;
+      const y = cy + Math.sin(angle) * spread;
+      const alpha = (1 - settling * .86) * (.22 + depth * .5);
+      encounterContext.strokeStyle = `rgba(203,183,122,${alpha})`;
+      encounterContext.lineWidth = Math.max(1, dpr * (.45 + depth));
+      encounterContext.beginPath();
+      encounterContext.moveTo(cx, cy);
+      encounterContext.lineTo(x, y);
+      encounterContext.stroke();
+      encounterContext.fillStyle = `rgba(226,218,190,${Math.min(.9, alpha + .18)})`;
+      encounterContext.beginPath();
+      encounterContext.arc(x, y, Math.max(1.5, dpr * (1.4 + Number(structure.recurrence || 1) * .22)), 0, Math.PI * 2);
+      encounterContext.fill();
+    });
+    const ringAlpha = settling > 0 ? .32 * (1 - settling * .62) : .08 + depth * .3;
+    encounterContext.strokeStyle = `rgba(138,166,129,${ringAlpha})`;
+    encounterContext.lineWidth = Math.max(1, dpr * .65);
+    encounterContext.beginPath();
+    encounterContext.arc(cx, cy, Math.max(8 * dpr, radius), 0, Math.PI * 2);
+    encounterContext.stroke();
+    encounterContext.restore();
+    if (elapsed < 12_800) encounterFrame = requestAnimationFrame(drawEncounter);
+  };
+  addEventListener("rootlogos:journal-penetration", ({ detail }) => {
+    if (!detail || !encounterContext) return;
+    encounter = { ...detail, startedAt: performance.now() };
+    const depth = Math.round(Number(detail.depth || 0) * 100);
+    const structures = detail.activated_structures?.length || 0;
+    $("#object-state").textContent = `${detail.event_id} entered the Living Object to ${depth}% depth, activating ${structures} derived structures. The source has been released; its disposition is ${String(detail.disposition || "held")}.`;
+    cancelAnimationFrame(encounterFrame);
+    encounterFrame = requestAnimationFrame(drawEncounter);
+  });
   const gl = canvas.getContext("webgl", {
     alpha: true,
     antialias: true,

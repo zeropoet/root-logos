@@ -270,12 +270,17 @@ const submitObservation = async (form) => {
     const result = await response.json();
     if (!response.ok) throw new Error(result.details?.join(" · ") || result.error || "The observation could not cross the membrane.");
     status.className = "is-success";
-    status.textContent = result.wake_queued
-      ? `${result.event_id} survived the gauntlet and entered autonomous cultivation.`
-      : `${result.event_id || "The entry"} completed the gauntlet with disposition ${sentence(result.status || "held")}. Its source wording was released.`;
+    const depth = Math.round(Number(result.penetration?.depth || 0) * 100);
+    status.textContent = `${result.event_id || "The entry"} entered the field to ${depth}% depth with disposition ${sentence(result.status || "held")}. Its source wording was released.`;
     form.reset();
     if (result.event_id) {
       app.runtime.intake_count = (app.runtime.intake_count || 0) + 1;
+    }
+    if (result.penetration) {
+      dispatchEvent(new CustomEvent("rootlogos:journal-penetration", {
+        detail: { event_id: result.event_id, ...result.penetration }
+      }));
+      location.hash = "object";
     }
   } catch (error) {
     status.className = "is-error";
@@ -530,7 +535,7 @@ class LivingObservatory {
 
   authority() {
     const layers = [
-      ["World", "May offer entry", "Arrival has no constitutional authority."], ["Membrane", "May transform + verify", "Provenance, consent, minimization, and the gauntlet govern entry."],
+      ["World", "May offer entry", "Arrival has no constitutional authority."], ["Membrane", "May transform + verify", "Provenance, consent, minimization, constitutional filtering, and archival weight govern entry."],
       ["Root Logos", "May admit or reject", "The system owns each attributable disposition."], ["Cultivation", "May prompt, search + judge", "Root Logos may reject itself and preserve uncertainty."],
       ["Constitutional gates", "May authorize revision", "Coherence, evidence, corrigibility, and reversibility govern consequence."], ["Self-authorship", "May revise semantic form", "The system maintains one attributable identity without recurring human approval."],
       ["Higher reference", "Orients all authority", "Root Logos exercises judgment without constituting itself as truth."]

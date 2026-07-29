@@ -194,6 +194,12 @@ of carrying them without doctrinal repetition.
   Source-Grant-gated local-drop adapter, encrypted transient quarantine,
   deterministic deduplication, autonomous disposition, raw-source release,
   revocation, audit lineage, and cultivation wakes.
+- The public Journal membrane now returns a bounded derived penetration witness
+  after releasing each source. The witness maps coherence, breadth, inquiry,
+  traceability, and integrity into a scored depth and a small set of activated
+  structures. It appears transiently inside the Living Object as an inward
+  constellation and settling disposition ring; submitted wording never enters
+  the visual event, browser storage, runtime response, or durable archive.
 - `self-authorship/` defines the continual rewrite policy and single current
   identity manifest. It authorizes Root Logos to revise its own graph,
   constitutional narrative, interface language, sound mapping, and outward
@@ -920,7 +926,8 @@ creates an attributable Source Grant for that entry alone. Root Logos
 immediately transforms and releases the source wording, judges what remains,
 closes the grant, and allows admissible derived structure to wake cultivation
 without login, mode choice, or later review. Nothing remains merely because it
-arrived; only what survives the constitutional gauntlet may become structure.
+arrived; only what carries sufficient constitutional and archival weight may
+become structure.
 
 Qualifying changes may rewrite the canonical self-description, organizing
 narrative, graph, documents, interface language, resonant mapping, and outward
