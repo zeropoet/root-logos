@@ -617,9 +617,11 @@ reading context. It then renders the canonical 2400×2400 first-frame portrait
 of every current coherent Library work into
 `assets/library-first-frames/` as isolated 2400×2400 relational portraits:
 white lines and nodes on pure black, with all interface, labels, axes,
-horizons, and decorative layers removed. This replaces only a work's current
-portrait while preserving immutable edition lineage in `works/`. The new
-self-reading receives
+horizons, and decorative layers removed. Every filename carries the first
+twelve characters of its pixel SHA-256, so a new rendering always receives a
+new public URL instead of colliding with a cached predecessor. The manifest
+retains only the current portrait while immutable edition lineage remains in
+`works/`. The new self-reading receives
 a distinct topology and resonant signature even when the constitutional source
 prose itself has not changed.
 Corpus ingestion performs the same propagation once after the complete batch,

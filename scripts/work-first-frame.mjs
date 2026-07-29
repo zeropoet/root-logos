@@ -18,7 +18,9 @@ const COMPILED_BIBLE_COLLECTIONS = new Set([
 const slug = (value) => String(value).toLowerCase().normalize("NFKD")
   .replace(/[^\w\s-]/g, "").trim().replace(/[\s_]+/g, "-").replace(/-+/g, "-");
 const digest = (value) => createHash("sha256").update(value).digest("hex");
-const frameName = (order, id) => `${String(order).padStart(2, "0")}-${slug(id)}.png`;
+const frameStem = (order, id) => `${String(order).padStart(2, "0")}-${slug(id)}`;
+const frameName = (order, id, fingerprint) =>
+  `${frameStem(order, id)}-${String(fingerprint).slice(0, 12)}.png`;
 
 const contentType = (pathname) => ({
   ".css": "text/css; charset=utf-8",
@@ -174,8 +176,9 @@ export const renderLibraryFirstFrames = async () => {
 
   for (const entry of works) {
     const edition = JSON.parse(await readFile(resolve(root, entry.edition), "utf8"));
-    const filename = frameName(entry.library_order, entry.work_id);
     const png = captures.get(entry.work_id);
+    const sha256 = digest(png);
+    const filename = frameName(entry.library_order, entry.work_id, sha256);
     await writeFile(join(outputRoot, filename), png);
     frames.push({
       order: Number(entry.library_order),
@@ -185,12 +188,13 @@ export const renderLibraryFirstFrames = async () => {
       file: `assets/library-first-frames/${filename}`,
       width: WIDTH,
       height: HEIGHT,
-      sha256: digest(png)
+      sha256
     });
   }
 
-  const corpusFilename = frameName(1, "original-douay-rheims");
   const corpusPng = captures.get(corpus.corpus_id);
+  const corpusSha256 = digest(corpusPng);
+  const corpusFilename = frameName(1, "original-douay-rheims", corpusSha256);
   await writeFile(join(outputRoot, corpusFilename), corpusPng);
   frames.push({
     order: 1,
@@ -200,7 +204,7 @@ export const renderLibraryFirstFrames = async () => {
     file: `assets/library-first-frames/${corpusFilename}`,
     width: WIDTH,
     height: HEIGHT,
-    sha256: digest(corpusPng)
+    sha256: corpusSha256
   });
 
   frames.sort((left, right) => left.order - right.order);
@@ -236,13 +240,13 @@ export const validateLibraryFirstFrames = async () => {
       order: Number(entry.library_order),
       work_id: entry.work_id,
       edition_id: null,
-      file: `assets/library-first-frames/${frameName(entry.library_order, entry.work_id)}`
+      file_stem: `assets/library-first-frames/${frameStem(entry.library_order, entry.work_id)}-`
     })),
     {
       order: 1,
       work_id: corpus.corpus_id,
       edition_id: `corpus-${corpus.sound.signature}`,
-      file: `assets/library-first-frames/${frameName(1, "original-douay-rheims")}`
+      file_stem: `assets/library-first-frames/${frameStem(1, "original-douay-rheims")}-`
     }
   ].sort((left, right) => left.order - right.order);
   if (manifest.frames?.length !== expected.length) {
@@ -251,7 +255,12 @@ export const validateLibraryFirstFrames = async () => {
   for (let index = 0; index < expected.length; index += 1) {
     const wanted = expected[index];
     const actual = manifest.frames[index];
-    if (actual.order !== wanted.order || actual.work_id !== wanted.work_id || actual.file !== wanted.file) {
+    if (
+      actual.order !== wanted.order
+      || actual.work_id !== wanted.work_id
+      || !actual.file.startsWith(wanted.file_stem)
+      || actual.file !== `${wanted.file_stem}${actual.sha256.slice(0, 12)}.png`
+    ) {
       throw new Error(`First-frame identity mismatch at Library order ${wanted.order}.`);
     }
     const bytes = await readFile(resolve(root, actual.file));

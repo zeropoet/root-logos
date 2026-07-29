@@ -31,7 +31,7 @@ Each ingestion writes:
 - `manifest.json`: stable identity and source witness for the work;
 - `edition.json`: the derived Work Graph, visual score, resonant score, and interpretation;
 - `index.json`: the public archive entry used by the Root Logos interface;
-- `assets/library-first-frames/NN-work-id.png`: a canonical 2400×2400
+- `assets/library-first-frames/NN-work-id-SHA12.png`: a canonical 2400×2400
   isolated portrait of the current work.
 
 The portrait resolves the current visual graph at its initial orientation and
@@ -39,8 +39,10 @@ The portrait resolves the current visual graph at its initial orientation and
 decorative layer. Only white relational lines and white nodes remain on pure
 black. `assets/library-first-frames/manifest.json` witnesses its Library order,
 work and edition identity, dimensions, renderer, path, and SHA-256. Filenames
-remain stable while a later edition replaces the current portrait; immutable
-edition history remains in `works/`.
+are content-addressed: whenever the pixels change, the SHA-256 suffix changes
+the public URL and makes stale browser or CDN reuse impossible. The manifest
+points only to the current portrait; immutable edition history remains in
+`works/`.
 
 First-frame rendering is part of both the single-work and complete-corpus
 ingestion paths. It is not a manual publication step. Recovery and validation
