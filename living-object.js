@@ -82,70 +82,18 @@
 
   const canvas = document.querySelector("#living-object-canvas");
   if (!canvas) return;
-  const encounterCanvas = document.querySelector("#object-encounter-canvas");
-  const encounterContext = encounterCanvas?.getContext("2d");
-  let encounter = null;
-  let encounterFrame = 0;
+  let activeRenderer = null;
+  let pendingEncounter = null;
 
   const $ = (selector) => document.querySelector(selector);
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const drawEncounter = (now) => {
-    encounterFrame = 0;
-    if (!encounterContext || !encounter) return;
-    const rect = encounterCanvas.getBoundingClientRect();
-    const dpr = Math.min(devicePixelRatio || 1, 1.75);
-    const width = Math.max(1, Math.round(rect.width * dpr));
-    const height = Math.max(1, Math.round(rect.height * dpr));
-    if (encounterCanvas.width !== width || encounterCanvas.height !== height) {
-      encounterCanvas.width = width;
-      encounterCanvas.height = height;
-    }
-    encounterContext.clearRect(0, 0, width, height);
-    const elapsed = Math.max(0, now - encounter.startedAt);
-    const travel = reducedMotion ? 1 : Math.min(1, elapsed / 5200);
-    const settling = Math.max(0, Math.min(1, (elapsed - 5200) / 7600));
-    const depth = Math.max(.04, Math.min(1, Number(encounter.depth || 0)));
-    const cx = width * .5;
-    const cy = height * .49;
-    const outer = Math.min(width, height) * .46;
-    const radius = outer * (1 - travel * (.24 + depth * .68));
-    const structures = encounter.activated_structures || [];
-    encounterContext.save();
-    encounterContext.globalCompositeOperation = "lighter";
-    structures.forEach((structure, index) => {
-      const angle = index / Math.max(1, structures.length) * Math.PI * 2 + elapsed * .00008;
-      const spread = radius * (.72 + (index % 3) * .12);
-      const x = cx + Math.cos(angle) * spread;
-      const y = cy + Math.sin(angle) * spread;
-      const alpha = (1 - settling * .86) * (.22 + depth * .5);
-      encounterContext.strokeStyle = `rgba(203,183,122,${alpha})`;
-      encounterContext.lineWidth = Math.max(1, dpr * (.45 + depth));
-      encounterContext.beginPath();
-      encounterContext.moveTo(cx, cy);
-      encounterContext.lineTo(x, y);
-      encounterContext.stroke();
-      encounterContext.fillStyle = `rgba(226,218,190,${Math.min(.9, alpha + .18)})`;
-      encounterContext.beginPath();
-      encounterContext.arc(x, y, Math.max(1.5, dpr * (1.4 + Number(structure.recurrence || 1) * .22)), 0, Math.PI * 2);
-      encounterContext.fill();
-    });
-    const ringAlpha = settling > 0 ? .32 * (1 - settling * .62) : .08 + depth * .3;
-    encounterContext.strokeStyle = `rgba(138,166,129,${ringAlpha})`;
-    encounterContext.lineWidth = Math.max(1, dpr * .65);
-    encounterContext.beginPath();
-    encounterContext.arc(cx, cy, Math.max(8 * dpr, radius), 0, Math.PI * 2);
-    encounterContext.stroke();
-    encounterContext.restore();
-    if (elapsed < 12_800) encounterFrame = requestAnimationFrame(drawEncounter);
-  };
   addEventListener("rootlogos:journal-penetration", ({ detail }) => {
-    if (!detail || !encounterContext) return;
-    encounter = { ...detail, startedAt: performance.now() };
+    if (!detail) return;
+    pendingEncounter = detail;
+    activeRenderer?.setEncounter(detail);
     const depth = Math.round(Number(detail.depth || 0) * 100);
     const structures = detail.activated_structures?.length || 0;
     $("#object-state").textContent = `${detail.event_id} entered the Living Object to ${depth}% depth, activating ${structures} derived structures. The source has been released; its disposition is ${String(detail.disposition || "held")}.`;
-    cancelAnimationFrame(encounterFrame);
-    encounterFrame = requestAnimationFrame(drawEncounter);
   });
   const gl = canvas.getContext("webgl", {
     alpha: true,
@@ -303,6 +251,8 @@
 
     const geometry = formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions });
     const renderer = createRenderer(gl, geometry);
+    activeRenderer = renderer;
+    if (pendingEncounter) renderer.setEncounter(pendingEncounter);
     let pointerX = 0;
     let pointerY = 0;
     let targetX = 0;
@@ -728,6 +678,9 @@
     const facetBuffer = buffer(context, geometry.facets);
     const lineBuffer = buffer(context, geometry.lines);
     const pointBuffer = buffer(context, geometry.points);
+    const encounterLineBuffer = context.createBuffer();
+    const encounterPointBuffer = context.createBuffer();
+    let encounter = null;
     context.enable(context.BLEND);
     context.blendFunc(context.SRC_ALPHA, context.ONE);
 
@@ -757,7 +710,76 @@
       });
     };
 
+    const encounterGeometry = (state) => {
+      if (!encounter) return null;
+      const elapsed = Math.max(0, performance.now() - encounter.startedAt);
+      if (elapsed > 24_000) {
+        encounter = null;
+        return null;
+      }
+      const detail = encounter.detail;
+      const depth = Math.max(.04, Math.min(1, Number(detail.depth || 0)));
+      const travel = reducedMotion ? 1 : Math.min(1, elapsed / 5200);
+      const eased = 1 - Math.pow(1 - travel, 3);
+      const settling = Math.max(0, Math.min(1, (elapsed - 5200) / 12_000));
+      const seed = hash(detail.event_id || "journal-encounter");
+      const azimuth = seed * Math.PI * 2;
+      const elevation = (hash(`${detail.event_id}:elevation`) - .5) * .72;
+      const direction = [
+        Math.cos(azimuth) * Math.cos(elevation),
+        Math.sin(elevation),
+        Math.sin(azimuth) * Math.cos(elevation)
+      ];
+      const boundary = direction.map((axis) => axis * 2.45);
+      const targetRadius = .16 + (1 - depth) * 1.84;
+      const target = direction.map((axis) => axis * targetRadius);
+      const anchor = boundary.map((axis, index) => axis + (target[index] - axis) * eased);
+      const alpha = Math.max(.07, (.3 + depth * .62) * (1 - settling * .84));
+      const lines = [];
+      const points = [];
+      const pack = (array, position, opacity, size = 1) => array.push(
+        ...position, 1, 1, 1, opacity, size, 0, 99
+      );
+      pack(lines, boundary, alpha * .28);
+      pack(lines, anchor, alpha * .72);
+      pack(points, anchor, alpha, 8 + depth * 8);
+
+      const structures = detail.activated_structures || [];
+      const constellationRadius = .14 + depth * .28;
+      structures.forEach((structure, index) => {
+        const phase = index / Math.max(1, structures.length) * Math.PI * 2 + seed * Math.PI;
+        const lift = (hash(`${structure.concept}:lift`) - .5) * constellationRadius * 1.8;
+        const node = [
+          anchor[0] + Math.cos(phase) * constellationRadius,
+          anchor[1] + lift,
+          anchor[2] + Math.sin(phase) * constellationRadius
+        ];
+        pack(lines, anchor, alpha * .36);
+        pack(lines, node, alpha * .64);
+        pack(points, node, Math.min(1, alpha + .12), 4 + Math.min(5, Number(structure.recurrence || 1)));
+      });
+
+      const ringRadius = .1 + depth * .22;
+      const ringOpacity = settling ? .1 + depth * .16 : alpha * .28;
+      const segments = 32;
+      for (let index = 0; index < segments; index += 1) {
+        const angleA = index / segments * Math.PI * 2;
+        const angleB = (index + 1) / segments * Math.PI * 2;
+        const ringPoint = (angle) => [
+          anchor[0] + Math.cos(angle) * ringRadius,
+          anchor[1] + Math.sin(angle) * ringRadius * .42,
+          anchor[2] + Math.sin(angle) * ringRadius
+        ];
+        pack(lines, ringPoint(angleA), ringOpacity);
+        pack(lines, ringPoint(angleB), ringOpacity);
+      }
+      return { lines: new Float32Array(lines), points: new Float32Array(points), state };
+    };
+
     return {
+      setEncounter(detail) {
+        encounter = { detail, startedAt: performance.now() };
+      },
       draw(state) {
         context.clearColor(0, 0, 0, 1);
         context.clear(context.COLOR_BUFFER_BIT);
@@ -767,6 +789,18 @@
         drawBuffer(lineProgram, lineBuffer, geometry.lines.length / 10, context.LINES, 10);
         uniforms(pointProgram, state);
         drawBuffer(pointProgram, pointBuffer, geometry.points.length / 10, context.POINTS, 10);
+        const transient = encounterGeometry(state);
+        if (transient) {
+          const encounterState = { ...state, growth: 1 };
+          context.bindBuffer(context.ARRAY_BUFFER, encounterLineBuffer);
+          context.bufferData(context.ARRAY_BUFFER, transient.lines, context.DYNAMIC_DRAW);
+          uniforms(lineProgram, encounterState);
+          drawBuffer(lineProgram, encounterLineBuffer, transient.lines.length / 10, context.LINES, 10);
+          context.bindBuffer(context.ARRAY_BUFFER, encounterPointBuffer);
+          context.bufferData(context.ARRAY_BUFFER, transient.points, context.DYNAMIC_DRAW);
+          uniforms(pointProgram, encounterState);
+          drawBuffer(pointProgram, encounterPointBuffer, transient.points.length / 10, context.POINTS, 10);
+        }
       }
     };
   }
