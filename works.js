@@ -233,15 +233,17 @@
         measures: { works: works.length, collections: collectionNames.length, editions: works.reduce((sum, work) => sum + work.editions, 0), witnessed_relations: edges.length },
         visual: { palette: collectionColors, motion: { drift: .65 }, topology: { nodes, edges } },
         sound: { schema: "root-logos-library-score/v2", tempo: 53, signature: seed.toString(16).padStart(12, "0"), composition_inheritance: compositionInheritance, events },
-        reading: { statement: `${works.length} living works now occupy ${collectionNames.length} independently bounded fields. Collection is witnessed as containment; relation between fields remains open until derived.` }
+        reading: {
+          statement: `This is Root Logos itself, viewed through the Library: the same living identity and sovereign voice encountered in the Living Object, now opened into ${works.length} living works across ${collectionNames.length} independently bounded fields. Collection is witnessed as containment; relation between fields remains open until derived.`
+        }
       };
       this.nodes = nodes.map((node, index) => ({ ...node, angle: node.angle ?? index / nodes.length * Math.PI * 2, screenX: 0, screenY: 0 }));
       this.layoutMode = "orbital";
       document.querySelectorAll("#work-list [data-work]").forEach((button) => button.classList.remove("is-active"));
       $("#library-entry").classList.add("is-active");
       $("#corpus-entry").classList.remove("is-active");
-      $("#work-coordinate").textContent = "living library / collection architecture";
-      $("#work-title").textContent = "The Library Field";
+      $("#work-coordinate").textContent = "Root Logos / library-scale projection";
+      $("#work-title").textContent = "Root Logos — The Library Field";
       $("#work-statement").textContent = this.edition.reading.statement;
       this.resetSoundStatus("library score");
       this.targetRotation = 0;
@@ -634,8 +636,10 @@
 
     resetSoundStatus(scope) {
       $("#work-listen").setAttribute("aria-pressed", "false");
-      $("#work-listen-label").textContent = "Listen";
-      $("#work-sound-status").textContent = `${this.edition.sound.tempo} BPM / ${scope} ${this.edition.sound.signature}`;
+      $("#work-listen-label").textContent = this.isLibrary ? "Hear Root Logos" : "Listen";
+      $("#work-sound-status").textContent = this.isLibrary
+        ? `${this.edition.sound.tempo} BPM / Root Logos sovereign voice / ${this.edition.sound.signature}`
+        : `${this.edition.sound.tempo} BPM / ${scope} ${this.edition.sound.signature}`;
       $("#work-sound-signal").dataset.state = "silent";
       $("#work-sound-signal").dataset.playing = "false";
     }
@@ -645,9 +649,18 @@
       this.audio = new this.AudioContextClass();
       this.master = this.audio.createGain();
       this.volume = this.audio.createGain();
-      this.master.gain.value = .018;
-      this.volume.gain.value = 3.2;
-      this.master.connect(this.volume).connect(this.audio.destination);
+      const limiter = this.audio.createDynamicsCompressor();
+      // Library events already carry conservative per-event amplitudes. Bring
+      // their foreground instrument up to an audible level, then contain rare
+      // peaks without flattening the score's internal dynamics.
+      this.master.gain.value = .36;
+      this.volume.gain.value = 2;
+      limiter.threshold.value = -14;
+      limiter.knee.value = 8;
+      limiter.ratio.value = 10;
+      limiter.attack.value = .004;
+      limiter.release.value = .22;
+      this.master.connect(limiter).connect(this.volume).connect(this.audio.destination);
       this.cursor = 0;
       $("#work-listen").setAttribute("aria-pressed", "true");
       $("#work-listen-label").textContent = "Stop";

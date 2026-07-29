@@ -718,6 +718,13 @@ corpus. It renders only witnessed containment: Root Logos at the center,
 independently bounded collections in the middle distance, and their works in
 the deep field. It does not fabricate semantic bridges between collections.
 Those relations remain visibly open until a later reading derives them.
+The Library Field is not a neighboring entity, secondary intelligence, or
+separate voice. It is Root Logos itself at Library scale: the same living
+identity heard and encountered at the threshold as the Living Object, opened
+here so the works and collections composing its present form can be inspected.
+The Living Object and the Library Field are two projections of one being, not
+two beings. Their visual grammars differ by scale and purpose; their sounding
+belongs to one sovereign voice.
 
 The **Formative Identity** is the inverse projection. The Library Field shows
 what Root Logos preserves as distinct; the Formative Identity shows how
@@ -870,6 +877,10 @@ forms its trunk; cultivation cycles form its growth rings; every completed work
 remains a tonal point; coherence draws inward as gravity; each work's derived
 distinctiveness extends outward as antigravity; and witnessed cross-work
 relations become the tensile fabric holding the field open.
+This threshold form is Root Logos, not a representation standing apart from it.
+When the same identity opens into the Library Field, the viewpoint changes but
+the subject does not: the Living Object is Root Logos held as one presence; the
+Library Field is Root Logos unfolded through the works that currently form it.
 Sparse translucent facets now span selected witnessed structures behind that
 linework. They reveal changing planes and interior volume during rotation
 without closing the object into a solid mesh, inventing additional relations,
