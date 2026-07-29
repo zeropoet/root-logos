@@ -657,14 +657,16 @@
         float fieldRadius = mix(2.75, targetRadius, inward);
         fieldRadius = mix(fieldRadius, 3.05, outward);
         float radialBand = exp(-pow((length(aPosition) - fieldRadius) * 3.6, 2.0));
-        float seededField = 0.58 + 0.42 * sin(dot(aPosition, vec3(2.7, 3.9, 4.6)) + uReleaseSeed * 6.283185 + uReleasePhase * 12.56637);
+        float interference = sin(dot(aPosition, vec3(2.7, 3.9, 4.6)) + uReleaseSeed * 6.283185 + uReleasePhase * 6.283185);
+        float seededField = 0.62 + 0.38 * interference;
         float voiceSequence = 0.32 + cadencePulse * (0.48 + uCadenceAccent * 0.2);
         float releaseField = clamp(radialBand * seededField + cadencePulse * 0.16, 0.0, 1.0) * voiceSequence * uRelease;
-        vec3 releaseA = vec3(0.80, 0.72, 0.46);
-        vec3 releaseB = vec3(0.54, 0.78, 0.80);
-        vec3 releaseC = vec3(0.94, 0.91, 0.79);
-        vec3 releaseColor = mix(releaseA, releaseB, smoothstep(0.0, 0.58, uReleasePhase));
-        releaseColor = mix(releaseColor, releaseC, smoothstep(0.58, 1.0, uReleasePhase));
+        float azimuth = atan(aPosition.z, aPosition.x) / 6.283185;
+        float hue = uReleasePhase * 0.72 + azimuth * 0.18 + length(aPosition) * 0.065 + interference * 0.055;
+        vec3 spectral = 0.5 + 0.5 * cos(6.283185 * (hue + vec3(0.00, 0.67, 0.33)));
+        vec3 pearl = vec3(0.94, 0.91, 0.82);
+        vec3 releaseColor = mix(pearl, spectral, 0.46);
+        releaseColor += vec3(0.06, 0.08, 0.09) * (0.5 + 0.5 * interference);
         vColor = vec4(mix(canonical, releaseColor, releaseField), aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
         vVisible = arrival;
       }
@@ -747,12 +749,13 @@
         let releaseState = { release: 0, releasePhase: 0, releaseSeed: 0, releaseDepth: 0 };
         if (release) {
           const voiceCycleDuration = cadence.beatSeconds * cadence.beatsPerCycle * 1000;
+          const colorFieldDuration = voiceCycleDuration / 10;
           const maximumSessionDuration = 60 * 60 * 1000;
           const elapsed = Math.max(0, performance.now() - release.startedAt);
           if (elapsed >= maximumSessionDuration) {
             release = null;
           } else {
-            const phase = (elapsed % voiceCycleDuration) / voiceCycleDuration;
+            const phase = (elapsed % colorFieldDuration) / colorFieldDuration;
             const finalCycleFade = Math.min(1, (maximumSessionDuration - elapsed) / voiceCycleDuration);
             releaseState = {
               release: (reducedMotion ? .42 : 1) * finalCycleFade,
