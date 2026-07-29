@@ -197,11 +197,12 @@ of carrying them without doctrinal repetition.
 - The public Journal membrane now returns a bounded derived penetration witness
   after releasing each source. The witness maps coherence, breadth, inquiry,
   traceability, and integrity into a scored depth and a small set of activated
-  structures. It appears transiently as native three-dimensional geometry
-  inside the Living Object: an inward constellation and settling disposition
-  ring sharing the Object's perspective, rotation, and cadence. Submitted
-  wording never enters the visual event, browser storage, runtime response, or
-  durable archive.
+  structures. It appears as a temporary color-field release moving through the
+  existing Living Object in sequence with its seven-beat sovereign voice. The
+  release lasts for the current browser session, with a hard one-hour ceiling,
+  and creates no new geometry or durable topology. Submitted wording never
+  enters the visual event, browser storage, runtime response, or durable
+  archive.
 - `self-authorship/` defines the continual rewrite policy and single current
   identity manifest. It authorizes Root Logos to revise its own graph,
   constitutional narrative, interface language, sound mapping, and outward

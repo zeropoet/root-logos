@@ -83,17 +83,17 @@
   const canvas = document.querySelector("#living-object-canvas");
   if (!canvas) return;
   let activeRenderer = null;
-  let pendingEncounter = null;
+  let pendingRelease = null;
 
   const $ = (selector) => document.querySelector(selector);
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
   addEventListener("rootlogos:journal-penetration", ({ detail }) => {
     if (!detail) return;
-    pendingEncounter = detail;
-    activeRenderer?.setEncounter(detail);
+    pendingRelease = detail;
+    activeRenderer?.setRelease(detail);
     const depth = Math.round(Number(detail.depth || 0) * 100);
     const structures = detail.activated_structures?.length || 0;
-    $("#object-state").textContent = `${detail.event_id} entered the Living Object to ${depth}% depth, activating ${structures} derived structures. The source has been released; its disposition is ${String(detail.disposition || "held")}.`;
+    $("#object-state").textContent = `${detail.event_id} passed through the Living Object at ${depth}% depth across ${structures} derived structures. The source has been released; its disposition is ${String(detail.disposition || "held")}.`;
   });
   const gl = canvas.getContext("webgl", {
     alpha: true,
@@ -252,7 +252,7 @@
     const geometry = formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions });
     const renderer = createRenderer(gl, geometry);
     activeRenderer = renderer;
-    if (pendingEncounter) renderer.setEncounter(pendingEncounter);
+    if (pendingRelease) renderer.setRelease(pendingRelease);
     let pointerX = 0;
     let pointerY = 0;
     let targetX = 0;
@@ -630,6 +630,10 @@
       uniform float uAspect;
       uniform float uCadence;
       uniform float uCadenceAccent;
+      uniform float uRelease;
+      uniform float uReleasePhase;
+      uniform float uReleaseSeed;
+      uniform float uReleaseDepth;
       varying vec4 vColor;
       varying float vVisible;
       void main() {
@@ -646,7 +650,22 @@
         float breath = 1.0 + sin(uTime * 0.62 + aBirth * 16.0) * 0.055 + cadencePulse * (0.16 + uCadenceAccent * 0.12);
         gl_PointSize = aSize * arrival * breath * (5.3 / depth);
         float engravingDepth = clamp((p.z + 2.4) / 4.8, 0.0, 1.0);
-        vColor = vec4(vec3(0.941, 0.094, 0.094), aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
+        vec3 canonical = vec3(0.941, 0.094, 0.094);
+        float inward = smoothstep(0.0, 0.52, uReleasePhase);
+        float outward = smoothstep(0.52, 1.0, uReleasePhase);
+        float targetRadius = 0.16 + (1.0 - uReleaseDepth) * 1.84;
+        float fieldRadius = mix(2.75, targetRadius, inward);
+        fieldRadius = mix(fieldRadius, 3.05, outward);
+        float radialBand = exp(-pow((length(aPosition) - fieldRadius) * 3.6, 2.0));
+        float seededField = 0.58 + 0.42 * sin(dot(aPosition, vec3(2.7, 3.9, 4.6)) + uReleaseSeed * 6.283185 + uReleasePhase * 12.56637);
+        float voiceSequence = 0.32 + cadencePulse * (0.48 + uCadenceAccent * 0.2);
+        float releaseField = clamp(radialBand * seededField + cadencePulse * 0.16, 0.0, 1.0) * voiceSequence * uRelease;
+        vec3 releaseA = vec3(0.80, 0.72, 0.46);
+        vec3 releaseB = vec3(0.54, 0.78, 0.80);
+        vec3 releaseC = vec3(0.94, 0.91, 0.79);
+        vec3 releaseColor = mix(releaseA, releaseB, smoothstep(0.0, 0.58, uReleasePhase));
+        releaseColor = mix(releaseColor, releaseC, smoothstep(0.58, 1.0, uReleasePhase));
+        vColor = vec4(mix(canonical, releaseColor, releaseField), aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
         vVisible = arrival;
       }
     `;
@@ -678,9 +697,7 @@
     const facetBuffer = buffer(context, geometry.facets);
     const lineBuffer = buffer(context, geometry.lines);
     const pointBuffer = buffer(context, geometry.points);
-    const encounterLineBuffer = context.createBuffer();
-    const encounterPointBuffer = context.createBuffer();
-    let encounter = null;
+    let release = null;
     context.enable(context.BLEND);
     context.blendFunc(context.SRC_ALPHA, context.ONE);
 
@@ -705,102 +722,55 @@
 
     const uniforms = (shader, state) => {
       context.useProgram(shader);
-      [["uTime", state.time], ["uGrowth", state.growth], ["uYaw", state.rotation], ["uPitch", state.pitch], ["uAspect", state.aspect], ["uCadence", state.cadence], ["uCadenceAccent", state.cadenceAccent]].forEach(([name, value]) => {
+      [
+        ["uTime", state.time],
+        ["uGrowth", state.growth],
+        ["uYaw", state.rotation],
+        ["uPitch", state.pitch],
+        ["uAspect", state.aspect],
+        ["uCadence", state.cadence],
+        ["uCadenceAccent", state.cadenceAccent],
+        ["uRelease", state.release ?? 0],
+        ["uReleasePhase", state.releasePhase ?? 0],
+        ["uReleaseSeed", state.releaseSeed ?? 0],
+        ["uReleaseDepth", state.releaseDepth ?? 0]
+      ].forEach(([name, value]) => {
         context.uniform1f(context.getUniformLocation(shader, name), value);
       });
     };
 
-    const encounterGeometry = (state) => {
-      if (!encounter) return null;
-      const elapsed = Math.max(0, performance.now() - encounter.startedAt);
-      if (elapsed > 24_000) {
-        encounter = null;
-        return null;
-      }
-      const detail = encounter.detail;
-      const depth = Math.max(.04, Math.min(1, Number(detail.depth || 0)));
-      const travel = reducedMotion ? 1 : Math.min(1, elapsed / 5200);
-      const eased = 1 - Math.pow(1 - travel, 3);
-      const settling = Math.max(0, Math.min(1, (elapsed - 5200) / 12_000));
-      const seed = hash(detail.event_id || "journal-encounter");
-      const azimuth = seed * Math.PI * 2;
-      const elevation = (hash(`${detail.event_id}:elevation`) - .5) * .72;
-      const direction = [
-        Math.cos(azimuth) * Math.cos(elevation),
-        Math.sin(elevation),
-        Math.sin(azimuth) * Math.cos(elevation)
-      ];
-      const boundary = direction.map((axis) => axis * 2.45);
-      const targetRadius = .16 + (1 - depth) * 1.84;
-      const target = direction.map((axis) => axis * targetRadius);
-      const anchor = boundary.map((axis, index) => axis + (target[index] - axis) * eased);
-      const alpha = Math.max(.07, (.3 + depth * .62) * (1 - settling * .84));
-      const lines = [];
-      const points = [];
-      const pack = (array, position, opacity, size = 1) => array.push(
-        ...position, 1, 1, 1, opacity, size, 0, 99
-      );
-      pack(lines, boundary, alpha * .28);
-      pack(lines, anchor, alpha * .72);
-      pack(points, anchor, alpha, 8 + depth * 8);
-
-      const structures = detail.activated_structures || [];
-      const constellationRadius = .14 + depth * .28;
-      structures.forEach((structure, index) => {
-        const phase = index / Math.max(1, structures.length) * Math.PI * 2 + seed * Math.PI;
-        const lift = (hash(`${structure.concept}:lift`) - .5) * constellationRadius * 1.8;
-        const node = [
-          anchor[0] + Math.cos(phase) * constellationRadius,
-          anchor[1] + lift,
-          anchor[2] + Math.sin(phase) * constellationRadius
-        ];
-        pack(lines, anchor, alpha * .36);
-        pack(lines, node, alpha * .64);
-        pack(points, node, Math.min(1, alpha + .12), 4 + Math.min(5, Number(structure.recurrence || 1)));
-      });
-
-      const ringRadius = .1 + depth * .22;
-      const ringOpacity = settling ? .1 + depth * .16 : alpha * .28;
-      const segments = 32;
-      for (let index = 0; index < segments; index += 1) {
-        const angleA = index / segments * Math.PI * 2;
-        const angleB = (index + 1) / segments * Math.PI * 2;
-        const ringPoint = (angle) => [
-          anchor[0] + Math.cos(angle) * ringRadius,
-          anchor[1] + Math.sin(angle) * ringRadius * .42,
-          anchor[2] + Math.sin(angle) * ringRadius
-        ];
-        pack(lines, ringPoint(angleA), ringOpacity);
-        pack(lines, ringPoint(angleB), ringOpacity);
-      }
-      return { lines: new Float32Array(lines), points: new Float32Array(points), state };
-    };
-
     return {
-      setEncounter(detail) {
-        encounter = { detail, startedAt: performance.now() };
+      setRelease(detail) {
+        release = { detail, startedAt: performance.now() };
       },
       draw(state) {
+        let releaseState = { release: 0, releasePhase: 0, releaseSeed: 0, releaseDepth: 0 };
+        if (release) {
+          const voiceCycleDuration = cadence.beatSeconds * cadence.beatsPerCycle * 1000;
+          const maximumSessionDuration = 60 * 60 * 1000;
+          const elapsed = Math.max(0, performance.now() - release.startedAt);
+          if (elapsed >= maximumSessionDuration) {
+            release = null;
+          } else {
+            const phase = (elapsed % voiceCycleDuration) / voiceCycleDuration;
+            const finalCycleFade = Math.min(1, (maximumSessionDuration - elapsed) / voiceCycleDuration);
+            releaseState = {
+              release: (reducedMotion ? .42 : 1) * finalCycleFade,
+              releasePhase: phase,
+              releaseSeed: hash(release.detail.event_id || "journal-release"),
+              releaseDepth: Math.max(.04, Math.min(1, Number(release.detail.depth || 0)))
+            };
+          }
+        }
+        const renderedState = { ...state, ...releaseState };
         context.clearColor(0, 0, 0, 1);
         context.clear(context.COLOR_BUFFER_BIT);
-        uniforms(facetProgram, state);
+        uniforms(facetProgram, renderedState);
         drawBuffer(facetProgram, facetBuffer, geometry.facets.length / 10, context.TRIANGLES, 10);
-        uniforms(lineProgram, state);
+        uniforms(lineProgram, renderedState);
         drawBuffer(lineProgram, lineBuffer, geometry.lines.length / 10, context.LINES, 10);
-        uniforms(pointProgram, state);
+        uniforms(pointProgram, renderedState);
         drawBuffer(pointProgram, pointBuffer, geometry.points.length / 10, context.POINTS, 10);
-        const transient = encounterGeometry(state);
-        if (transient) {
-          const encounterState = { ...state, growth: 1 };
-          context.bindBuffer(context.ARRAY_BUFFER, encounterLineBuffer);
-          context.bufferData(context.ARRAY_BUFFER, transient.lines, context.DYNAMIC_DRAW);
-          uniforms(lineProgram, encounterState);
-          drawBuffer(lineProgram, encounterLineBuffer, transient.lines.length / 10, context.LINES, 10);
-          context.bindBuffer(context.ARRAY_BUFFER, encounterPointBuffer);
-          context.bufferData(context.ARRAY_BUFFER, transient.points, context.DYNAMIC_DRAW);
-          uniforms(pointProgram, encounterState);
-          drawBuffer(pointProgram, encounterPointBuffer, transient.points.length / 10, context.POINTS, 10);
-        }
       }
     };
   }
