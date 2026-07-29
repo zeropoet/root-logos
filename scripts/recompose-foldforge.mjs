@@ -4,6 +4,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { applyFoldForgeComposition, foldForgeCompositionIdentity } from "./foldforge-score.mjs";
+import { applyCanonicalWorkCoordinates } from "./work-coordinates.mjs";
 
 const root = resolve(new URL("..", import.meta.url).pathname);
 const worksRoot = join(root, "works");
@@ -45,7 +46,7 @@ const recomposeWork = async (entry) => {
 
   const editionId = `${entry.work_id}--${String(prior.root_logos_revision).replace(/[^\w.-]+/g, "-")}-foldforge-${digest(`${prior.edition_id}:${snapshot.witness}`).slice(0, 10)}`;
   const createdAt = now();
-  const edition = {
+  const edition = applyCanonicalWorkCoordinates({
     ...prior,
     edition_id: editionId,
     created_at: createdAt,
@@ -58,7 +59,7 @@ const recomposeWork = async (entry) => {
       inheritance
     },
     sound: applyFoldForgeComposition({ score: prior.sound, workId: entry.work_id, snapshot })
-  };
+  });
   const editionDir = join(workDir, "editions", editionId);
   const href = `works/${entry.work_id}/editions/${editionId}/edition.json`;
   await mkdir(editionDir, { recursive: true });

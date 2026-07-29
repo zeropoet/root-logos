@@ -650,6 +650,34 @@ retains only the current portrait while immutable edition lineage remains in
 `works/`. The new self-reading receives
 a distinct topology and resonant signature even when the constitutional source
 prose itself has not changed.
+
+The same protocol run also emits an edition-bound SVG witness beside every PNG.
+Each SVG is a transparent vector field containing only the work's derived white
+relation paths and node circles—no background, prose, labels, interface, or
+decorative layers. Its SHA-256 is recorded independently in the first-frame
+manifest, and the ingestion path regenerates it whenever the current edition
+changes.
+
+Every current edition inhabits the **Canonical Work Coordinate System (CWCS
+v1)**. Its reference frame is the immutable edition rather than a mutable page,
+screen, or file. Addresses take the form
+`root://work/{work-id}/edition/{edition-id}/{axis}/{ordinal}`: the work is the
+origin; documents form the structural axis; concepts form the semantic axis;
+and relations form the relational axis. The edition timestamp supplies its
+lineage coordinate. The grammar extends structural addresses through
+`document/{d}/section/{s}/passage/{p}/token/{start}:{end}` whenever that
+resolution is materialized by an ingestion adapter. Ordinals are one-based,
+zero-padded, and fixed by witnessed source traversal. Original filenames and
+headings are represented only by opaque SHA-256 witnesses. Canvas and SVG
+`x/y` values are explicitly non-canonical projections.
+
+SVG circles carry their CWCS address in `data-cwcs`. SVG paths carry their own
+relation address plus `data-from` and `data-to` endpoint coordinates. The
+visible SVG vocabulary remains only paths and circles; coordinates add
+machine-readable location without adding a presentation layer or source prose.
+`npm run works:coordinates` creates immutable successor editions for any
+current work that predates CWCS, while `npm run works:check-coordinates`
+enforces the coordinate frame across the coherent Library.
 Corpus ingestion performs the same propagation once after the complete batch,
 preventing 73 partial self-readings while preserving the same final invariant
 and regenerating the consolidated corpus portrait.

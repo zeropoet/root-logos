@@ -5,6 +5,7 @@ import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, extname, join, relative, resolve } from "node:path";
 import { applyFoldForgeComposition, foldForgeCompositionIdentity } from "./foldforge-score.mjs";
 import { renderLibraryFirstFrames } from "./work-first-frame.mjs";
+import { applyCanonicalWorkCoordinates } from "./work-coordinates.mjs";
 
 const root = resolve(new URL("..", import.meta.url).pathname);
 const archiveRoot = join(root, "works");
@@ -394,7 +395,7 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
       amplitude: Number(Math.min(.12, .025 + concept[1] / Math.max(80, sectionRows.length * 10)).toFixed(4))
     };
   });
-  return {
+  const derivedWork = {
     manifest: {
       schema: "root-logos-work/v1", work_id: workId, title, author, kind,
       source, source_hash: sourceHash, source_retained: true,
@@ -428,6 +429,8 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
       }
     }
   };
+  derivedWork.edition = applyCanonicalWorkCoordinates(derivedWork.edition);
+  return derivedWork;
 };
 
 export const ingestWork = async ({

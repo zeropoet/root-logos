@@ -97,6 +97,12 @@ const edition = JSON.parse(await readFile(join(
 ), "utf8"));
 
 assert.equal(edition.schema, "root-logos-work-edition/v1");
+assert.equal(edition.coordinate_system.schema, "root-logos-canonical-work-coordinate-system/v1");
+assert.ok(edition.coordinate_system.origin.endsWith("/work"));
+assert.ok(edition.visual.topology.nodes.every(({ canonical_coordinate }) => canonical_coordinate?.startsWith("root://work/")));
+assert.ok(edition.visual.topology.edges.every(({ canonical_coordinate, from_coordinate, to_coordinate }) =>
+  canonical_coordinate?.includes("/relation/") && from_coordinate && to_coordinate
+));
 assert.equal(edition.measures.documents, 2);
 assert.ok(edition.measures.sections >= 3);
 assert.ok(edition.visual.topology.nodes.length > 3);
