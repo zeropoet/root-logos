@@ -125,6 +125,27 @@ assert.equal(contextualEdition.parent_edition, first.current_edition);
 assert.equal(contextualEdition.reading_context.trigger_work_id, "fixture-trigger");
 assert.notEqual(contextualEdition.sound.signature, edition.sound.signature);
 
+const germanBook = join(fixture, "german-book");
+await mkdir(germanBook);
+await writeFile(join(germanBook, "01.md"), "# Prüfung\n\nSiddhartha hatte nicht seine Ruhe gefunden. Siddhartha suchte Erkenntnis und lauschte dem Fluss. 𝑎𝑛 ﬁnite ﬁnite.\n");
+const german = await ingestWork({
+  input: germanBook, title: "German Test Work", author: "Root Logos Test",
+  kind: "novel", source: "fixture:german-work", language: "de",
+  transformation: "deterministic-structural-reading/v3-de-stopwords",
+  rootRevision: "test-v1"
+});
+const germanEdition = JSON.parse(await readFile(join(
+  new URL("..", import.meta.url).pathname, "works", german.work_id, "editions", german.current_edition, "edition.json"
+), "utf8"));
+const germanConcepts = germanEdition.reading.dominant_concepts.map(({ concept }) => concept);
+assert.ok(germanConcepts.includes("siddhartha"));
+assert.ok(germanConcepts.includes("erkenntnis"));
+assert.ok(germanConcepts.includes("finite"));
+assert.ok(!germanConcepts.includes("hatte"));
+assert.ok(!germanConcepts.includes("nicht"));
+assert.ok(!germanConcepts.includes("seine"));
+assert.ok(!germanConcepts.includes("𝑎𝑛"));
+
 const scripturePath = join(fixture, "genesis.json");
 await writeFile(scripturePath, JSON.stringify({
   book: "genesis",
@@ -156,6 +177,7 @@ assert.equal(privateManifest.source_witness.identity, "fixture@abc123");
 assert.ok(!privateEditionText.includes("Private source language"));
 
 await rm(join(new URL("..", import.meta.url).pathname, "works", first.work_id), { recursive: true, force: true });
+await rm(join(new URL("..", import.meta.url).pathname, "works", german.work_id), { recursive: true, force: true });
 await rm(join(new URL("..", import.meta.url).pathname, "works", privateWork.work_id), { recursive: true, force: true });
 await writeFile(indexPath, originalIndex);
 await rm(fixture, { recursive: true, force: true });

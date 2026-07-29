@@ -805,6 +805,42 @@ contains 154,003 words, 36 concepts, 180 relations, a 61-node topology, and an
 being merged into it: the two Homeric bodies remain independently attributable
 works whose shared collection creates new cross-work pressure in Root Logos.
 
+Hermann Hesse's **Siddhartha: eine indische Dichtung** enters as work `14` in
+`Literary Encounters with Buddhism`, preserving the original 1922 German
+rather than substituting a later translation. Its Project Gutenberg witness is
+transiently read and released. German-aware concept extraction excludes common
+function words while retaining the work's own vocabulary; the current derived
+edition records 14 structural passages, 34,412 encountered words, 36 concepts,
+180 relations, and a 38-node topology.
+
+Bhikkhu Ñāṇamoli's **The Life of the Buddha: According to the Pali Canon**
+enters as work `15` in `Buddhist Classics`. It is positioned as a coherent
+canon-based biography rather than as a replacement for the Pali sources it
+assembles. The copyrighted BPS/Pariyatti edition passes only through the
+private-source membrane: neither PDF nor prose enters the archive. Its derived
+lineage preserves 20 structural documents, 142,305 encountered words, 36
+concepts, 180 relations, and a 57-node topology.
+
+Works `16` through `19` establish `Critical Rationalism and Explanatory
+Knowledge` as a deliberately sequenced collection. Karl Popper's **On the
+Sources of Knowledge and of Ignorance** begins with criticism, authority, and
+error correction. David Deutsch's **Constructor Theory** carries knowledge
+into the physical distinction between possible and impossible transformations.
+**Quantum Theory, the Church-Turing Principle and the Universal Quantum
+Computer** then grounds universal computation in physical law. **The Logical
+Writings of Karl Popper** returns that arc to deductive inference through 34
+separately preserved editorial, published, manuscript, correspondence, and
+apparatus structures. Together these four readings contribute 720 derived
+relations and 185 structural points without retaining any source text.
+
+All four contemporary-source readings are publicly attributable but
+source-private. Their manifests retain titles, authorship and editorial credit,
+rights statements, opaque edition witnesses, content digests, transformation
+identity, and derived lineage; `source` remains `null` and
+`source_retained` remains `false`. PDF ligatures and mathematical presentation
+forms are normalized before concept extraction so typography cannot masquerade
+as meaning. Earlier readings remain immutable when that method changes.
+
 ### The Living Object
 
 The public threshold is now the **Living Object**: one slow, dimensional,
@@ -821,9 +857,9 @@ or competing with its nodes and engraved edges.
 
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
-All 1,681 current Catholic-corpus relations enter the engraving. The twelve
-independently bounded external works contribute another 2,406 internal relations
-and 620 structural points, bringing that Library field to 4,087 witnessed
+All 1,681 current Catholic-corpus relations enter the engraving. The eighteen
+independently bounded external works contribute another 3,486 internal relations
+and 900 structural points, bringing that Library field to 5,167 witnessed
 relations beyond the constitutional root. Each work therefore changes the
 object as a complete internal topology rather than merely increasing its work
 count. Weight, depth, luminance, rotation, and motion carry the resulting

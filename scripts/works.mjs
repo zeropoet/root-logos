@@ -13,8 +13,11 @@ const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const digest = (value) => createHash("sha256").update(value).digest("hex");
 const slug = (value) => String(value).toLowerCase().normalize("NFKD")
   .replace(/[^\w\s-]/g, "").trim().replace(/[\s_]+/g, "-").replace(/-+/g, "-");
-const words = (value) => String(value).toLowerCase().match(/[\p{L}\p{N}'’]+/gu) || [];
+const words = (value) => String(value).normalize("NFKC").toLowerCase().match(/[\p{L}\p{N}'’]+/gu) || [];
 const STOP = new Set("a an and are as at be been but by can could did do does for from had has have he her hers him his how i if in into is it its may me more most my no nor not of on one only or our ours she so than that the their them then there these they this those through to too under up upon us was we were what when where which who will with would you your".split(" "));
+const LANGUAGE_STOP = {
+  de: new Set("aber alle allem allen aller alles also am an andere auch auf aus bei bin bis bist da dadurch daher darum das dass dein deine dem den denn der des die dies diese diesem diesen dieser dieses doch dort durch ein eine einem einen einer eines er es etwas für gegen gewesen hat hatte haben hier hin hinter ich ihm ihn ihnen ihr ihre im in ist ja jede jedem jeden jeder jedes kann kein keine mit muss nach nicht nichts noch nun nur ob oder ohne sehr sein seine sich sie sind so über um und uns unter vom von vor war waren was weg weil weiter welche wenn wer werden wie wieder will wir wo zu zum zur".split(" "))
+};
 const DEFAULT_TRANSFORMATION = "deterministic-structural-reading/v3";
 const COMPILED_CORPUS_COLLECTIONS = new Set([
   "Original Douay-Rheims Catholic Canon",
@@ -316,8 +319,11 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
     ...section, documentIndex, sectionIndex, document: document.path
   })));
   const frequency = new Map();
+  const languageStopwords = LANGUAGE_STOP[language] || new Set();
   for (const token of words(sectionRows.map(({ text }) => text).join(" "))) {
-    if (token.length > 3 && !STOP.has(token)) frequency.set(token, (frequency.get(token) || 0) + 1);
+    if (token.length > 3 && !STOP.has(token) && !languageStopwords.has(token)) {
+      frequency.set(token, (frequency.get(token) || 0) + 1);
+    }
   }
   const concepts = [...frequency].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 36);
   const conceptIndex = new Map(concepts.map(([concept], index) => [concept, index]));
