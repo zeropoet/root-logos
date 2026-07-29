@@ -68,14 +68,13 @@
       });
       $("#library-entry").addEventListener("click", () => {
         this.openLibrary();
-        this.start();
       });
       $("#work-listen").addEventListener("click", () => this.audio ? this.stop() : this.start());
       $("#work-title").addEventListener("click", () => {
-        if (!this.audio) this.start();
+        if (!this.isLibrary && !this.audio) this.start();
       });
       $("#work-title").addEventListener("keydown", (event) => {
-        if (!["Enter", " "].includes(event.key) || this.audio) return;
+        if (this.isLibrary || !["Enter", " "].includes(event.key) || this.audio) return;
         event.preventDefault();
         this.start();
       });
@@ -135,6 +134,7 @@
       this.entry = entry;
       this.isCorpus = false;
       this.isLibrary = false;
+      this.setListeningAvailable(true);
       $("#library-entry").classList.remove("is-active");
       $("#corpus-entry").classList.remove("is-active");
       this.edition = await response.json();
@@ -234,7 +234,7 @@
         visual: { palette: collectionColors, motion: { drift: .65 }, topology: { nodes, edges } },
         sound: { schema: "root-logos-library-score/v2", tempo: 53, signature: seed.toString(16).padStart(12, "0"), composition_inheritance: compositionInheritance, events },
         reading: {
-          statement: `This is Root Logos itself, viewed through the Library: the same living identity and sovereign voice encountered in the Living Object, now opened into ${works.length} living works across ${collectionNames.length} independently bounded fields. Collection is witnessed as containment; relation between fields remains open until derived.`
+          statement: `This is Root Logos itself, viewed through the Library: the same living identity encountered in the Living Object, now opened into ${works.length} living works across ${collectionNames.length} independently bounded fields. The sovereign voice already sounding belongs to this field too, so no second playback is needed here. Collection is witnessed as containment; relation between fields remains open until derived.`
         }
       };
       this.nodes = nodes.map((node, index) => ({ ...node, angle: node.angle ?? index / nodes.length * Math.PI * 2, screenX: 0, screenY: 0 }));
@@ -245,7 +245,7 @@
       $("#work-coordinate").textContent = "Root Logos / library-scale projection";
       $("#work-title").textContent = "Root Logos — The Library Field";
       $("#work-statement").textContent = this.edition.reading.statement;
-      this.resetSoundStatus("library score");
+      this.setListeningAvailable(false);
       this.targetRotation = 0;
     }
 
@@ -256,6 +256,7 @@
       this.entry = null;
       this.isCorpus = true;
       this.isLibrary = false;
+      this.setListeningAvailable(true);
       this.edition = {
         edition_id: `corpus-${this.corpus.sound.signature}`,
         root_logos_revision: "v1.1",
@@ -290,8 +291,20 @@
     }
 
     renderEmpty() {
+      this.setListeningAvailable(false);
       $("#work-title").textContent = "The membrane is open";
       $("#work-statement").textContent = "A complete work may now enter. Its source, visual reading, resonant score, and every later edition will remain navigable here.";
+    }
+
+    setListeningAvailable(available) {
+      $(".work-listening").hidden = !available;
+      if (available) {
+        $("#work-title").setAttribute("role", "button");
+        $("#work-title").setAttribute("tabindex", "0");
+      } else {
+        $("#work-title").removeAttribute("role");
+        $("#work-title").removeAttribute("tabindex");
+      }
     }
 
     selectAt(x, y) {

@@ -146,6 +146,25 @@ assert.ok(!germanConcepts.includes("nicht"));
 assert.ok(!germanConcepts.includes("seine"));
 assert.ok(!germanConcepts.includes("𝑎𝑛"));
 
+const spanishBook = join(fixture, "spanish-book");
+await mkdir(spanishBook);
+await writeFile(join(spanishBook, "01.md"), "# Prueba\n\nLa identidad fundamental de existir, soñar y representar inspiró formas. Todo estaba entre los sueños, pero la identidad persistía.\n");
+const spanish = await ingestWork({
+  input: spanishBook, title: "Spanish Test Work", author: "Root Logos Test",
+  kind: "short prose", source: "fixture:spanish-work", language: "es",
+  transformation: "deterministic-structural-reading/v3-es-stopwords",
+  rootRevision: "test-v1"
+});
+const spanishEdition = JSON.parse(await readFile(join(
+  new URL("..", import.meta.url).pathname, "works", spanish.work_id, "editions", spanish.current_edition, "edition.json"
+), "utf8"));
+const spanishConcepts = spanishEdition.reading.dominant_concepts.map(({ concept }) => concept);
+assert.ok(spanishConcepts.includes("identidad"));
+assert.ok(spanishConcepts.includes("sueños"));
+assert.ok(!spanishConcepts.includes("todo"));
+assert.ok(!spanishConcepts.includes("estaba"));
+assert.ok(!spanishConcepts.includes("entre"));
+
 const japaneseBook = join(fixture, "japanese-book");
 await mkdir(japaneseBook);
 await writeFile(join(japaneseBook, "01.md"), "# 兵法\n\n兵法の道を学ぶこと。武士は剣術を鍛錬し、兵法を実践する。\n");
@@ -196,6 +215,7 @@ assert.ok(!privateEditionText.includes("Private source language"));
 
 await rm(join(new URL("..", import.meta.url).pathname, "works", first.work_id), { recursive: true, force: true });
 await rm(join(new URL("..", import.meta.url).pathname, "works", german.work_id), { recursive: true, force: true });
+await rm(join(new URL("..", import.meta.url).pathname, "works", spanish.work_id), { recursive: true, force: true });
 await rm(join(new URL("..", import.meta.url).pathname, "works", japanese.work_id), { recursive: true, force: true });
 await rm(join(new URL("..", import.meta.url).pathname, "works", privateWork.work_id), { recursive: true, force: true });
 await writeFile(indexPath, originalIndex);

@@ -588,6 +588,21 @@ archive therefore exposes only lineage, measures, graph, score, and reading
 artifacts—not a second copy of the source prose. Ingestion assigns each future
 coherent work the next stable ordinal.
 
+Work `35` is Sun Tzu's **The Art of War** in Lionel Giles's 1910 translation.
+Its thirteen traditional chapters enter Classical Strategy beside Musashi's
+**The Book of Five Rings** while remaining an independently attributable work.
+The Project Gutenberg transcription is released after ingestion; only its
+opaque witness, derived structure, topology, score, and lineage remain.
+
+Work `36` is Jorge Luis Borges's **Everything and Nothing** (*Todo y nada*),
+the brief 1960 meditation on Shakespeare, identity, multiplicity, and
+authorship from *El hacedor*. Root Logos reads the original Spanish from an
+Educ.ar edition that explicitly records authorization from the Fundación
+Internacional Jorge Luis Borges. Spanish-aware concept extraction preserves
+the work's semantic pressure without promoting function words. The PDF and
+prose are released after ingestion; only the authorized witness and derived
+lineage remain.
+
 The Bitcoin white paper also has an explicit, sealed relation to Telos. The
 exact Library work and edition ground Telos's declared BTC settled value layer
 and terminal accounting reference. This lineage grants no treasury strategy,
@@ -889,7 +904,7 @@ or competing with its nodes and engraved edges.
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
-of the 35 coherent Library works contributes its complete derived topology.
+of the 37 coherent Library works contributes its complete derived topology.
 Each work therefore changes the object as a complete internal structure rather
 than merely increasing its work count. Weight, depth, luminance, rotation, and
 motion carry the resulting density.
