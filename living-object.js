@@ -746,7 +746,23 @@
 
     return {
       setRelease(detail) {
-        release = { detail, startedAt: performance.now() };
+        const seed = hash(detail.event_id || "journal-release");
+        const depth = Math.max(.04, Math.min(1, Number(detail.depth || 0)));
+        const breadth = Math.max(0, Math.min(1, Number(detail.dimensions?.breadth || 0)));
+        const azimuth = seed * Math.PI * 2;
+        const elevation = (hash(`${detail.event_id}:elevation`) - .5) * .72;
+        const targetRadius = .16 + (1 - depth) * 1.84;
+        const horizontal = Math.cos(elevation) * targetRadius;
+        release = {
+          startedAt: performance.now(),
+          seed,
+          center: [
+            Math.cos(azimuth) * horizontal,
+            Math.sin(elevation) * targetRadius,
+            Math.sin(azimuth) * horizontal
+          ],
+          radius: .42 + breadth * .78
+        };
       },
       draw(state) {
         let releaseState = {
@@ -765,22 +781,15 @@
           if (elapsed >= maximumSessionDuration) {
             release = null;
           } else {
-            const seed = hash(release.detail.event_id || "journal-release");
-            const depth = Math.max(.04, Math.min(1, Number(release.detail.depth || 0)));
-            const breadth = Math.max(0, Math.min(1, Number(release.detail.dimensions?.breadth || 0)));
-            const azimuth = seed * Math.PI * 2;
-            const elevation = (hash(`${release.detail.event_id}:elevation`) - .5) * .72;
-            const targetRadius = .16 + (1 - depth) * 1.84;
-            const horizontal = Math.cos(elevation) * targetRadius;
             const finalCycleFade = Math.min(1, (maximumSessionDuration - elapsed) / voiceCycleDuration);
             releaseState = {
               release: (reducedMotion ? .48 : .9) * finalCycleFade,
               releasePhase: reducedMotion ? 0 : (elapsed % 18_000) / 18_000,
-              releaseSeed: seed,
-              releaseCenterX: Math.cos(azimuth) * horizontal,
-              releaseCenterY: Math.sin(elevation) * targetRadius,
-              releaseCenterZ: Math.sin(azimuth) * horizontal,
-              releaseRadius: .42 + breadth * .78
+              releaseSeed: release.seed,
+              releaseCenterX: release.center[0],
+              releaseCenterY: release.center[1],
+              releaseCenterZ: release.center[2],
+              releaseRadius: release.radius
             };
           }
         }

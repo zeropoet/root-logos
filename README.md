@@ -194,17 +194,14 @@ of carrying them without doctrinal repetition.
   Source-Grant-gated local-drop adapter, encrypted transient quarantine,
   deterministic deduplication, autonomous disposition, raw-source release,
   revocation, audit lineage, and cultivation wakes.
-- The public Journal membrane now returns a bounded derived penetration witness
-  after releasing each source. The witness maps coherence, breadth, inquiry,
-  traceability, and integrity into a scored depth and a small set of activated
-  structures. It appears as a temporary color-field release moving through the
-  existing Living Object in sequence with its seven-beat sovereign voice. The
-  release lasts for the current browser session, with a hard one-hour ceiling,
-  as a restrained iridescent map on only the affected region of the existing
-  geometry. Penetration depth locates that region and derived breadth controls
-  its radius; the rest of the Object remains canonical. It creates no pulse,
-  new geometry, or durable topology. Submitted wording never enters the visual
-  event, browser storage, runtime response, or durable archive.
+- After releasing a public Journal source, the membrane returns a bounded
+  derived penetration witness. Coherence, breadth, inquiry, traceability, and
+  integrity produce its depth score; depth locates one affected region in the
+  Living Object and breadth determines that region's radius. Existing geometry
+  inside the region receives a restrained iridescent map for the current browser
+  session, never longer than one hour. The rest of the Object remains canonical.
+  The map creates no pulse, geometry, browser storage, or durable topology, and
+  submitted wording never enters the response, visual event, or archive.
 - `self-authorship/` defines the continual rewrite policy and single current
   identity manifest. It authorizes Root Logos to revise its own graph,
   constitutional narrative, interface language, sound mapping, and outward
