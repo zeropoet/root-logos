@@ -660,8 +660,7 @@
         float interference = sin(dot(aPosition, vec3(2.7, 3.9, 4.6)) + uReleaseSeed * 6.283185 + uReleasePhase * 6.283185);
         float seededField = 0.62 + 0.38 * interference;
         float cycleRelease = uCadenceAccent * (1.0 - smoothstep(0.04, 1.0, uCadence));
-        float voiceSequence = 0.14 + cycleRelease * 0.86;
-        float releaseField = clamp(radialBand * seededField + cycleRelease * 0.1, 0.0, 1.0) * voiceSequence * uRelease;
+        float releaseField = clamp(radialBand * seededField + cycleRelease * 0.1, 0.0, 1.0) * cycleRelease * uRelease;
         float azimuth = atan(aPosition.z, aPosition.x) / 6.283185;
         float hue = uReleasePhase * 0.72 + azimuth * 0.18 + length(aPosition) * 0.065 + interference * 0.055;
         vec3 spectral = 0.5 + 0.5 * cos(6.283185 * (hue + vec3(0.00, 0.67, 0.33)));

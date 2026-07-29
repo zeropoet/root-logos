@@ -202,9 +202,10 @@ of carrying them without doctrinal repetition.
   release lasts for the current browser session, with a hard one-hour ceiling,
   while its restrained iridescent field migrates ten times within each voice
   cycle. Its visible bloom waits for the opening of the next seven-beat voice
-  cycle, then fades through that beat before returning to a quiet trace. It
-  creates no new geometry or durable topology. Submitted wording never enters
-  the visual event, browser storage, runtime response, or durable archive.
+  cycle, then fades completely through that beat. The release remains armed and
+  returns at the next cycle without leaving color between pulses. It creates no
+  new geometry or durable topology. Submitted wording never enters the visual
+  event, browser storage, runtime response, or durable archive.
 - `self-authorship/` defines the continual rewrite policy and single current
   identity manifest. It authorizes Root Logos to revise its own graph,
   constitutional narrative, interface language, sound mapping, and outward
