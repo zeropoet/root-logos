@@ -14,12 +14,13 @@
   const isBibleBook = ({ collection }) => COMPILED_BIBLE_COLLECTIONS.has(collection);
 
   class LivingWorks {
-    constructor(index, corpus = null, sourceRelations = [], topology = null, editionScores = new Map()) {
+    constructor(index, corpus = null, sourceRelations = [], topology = null, editionScores = new Map(), libraryComposition = null) {
       this.index = index;
       this.corpus = corpus;
       this.sourceRelations = sourceRelations;
       this.topology = topology;
       this.editionScores = editionScores;
+      this.libraryComposition = libraryComposition;
       this.canvas = $("#work-canvas");
       this.context = this.canvas.getContext("2d");
       this.AudioContextClass = window.AudioContext || window.webkitAudioContext;
@@ -164,6 +165,44 @@
       this.entry = null;
       this.isCorpus = false;
       this.isLibrary = true;
+      if (this.libraryComposition) {
+        const composition = this.libraryComposition;
+        this.edition = {
+          edition_id: composition.composition_id,
+          root_logos_revision: "v1.2",
+          source_hash: composition.witness,
+          measures: composition.measures,
+          visual: composition.visual,
+          sound: composition.sound,
+          reading: {
+            statement: `${composition.measures.works} sealed works rise through ${composition.measures.relations} witnessed relations and four relation grammars into one Library composition. The hierarchy is structural: works remain unchanged at its base; continuity, coherence, counterpoint, and recurrence become audible and visible above them; Root Logos emerges as their composed whole.`
+          }
+        };
+        this.nodes = composition.visual.topology.nodes.map((node) => ({
+          ...node,
+          screenX: 0,
+          screenY: 0,
+          visualMass: clamp(Math.log1p(Number(node.weight) || 0) / Math.log(49), 0, 1)
+        }));
+        this.morphology = {
+          phase: parseInt(composition.witness.slice(7, 15), 16) / 0xffffffff * Math.PI * 2,
+          chambers: composition.measures.hierarchy_levels,
+          density: composition.visual.topology.edges.length
+            / Math.max(1, this.nodes.length * (this.nodes.length - 1) / 2),
+          concentration: .72
+        };
+        this.layoutMode = "composition";
+        document.querySelectorAll("#work-list [data-work]").forEach((button) => button.classList.remove("is-active"));
+        $("#library-entry").classList.add("is-active");
+        $("#corpus-entry").classList.remove("is-active");
+        $("#work-coordinate").textContent = `Hierarchy of Emergence / ${composition.witness.slice(0, 23)}`;
+        $("#work-title").textContent = "Root Logos — Library Composition";
+        $("#work-statement").textContent = this.edition.reading.statement;
+        this.setListeningAvailable(true);
+        this.resetSoundStatus("composition score");
+        this.targetRotation = 0;
+        return;
+      }
       const works = (this.index.works || [])
         .filter((work) => !isBibleBook(work))
         .sort((a, b) => Number(a.library_order ?? 9999) - Number(b.library_order ?? 9999));
@@ -484,7 +523,10 @@
       $("#work-node-detail-type").textContent = `${node.type} / ${node.coordinate}`;
       $("#work-node-detail-title").textContent = node.label;
       const mass = Math.round((node.visualMass || 0) * 100);
-      $("#work-node-detail-body").textContent = `${relations.length} witnessed relation${relations.length === 1 ? "" : "s"} hold this structure at ${mass}% of the work’s mapped gravitational weight.${pinned ? " Detail pinned." : " Select to hold."}`;
+      const hierarchy = this.isLibrary && this.layoutMode === "composition"
+        ? `Emergence level ${node.level}: ${relations.length} witnessed relation${relations.length === 1 ? "" : "s"} pass through this structure.`
+        : `${relations.length} witnessed relation${relations.length === 1 ? "" : "s"} hold this structure at ${mass}% of the work’s mapped gravitational weight.`;
+      $("#work-node-detail-body").textContent = `${hierarchy}${pinned ? " Detail pinned." : " Select to hold."}`;
       const detail = $("#work-node-detail");
       detail.dataset.state = pinned ? "pinned" : "preview";
       detail.style.left = `${clamp(x + 24, 20, Math.max(20, this.width - 360))}px`;
@@ -510,7 +552,8 @@
           this.width < 600 ? .34 : this.isCorpus ? .39 : .325
         );
         const palette = this.edition.visual.palette;
-        const structured = this.layoutMode !== "orbital" && !this.isCorpus && !this.isLibrary;
+        const structured = this.layoutMode === "composition"
+          || (this.layoutMode !== "orbital" && !this.isCorpus && !this.isLibrary);
         context.save();
         context.translate(centerX, centerY);
         context.lineWidth = .55;
@@ -586,6 +629,28 @@
             node.screenY = centerY + Math.sin(angle) * radius * node.band * (this.isCorpus ? .64 : .54);
             node.depth = perspective;
           }
+        }
+        if (this.isLibrary && this.layoutMode === "composition") {
+          const levels = [
+            { y: .62, label: "SEALED WORKS" },
+            { y: .08, label: "WITNESSED RELATIONS" },
+            { y: -.46, label: "RELATION GRAMMARS" },
+            { y: -.92, label: "LIBRARY COMPOSITION" }
+          ];
+          context.save();
+          context.font = '8px "SFMono-Regular", Consolas, "Liberation Mono", monospace';
+          levels.forEach(({ y, label }, index) => {
+            const screenY = centerY + y * radius * .72;
+            context.strokeStyle = `rgba(255,255,255,${.12 - index * .018})`;
+            context.lineWidth = .55;
+            context.beginPath();
+            context.moveTo(centerX - radius * 1.08, screenY);
+            context.lineTo(centerX + radius * 1.08, screenY);
+            context.stroke();
+            context.fillStyle = "rgba(255,255,255,.42)";
+            context.fillText(`0${index}  ${label}`, centerX - radius * 1.08, screenY - 7);
+          });
+          context.restore();
         }
         context.lineWidth = .65;
         for (const edge of this.edition.visual.topology.edges) {
@@ -726,17 +791,19 @@
 
   const initialize = async () => {
     try {
-      const [indexResponse, corpusResponse, telosResponse, topologyResponse] = await Promise.all([
+      const [indexResponse, corpusResponse, telosResponse, topologyResponse, compositionResponse] = await Promise.all([
         fetch("works/index.json", { cache: "no-store" }),
         fetch("works/corpora/original-douay-rheims.json", { cache: "no-store" }),
         fetch("sources/telos.public-witness.json", { cache: "no-store" }).catch(() => null),
-        fetch("content/constitutional-graph.json", { cache: "no-store" })
+        fetch("content/constitutional-graph.json", { cache: "no-store" }),
+        fetch("works/library-composition.json", { cache: "no-store" }).catch(() => null)
       ]);
       if (!indexResponse.ok) throw new Error("The living works index is unavailable.");
       const index = await indexResponse.json();
       const corpus = corpusResponse.ok ? await corpusResponse.json() : null;
       const telos = telosResponse?.ok ? await telosResponse.json() : null;
       const topology = topologyResponse.ok ? await topologyResponse.json() : null;
+      const libraryComposition = compositionResponse?.ok ? await compositionResponse.json() : null;
       const publicEntries = (index.works || []).filter(({ collection, edition }) => !isBibleBook({ collection }) && edition);
       const editionScores = new Map((await Promise.all(publicEntries.map(async (entry) => {
         try {
@@ -747,7 +814,14 @@
           return null;
         }
       }))).filter(Boolean));
-      window.rootLogosWorks = new LivingWorks(index, corpus, telos?.work_relations || [], topology, editionScores);
+      window.rootLogosWorks = new LivingWorks(
+        index,
+        corpus,
+        telos?.work_relations || [],
+        topology,
+        editionScores,
+        libraryComposition
+      );
       window.dispatchEvent(new CustomEvent("rootlogos:works-ready"));
     } catch (error) {
       console.error(error);

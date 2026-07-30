@@ -63,7 +63,12 @@ const walkMarkdown = async (path) => {
 };
 
 const parseDocument = (text, file, sourceRoot) => {
-  const lines = text.replace(/\r\n/g, "\n").split("\n");
+  const normalized = text.replace(/\r\n/g, "\n");
+  const startMarker = normalized.match(/^\*{3}\s*START OF (?:THIS|THE) PROJECT GUTENBERG EBOOK[^\n]*\*{3}\s*$/mi);
+  const endMarker = normalized.match(/^\*{3}\s*END OF (?:THIS|THE) PROJECT GUTENBERG EBOOK[^\n]*\*{3}\s*$/mi);
+  const bodyStart = startMarker ? startMarker.index + startMarker[0].length : 0;
+  const bodyEnd = endMarker ? endMarker.index : normalized.length;
+  const lines = normalized.slice(bodyStart, bodyEnd).trim().split("\n");
   const sections = [];
   let current = { level: 1, title: basename(file, extname(file)), lines: [] };
   for (const line of lines) {
@@ -599,6 +604,7 @@ export const ingestLibraryWork = async (options) => {
   const entry = await ingestWork(options);
   const foundingConstitution = await refreshFoundingConstitution(entry);
   const firstFrames = await renderLibraryFirstFrames();
+  await import(`./library-composition.mjs?frame=${firstFrames.generated_at}`);
   return {
     entry,
     founding_constitution: foundingConstitution,

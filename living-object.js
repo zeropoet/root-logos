@@ -240,8 +240,9 @@
     fetchJson("self-authorship/current.json"),
     fetchJson("sources/foldforge.snapshot.json"),
     fetchJson("sources/foldportrait.snapshot.json"),
+    fetchJson("works/library-composition.json"),
     fetchTelosStream()
-  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge, foldportrait, telosStream]) => {
+  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge, foldportrait, libraryComposition, telosStream]) => {
     const works = worksIndex.works || [];
     const compiledBibleCollections = new Set([
       "Original Douay-Rheims Catholic Canon",
@@ -268,7 +269,8 @@
     $("#object-revision").textContent = `Revision ${revision}`;
     $("#archive-works").textContent = `${coherentWorkCount} works`;
     $("#archive-revision").textContent = `Revision ${revision}`;
-    const crossRelations = (corpus.edges?.length || 0) + independentRelations.length;
+    const compositionRelations = libraryComposition.visual?.topology?.edges || [];
+    const crossRelations = (corpus.edges?.length || 0) + independentRelations.length + compositionRelations.length;
     const telosEventCount = telosStream.events?.length || 0;
     const portraitCount = foldportrait.measures?.renders || 0;
     const embodiedPortraitCount = foldportrait.measures?.embodied_renders || 0;
@@ -281,7 +283,18 @@
       return;
     }
 
-    const geometry = formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions, foldportrait, telosStream });
+    const geometry = formGeometry({
+      graph,
+      works,
+      corpus,
+      cultivation,
+      memory,
+      attractors,
+      independentEditions,
+      foldportrait,
+      libraryComposition,
+      telosStream
+    });
     const renderer = createRenderer(gl, geometry);
     activeRenderer = renderer;
     if (pendingRelease) renderer.setRelease(pendingRelease);
@@ -341,13 +354,14 @@
     const scores = [
       corpus.sound,
       ...[...independentEditions.values()].map((edition) => edition.sound),
+      libraryComposition.sound,
       composeLexicalScore(foldforge.language_composition)
     ].filter((score) => score?.events?.length);
     beginSovereignVoice({
       works: coherentWorkCount,
       cycles,
       collections: new Set([...independentWorks.map((work) => work.collection || work.title), corpus.title]).size,
-      relations: [...(corpus.edges || []), ...independentRelations, ...lexicalRelations],
+      relations: [...(corpus.edges || []), ...independentRelations, ...compositionRelations, ...lexicalRelations],
       scores,
       sourceVoices: [{
         source: "foldforge",
@@ -355,6 +369,12 @@
         role: "twelve-term language composition",
         relation: "recurrence becomes attributable lexical pressure",
         terms: foldforge.language_composition?.terms?.map(({ term }) => term) || []
+      }, {
+        source: "library-composition",
+        witness: libraryComposition.witness,
+        role: "hierarchy of emergence",
+        relation: "sealed works compose through witnessed relations without changing their individual forms",
+        terms: libraryComposition.sound?.voices || []
       }, {
         source: "foldportrait",
         witness: foldportrait.witness,
@@ -374,7 +394,18 @@
     $("#object-state").textContent = "The current form is temporarily beyond view. Its archive remains intact.";
   });
 
-  function formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions = new Map(), foldportrait, telosStream }) {
+  function formGeometry({
+    graph,
+    works,
+    corpus,
+    cultivation,
+    memory,
+    attractors,
+    independentEditions = new Map(),
+    foldportrait,
+    libraryComposition,
+    telosStream
+  }) {
     const lines = [];
     const points = [];
     const facets = [];
@@ -474,6 +505,7 @@
     const corpusPositions = new Map();
     const corpusNodes = [...(corpus.nodes || [])].sort((a, b) => Number(a.canonical_order || 0) - Number(b.canonical_order || 0));
     const corpusCenter = [-0.82, -0.18, 0.08];
+    const workLeafPositions = new Map([[corpus.corpus_id, corpusCenter]]);
     const corpusRoot = trunk[Math.min(trunk.length - 1, Math.round(cycles * 0.58))];
     const oldTestament = corpusNodes.filter(({ division }) => division === "Old Testament");
     const newTestament = corpusNodes.filter(({ division }) => division === "New Testament");
@@ -594,6 +626,7 @@
           shoulder[1] + (t - 0.32) * 1.26 + (hash(`${work.work_id}-y`) - 0.5) * 0.17,
           shoulder[2] + Math.sin(turn) * reach
         ];
+        workLeafPositions.set(work.work_id, leaf);
         const joint = [
           shoulder[0] * 0.62 + leaf[0] * 0.38,
           shoulder[1] * 0.62 + leaf[1] * 0.38 + 0.08,
@@ -642,6 +675,32 @@
         }
         if (index % Math.max(1, Math.floor(collectionWorks.length / 9)) === 0) pulsePaths.push([shoulder, joint, leaf]);
       });
+    });
+
+    // The Library composition is a higher-order body. Level zero reuses the
+    // existing work anchors exactly; relations, grammars, and the composed
+    // Library rise above them without moving or regenerating any work.
+    const compositionPositions = new Map(workLeafPositions);
+    const compositionNodes = libraryComposition?.visual?.topology?.nodes || [];
+    compositionNodes.filter(({ level }) => level > 0).forEach((node) => {
+      const levelY = node.level === 1 ? 1.34 : node.level === 2 ? 1.88 : 2.42;
+      const position = [
+        Number(node.layoutX || 0) * (node.level === 1 ? 1.46 : .92),
+        levelY + Number(node.layoutY || 0) * .08,
+        Number(node.layoutZ || 0) * (node.level === 1 ? 1.46 : .92)
+      ];
+      compositionPositions.set(node.id, position);
+      const alpha = node.level === 1 ? .28 : node.level === 2 ? .58 : .94;
+      const size = node.level === 1 ? 2.2 : node.level === 2 ? 6.4 : 13.8;
+      addPoint(position, [...palette.lineage.slice(0, 3), alpha], size, .88 + node.level * .025);
+    });
+    (libraryComposition?.visual?.topology?.edges || []).forEach((edge, index, edges) => {
+      const from = compositionPositions.get(edge.from);
+      const to = compositionPositions.get(edge.to);
+      if (!from || !to) return;
+      const alpha = edge.relation === "emerges-as" ? .72 : edge.relation === "composes" ? .3 : .095;
+      addLine(from, to, [...palette.lineage.slice(0, 3), alpha], .89 + index / Math.max(1, edges.length) * .08);
+      if (edge.relation === "emerges-as" || index % 31 === 0) pulsePaths.push([from, to]);
     });
 
     const packetCount = (attractors.packets || []).filter((packet) => packet.publication?.status === "published").length;

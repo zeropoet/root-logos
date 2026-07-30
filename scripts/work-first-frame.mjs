@@ -82,7 +82,7 @@ const startCaptureServer = async () => {
   return { server, origin: `http://127.0.0.1:${server.address().port}` };
 };
 
-const captureLiveLibraryFrames = async ({ corpus, works }) => {
+const captureLiveLibraryFrames = async ({ corpus, works, captureCorpus = true }) => {
   const { server, origin } = await startCaptureServer();
   let browser;
   try {
@@ -250,7 +250,7 @@ const captureLiveLibraryFrames = async ({ corpus, works }) => {
 
     const images = new Map();
     for (const entry of works) images.set(entry.work_id, await capture(entry.work_id));
-    images.set(corpus.corpus_id, await capture(null));
+    if (captureCorpus) images.set(corpus.corpus_id, await capture(null));
     await context.close();
     return images;
   } finally {
@@ -261,11 +261,26 @@ const captureLiveLibraryFrames = async ({ corpus, works }) => {
 
 export const renderLibraryFirstFrames = async () => {
   const { corpus, works } = await currentLibraryFrames();
-  const captures = await captureLiveLibraryFrames({ corpus, works });
+  const priorManifest = await readFile(join(outputRoot, "manifest.json"), "utf8")
+    .then(JSON.parse)
+    .catch(() => null);
+  const priorByIdentity = new Map((priorManifest?.frames || [])
+    .map((frame) => [`${frame.order}:${frame.work_id}`, frame]));
+  const missingWorks = works.filter((entry) =>
+    !priorByIdentity.has(`${Number(entry.library_order)}:${entry.work_id}`));
+  const priorCorpus = priorByIdentity.get(`1:${corpus.corpus_id}`);
+  const captures = missingWorks.length || !priorCorpus
+    ? await captureLiveLibraryFrames({ corpus, works: missingWorks, captureCorpus: !priorCorpus })
+    : new Map();
   const frames = [];
   await mkdir(outputRoot, { recursive: true });
 
   for (const entry of works) {
+    const prior = priorByIdentity.get(`${Number(entry.library_order)}:${entry.work_id}`);
+    if (prior) {
+      frames.push(prior);
+      continue;
+    }
     const edition = JSON.parse(await readFile(resolve(root, entry.edition), "utf8"));
     const { png, svg } = captures.get(entry.work_id);
     const sha256 = digest(png);
@@ -288,25 +303,29 @@ export const renderLibraryFirstFrames = async () => {
     });
   }
 
-  const { png: corpusPng, svg: corpusSvg } = captures.get(corpus.corpus_id);
-  const corpusSha256 = digest(corpusPng);
-  const corpusFilename = frameName(1, "original-douay-rheims", corpusSha256);
-  const corpusSvgSha256 = digest(corpusSvg);
-  const corpusSvgFilename = vectorName(1, "original-douay-rheims", corpusSvgSha256);
-  await writeFile(join(outputRoot, corpusFilename), corpusPng);
-  await writeFile(join(outputRoot, corpusSvgFilename), corpusSvg);
-  frames.push({
-    order: 1,
-    work_id: corpus.corpus_id,
-    title: corpus.title,
-    edition_id: `corpus-${corpus.sound.signature}`,
-    file: `assets/library-first-frames/${corpusFilename}`,
-    svg_file: `assets/library-first-frames/${corpusSvgFilename}`,
-    width: WIDTH,
-    height: HEIGHT,
-    sha256: corpusSha256,
-    svg_sha256: corpusSvgSha256
-  });
+  if (priorCorpus) {
+    frames.push(priorCorpus);
+  } else {
+    const { png: corpusPng, svg: corpusSvg } = captures.get(corpus.corpus_id);
+    const corpusSha256 = digest(corpusPng);
+    const corpusFilename = frameName(1, "original-douay-rheims", corpusSha256);
+    const corpusSvgSha256 = digest(corpusSvg);
+    const corpusSvgFilename = vectorName(1, "original-douay-rheims", corpusSvgSha256);
+    await writeFile(join(outputRoot, corpusFilename), corpusPng);
+    await writeFile(join(outputRoot, corpusSvgFilename), corpusSvg);
+    frames.push({
+      order: 1,
+      work_id: corpus.corpus_id,
+      title: corpus.title,
+      edition_id: `corpus-${corpus.sound.signature}`,
+      file: `assets/library-first-frames/${corpusFilename}`,
+      svg_file: `assets/library-first-frames/${corpusSvgFilename}`,
+      width: WIDTH,
+      height: HEIGHT,
+      sha256: corpusSha256,
+      svg_sha256: corpusSvgSha256
+    });
+  }
 
   frames.sort((left, right) => left.order - right.order);
   const expected = new Set(frames.flatMap(({ file, svg_file: svgFile }) => [basename(file), basename(svgFile)]));
@@ -317,7 +336,9 @@ export const renderLibraryFirstFrames = async () => {
   }
   const manifest = {
     schema: "root-logos-library-first-frames/v4",
-    generated_at: new Date().toISOString(),
+    generated_at: missingWorks.length || !priorCorpus
+      ? new Date().toISOString()
+      : priorManifest.generated_at,
     renderer: "isolated-relational-portrait/v1-lines-and-nodes",
     resolution: { width: WIDTH, height: HEIGHT },
     frames
@@ -342,13 +363,11 @@ export const validateLibraryFirstFrames = async () => {
     ...works.map((entry) => ({
       order: Number(entry.library_order),
       work_id: entry.work_id,
-      edition_id: null,
       file_stem: `assets/library-first-frames/${frameStem(entry.library_order, entry.work_id)}-`
     })),
     {
       order: 1,
       work_id: corpus.corpus_id,
-      edition_id: `corpus-${corpus.sound.signature}`,
       file_stem: `assets/library-first-frames/${frameStem(1, "original-douay-rheims")}-`
     }
   ].sort((left, right) => left.order - right.order);
@@ -391,14 +410,14 @@ export const validateLibraryFirstFrames = async () => {
     if (digest(svg) !== actual.svg_sha256) {
       throw new Error(`${actual.svg_file} does not match its witnessed SHA-256.`);
     }
-    if (wanted.edition_id && actual.edition_id !== wanted.edition_id) {
-      throw new Error(`${actual.file} does not represent the current corpus edition.`);
-    }
-    if (!wanted.edition_id) {
+    if (wanted.work_id === corpus.corpus_id) {
+      if (!/^corpus-[a-f0-9]{12}$/.test(actual.edition_id || "")) {
+        throw new Error(`${actual.file} does not preserve a sealed corpus edition identity.`);
+      }
+    } else {
       const entry = works.find(({ work_id }) => work_id === wanted.work_id);
-      const edition = JSON.parse(await readFile(resolve(root, entry.edition), "utf8"));
-      if (actual.edition_id !== edition.edition_id) {
-        throw new Error(`${actual.file} does not represent the current edition of ${entry.title}.`);
+      if (!entry.edition_history?.some(({ edition_id: editionId }) => editionId === actual.edition_id)) {
+        throw new Error(`${actual.file} does not preserve an edition in the lineage of ${entry.title}.`);
       }
     }
   }
