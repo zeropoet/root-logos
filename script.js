@@ -150,7 +150,9 @@ const renderPresence = () => {
 };
 
 const renderSources = () => {
-  const sources = app.sources?.sources || [];
+  const sources = (app.sources?.sources || []).filter(
+    ({ surface }) => surface !== "embedded-material-lineage"
+  );
   if (!sources.length) return;
   $("#source-count").textContent = `${sources.length} sources`;
   const nodes = $("#source-nodes");
@@ -168,8 +170,7 @@ const renderSources = () => {
     const foldForgeLive = source.id === "foldforge" && app.foldforge?.status === "witnessed";
     const publicWitness = app.sourceWitnesses[source.id];
     const materialWitness = app.materialWitnesses[source.id];
-    const portraitWitness = source.id === "foldportrait" ? app.foldportrait : null;
-    const live = foldForgeLive || publicWitness?.status === "witnessed" || Boolean(materialWitness) || portraitWitness?.status === "witnessed";
+    const live = foldForgeLive || publicWitness?.status === "witnessed" || Boolean(materialWitness);
     $$("[data-source-id]").forEach((button) => button.classList.toggle("is-active", button.dataset.sourceId === source.id));
     $("#source-coordinate").textContent = `${sentence(source.status)} source / ${source.visibility}`;
     $("#source-title").textContent = source.name;
@@ -199,27 +200,11 @@ const renderSources = () => {
         ? [["Vessels", materialWitness.measures.public_vessel_records], ["Witness works", materialWitness.measures.witness_works], ["Embodied", materialWitness.measures.vessel_work_relations], ["Minted", materialWitness.measures.minted_works]]
         : [["Public records", publicWitness.public_state.published_vessel_records], ["Physical form", "Black Tin Vessel"], ["Private orders", "Excluded"], ["Witness", "Current"]];
     }
-    if (source.id === "foldportrait" && portraitWitness) {
-      measures = [["Renders", portraitWitness.measures.renders], ["Matched", portraitWitness.measures.material_matches], ["Embodied", portraitWitness.measures.embodied_renders], ["Archive", "Complete"]];
-    }
     $("#source-measures").innerHTML = measures.map(([label, value]) => `<span><small>${escapeHtml(label)}</small><b>${escapeHtml(value)}</b></span>`).join("");
     $("#source-boundary").textContent = source.boundary;
     const materialPanel = $("#source-material-witness");
-    materialPanel.hidden = !materialWitness && !portraitWitness;
-    if (portraitWitness) {
-      const embodied = portraitWitness.renders
-        .filter(({ material_witness: witness }) => witness.vessels.length)
-        .sort((left, right) => left.material_witness.vessels[0].vessel_number.localeCompare(right.material_witness.vessels[0].vessel_number));
-      $("#material-witness-summary").textContent = `${portraitWitness.measures.material_matches} renders / ${embodied.length} embodied`;
-      $("#material-witness-works").innerHTML = embodied.map((render) => `
-        <a class="has-render" href="${escapeHtml(render.material_witness.vessels[0].public_url)}" target="_blank" rel="noreferrer">
-          <span>${escapeHtml(render.material_witness.vessels.map(({ vessel_number }) => vessel_number).join(" · "))}</span>
-          <img src="${escapeHtml(render.png_url)}" alt="" loading="lazy">
-          <b>FoldPortrait ${escapeHtml(render.iteration)}</b>
-          <small>${escapeHtml(sentence(render.material_witness.mint_status))}</small>
-        </a>
-      `).join("");
-    } else if (materialWitness) {
+    materialPanel.hidden = !materialWitness;
+    if (materialWitness) {
       const portraitByArtifact = new Map((app.foldportrait?.renders || []).map((render) => [render.artifact_id, render]));
       const linkedWorks = materialWitness.works
         .filter(({ vessels }) => vessels.length)
@@ -250,8 +235,6 @@ const renderSources = () => {
       ? app.foldforge.witness.replace("sha256:", "").slice(0, 16)
       : materialWitness?.witness
         ? materialWitness.witness.replace("sha256:", "").slice(0, 16)
-        : portraitWitness?.witness
-        ? portraitWitness.witness.replace("sha256:", "").slice(0, 16)
         : publicWitness?.witness
         ? publicWitness.witness.replace("sha256:", "").slice(0, 16)
         : "Channel witness";

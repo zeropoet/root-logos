@@ -251,6 +251,13 @@ numbered vessels bind more strongly to its trunk. This connection is visual and
 evidentiary only. Root Logos receives no FoldPortrait generation authority and
 no Sovereign Standard minting, custody, collector, or private-order authority.
 
+FoldPortrait does not appear as a separate node in the public **Witnessed
+Relations** surface. Its verified renders are already expressed inside the
+Sovereign Standard material-witness lineage and in the Living Object; repeating
+it as an independent source would falsely duplicate one evidentiary relation.
+The registry therefore marks it as `embedded-material-lineage` while retaining
+the complete snapshot, validation, and Living Object influence.
+
 Every serialized wake begins by scanning Sovereign Standard's canonical public
 export. `scripts/sources.mjs refresh-material-lineage` validates the new sealed
 material witness, refuses changed archived render bytes or missing FoldPortrait
