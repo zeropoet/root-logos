@@ -36,7 +36,8 @@ await Promise.all([
 ]);
 
 const activePolicy = JSON.parse(await readFile(new URL("cultivation/policy.json", sourceRoot), "utf8"));
-assert.equal(activePolicy.version, 3);
+assert.equal(activePolicy.version, 4);
+assert.deepEqual(activePolicy.compression.required_fields, ["direction", "boundary", "regeneration", "residue", "correction", "authority"]);
 assert.equal(activePolicy.authority.authorization.constitutional_revision, "v1.0");
 assert.equal(activePolicy.authority.self_authorship.publication, "immediate-atomic-after-all-gates-pass");
 assert.ok(activePolicy.authority.protected_exclusions.includes("expand autonomous authority or modify the policy and thresholds that delimit it"));
@@ -150,7 +151,7 @@ const autonomousPath = join(sandbox, "cultivation", "cycles", "RL-CULTIVATE-0002
 const judged = JSON.parse(await readFile(autonomousPath, "utf8"));
 assert.equal(judged.status, "autonomously-accepted");
 assert.equal(judged.autonomous_judgment.risk, "low");
-assert.equal(judged.autonomous_judgment.authority, "cultivation-policy-v3");
+assert.equal(judged.autonomous_judgment.authority, "cultivation-policy-v4");
 assert.ok(Object.values(judged.autonomous_judgment.checks).every(Boolean));
 assert.match(judged.autonomous_judgment.counterargument, /decorative relations/);
 succeeds("apply", "RL-CULTIVATE-0002");
@@ -175,6 +176,13 @@ succeeds("cycle", "--lens", "generative-compression");
 const repeatedState = JSON.parse(await readFile(join(sandbox, "cultivation", "state.json"), "utf8"));
 const repeatedId = repeatedState.history.at(-1).cultivation_id;
 const repeatedCycle = JSON.parse(await readFile(join(sandbox, "cultivation", "cycles", `${repeatedId}.json`), "utf8"));
+const participatoryCompression = repeatedCycle.findings.find(({ compression_grammar }) => compression_grammar?.primitive === "participatory-coherence");
+assert.equal(participatoryCompression.compression_grammar.complete, true);
+assert.match(participatoryCompression.compression_grammar.direction, /participation regenerates coherence/i);
+assert.deepEqual(
+  Object.keys(participatoryCompression.compression_grammar).sort(),
+  ["authority", "boundary", "complete", "correction", "direction", "primitive", "regeneration", "residue"].sort()
+);
 assert.notEqual(repeatedCycle.selected_finding.reconsideration.fingerprint, automaticCycle.selected_finding.reconsideration.fingerprint);
 const suppressedOriginal = repeatedCycle.findings.find(({ reconsideration }) => reconsideration.fingerprint === automaticCycle.selected_finding.reconsideration.fingerprint);
 assert.equal(suppressedOriginal.reconsideration.eligible, false);

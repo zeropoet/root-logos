@@ -102,8 +102,8 @@ forever, while later masters stand beside it rather than replacing it.
   the structured Original Douay-Rheims JSON format
   through a private-source membrane: only its opaque revision witness, content
   digest, derived work, and lineage become public.
-- The Constitutional Object is now the central public experience. Its 90
-  canonical structures and 229 explicit relations are projected into a stable
+- The Constitutional Object is now the central public experience. Its 91
+  canonical structures and 241 explicit relations are projected into a stable
   three-dimensional constellation generated directly from the graph. Readers
   can rotate, approach, search, filter, inspect, unfold, and refold it. Depth,
   light, scale, and motion change legibility without changing canon.
@@ -599,6 +599,20 @@ regenerate it. The finite 28-second render remains only its audible checksum and
 fallback. Future masters are intentionally sparse: they may be created when the
 collection crosses a genuine architectural or compositional threshold, and
 each becomes another permanent origin rather than a replacement.
+
+### Participatory Coherence
+
+The first systemwide generative compression is **Participatory Coherence**:
+bounded participation regenerates coherence. It composes the shared grammar of
+living membranes, reciprocal creation, higher reference, conscious
+participation, stewardship, connected-source witness, material practice, and
+the Constitutional Object without replacing any of those distinct structures.
+
+Future compression inquiries must state six recoverable properties before a
+candidate can count as complete: direction, boundary, regeneration coverage,
+irreducible residue, correction condition, and authority limit. Compression may
+remove repeated scaffolding only when every original distinction can be
+regenerated. It may never rewrite source evidence, sealed works, or lineage.
 
 ## Revision 1.2 — The Coherent Library
 

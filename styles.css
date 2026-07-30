@@ -1960,17 +1960,6 @@ body.archive-open .site-footer nav {
   padding:clamp(30px,4vw,58px) clamp(30px,5vw,76px) clamp(30px,4vw,52px) 0;
 }
 .state-cycle > header { display:flex;align-items:start;justify-content:space-between;gap:28px; }
-.cycle-outcome { display:flex;align-items:start;gap:12px; }
-.cycle-reach {
-  display:grid;
-  justify-items:end;
-  gap:5px;
-  color:#fff;
-  font-family:var(--mono);
-  white-space:nowrap;
-}
-.cycle-reach b { font:300 1.35rem/1 var(--mono); }
-.cycle-reach small { color:rgba(255,255,255,.38);font:500 .42rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase; }
 .state-cycle h3 {
   max-width:780px;
   margin:clamp(52px,7vw,92px) 0 22px;
@@ -1980,11 +1969,29 @@ body.archive-open .site-footer nav {
 }
 .state-cycle blockquote {
   max-width:850px;
-  margin:0 0 45px;
+  margin:0 0 34px;
   padding:0;
   border:0;
   color:rgba(255,255,255,.7);
   font:400 clamp(.98rem,1.35vw,1.24rem)/1.65 var(--body);
+}
+.inquiry-answer {
+  max-width:850px;
+  margin:0 0 45px;
+  padding:18px 0 0;
+  border-top:1px solid rgba(255,255,255,.16);
+}
+.inquiry-answer small {
+  color:rgba(255,255,255,.38);
+  font:500 .43rem/1 var(--mono);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.inquiry-answer p {
+  margin:12px 0 0;
+  color:#fff;
+  font-size:clamp(.92rem,1.1vw,1.08rem);
+  line-height:1.6;
 }
 .state-cycle .text-action {
   align-self:flex-start;

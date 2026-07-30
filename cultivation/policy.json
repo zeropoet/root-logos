@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "constitutional_revision": "v1.1",
+  "version": 4,
+  "constitutional_revision": "v1.3",
   "mode": "delegated-single-identity-self-authorship",
   "triggers": {
     "canonical_change": {
@@ -63,6 +63,18 @@
     "minimum_total_for_proposal": 15,
     "minimum_source_fidelity": 3,
     "minimum_corrigibility": 3
+  },
+  "compression": {
+    "required_fields": ["direction", "boundary", "regeneration", "residue", "correction", "authority"],
+    "incomplete_disposition": "preserve-as-hypothesis",
+    "source_preservation": "Compression may replace repeated scaffolding only after every original distinction can be regenerated; it may never rewrite source evidence, sealed works, or lineage.",
+    "canonical_primitives": [
+      {
+        "id": "participatory-coherence",
+        "relation": "bounded participation regenerates coherence",
+        "authority_limit": "Participation may affect and correct a shared field but may not possess another participant or become the highest reference."
+      }
+    ]
   },
   "memory": {
     "semantic_fingerprint_fields": ["kind", "nodes", "claim", "proposed_question"],

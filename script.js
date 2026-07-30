@@ -297,12 +297,12 @@ const renderLatestCycle = () => {
       : null;
   const reachLabel = reach == null ? "—" : `${reach}%`;
   $("#cycle-id").textContent = `${cycle.cultivation_id} / ${sentence(cycle.lens?.id || "inquiry")}`;
-  $("#cycle-reach").textContent = reachLabel;
   $("#object-inquiry-reach").textContent = `Inquiry reach ${reachLabel}`;
   $("#archive-inquiry-reach").textContent = `Inquiry reach / ${reachLabel}`;
   $("#cycle-decision").textContent = sentence(cycle.status);
   $("#cycle-decision").classList.toggle("is-rejected", String(cycle.status).includes("rejected"));
   $("#cycle-question").textContent = cycle.lens?.question || cycle.self_prompt || "Inquiry record unavailable.";
+  $("#cycle-answer").textContent = finding.claim || proposal.summary || "No answer crossed the inquiry threshold.";
   $("#cycle-proposal").textContent = finding.claim || proposal.summary || "No proposal emerged from this cycle.";
   $("#cycle-counterargument").textContent = judgment.counterargument || "No adversarial judgment was required because no proposal crossed the threshold.";
   const checks = judgment.checks || {};
@@ -377,11 +377,13 @@ const renderDrawer = () => {
   const finding = cycle.selected_finding || {};
   const evaluation = finding.evaluation || cycle.proposal?.evaluation || {};
   const judgment = cycle.autonomous_judgment || {};
+  const compression = finding.compression_grammar || cycle.proposal?.compression_grammar;
   $("#drawer-content").innerHTML = `
     <section class="drawer-section"><h3>Self-prompt</h3><p>${escapeHtml(cycle.self_prompt || cycle.lens?.question || "—")}</p></section>
     <section class="drawer-section"><h3>Selected finding</h3><p>${escapeHtml(finding.claim || "No finding selected.")}</p></section>
     <section class="drawer-section"><h3>Proposed test</h3><p>${escapeHtml(finding.proposed_test || "No test proposed.")}</p></section>
     <section class="drawer-section"><h3>Evaluation</h3><p>${escapeHtml(String(evaluation.total ?? "—"))} / 24 · ${escapeHtml(Object.entries(evaluation.dimensions || {}).map(([key, value]) => `${sentence(key)} ${value}`).join(" · "))}</p></section>
+    ${compression ? `<section class="drawer-section"><h3>Compression grammar</h3><p>${escapeHtml(compression.direction || "Direction unresolved.")} ${escapeHtml(compression.boundary || "Boundary unresolved.")}</p><p>${escapeHtml(compression.residue || "Irreducible residue unresolved.")}</p><p>${escapeHtml(compression.correction || "Correction condition unresolved.")}</p><p>${escapeHtml(compression.authority || "Authority limit unresolved.")}</p></section>` : ""}
     <section class="drawer-section"><h3>Adversarial judgment</h3><p>${escapeHtml(judgment.counterargument || "No counterargument recorded.")}</p></section>
     <section class="drawer-section"><h3>Event lineage</h3><ol class="drawer-events">${(cycle.events || []).map((event) => `<li><span>${String(event.sequence).padStart(2, "0")}</span><span>${escapeHtml(sentence(event.type))}</span></li>`).join("")}</ol></section>`;
 };

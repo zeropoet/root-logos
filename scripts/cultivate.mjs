@@ -214,6 +214,28 @@ const searchGenerativeCompression = (graph) => {
     .map(([key, nodes]) => {
       const primitives = key.split("|");
       const selected = nodes.slice(0, 6);
+      const participatoryCoherence = primitives[0] === "coherence" && primitives[1] === "participation";
+      const compressionGrammar = participatoryCoherence
+        ? {
+            primitive: "participatory-coherence",
+            complete: true,
+            direction: "Bounded participation regenerates coherence.",
+            boundary: "Every participant retains its identity, source, lineage, and right of refusal or release.",
+            regeneration: selected.map(({ id }) => id),
+            residue: "Each occurrence retains the distinct orientation, embodiment, uncertainty, or practice that the primitive cannot replace.",
+            correction: "Reject the compression wherever removing an original distinction changes authority, direction, testability, or meaning.",
+            authority: "Participation may affect and correct the shared field but may not become its highest reference or possess another participant."
+          }
+        : {
+            primitive: primitives.join("-"),
+            complete: false,
+            direction: null,
+            boundary: null,
+            regeneration: [],
+            residue: null,
+            correction: null,
+            authority: null
+          };
       return {
         kind: "generative-compression",
         nodes: selected.map(({ id }) => id),
@@ -221,9 +243,12 @@ const searchGenerativeCompression = (graph) => {
         shared_keywords: primitives,
         recurrence_count: nodes.length,
         evidence: selected.map(({ title, summary, definition }) => `${title}: ${summary || definition}`),
-        claim: `${primitives.join(" + ")} recurs across ${nodes.length} constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.`,
+        claim: participatoryCoherence
+          ? `Bounded participation regenerates coherence across ${nodes.length} constitutional nodes without absorbing their distinct identities or authorities.`
+          : `${primitives.join(" + ")} recurs across ${nodes.length} constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.`,
         proposed_question: `Can ${primitives[0]} and ${primitives[1]} be composed as a primitive relation that regenerates these ${nodes.length} appearances without collapsing their differences?`,
-        proposed_test: "Name the distinctions each occurrence contributes, then test whether one directional composition can regenerate all of them without deleting orientation, uncertainty, or corrigibility."
+        proposed_test: "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+        compression_grammar: compressionGrammar
       };
     })
     .sort((a, b) => b.recurrence_count - a.recurrence_count || a.shared_keywords.join().localeCompare(b.shared_keywords.join()));
@@ -313,7 +338,7 @@ const score = (candidate, graph) => {
   const source_fidelity = candidate.evidence?.length >= 2 ? 4 : 2;
   const distance = candidate.graph_distance ?? 5;
   const relational_gain = candidate.kind === "admitted-observation" ? (candidate.nodes.length ? 4 : 1) : isQuestion ? Math.max(1, 4 - (candidate.relation_count || 0)) : Math.min(4, Math.max(1, distance));
-  const compression = isQuestion ? 2 : Math.min(4, Math.max(1, shared - 1));
+  const compression = isQuestion ? 2 : candidate.compression_grammar?.complete ? 4 : Math.min(4, Math.max(1, shared - 1));
   const testability = candidate.proposed_test ? 4 : 1;
   const corrigibility = 4;
   const novelty_without_drift = candidate.kind === "admitted-observation" ? (candidate.intake_priority === "promoted" ? 4 : 3) : candidate.nodes.every((id) => graph.nodes.some((node) => node.id === id))
@@ -501,6 +526,7 @@ const step = async (state, policy, memory) => {
         evidence: finding.evidence,
         affected_nodes: finding.nodes,
         test: finding.proposed_test,
+        compression_grammar: finding.compression_grammar || null,
         operations,
         operations_valid: operations.length > 0 && operations.every(({ validation }) => validation === "passed"),
         evaluation: finding.evaluation,
