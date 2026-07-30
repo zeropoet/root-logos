@@ -937,6 +937,17 @@ Each work therefore changes the object as a complete internal structure rather
 than merely increasing its work count. Weight, depth, luminance, rotation, and
 motion carry the resulting density.
 
+Root Logos is the identity embodied by the Living Object; it is not an external
+source connected to a separate visualization. Telos Stream enters that identity
+through a one-way public aperture. Its sanitized repository revisions and
+bounded public-state fields form a continuous strand rooted in the object, so
+Telos becoming is visible inside Root Logos as released evidence. The
+connection reads the public `telos-public-stream/v1` projection directly and
+falls back to Root Logos's sealed Telos public witness when the stream is
+unavailable. It cannot reach Telos source code, credentials, balances, routes,
+orders, execution, or private evidence. Telos Stream remains silent; its
+pressure changes the visible body without claiming a second sovereign voice.
+
 The same complete field enters the sovereign voice. Every relation contributes
 its endpoints, type, phase, and derived weight to a deterministic harmonic
 spectrum. The cycle pulse carries the field's mean relational pressure. A

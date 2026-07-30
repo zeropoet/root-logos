@@ -201,6 +201,34 @@
     if (!response.ok) throw new Error(`${url}: ${response.status}`);
     return response.json();
   });
+  const fetchTelosStream = async () => {
+    try {
+      const stream = await fetchJson("https://zeropoet.github.io/telos-stream/stream.json");
+      if (stream.schema !== "telos-public-stream/v1" || stream.source?.id !== "telos") {
+        throw new Error("Unexpected Telos Stream witness.");
+      }
+      return stream;
+    } catch {
+      const witness = await fetchJson("sources/telos.public-witness.json");
+      return {
+        schema: "telos-public-stream/fallback",
+        source: {
+          id: witness.source_id,
+          status: witness.status,
+          witness: witness.witness
+        },
+        boundary: {
+          live: false,
+          mode: witness.public_state?.operational_mode
+        },
+        events: Object.entries(witness.public_state || {}).map(([key, value]) => ({
+          kind: "witness",
+          path: `telos.public_state.${key}`,
+          value: String(value)
+        }))
+      };
+    }
+  };
 
   Promise.all([
     fetchJson("content/constitutional-graph.json"),
@@ -210,8 +238,9 @@
     fetchJson("cultivation/memory.json"),
     fetchJson("content/attractor-packets.json"),
     fetchJson("self-authorship/current.json"),
-    fetchJson("sources/foldforge.snapshot.json")
-  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge]) => {
+    fetchJson("sources/foldforge.snapshot.json"),
+    fetchTelosStream()
+  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge, telosStream]) => {
     const works = worksIndex.works || [];
     const compiledBibleCollections = new Set([
       "Original Douay-Rheims Catholic Canon",
@@ -239,8 +268,8 @@
     $("#archive-works").textContent = `${coherentWorkCount} works`;
     $("#archive-revision").textContent = `Revision ${revision}`;
     const crossRelations = (corpus.edges?.length || 0) + independentRelations.length;
-    const outwardPressure = corpus.measures?.mean_outward_pressure;
-    $("#object-state").textContent = `The scriptural corpora hold as coherent bodies within ${coherentWorkCount} works. Gravity seeks coherence through ${crossRelations.toLocaleString()} witnessed tensions${outwardPressure ? ` while the Catholic canon sustains ${outwardPressure} mean outward pressure` : ""}.`;
+    const telosEventCount = telosStream.events?.length || 0;
+    $("#object-state").textContent = `Root Logos holds ${coherentWorkCount} coherent works and ${crossRelations.toLocaleString()} witnessed tensions. Telos Stream enters through ${telosEventCount} bounded public events; no private or executable state crosses the object.`;
     document.title = `${identity.name || "Root Logos"} — The Living Object`;
 
     if (!gl) {
@@ -249,7 +278,7 @@
       return;
     }
 
-    const geometry = formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions });
+    const geometry = formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions, telosStream });
     const renderer = createRenderer(gl, geometry);
     activeRenderer = renderer;
     if (pendingRelease) renderer.setRelease(pendingRelease);
@@ -323,6 +352,12 @@
         role: "twelve-term language composition",
         relation: "recurrence becomes attributable lexical pressure",
         terms: foldforge.language_composition?.terms?.map(({ term }) => term) || []
+      }, {
+        source: "telos-stream",
+        witness: telosStream.source?.witness,
+        role: "silent public build witness",
+        relation: "released revisions and public state become bounded visual pressure",
+        terms: []
       }]
     });
   }).catch((error) => {
@@ -330,7 +365,7 @@
     $("#object-state").textContent = "The current form is temporarily beyond view. Its archive remains intact.";
   });
 
-  function formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions = new Map() }) {
+  function formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions = new Map(), telosStream }) {
     const lines = [];
     const points = [];
     const facets = [];
@@ -607,6 +642,29 @@
       const p = [Math.cos(angle) * 1.95, -1.53 + (index % 4) * 0.08, Math.sin(angle) * 1.95];
       addPoint(p, palette.structure, 2.6, 0.86 + index * 0.003);
     }
+
+    // Telos Stream is a one-way public aperture, not part of Root Logos's
+    // custody or execution plane. Its released revision and state witnesses
+    // form a quiet strand rooted in the Living Object.
+    const telosEvents = (telosStream?.events || []).slice(0, 144);
+    const telosRoot = trunk[Math.min(trunk.length - 1, Math.round(cycles * 0.38))];
+    let previousTelos = telosRoot;
+    telosEvents.forEach((event, index) => {
+      const t = (index + 1) / Math.max(1, telosEvents.length);
+      const eventIdentity = event.revision || event.path || `${event.kind}:${index}`;
+      const angle = t * Math.PI * 8.5 + hash(eventIdentity) * 0.48;
+      const radius = 0.22 + t * 0.74;
+      const position = [
+        0.56 + Math.cos(angle) * radius,
+        telosRoot[1] - 0.08 + t * 1.42,
+        0.12 + Math.sin(angle) * radius
+      ];
+      const alpha = event.kind === "revision" ? 0.38 : 0.22;
+      addPoint(position, [...palette.lineage.slice(0, 3), alpha], event.kind === "revision" ? 3.1 : 2.3, 0.78 + t * 0.16);
+      addLine(previousTelos, position, [...palette.lineage.slice(0, 3), alpha * 0.72], 0.78 + t * 0.16);
+      if (index % 11 === 0) pulsePaths.push([telosRoot, position]);
+      previousTelos = position;
+    });
 
     return {
       facets: new Float32Array(facets),
