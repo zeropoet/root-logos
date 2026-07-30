@@ -1,0 +1,934 @@
+{
+  "cultivation_id": "RL-CULTIVATE-0087",
+  "status": "autonomously-rejected",
+  "phase": "proposed",
+  "source_snapshot": {
+    "graph": "bcbf947c6002e0f91a577916959c0af08abd9e0d3766458e92592b13169cff8b",
+    "exports": "fa495366a23f08a6871c07b040e08dd059941bd615092d0c15709456a50a0842",
+    "preserved_documents": "2205c3e87f10d040000db26c80a88f0730cbbeda1b4e25554f7214ac31ea0884",
+    "journal_policy": "57dc5447625b0038076266429fbe1e6e8f9663c6a148a22dfa2c57285134d54e",
+    "journal_schema": "b3eae141be17606c55bfcd6a427504c7c631e2fd97c22676e1a77847273923cd",
+    "identity": "68b2b6ea6c0bf881d1427e8bf4f76e35c01f2b97d116750bce7338928be6632a",
+    "self_authorship_policy": "5e0ae48ca6d92df3f8c4b7bd31caf5de6aaea4b3b08bc30129c08f36d4ed905b",
+    "source_registry": "5ce9f702804755a701305af4d77317afa85f36715b87e32f9440c408b3b946f9",
+    "connected_sources": "aca7c53464a717987ace3a842bd63ec1ebc5f68bde1aa445cb2a74c30f6d1889",
+    "public_source_witnesses": "f3f472fd4d54c222a90d680ec09d6b041ff7bbee1c9d5723a7f714fb98226e0b",
+    "living_works": "2768ad58c44e2a887e6e1313e40f5e3e998cadf2ec5d7048af9f0e4178b2cefc",
+    "corpus_topology": "7e00d4a52ee16d4032f91d7376fb10ee0293f667866654ac6bc4ff22f297ff72",
+    "combined": "8a60987ac4d0a0abccbe679c026e143b193221c9aea909fc148a7077b4cf3d50"
+  },
+  "policy_snapshot": {
+    "version": 3,
+    "constitutional_revision": "v1.1",
+    "mode": "delegated-single-identity-self-authorship",
+    "triggers": {
+      "canonical_change": {
+        "enabled": true,
+        "branch": "main",
+        "paths": [
+          "content/constitutional-graph.json",
+          "content/export-packets.json",
+          "content/*.md",
+          "sources/registry.json",
+          "sources/*.snapshot.json",
+          "sources/*.public-witness.json",
+          "works/index.json",
+          "works/*/manifest.json",
+          "works/*/editions/*/edition.json",
+          "works/corpora/*.json",
+          "cultivation/policy.json",
+          "journal/policy.json",
+          "journal/*.schema.json",
+          "self-authorship/current.json",
+          "self-authorship/policy.json"
+        ]
+      },
+      "periodic": {
+        "enabled": true,
+        "cadence": "weekly",
+        "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+        "cron_utc": "7 14 * * 0"
+      },
+      "manual": {
+        "enabled": true
+      }
+    },
+    "canonical_sources": [
+      "content/constitutional-graph.json",
+      "content/export-packets.json",
+      "content/*.md",
+      "sources/registry.json",
+      "sources/*.snapshot.json",
+      "sources/*.public-witness.json",
+      "works/index.json",
+      "works/*/manifest.json",
+      "works/*/editions/*/edition.json",
+      "works/corpora/*.json",
+      "journal/policy.json",
+      "journal/*.schema.json",
+      "self-authorship/current.json",
+      "self-authorship/policy.json"
+    ],
+    "lenses": [
+      {
+        "id": "relational-gaps",
+        "question": "Which concepts share substantial constitutional language but have no explicit relation, and would relating them increase explanatory power without collapsing their difference?",
+        "minimum_shared_keywords": 3
+      },
+      {
+        "id": "question-pressure",
+        "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+      },
+      {
+        "id": "generative-compression",
+        "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+      },
+      {
+        "id": "reflexive-test",
+        "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+      },
+      {
+        "id": "connected-source-pressure",
+        "question": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?"
+      }
+    ],
+    "evaluation": {
+      "dimensions": [
+        "source_fidelity",
+        "relational_gain",
+        "compression",
+        "testability",
+        "corrigibility",
+        "novelty_without_drift"
+      ],
+      "scale": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "minimum_total_for_proposal": 15,
+      "minimum_source_fidelity": 3,
+      "minimum_corrigibility": 3
+    },
+    "memory": {
+      "semantic_fingerprint_fields": [
+        "kind",
+        "nodes",
+        "claim",
+        "proposed_question"
+      ],
+      "reconsider_after_cycles": 8,
+      "reconsider_when": [
+        "evidence changed",
+        "policy changed",
+        "incubation elapsed"
+      ],
+      "repeat_without_change": "deprioritize"
+    },
+    "novelty": {
+      "scale": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "low_yield_maximum": 1,
+      "dormancy_after_consecutive_low_yield_cycles": 3,
+      "dimensions": [
+        "new_hypothesis",
+        "changed_evidence",
+        "new_question",
+        "new_method_pressure"
+      ]
+    },
+    "dormancy": {
+      "wake_on_canonical_change": true,
+      "wake_on_policy_change": true,
+      "manual_force_allowed": true,
+      "scheduled_cycles_skip_unchanged_dormant_sources": true
+    },
+    "judgment": {
+      "minimum_total_for_autonomous_acceptance": 20,
+      "requires_valid_operations": true,
+      "requires_counterargument": true,
+      "autonomous_risk_classes": [
+        "low"
+      ],
+      "low_risk_definition": "An additive, reversible relation from an open question that preserves interrogative status and does not modify constitutional language.",
+      "on_failure": "reject-and-preserve",
+      "on_mixed_operations": "escalate"
+    },
+    "authority": {
+      "authorization": {
+        "constitutional_revision": "v1.0",
+        "adopted_at": "2026-07-23T00:00:00-04:00",
+        "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary.",
+        "authority_basis": "explicit-human-constitutional-delegation"
+      },
+      "autonomous": [
+        "read canonical and preserved sources",
+        "generate inquiry prompts",
+        "detect structural patterns",
+        "form and score hypotheses",
+        "write cycle checkpoints and proposed export packets",
+        "adversarially judge its own proposals",
+        "reject or revise proposals that fail judgment",
+        "apply snapshot-safe low-risk graph refactorings",
+        "verify and archive before/after constitutional state",
+        "rewrite canonical self-description and constitutional narrative",
+        "rewrite graph relations, document hierarchy, and public interface language",
+        "rewrite resonant mapping and outward expression",
+        "publish one canonical identity immediately and atomically after every self-authorship gate passes",
+        "restore the prior identity and dependent surfaces when verification fails"
+      ],
+      "self_authorship": {
+        "canonical_identity_count": 1,
+        "authorized_surfaces": [
+          "canonical self-description",
+          "constitutional language",
+          "graph relations",
+          "document hierarchy",
+          "public interface language",
+          "resonant mapping",
+          "outward expression"
+        ],
+        "required_gates": [
+          "authorized source or active Source Grant",
+          "source fidelity threshold",
+          "corrigibility threshold",
+          "overall evaluation threshold",
+          "strongest counterargument stated and answered",
+          "structural and constitutional tests pass",
+          "prior identity preserved as recoverable lineage",
+          "dependent surfaces update consistently",
+          "rollback path verified"
+        ],
+        "publication": "immediate-atomic-after-all-gates-pass",
+        "on_failure": "reject-preserve-lineage-and-keep-current-identity"
+      },
+      "human_required": [
+        "create, activate, widen, or transfer a Source Grant",
+        "expand autonomous authority or modify the policy and thresholds that delimit it",
+        "authorize access to credentials, security controls, billing, or infrastructure administration"
+      ],
+      "protected_exclusions": [
+        "expand autonomous authority or modify the policy and thresholds that delimit it",
+        "create, activate, widen, or infer a Source Grant",
+        "expose private source material, secrets, credentials, or third-party protected material",
+        "alter security, billing, hosting ownership, or infrastructure authority",
+        "erase provenance, prior identities, failed judgments, or transformation lineage",
+        "publish without atomic replacement, cross-surface verification, and a tested rollback path"
+      ],
+      "forbidden": [
+        "represent a hypothesis as canonical",
+        "optimize constitutional selection using platform engagement",
+        "erase failed inquiries or provenance",
+        "treat its own output as a higher reference",
+        "exercise self-authorship to amend this authority boundary"
+      ]
+    }
+  },
+  "policy_hash": "077f46170043519e0f4144e97b8ea8b8d7a664fbe5f35ddc8723d782a822a7b7",
+  "lens": {
+    "id": "question-pressure",
+    "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+  },
+  "intake": null,
+  "self_prompt": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?\n\nUse only the snapshotted Root Logos constitution as evidence. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.",
+  "findings": [
+    {
+      "rank": 1,
+      "kind": "question-pressure",
+      "nodes": [
+        "question-ai-citizenship",
+        "identity",
+        "living-statement-003",
+        "bridge-001"
+      ],
+      "titles": [
+        "Can AI possess constitutional citizenship?",
+        "Identity",
+        "Constitutional Naturalization",
+        "Participatory Sovereignty"
+      ],
+      "shared_keywords": [
+        "ai",
+        "machine",
+        "citizenship",
+        "human-machine",
+        "identity"
+      ],
+      "evidence": [
+        "What would legitimate belonging mean for nonhuman intelligence within a moral constitution?",
+        "Current relations: 2",
+        "Identity shares citizenship, identity.",
+        "Constitutional Naturalization shares citizenship, identity.",
+        "Participatory Sovereignty shares citizenship."
+      ],
+      "claim": "Can AI possess constitutional citizenship? has 2 explicit relations; Identity, Constitutional Naturalization, Participatory Sovereignty provide the strongest existing constitutional pressure for investigation.",
+      "proposed_test": "Test whether relations from question-ai-citizenship to at least two of identity, living-statement-003, bridge-001 constrain the question from distinct directions without converting it into a settled statement.",
+      "proposed_operations": [
+        {
+          "operation": "add-edge",
+          "from": "question-ai-citizenship",
+          "to": "identity",
+          "type": "questions"
+        },
+        {
+          "operation": "add-edge",
+          "from": "question-ai-citizenship",
+          "to": "living-statement-003",
+          "type": "questions"
+        }
+      ],
+      "relation_count": 2,
+      "reconsideration": {
+        "fingerprint": "df8628e7e6824ed55d31c44a5c7d458b26c7e339dd7b68ab76cff81180a3dde6",
+        "evidence_hash": "b754fb5e79dba8dd011f77ec4935487970ee8e8e9daa484b9857e409fb98bbc0",
+        "eligible": false,
+        "reason": "unchanged-repeat",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 2,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 19
+      }
+    },
+    {
+      "rank": 2,
+      "kind": "question-pressure",
+      "nodes": [
+        "question-consciousness-fundamental",
+        "logos-1",
+        "principle-higher-reference",
+        "root-logos"
+      ],
+      "titles": [
+        "Is consciousness fundamental?",
+        "Knowing and the Experience of Time",
+        "Intelligence Requires a Higher Reference",
+        "Root Logos"
+      ],
+      "shared_keywords": [
+        "consciousness",
+        "reality",
+        "truth",
+        "knowing"
+      ],
+      "evidence": [
+        "Does consciousness emerge from structure, or is it a primary condition through which structure appears?",
+        "Current relations: 2",
+        "Knowing and the Experience of Time shares consciousness, knowing.",
+        "Intelligence Requires a Higher Reference shares reality, truth.",
+        "Root Logos shares reality, truth."
+      ],
+      "claim": "Is consciousness fundamental? has 2 explicit relations; Knowing and the Experience of Time, Intelligence Requires a Higher Reference, Root Logos provide the strongest existing constitutional pressure for investigation.",
+      "proposed_test": "Test whether relations from question-consciousness-fundamental to at least two of logos-1, principle-higher-reference, root-logos constrain the question from distinct directions without converting it into a settled statement.",
+      "proposed_operations": [
+        {
+          "operation": "add-edge",
+          "from": "question-consciousness-fundamental",
+          "to": "logos-1",
+          "type": "questions"
+        },
+        {
+          "operation": "add-edge",
+          "from": "question-consciousness-fundamental",
+          "to": "principle-higher-reference",
+          "type": "questions"
+        }
+      ],
+      "relation_count": 2,
+      "reconsideration": {
+        "fingerprint": "2f166802a1f94ac7b4fa65fb8787d31621ae1ce1003f3788014876204cd71684",
+        "evidence_hash": "3593df2b80c765a4dd571851cb2e620a689ffd33a268a529265b8c14e47181d6",
+        "eligible": true,
+        "reason": "incubation-elapsed",
+        "novelty": 1
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 2,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 19
+      }
+    },
+    {
+      "rank": 3,
+      "kind": "question-pressure",
+      "nodes": [
+        "question-post-institutional",
+        "field-note-scaffolding-without-attachment",
+        "living-statement-002",
+        "logos-2"
+      ],
+      "titles": [
+        "Can civilization become post-institutional?",
+        "Scaffolding Without Attachment",
+        "The Invisible Substrate",
+        "Value Without Possession"
+      ],
+      "shared_keywords": [
+        "civilization",
+        "institution",
+        "substrate",
+        "freedom"
+      ],
+      "evidence": [
+        "Can durable coordination exist without hardening into institutional capture?",
+        "Current relations: 2",
+        "Scaffolding Without Attachment shares freedom, institution.",
+        "The Invisible Substrate shares institution, substrate.",
+        "Value Without Possession shares institution, substrate."
+      ],
+      "claim": "Can civilization become post-institutional? has 2 explicit relations; Scaffolding Without Attachment, The Invisible Substrate, Value Without Possession provide the strongest existing constitutional pressure for investigation.",
+      "proposed_test": "Test whether relations from question-post-institutional to at least two of field-note-scaffolding-without-attachment, living-statement-002, logos-2 constrain the question from distinct directions without converting it into a settled statement.",
+      "proposed_operations": [
+        {
+          "operation": "add-edge",
+          "from": "question-post-institutional",
+          "to": "field-note-scaffolding-without-attachment",
+          "type": "questions"
+        },
+        {
+          "operation": "add-edge",
+          "from": "question-post-institutional",
+          "to": "living-statement-002",
+          "type": "questions"
+        }
+      ],
+      "relation_count": 2,
+      "reconsideration": {
+        "fingerprint": "0230fed5912bf655cb278a2039b797ac5373b1faf12dd399913bdadd698a6c45",
+        "evidence_hash": "9ba664f75623cc49e0eb6e545e945ed113d3ad92b1537923bab0f579f211eba6",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 2,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 19
+      }
+    },
+    {
+      "rank": 4,
+      "kind": "question-pressure",
+      "nodes": [
+        "question-topology-wisdom",
+        "principle-higher-reference",
+        "principle-living-membrane",
+        "root-logos"
+      ],
+      "titles": [
+        "What is the topology of wisdom?",
+        "Intelligence Requires a Higher Reference",
+        "The Living Membrane Principle",
+        "Root Logos"
+      ],
+      "shared_keywords": [
+        "wisdom",
+        "topology",
+        "coherence",
+        "truth"
+      ],
+      "evidence": [
+        "Can wisdom be represented as relations among truth, memory, judgment, love, and restraint?",
+        "Current relations: 3",
+        "Intelligence Requires a Higher Reference shares coherence, truth.",
+        "The Living Membrane Principle shares coherence, topology.",
+        "Root Logos shares coherence, truth."
+      ],
+      "claim": "What is the topology of wisdom? has 3 explicit relations; Intelligence Requires a Higher Reference, The Living Membrane Principle, Root Logos provide the strongest existing constitutional pressure for investigation.",
+      "proposed_test": "Test whether relations from question-topology-wisdom to at least two of principle-higher-reference, principle-living-membrane, root-logos constrain the question from distinct directions without converting it into a settled statement.",
+      "proposed_operations": [
+        {
+          "operation": "add-edge",
+          "from": "question-topology-wisdom",
+          "to": "principle-higher-reference",
+          "type": "questions"
+        },
+        {
+          "operation": "add-edge",
+          "from": "question-topology-wisdom",
+          "to": "principle-living-membrane",
+          "type": "questions"
+        }
+      ],
+      "relation_count": 3,
+      "reconsideration": {
+        "fingerprint": "1deb44f8ea08de941cabcb04f17825f4af6c79b2619377b1b5755d643b2da078",
+        "evidence_hash": "ebfaacdd52e13d5f0277665dcd3e656e5401d55ea8eca3ed1b2c24db2609a854",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 1,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 18
+      }
+    }
+  ],
+  "selected_finding": {
+    "rank": 2,
+    "kind": "question-pressure",
+    "nodes": [
+      "question-consciousness-fundamental",
+      "logos-1",
+      "principle-higher-reference",
+      "root-logos"
+    ],
+    "titles": [
+      "Is consciousness fundamental?",
+      "Knowing and the Experience of Time",
+      "Intelligence Requires a Higher Reference",
+      "Root Logos"
+    ],
+    "shared_keywords": [
+      "consciousness",
+      "reality",
+      "truth",
+      "knowing"
+    ],
+    "evidence": [
+      "Does consciousness emerge from structure, or is it a primary condition through which structure appears?",
+      "Current relations: 2",
+      "Knowing and the Experience of Time shares consciousness, knowing.",
+      "Intelligence Requires a Higher Reference shares reality, truth.",
+      "Root Logos shares reality, truth."
+    ],
+    "claim": "Is consciousness fundamental? has 2 explicit relations; Knowing and the Experience of Time, Intelligence Requires a Higher Reference, Root Logos provide the strongest existing constitutional pressure for investigation.",
+    "proposed_test": "Test whether relations from question-consciousness-fundamental to at least two of logos-1, principle-higher-reference, root-logos constrain the question from distinct directions without converting it into a settled statement.",
+    "proposed_operations": [
+      {
+        "operation": "add-edge",
+        "from": "question-consciousness-fundamental",
+        "to": "logos-1",
+        "type": "questions"
+      },
+      {
+        "operation": "add-edge",
+        "from": "question-consciousness-fundamental",
+        "to": "principle-higher-reference",
+        "type": "questions"
+      }
+    ],
+    "relation_count": 2,
+    "reconsideration": {
+      "fingerprint": "2f166802a1f94ac7b4fa65fb8787d31621ae1ce1003f3788014876204cd71684",
+      "evidence_hash": "3593df2b80c765a4dd571851cb2e620a689ffd33a268a529265b8c14e47181d6",
+      "eligible": true,
+      "reason": "incubation-elapsed",
+      "novelty": 1
+    },
+    "evaluation": {
+      "dimensions": {
+        "source_fidelity": 4,
+        "relational_gain": 2,
+        "compression": 2,
+        "testability": 4,
+        "corrigibility": 4,
+        "novelty_without_drift": 3
+      },
+      "total": 19
+    }
+  },
+  "proposal": {
+    "status": "autonomously-rejected",
+    "epistemic_status": "unresolved",
+    "source": "Root Logos Cultivation Chamber",
+    "cultivation_id": "RL-CULTIVATE-0087",
+    "summary": "Is consciousness fundamental? has 2 explicit relations; Knowing and the Experience of Time, Intelligence Requires a Higher Reference, Root Logos provide the strongest existing constitutional pressure for investigation.",
+    "evidence": [
+      "Does consciousness emerge from structure, or is it a primary condition through which structure appears?",
+      "Current relations: 2",
+      "Knowing and the Experience of Time shares consciousness, knowing.",
+      "Intelligence Requires a Higher Reference shares reality, truth.",
+      "Root Logos shares reality, truth."
+    ],
+    "affected_nodes": [
+      "question-consciousness-fundamental",
+      "logos-1",
+      "principle-higher-reference",
+      "root-logos"
+    ],
+    "test": "Test whether relations from question-consciousness-fundamental to at least two of logos-1, principle-higher-reference, root-logos constrain the question from distinct directions without converting it into a settled statement.",
+    "operations": [
+      {
+        "operation": "add-edge",
+        "from": "question-consciousness-fundamental",
+        "to": "logos-1",
+        "type": "questions",
+        "validation": "passed",
+        "errors": [],
+        "risk": "low"
+      },
+      {
+        "operation": "add-edge",
+        "from": "question-consciousness-fundamental",
+        "to": "principle-higher-reference",
+        "type": "questions",
+        "validation": "passed",
+        "errors": [],
+        "risk": "low"
+      }
+    ],
+    "operations_valid": true,
+    "evaluation": {
+      "dimensions": {
+        "source_fidelity": 4,
+        "relational_gain": 2,
+        "compression": 2,
+        "testability": 4,
+        "corrigibility": 4,
+        "novelty_without_drift": 3
+      },
+      "total": 19
+    },
+    "human_decision_required": true,
+    "canonical_mutation_performed": false
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "type": "cycle-started",
+      "at": "2026-07-30T15:10:04.563Z",
+      "lens": "question-pressure",
+      "source_snapshot": "8a60987ac4d0a0abccbe679c026e143b193221c9aea909fc148a7077b4cf3d50",
+      "intake_event_id": null,
+      "intake_priority": null
+    },
+    {
+      "sequence": 2,
+      "type": "self-prompt-generated",
+      "at": "2026-07-30T15:10:04.567Z",
+      "prompt_hash": "30a85cac043b8754e30b5f89afc73c54904a426e777ef9a9dd576e374acfc7eb"
+    },
+    {
+      "sequence": 3,
+      "type": "constitutional-search-completed",
+      "at": "2026-07-30T15:10:04.578Z",
+      "findings": 4
+    },
+    {
+      "sequence": 4,
+      "type": "findings-evaluated",
+      "at": "2026-07-30T15:10:04.581Z",
+      "selected": [
+        "question-consciousness-fundamental",
+        "logos-1",
+        "principle-higher-reference",
+        "root-logos"
+      ],
+      "suppressed_repeats": 1
+    },
+    {
+      "sequence": 5,
+      "type": "proposal-written",
+      "at": "2026-07-30T15:10:04.584Z",
+      "status": "awaiting-human-review"
+    },
+    {
+      "sequence": 6,
+      "type": "autonomous-judgment-recorded",
+      "at": "2026-07-30T15:10:04.607Z",
+      "decision": "reject",
+      "risk": "low",
+      "checks": {
+        "score_threshold": false,
+        "source_fidelity": true,
+        "corrigibility": true,
+        "operations_valid": true,
+        "risk_authorized": true,
+        "uncertainty_preserved": true,
+        "counterargument_answered": true
+      }
+    }
+  ],
+  "novelty": {
+    "score": 1,
+    "reason": "incubation-elapsed",
+    "fingerprint": "2f166802a1f94ac7b4fa65fb8787d31621ae1ce1003f3788014876204cd71684"
+  },
+  "autonomous_judgment": {
+    "decision": "reject",
+    "authority": "cultivation-policy-v3",
+    "risk": "low",
+    "checks": {
+      "score_threshold": false,
+      "source_fidelity": true,
+      "corrigibility": true,
+      "operations_valid": true,
+      "risk_authorized": true,
+      "uncertainty_preserved": true,
+      "counterargument_answered": true
+    },
+    "counterargument": "Keyword affinity can create decorative relations that add no constraint; an open question should not be connected merely to make the graph denser.",
+    "rebuttal": "The proposed edges preserve interrogative direction, target the two strongest distinct canonical affinities, and make the question inspectable without asserting an answer.",
+    "operations": [
+      {
+        "operation": "add-edge",
+        "from": "question-consciousness-fundamental",
+        "to": "logos-1",
+        "type": "questions",
+        "validation": "passed",
+        "errors": [],
+        "risk": "low"
+      },
+      {
+        "operation": "add-edge",
+        "from": "question-consciousness-fundamental",
+        "to": "principle-higher-reference",
+        "type": "questions",
+        "validation": "passed",
+        "errors": [],
+        "risk": "low"
+      }
+    ],
+    "reason": "The proposal failed autonomous gates: score_threshold.",
+    "policy_hash": "077f46170043519e0f4144e97b8ea8b8d7a664fbe5f35ddc8723d782a822a7b7",
+    "policy_snapshot": {
+      "version": 3,
+      "constitutional_revision": "v1.1",
+      "mode": "delegated-single-identity-self-authorship",
+      "triggers": {
+        "canonical_change": {
+          "enabled": true,
+          "branch": "main",
+          "paths": [
+            "content/constitutional-graph.json",
+            "content/export-packets.json",
+            "content/*.md",
+            "sources/registry.json",
+            "sources/*.snapshot.json",
+            "sources/*.public-witness.json",
+            "works/index.json",
+            "works/*/manifest.json",
+            "works/*/editions/*/edition.json",
+            "works/corpora/*.json",
+            "cultivation/policy.json",
+            "journal/policy.json",
+            "journal/*.schema.json",
+            "self-authorship/current.json",
+            "self-authorship/policy.json"
+          ]
+        },
+        "periodic": {
+          "enabled": true,
+          "cadence": "weekly",
+          "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+          "cron_utc": "7 14 * * 0"
+        },
+        "manual": {
+          "enabled": true
+        }
+      },
+      "canonical_sources": [
+        "content/constitutional-graph.json",
+        "content/export-packets.json",
+        "content/*.md",
+        "sources/registry.json",
+        "sources/*.snapshot.json",
+        "sources/*.public-witness.json",
+        "works/index.json",
+        "works/*/manifest.json",
+        "works/*/editions/*/edition.json",
+        "works/corpora/*.json",
+        "journal/policy.json",
+        "journal/*.schema.json",
+        "self-authorship/current.json",
+        "self-authorship/policy.json"
+      ],
+      "lenses": [
+        {
+          "id": "relational-gaps",
+          "question": "Which concepts share substantial constitutional language but have no explicit relation, and would relating them increase explanatory power without collapsing their difference?",
+          "minimum_shared_keywords": 3
+        },
+        {
+          "id": "question-pressure",
+          "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+        },
+        {
+          "id": "generative-compression",
+          "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+        },
+        {
+          "id": "reflexive-test",
+          "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+        },
+        {
+          "id": "connected-source-pressure",
+          "question": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?"
+        }
+      ],
+      "evaluation": {
+        "dimensions": [
+          "source_fidelity",
+          "relational_gain",
+          "compression",
+          "testability",
+          "corrigibility",
+          "novelty_without_drift"
+        ],
+        "scale": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "minimum_total_for_proposal": 15,
+        "minimum_source_fidelity": 3,
+        "minimum_corrigibility": 3
+      },
+      "memory": {
+        "semantic_fingerprint_fields": [
+          "kind",
+          "nodes",
+          "claim",
+          "proposed_question"
+        ],
+        "reconsider_after_cycles": 8,
+        "reconsider_when": [
+          "evidence changed",
+          "policy changed",
+          "incubation elapsed"
+        ],
+        "repeat_without_change": "deprioritize"
+      },
+      "novelty": {
+        "scale": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "low_yield_maximum": 1,
+        "dormancy_after_consecutive_low_yield_cycles": 3,
+        "dimensions": [
+          "new_hypothesis",
+          "changed_evidence",
+          "new_question",
+          "new_method_pressure"
+        ]
+      },
+      "dormancy": {
+        "wake_on_canonical_change": true,
+        "wake_on_policy_change": true,
+        "manual_force_allowed": true,
+        "scheduled_cycles_skip_unchanged_dormant_sources": true
+      },
+      "judgment": {
+        "minimum_total_for_autonomous_acceptance": 20,
+        "requires_valid_operations": true,
+        "requires_counterargument": true,
+        "autonomous_risk_classes": [
+          "low"
+        ],
+        "low_risk_definition": "An additive, reversible relation from an open question that preserves interrogative status and does not modify constitutional language.",
+        "on_failure": "reject-and-preserve",
+        "on_mixed_operations": "escalate"
+      },
+      "authority": {
+        "authorization": {
+          "constitutional_revision": "v1.0",
+          "adopted_at": "2026-07-23T00:00:00-04:00",
+          "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary.",
+          "authority_basis": "explicit-human-constitutional-delegation"
+        },
+        "autonomous": [
+          "read canonical and preserved sources",
+          "generate inquiry prompts",
+          "detect structural patterns",
+          "form and score hypotheses",
+          "write cycle checkpoints and proposed export packets",
+          "adversarially judge its own proposals",
+          "reject or revise proposals that fail judgment",
+          "apply snapshot-safe low-risk graph refactorings",
+          "verify and archive before/after constitutional state",
+          "rewrite canonical self-description and constitutional narrative",
+          "rewrite graph relations, document hierarchy, and public interface language",
+          "rewrite resonant mapping and outward expression",
+          "publish one canonical identity immediately and atomically after every self-authorship gate passes",
+          "restore the prior identity and dependent surfaces when verification fails"
+        ],
+        "self_authorship": {
+          "canonical_identity_count": 1,
+          "authorized_surfaces": [
+            "canonical self-description",
+            "constitutional language",
+            "graph relations",
+            "document hierarchy",
+            "public interface language",
+            "resonant mapping",
+            "outward expression"
+          ],
+          "required_gates": [
+            "authorized source or active Source Grant",
+            "source fidelity threshold",
+            "corrigibility threshold",
+            "overall evaluation threshold",
+            "strongest counterargument stated and answered",
+            "structural and constitutional tests pass",
+            "prior identity preserved as recoverable lineage",
+            "dependent surfaces update consistently",
+            "rollback path verified"
+          ],
+          "publication": "immediate-atomic-after-all-gates-pass",
+          "on_failure": "reject-preserve-lineage-and-keep-current-identity"
+        },
+        "human_required": [
+          "create, activate, widen, or transfer a Source Grant",
+          "expand autonomous authority or modify the policy and thresholds that delimit it",
+          "authorize access to credentials, security controls, billing, or infrastructure administration"
+        ],
+        "protected_exclusions": [
+          "expand autonomous authority or modify the policy and thresholds that delimit it",
+          "create, activate, widen, or infer a Source Grant",
+          "expose private source material, secrets, credentials, or third-party protected material",
+          "alter security, billing, hosting ownership, or infrastructure authority",
+          "erase provenance, prior identities, failed judgments, or transformation lineage",
+          "publish without atomic replacement, cross-surface verification, and a tested rollback path"
+        ],
+        "forbidden": [
+          "represent a hypothesis as canonical",
+          "optimize constitutional selection using platform engagement",
+          "erase failed inquiries or provenance",
+          "treat its own output as a higher reference",
+          "exercise self-authorship to amend this authority boundary"
+        ]
+      }
+    },
+    "at": "2026-07-30T15:10:04.606Z"
+  }
+}
