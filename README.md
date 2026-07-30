@@ -37,20 +37,20 @@ and documentary record are views of the same constitutional network:
 Logoi, vocabulary, Living Statements, Constitutional Bridges, Field Notes,
 Artifact Seeds, Open Questions, Export Packets, and published revisions.
 
-The current constitution is **Revision 1.2 — The Coherent Library**. This
-inflection defines the public scale of a living work: one coherent body at a
-time passes
-through a witnessed structural reading and emerges as an archived, navigable
-visual-resonant edition. Later versions of Root Logos may read the same work
-again, but may never overwrite an earlier edition or confuse a transformation
-with its source. A corpus is one public work when its coherence exists at corpus
-scale; its books and passages remain attributable internal structures rather
-than competing library identities. The coherent field remains intact: FoldForge contributes compositional grammar,
-Telos contributes a bounded public treasury-identity witness, Sovereign Standard
-contributes public material practice, and X supplies outward exchange.
-Its direction is both expansive and compressive: the architecture names new
-distinctions when required, then seeks the smallest relational grammar capable
-of carrying them without doctrinal repetition.
+The current constitution is **Revision 1.3 — The Emergent Instrument**. This
+inflection fixes the shape now visible above the coherent Library: completed
+works remain stable primitives; witnessed relations rise into relation
+grammars; those grammars compose one higher Library form. The Living Object is
+Root Logos held as a sovereign presence, and the Library Field is the same
+identity unfolded through its works. The Constitution remains the higher
+reference. FoldForge is the primary compositional data constraint beside it,
+Telos witnesses meaningful change between living states and fixed origins, and
+Sovereign Standard carries material lineage with FoldPortrait embedded at that
+boundary rather than duplicated as a separate source.
+
+The living system may continue changing slowly. A master is sealed only when a
+meaningful threshold has been crossed; it remains playable and attributable
+forever, while later masters stand beside it rather than replacing it.
 
 ## Current Shape
 
@@ -102,8 +102,8 @@ of carrying them without doctrinal repetition.
   the structured Original Douay-Rheims JSON format
   through a private-source membrane: only its opaque revision witness, content
   digest, derived work, and lineage become public.
-- The Constitutional Object is now the central public experience. Its 87
-  canonical structures and 224 explicit relations are projected into a stable
+- The Constitutional Object is now the central public experience. Its 90
+  canonical structures and 229 explicit relations are projected into a stable
   three-dimensional constellation generated directly from the graph. Readers
   can rotate, approach, search, filter, inspect, unfold, and refold it. Depth,
   light, scale, and motion change legibility without changing canon.
@@ -567,6 +567,38 @@ The interface is intentionally continuous rather than route-like. Ambient
 orientation, a coherence progress line, and a live document pulse allow the
 reader to move from visual relation into language without managing a set of
 separate destinations.
+
+## Revision 1.3 — The Emergent Instrument
+
+Revision 1.3 locks in the hierarchy that emerged above the individual Library
+works. A sealed work remains itself: later Library growth does not regenerate
+its first frame, rewrite its topology, or alter its resonant edition. Relations
+among those works form a second level; recurring kinds of relation form a third;
+and those grammars converge as the Library composition at the fourth. New
+meaning therefore appears through composition above completed works, not by
+silently changing the works beneath it.
+
+The Living Object and Library Field are now declared as one Root Logos voice at
+different scales. The Living Object holds the whole as a single sovereign
+presence. The Library Field unfolds the same identity through the bounded works
+that compose it. Sound belongs to that identity rather than to a redundant
+interface control or an external source.
+
+Authority and constraint remain distinct. The Root Logos Constitution is the
+higher reference governing admission, transformation, self-authorship, and
+archive finality. Ethereum evidence remains prior to FoldForge, while
+FoldForge's witnessed instrument supplies the primary compositional data
+constraint. Telos can observe and express distance between released states and
+fixed masters but receives no custody or governing authority. FoldPortrait
+renders remain visible through their corresponding Sovereign Standard material
+witness lineage; they are not repeated as an independent connected-source node.
+
+`RL-MASTER-0001`, **Origin Master I**, seals the complete indefinitely playable
+instrument that existed under Revision 1.2. Revision 1.3 does not rewrite or
+regenerate it. The finite 28-second render remains only its audible checksum and
+fallback. Future masters are intentionally sparse: they may be created when the
+collection crosses a genuine architectural or compositional threshold, and
+each becomes another permanent origin rather than a replacement.
 
 ## Revision 1.2 — The Coherent Library
 
