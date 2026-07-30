@@ -422,7 +422,19 @@ body.archive-open #intake { order: 4; }
   pointer-events:none;
 }
 .object-identity h1 { margin:22px 0 18px;font:400 clamp(3.6rem,7.4vw,8.2rem)/.68 var(--display);letter-spacing:-.055em; }
-.object-identity > p:last-child { margin:0 0 0 clamp(10px,2.4vw,36px);color:var(--bone);font-size:clamp(.95rem,1.18vw,1.18rem);line-height:1.55; }
+.object-summary {
+  width:min(430px,34vw);
+  margin:0 0 16px clamp(10px,2.4vw,36px);
+  color:var(--bone);
+  font-size:clamp(.88rem,1.02vw,1.02rem);
+  line-height:1.55;
+}
+.object-becoming {
+  margin:0 0 0 clamp(10px,2.4vw,36px);
+  color:var(--dim);
+  font-size:clamp(.78rem,.88vw,.9rem);
+  line-height:1.55;
+}
 .object-identity em { color:var(--gold);font-weight:400; }
 .object-witness {
   position:absolute;
@@ -1364,7 +1376,8 @@ h1, h2, h3, h4,
   .object-void::after { width:112vw; }
   .object-identity { top:96px;left:20px; }
   .object-identity h1 { margin:18px 0 15px;font-size:clamp(3.8rem,20vw,5.8rem); }
-  .object-identity > p:last-child { margin-left:0;font-size:.92rem; }
+  .object-summary { width:min(86vw,430px);margin-left:0;font-size:.86rem; }
+  .object-becoming { margin-left:0;font-size:.76rem; }
   .object-witness { bottom:155px;left:20px;width:calc(100% - 40px); }
   .object-witness > p { display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;font-size:.86rem; }
   .object-witness small { gap:7px;font-size:.38rem; }

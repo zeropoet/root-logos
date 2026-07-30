@@ -159,8 +159,8 @@
     button?.setAttribute("aria-pressed", String(active));
     if (label) label.textContent = active ? "Stop Origin Master I" : "Play Origin Master I";
     if (status) status.textContent = active
-      ? "RL-MASTER-0001 · sounding indefinitely"
-      : "Sealed instrument · plays until stopped";
+      ? "Archived state · sounding indefinitely from preserved evidence"
+      : "Archived state · Revision 1.2 · July 30, 2026";
   };
   const stopOriginMaster = async ({ restoreLivingVoice = true } = {}) => {
     if (!originMasterPlayer) return;
