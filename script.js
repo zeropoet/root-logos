@@ -13,14 +13,6 @@ const canonicalCycle = (cycle) => ({
   proposal: cycle.proposal ? { ...cycle.proposal, cultivation_id: canonicalCultivationId(cycle.proposal.cultivation_id) } : cycle.proposal
 });
 const shortDate = (value) => value ? new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(new Date(value)) : "Never";
-const latestWakeAt = () => {
-  const candidates = [
-    app.runtime?.service?.last_wake_at,
-    ...(app.runtime?.dormancy?.wake_history || []).map(({ at }) => at),
-    ...(app.latest?.events || []).filter(({ type }) => type === "cycle-started").map(({ at }) => at)
-  ].filter(Boolean);
-  return candidates.sort((left, right) => new Date(right) - new Date(left))[0] || null;
-};
 const runtimeIsAwake = () => {
   const status = String(app.runtime?.service?.status || "unknown").toLowerCase();
   return !app.runtime?.dormancy?.active && !["sleeping", "dormant"].includes(status);
@@ -137,16 +129,6 @@ const renderPresence = () => {
   const running = status === "running";
   const state = $(".state-space");
   if (state) state.dataset.runtimeState = running ? "running" : sleeping ? "sleeping" : status;
-  $("#state-condition").textContent = running ? "Awake" : app.runtime.dormancy?.active ? "Dormant" : "At rest";
-  $("#state-condition-copy").textContent = running
-    ? "A serialized inquiry is moving through the chamber."
-    : app.runtime.dormancy?.active
-      ? app.runtime.dormancy.reason || "Inquiry methods have earned a period of dormancy."
-      : "The worker is listening. No policy-authorized wake remains.";
-  $("#state-last-wake").textContent = shortDate(latestWakeAt());
-  $("#state-novelty").textContent = app.runtime.novelty?.last_score == null ? "Unscored" : `${app.runtime.novelty.last_score} / 4`;
-  $("#state-memory").textContent = String(app.runtime.hypothesis_count || Object.keys(app.memory?.hypotheses || {}).length).padStart(2, "0");
-  $("#state-queue").textContent = String(service.queued_triggers?.length || 0).padStart(2, "0");
 };
 
 const renderSources = () => {
@@ -305,7 +287,19 @@ const renderLatestCycle = () => {
   const finding = cycle.selected_finding || {};
   const judgment = cycle.autonomous_judgment || {};
   const proposal = cycle.proposal || {};
+  const evaluation = finding.evaluation || proposal.evaluation;
+  const evaluationTotal = Number(evaluation?.total);
+  const gateValues = Object.values(judgment.checks || {});
+  const reach = Number.isFinite(evaluationTotal)
+    ? Math.round(Math.max(0, Math.min(24, evaluationTotal)) / 24 * 100)
+    : gateValues.length
+      ? Math.round(gateValues.filter(Boolean).length / gateValues.length * 100)
+      : null;
+  const reachLabel = reach == null ? "—" : `${reach}%`;
   $("#cycle-id").textContent = `${cycle.cultivation_id} / ${sentence(cycle.lens?.id || "inquiry")}`;
+  $("#cycle-reach").textContent = reachLabel;
+  $("#object-inquiry-reach").textContent = `Inquiry reach ${reachLabel}`;
+  $("#archive-inquiry-reach").textContent = `Inquiry reach / ${reachLabel}`;
   $("#cycle-decision").textContent = sentence(cycle.status);
   $("#cycle-decision").classList.toggle("is-rejected", String(cycle.status).includes("rejected"));
   $("#cycle-question").textContent = cycle.lens?.question || cycle.self_prompt || "Inquiry record unavailable.";

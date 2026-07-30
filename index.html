@@ -43,6 +43,8 @@
         <aside class="archive-register" aria-label="Current archive condition">
           <span id="archive-runtime">Runtime / resolving</span>
           <i></i>
+          <span id="archive-inquiry-reach">Inquiry reach / —</span>
+          <i></i>
           <span id="archive-revision">Revision —</span>
           <i></i>
           <span id="archive-works">— works</span>
@@ -61,7 +63,7 @@
         </header>
         <div class="object-witness" aria-live="polite">
           <p id="object-state">The current form holds.</p>
-          <small><span id="object-work-count">— works</span><i></i><span id="object-cycle-count">— cycles</span><i></i><span id="object-revision">Revision —</span></small>
+          <small><span id="object-work-count">— works</span><i></i><span id="object-cycle-count">— cycles</span><i></i><span id="object-inquiry-reach">Inquiry reach —</span><i></i><span id="object-revision">Revision —</span></small>
         </div>
         <aside class="object-consent" aria-label="Sealed origin recording">
           <button type="button" id="origin-master" aria-pressed="false">
@@ -153,7 +155,10 @@
           <article class="state-cycle" id="latest-cycle">
             <header>
               <p class="micro-label" data-module="03.01">Latest autonomous inquiry</p>
-              <span class="decision-seal" id="cycle-decision">—</span>
+              <div class="cycle-outcome">
+                <span class="cycle-reach"><b id="cycle-reach">—</b><small>Inquiry reach</small></span>
+                <span class="decision-seal" id="cycle-decision">—</span>
+              </div>
             </header>
             <h3 id="cycle-id">Loading lineage</h3>
             <blockquote id="cycle-question">Contacting the cultivation archive.</blockquote>
@@ -165,17 +170,6 @@
             <button class="text-action" type="button" id="open-cycle">Open lineage <span>↗</span></button>
           </article>
 
-          <aside class="state-condition">
-            <p class="micro-label" data-module="03.02">Runtime condition</p>
-            <strong id="state-condition">Listening</strong>
-            <p id="state-condition-copy">The runtime is resolving its present boundary.</p>
-            <dl>
-              <div><dt>Last wake</dt><dd id="state-last-wake">—</dd></div>
-              <div><dt>Novelty</dt><dd id="state-novelty">—</dd></div>
-              <div><dt>Memory</dt><dd id="state-memory">—</dd></div>
-              <div><dt>Queue</dt><dd id="state-queue">—</dd></div>
-            </dl>
-          </aside>
         </div>
 
         <div class="state-sources">
