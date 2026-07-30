@@ -46,6 +46,7 @@ assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").pub
 assert.equal(validated.registry.sources.find(({ id }) => id === "x").public_url, "https://x.com/rootlogos");
 assert.equal(validated.registry.sources.find(({ id }) => id === "telos").public_url, null);
 assert.equal(validated.registry.sources.find(({ id }) => id === "sovereign-standard").public_url, "https://sovereignstandard.co");
+assert.equal(validated.registry.sources.find(({ id }) => id === "foldportrait").public_url, "https://zeropoet.github.io/FoldPortrait/");
 const telosWitness = validated.publicWitnesses.find(({ source_id }) => source_id === "telos");
 assert.equal(telosWitness.work_relations.length, 1);
 assert.equal(telosWitness.work_relations[0].work_id, "bitcoin-a-peer-to-peer-electronic-cash-system-0110e266");
@@ -59,6 +60,10 @@ assert.equal(validated.sovereignStandardSnapshot.measures.vessel_work_relations,
 assert.equal(validated.sovereignStandardSnapshot.works.some(({ artifact_id }) => artifact_id === "witness-genesis-test"), false);
 assert.equal(validated.sovereignStandardSnapshot.authority.root_logos_has_custody, false);
 assert.equal(validated.sovereignStandardSnapshot.authority.root_logos_has_minting_authority, false);
+assert.equal(validated.foldPortraitSnapshot.measures.renders, 52);
+assert.equal(validated.foldPortraitSnapshot.measures.material_matches, 52);
+assert.equal(validated.foldPortraitSnapshot.measures.embodied_renders, 12);
+assert.ok(validated.foldPortraitSnapshot.renders.every(({ material_witness }) => material_witness.file_sha256));
 assert.ok(validated.publicWitnesses.every(({ witness }) => /^sha256:[a-f0-9]{64}$/.test(witness)));
 assert.match(first.compositions[0].witness, /^[a-f0-9]{64}$/);
 

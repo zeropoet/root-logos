@@ -220,6 +220,26 @@ Library merely because they occupy a vessel, and vessels do not become works.
 Token ownership witnesses stewardship but grants neither archive access,
 custody, minting power, nor constitutional authority.
 
+FoldPortrait is joined to that bridge through
+`sources/foldportrait.snapshot.json`. Root Logos verifies all 52 completed
+renders against both the FoldPortrait evolution ledger and their corresponding
+Sovereign Standard archive manifests: artifact identity, convergence hash,
+render hash, and archived PNG SHA-256 must all agree. The Observatory shows the
+render on its material-witness object, while the Living Object carries the same
+52 relations as a hash-derived lineage; the 12 renders currently embodied by
+numbered vessels bind more strongly to its trunk. This connection is visual and
+evidentiary only. Root Logos receives no FoldPortrait generation authority and
+no Sovereign Standard minting, custody, collector, or private-order authority.
+
+Every serialized wake begins by scanning Sovereign Standard's canonical public
+export. `scripts/sources.mjs refresh-material-lineage` validates the new sealed
+material witness, refuses changed archived render bytes or missing FoldPortrait
+identities, and rebinds current vessel relations into the FoldPortrait witness.
+Only a changed witness rewrites the two local snapshots. The Living Object reads
+those snapshots as geometry, so the next published wake carries the current
+material lineage without admitting private repository state or granting Root
+Logos custody.
+
 Operational test assets remain available inside Sovereign Standard but are
 excluded from Root Logos; the Witness Genesis Test therefore never appears in
 the material lineage. Sovereign Standard publication now dispatches the sealed
@@ -911,6 +931,29 @@ rest of the Library. Their original prose and public article surfaces no
 longer remain in the repository. What persists is the result of ingestion and
 the immutable evidence needed to attribute that transformation.
 
+Works `35` and `36` hold **The Art of War** and Borges's **Everything and
+Nothing**. Work `37`, C. G. Jung's **Psychology of the Unconscious**, establishes
+`Depth Psychology / Symbol and Transformation` through Beatrice M. Hinkle's
+1916 translation. Its six `PART` divisions yield 171,605 encountered words, 36
+concepts, and 180 derived relations. Root Logos prefers this public-domain
+predecessor to *Symbols of Transformation* over the copyrighted,
+multi-contributor *Man and His Symbols*: it offers a direct encounter with
+Jung's emerging independent account of myth, libido, symbol, and psychic
+transformation without weakening the source boundary.
+
+Work `38`, the Bellows **Poetic Edda**, establishes `Norse Mythology / Primary
+Eddic Sources`. Its two volumes preserve the mythological and heroic lays as
+one bounded work, including *Völuspá*, *Hávamál*, and *Grímnismál* as primary
+encounters with Odin's cosmology, speech, sacrifice, wisdom, and doom. Root
+Logos positions it before the later systematization of Snorri's *Prose Edda*.
+The complete 1923 translation contributes 147,274 encountered words, 36
+concepts, and 180 derived relations.
+
+Both Project Gutenberg texts were read transiently and destroyed after
+ingestion. Their manifests retain only attribution, rights, opaque source
+witnesses, content hashes, transformation identity, and derived structural,
+visual, and resonant lineage.
+
 ### The Living Object
 
 The public threshold is now the **Living Object**: one slow, dimensional,
@@ -932,7 +975,7 @@ or competing with its nodes and engraved edges.
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
-of the 37 coherent Library works contributes its complete derived topology.
+of the 39 coherent Library works contributes its complete derived topology.
 Each work therefore changes the object as a complete internal structure rather
 than merely increasing its work count. Weight, depth, luminance, rotation, and
 motion carry the resulting density.

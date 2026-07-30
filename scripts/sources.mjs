@@ -7,6 +7,7 @@ const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const registryPath = resolve(root, "sources/registry.json");
 const snapshotPath = resolve(root, "sources/foldforge.snapshot.json");
 const sovereignStandardSnapshotPath = resolve(root, "sources/sovereign-standard.snapshot.json");
+const foldPortraitSnapshotPath = resolve(root, "sources/foldportrait.snapshot.json");
 const worksIndexPath = resolve(root, "works/index.json");
 const publicWitnessPaths = [
   resolve(root, "sources/telos.public-witness.json"),
@@ -56,6 +57,25 @@ const validateMaterialWitness = (snapshot) => {
   const serialized = JSON.stringify(snapshot).toLowerCase();
   for (const prohibited of ["holder_hash", "claimed_at", "customer", "collector", "payment", "private_receipt", "signing_key"]) {
     assert(!serialized.includes(`"${prohibited}"`), `Material witness contains prohibited field ${prohibited}.`);
+  }
+  return snapshot;
+};
+const validateFoldPortraitWitness = (snapshot, material) => {
+  assert(snapshot.schema === "root-logos-foldportrait-witness/v1", "Unsupported FoldPortrait witness schema.");
+  assert(snapshot.source_id === "foldportrait" && snapshot.status === "witnessed", "FoldPortrait witness is not active.");
+  assert(snapshot.witness === `sha256:${digest(witnessedPayload(snapshot))}`, "FoldPortrait witness digest is invalid.");
+  assert(snapshot.measures?.renders === snapshot.renders?.length, "FoldPortrait render count is inconsistent.");
+  assert(snapshot.measures?.material_matches === snapshot.renders.length, "Every FoldPortrait render must resolve to material evidence.");
+  const materialWorks = new Map(material.works.map((work) => [work.artifact_id, work]));
+  for (const render of snapshot.renders) {
+    const work = materialWorks.get(render.artifact_id);
+    assert(work, `${render.artifact_id} lacks a material witness.`);
+    assert(render.material_witness?.file_sha256 === work.file_sha256, `${render.artifact_id} material hash diverged.`);
+    assert(render.material_witness?.manifest_url === work.manifest_url, `${render.artifact_id} manifest relation diverged.`);
+    assert(render.material_witness?.vessels.length === work.vessels.length, `${render.artifact_id} vessel relation diverged.`);
+    assert(/^[a-f0-9]{64}$/.test(render.render_hash), `${render.artifact_id} lacks a render hash.`);
+    assert(/^[a-f0-9]{64}$/.test(render.convergence_hash), `${render.artifact_id} lacks a convergence hash.`);
+    assert(/^https:\/\/zeropoet\.github\.io\/FoldPortrait\//.test(render.svg_url), `${render.artifact_id} has an invalid render URL.`);
   }
   return snapshot;
 };
@@ -160,6 +180,10 @@ export const validateSources = async () => {
   const registry = validateRegistry(await loadJson(registryPath));
   const snapshot = await loadJson(snapshotPath);
   const sovereignStandardSnapshot = validateMaterialWitness(await loadJson(sovereignStandardSnapshotPath));
+  const foldPortraitSnapshot = validateFoldPortraitWitness(
+    await loadJson(foldPortraitSnapshotPath),
+    sovereignStandardSnapshot
+  );
   const worksIndex = await loadJson(worksIndexPath);
   const publicWitnesses = await Promise.all(publicWitnessPaths.map(loadJson));
   assert(snapshot.schema === "root-logos-source-snapshot/v1", "Unsupported source snapshot schema.");
@@ -181,7 +205,7 @@ export const validateSources = async () => {
     }
     assert(witness.witness === `sha256:${digest(witnessedPayload(witness))}`, `${witness.source_id} public witness digest is invalid.`);
   }
-  return { registry, snapshot, publicWitnesses, sovereignStandardSnapshot };
+  return { registry, snapshot, publicWitnesses, sovereignStandardSnapshot, foldPortraitSnapshot };
 };
 
 export const syncFoldForge = async (
@@ -202,6 +226,59 @@ export const syncSovereignStandard = async (
   return snapshot;
 };
 
+export const refreshMaterialLineage = async (
+  source = process.env.SOVEREIGN_STANDARD_WITNESS_SOURCE
+    || "https://raw.githubusercontent.com/zeropoet/sovereign-standard-site/main/root-logos-witness-export.json"
+) => {
+  const priorMaterial = await loadJson(sovereignStandardSnapshotPath);
+  const priorPortrait = await loadJson(foldPortraitSnapshotPath);
+  const material = validateMaterialWitness(await loadEvidence(source));
+  const materialWorks = new Map(material.works.map((work) => [work.artifact_id, work]));
+  const renders = priorPortrait.renders.map((render) => {
+    const work = materialWorks.get(render.artifact_id);
+    assert(work, `${render.artifact_id} disappeared from the Sovereign Standard material lineage.`);
+    assert(work.file_sha256 === render.material_witness.file_sha256, `${render.artifact_id} archived render bytes changed.`);
+    return {
+      ...render,
+      material_witness: {
+        file_sha256: work.file_sha256,
+        manifest_url: work.manifest_url,
+        mint_status: work.mint_status,
+        vessels: work.vessels.map(({ vessel_number, public_url, state, convergence_hash }) => ({
+          vessel_number, public_url, state, convergence_hash
+        }))
+      }
+    };
+  });
+  const portraitPayload = {
+    ...witnessedPayload(priorPortrait),
+    material_source_witness: material.witness,
+    measures: {
+      renders: renders.length,
+      material_matches: renders.length,
+      embodied_renders: renders.filter(({ material_witness }) => material_witness.vessels.length).length,
+      prepared_renders: renders.filter(({ material_witness }) => !material_witness.vessels.length).length
+    },
+    renders
+  };
+  const portrait = {
+    ...portraitPayload,
+    witness: `sha256:${digest(portraitPayload)}`
+  };
+  validateFoldPortraitWitness(portrait, material);
+  if (priorMaterial.witness !== material.witness) {
+    await writeFile(sovereignStandardSnapshotPath, `${JSON.stringify(material, null, 2)}\n`);
+  }
+  if (priorPortrait.witness !== portrait.witness) {
+    await writeFile(foldPortraitSnapshotPath, `${JSON.stringify(portrait, null, 2)}\n`);
+  }
+  return {
+    changed: priorMaterial.witness !== material.witness || priorPortrait.witness !== portrait.witness,
+    material,
+    portrait
+  };
+};
+
 export const sealPublicWitnesses = async () => {
   const sealed = [];
   for (const path of publicWitnessPaths) {
@@ -220,6 +297,9 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   } else if (command === "sync-sovereign-standard") {
     const snapshot = await syncSovereignStandard(process.argv[3]);
     console.log(`Witnessed ${snapshot.works.length} Sovereign Standard works at ${snapshot.witness}.`);
+  } else if (command === "refresh-material-lineage") {
+    const result = await refreshMaterialLineage(process.argv[3]);
+    console.log(`${result.changed ? "Updated" : "Confirmed"} ${result.material.works.length} Sovereign Standard works and ${result.portrait.renders.length} FoldPortrait render relations.`);
   } else if (command === "validate") {
     const { registry, snapshot, publicWitnesses } = await validateSources();
     console.log(`Validated ${registry.sources.length} sources; FoldForge is ${snapshot.status}; ${publicWitnesses.length} public witnesses are sealed.`);

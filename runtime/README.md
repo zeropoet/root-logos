@@ -66,8 +66,14 @@ Production convergence is bidirectional:
   active wake to finish, rebases to `main`, exits cleanly, and systemd restarts
   it from the converged checkout.
 - With `ROOT_LOGOS_GIT_PUBLISH=1`, cultivation commits only its bounded lineage
-  files, rebases against concurrent GitHub work, and pushes through a
+  files and refreshed public material-witness snapshots, rebases against
+  concurrent GitHub work, and pushes through a
   repository-scoped write deploy key.
+
+Before every serialized wake, the runtime scans Sovereign Standard's canonical
+public witness export and refreshes the FoldPortrait-to-material relations used
+by the Living Object. A missing identity, changed archived render hash, invalid
+witness, or prohibited private field fails the wake before cultivation.
 
 The GitHub Actions secret and server environment must share
 `ROOT_LOGOS_DEPLOY_TOKEN`. The runtime SSH key must be registered as a writable

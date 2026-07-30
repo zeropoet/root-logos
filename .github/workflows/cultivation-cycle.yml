@@ -45,6 +45,12 @@ jobs:
         with:
           node-version: 22
 
+      - name: Scan Sovereign Standard material lineage
+        run: |
+          node scripts/sources.mjs refresh-material-lineage \
+            https://raw.githubusercontent.com/zeropoet/sovereign-standard-site/main/root-logos-witness-export.json
+          node scripts/sources.mjs validate
+
       - name: Run one bounded cultivation cycle
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
@@ -66,7 +72,7 @@ jobs:
         run: |
           git config user.name "root-logos-cultivator[bot]"
           git config user.email "root-logos-cultivator[bot]@users.noreply.github.com"
-          git add cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json
+          git add cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json sources/sovereign-standard.snapshot.json sources/foldportrait.snapshot.json
           if git diff --cached --quiet; then
             echo "No cultivation state changed."
             exit 0

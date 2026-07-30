@@ -304,21 +304,25 @@ export const parseGutenbergBookText = (text) => {
   const bodyStart = startMarker ? startMarker.index + startMarker[0].length : 0;
   const bodyEnd = endMarker ? endMarker.index : normalized.length;
   const body = normalized.slice(bodyStart, bodyEnd).trim();
-  const headings = [...body.matchAll(/^BOOK\s+([IVXLCDM]+)\s*$/gmi)];
-  if (!headings.length) throw new Error("The Gutenberg text does not contain any BOOK divisions.");
+  const bookHeadings = [...body.matchAll(/^[ \t]*BOOK[ \t]+([IVXLCDM]+)[ \t]*$/gmi)];
+  const division = bookHeadings.length ? "Book" : "Part";
+  const headings = bookHeadings.length
+    ? bookHeadings
+    : [...body.matchAll(/^[ \t]*PART[ \t]+([IVXLCDM]+)[ \t]*$/gmi)];
+  if (!headings.length) throw new Error("The Gutenberg text does not contain any BOOK or PART divisions.");
   const documents = headings.map((heading, index) => {
-    const bookRoman = heading[1].toUpperCase();
-    const bookNumber = romanValue(bookRoman) || index + 1;
+    const divisionRoman = heading[1].toUpperCase();
+    const divisionNumber = romanValue(divisionRoman) || index + 1;
     const passageStart = heading.index + heading[0].length;
     const passageEnd = headings[index + 1]?.index ?? body.length;
     const passage = body.slice(passageStart, passageEnd).trim();
     return {
-      path: `book:${bookNumber}`,
-      title: `Book ${bookRoman}`,
+      path: `${division.toLowerCase()}:${divisionNumber}`,
+      title: `${division} ${divisionRoman}`,
       sections: [{
-        coordinate: `book:${bookNumber}`,
+        coordinate: `${division.toLowerCase()}:${divisionNumber}`,
         level: 2,
-        title: `Book ${bookRoman}`,
+        title: `${division} ${divisionRoman}`,
         text: passage
       }]
     };

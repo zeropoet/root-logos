@@ -89,6 +89,12 @@ export const createRuntime = async (options = {}) => {
   const allowedOrigin = options.allowedOrigin ?? process.env.ROOT_LOGOS_ALLOWED_ORIGIN ?? "https://rootlogos.com";
   const publish = options.publish ?? process.env.ROOT_LOGOS_GIT_PUBLISH === "1";
   const commandRunner = options.commandRunner || ((args) => run(process.execPath, ["scripts/cultivate.mjs", ...args], root));
+  const sourceSyncRunner = options.sourceSyncRunner || (() => run(process.execPath, [
+    "scripts/sources.mjs",
+    "refresh-material-lineage",
+    process.env.SOVEREIGN_STANDARD_WITNESS_SOURCE
+      || "https://raw.githubusercontent.com/zeropoet/sovereign-standard-site/main/root-logos-witness-export.json"
+  ], root));
   const selfAuthorshipRunner = options.selfAuthorshipRunner || ((args) => run(process.execPath, ["scripts/self-author.mjs", ...args], root));
   const deployRunner = options.deployRunner || (async () => {
     await run("git", ["pull", "--rebase", "origin", "main"], root);
@@ -187,7 +193,7 @@ export const createRuntime = async (options = {}) => {
 
   const publishChanges = async (trigger) => {
     if (!publish) return { published: false, reason: "publication-disabled" };
-    await run("git", ["add", "cultivation/state.json", "cultivation/memory.json", "cultivation/cycles", "content/constitutional-graph.json", "self-authorship/current.json", "self-authorship/lineage"], root);
+    await run("git", ["add", "cultivation/state.json", "cultivation/memory.json", "cultivation/cycles", "content/constitutional-graph.json", "self-authorship/current.json", "self-authorship/lineage", "sources/sovereign-standard.snapshot.json", "sources/foldportrait.snapshot.json"], root);
     const diff = await run("git", ["diff", "--cached", "--quiet"], root).catch((error) => ({ changed: true, error }));
     if (!diff.changed) return { published: false, reason: "no-change" };
     await run("git", ["config", "user.name", "root-logos-runtime[bot]"], root);
@@ -208,6 +214,13 @@ export const createRuntime = async (options = {}) => {
       await saveRuntimeState();
       await appendRecord({ type: "wake-started", at: iso(), trigger });
       try {
+        const sourceSync = await sourceSyncRunner();
+        await appendRecord({
+          type: "material-lineage-scanned",
+          at: iso(),
+          trigger_id: trigger.id,
+          output: sourceSync.stdout || "Sovereign Standard material lineage confirmed."
+        });
         const force = trigger.kind === "human-command";
         const args = ["cycle", ...(force ? ["--force"] : [])];
         if (trigger.event_id) {
@@ -242,7 +255,8 @@ export const createRuntime = async (options = {}) => {
         const response = {
           cycle_id: cycleId,
           summary: respondingCycle.selected_finding?.claim || respondingCycle.proposal?.summary || result.stdout.split("\n").filter(Boolean).at(-1) || "Cultivation completed.",
-          self_authorship: JSON.parse(selfAuthorship.stdout || "{}")
+          self_authorship: JSON.parse(selfAuthorship.stdout || "{}"),
+          material_lineage: sourceSync.stdout || "Sovereign Standard material lineage confirmed."
         };
         await appendRecord({ type: "wake-completed", at: iso(), trigger, output: result.stdout, response, publication });
         if (trigger.event_id) respondedEvents.add(trigger.event_id);

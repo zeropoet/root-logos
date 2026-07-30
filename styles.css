@@ -945,7 +945,7 @@ html[data-library-capture="true"] .library-shell {
 .source-node span,.source-node small { color:var(--dim); font:500 .47rem/1 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
 .source-node b { font:400 1rem/1.2 var(--body); }
 .source-node small { justify-self:end; font-size:.42rem; }
-.source-node-1 { top:6%; left:12%; }.source-node-2 { top:20%; right:0 }.source-node-3 { right:4%; bottom:13% }.source-node-4 { bottom:8%; left:5%; }
+.source-node-1 { top:6%; left:12%; }.source-node-2 { top:20%; right:0 }.source-node-3 { right:4%; bottom:13% }.source-node-4 { bottom:8%; left:5%; }.source-node-5 { top:42%; left:0; }
 .source-reading { min-height:570px; padding:clamp(28px,4vw,52px); border-top:1px solid var(--gold); border-bottom:1px solid var(--line); background:linear-gradient(135deg,rgba(203,183,122,.035),transparent 55%); }
 .source-reading h3 { margin:38px 0 8px; font:400 clamp(1.65rem,2.55vw,2.75rem)/1.08 var(--display);letter-spacing:-.04em;overflow-wrap:anywhere; }
 .source-role { margin:0;color:var(--inquiry);font:500 .54rem/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase; }
@@ -970,6 +970,8 @@ html[data-library-capture="true"] .library-shell {
 .material-witness > header b { color:#fff; }
 #material-witness-works { max-height:245px;overflow:auto;scrollbar-width:thin; }
 #material-witness-works > a { display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);color:#fff; }
+#material-witness-works > a.has-render { grid-template-columns:42px 38px minmax(0,1fr) auto; }
+#material-witness-works img { display:block;width:38px;height:38px;object-fit:cover;background:#000;filter:grayscale(1); }
 #material-witness-works > a:last-child { border-bottom:0; }
 #material-witness-works span,
 #material-witness-works small { font:500 .42rem/1.3 var(--mono);letter-spacing:.07em;text-transform:uppercase; }
@@ -1448,7 +1450,7 @@ h1, h2, h3, h4,
   .source-field-rings { width:88vw;opacity:.65; }
   .source-field-core { width:150px; }
   .source-node { width:170px; }
-  .source-node-1 { top:3%;left:0 }.source-node-2 { top:20%;right:0 }.source-node-3 { right:0;bottom:12% }.source-node-4 { bottom:0;left:0 }
+  .source-node-1 { top:3%;left:0 }.source-node-2 { top:20%;right:0 }.source-node-3 { right:0;bottom:12% }.source-node-4 { bottom:0;left:0 }.source-node-5 { top:43%;left:0 }
   .source-reading { padding:30px 20px; }
   #composition-ledger article { grid-template-columns:26px 1fr; }
   #composition-ledger ol,#composition-ledger article > i { grid-column:2; }

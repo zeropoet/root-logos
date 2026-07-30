@@ -239,8 +239,9 @@
     fetchJson("content/attractor-packets.json"),
     fetchJson("self-authorship/current.json"),
     fetchJson("sources/foldforge.snapshot.json"),
+    fetchJson("sources/foldportrait.snapshot.json"),
     fetchTelosStream()
-  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge, telosStream]) => {
+  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge, foldportrait, telosStream]) => {
     const works = worksIndex.works || [];
     const compiledBibleCollections = new Set([
       "Original Douay-Rheims Catholic Canon",
@@ -269,7 +270,9 @@
     $("#archive-revision").textContent = `Revision ${revision}`;
     const crossRelations = (corpus.edges?.length || 0) + independentRelations.length;
     const telosEventCount = telosStream.events?.length || 0;
-    $("#object-state").textContent = `Root Logos holds ${coherentWorkCount} coherent works and ${crossRelations.toLocaleString()} witnessed tensions. Telos Stream enters through ${telosEventCount} bounded public events; no private or executable state crosses the object.`;
+    const portraitCount = foldportrait.measures?.renders || 0;
+    const embodiedPortraitCount = foldportrait.measures?.embodied_renders || 0;
+    $("#object-state").textContent = `Root Logos holds ${coherentWorkCount} coherent works and ${crossRelations.toLocaleString()} witnessed tensions. The Living Object carries ${portraitCount} FoldPortrait render witnesses, ${embodiedPortraitCount} embodied in the Sovereign Standard material lineage. Telos Stream enters through ${telosEventCount} bounded public events.`;
     document.title = `${identity.name || "Root Logos"} — The Living Object`;
 
     if (!gl) {
@@ -278,7 +281,7 @@
       return;
     }
 
-    const geometry = formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions, telosStream });
+    const geometry = formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions, foldportrait, telosStream });
     const renderer = createRenderer(gl, geometry);
     activeRenderer = renderer;
     if (pendingRelease) renderer.setRelease(pendingRelease);
@@ -353,6 +356,12 @@
         relation: "recurrence becomes attributable lexical pressure",
         terms: foldforge.language_composition?.terms?.map(({ term }) => term) || []
       }, {
+        source: "foldportrait",
+        witness: foldportrait.witness,
+        role: "verified material-render lineage",
+        relation: "render identity enters the Living Object through its corresponding Sovereign Standard witness",
+        terms: []
+      }, {
         source: "telos-stream",
         witness: telosStream.source?.witness,
         role: "silent public build witness",
@@ -365,7 +374,7 @@
     $("#object-state").textContent = "The current form is temporarily beyond view. Its archive remains intact.";
   });
 
-  function formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions = new Map(), telosStream }) {
+  function formGeometry({ graph, works, corpus, cultivation, memory, attractors, independentEditions = new Map(), foldportrait, telosStream }) {
     const lines = [];
     const points = [];
     const facets = [];
@@ -642,6 +651,39 @@
       const p = [Math.cos(angle) * 1.95, -1.53 + (index % 4) * 0.08, Math.sin(angle) * 1.95];
       addPoint(p, palette.structure, 2.6, 0.86 + index * 0.003);
     }
+
+    // FoldPortrait's completed render archive enters as a verified material
+    // lineage inside the body. Each point is derived from the render hashes;
+    // vessel-embodied witnesses bind more strongly to the trunk.
+    const portraitRenders = (foldportrait?.renders || []).slice(0, 96);
+    const portraitRoot = trunk[Math.min(trunk.length - 1, Math.round(cycles * 0.66))];
+    const portraitAnchor = [-0.18, portraitRoot[1] + 0.18, -0.24];
+    addLine(portraitRoot, portraitAnchor, [...palette.lineage.slice(0, 3), 0.52], 0.72);
+    addPoint(portraitAnchor, [...palette.lineage.slice(0, 3), 0.78], 5.8, 0.73);
+    let previousPortrait = portraitAnchor;
+    portraitRenders.forEach((render, index) => {
+      const t = (index + 1) / Math.max(1, portraitRenders.length);
+      const identity = `${render.render_hash}:${render.convergence_hash}:${render.memory_signature}`;
+      const angle = t * Math.PI * 10.5 + hash(identity) * 0.7;
+      const refinement = Math.min(1, Math.max(0, Number(render.refinement_depth || 0) / 64));
+      const radius = 0.28 + t * 0.88 + refinement * 0.18;
+      const position = [
+        portraitAnchor[0] + Math.cos(angle) * radius,
+        portraitAnchor[1] - 0.48 + t * 1.52 + (hash(`${identity}:y`) - 0.5) * 0.18,
+        portraitAnchor[2] + Math.sin(angle) * radius
+      ];
+      const embodied = Boolean(render.material_witness?.vessels?.length);
+      const color = [...palette.lineage.slice(0, 3), embodied ? 0.82 : 0.3];
+      const birth = 0.73 + t * 0.19;
+      addPoint(position, color, embodied ? 5.3 : 2.7 + refinement * 1.2, birth);
+      addLine(previousPortrait, position, [...color.slice(0, 3), embodied ? 0.36 : 0.13], birth);
+      if (embodied) {
+        addLine(portraitAnchor, position, [...palette.lineage.slice(0, 3), 0.58], birth);
+        addFacet(portraitAnchor, previousPortrait, position, [...palette.lineage.slice(0, 3), 0.022], birth);
+        pulsePaths.push([portraitRoot, portraitAnchor, position]);
+      }
+      previousPortrait = position;
+    });
 
     // Telos Stream is a one-way public aperture, not part of Root Logos's
     // custody or execution plane. Its released revision and state witnesses

@@ -56,6 +56,20 @@ The second book answers.
 assert.deepEqual(gutenbergFixture.documents.map(({ path }) => path), ["book:1", "book:2"]);
 assert.equal(gutenbergFixture.documents[0].sections[0].text, "The first book begins.");
 assert.equal(gutenbergFixture.documents[1].sections[0].text, "The second book answers.");
+const gutenbergPartFixture = parseGutenbergBookText(`*** START OF THE PROJECT GUTENBERG EBOOK TEST ***
+
+PART I
+
+The first part descends.
+
+PART II
+
+The second part returns.
+
+*** END OF THE PROJECT GUTENBERG EBOOK TEST ***`);
+assert.deepEqual(gutenbergPartFixture.documents.map(({ path }) => path), ["part:1", "part:2"]);
+assert.equal(gutenbergPartFixture.documents[0].sections[0].title, "Part I");
+assert.equal(gutenbergPartFixture.documents[1].sections[0].text, "The second part returns.");
 const protestantFixture = parseMidvashBible(JSON.stringify({
   name: "Test Protestant Bible",
   books: [

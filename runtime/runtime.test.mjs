@@ -21,6 +21,7 @@ await Promise.all([
 ]);
 
 const calls = [];
+const sourceScans = [];
 const deployments = [];
 const secret = "test-intake-secret";
 const admin = "test-admin-token";
@@ -28,6 +29,10 @@ const { server, runtime } = await startServer({
   root: sandbox, dataDir: join(sandbox, "data"), port: 0, intakeSecret: secret, adminToken: admin, deployToken: "test-deploy-token",
   journalSecret: "test-journal-encryption-secret", journalCollectionEnabled: true, journalPollIntervalMs: 86_400_000,
   commandRunner: async (args) => { calls.push(args); return { stdout: "test cycle complete", stderr: "" }; },
+  sourceSyncRunner: async () => {
+    sourceScans.push("sovereign-standard");
+    return { stdout: "Confirmed 53 Sovereign Standard works and 52 FoldPortrait render relations.", stderr: "" };
+  },
   deployRunner: async (sha) => { deployments.push(sha); return { restart: false }; }
 });
 const base = `http://127.0.0.1:${server.address().port}`;
@@ -55,6 +60,7 @@ try {
   assert.equal(publicReceipt.wake_queued, true);
   await runtime.waitForIdle();
   assert.ok(calls.some((args) => args.includes("--intake-context")));
+  assert.equal(sourceScans.length, 1);
 
   const deniedIntake = await fetch(`${base}/v1/admin/intake`);
   assert.equal(deniedIntake.status, 401);
@@ -105,6 +111,7 @@ try {
   assert.equal(wake.status, 202);
   await runtime.waitForIdle();
   assert.deepEqual(calls.at(-1), ["cycle", "--force"]);
+  assert.equal(sourceScans.length, 3);
 
   const deniedJournal = await fetch(`${base}/v1/admin/journal`);
   assert.equal(deniedJournal.status, 401);
@@ -192,6 +199,7 @@ try {
   const journal = await readFile(join(sandbox, "data", "intake.jsonl"), "utf8");
   assert.match(journal, /observation-accepted/);
   assert.match(journal, /wake-completed/);
+  assert.match(journal, /material-lineage-scanned/);
   process.stdout.write("PASS unified public membrane, autonomous intake, immutable receipts, signed intake, serialized wakes, one-time Source Grants, encrypted transient journal processing, raw release, autonomous judgment, deduplication, prompt-instruction isolation, revocation, and human command boundary.\n");
 } finally {
   await new Promise((resolveClose) => server.close(resolveClose));
