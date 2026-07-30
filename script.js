@@ -412,26 +412,6 @@ const sharedKeywords = (left, right) => {
   return (right.keywords || []).map((word) => word.toLowerCase()).filter((word) => a.has(word));
 };
 
-const renderHealth = () => {
-  const nodes = app.graph.nodes;
-  const edges = app.graph.edges;
-  const degree = new Map(nodes.map(({ id }) => [id, 0]));
-  edges.forEach(({ from, to }) => { degree.set(from, (degree.get(from) || 0) + 1); degree.set(to, (degree.get(to) || 0) + 1); });
-  const questions = nodes.filter(({ type }) => type === "open-question");
-  const isolated = nodes.filter(({ id }) => !degree.get(id)).length;
-  const judged = app.cycles.filter(({ autonomous_judgment }) => autonomous_judgment);
-  const provenance = app.cycles.filter(({ source_snapshot, events }) => source_snapshot && events?.length).length;
-  const measures = [
-    ["Relation", Math.min(100, Math.round(edges.length / Math.max(nodes.length, 1) * 34)), `${edges.length} witnessed edges`],
-    ["Uncertainty", Math.min(100, 34 + questions.length * 7), `${questions.length} open questions remain`],
-    ["Memory", Math.min(100, Object.keys(app.memory?.hypotheses || {}).length * 9), `${Object.keys(app.memory?.hypotheses || {}).length} distinct hypotheses`],
-    ["Provenance", app.cycles.length ? Math.round(provenance / app.cycles.length * 100) : 0, `${provenance}/${app.cycles.length} cycles fully traced`],
-    ["Corrigibility", judged.length ? Math.round(judged.filter(({ autonomous_judgment }) => autonomous_judgment.checks?.corrigibility).length / judged.length * 100) : 0, `${judged.length} adversarial judgments`],
-    ["Integration", Math.max(0, 100 - isolated * 8), `${isolated} isolated structures`]
-  ];
-  $("#health-profile").innerHTML = measures.map(([name, value, detail]) => `<article style="--health:${value}%"><span>${escapeHtml(name)}</span><i><b></b></i><strong>${value}</strong><small>${escapeHtml(detail)}</small></article>`).join("");
-};
-
 class LivingObservatory {
   constructor(canvas) {
     this.canvas = canvas;
@@ -948,7 +928,6 @@ const initialize = async () => {
     renderPresence();
     renderSources();
     renderLatestCycle();
-    renderHealth();
     field = new ConstitutionalField($("#field-canvas"), app.graph);
     if (!resolveFieldDeepLink()) {
       const returningFragmentId = new URLSearchParams(location.search).get("from");

@@ -1243,14 +1243,6 @@ body.constitution-index::before { opacity:.7; }
 .reading-actions span { color: var(--ivory); font: 500 .56rem/1 var(--mono); letter-spacing: .11em; text-transform: uppercase; }
 .reading-actions i { color: var(--gold); font-size: .86rem; }
 .inspector-provenance { margin: 18px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line); color: var(--inquiry); font: 500 .54rem/1.6 var(--mono); letter-spacing: .05em; }
-.structural-health { display: grid; grid-template-columns: minmax(250px,.7fr) minmax(0,1.8fr); gap: clamp(40px,7vw,100px); width: min(1500px,100%); margin: clamp(70px,8vw,120px) auto 0; }
-.structural-health header h3 { margin: 18px 0; font: 400 clamp(1.8rem,2.7vw,2.85rem)/1.06 var(--display); letter-spacing: -.04em; overflow-wrap: anywhere; }
-.structural-health header > p:last-child { max-width: 380px; color: var(--bone); line-height: 1.6; }
-.health-profile { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-.health-profile article { display: grid; grid-template-columns: 1fr auto; gap: 13px; min-height: 145px; padding: 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.health-profile span { color: var(--dim); font: 500 .52rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
-.health-profile strong { color: var(--gold); font: 400 1.7rem/1 var(--display); }
-
 /* FoldForge type presentation: the sans face stays light and tightly set at
    display scale; architectural headings are uppercase, while authored work
    titles and sustained prose retain their original casing. */
@@ -1259,8 +1251,7 @@ h1, h2, h3, h4,
 .identity-organ b,
 .chamber-readout > strong,
 .intake-readout strong,
-.source-field-core strong,
-.health-profile strong {
+.source-field-core strong {
   font-weight: 300;
 }
 
@@ -1276,14 +1267,9 @@ h1, h2, h3, h4,
 .composition-ledger header h3,
 .resonance-primary h3,
 .resonance-ledger h3,
-.observatory-stage-head h3,
-.structural-health header h3 {
+.observatory-stage-head h3 {
   text-transform: uppercase;
 }
-.health-profile i { grid-column: 1 / -1; align-self: end; display: block; height: 2px; background: var(--line); }
-.health-profile i b { display: block; width: var(--health); height: 100%; background: linear-gradient(90deg,var(--inquiry),var(--gold)); }
-.health-profile small { grid-column: 1 / -1; color: var(--bone); font-size: .74rem; }
-
 .observatory-substrate,
 .observatory-health {
   width: min(1500px, 100%);
@@ -1482,7 +1468,6 @@ h1, h2, h3, h4,
   .observatory-modes { grid-template-columns: repeat(6,minmax(120px,1fr)); overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); }
   .observatory-modes button { min-width: 125px; border-right: 1px solid var(--line); }
   .observatory-reading { top: 82px; width: min(440px,100%); }
-  .structural-health { grid-template-columns: 1fr; }
   .proposal-stack { display: flex; gap: 10px; overflow-x: auto; border: 0; }
   .proposal-card { min-width: 260px; border: 1px solid var(--line); padding: 16px; }
   .review-surface { min-height: auto; padding: 25px 20px; }
@@ -1525,7 +1510,6 @@ h1, h2, h3, h4,
   .observatory-legend { top: 135px; left: 20px; }
   .observatory-selection { padding: 13px 18px; }
   .observatory-selection > i { display: none; }
-  .health-profile { grid-template-columns: 1fr 1fr; }
   .site-footer { grid-template-columns: 1fr; justify-items: start; }
   .footer-tea { width:100%;min-height:270px;padding:30px 22px; }
   .footer-tea span { font-size:clamp(1.8rem,8vw,3.2rem); }
@@ -2083,32 +2067,16 @@ body.archive-open .site-footer nav {
 .state-space .source-measures { grid-template-columns:repeat(4,1fr); }
 .state-space .source-boundary { max-width:950px;color:rgba(255,255,255,.4); }
 .state-space .source-reading > a { color:#fff; }
-.state-health {
-  display:grid;
-  grid-template-columns:minmax(180px,.35fr) minmax(0,1.65fr);
-  gap:40px;
-  margin-top:clamp(90px,10vw,135px);
-  padding-top:30px;
-  border-top:1px solid rgba(255,255,255,.32);
-}
-.state-space .health-profile { grid-template-columns:repeat(6,1fr);border-color:rgba(255,255,255,.14); }
-.state-space .health-profile article { min-height:112px;padding:15px;border-color:rgba(255,255,255,.14); }
-.state-space .health-profile strong { color:#fff;font:300 1.45rem/1 var(--mono); }
-.state-space .health-profile i { height:1px;background:rgba(255,255,255,.12); }
-.state-space .health-profile i b { background:#fff; }
-.state-space .health-profile small { color:rgba(255,255,255,.46);font-size:.62rem;line-height:1.4; }
 .state-space .decision-seal { color:#fff;border-color:rgba(255,255,255,.3); }
 .state-space .decision-seal.is-rejected { color:#e21b1b;border-color:#e21b1b; }
 
 @media (max-width:1000px) {
   .state-primary,
-  .state-source-layout,
-  .state-health { grid-template-columns:1fr; }
+  .state-source-layout { grid-template-columns:1fr; }
   .state-cycle { min-height:380px;padding-right:0; }
   .state-condition { padding-left:0;border-top:1px solid rgba(255,255,255,.16);border-left:0; }
   .state-space .source-nodes { display:grid;grid-template-columns:1fr 1fr;border-right:0;border-bottom:1px solid rgba(255,255,255,.16); }
   .state-space .source-node:nth-child(odd) { border-right:1px solid rgba(255,255,255,.12); }
-  .state-space .health-profile { grid-template-columns:repeat(3,1fr); }
 }
 
 @media (max-width:640px) {
@@ -2121,7 +2089,6 @@ body.archive-open .site-footer nav {
   .state-space .source-node:nth-child(odd) { border-right:0; }
   .state-space .source-reading { padding:32px 0; }
   .state-space .source-measures { grid-template-columns:1fr 1fr; }
-  .state-space .health-profile { grid-template-columns:1fr 1fr; }
 }
 
 /* Revision 1.4 — Living Architectural Data Archive
@@ -2367,12 +2334,10 @@ body.archive-open .state-primary { border-top:0; }
 body.archive-open .state-cycle,
 body.archive-open .state-condition,
 body.archive-open .source-reading { background:rgba(0,0,0,.94); }
-body.archive-open .state-sources,
-body.archive-open .state-health {
+body.archive-open .state-sources {
   position:relative;
 }
-body.archive-open .state-sources::before,
-body.archive-open .state-health::before {
+body.archive-open .state-sources::before {
   content:"LIVE RELATION";
   position:absolute;
   top:-17px;
