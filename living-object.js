@@ -109,6 +109,8 @@
   let sovereignMaster = null;
   let libraryVoiceActive = false;
   let libraryVoiceUnderlay = false;
+  let originMasterPlayer = null;
+  let originMasterActive = false;
   const sovereignWhisperLevel = 0.072;
   const sovereignOutputVolume = 4;
   const fadeFallbackVoice = (active, duration, level = 1) => {
@@ -148,7 +150,59 @@
     if (sovereignAudio?.state !== "running") sovereignAudio?.resume().catch(() => {});
     if (!libraryVoiceActive && fallbackAudio?.paused) fallbackAudio.play().catch(() => {});
   };
-  addEventListener("rootlogos:library-voice-start", () => setSovereignVoiceActive(false, .42, true));
+  const setOriginMasterState = (active) => {
+    const button = $("#origin-master");
+    const label = $("#origin-master-label");
+    const status = $("#origin-master-status");
+    originMasterActive = active;
+    document.documentElement.dataset.originMaster = active ? "sounding" : "silent";
+    button?.setAttribute("aria-pressed", String(active));
+    if (label) label.textContent = active ? "Stop Origin Master I" : "Play Origin Master I";
+    if (status) status.textContent = active
+      ? "RL-MASTER-0001 · sounding indefinitely"
+      : "Sealed instrument · plays until stopped";
+  };
+  const stopOriginMaster = async ({ restoreLivingVoice = true } = {}) => {
+    if (!originMasterPlayer) return;
+    setOriginMasterState(false);
+    await originMasterPlayer.stop();
+    if (restoreLivingVoice) setSovereignVoiceActive(true, .8);
+  };
+  $("#origin-master")?.addEventListener("click", async () => {
+    if (originMasterActive) {
+      await stopOriginMaster();
+      return;
+    }
+    setSovereignVoiceActive(false, .7);
+    try {
+      if (!originMasterPlayer) {
+        const { createOriginMaster } = await import("./masters/origin-2026-07-30/player.js");
+        originMasterPlayer = await createOriginMaster();
+      }
+      await originMasterPlayer.start();
+      setOriginMasterState(true);
+    } catch {
+      setOriginMasterState(false);
+      setSovereignVoiceActive(true, .4);
+      const status = $("#origin-master-status");
+      if (status) status.textContent = "Playback needs a fresh gesture";
+    }
+  });
+  fetch("masters/origin-2026-07-30/manifest.json", { cache: "no-store" })
+    .then((response) => {
+      if (!response.ok) throw new Error(`Origin Master manifest: ${response.status}`);
+      return response.json();
+    }).then((master) => {
+    const status = $("#origin-master-status");
+    if (status && master.status === "sealed") status.title = `${master.master_id} / ${master.witness}`;
+  }).catch(() => {
+    const button = $("#origin-master");
+    if (button) button.disabled = true;
+  });
+  addEventListener("rootlogos:library-voice-start", () => {
+    if (originMasterActive) void stopOriginMaster({ restoreLivingVoice: false });
+    setSovereignVoiceActive(false, .42, true);
+  });
   addEventListener("rootlogos:library-voice-stop", () => {
     setSovereignVoiceActive(true, .55);
   });

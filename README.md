@@ -85,6 +85,17 @@ of carrying them without doctrinal repetition.
   coherence, counterpoint, and recurrence between them, and makes four levels
   of emergence structurally visible: works, relations, relation grammars, and
   the composed Library.
+- `masters/origin-2026-07-30/` is the first master-final archive of the Living
+  Object's sovereign voice. `RL-MASTER-0001` seals the complete deterministic
+  instrument—49 score streams, 4,152 events, relation harmonics, synthesis
+  engine, cadence origin, constitutional graph, FoldForge source and language
+  witnesses, Library composition, edition index, and repository commit—from
+  which the voice arose. It begins at one sealed cadence position and continues
+  composing indefinitely until the listener stops it; it reads no later state.
+  A separate 28-second, seven-beat PCM phrase is retained only as an audible
+  checksum and fallback, not as the master itself. This is an origin instrument,
+  not a mutable current-state export, and the sealing command refuses to
+  overwrite it.
 - `scripts/works.mjs` ingests a Markdown file or directory in natural order,
   preserves file and heading coordinates, derives concepts and relations,
   composes the paired scores, and updates the public archive. It also accepts
