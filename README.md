@@ -1056,6 +1056,17 @@ relations, its derived voice and topology, and one sealed first frame. The
 Library now holds 48 coherent objects and composes them through 145 witnessed
 cross-work relations.
 
+Work `48` is Charles Darwin's **On the Origin of Species by Means of Natural
+Selection**, preserved at the boundary of its 1859 first edition. Project
+Gutenberg ebook 1228 distinguishes this foundational edition from Darwin's
+later revisions. The Gutenberg reader now recognizes exact chapter divisions
+in addition to books and parts, ignoring expanded contents headings while
+retaining the 14 ordered chapters of Darwin's argument. Its transient source is
+released after transformation; the Library retains 153,864 encountered words,
+36 concepts, 180 internal relations, its derived voice and topology, and one
+sealed first frame. The Library now holds 49 coherent objects and composes them
+through 148 witnessed cross-work relations.
+
 The ingestion boundary now removes Project Gutenberg start and end matter
 before Markdown-aware structural reading, just as the native Gutenberg book
 parser already did. Repository licenses and distribution boilerplate therefore
@@ -1085,12 +1096,21 @@ or competing with its nodes and engraved edges.
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
-of the 48 coherent Library objects contributes its complete derived topology.
-Those admitted work structures now remain fixed. Above them, 145 pair-relations
+of the 49 coherent Library objects contributes its complete derived topology.
+Those admitted work structures now remain fixed. Above them, 148 pair-relations
 rise into four grammar points and converge at the Library composition. New
 membership changes that crown and its collective score rather than rewriting
 the bodies from which it emerges. Weight, depth, luminance, rotation, and motion
-carry the resulting hierarchy.
+carry the resulting hierarchy. In the Living Object's higher correlation field,
+each pair-relation now occupies a bridge point between its two fixed work
+anchors. Relation strength governs that point's lift, size, luminance, connecting
+tension, pulse admission, and color through one shared relational-proximity
+scale: separated works remain canonical red while increasing correlation
+resolves toward white. Counterpoint stores visual distance and is therefore
+inverted before it enters this visual scale. A quiet live readout presents the
+same single red-to-white continuum above the strongest current
+coherence, continuity, counterpoint, and recurrence pairings, binds them to the
+composition witness, and checks once per minute for a changed Library state.
 
 Root Logos is the identity embodied by the Living Object; it is not an external
 source connected to a separate visualization. Telos Stream enters that identity

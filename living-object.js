@@ -203,6 +203,48 @@
     if (!response.ok) throw new Error(`${url}: ${response.status}`);
     return response.json();
   });
+  const relationalProximity = (kind, strength) => {
+    const normalized = Math.max(0, Math.min(1, Number(strength || 0)));
+    return kind === "counterpoint" ? 1 - normalized : normalized;
+  };
+  const renderCorrelationReadout = (composition) => {
+    const relations = composition?.relations || [];
+    const works = new Map((composition?.primitives || []).map((work) => [work.work_id, work.title]));
+    const kinds = ["coherence", "continuity", "counterpoint", "recurrence"];
+    const strongest = kinds.map((kind) => relations
+      .filter((relation) => relation.kind === kind)
+      .sort((left, right) => Number(right.strength || 0) - Number(left.strength || 0)
+        || left.id.localeCompare(right.id))[0]).filter(Boolean);
+    const readout = $("#correlation-readout");
+    if (readout) {
+      readout.replaceChildren(...strongest.map((relation) => {
+        const row = document.createElement("li");
+        const kind = document.createElement("span");
+        const pair = document.createElement("strong");
+        const strength = document.createElement("b");
+        kind.textContent = relation.kind;
+        pair.textContent = `${works.get(relation.from) || relation.from} ↔ ${works.get(relation.to) || relation.to}`;
+        pair.title = pair.textContent;
+        const proximity = relationalProximity(relation.kind, relation.strength);
+        const percentage = Math.round(proximity * 100);
+        strength.textContent = `${percentage}%`;
+        strength.title = `${percentage}% relational proximity`;
+        row.append(kind, pair, strength);
+        return row;
+      }));
+    }
+    const measures = composition?.measures || {};
+    const measureNode = $("#correlation-measures");
+    const witnessNode = $("#correlation-witness");
+    const statusNode = $("#correlation-status");
+    if (measureNode) measureNode.textContent = `${measures.works || 0} works · ${measures.relations || 0} relations`;
+    if (witnessNode) {
+      const witness = String(composition?.witness || "").replace(/^sha256:/, "");
+      witnessNode.textContent = witness ? `Witness ${witness.slice(0, 12)}` : "Witness —";
+      witnessNode.title = composition?.witness || "";
+    }
+    if (statusNode) statusNode.textContent = "Live · 60 s";
+  };
   const fetchTelosStream = async () => {
     try {
       const stream = await fetchJson("https://zeropoet.github.io/telos-stream/stream.json");
@@ -245,6 +287,7 @@
     fetchJson("works/library-composition.json"),
     fetchTelosStream()
   ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge, foldportrait, libraryComposition, telosStream]) => {
+    renderCorrelationReadout(libraryComposition);
     const works = worksIndex.works || [];
     const compiledBibleCollections = new Set([
       "Original Douay-Rheims Catholic Canon",
@@ -352,6 +395,18 @@
       }
     });
     if (visible) lifetime.frameRequest = requestAnimationFrame(frame);
+    const compositionWitness = libraryComposition.witness;
+    setInterval(async () => {
+      if (document.hidden) return;
+      try {
+        const latest = await fetchJson(`works/library-composition.json?correlation=${Date.now()}`);
+        renderCorrelationReadout(latest);
+        if (latest.witness && latest.witness !== compositionWitness) location.reload();
+      } catch {
+        const statusNode = $("#correlation-status");
+        if (statusNode) statusNode.textContent = "Held · retrying";
+      }
+    }, 60_000);
     const lexicalRelations = composeLexicalRelations(foldforge.language_composition);
     const scores = [
       corpus.sound,
@@ -683,26 +738,48 @@
     // existing work anchors exactly; relations, grammars, and the composed
     // Library rise above them without moving or regenerating any work.
     const compositionPositions = new Map(workLeafPositions);
+    const compositionRelations = new Map((libraryComposition?.relations || []).map((relation) => [relation.id, relation]));
     const compositionNodes = libraryComposition?.visual?.topology?.nodes || [];
     compositionNodes.filter(({ level }) => level > 0).forEach((node) => {
+      const relation = compositionRelations.get(node.id);
+      const relationStrength = relationalProximity(
+        relation?.kind || node.relation_kind,
+        relation?.strength ?? node.strength ?? 0
+      );
+      const from = relation ? compositionPositions.get(relation.from) : null;
+      const to = relation ? compositionPositions.get(relation.to) : null;
+      const midpoint = from && to
+        ? [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2, (from[2] + to[2]) / 2]
+        : null;
       const levelY = node.level === 1 ? 1.34 : node.level === 2 ? 1.88 : 2.42;
-      const position = [
-        Number(node.layoutX || 0) * (node.level === 1 ? 1.46 : .92),
-        levelY + Number(node.layoutY || 0) * .08,
-        Number(node.layoutZ || 0) * (node.level === 1 ? 1.46 : .92)
-      ];
+      const position = midpoint
+        ? [
+          midpoint[0] * (.9 - relationStrength * .12),
+          Math.max(1.08, midpoint[1] + .42) + relationStrength * .42,
+          midpoint[2] * (.9 - relationStrength * .12)
+        ]
+        : [
+          Number(node.layoutX || 0) * .92,
+          levelY + Number(node.layoutY || 0) * .08,
+          Number(node.layoutZ || 0) * .92
+        ];
       compositionPositions.set(node.id, position);
-      const alpha = node.level === 1 ? .28 : node.level === 2 ? .58 : .94;
-      const size = node.level === 1 ? 2.2 : node.level === 2 ? 6.4 : 13.8;
-      addPoint(position, [...palette.lineage.slice(0, 3), alpha], size, .88 + node.level * .025);
+      const alpha = node.level === 1 ? .1 + relationStrength * .78 : node.level === 2 ? .58 : .94;
+      const size = node.level === 1 ? 1.8 + relationStrength * 6.4 : node.level === 2 ? 6.4 : 13.8;
+      const correlationCluster = node.level === 1 ? -1 - relationStrength : 0;
+      addPoint(position, [...palette.lineage.slice(0, 3), alpha], size, .88 + node.level * .025, correlationCluster);
     });
     (libraryComposition?.visual?.topology?.edges || []).forEach((edge, index, edges) => {
       const from = compositionPositions.get(edge.from);
       const to = compositionPositions.get(edge.to);
       if (!from || !to) return;
-      const alpha = edge.relation === "emerges-as" ? .72 : edge.relation === "composes" ? .3 : .095;
-      addLine(from, to, [...palette.lineage.slice(0, 3), alpha], .89 + index / Math.max(1, edges.length) * .08);
-      if (edge.relation === "emerges-as" || index % 31 === 0) pulsePaths.push([from, to]);
+      const strength = relationalProximity(edge.relation_kind, (Number(edge.weight || 1) - 1) / 8);
+      const alpha = edge.relation === "emerges-as"
+        ? .72
+        : edge.relation === "composes" ? .12 + strength * .4 : .035 + strength * .34;
+      const correlationCluster = edge.relation === "emerges-as" ? 0 : -1 - strength;
+      addLine(from, to, [...palette.lineage.slice(0, 3), alpha], .89 + index / Math.max(1, edges.length) * .08, correlationCluster);
+      if (edge.relation === "emerges-as" || strength >= .62 || index % 47 === 0) pulsePaths.push([from, to]);
     });
 
     const packetCount = (attractors.packets || []).filter((packet) => packet.publication?.status === "published").length;
@@ -800,6 +877,7 @@
       uniform float uReleaseRadius;
       varying vec4 vColor;
       varying float vVisible;
+      varying float vCorrelation;
       void main() {
         float cy = cos(uYaw), sy = sin(uYaw);
         float cx = cos(uPitch), sx = sin(uPitch);
@@ -828,7 +906,9 @@
         vec3 pearl = vec3(0.94, 0.91, 0.82);
         vec3 releaseColor = mix(pearl, spectral, 0.46);
         releaseColor += vec3(0.06, 0.08, 0.09) * (0.5 + 0.5 * interference);
-        vColor = vec4(mix(canonical, releaseColor, releaseField), aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
+        vCorrelation = clamp(-aCluster - 1.0, 0.0, 1.0);
+        vec3 correlationColor = mix(canonical, vec3(1.0), vCorrelation);
+        vColor = vec4(mix(correlationColor, releaseColor, releaseField), aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
         vVisible = arrival;
       }
     `;

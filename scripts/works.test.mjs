@@ -70,6 +70,22 @@ The second part returns.
 assert.deepEqual(gutenbergPartFixture.documents.map(({ path }) => path), ["part:1", "part:2"]);
 assert.equal(gutenbergPartFixture.documents[0].sections[0].title, "Part I");
 assert.equal(gutenbergPartFixture.documents[1].sections[0].text, "The second part returns.");
+const gutenbergChapterFixture = parseGutenbergBookText(`*** START OF THE PROJECT GUTENBERG EBOOK TEST ***
+
+CHAPTER I. A TABLE-OF-CONTENTS ENTRY.
+
+CHAPTER I.
+
+The first chapter varies.
+
+CHAPTER II.
+
+The second chapter is selected.
+
+*** END OF THE PROJECT GUTENBERG EBOOK TEST ***`);
+assert.deepEqual(gutenbergChapterFixture.documents.map(({ path }) => path), ["chapter:1", "chapter:2"]);
+assert.equal(gutenbergChapterFixture.documents[0].sections[0].title, "Chapter I");
+assert.equal(gutenbergChapterFixture.documents[1].sections[0].text, "The second chapter is selected.");
 const protestantFixture = parseMidvashBible(JSON.stringify({
   name: "Test Protestant Bible",
   books: [

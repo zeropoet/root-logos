@@ -310,11 +310,15 @@ export const parseGutenbergBookText = (text) => {
   const bodyEnd = endMarker ? endMarker.index : normalized.length;
   const body = normalized.slice(bodyStart, bodyEnd).trim();
   const bookHeadings = [...body.matchAll(/^[ \t]*BOOK[ \t]+([IVXLCDM]+)[ \t]*$/gmi)];
-  const division = bookHeadings.length ? "Book" : "Part";
-  const headings = bookHeadings.length
-    ? bookHeadings
+  const partHeadings = bookHeadings.length
+    ? []
     : [...body.matchAll(/^[ \t]*PART[ \t]+([IVXLCDM]+)[ \t]*$/gmi)];
-  if (!headings.length) throw new Error("The Gutenberg text does not contain any BOOK or PART divisions.");
+  const chapterHeadings = bookHeadings.length || partHeadings.length
+    ? []
+    : [...body.matchAll(/^[ \t]*CHAPTER[ \t]+([IVXLCDM]+)\.[ \t]*$/gmi)];
+  const division = bookHeadings.length ? "Book" : partHeadings.length ? "Part" : "Chapter";
+  const headings = bookHeadings.length ? bookHeadings : partHeadings.length ? partHeadings : chapterHeadings;
+  if (!headings.length) throw new Error("The Gutenberg text does not contain any BOOK, PART, or CHAPTER divisions.");
   const documents = headings.map((heading, index) => {
     const divisionRoman = heading[1].toUpperCase();
     const divisionNumber = romanValue(divisionRoman) || index + 1;
