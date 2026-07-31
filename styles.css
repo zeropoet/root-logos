@@ -384,9 +384,7 @@ body.object-open .site-footer { display:none !important; }
 body.object-open .site-header,
 body.object-open .object-identity,
 body.object-open .object-witness,
-body.object-open .object-consent,
 body.object-open .object-instruction { display:none; }
-body.object-open .object-consent { display:block; }
 body.archive-open .object-space { display:none; }
 body.archive-open main {
   display: flex;
@@ -449,15 +447,6 @@ body.archive-open #intake { order: 4; }
 .object-witness > p { margin:0 0 14px;color:var(--bone);font-size:clamp(.94rem,1.2vw,1.14rem);line-height:1.5; }
 .object-witness small { display:flex;align-items:center;gap:10px;color:var(--dim);font:500 .43rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase; }
 .object-witness i { width:16px;height:1px;background:var(--line); }
-.object-consent { position:absolute;z-index:4;right:var(--edge);bottom:clamp(84px,11vh,124px);width:min(280px,23vw); }
-#origin-master { display:flex;align-items:center;gap:12px;width:100%;padding:12px 0;border:0;border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line);background:transparent;cursor:pointer;text-align:left; }
-#origin-master > span { position:relative;display:grid;place-items:center;width:29px;height:29px;border:1px solid var(--line-strong);border-radius:50%; }
-#origin-master > span::before { content:"";position:absolute;inset:5px;border:1px solid var(--line);border-radius:50%; }
-#origin-master i { width:4px;height:4px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold); }
-#origin-master b { color:var(--bone);font:500 .52rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase; }
-#origin-master:hover b,#origin-master[aria-pressed="true"] b { color:var(--gold); }
-#origin-master[aria-pressed="true"] > span { animation:orbit-pulse 3s linear infinite; }
-.object-consent p { margin:9px 0 0;color:var(--ghost);font:500 .4rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase; }
 .object-instruction { position:absolute;z-index:3;bottom:34px;left:50%;margin:0;color:rgba(119,120,110,.55);font:500 .4rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;transform:translateX(-50%);white-space:nowrap; }
 
 /* Field */
@@ -1381,9 +1370,6 @@ h1, h2, h3, h4,
   .object-witness { bottom:155px;left:20px;width:calc(100% - 40px); }
   .object-witness > p { display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;font-size:.86rem; }
   .object-witness small { gap:7px;font-size:.38rem; }
-  .object-consent { right:20px;bottom:68px;left:20px;width:auto; }
-  .object-consent p { position:absolute;right:0;bottom:15px;max-width:48%;text-align:right; }
-  #origin-master { width:52%; }
   .object-instruction { display:none; }
   .space { min-height: auto; padding-top: 112px; }
   .space-heading,

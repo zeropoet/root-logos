@@ -44,13 +44,13 @@ grammars; those grammars compose one higher Library form. The Living Object is
 Root Logos held as a sovereign presence, and the Library Field is the same
 identity unfolded through its works. The Constitution remains the higher
 reference. FoldForge is the primary compositional data constraint beside it,
-Telos witnesses meaningful change between living states and fixed origins, and
+Telos witnesses meaningful change between living states, and
 Sovereign Standard carries material lineage with FoldPortrait embedded at that
 boundary rather than duplicated as a separate source.
 
-The living system may continue changing slowly. A master is sealed only when a
-meaningful threshold has been crossed; it remains playable and attributable
-forever, while later masters stand beside it rather than replacing it.
+The living system may continue changing slowly. The Living Object always
+presents its latest state; earlier states remain recoverable through repository
+history until a dedicated version archive exists.
 
 ## Current Shape
 
@@ -85,17 +85,6 @@ forever, while later masters stand beside it rather than replacing it.
   coherence, counterpoint, and recurrence between them, and makes four levels
   of emergence structurally visible: works, relations, relation grammars, and
   the composed Library.
-- `masters/origin-2026-07-30/` is the first master-final archive of the Living
-  Object's sovereign voice. `RL-MASTER-0001` seals the complete deterministic
-  instrument—49 score streams, 4,152 events, relation harmonics, synthesis
-  engine, cadence origin, constitutional graph, FoldForge source and language
-  witnesses, Library composition, edition index, and repository commit—from
-  which the voice arose. It begins at one sealed cadence position and continues
-  composing indefinitely until the listener stops it; it reads no later state.
-  A separate 28-second, seven-beat PCM phrase is retained only as an audible
-  checksum and fallback, not as the master itself. This is an origin instrument,
-  not a mutable current-state export, and the sealing command refuses to
-  overwrite it.
 - `scripts/works.mjs` ingests a Markdown file or directory in natural order,
   preserves file and heading coordinates, derives concepts and relations,
   composes the paired scores, and updates the public archive. It also accepts
@@ -588,17 +577,15 @@ Authority and constraint remain distinct. The Root Logos Constitution is the
 higher reference governing admission, transformation, self-authorship, and
 archive finality. Ethereum evidence remains prior to FoldForge, while
 FoldForge's witnessed instrument supplies the primary compositional data
-constraint. Telos can observe and express distance between released states and
-fixed masters but receives no custody or governing authority. FoldPortrait
+constraint. Telos can observe and express distance between released states but
+receives no custody or governing authority. FoldPortrait
 renders remain visible through their corresponding Sovereign Standard material
 witness lineage; they are not repeated as an independent connected-source node.
 
-`RL-MASTER-0001`, **Origin Master I**, seals the complete indefinitely playable
-instrument that existed under Revision 1.2. Revision 1.3 does not rewrite or
-regenerate it. The finite 28-second render remains only its audible checksum and
-fallback. Future masters are intentionally sparse: they may be created when the
-collection crosses a genuine architectural or compositional threshold, and
-each becomes another permanent origin rather than a replacement.
+The Living Object always sounds the latest Root Logos state. Historical audio
+states are not carried in the live architecture; repository history is enough
+until a dedicated whole-system archive can make versions intentionally
+scrubbable.
 
 ### Participatory Coherence
 
@@ -1497,7 +1484,7 @@ Its pulse is synchronized with the weekly cultivation cadence: Sunday at 10:07
 Eastern is the constitutional downbeat of a compressed seven-part live phrase,
 and the same phase governs visible growth pulses. Silence remains an authored
 interval within the voice rather than an error or an empty state. Browser and
-device controls retain local authority over actual playback. The default master
+device controls retain local authority over actual playback. The default sovereign
 presence is intentionally audible rather than ambiently recessive: the voice
 belongs to the object and is not mixed as background decoration.
 

@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node scripts/sources.test.mjs && node scripts/works.test.mjs && node scripts/work-coordinates.mjs --check && node scripts/work-first-frame.mjs --check && node scripts/library-composition.mjs --check && node scripts/recompose-foldforge.mjs --check && node scripts/origin-master.mjs --check && node scripts/cultivate.test.mjs && node scripts/self-author.test.mjs && node runtime/journal.test.mjs && node runtime/runtime.test.mjs",
+    "test": "node scripts/sources.test.mjs && node scripts/works.test.mjs && node scripts/work-coordinates.mjs --check && node scripts/work-first-frame.mjs --check && node scripts/library-composition.mjs --check && node scripts/recompose-foldforge.mjs --check && node scripts/cultivate.test.mjs && node scripts/self-author.test.mjs && node runtime/journal.test.mjs && node runtime/runtime.test.mjs",
     "works:ingest": "node scripts/works.mjs ingest",
     "works:corpus": "node scripts/works-corpus.mjs",
     "works:protestant-corpus": "node scripts/works-protestant-corpus.mjs",
@@ -15,8 +15,6 @@
     "works:check-coordinates": "node scripts/work-coordinates.mjs --check",
     "works:recompose-foldforge": "node scripts/recompose-foldforge.mjs",
     "works:check-foldforge": "node scripts/recompose-foldforge.mjs --check",
-    "master:seal-origin": "node scripts/origin-master.mjs",
-    "master:check-origin": "node scripts/origin-master.mjs --check",
     "sources:sync": "node scripts/sources.mjs sync",
     "sources:sync-sovereign-standard": "node scripts/sources.mjs sync-sovereign-standard",
     "sources:refresh-material-lineage": "node scripts/sources.mjs refresh-material-lineage",
