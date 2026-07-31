@@ -1055,6 +1055,20 @@ with creation, responsibility, abandonment, and the limits of instrumental
 knowledge. Together the eight additions contribute 1,440 derived relations
 and extend the first-frame manifest to 47 coherent Library objects.
 
+Work `47` is **The Qur’an — The Meaning of the Glorious Koran**, Marmaduke
+Pickthall's 1930 explanatory English rendering. It enters as one coherent work
+whose 114 surahs remain ordered, attributable internal structures. The
+public-domain Wikisource scan witnesses the edition; the structured
+`en.pickthall` transcription supplies a separately hashed machine-readable
+reading whose boundary is verified at 114 surahs and 6,236 ayahs before
+ingestion. Pickthall's own distinction remains constitutional to the work:
+this is an English rendering of the Qur'an's meaning and cannot replace the
+Arabic Qur'an. Its transient source is released after transformation; the
+Library retains 161,627 encountered words, 36 concepts, 180 internal
+relations, its derived voice and topology, and one sealed first frame. The
+Library now holds 48 coherent objects and composes them through 145 witnessed
+cross-work relations.
+
 The ingestion boundary now removes Project Gutenberg start and end matter
 before Markdown-aware structural reading, just as the native Gutenberg book
 parser already did. Repository licenses and distribution boilerplate therefore
@@ -1084,8 +1098,8 @@ or competing with its nodes and engraved edges.
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
-of the 47 coherent Library objects contributes its complete derived topology.
-Those admitted work structures now remain fixed. Above them, 144 pair-relations
+of the 48 coherent Library objects contributes its complete derived topology.
+Those admitted work structures now remain fixed. Above them, 145 pair-relations
 rise into four grammar points and converge at the Library composition. New
 membership changes that crown and its collective score rather than rewriting
 the bodies from which it emerges. Weight, depth, luminance, rotation, and motion
