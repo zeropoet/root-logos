@@ -211,10 +211,11 @@
     const relations = composition?.relations || [];
     const works = new Map((composition?.primitives || []).map((work) => [work.work_id, work.title]));
     const kinds = ["coherence", "continuity", "counterpoint", "recurrence"];
-    const strongest = kinds.map((kind) => relations
+    const strongest = kinds.flatMap((kind) => relations
       .filter((relation) => relation.kind === kind)
       .sort((left, right) => Number(right.strength || 0) - Number(left.strength || 0)
-        || left.id.localeCompare(right.id))[0]).filter(Boolean);
+        || left.id.localeCompare(right.id))
+      .slice(0, 2));
     const readout = $("#correlation-readout");
     if (readout) {
       readout.replaceChildren(...strongest.map((relation) => {

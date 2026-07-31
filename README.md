@@ -1107,9 +1107,9 @@ anchors. Relation strength governs that point's lift, size, luminance, connectin
 tension, pulse admission, and color through one shared relational-proximity
 scale: separated works remain canonical red while increasing correlation
 resolves toward white. Counterpoint stores visual distance and is therefore
-inverted before it enters this visual scale. A quiet live readout presents the
-same single red-to-white continuum above the strongest current
-coherence, continuity, counterpoint, and recurrence pairings, binds them to the
+inverted before it enters this visual scale. A quiet numeric readout names the
+two strongest current pairings in each of coherence, continuity, counterpoint,
+and recurrence, binds all eight references to the
 composition witness, and checks once per minute for a changed Library state.
 
 Root Logos is the identity embodied by the Living Object; it is not an external
