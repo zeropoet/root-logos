@@ -615,13 +615,13 @@
       "claim": "The Creator’s Threshold Principle is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
       "proposed_question": "What observable failure would show that the Cultivation Chamber violates The Creator’s Threshold Principle?",
       "evidence_hash": "21a7e162da2176f5b859e1302bc5683abb5d7bbea24d037e61a7f6c45e007001",
-      "policy_hash": "077f46170043519e0f4144e97b8ea8b8d7a664fbe5f35ddc8723d782a822a7b7",
+      "policy_hash": "ef86aa94315a9856c009856a96d08b29653748780c53be097f18569bb09254d9",
       "first_cycle": "RL-CULTIVATE-0039",
-      "last_cycle": "RL-CULTIVATE-0089",
-      "last_cycle_index": 89,
-      "considerations": 12,
+      "last_cycle": "RL-CULTIVATE-0099",
+      "last_cycle_index": 99,
+      "considerations": 14,
       "status": "autonomously-rejected",
-      "last_novelty_reason": "incubation-elapsed",
+      "last_novelty_reason": "policy-changed",
       "last_evaluation": {
         "dimensions": {
           "source_fidelity": 4,
@@ -701,7 +701,7 @@
   },
   "novelty": {
     "consecutive_low_yield_cycles": 0,
-    "last_score": 4,
+    "last_score": 2,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -1332,6 +1332,13 @@
         "reason": "new-hypothesis",
         "status": "autonomously-rejected",
         "at": "2026-07-31T17:58:34.903Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0099",
+        "score": 2,
+        "reason": "policy-changed",
+        "status": "autonomously-rejected",
+        "at": "2026-07-31T21:57:12.631Z"
       }
     ]
   },
