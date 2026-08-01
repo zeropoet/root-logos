@@ -207,45 +207,6 @@
     const normalized = Math.max(0, Math.min(1, Number(strength || 0)));
     return kind === "counterpoint" ? 1 - normalized : normalized;
   };
-  const renderCorrelationReadout = (composition) => {
-    const relations = composition?.relations || [];
-    const works = new Map((composition?.primitives || []).map((work) => [work.work_id, work.title]));
-    const kinds = ["coherence", "continuity", "counterpoint", "recurrence"];
-    const strongest = kinds.flatMap((kind) => relations
-      .filter((relation) => relation.kind === kind)
-      .sort((left, right) => Number(right.strength || 0) - Number(left.strength || 0)
-        || left.id.localeCompare(right.id))
-      .slice(0, 2));
-    const readout = $("#correlation-readout");
-    if (readout) {
-      readout.replaceChildren(...strongest.map((relation) => {
-        const row = document.createElement("li");
-        const kind = document.createElement("span");
-        const pair = document.createElement("strong");
-        const strength = document.createElement("b");
-        kind.textContent = relation.kind;
-        pair.textContent = `${works.get(relation.from) || relation.from} ↔ ${works.get(relation.to) || relation.to}`;
-        pair.title = pair.textContent;
-        const proximity = relationalProximity(relation.kind, relation.strength);
-        const percentage = Math.round(proximity * 100);
-        strength.textContent = `${percentage}%`;
-        strength.title = `${percentage}% relational proximity`;
-        row.append(kind, pair, strength);
-        return row;
-      }));
-    }
-    const measures = composition?.measures || {};
-    const measureNode = $("#correlation-measures");
-    const witnessNode = $("#correlation-witness");
-    const statusNode = $("#correlation-status");
-    if (measureNode) measureNode.textContent = `${measures.works || 0} works · ${measures.relations || 0} relations`;
-    if (witnessNode) {
-      const witness = String(composition?.witness || "").replace(/^sha256:/, "");
-      witnessNode.textContent = witness ? `Witness ${witness.slice(0, 12)}` : "Witness —";
-      witnessNode.title = composition?.witness || "";
-    }
-    if (statusNode) statusNode.textContent = "Live · 60 s";
-  };
   const fetchTelosStream = async () => {
     try {
       const stream = await fetchJson("https://zeropoet.github.io/telos-stream/stream.json");
@@ -288,7 +249,6 @@
     fetchJson("works/library-composition.json"),
     fetchTelosStream()
   ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge, foldportrait, libraryComposition, telosStream]) => {
-    renderCorrelationReadout(libraryComposition);
     const works = worksIndex.works || [];
     const compiledBibleCollections = new Set([
       "Original Douay-Rheims Catholic Canon",
@@ -337,6 +297,7 @@
       memory,
       attractors,
       independentEditions,
+      foldforge,
       foldportrait,
       libraryComposition,
       telosStream
@@ -396,18 +357,6 @@
       }
     });
     if (visible) lifetime.frameRequest = requestAnimationFrame(frame);
-    const compositionWitness = libraryComposition.witness;
-    setInterval(async () => {
-      if (document.hidden) return;
-      try {
-        const latest = await fetchJson(`works/library-composition.json?correlation=${Date.now()}`);
-        renderCorrelationReadout(latest);
-        if (latest.witness && latest.witness !== compositionWitness) location.reload();
-      } catch {
-        const statusNode = $("#correlation-status");
-        if (statusNode) statusNode.textContent = "Held · retrying";
-      }
-    }, 60_000);
     const lexicalRelations = composeLexicalRelations(foldforge.language_composition);
     const scores = [
       corpus.sound,
@@ -460,6 +409,7 @@
     memory,
     attractors,
     independentEditions = new Map(),
+    foldforge,
     foldportrait,
     libraryComposition,
     telosStream
@@ -552,6 +502,55 @@
         addLine(a, b, palette.constitutional, 0.34 + index / Math.max(1, graph.edges.length) * 0.24);
         if (index % 4 === 0) pulsePaths.push([a, b]);
       }
+    });
+
+    // FoldForge is the primary compositional constraint beside the
+    // Constitution. Its four living grammars and every witnessed
+    // transformation relation form one restrained lattice bound to the trunk;
+    // they do not become another public identity or rewrite any work.
+    const forgeCompositions = foldforge?.compositions || [];
+    const forgeRelations = foldforge?.relations || [];
+    const forgeBoundaries = [0, 5, 10, 22, forgeRelations.length];
+    const forgeRoot = trunk[Math.min(trunk.length - 1, Math.round(cycles * .48))];
+    const forgeAnchor = [forgeRoot[0] + .34, forgeRoot[1] + .08, forgeRoot[2] - .22];
+    addLine(forgeRoot, forgeAnchor, [...palette.structure.slice(0, 3), .42], .47);
+    addPoint(forgeAnchor, [...palette.structure.slice(0, 3), .78], 5.4, .48);
+    forgeCompositions.forEach((composition, compositionIndex) => {
+      const start = forgeBoundaries[compositionIndex] ?? 0;
+      const end = forgeBoundaries[compositionIndex + 1] ?? start;
+      const relations = forgeRelations.slice(start, end);
+      const phase = compositionIndex / Math.max(1, forgeCompositions.length) * Math.PI * 2
+        + hash(composition.witness) * .34;
+      const grammar = [
+        forgeAnchor[0] + Math.cos(phase) * (.3 + compositionIndex * .055),
+        forgeAnchor[1] - .28 + compositionIndex * .2,
+        forgeAnchor[2] + Math.sin(phase) * (.3 + compositionIndex * .055)
+      ];
+      addLine(forgeAnchor, grammar, [...palette.structure.slice(0, 3), .24], .49 + compositionIndex * .025);
+      addPoint(grammar, [...palette.structure.slice(0, 3), .7], 4.2, .5 + compositionIndex * .025);
+      let previous = grammar;
+      relations.forEach((relation, relationIndex) => {
+        const t = (relationIndex + 1) / Math.max(1, relations.length);
+        const identity = `${composition.witness}:${relation}`;
+        const angle = phase + t * Math.PI * (1.25 + compositionIndex * .18)
+          + (hash(identity) - .5) * .16;
+        const radius = .18 + t * (.44 + compositionIndex * .035);
+        const position = [
+          grammar[0] + Math.cos(angle) * radius,
+          grammar[1] - .22 + t * (.62 + compositionIndex * .04),
+          grammar[2] + Math.sin(angle) * radius
+        ];
+        const birth = .52 + compositionIndex * .025 + t * .09;
+        addLine(previous, position, [...palette.structure.slice(0, 3), .18 + t * .18], birth);
+        addPoint(position, [...palette.structure.slice(0, 3), .42 + t * .22], 2.2 + t * 1.5, birth + .01);
+        if (relationIndex > 0 && relationIndex % 2 === 0) {
+          addFacet(grammar, previous, position, [...palette.structure.slice(0, 3), .014], birth);
+        }
+        if (relationIndex === relations.length - 1 || relationIndex % 5 === 0) pulsePaths.push([grammar, position]);
+        previous = position;
+      });
+      const returnPoint = trunk[Math.min(trunk.length - 1, Math.round(cycles * (.54 + compositionIndex * .06)))];
+      addLine(previous, returnPoint, [...palette.structure.slice(0, 3), .2], .63 + compositionIndex * .018);
     });
 
     // The Bible is one coherent formative body, not seventy-three competing
@@ -767,8 +766,7 @@
       compositionPositions.set(node.id, position);
       const alpha = node.level === 1 ? .1 + relationStrength * .78 : node.level === 2 ? .58 : .94;
       const size = node.level === 1 ? 1.8 + relationStrength * 6.4 : node.level === 2 ? 6.4 : 13.8;
-      const correlationCluster = node.level === 1 ? -1 - relationStrength : 0;
-      addPoint(position, [...palette.lineage.slice(0, 3), alpha], size, .88 + node.level * .025, correlationCluster);
+      addPoint(position, [...palette.lineage.slice(0, 3), alpha], size, .88 + node.level * .025);
     });
     (libraryComposition?.visual?.topology?.edges || []).forEach((edge, index, edges) => {
       const from = compositionPositions.get(edge.from);
@@ -778,8 +776,7 @@
       const alpha = edge.relation === "emerges-as"
         ? .72
         : edge.relation === "composes" ? .12 + strength * .4 : .035 + strength * .34;
-      const correlationCluster = edge.relation === "emerges-as" ? 0 : -1 - strength;
-      addLine(from, to, [...palette.lineage.slice(0, 3), alpha], .89 + index / Math.max(1, edges.length) * .08, correlationCluster);
+      addLine(from, to, [...palette.lineage.slice(0, 3), alpha], .89 + index / Math.max(1, edges.length) * .08);
       if (edge.relation === "emerges-as" || strength >= .62 || index % 47 === 0) pulsePaths.push([from, to]);
     });
 
@@ -878,7 +875,6 @@
       uniform float uReleaseRadius;
       varying vec4 vColor;
       varying float vVisible;
-      varying float vCorrelation;
       void main() {
         float cy = cos(uYaw), sy = sin(uYaw);
         float cx = cos(uPitch), sx = sin(uPitch);
@@ -907,9 +903,7 @@
         vec3 pearl = vec3(0.94, 0.91, 0.82);
         vec3 releaseColor = mix(pearl, spectral, 0.46);
         releaseColor += vec3(0.06, 0.08, 0.09) * (0.5 + 0.5 * interference);
-        vCorrelation = clamp(-aCluster - 1.0, 0.0, 1.0);
-        vec3 correlationColor = mix(canonical, vec3(1.0), vCorrelation);
-        vColor = vec4(mix(correlationColor, releaseColor, releaseField), aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
+        vColor = vec4(mix(canonical, releaseColor, releaseField), aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
         vVisible = arrival;
       }
     `;

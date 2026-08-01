@@ -1104,13 +1104,20 @@ the bodies from which it emerges. Weight, depth, luminance, rotation, and motion
 carry the resulting hierarchy. In the Living Object's higher correlation field,
 each pair-relation now occupies a bridge point between its two fixed work
 anchors. Relation strength governs that point's lift, size, luminance, connecting
-tension, pulse admission, and color through one shared relational-proximity
-scale: separated works remain canonical red while increasing correlation
-resolves toward white. Counterpoint stores visual distance and is therefore
-inverted before it enters this visual scale. A quiet numeric readout names the
-two strongest current pairings in each of coherence, continuity, counterpoint,
-and recurrence, binds all eight references to the
-composition witness, and checks once per minute for a changed Library state.
+tension, and pulse admission through one shared relational-proximity measure;
+counterpoint stores visual distance and is inverted before entering that
+measure. The entire body remains canonical red. No correlation legend or proof
+readout appears at the threshold: the coherent data is embodied by the
+multifaceted topology and its living voice rather than restated beside them.
+
+FoldForge's compositional constraint is now structural as well as audible. Its
+four living grammars and all 25 witnessed transformation relations form one
+restrained lattice bound into the constitutional trunk. The lattice expresses
+how evidence becomes composition without presenting FoldForge as another Root
+Logos identity or altering the sealed works it constrains. Material lineage is
+not repeated: the existing FoldPortrait strand already embeds its corresponding
+Sovereign Standard vessel witnesses. Rejected memory hypotheses and future
+attractors remain pressure rather than geometry until constitutionally admitted.
 
 Root Logos is the identity embodied by the Living Object; it is not an external
 source connected to a separate visualization. Telos Stream enters that identity
