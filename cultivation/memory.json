@@ -697,11 +697,40 @@
         },
         "total": 23
       }
+    },
+    "1fbb0a3ade534b18463df3c4458fc4d62cdeae85148d63494e67d94f71418d87": {
+      "fingerprint": "1fbb0a3ade534b18463df3c4458fc4d62cdeae85148d63494e67d94f71418d87",
+      "kind": "relational-gap",
+      "nodes": [
+        "identity",
+        "field-note-time-memory"
+      ],
+      "claim": "Identity and Time, Memory, and Identity share identity, memory, time but have no explicit constitutional relation.",
+      "proposed_question": null,
+      "evidence_hash": "06fe927f775bf0c1629b2da4d3ba6f3fcfa27b8d4fe09b1ef9e424674becd8b3",
+      "policy_hash": "ef86aa94315a9856c009856a96d08b29653748780c53be097f18569bb09254d9",
+      "first_cycle": "RL-CULTIVATE-0101",
+      "last_cycle": "RL-CULTIVATE-0101",
+      "last_cycle_index": 101,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 3,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
     }
   },
   "novelty": {
     "consecutive_low_yield_cycles": 0,
-    "last_score": 2,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -1346,6 +1375,13 @@
         "reason": "policy-changed",
         "status": "autonomously-rejected",
         "at": "2026-08-01T01:02:49.981Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0101",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-08-01T02:10:48.885Z"
       }
     ]
   },
