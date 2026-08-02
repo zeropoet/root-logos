@@ -617,11 +617,11 @@
       "evidence_hash": "21a7e162da2176f5b859e1302bc5683abb5d7bbea24d037e61a7f6c45e007001",
       "policy_hash": "ef86aa94315a9856c009856a96d08b29653748780c53be097f18569bb09254d9",
       "first_cycle": "RL-CULTIVATE-0039",
-      "last_cycle": "RL-CULTIVATE-0099",
-      "last_cycle_index": 99,
-      "considerations": 14,
+      "last_cycle": "RL-CULTIVATE-0109",
+      "last_cycle_index": 109,
+      "considerations": 16,
       "status": "autonomously-rejected",
-      "last_novelty_reason": "policy-changed",
+      "last_novelty_reason": "incubation-elapsed",
       "last_evaluation": {
         "dimensions": {
           "source_fidelity": 4,
@@ -729,7 +729,7 @@
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 2,
+    "consecutive_low_yield_cycles": 3,
     "last_score": 1,
     "history": [
       {
@@ -1431,15 +1431,22 @@
         "reason": "incubation-elapsed",
         "status": "autonomously-rejected",
         "at": "2026-08-02T14:40:18.555Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0109",
+        "score": 1,
+        "reason": "incubation-elapsed",
+        "status": "autonomously-rejected",
+        "at": "2026-08-02T18:45:09.086Z"
       }
     ]
   },
   "dormancy": {
-    "active": false,
-    "entered_at": null,
-    "reason": null,
+    "active": true,
+    "entered_at": "2026-08-02T18:45:09.112Z",
+    "reason": "3 consecutive low-yield cycles",
     "source_snapshot": {
-      "combined": "58520c40e98e77fd5217fcf831a560b5a83957af8be37dbe8cda55aadf109daa",
+      "combined": "e84f7683fff9b6a896dc7a04912626df4e0d43f893d6d5d891cb27e2ad4eedb5",
       "policy": "ef86aa94315a9856c009856a96d08b29653748780c53be097f18569bb09254d9"
     },
     "wake_history": [
@@ -2088,6 +2095,36 @@
           "reason": "incubation-elapsed",
           "status": "autonomously-rejected",
           "at": "2026-08-02T09:09:51.618Z"
+        }
+      ],
+      "proposal": "The active inquiry methods have reached diminishing returns. Review candidate ranking, evidence extraction, and proposal grammar before increasing cadence or adding synthetic novelty."
+    },
+    {
+      "type": "meta-refactoring-proposal",
+      "cultivation_id": "RL-CULTIVATE-0109",
+      "at": "2026-08-02T18:45:09.112Z",
+      "status": "proposed-for-human-review",
+      "evidence": [
+        {
+          "cultivation_id": "RL-CULTIVATE-0107",
+          "score": 1,
+          "reason": "incubation-elapsed",
+          "status": "autonomously-rejected",
+          "at": "2026-08-02T10:06:40.924Z"
+        },
+        {
+          "cultivation_id": "RL-CULTIVATE-0108",
+          "score": 1,
+          "reason": "incubation-elapsed",
+          "status": "autonomously-rejected",
+          "at": "2026-08-02T14:40:18.555Z"
+        },
+        {
+          "cultivation_id": "RL-CULTIVATE-0109",
+          "score": 1,
+          "reason": "incubation-elapsed",
+          "status": "autonomously-rejected",
+          "at": "2026-08-02T18:45:09.086Z"
         }
       ],
       "proposal": "The active inquiry methods have reached diminishing returns. Review candidate ranking, evidence extraction, and proposal grammar before increasing cadence or adding synthetic novelty."
