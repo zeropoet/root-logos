@@ -161,9 +161,9 @@
       "evidence_hash": "f873a017be14e6f5fed6548880731ce1bf876e83f3d60813c6ff5040e2888c63",
       "policy_hash": "ef86aa94315a9856c009856a96d08b29653748780c53be097f18569bb09254d9",
       "first_cycle": "RL-CULTIVATE-0009",
-      "last_cycle": "RL-CULTIVATE-0106",
-      "last_cycle_index": 106,
-      "considerations": 18,
+      "last_cycle": "RL-CULTIVATE-0116",
+      "last_cycle_index": 116,
+      "considerations": 20,
       "status": "autonomously-rejected",
       "last_novelty_reason": "incubation-elapsed",
       "last_evaluation": {
@@ -729,7 +729,7 @@
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 3,
+    "consecutive_low_yield_cycles": 1,
     "last_score": 1,
     "history": [
       {
@@ -1480,13 +1480,20 @@
         "reason": "incubation-elapsed",
         "status": "autonomously-rejected",
         "at": "2026-08-04T02:10:37.512Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0116",
+        "score": 1,
+        "reason": "incubation-elapsed",
+        "status": "autonomously-rejected",
+        "at": "2026-08-04T03:34:10.868Z"
       }
     ]
   },
   "dormancy": {
-    "active": true,
-    "entered_at": "2026-08-04T02:10:37.545Z",
-    "reason": "3 consecutive low-yield cycles",
+    "active": false,
+    "entered_at": null,
+    "reason": null,
     "source_snapshot": {
       "combined": "e4017f9b9defe0f88e47cb4cf299434d0f957d0403275ad4bd7598021646fe1c",
       "policy": "ef86aa94315a9856c009856a96d08b29653748780c53be097f18569bb09254d9"
@@ -1574,6 +1581,10 @@
       },
       {
         "at": "2026-08-03T19:00:14.461Z",
+        "reason": "canonical-source-changed"
+      },
+      {
+        "at": "2026-08-04T03:34:10.770Z",
         "reason": "canonical-source-changed"
       }
     ]
