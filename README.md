@@ -1096,6 +1096,22 @@ a 38-node topology, a FoldForge-derived voice, and a sealed 2400×2400 first
 frame. The Library now holds 53 coherent objects and composes them through 161
 witnessed cross-work relations.
 
+Work `53` is Hermann von Helmholtz's **On the Sensations of Tone as a
+Physiological Basis for the Theory of Music**. It opens `Music, Sound, and
+Perception` with the 1895 Longmans, Green & Co. third English edition,
+translated and extensively revised by Alexander J. Ellis to conform to
+Helmholtz's fourth and final German edition. The complete witness preserves the
+translator's notice, Helmholtz's prefaces, three-part argument, nineteen
+chapters, and Ellis's twenty technical appendices as 47 navigable structural
+passages rather than reducing the work to a modern summary of acoustics.
+
+The Internet Archive scan/OCR and Wellcome public-domain facsimile establish
+the edition's lineage. The source crosses the private-source/public-lineage
+membrane; the Library retains its content witness, 432,572 encountered words,
+36 concepts, 180 internal relations, derived musical voice and topology, and
+one sealed 2400×2400 first frame. The Library now holds 54 coherent objects and
+composes them through 163 witnessed cross-work relations.
+
 The ingestion boundary now removes Project Gutenberg start and end matter
 before Markdown-aware structural reading, just as the native Gutenberg book
 parser already did. Repository licenses and distribution boilerplate therefore
