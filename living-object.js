@@ -17,10 +17,9 @@
   const archiveTargets = new Set([
     "field", "works", "state", "intake"
   ]);
-  const mobileObjectOnly = matchMedia("(max-width: 760px)");
   const syncExperienceMode = () => {
     const target = location.hash.slice(1);
-    const archiveOpen = !mobileObjectOnly.matches && archiveTargets.has(target);
+    const archiveOpen = archiveTargets.has(target);
     document.body.classList.toggle("archive-open", archiveOpen);
     document.body.classList.toggle("object-open", !archiveOpen);
     document.querySelectorAll("main > .space").forEach((space) => {
@@ -44,7 +43,6 @@
   };
   syncExperienceMode();
   addEventListener("hashchange", syncExperienceMode);
-  mobileObjectOnly.addEventListener?.("change", syncExperienceMode);
 
   let thresholdPressure = 0;
   let thresholdTimer;
@@ -302,6 +300,9 @@
       libraryComposition,
       telosStream
     });
+    Object.entries(geometry.field || {}).forEach(([name, value]) => {
+      canvas.dataset[name] = String(value);
+    });
     const renderer = createRenderer(gl, geometry);
     activeRenderer = renderer;
     if (pendingRelease) renderer.setRelease(pendingRelease);
@@ -312,7 +313,7 @@
     let visible = !document.hidden;
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
-      const dpr = Math.min(devicePixelRatio || 1, 1.75);
+      const dpr = Math.min(devicePixelRatio || 1, 2.75);
       const width = Math.max(1, Math.round(rect.width * dpr));
       const height = Math.max(1, Math.round(rect.height * dpr));
       if (canvas.width !== width || canvas.height !== height) {
@@ -578,18 +579,19 @@
       const visual = corpusVisual.get(node.id) || node;
       const pressure = Number(visual.outward_pressure ?? node.outward_pressure ?? 0.72);
       const distinctiveness = Number(visual.distinctiveness ?? node.distinctiveness ?? 0.65);
+      const relationalTension = Math.min(1, Math.max(0, Number(visual.relational_tension ?? node.relational_tension ?? 0) / 9));
       const [withinDivision, divisionLength, division] = divisionIndex.get(node.id) || [index, nodes.length, 0];
       const progress = divisionLength <= 1 ? 0 : withinDivision / (divisionLength - 1);
       const old = division === 0;
       const turns = old ? 2.62 : 1.72;
-      const phase = (old ? -0.72 : 2.18) + progress * Math.PI * 2 * turns;
-      const chamberRadius = (old ? 0.5 : 0.29) + pressure * (old ? 0.27 : 0.2);
+      const phase = (old ? -0.72 : 2.18) + progress * Math.PI * 2 * turns + (relationalTension - .5) * .22;
+      const chamberRadius = (old ? 0.5 : 0.29) + pressure * (old ? 0.27 : 0.2) + relationalTension * .1;
       const vertical = old
         ? -0.82 + progress * 1.38
         : -0.2 + progress * 1.18;
       const position = [
         corpusCenter[0] + Math.cos(phase) * chamberRadius + (old ? -0.16 : 0.2),
-        corpusCenter[1] + vertical + (distinctiveness - 0.65) * 0.38,
+        corpusCenter[1] + vertical + (distinctiveness - 0.65) * 0.38 + (relationalTension - .5) * .08,
         corpusCenter[2] + Math.sin(phase) * chamberRadius
       ];
       corpusPositions.set(node.id, position);
@@ -597,7 +599,7 @@
       const divisionColor = old
         ? palette.canon
         : [palette.canon[0] * 0.82, palette.canon[1] * 0.9, Math.min(1, palette.canon[2] * 1.18), 0.82];
-      addPoint(position, divisionColor, 4.8 + distinctiveness * 2.8, birth, 1);
+      addPoint(position, divisionColor, 4.8 + distinctiveness * 2.8 + relationalTension * 1.1, birth, 1);
       addLine(corpusCenter, position, [...divisionColor.slice(0, 3), 0.075], birth - 0.025, 1);
 
       const radial = [
@@ -698,23 +700,26 @@
         const topology = edition?.visual?.topology;
         if (topology?.nodes?.length) {
           const internalPositions = new Map([["work", leaf]]);
+          const maximumNodeWeight = Math.max(1, ...topology.nodes.map(({ weight }) => Number(weight || 0)));
           topology.nodes.filter(({ id }) => id !== "work").forEach((node, nodeIndex, internalNodes) => {
             const fraction = (nodeIndex + 1) / Math.max(1, internalNodes.length);
-            const internalAngle = fraction * Math.PI * 10 + hash(`${work.work_id}:${node.id}`) * Math.PI;
-            const internalRadius = 0.08 + Math.sqrt(fraction) * 0.24;
+            const nodeMass = Math.log1p(Number(node.weight || 1)) / Math.log1p(maximumNodeWeight);
+            const internalAngle = fraction * Math.PI * 10 + hash(`${work.work_id}:${node.id}`) * Math.PI + nodeMass * .24;
+            const internalRadius = 0.08 + Math.sqrt(fraction) * 0.2 + nodeMass * .09;
             const internal = [
               leaf[0] + Math.cos(internalAngle) * internalRadius,
-              leaf[1] + (hash(`${node.id}:y`) - 0.5) * 0.32,
+              leaf[1] + (hash(`${node.id}:y`) - 0.5) * 0.32 + (nodeMass - .5) * .06,
               leaf[2] + Math.sin(internalAngle) * internalRadius
             ];
             internalPositions.set(node.id, internal);
-            addPoint(internal, [...color.slice(0, 3), 0.38], node.type === "concept" ? 2.1 : 2.7, birth + 0.045 + fraction * 0.045, cluster);
+            addPoint(internal, [...color.slice(0, 3), 0.38], (node.type === "concept" ? 1.9 : 2.5) + nodeMass * 1.4, birth + 0.045 + fraction * 0.045, cluster);
           });
+          const maximumEdgeWeight = Math.max(1, ...(topology.edges || []).map(({ weight }) => Number(weight || 0)));
           (topology.edges || []).forEach((edge, edgeIndex, internalEdges) => {
             const from = internalPositions.get(edge.from);
             const to = internalPositions.get(edge.to);
             if (!from || !to) return;
-            const weight = Math.min(1, Math.max(.08, Number(edge.weight || 1) / 12));
+            const weight = Math.max(.08, Math.log1p(Number(edge.weight || 1)) / Math.log1p(maximumEdgeWeight));
             addLine(from, to, [...color.slice(0, 3), .035 + weight * .08], birth + 0.05 + edgeIndex / Math.max(1, internalEdges.length) * .04, cluster);
             if (edgeIndex % 29 === 0) pulsePaths.push([from, to]);
           });
@@ -781,7 +786,7 @@
     });
 
     const packetCount = (attractors.packets || []).filter((packet) => packet.publication?.status === "published").length;
-    const memoryPressure = Math.min(8, (memory.hypotheses || []).length);
+    const memoryPressure = Math.min(8, Object.keys(memory.hypotheses || {}).length);
     for (let index = 0; index < packetCount + memoryPressure; index += 1) {
       const angle = index / Math.max(1, packetCount + memoryPressure) * Math.PI * 2;
       const p = [Math.cos(angle) * 1.95, -1.53 + (index % 4) * 0.08, Math.sin(angle) * 1.95];
@@ -844,12 +849,330 @@
       previousTelos = position;
     });
 
+    const field = coherentTopologyField({
+      graph,
+      corpus,
+      memory,
+      attractors,
+      foldforge,
+      libraryComposition,
+      coherentWorks: workLeafPositions.size
+    });
+    const relationalSolution = solveRelationalTopology(workLeafPositions, libraryComposition, field);
+    Object.assign(field, relationalSolution.metrics);
+    const localProject = relationalTopologyProjection(relationalSolution.anchors);
+    const globalProject = topologyProjection(field);
+    const project = (position) => globalProject(localProject(position));
     return {
-      facets: new Float32Array(facets),
-      lines: new Float32Array(lines),
-      points: new Float32Array(points),
-      pulsePaths
+      facets: projectPackedGeometry(facetOutlineGeometry(facets), project),
+      lines: projectPackedGeometry(lines, project),
+      points: projectPackedGeometry(points, project),
+      pulsePaths: pulsePaths.map((path) => path.map(project)),
+      field
     };
+  }
+
+  // The Living Object is laid out locally by the provenance of each work and
+  // relation above, then composed here through one shared physical field. The
+  // field is deterministic: the same witnessed state always yields the same
+  // body. It does not simulate arbitrary motion or assign semantic weight that
+  // the sources do not contain.
+  function coherentTopologyField({ graph, corpus, memory, attractors, foldforge, libraryComposition, coherentWorks }) {
+    const clamp = (value, minimum = 0, maximum = 1) => Math.max(minimum, Math.min(maximum, Number(value) || 0));
+    const mean = (values, fallback = 0) => values.length
+      ? values.reduce((sum, value) => sum + Number(value || 0), 0) / values.length
+      : fallback;
+    const corpusNodes = corpus.visual?.topology?.nodes?.filter(({ type }) => type !== "work") || corpus.nodes || [];
+    const corpusEdges = corpus.edges || [];
+    const relations = libraryComposition?.relations || [];
+    const byKind = (kind) => relations.filter((relation) => relation.kind === kind).map(({ strength }) => clamp(strength));
+    const continuity = mean(byKind("continuity"));
+    const coherence = mean(byKind("coherence"));
+    const counterpoint = mean(byKind("counterpoint"));
+    const recurrence = mean(byKind("recurrence"));
+    const edgeGravity = mean(corpusEdges.map(({ weight }) => clamp(Number(weight || 1) / 9)), .25);
+    const constitutionalDensity = clamp((graph.edges?.length || 0) / Math.max(1, (graph.nodes?.length || 1) * 2.4));
+    const outwardPressure = mean(corpusNodes.map((node) => clamp(node.outward_pressure)), .5);
+    const tension = mean(corpusNodes.map((node) => clamp(Number(node.relational_tension || 0) / 9)), .35);
+    const hypotheses = Array.isArray(memory.hypotheses)
+      ? memory.hypotheses
+      : Object.values(memory.hypotheses || {});
+    const currentCycle = Math.max(1, ...hypotheses.map(({ last_cycle_index: cycle }) => Number(cycle || 0)));
+    const weightedCultivation = hypotheses.map((hypothesis) => {
+      const scores = hypothesis.last_evaluation?.dimensions
+        || hypothesis.evaluation?.scores
+        || hypothesis.scores
+        || hypothesis.score
+        || {};
+      const statusWeight = ({
+        active: 1,
+        admitted: 1,
+        candidate: .82,
+        open: .82,
+        "autonomously-rejected": .24,
+        rejected: .2,
+        dormant: .14,
+        resolved: .08
+      })[hypothesis.status] ?? .45;
+      const recency = .3 + .7 * clamp(Number(hypothesis.last_cycle_index || 0) / currentCycle);
+      const recurrenceWeight = .7 + .3 * clamp(Number(hypothesis.considerations || 1) / 4);
+      return { scores, weight: statusWeight * recency * recurrenceWeight };
+    });
+    const weightedDimension = (names) => {
+      let total = 0;
+      let weight = 0;
+      weightedCultivation.forEach(({ scores, weight: hypothesisWeight }) => {
+        names.forEach((name) => {
+          if (!Number.isFinite(Number(scores[name]))) return;
+          total += clamp(Number(scores[name]) / 4) * hypothesisWeight;
+          weight += hypothesisWeight;
+        });
+      });
+      return weight ? total / weight : 0;
+    };
+    const stability = weightedDimension(["source_fidelity", "testability", "corrigibility"]);
+    const generativity = weightedDimension(["relational_gain", "compression", "novelty_without_drift"]);
+    const novelty = clamp(Number(memory.novelty?.last_score || 0) / 4);
+    const methodPressure = mean((memory.method_observations || []).flatMap((observation) =>
+      (observation.evidence || []).map(({ score }) => clamp(Number(score || 0) / 4))
+    ));
+    const cultivationPressure = clamp(generativity * .52 + novelty * .28 + methodPressure * .2);
+    const lexicalTerms = foldforge?.language_composition?.terms || [];
+    const maximumLexicalWorks = Math.max(1, ...lexicalTerms.map(({ works }) => Number(works || 0)));
+    const lexicalRecurrence = mean(lexicalTerms.map(({ works, traces }) =>
+      clamp(Number(works || 0) / maximumLexicalWorks * .72 + Math.log2(1 + Number(traces || 0)) / 14 * .28)
+    ));
+    const publishedAttractors = (attractors.packets || []).filter((packet) => packet.publication?.status === "published").length;
+    const relationThroughput = relations.length + corpusEdges.length + (graph.edges?.length || 0);
+    const throughput = clamp(1 - Math.exp(-relationThroughput / Math.max(1, coherentWorks * 48)));
+
+    return {
+      gravity: Number(clamp(edgeGravity * .58 + constitutionalDensity * .24 + recurrence * .18).toFixed(4)),
+      attraction: Number(clamp(continuity * .5 + coherence * .24 + recurrence * .14 + lexicalRecurrence * .12).toFixed(4)),
+      repulsion: Number(clamp(counterpoint).toFixed(4)),
+      pressure: Number(clamp(outwardPressure * .46 + tension * .34 + cultivationPressure * .2).toFixed(4)),
+      throughput: Number(throughput.toFixed(4)),
+      aperture: Number(clamp(publishedAttractors / 24).toFixed(4)),
+      stability: Number(clamp(stability).toFixed(4)),
+      generativity: Number(clamp(generativity * .72 + novelty * .18 + methodPressure * .1).toFixed(4)),
+      lexicalRecurrence: Number(clamp(lexicalRecurrence).toFixed(4))
+    };
+  }
+
+  function solveRelationalTopology(initialPositions, libraryComposition, field) {
+    const clamp = (value, minimum = 0, maximum = 1) => Math.max(minimum, Math.min(maximum, Number(value) || 0));
+    const primitives = new Map((libraryComposition?.primitives || []).map((primitive) => [primitive.work_id, primitive]));
+    const visualNodes = new Map((libraryComposition?.visual?.topology?.nodes || [])
+      .filter(({ level }) => level === 0)
+      .map((node) => [node.id, node]));
+    const nodes = [...initialPositions.entries()].map(([id, position]) => {
+      const primitive = primitives.get(id) || {};
+      const signature = primitive.visual_signature || {};
+      const visual = visualNodes.get(id) || {};
+      const structuralWeight = Math.log2(2 + Number(visual.weight || signature.nodes || 1)) / 6;
+      const density = clamp(Number(signature.node_density || 0) * 2.4);
+      const relationDensity = clamp(Number(signature.relation_density || 0) * 3.2);
+      const spread = clamp(Number(signature.spread || .2) * 2.5);
+      const radius = clamp(Number(signature.mean_node_radius || .12) * 3.4);
+      const mass = .58 + structuralWeight * .72 + density * .34 + relationDensity * .28;
+      return {
+        id,
+        original: [...position],
+        position: [...position],
+        velocity: [0, 0],
+        mass,
+        influenceRadius: .34 + spread * .42 + radius * .18,
+        signature
+      };
+    });
+    const nodeById = new Map(nodes.map((node) => [node.id, node]));
+    const relations = (libraryComposition?.relations || []).filter(({ from, to }) => nodeById.has(from) && nodeById.has(to));
+    const iterations = 84;
+    for (let iteration = 0; iteration < iterations; iteration += 1) {
+      const forces = new Map(nodes.map(({ id }) => [id, [0, 0]]));
+
+      for (let aIndex = 0; aIndex < nodes.length; aIndex += 1) {
+        const a = nodes[aIndex];
+        for (let bIndex = aIndex + 1; bIndex < nodes.length; bIndex += 1) {
+          const b = nodes[bIndex];
+          let dx = b.position[0] - a.position[0];
+          let dz = b.position[2] - a.position[2];
+          let distance = Math.hypot(dx, dz);
+          if (distance < .0001) {
+            const separationAngle = hash(`${a.id}:${b.id}`) * Math.PI * 2;
+            dx = Math.cos(separationAngle) * .001;
+            dz = Math.sin(separationAngle) * .001;
+            distance = .001;
+          }
+          const repulsion = (.0014 + field.repulsion * .0022) * Math.sqrt(a.mass * b.mass) / (distance * distance + .12);
+          const fx = dx / distance * repulsion;
+          const fz = dz / distance * repulsion;
+          forces.get(a.id)[0] -= fx;
+          forces.get(a.id)[1] -= fz;
+          forces.get(b.id)[0] += fx;
+          forces.get(b.id)[1] += fz;
+        }
+      }
+
+      relations.forEach((relation) => {
+        const a = nodeById.get(relation.from);
+        const b = nodeById.get(relation.to);
+        const dx = b.position[0] - a.position[0];
+        const dz = b.position[2] - a.position[2];
+        const distance = Math.max(.001, Math.hypot(dx, dz));
+        const strength = clamp(relation.strength);
+        const visualDistance = clamp(relation.evidence?.visual_distance ?? strength);
+        const target = relation.kind === "counterpoint"
+          ? .88 + visualDistance * 1.12
+          : relation.kind === "continuity"
+            ? .34 + (1 - strength) * .72
+            : relation.kind === "coherence"
+              ? .48 + (1 - strength) * .82
+              : .58 + (1 - strength) * .64;
+        const stiffness = relation.kind === "counterpoint"
+          ? .009 + visualDistance * .018
+          : .012 + strength * .026;
+        const spring = (distance - target) * stiffness;
+        const fx = dx / distance * spring;
+        const fz = dz / distance * spring;
+        forces.get(a.id)[0] += fx;
+        forces.get(a.id)[1] += fz;
+        forces.get(b.id)[0] -= fx;
+        forces.get(b.id)[1] -= fz;
+      });
+
+      nodes.forEach((node) => {
+        const force = forces.get(node.id);
+        const signature = node.signature;
+        const centroidX = (Number(signature.centroid_x || .25) - .25) * 4;
+        const centroidY = (Number(signature.centroid_y || .27) - .27) * 4;
+        force[0] += -node.position[0] * (.0028 + field.gravity * .0062) * node.mass;
+        force[1] += -node.position[2] * (.0028 + field.gravity * .0062) * node.mass;
+        force[0] += centroidX * field.generativity * .0024;
+        force[1] += centroidY * field.generativity * .0024;
+        node.velocity[0] = (node.velocity[0] + force[0] / node.mass) * (.76 - field.stability * .08);
+        node.velocity[1] = (node.velocity[1] + force[1] / node.mass) * (.76 - field.stability * .08);
+        node.position[0] += node.velocity[0] * .19;
+        node.position[2] += node.velocity[1] * .19;
+      });
+    }
+
+    const totalMass = nodes.reduce((sum, { mass }) => sum + mass, 0) || 1;
+    const center = nodes.reduce((sum, node) => [
+      sum[0] + node.position[0] * node.mass,
+      sum[1] + node.position[2] * node.mass
+    ], [0, 0]).map((value) => value / totalMass);
+    let totalDisplacement = 0;
+    let maximumDisplacement = 0;
+    const anchors = nodes.map((node) => {
+      node.position[0] -= center[0];
+      node.position[2] -= center[1];
+      let displacement = [node.position[0] - node.original[0], 0, node.position[2] - node.original[2]];
+      const magnitude = Math.hypot(displacement[0], displacement[2]);
+      const limit = .42 + node.influenceRadius * .62;
+      if (magnitude > limit) displacement = displacement.map((value) => value * limit / magnitude);
+      const resolvedMagnitude = Math.hypot(displacement[0], displacement[2]);
+      totalDisplacement += resolvedMagnitude;
+      maximumDisplacement = Math.max(maximumDisplacement, resolvedMagnitude);
+      return {
+        id: node.id,
+        origin: node.original,
+        displacement,
+        radius: node.influenceRadius,
+        mass: node.mass
+      };
+    });
+    return {
+      anchors,
+      metrics: {
+        relationalStrain: Number((totalDisplacement / Math.max(1, anchors.length)).toFixed(4)),
+        maximumDisplacement: Number(maximumDisplacement.toFixed(4)),
+        solvedRelations: relations.length
+      }
+    };
+  }
+
+  function relationalTopologyProjection(anchors) {
+    return (position) => {
+      let exact = null;
+      let totalWeight = 0;
+      const displacement = [0, 0, 0];
+      anchors.forEach((anchor) => {
+        const distance = Math.hypot(
+          position[0] - anchor.origin[0],
+          position[1] - anchor.origin[1],
+          position[2] - anchor.origin[2]
+        );
+        if (distance < .025) exact = anchor.displacement;
+        const radius = Math.max(.12, anchor.radius);
+        const weight = Math.exp(-(distance * distance) / (radius * radius)) * Math.sqrt(anchor.mass);
+        displacement[0] += anchor.displacement[0] * weight;
+        displacement[2] += anchor.displacement[2] * weight;
+        totalWeight += weight;
+      });
+      if (exact) return [position[0] + exact[0], position[1], position[2] + exact[2]];
+      if (totalWeight < .0001) return [...position];
+      const localInfluence = Math.min(1, totalWeight / 1.4);
+      return [
+        position[0] + displacement[0] / totalWeight * localInfluence,
+        position[1],
+        position[2] + displacement[2] / totalWeight * localInfluence
+      ];
+    };
+  }
+
+  function topologyProjection(field) {
+    return (position) => {
+      const [x, y, z] = position;
+      const radius = Math.hypot(x, z);
+      if (radius < .00001) return [x, y * (.9 + field.throughput * .2), z];
+      const angle = Math.atan2(z, x);
+      const axialPhase = (y + 1.92) / 4.5;
+      const chamber = .5 + .5 * Math.sin(axialPhase * Math.PI * 4 + angle * 2);
+      const gravityPull = field.gravity * (.08 + Math.min(1, radius / 2.4) * .16) + field.stability * .035;
+      const attractionPull = field.attraction * (.04 + (1 - chamber) * .1);
+      const repulsiveSeparation = field.repulsion * (.05 + chamber * .15);
+      const pressureExpansion = field.pressure * (.04 + chamber * .12) + field.generativity * chamber * .035;
+      const aperture = field.aperture * Math.max(0, axialPhase - .68) * .12;
+      const projectedRadius = radius * Math.max(.62,
+        1 - gravityPull - attractionPull + repulsiveSeparation + pressureExpansion + aperture
+      );
+      const torsion = y * (.035 + field.throughput * .075 + field.lexicalRecurrence * .018) * (1 - field.stability * .28)
+        + Math.sin(axialPhase * Math.PI * 2) * (field.repulsion - field.attraction) * .08;
+      const verticalFlow = y * (.9 + field.throughput * .2)
+        + (field.pressure - field.gravity) * Math.tanh(radius) * .1
+        + field.generativity * Math.tanh(radius) * .035
+        + Math.sin(angle * 3 + axialPhase * Math.PI * 2) * field.repulsion * .025;
+      return [
+        Math.cos(angle + torsion) * projectedRadius,
+        verticalFlow,
+        Math.sin(angle + torsion) * projectedRadius
+      ];
+    };
+  }
+
+  function projectPackedGeometry(values, project) {
+    const projected = new Float32Array(values.length);
+    for (let index = 0; index < values.length; index += 10) {
+      const position = project([values[index], values[index + 1], values[index + 2]]);
+      projected[index] = position[0];
+      projected[index + 1] = position[1];
+      projected[index + 2] = position[2];
+      for (let field = 3; field < 10; field += 1) projected[index + field] = values[index + field];
+    }
+    return projected;
+  }
+
+  function facetOutlineGeometry(facets) {
+    const outlines = [];
+    const vertex = (offset) => facets.slice(offset, offset + 10);
+    for (let index = 0; index < facets.length; index += 30) {
+      const a = vertex(index);
+      const b = vertex(index + 10);
+      const c = vertex(index + 20);
+      outlines.push(...a, ...b, ...b, ...c, ...c, ...a);
+    }
+    return outlines;
   }
 
   function createRenderer(context, geometry) {
@@ -875,21 +1198,24 @@
       uniform float uReleaseRadius;
       varying vec4 vColor;
       varying float vVisible;
+      varying float vSignal;
       void main() {
         float cy = cos(uYaw), sy = sin(uYaw);
         float cx = cos(uPitch), sx = sin(uPitch);
         vec3 p = vec3(aPosition.x * cy - aPosition.z * sy, aPosition.y, aPosition.x * sy + aPosition.z * cy);
         p = vec3(p.x, p.y * cx - p.z * sx, p.y * sx + p.z * cx);
         float depth = 5.8 - p.z;
-        float viewportFit = mix(0.40, 1.0, smoothstep(0.45, 1.0, uAspect));
-        vec2 projected = vec2(p.x / uAspect, p.y) * 2.15 / depth * viewportFit;
+        float safeAspect = max(0.62, uAspect);
+        float portrait = 1.0 - smoothstep(0.62, 0.82, uAspect);
+        float viewportFit = mix(0.42, 1.0, smoothstep(0.45, 1.0, uAspect));
+        vec2 projected = vec2(p.x / safeAspect, p.y) * 2.15 / depth * viewportFit;
+        projected.y -= portrait * 0.05;
         gl_Position = vec4(projected, 0.0, 1.0);
         float arrival = smoothstep(aBirth - 0.025, aBirth + 0.055, uGrowth);
         float cadencePulse = pow(max(0.0, cos(uCadence * 6.283185)), 10.0);
         float breath = 1.0 + sin(uTime * 0.62 + aBirth * 16.0) * 0.055 + cadencePulse * (0.16 + uCadenceAccent * 0.12);
         gl_PointSize = aSize * arrival * breath * (5.3 / depth);
         float engravingDepth = clamp((p.z + 2.4) / 4.8, 0.0, 1.0);
-        vec3 canonical = vec3(0.941, 0.094, 0.094);
         vec3 affectedCenter = vec3(uReleaseCenterX, uReleaseCenterY, uReleaseCenterZ);
         float affectedDistance = length(aPosition - affectedCenter);
         float affectedRadius = max(0.0001, uReleaseRadius);
@@ -897,36 +1223,42 @@
         float interference = sin(dot(aPosition, vec3(2.7, 3.9, 4.6)) + uReleaseSeed * 6.283185 + uReleasePhase * 6.283185);
         float mappedTexture = 0.72 + 0.28 * interference;
         float releaseField = affectedMap * mappedTexture * uRelease;
-        float azimuth = atan(aPosition.z, aPosition.x) / 6.283185;
-        float hue = uReleasePhase * 0.72 + azimuth * 0.18 + length(aPosition) * 0.065 + interference * 0.055;
-        vec3 spectral = 0.5 + 0.5 * cos(6.283185 * (hue + vec3(0.00, 0.67, 0.33)));
-        vec3 pearl = vec3(0.94, 0.91, 0.82);
-        vec3 releaseColor = mix(pearl, spectral, 0.46);
-        releaseColor += vec3(0.06, 0.08, 0.09) * (0.5 + 0.5 * interference);
-        vColor = vec4(mix(canonical, releaseColor, releaseField), aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
+        vec3 notation = vec3(0.94, 0.925, 0.86);
+        vColor = vec4(notation, aColor.a * arrival * mix(0.34, 1.0, engravingDepth));
+        vSignal = clamp(releaseField, 0.0, 1.0);
         vVisible = arrival;
       }
     `;
-    const lineFragment = `precision mediump float; varying vec4 vColor; void main(){ gl_FragColor=vColor; }`;
+    const lineFragment = `
+      precision mediump float;
+      varying vec4 vColor;
+      varying float vSignal;
+      void main() {
+        vec3 red = vec3(0.941, 0.094, 0.094);
+        gl_FragColor = vec4(mix(vColor.rgb, red, vSignal * .34), vColor.a);
+      }
+    `;
     const facetFragment = `
       precision mediump float;
       varying vec4 vColor;
       varying float vVisible;
       void main() {
         if (vVisible < .01) discard;
-        gl_FragColor = vec4(vColor.rgb, vColor.a * .72);
+        gl_FragColor = vec4(vColor.rgb * .72, vColor.a * .42);
       }
     `;
     const pointFragment = `
       precision mediump float;
       varying vec4 vColor;
       varying float vVisible;
+      varying float vSignal;
       void main() {
         vec2 c = gl_PointCoord - vec2(.5);
         float d = length(c);
         if (d > .5 || vVisible < .01) discard;
-        float core = smoothstep(.5, .08, d);
-        gl_FragColor = vec4(vColor.rgb, vColor.a * core);
+        float point = 1.0 - smoothstep(.46, .5, d);
+        vec3 red = vec3(0.941, 0.094, 0.094);
+        gl_FragColor = vec4(mix(vec3(1.0), red, vSignal), vColor.a * point);
       }
     `;
     const facetProgram = program(context, vertex, facetFragment);
@@ -937,7 +1269,7 @@
     const pointBuffer = buffer(context, geometry.points);
     let release = null;
     context.enable(context.BLEND);
-    context.blendFunc(context.SRC_ALPHA, context.ONE);
+    context.blendFunc(context.SRC_ALPHA, context.ONE_MINUS_SRC_ALPHA);
 
     const drawBuffer = (shader, dataBuffer, count, mode, stride) => {
       context.useProgram(shader);
@@ -1033,7 +1365,7 @@
         context.clearColor(0, 0, 0, 1);
         context.clear(context.COLOR_BUFFER_BIT);
         uniforms(facetProgram, renderedState);
-        drawBuffer(facetProgram, facetBuffer, geometry.facets.length / 10, context.TRIANGLES, 10);
+        drawBuffer(facetProgram, facetBuffer, geometry.facets.length / 10, context.LINES, 10);
         uniforms(lineProgram, renderedState);
         drawBuffer(lineProgram, lineBuffer, geometry.lines.length / 10, context.LINES, 10);
         uniforms(pointProgram, renderedState);

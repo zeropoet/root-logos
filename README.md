@@ -1067,6 +1067,35 @@ released after transformation; the Library retains 153,864 encountered words,
 sealed first frame. The Library now holds 49 coherent objects and composes them
 through 148 witnessed cross-work relations.
 
+Works `49` through `52` establish `Games and Rule Systems` as a collection of
+formal play, strategic analysis, and institutional rule-making. Luis Ramírez de
+Lucena's **Repetición de Amores y Arte de Ajedrez** enters first, followed by
+Ruy López de Segura's **Libro de la invención liberal y arte del juego del
+Axedrez**, François-André Danican Philidor's **Analyse du jeu des Échecs**, and
+the Football Association's 1863 **Laws of the Game**. The three chess works
+form the chronological `Chess` division; the football laws open the distinct
+`Association Football` division without severing their shared pressure as
+systems of constrained movement.
+
+The Ruy López edition is derived from the complete public-domain Google Books
+scan and Internet Archive OCR witness. Philidor is read from all 191 page-level
+Wikisource transcriptions tied to the 1749 Gallica/BnF facsimile. The 1863
+football edition preserves the thirteen adopted laws, their definitions, and
+the period-newspaper witness apparatus. Lucena requires a narrower fidelity
+claim: the 1496-1497 Salamanca incunable and Frederic Madden's complete 1855
+manuscript copy are image witnesses whose Gothic type, handwriting, and chess
+diagrams do not yield a trustworthy text layer. Its current edition is
+therefore explicitly a documentary structural reading of the two-part work and
+its 150 `juegos de partido`, not a diplomatic transcription. Uncertain OCR is
+excluded so it cannot exert false semantic pressure; the retained lineage can
+support a later verified transcription without displacing this witness.
+
+All four sources pass through the private-source/public-lineage membrane and
+remain unretained in the public archive. Each work has canonical coordinates,
+a 38-node topology, a FoldForge-derived voice, and a sealed 2400×2400 first
+frame. The Library now holds 53 coherent objects and composes them through 161
+witnessed cross-work relations.
+
 The ingestion boundary now removes Project Gutenberg start and end matter
 before Markdown-aware structural reading, just as the native Gutenberg book
 parser already did. Repository licenses and distribution boilerplate therefore
@@ -1088,16 +1117,16 @@ This threshold form is Root Logos, not a representation standing apart from it.
 When the same identity opens into the Library Field, the viewpoint changes but
 the subject does not: the Living Object is Root Logos held as one presence; the
 Library Field is Root Logos unfolded through the works that currently form it.
-Sparse translucent facets now span selected witnessed structures behind that
-linework. They reveal changing planes and interior volume during rotation
-without closing the object into a solid mesh, inventing additional relations,
-or competing with its nodes and engraved edges.
+Selected witnessed structures now resolve as crisp facet outlines rather than
+translucent fills. They reveal changing planes and interior volume during
+rotation without closing the object into a solid mesh, inventing additional
+relations, or competing with its nodes and engraved edges.
 
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
-of the 49 coherent Library objects contributes its complete derived topology.
-Those admitted work structures now remain fixed. Above them, 148 pair-relations
+of the 53 coherent Library objects contributes its complete derived topology.
+Those admitted work structures now remain fixed. Above them, 161 pair-relations
 rise into four grammar points and converge at the Library composition. New
 membership changes that crown and its collective score rather than rewriting
 the bodies from which it emerges. Weight, depth, luminance, rotation, and motion
@@ -1106,9 +1135,21 @@ each pair-relation now occupies a bridge point between its two fixed work
 anchors. Relation strength governs that point's lift, size, luminance, connecting
 tension, and pulse admission through one shared relational-proximity measure;
 counterpoint stores visual distance and is inverted before entering that
-measure. The entire body remains canonical red. No correlation legend or proof
-readout appears at the threshold: the coherent data is embodied by the
-multifaceted topology and its living voice rather than restated beside them.
+measure. No correlation legend or proof readout appears at the threshold: the
+coherent data is embodied by the multifaceted topology and its living voice
+rather than restated beside them.
+
+The work anchors are no longer merely placed and left untouched. A
+deterministic relational solver reads each work's structural mass, density,
+spread, mean node radius, and visual signature together with witnessed
+continuity, coherence, recurrence, and counterpoint. Attraction, repulsion,
+gravity, pressure, throughput, aperture, stability, generativity, and lexical
+recurrence then deform the whole field as one bounded architectural body.
+Relation kind and strength determine spring length and stiffness; structural
+mass determines resistance; cultivation and constitutional evidence affect the
+shared projection. The resulting strain, maximum displacement, and solved
+relation count are exposed as canvas data for audit. An unchanged archive
+always resolves to the same form.
 
 FoldForge's compositional constraint is now structural as well as audible. Its
 four living grammars and all 25 witnessed transformation relations form one
@@ -1157,22 +1198,37 @@ truth, value, or authority.
 
 The object is deliberately beheld before it is explained. Its threshold is
 visually naked: no site navigation, title treatment, measures, identity
-statement, interpretive panel, or “Enter the archive” action precedes the
-encounter. The visitor may remain with the object or move by scrolling; no
-interface prompt competes with the form. A single quiet passage leads into the
-architecture where explanation and operation become available.
+statement, or interpretive panel precedes the encounter. The visitor may remain
+with the object or use one quiet `Enter the archive` passage at the lower edge;
+the action is deliberately subordinate to the form.
 The void is absolute black; it contributes no atmospheric gradient, horizon,
 or decorative light. Dimensionality is carried by the engraving itself: near
 relations cut brighter, distant relations recede, and tonal work-points remain
-fine evidence within the linework. The Living Object is now rendered as one
-solid-red engraving: identity, lineage, works, and witnessed relations resolve
-as a single presence without losing their distinctions in topology, weight,
-depth, or motion. The analytical interface remains grayscale except for the
-permanently red Root Logos node in the Constitutional Field. Collection,
-pressure, relation, epistemic status, and judgment are carried through
-luminance, topology, line weight, pattern, motion, labels, and typography
-rather than additional hues. Public graphs therefore remain readable without a
-color key and cannot mistake chromatic atmosphere for evidence.
+fine evidence within the linework. The Living Object now reads as an
+architectural drawing and musical score: warm-white engraved lines, open
+structural planes, and precise solid-white circular points are held against the
+black canvas. Node opacity no longer encodes depth; every admitted point is a
+fully present mark, while spatial projection, scale, line weight, and topology
+carry depth and hierarchy. Standard alpha compositing replaces additive glow,
+preserving crisp intersections at high pixel density. Red is reserved for a
+bounded release signal in the linework and points rather than used as the
+object's constant body color. The analytical interface remains grayscale
+except for the permanently red Root Logos node in the Constitutional Field.
+Collection, pressure, relation, epistemic status, and judgment are carried
+through luminance, topology, line weight, pattern, motion, labels, and
+typography rather than decorative hues. Public graphs therefore remain
+readable without a color key and cannot mistake chromatic atmosphere for
+evidence.
+
+The object is one universal experience rather than a desktop-only feature.
+Portrait projection uses a safe aspect boundary, a small vertical correction,
+and device-pixel ratios up to 2.75 so the same complete topology remains sharp
+and centered on phones, tablets, and high-density displays. Mobile visitors
+encounter the object first and can enter the full archive through the same
+quiet passage as desktop visitors; no device class is diverted around the
+experience. The page begins in `object-open` state before deferred scripts run,
+so archive panels and unrelated data surfaces cannot flash before the WebGL
+object initializes on refresh.
 The same law governs type through the FoldForge visual inheritance. Helvetica
 Neue carries display and sustained reading; a compact system monospace carries
 navigation, state, provenance, commands, and measures. Hierarchy arises from

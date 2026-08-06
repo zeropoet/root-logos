@@ -383,8 +383,7 @@ body.object-open main > .space,
 body.object-open .site-footer { display:none !important; }
 body.object-open .site-header,
 body.object-open .object-identity,
-body.object-open .object-witness,
-body.object-open .object-instruction { display:none; }
+body.object-open .object-witness { display:none; }
 body.archive-open .object-space { display:none; }
 body.archive-open main {
   display: flex;
@@ -1875,7 +1874,7 @@ body.archive-open .site-footer nav {
 
 @media (max-width:760px) {
   body.object-open main > .space { display:none !important; }
-  body.object-open .object-instruction { display:none; }
+  body.object-open .object-instruction { display:block;bottom:max(24px,env(safe-area-inset-bottom));color:rgba(255,255,255,.5);font-size:.48rem; }
   .works-space { height:auto;min-height:100svh;padding:0;overflow:visible; }
   .library-shell {
     position:relative;

@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="styles.css?v=2.36-foldportrait-witness" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
     <script>setTimeout(() => document.documentElement.classList.remove("style-pending"), 4000);</script>
   </head>
-  <body>
+  <body class="object-open">
     <a class="skip-link" href="#main">Enter the object</a>
 
     <header class="site-header">
@@ -66,13 +66,12 @@
           <p id="object-state">The current form holds.</p>
           <small><span id="object-work-count">— works</span><i></i><span id="object-cycle-count">— cycles</span><i></i><span id="object-inquiry-reach">Inquiry reach —</span><i></i><span id="object-revision">Revision —</span></small>
         </div>
-        <p class="object-instruction" aria-hidden="true">Stay long enough to notice it change · Scroll to enter</p>
+        <a class="object-instruction" href="#field">Enter the archive ↓</a>
       </section>
 
       <section class="space field-space" id="field" data-space-name="Field" aria-label="The Constitutional Object">
         <canvas id="field-canvas" aria-label="Dimensional interactive model of the Root Logos constitutional field. Drag to rotate, hold Alt or Option while scrolling to change depth, and select a node to inspect its relations. Ordinary vertical scrolling moves through the archive."></canvas>
         <div class="field-vignette" aria-hidden="true"></div>
-        <p class="desktop-experience-note"><span>Viewing note</span>The Living Object is a desktop-only experience. This mobile view continues into its archive.</p>
 
         <div class="field-header">
           <p class="coordinate" data-module="01">Constitutional Field</p>
@@ -250,7 +249,7 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field.</p></noscript>
-    <script src="living-object.js?v=2.45-sovereign-red" defer></script>
+    <script src="living-object.js?v=2.53-universal-object" defer></script>
     <script src="script.js?v=2.35-material-lineage" defer></script>
     <script src="works.js?v=2.23-expanded-corpora" defer></script>
   </body>
