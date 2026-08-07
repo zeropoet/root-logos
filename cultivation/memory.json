@@ -878,11 +878,42 @@
         },
         "total": 20
       }
+    },
+    "15aa66f579870c8857f5dbbe98ac51bec6314a5f593a3a556420b680698b1d29": {
+      "fingerprint": "15aa66f579870c8857f5dbbe98ac51bec6314a5f593a3a556420b680698b1d29",
+      "kind": "system-map-pressure",
+      "nodes": [
+        "source-telos",
+        "source-sovereign-standard",
+        "stewardship",
+        "principle-higher-reference"
+      ],
+      "claim": "The mapped system makes customer acquisition answerable to material stewardship: Telos seeks 200 then 400 active monthly subscribers while the principal retains refinement, fulfillment, and scaling judgment.",
+      "proposed_question": "Which relations keep subscriber growth subordinate to truthful product practice, fulfillment capacity, and principal-led judgment as the system approaches each threshold?",
+      "evidence_hash": "1ba11f4aee3f0bc29d475bb9166e89c6cc1c01d7e5e5418742e433fa5325de45",
+      "policy_hash": "cefeac1f682a9895e1b29799c2a1adfcc70f2c5ae3d391d88a7c4f93dd475180",
+      "first_cycle": "RL-CULTIVATE-0126",
+      "last_cycle": "RL-CULTIVATE-0126",
+      "last_cycle_index": 126,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 3,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 22
+      }
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 1,
-    "last_score": 0,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -1702,6 +1733,13 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-07T20:11:48.395Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0126",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-08-07T20:28:41.516Z"
       }
     ]
   },
