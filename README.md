@@ -54,9 +54,10 @@ history until a dedicated version archive exists.
 
 Accepted changes now follow Relational Propagation. Root Logos traces each
 change from its authoritative source through every applicable relation,
-representation, witness, test, derivative, release, runtime expectation, and
-public surface. A connected target must be updated, verified as current, marked
-not applicable, or explicitly deferred before the change is complete. This
+representation, witness, repository README and linked document, test,
+derivative, release, runtime expectation, and public surface. A connected
+target must be updated, verified as current, marked not applicable, or
+explicitly deferred before the change is complete. This
 coordination preserves independent source, privacy, credential, and human
 authority boundaries.
 

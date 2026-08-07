@@ -31,10 +31,10 @@ An accepted change is incomplete when one of its connected representations
 remains stale or unexamined. The system therefore begins at the authoritative
 source, traces every inbound and outbound relation, and classifies each
 connected target as requiring an update, already current, not applicable, or
-deferred with an explicit reason. Applicable policies, witnesses, documents,
-tests, generated artifacts, releases, deployments, runtime expectations, and
-public surfaces move together; deterministic derivatives are regenerated and
-public witnesses are resealed.
+deferred with an explicit reason. Applicable policies, witnesses, repository
+README files and their linked documents, tests, generated artifacts, releases,
+deployments, runtime expectations, and public surfaces move together;
+deterministic derivatives are regenerated and public witnesses are resealed.
 
 Propagation is not possession. It must preserve the independent authority of
 each source and may not carry credentials, private participant or commerce
