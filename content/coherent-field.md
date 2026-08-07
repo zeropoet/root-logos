@@ -25,6 +25,23 @@ Every active connection must preserve:
 This makes integration constitutional rather than extractive. Root Logos is
 changed by contact, but contact remains legible.
 
+## Change propagates through witnessed relation
+
+An accepted change is incomplete when one of its connected representations
+remains stale or unexamined. The system therefore begins at the authoritative
+source, traces every inbound and outbound relation, and classifies each
+connected target as requiring an update, already current, not applicable, or
+deferred with an explicit reason. Applicable policies, witnesses, documents,
+tests, generated artifacts, releases, deployments, runtime expectations, and
+public surfaces move together; deterministic derivatives are regenerated and
+public witnesses are resealed.
+
+Propagation is not possession. It must preserve the independent authority of
+each source and may not carry credentials, private participant or commerce
+records, unsupported claims, or ungranted authority across a boundary. The
+whole changes coherently because every real relation is revisited—not because
+every connected source is made identical.
+
 ## FoldForge contributes compositional grammar
 
 FoldForge contributes a mature evidence-to-grammar movement: receive evidence,
@@ -87,4 +104,6 @@ material practice without private participant data.
 
 The emerging whole is not a holding company, a dashboard, or a merged codebase.
 It is one living account of relation across independently real domains. Its
-coherence must be earned again whenever any source changes.
+coherence must be earned again whenever any source changes, and that change is
+complete only after every connected consequence has been updated, verified as
+current, marked not applicable, or explicitly deferred.

@@ -51,12 +51,15 @@ const telosWitness = validated.publicWitnesses.find(({ source_id }) => source_id
 assert.equal(telosWitness.work_relations.length, 0);
 assert.equal(telosWitness.public_state.product, "Sovereign Standard customer acquisition");
 assert.equal(telosWitness.public_state.current_version, "0.5.0");
+assert.equal(telosWitness.public_state.source_successor_version, "0.7.0");
 assert.equal(telosWitness.public_state.deployed_release_version, "0.5.0");
 assert.equal(telosWitness.public_state.deployed_decision, "OPERATING");
 assert.equal(telosWitness.public_state.maximum_active_campaigns, 1);
 assert.equal(validated.publicWitnesses.length, 2);
 assert.equal(telosWitness.public_state.root_logos_has_customer_data, false);
 assert.equal(telosWitness.public_state.root_logos_has_publication_authority, false);
+assert.equal(telosWitness.change_propagation_policy.status, "required");
+assert.equal(telosWitness.change_propagation_policy.target_states.length, 4);
 assert.equal(validated.publicWitnesses.find(({ source_id }) => source_id === "sovereign-standard").public_state.published_vessel_records, 136);
 assert.equal(validated.sovereignStandardSnapshot.measures.witness_works, 53);
 assert.equal(validated.sovereignStandardSnapshot.measures.vessel_work_relations, 13);

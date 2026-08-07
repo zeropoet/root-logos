@@ -1,7 +1,7 @@
 {
   "schema": "root-logos-public-source-witness/v1",
   "source_id": "telos",
-  "revision": "3.0.0",
+  "revision": "4.0.0",
   "effective_date": "2026-08-07",
   "status": "witnessed",
   "identity": {
@@ -12,6 +12,7 @@
   "public_state": {
     "product": "Sovereign Standard customer acquisition",
     "current_version": "0.5.0",
+    "source_successor_version": "0.7.0",
     "operational_mode": "deployed bounded organic customer acquisition",
     "deployed_release_version": "0.5.0",
     "deployed_decision": "OPERATING",
@@ -30,6 +31,26 @@
     "root_logos_has_publication_authority": false,
     "private_repository_connected": false
   },
+  "change_propagation_policy": {
+    "status": "required",
+    "rule": "An accepted change must be traced through every connected representation and is incomplete while an applicable target is stale or unclassified.",
+    "target_states": [
+      "update_required",
+      "verified_current",
+      "not_applicable",
+      "deferred_with_reason"
+    ],
+    "requires": [
+      "authoritative-source update",
+      "relation tracing",
+      "deterministic derivative regeneration",
+      "witness resealing",
+      "repository-local and cross-repository validation",
+      "commit and push of touched repositories",
+      "public or deployed consequence verification"
+    ],
+    "boundary": "Propagation preserves source authority and cannot carry secrets, personal data, private commerce records, unverified claims, or ungranted operational authority."
+  },
   "operating_loop": [
     "Discover customer needs, search intent, and channel opportunities.",
     "Rank a bounded campaign hypothesis.",
@@ -44,6 +65,7 @@
     "Measurement is a feedback loop; acquiring paying customers is the operating purpose.",
     "Campaign claims must remain truthful, trackable, and grounded in approved product facts.",
     "Publication is restricted to a committed catalog and an exact rollback path.",
+    "Accepted changes propagate through all connected system representations before they are complete.",
     "No action is preferred when evidence or authority is insufficient."
   ],
   "public_assertions": [
@@ -54,7 +76,8 @@
     "Release 0.5.0 is operating independently on Lightsail through a fifteen-minute observer and six-hour acquisition planner.",
     "The first catalog-bound campaign is live, included in the Sovereign Standard sitemap, and verified before duplicate publication is refused.",
     "Organic discovery is treated as a progression from operational proof to indexing, qualified traffic, conversion, and repeatability—not as a promise of customers or profit.",
-    "The catalog-bound gate cannot accept arbitrary copy, HTML, URLs, repository paths, homepage changes, outreach, or spend."
+    "The catalog-bound gate cannot accept arbitrary copy, HTML, URLs, repository paths, homepage changes, outreach, or spend.",
+    "Source version 0.7.0 governs system-wide change propagation while the deployed acquisition release remains 0.5.0."
   ],
   "work_relations": [],
   "exclusions": [
@@ -71,5 +94,5 @@
     "Which anonymous signals are sufficient to improve conversion without creating a customer-surveillance system?",
     "When has a campaign earned continuation, and when should insufficient evidence require silence or rollback?"
   ],
-  "witness": "sha256:17e306dff70f57ca848201b851363cdb165bc493ec90a2bcd1ea5d5d121bb77c"
+  "witness": "sha256:c53ec86950942fc03153d0e3fb89313a7e203c03619cdcca8d4516012e2b8036"
 }

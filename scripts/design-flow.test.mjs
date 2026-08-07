@@ -45,6 +45,8 @@ assert.equal(module.tracking_contract.platform_metrics_are_design_authority, fal
 assert.equal(module.tracking_contract.personal_data_collected, false);
 
 assert.ok(graph.nodes.some(({ id, type }) => id === module.constitutional_node_id && type === "tracked-module"));
+assert.ok(graph.nodes.some(({ id, type }) => id === "principle-relational-propagation" && type === "architectural-principle"));
+assert.ok(graph.edges.some((edge) => edge.from === "principle-relational-propagation" && edge.to === "coherent-field"));
 for (const [to, type] of [
   ["attractor-fragment", "tracks founding forms through"],
   ["channel-adapter", "maps X witness through"],

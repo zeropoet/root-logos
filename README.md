@@ -52,6 +52,14 @@ The living system may continue changing slowly. The Living Object always
 presents its latest state; earlier states remain recoverable through repository
 history until a dedicated version archive exists.
 
+Accepted changes now follow Relational Propagation. Root Logos traces each
+change from its authoritative source through every applicable relation,
+representation, witness, test, derivative, release, runtime expectation, and
+public surface. A connected target must be updated, verified as current, marked
+not applicable, or explicitly deferred before the change is complete. This
+coordination preserves independent source, privacy, credential, and human
+authority boundaries.
+
 ## Current Shape
 
 - `index.html` renders five public encounters in one sequence: the Living Object,
@@ -91,8 +99,8 @@ history until a dedicated version archive exists.
   the structured Original Douay-Rheims JSON format
   through a private-source membrane: only its opaque revision witness, content
   digest, derived work, and lineage become public.
-- The Constitutional Object is now the central public experience. Its 91
-  canonical structures and 241 explicit relations are projected into a stable
+- The Constitutional Object is now the central public experience. Its 93
+  canonical structures and 249 explicit relations are projected into a stable
   three-dimensional constellation generated directly from the graph. Readers
   can rotate, approach, search, filter, inspect, unfold, and refold it. Depth,
   light, scale, and motion change legibility without changing canon.
@@ -109,8 +117,9 @@ history until a dedicated version archive exists.
   without copying source media or acquiring Ethereum authority.
 - `sources/telos.public-witness.json` publishes Telos as Sovereign Standard's
   customer-acquisition operator. It exposes the bounded acquisition loop,
-  anonymous measurement posture, deployment state, governing constraints, and
-  unresolved questions. Its schema excludes personal data, payment records,
+  anonymous measurement posture, deployment state, system-wide change
+  propagation policy, governing constraints, and unresolved questions. Its
+  schema excludes personal data, payment records,
   credentials, unpublished campaign artifacts, outreach, advertising spend,
   deployment control, and channel authority.
 - `sources/sovereign-standard.public-witness.json` witnesses the public
