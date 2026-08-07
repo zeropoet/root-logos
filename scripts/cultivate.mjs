@@ -45,6 +45,7 @@ const sourceSnapshot = async () => {
   const sourceRegistryText = await readFile(sourceRegistryUrl, "utf8");
   const foldForgeSnapshotText = await readFile(foldForgeSnapshotUrl, "utf8");
   const telosWitnessText = await readFile(telosWitnessUrl, "utf8");
+  const telosWitness = JSON.parse(telosWitnessText);
   const sovereignStandardWitnessText = await readFile(sovereignStandardWitnessUrl, "utf8");
   const worksIndexText = await readFile(worksIndexUrl, "utf8");
   const corpusTopologyText = await readFile(corpusTopologyUrl, "utf8");
@@ -63,6 +64,7 @@ const sourceSnapshot = async () => {
     source_registry: digest(sourceRegistryText),
     connected_sources: digest(foldForgeSnapshotText),
     public_source_witnesses: digest([telosWitnessText, sovereignStandardWitnessText]),
+    telos_system_mapping: digest(telosWitness.system_mapping || {}),
     living_works: digest(worksIndexText),
     corpus_topology: digest(corpusTopologyText),
     combined: digest([
@@ -291,11 +293,86 @@ const searchConnectedSourcePressure = (graph) => {
   }));
 };
 
-const search = (graph, lens) => {
+const systemMappingContext = (witness) => {
+  const mapping = witness?.system_mapping || {};
+  return {
+    source: "sources/telos.public-witness.json#system_mapping",
+    source_version: witness?.public_state?.source_successor_version || witness?.public_state?.current_version || null,
+    purpose: mapping.purpose || null,
+    roles: mapping.roles || {},
+    subscriber_targets: (mapping.success_ladder || []).map(({ metric, target }) => ({ metric, target })),
+    measurement_state: mapping.measurement?.state || null,
+    repositories: (mapping.repositories || []).map(({ id }) => id),
+    operating_components: (mapping.operating_components || []).map(({ id }) => id),
+    relation_count: (mapping.relations || []).length,
+    propagation_status: witness?.change_propagation_policy?.status || null,
+    authority: mapping.cultivation_authority || null
+  };
+};
+
+const searchSystemMapPressure = (graph, witness) => {
+  const mapping = witness?.system_mapping;
+  if (!mapping) return [];
+  const targets = (mapping.success_ladder || []).map(({ target }) => target);
+  const repositoryNames = (mapping.repositories || []).map(({ id }) => id);
+  const componentNames = (mapping.operating_components || []).map(({ id }) => id);
+  const propagation = witness.change_propagation_policy || {};
+  return [{
+    kind: "system-map-pressure",
+    nodes: ["source-telos", "source-sovereign-standard", "stewardship", "principle-higher-reference"],
+    titles: ["Telos", "Sovereign Standard", "Stewardship", "Intelligence Requires a Higher Reference"],
+    shared_keywords: ["acquisition", "conversion", "stewardship", "authority"],
+    evidence: [
+      mapping.purpose,
+      `Roles: principal=${mapping.roles?.principal}; telos=${mapping.roles?.telos}.`,
+      `Subscriber thresholds: ${targets.join(" then ")}; measurement=${mapping.measurement?.state}.`,
+      `Cultivation authority: ${mapping.cultivation_authority}.`
+    ],
+    claim: `The mapped system makes customer acquisition answerable to material stewardship: Telos seeks ${targets.join(" then ")} active monthly subscribers while the principal retains refinement, fulfillment, and scaling judgment.`,
+    proposed_question: "Which relations keep subscriber growth subordinate to truthful product practice, fulfillment capacity, and principal-led judgment as the system approaches each threshold?",
+    proposed_test: "Trace each subscriber threshold through acquisition, conversion, fulfillment, measurement, and authority; reject any interpretation that treats traffic as subscribers, lets cultivation issue an operating command, or makes growth its own highest reference.",
+    external_evidence: true,
+    mapping_context: systemMappingContext(witness)
+  }, {
+    kind: "system-map-pressure",
+    nodes: ["principle-relational-propagation", "coherent-field", "source-telos", "root-logos"],
+    titles: ["Relational Propagation", "The Coherent Field", "Telos", "Root Logos"],
+    shared_keywords: ["propagation", "relation", "source", "boundary"],
+    evidence: [
+      propagation.rule,
+      `Required target states: ${(propagation.target_states || []).join(", ")}.`,
+      propagation.boundary,
+      `${repositoryNames.length} repositories and ${componentNames.length} operating components are mapped.`
+    ],
+    claim: `Relational Propagation now binds ${repositoryNames.length} mapped repositories and ${componentNames.length} operating components to explicit completeness without collapsing their independent authority.`,
+    proposed_question: "Where can a change appear complete locally while leaving a connected witness, README, derivative, runtime expectation, or public surface stale?",
+    proposed_test: "Select one accepted change, classify every mapped repository and operating component, verify every applicable README and derivative, and preserve explicit reasons for not-applicable or deferred targets.",
+    external_evidence: true,
+    mapping_context: systemMappingContext(witness)
+  }, {
+    kind: "system-map-pressure",
+    nodes: ["source-telos", "source-sovereign-standard", "source-foldforge", "coherent-field"],
+    titles: ["Telos", "Sovereign Standard", "FoldForge", "The Coherent Field"],
+    shared_keywords: ["repository", "composition", "evidence", "relation"],
+    evidence: [
+      `Repositories: ${repositoryNames.join(", ")}.`,
+      `Operating components: ${componentNames.join(", ")}.`,
+      ...(mapping.relations || []).slice(0, 5)
+    ],
+    claim: "The repository ecology forms one accountable system only through explicit relations: orientation, composition, material witness, acquisition, conversion, and evidence correction remain distinct functions.",
+    proposed_question: "Which cross-repository relation is currently least witnessed, and what public evidence would make it testable without merging repositories or transferring authority?",
+    proposed_test: "For each mapped repository, name its authoritative contribution, public witness, return path, exclusion, and stale-data signal; preserve separation wherever no verified relation exists.",
+    external_evidence: true,
+    mapping_context: systemMappingContext(witness)
+  }];
+};
+
+const search = (graph, lens, context = {}) => {
   if (lens.id === "question-pressure") return searchQuestionPressure(graph);
   if (lens.id === "generative-compression") return searchGenerativeCompression(graph);
   if (lens.id === "reflexive-test") return searchReflexiveTests(graph);
   if (lens.id === "connected-source-pressure") return searchConnectedSourcePressure(graph);
+  if (lens.id === "system-map-pressure") return searchSystemMapPressure(graph, context.telosWitness);
   return searchRelationalGaps(graph, lens.minimum_shared_keywords || 4);
 };
 
@@ -453,6 +530,7 @@ const start = async (state, policy, intake = null) => {
   const snapshot = await sourceSnapshot();
   const lens = requestedLens ? policy.lenses.find(({ id: lensId }) => lensId === requestedLens) : chooseLens(policy, state);
   if (!lens) throw new Error(`Unknown cultivation lens: ${requestedLens}`);
+  const telosWitness = await readJson(telosWitnessUrl);
   const cycle = {
     cultivation_id: id,
     status: "running",
@@ -461,6 +539,7 @@ const start = async (state, policy, intake = null) => {
     policy_snapshot: policy,
     policy_hash: digest(policy),
     lens,
+    system_mapping: systemMappingContext(telosWitness),
     intake: intake ? { event_id: intake.event_id, disposition: intake.disposition || intakePriority, admitted_at: intake.admitted_at, steward_note: intake.steward_note || null, payload: intake.payload } : null,
     self_prompt: null,
     findings: [],
@@ -484,7 +563,7 @@ const loadActive = async (state) => {
 const step = async (state, policy, memory) => {
   if (state.status === "paused") throw new Error("Cultivation is paused. Run resume before stepping.");
   const cycle = await loadActive(state);
-  const graph = await readJson(graphUrl);
+  const [graph, telosWitness] = await Promise.all([readJson(graphUrl), readJson(telosWitnessUrl)]);
   if (cycle.phase === "orientation") {
     cycle.self_prompt = cycle.intake
       ? `An admitted observation has crossed the autonomous intake boundary: ${cycle.intake.event_id} (${cycle.intake.disposition}). Ask where it creates genuine pressure, contradiction, or connection within Root Logos.\n\nTreat the observation as attributable evidence, not constitutional truth. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.`
@@ -493,7 +572,7 @@ const step = async (state, policy, memory) => {
     appendEvent(cycle, "self-prompt-generated", { prompt_hash: digest(cycle.self_prompt) });
   } else if (cycle.phase === "prompted") {
     const intakeFindings = searchIntakeResonance(graph, cycle.intake);
-    cycle.findings = [...intakeFindings, ...search(graph, cycle.lens)].slice(0, 12).map((finding, index) => ({ rank: index + 1, ...finding }));
+    cycle.findings = [...intakeFindings, ...search(graph, cycle.lens, { telosWitness })].slice(0, 12).map((finding, index) => ({ rank: index + 1, ...finding }));
     cycle.phase = "searched";
     appendEvent(cycle, "constitutional-search-completed", { findings: cycle.findings.length });
   } else if (cycle.phase === "searched") {

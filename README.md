@@ -101,7 +101,7 @@ authority boundaries.
   through a private-source membrane: only its opaque revision witness, content
   digest, derived work, and lineage become public.
 - The Constitutional Object is now the central public experience. Its 93
-  canonical structures and 249 explicit relations are projected into a stable
+  canonical structures and 251 explicit relations are projected into a stable
   three-dimensional constellation generated directly from the graph. Readers
   can rotate, approach, search, filter, inspect, unfold, and refold it. Depth,
   light, scale, and motion change legibility without changing canon.
@@ -118,7 +118,8 @@ authority boundaries.
   without copying source media or acquiring Ethereum authority.
 - `sources/telos.public-witness.json` publishes Telos as Sovereign Standard's
   customer-acquisition operator. It exposes the bounded acquisition loop,
-  anonymous measurement posture, deployment state, system-wide change
+  anonymous measurement posture, deployment state, public five-repository and
+  five-component system mapping, 200/400 subscriber ladder, system-wide change
   propagation policy, governing constraints, and unresolved questions. Its
   schema excludes personal data, payment records,
   credentials, unpublished campaign artifacts, outreach, advertising spend,
@@ -173,16 +174,18 @@ authority boundaries.
   eligible fragment, publishes it through the X adapter, and closes its archive
   record.
 - `cultivation/` contains the pause-and-resume state, policy, evidence archives,
-  semantic hypothesis memory, dormancy state, and Revision 0.9 delegated
-  authority boundary for inward autonomous inquiry and single-identity
-  self-authorship.
+  semantic hypothesis memory, bounded system-mapping context, dormancy state,
+  and Revision 0.9 delegated authority boundary for inward autonomous inquiry
+  and single-identity self-authorship.
 - Cultivation cycles use the self-describing identity `RL-CULTIVATE-####`.
   Historical `RL-CULT-####` references remain readable aliases but are never
   emitted as new canonical identifiers.
 - `scripts/cultivate.mjs` lets Root Logos generate its own constitutional
-  question, search through four distinct methods, remember and suppress
-  unchanged hypotheses, evaluate findings, enter dormancy at diminishing
-  returns, and apply only authorized low-risk advances.
+  question, search through six distinct methods—including explicit pressure
+  from mapped repository roles, operating components, subscriber thresholds,
+  and propagation obligations—remember and suppress unchanged hypotheses,
+  evaluate findings, enter dormancy at diminishing returns, and apply only
+  authorized low-risk advances.
 - `.github/workflows/cultivation-cycle.yml` wakes the chamber after canonical
   changes, weekly while productive, or through explicit human dispatch.
 - `.github/workflows/attractor-release.yml` runs the autonomous release cycle

@@ -36,7 +36,8 @@ await Promise.all([
 ]);
 
 const activePolicy = JSON.parse(await readFile(new URL("cultivation/policy.json", sourceRoot), "utf8"));
-assert.equal(activePolicy.version, 4);
+assert.equal(activePolicy.version, 5);
+assert.ok(activePolicy.lenses.some(({ id }) => id === "system-map-pressure"));
 assert.deepEqual(activePolicy.compression.required_fields, ["direction", "boundary", "regeneration", "residue", "correction", "authority"]);
 assert.equal(activePolicy.authority.authorization.constitutional_revision, "v1.0");
 assert.equal(activePolicy.authority.self_authorship.publication, "immediate-atomic-after-all-gates-pass");
@@ -151,7 +152,7 @@ const autonomousPath = join(sandbox, "cultivation", "cycles", "RL-CULTIVATE-0002
 const judged = JSON.parse(await readFile(autonomousPath, "utf8"));
 assert.equal(judged.status, "autonomously-accepted");
 assert.equal(judged.autonomous_judgment.risk, "low");
-assert.equal(judged.autonomous_judgment.authority, "cultivation-policy-v4");
+assert.equal(judged.autonomous_judgment.authority, "cultivation-policy-v5");
 assert.ok(Object.values(judged.autonomous_judgment.checks).every(Boolean));
 assert.match(judged.autonomous_judgment.counterargument, /decorative relations/);
 succeeds("apply", "RL-CULTIVATE-0002");
@@ -187,6 +188,20 @@ assert.notEqual(repeatedCycle.selected_finding.reconsideration.fingerprint, auto
 const suppressedOriginal = repeatedCycle.findings.find(({ reconsideration }) => reconsideration.fingerprint === automaticCycle.selected_finding.reconsideration.fingerprint);
 assert.equal(suppressedOriginal.reconsideration.eligible, false);
 assert.equal(suppressedOriginal.reconsideration.reason, "settled-without-new-evidence");
+
+succeeds("cycle", "--lens", "system-map-pressure");
+const mappedState = JSON.parse(await readFile(join(sandbox, "cultivation", "state.json"), "utf8"));
+const mappedId = mappedState.history.at(-1).cultivation_id;
+const mappedCycle = JSON.parse(await readFile(join(sandbox, "cultivation", "cycles", `${mappedId}.json`), "utf8"));
+assert.equal(mappedCycle.lens.id, "system-map-pressure");
+assert.deepEqual(mappedCycle.system_mapping.subscriber_targets.map(({ target }) => target), [200, 400]);
+assert.deepEqual(mappedCycle.system_mapping.repositories, ["telos", "sovereign-standard", "root-logos", "foldforge", "foldportrait"]);
+assert.equal(mappedCycle.system_mapping.measurement_state, "aggregate_active_subscription_count_not_connected");
+assert.equal(mappedCycle.system_mapping.propagation_status, "required");
+assert.equal(mappedCycle.system_mapping.authority, "inquiry and constitutional relation only");
+assert.ok(mappedCycle.findings.length >= 3);
+assert.ok(mappedCycle.findings.every(({ kind }) => kind === "system-map-pressure"));
+assert.ok(mappedCycle.findings.some(({ claim }) => claim.includes("200 then 400")));
 
 const exhaustionMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
 for (const finding of repeatedCycle.findings) {

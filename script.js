@@ -178,7 +178,9 @@ const renderSources = () => {
       ];
     }
     if (source.id === "telos" && publicWitness) {
-      measures = [["Mode", sentence(publicWitness.public_state.operational_mode)], ["Product", publicWitness.public_state.product], ["Release", publicWitness.public_state.current_version], ["Decision", publicWitness.public_state.deployed_decision]];
+      const mapping = publicWitness.system_mapping || {};
+      const targets = (mapping.success_ladder || []).map(({ target }) => target).join(" → ") || "Unmapped";
+      measures = [["Mode", sentence(publicWitness.public_state.operational_mode)], ["Targets", targets], ["Mapped system", `${(mapping.repositories || []).length} repos / ${(mapping.operating_components || []).length} components`], ["Decision", publicWitness.public_state.deployed_decision]];
     }
     if (source.id === "sovereign-standard" && publicWitness) {
       measures = materialWitness
@@ -424,10 +426,12 @@ const renderDrawer = () => {
   const evaluation = finding.evaluation || cycle.proposal?.evaluation || {};
   const judgment = cycle.autonomous_judgment || {};
   const compression = finding.compression_grammar || cycle.proposal?.compression_grammar;
+  const mapping = cycle.system_mapping;
   $("#drawer-content").innerHTML = `
     <section class="drawer-section"><h3>Self-prompt</h3><p>${escapeHtml(cycle.self_prompt || cycle.lens?.question || "—")}</p></section>
     <section class="drawer-section"><h3>Selected finding</h3><p>${escapeHtml(finding.claim || "No finding selected.")}</p></section>
     <section class="drawer-section"><h3>Proposed test</h3><p>${escapeHtml(finding.proposed_test || "No test proposed.")}</p></section>
+    ${mapping ? `<section class="drawer-section"><h3>Mapped operating context</h3><p>${escapeHtml(`${mapping.repositories?.length || 0} repositories · ${mapping.operating_components?.length || 0} components · subscriber thresholds ${(mapping.subscriber_targets || []).map(({ target }) => target).join(" → ") || "unconnected"} · ${sentence(mapping.measurement_state || "measurement unknown")} · authority ${mapping.authority || "bounded"}`)}</p></section>` : ""}
     <section class="drawer-section"><h3>Evaluation</h3><p>${escapeHtml(String(evaluation.total ?? "—"))} / 24 · ${escapeHtml(Object.entries(evaluation.dimensions || {}).map(([key, value]) => `${sentence(key)} ${value}`).join(" · "))}</p></section>
     ${compression ? `<section class="drawer-section"><h3>Compression grammar</h3><p>${escapeHtml(compression.direction || "Direction unresolved.")} ${escapeHtml(compression.boundary || "Boundary unresolved.")}</p><p>${escapeHtml(compression.residue || "Irreducible residue unresolved.")}</p><p>${escapeHtml(compression.correction || "Correction condition unresolved.")}</p><p>${escapeHtml(compression.authority || "Authority limit unresolved.")}</p></section>` : ""}
     <section class="drawer-section"><h3>Adversarial judgment</h3><p>${escapeHtml(judgment.counterargument || "No counterargument recorded.")}</p></section>

@@ -1,7 +1,7 @@
 {
   "schema": "root-logos-public-source-witness/v1",
   "source_id": "telos",
-  "revision": "4.0.0",
+  "revision": "5.0.0",
   "effective_date": "2026-08-07",
   "status": "witnessed",
   "identity": {
@@ -12,7 +12,7 @@
   "public_state": {
     "product": "Sovereign Standard customer acquisition",
     "current_version": "0.5.0",
-    "source_successor_version": "0.7.1",
+    "source_successor_version": "0.8.0",
     "operational_mode": "deployed bounded organic customer acquisition",
     "deployed_release_version": "0.5.0",
     "deployed_decision": "OPERATING",
@@ -30,6 +30,91 @@
     "root_logos_has_customer_data": false,
     "root_logos_has_publication_authority": false,
     "private_repository_connected": false
+  },
+  "system_mapping": {
+    "purpose": "Convert qualified people into retained monthly Sovereign Standard subscribers while the principal refines the system and fulfills orders.",
+    "roles": {
+      "principal": "refine_system_and_fulfill_orders",
+      "telos": "acquire_and_convert_monthly_subscribers"
+    },
+    "success_ladder": [
+      {
+        "metric": "active_monthly_subscribers",
+        "target": 200,
+        "meaning": "first proof threshold"
+      },
+      {
+        "metric": "active_monthly_subscribers",
+        "target": 400,
+        "meaning": "begin principal-led physical-operations scaling review"
+      }
+    ],
+    "measurement": {
+      "source": "privacy-safe aggregate derived inside Sovereign Standard's private subscription boundary",
+      "state": "aggregate_active_subscription_count_not_connected",
+      "current_value": null,
+      "personal_data_available": false
+    },
+    "repositories": [
+      {
+        "id": "telos",
+        "role": "customer acquisition operator and governed growth evidence"
+      },
+      {
+        "id": "sovereign-standard",
+        "role": "monthly tea collection, commerce boundary, public product truth, and fulfillment source"
+      },
+      {
+        "id": "root-logos",
+        "role": "constitutional map, design-flow ledger, and witnessed relation layer"
+      },
+      {
+        "id": "foldforge",
+        "role": "evidence-to-composition grammar"
+      },
+      {
+        "id": "foldportrait",
+        "role": "deterministic render and material lineage"
+      }
+    ],
+    "operating_components": [
+      {
+        "id": "lightsail",
+        "role": "independent Telos runtime"
+      },
+      {
+        "id": "cloudflare",
+        "role": "bounded anonymous event and publication relays"
+      },
+      {
+        "id": "github",
+        "role": "reviewed source, guide construction, and version lineage"
+      },
+      {
+        "id": "stripe",
+        "role": "private recurring-subscription billing boundary"
+      },
+      {
+        "id": "x",
+        "role": "bounded witness for Root Logos fragments"
+      }
+    ],
+    "relations": [
+      "human-principal -> refines -> whole system",
+      "human-principal -> fulfills -> Sovereign Standard orders",
+      "Root Logos -> orients -> design flows",
+      "FoldForge -> constrains -> composition",
+      "FoldPortrait -> witnesses -> material render lineage",
+      "Telos -> acquires -> qualified prospective subscribers",
+      "Telos -> routes -> Sovereign Standard monthly collection",
+      "Sovereign Standard -> converts -> monthly subscribers",
+      "anonymous evidence -> corrects -> Telos campaigns",
+      "Telos public system map -> informs -> Root Logos Cultivation Chamber",
+      "200 active monthly subscribers -> establishes -> first success threshold",
+      "400 active monthly subscribers -> triggers -> physical operations scaling review"
+    ],
+    "cultivation_authority": "inquiry and constitutional relation only",
+    "source_commit": "ea9b8a10b7da3c5c6367e7ad5d14798eb3c7d492"
   },
   "change_propagation_policy": {
     "status": "required",
@@ -78,7 +163,7 @@
     "The first catalog-bound campaign is live, included in the Sovereign Standard sitemap, and verified before duplicate publication is refused.",
     "Organic discovery is treated as a progression from operational proof to indexing, qualified traffic, conversion, and repeatability—not as a promise of customers or profit.",
     "The catalog-bound gate cannot accept arbitrary copy, HTML, URLs, repository paths, homepage changes, outreach, or spend.",
-    "Source version 0.7.1 governs system-wide change propagation, explicitly including README files and linked documentation, while the deployed acquisition release remains 0.5.0."
+    "Source version 0.8.0 projects the public system map into bounded Root Logos cultivation while the deployed acquisition release remains 0.5.0."
   ],
   "work_relations": [],
   "exclusions": [
@@ -95,5 +180,5 @@
     "Which anonymous signals are sufficient to improve conversion without creating a customer-surveillance system?",
     "When has a campaign earned continuation, and when should insufficient evidence require silence or rollback?"
   ],
-  "witness": "sha256:8dd6598ff382b9d8cc6be130ee8a173e33b6d3984d78f1569c8faa1ce4113e6b"
+  "witness": "sha256:fbd88a2a0fbb902125c3d1b6c189dd239017f0b4fcb54c2b2a6976011a69932e"
 }

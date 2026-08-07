@@ -80,6 +80,15 @@ campaign artifacts, deployment control, outreach authority, or advertising
 spend. Root Logos can learn from Telos's evidence-bound action without becoming
 part of Sovereign Standard's acquisition or customer-data control plane.
 
+Telos also releases a bounded system mapping into the Cultivation Chamber. It
+names the principal and operator roles, the 200 and 400 active-subscriber
+thresholds, mapped repositories and operating components, anonymous
+measurement gap, public relations, and propagation obligations. Cultivation
+may test those relations and expose a stale or weakly witnessed consequence;
+it may not infer a subscriber count, command an operating component, or acquire
+customer, commerce, credential, publication, deployment, outreach, spending,
+fulfillment, or scaling authority.
+
 ## Sovereign Standard contributes material practice
 
 Sovereign Standard gives the field a physical domain: one enduring tea, an
