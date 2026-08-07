@@ -44,7 +44,7 @@ grammars; those grammars compose one higher Library form. The Living Object is
 Root Logos held as a sovereign presence, and the Library Field is the same
 identity unfolded through its works. The Constitution remains the higher
 reference. FoldForge is the primary compositional data constraint beside it,
-Telos witnesses meaningful change between living states, and
+Telos witnesses bounded, evidence-led customer acquisition, and
 Sovereign Standard carries material lineage with FoldPortrait embedded at that
 boundary rather than duplicated as a separate source.
 
@@ -107,13 +107,12 @@ history until a dedicated version archive exists.
   FoldForge's public constitution and versioned composition grammars. It exposes
   identity pressure, primitives, transformation relations, limits, and questions
   without copying source media or acquiring Ethereum authority.
-- `sources/telos.public-witness.json` publishes Telos as an independently
-  governed, self-capitalized, proof-bounded spot-BTC treasury system. It exposes
-  identity, paper-only operational mode, BTC-settled orientation, governing
-  commitments, non-authorizing proof posture, and constitutional questions.
-  Its schema excludes balances, positions, account identity, credentials,
-  strategies, orders, transactions, custody, signing power, and trading
-  authority.
+- `sources/telos.public-witness.json` publishes Telos as Sovereign Standard's
+  customer-acquisition operator. It exposes the bounded acquisition loop,
+  anonymous measurement posture, deployment state, governing constraints, and
+  unresolved questions. Its schema excludes personal data, payment records,
+  credentials, unpublished campaign artifacts, outreach, advertising spend,
+  deployment control, and channel authority.
 - `sources/sovereign-standard.public-witness.json` witnesses the public
   Sovereign Standard product canon, individually numbered Black Tin Vessel,
   public provenance model, and vessel field as material tests of continuity,
@@ -577,8 +576,9 @@ Authority and constraint remain distinct. The Root Logos Constitution is the
 higher reference governing admission, transformation, self-authorship, and
 archive finality. Ethereum evidence remains prior to FoldForge, while
 FoldForge's witnessed instrument supplies the primary compositional data
-constraint. Telos can observe and express distance between released states but
-receives no custody or governing authority. FoldPortrait
+constraint. Telos can contribute anonymous, evidence-led acquisition signals
+but gives Root Logos no customer data, publishing authority, or governing
+authority. FoldPortrait
 renders remain visible through their corresponding Sovereign Standard material
 witness lineage; they are not repeated as an independent connected-source node.
 
@@ -682,13 +682,6 @@ Internacional Jorge Luis Borges. Spanish-aware concept extraction preserves
 the work's semantic pressure without promoting function words. The PDF and
 prose are released after ingestion; only the authorized witness and derived
 lineage remain.
-
-The Bitcoin white paper also has an explicit, sealed relation to Telos. The
-exact Library work and edition ground Telos's declared BTC settled value layer
-and terminal accounting reference. This lineage grants no treasury strategy,
-custody, execution, trading, or interpretive authority: Telos cannot alter the
-source work's meaning, and the work does not authorize Telos. The bounded bridge
-is visible from both the Telos public witness and the Bitcoin Library reading.
 
 The Founding Constitution now holds sixty-five immutable readings. Its current
 v1.2 Library-addition edition preserves 21 constitutional sections, 2,838 words,
@@ -1183,8 +1176,9 @@ bounded public-state fields form a continuous strand rooted in the object, so
 Telos becoming is visible inside Root Logos as released evidence. The
 connection reads the public `telos-public-stream/v1` projection directly and
 falls back to Root Logos's sealed Telos public witness when the stream is
-unavailable. It cannot reach Telos source code, credentials, balances, routes,
-orders, execution, or private evidence. Telos Stream remains silent; its
+unavailable. It cannot reach Telos source code, credentials, personal data,
+payment records, unpublished campaigns, deployment control, outreach, spend,
+or channel authority. Telos Stream remains silent; its
 pressure changes the visible body without claiming a second sovereign voice.
 
 The same complete field enters the sovereign voice. Every relation contributes

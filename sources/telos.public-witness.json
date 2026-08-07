@@ -1,68 +1,67 @@
 {
   "schema": "root-logos-public-source-witness/v1",
   "source_id": "telos",
-  "revision": "1.0.0",
-  "effective_date": "2026-07-24",
+  "revision": "2.0.0",
+  "effective_date": "2026-08-07",
   "status": "witnessed",
   "identity": {
     "name": "Telos",
-    "definition": "An independently governed, self-capitalized spot-BTC treasury system testing whether autonomous capital allocation can earn authority through evidence while remaining proof-bounded and survival-oriented.",
-    "role_in_coherent_field": "Telos gives Root Logos an economic and treasury expression through which claims about preservation, authority, evidence, and autonomy can meet material consequence."
+    "definition": "The customer-acquisition operator for Sovereign Standard: a bounded system for discovering qualified prospective customers, bringing them to sovereignstandard.co through legitimate channels, and improving conversion into paid subscribers.",
+    "role_in_coherent_field": "Telos gives Root Logos an operating example of evidence-led action whose purpose, permissions, measurements, and stop conditions remain explicit."
   },
   "public_state": {
-    "operational_mode": "paper-only research",
-    "capital_basis": "self-capitalized",
-    "settled_value_layer": "BTC",
-    "terminal_measure": "net BTC over long horizons",
-    "live_execution_available": false,
-    "root_logos_has_custody": false,
-    "root_logos_has_trading_authority": false,
+    "product": "Sovereign Standard customer acquisition",
+    "current_version": "0.5.0",
+    "operational_mode": "deployed anonymous growth observation with acquisition release pending",
+    "deployed_observer_version": "0.2.0",
+    "deployed_decision": "HOLD",
+    "owned_search_publisher": "approved and catalog-bound; awaiting Lightsail release",
+    "outreach_enabled": false,
+    "advertising_enabled": false,
+    "spending_authority": false,
+    "personal_data_collection": false,
+    "root_logos_has_customer_data": false,
+    "root_logos_has_publication_authority": false,
     "private_repository_connected": false
   },
+  "operating_loop": [
+    "Discover customer needs, search intent, and channel opportunities.",
+    "Rank a bounded campaign hypothesis.",
+    "Create truthful, trackable content and landing-page artifacts.",
+    "Publish or distribute only through an explicitly authorized channel.",
+    "Measure anonymous landing, Collection, checkout, and paid events.",
+    "Continue, revise, or stop the campaign from evidence."
+  ],
   "governing_commitments": [
-    "Human principal remains the ultimate authority.",
-    "Every proposed action requires intelligible reasons, explicit constraints, and reproducible evidence.",
-    "Authority may expand only after fixed tests pass.",
-    "Survival and bounded loss outrank capital ambition.",
-    "Strategy proposes, policy permits, execution acts, and audit records."
+    "The human principal makes and fulfills the product.",
+    "Telos owns customer acquisition only within reviewed authority.",
+    "Measurement is a feedback loop, not the purpose of the system.",
+    "Campaign claims must remain truthful, trackable, and grounded in approved product facts.",
+    "Publication is restricted to a committed catalog and an exact rollback path.",
+    "No action is preferred when evidence or authority is insufficient."
   ],
   "public_assertions": [
-    "Telos is presently an experimental paper-only system.",
-    "BTC is the settled value layer and terminal accounting reference.",
-    "The system prefers no action when a complete route cannot be conservatively bounded and evidenced.",
-    "Current architecture does not provide Root Logos with custody, credentials, signing power, transfer capability, or trade authority.",
-    "Telos preserves content-addressed evidence and separates proposal, permission, execution, and audit."
+    "The former paper-trading and crypto-treasury implementation is retired and absent from the current product.",
+    "Telos has no exchange connector or crypto-trading authority.",
+    "Any BTC purchase is a separate owner-directed use of realized business surplus.",
+    "The production observer reads only anonymous event identifiers, types, timestamps, channels, and campaigns.",
+    "The current deployed decision remains HOLD while the tested acquisition stack awaits release.",
+    "The catalog-bound gate cannot accept arbitrary copy, HTML, URLs, repository paths, homepage changes, outreach, or spend."
   ],
-  "work_relations": [
-    {
-      "id": "telos-bitcoin-whitepaper",
-      "work_id": "bitcoin-a-peer-to-peer-electronic-cash-system-0110e266",
-      "edition_id": "bitcoin-a-peer-to-peer-electronic-cash-system-0110e266--v11-read-aa3eeb-e2121bae",
-      "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
-      "relation": "grounds-settled-value-layer",
-      "statement": "The Bitcoin white paper provides the public protocol architecture from which Telos names BTC as its settled value layer and terminal accounting reference.",
-      "library_statement": "This work grounds Telos’s declared BTC value layer; it grants no treasury authority.",
-      "shared_structures": [
-        "peer-to-peer settlement",
-        "proof-bounded authority",
-        "adversarial verification",
-        "BTC-denominated accounting"
-      ],
-      "boundary": "The white paper does not authorize Telos strategy, custody, execution, or claims of protocol identity. Telos does not alter the work’s source meaning."
-    }
-  ],
+  "work_relations": [],
   "exclusions": [
-    "balances and position sizes",
-    "account and portfolio identifiers",
-    "credentials, keys, signatures, and network allowlists",
-    "private strategy parameters and route details",
-    "orders, fills, transactions, tax records, and private evidence bundles",
-    "private repository contents beyond deliberately released public claims"
+    "email, name, IP address, postal address, phone number, and customer identity",
+    "Stripe customer identifiers, payment amounts, and lifecycle records",
+    "repository credentials and deployment access",
+    "unpublished campaign artifacts and private operating evidence",
+    "arbitrary copy, HTML, URLs, repository paths, and homepage changes",
+    "outreach, advertising spend, exchange access, and crypto-trading authority",
+    "publication, rollback, deployment, or customer-acquisition authority for Root Logos"
   ],
   "questions": [
-    "Can autonomous capital remain genuinely subordinate to evidence and preservation?",
-    "What treasury behavior would embody Root Logos without converting capital into constitutional authority?",
-    "Which proofs should be public before a treasury system may claim that its autonomy has matured?"
+    "Can customer acquisition remain truthful and useful when its authority is narrower than its ability to generate ideas?",
+    "Which anonymous signals are sufficient to improve conversion without creating a customer-surveillance system?",
+    "When has a campaign earned continuation, and when should insufficient evidence require silence or rollback?"
   ],
-  "witness": "sha256:5f2e58da5bca564f5124124a0201f6dcb277a223760d081237f8e63dec310492"
+  "witness": "sha256:c749e2ded9f2fe8b3beb7b2b3e0d5a082f887511bfa2d246565368b225df8dfa"
 }

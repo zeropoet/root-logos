@@ -48,12 +48,12 @@ assert.equal(validated.registry.sources.find(({ id }) => id === "telos").public_
 assert.equal(validated.registry.sources.find(({ id }) => id === "sovereign-standard").public_url, "https://sovereignstandard.co");
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldportrait").public_url, "https://zeropoet.github.io/FoldPortrait/");
 const telosWitness = validated.publicWitnesses.find(({ source_id }) => source_id === "telos");
-assert.equal(telosWitness.work_relations.length, 1);
-assert.equal(telosWitness.work_relations[0].work_id, "bitcoin-a-peer-to-peer-electronic-cash-system-0110e266");
-assert.equal(telosWitness.work_relations[0].relation, "grounds-settled-value-layer");
+assert.equal(telosWitness.work_relations.length, 0);
+assert.equal(telosWitness.public_state.product, "Sovereign Standard customer acquisition");
+assert.equal(telosWitness.public_state.current_version, "0.5.0");
 assert.equal(validated.publicWitnesses.length, 2);
-assert.equal(validated.publicWitnesses.find(({ source_id }) => source_id === "telos").public_state.live_execution_available, false);
-assert.equal(validated.publicWitnesses.find(({ source_id }) => source_id === "telos").public_state.root_logos_has_custody, false);
+assert.equal(telosWitness.public_state.root_logos_has_customer_data, false);
+assert.equal(telosWitness.public_state.root_logos_has_publication_authority, false);
 assert.equal(validated.publicWitnesses.find(({ source_id }) => source_id === "sovereign-standard").public_state.published_vessel_records, 136);
 assert.equal(validated.sovereignStandardSnapshot.measures.witness_works, 53);
 assert.equal(validated.sovereignStandardSnapshot.measures.vessel_work_relations, 13);

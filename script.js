@@ -175,7 +175,7 @@ const renderSources = () => {
       ];
     }
     if (source.id === "telos" && publicWitness) {
-      measures = [["Mode", sentence(publicWitness.public_state.operational_mode)], ["Value layer", publicWitness.public_state.settled_value_layer], ["Linked works", publicWitness.work_relations?.length || 0], ["RL custody", "None"]];
+      measures = [["Mode", sentence(publicWitness.public_state.operational_mode)], ["Product", publicWitness.public_state.product], ["Release", publicWitness.public_state.current_version], ["Decision", publicWitness.public_state.deployed_decision]];
     }
     if (source.id === "sovereign-standard" && publicWitness) {
       measures = materialWitness

@@ -41,18 +41,19 @@ The FoldForge adapter witnesses its constitution and three living
 compositions—luminance, language, and resonance—without acquiring repository
 write access or Ethereum authority.
 
-## Telos contributes economic identity and proof posture
+## Telos contributes bounded acquisition practice
 
-Telos is an independently governed, self-capitalized spot-BTC treasury system.
-Its public witness lets Root Logos understand Telos as an economic expression of
-preservation, evidence, bounded authority, and autonomous action. The witness
-declares its paper-only mode, BTC-settled orientation, governing commitments,
-and absence of live authority.
+Telos is Sovereign Standard's customer-acquisition operator. It discovers
+customer needs and channel opportunities, ranks bounded campaign hypotheses,
+creates truthful trackable artifacts, measures anonymous conversion events,
+and recommends whether to continue, revise, pause, or stop. Measurement is its
+feedback loop rather than its purpose.
 
-The witness is deliberately incapable of carrying balances, positions, account
-identity, credentials, strategy parameters, orders, transactions, custody,
-signing power, or trading authority. Root Logos can be changed by what Telos
-demonstrates without becoming part of Telos's financial control plane.
+The public witness exposes this operating loop and its reviewed authority
+without carrying personal data, payment records, credentials, unpublished
+campaign artifacts, deployment control, outreach authority, or advertising
+spend. Root Logos can learn from Telos's evidence-bound action without becoming
+part of Sovereign Standard's acquisition or customer-data control plane.
 
 ## Sovereign Standard contributes material practice
 
@@ -69,7 +70,7 @@ community records do not enter the witness.
 
 X supplies public observation and outward exchange without allowing engagement
 to determine truth. FoldForge supplies compositional grammar without transferring
-Ethereum authority. Telos supplies economic identity and proof posture without
+Ethereum authority. Telos supplies bounded acquisition practice without
 financial authority. Sovereign Standard supplies material practice without
 private participant data.
 
