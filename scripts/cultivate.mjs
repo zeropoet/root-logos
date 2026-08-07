@@ -355,8 +355,11 @@ const assessReconsideration = (finding, memory, policy, state) => {
   const cycleIndex = state.history.length + 1;
   if (!previous) return { fingerprint, evidence_hash: evidenceHash, eligible: true, reason: "new-hypothesis", novelty: 4 };
   if (previous.evidence_hash !== evidenceHash) return { fingerprint, evidence_hash: evidenceHash, eligible: true, reason: "evidence-changed", novelty: 3 };
+  if (["rejected", "autonomously-rejected", "implemented"].includes(previous.status)) {
+    return { fingerprint, evidence_hash: evidenceHash, eligible: false, reason: "settled-without-new-evidence", novelty: 0 };
+  }
   if (previous.policy_hash !== digest(policy)) return { fingerprint, evidence_hash: evidenceHash, eligible: true, reason: "policy-changed", novelty: 2 };
-  if (cycleIndex - previous.last_cycle_index >= policy.memory.reconsider_after_cycles) {
+  if (Number.isFinite(policy.memory.reconsider_after_cycles) && cycleIndex - previous.last_cycle_index >= policy.memory.reconsider_after_cycles) {
     return { fingerprint, evidence_hash: evidenceHash, eligible: true, reason: "incubation-elapsed", novelty: 1 };
   }
   return { fingerprint, evidence_hash: evidenceHash, eligible: false, reason: "unchanged-repeat", novelty: 0 };

@@ -186,7 +186,7 @@ assert.deepEqual(
 assert.notEqual(repeatedCycle.selected_finding.reconsideration.fingerprint, automaticCycle.selected_finding.reconsideration.fingerprint);
 const suppressedOriginal = repeatedCycle.findings.find(({ reconsideration }) => reconsideration.fingerprint === automaticCycle.selected_finding.reconsideration.fingerprint);
 assert.equal(suppressedOriginal.reconsideration.eligible, false);
-assert.equal(suppressedOriginal.reconsideration.reason, "unchanged-repeat");
+assert.equal(suppressedOriginal.reconsideration.reason, "settled-without-new-evidence");
 
 const exhaustionMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
 for (const finding of repeatedCycle.findings) {
@@ -196,10 +196,10 @@ for (const finding of repeatedCycle.findings) {
     nodes: finding.nodes,
     claim: finding.claim,
     evidence_hash: finding.reconsideration.evidence_hash,
-    policy_hash: repeatedCycle.policy_hash,
+    policy_hash: "superseded-policy",
     first_cycle: repeatedId,
     last_cycle: repeatedId,
-    last_cycle_index: Number(repeatedId.split("-").at(-1)),
+    last_cycle_index: -100,
     considerations: 1,
     status: "autonomously-rejected"
   };
@@ -211,6 +211,8 @@ const dormantState = JSON.parse(await readFile(join(sandbox, "cultivation", "sta
 const dormantCycleId = dormantState.history.at(-1).cultivation_id;
 const dormantCycle = JSON.parse(await readFile(join(sandbox, "cultivation", "cycles", `${dormantCycleId}.json`), "utf8"));
 assert.equal(dormantCycle.status, "completed-no-proposal");
+assert.ok(dormantCycle.findings.every(({ reconsideration }) => !reconsideration.eligible));
+assert.ok(dormantCycle.findings.every(({ reconsideration }) => reconsideration.reason === "settled-without-new-evidence"));
 const earnedDormancy = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
 assert.equal(earnedDormancy.dormancy.active, true);
 assert.equal(earnedDormancy.method_observations.at(-1).type, "meta-refactoring-proposal");

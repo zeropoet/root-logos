@@ -78,8 +78,8 @@
   },
   "memory": {
     "semantic_fingerprint_fields": ["kind", "nodes", "claim", "proposed_question"],
-    "reconsider_after_cycles": 8,
-    "reconsider_when": ["evidence changed", "policy changed", "incubation elapsed"],
+    "reconsider_after_cycles": null,
+    "reconsider_when": ["evidence changed", "policy changed before disposition"],
     "repeat_without_change": "deprioritize"
   },
   "novelty": {

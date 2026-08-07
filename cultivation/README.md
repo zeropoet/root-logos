@@ -28,8 +28,9 @@ without relying on chat memory.
 `cultivation/memory.json` is the chamber's cross-cycle memory. It assigns a
 semantic fingerprint and evidence fingerprint to each considered hypothesis,
 records its disposition, and prevents unchanged rejected ideas from returning
-as novelty. A finding earns reconsideration only when evidence changes, policy
-changes, or its configured incubation interval elapses.
+as novelty. A rejected or implemented finding earns reconsideration only when
+its evidence changes. Policy changes may reopen an unresolved finding, but
+elapsed time alone never turns a settled question back into novelty.
 
 ## Commands
 
