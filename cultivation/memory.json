@@ -726,11 +726,42 @@
         },
         "total": 20
       }
+    },
+    "c1e9d7689576d1e372570bda4574668679c712eb3597fe7b5d1f90cb2ed81286": {
+      "fingerprint": "c1e9d7689576d1e372570bda4574668679c712eb3597fe7b5d1f90cb2ed81286",
+      "kind": "connected-source-pressure",
+      "nodes": [
+        "source-foldforge",
+        "foldforge-composition-resonance",
+        "coherent-field",
+        "root-logos"
+      ],
+      "claim": "Resonant Holdings introduces a versioned compositional method that may reveal relations inside Root Logos which its constitutional graph does not yet perceive.",
+      "proposed_question": "Which Root Logos structures become newly legible when tested through Resonant Holdings, and what would falsify that relation?",
+      "evidence_hash": "2a190cb47e49b687292ad7da4d1f0b7d4c200dd204776e336a95a06708b820f8",
+      "policy_hash": "173999278485768ea92847a12a5b769c6ed9f19a1be89457e06f85b6c337da50",
+      "first_cycle": "RL-CULTIVATE-0120",
+      "last_cycle": "RL-CULTIVATE-0120",
+      "last_cycle_index": 120,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 4,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 23
+      }
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 1,
-    "last_score": 1,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -1508,6 +1539,13 @@
         "reason": "incubation-elapsed",
         "status": "autonomously-rejected",
         "at": "2026-08-06T22:44:24.126Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0120",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-08-07T01:29:19.340Z"
       }
     ]
   },
