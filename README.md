@@ -1170,16 +1170,15 @@ Sovereign Standard vessel witnesses. Rejected memory hypotheses and future
 attractors remain pressure rather than geometry until constitutionally admitted.
 
 Root Logos is the identity embodied by the Living Object; it is not an external
-source connected to a separate visualization. Telos Stream enters that identity
-through a one-way public aperture. Its sanitized repository revisions and
-bounded public-state fields form a continuous strand rooted in the object, so
-Telos becoming is visible inside Root Logos as released evidence. The
-connection reads the public `telos-public-stream/v1` projection directly and
-falls back to Root Logos's sealed Telos public witness when the stream is
-unavailable. It cannot reach Telos source code, credentials, personal data,
-payment records, unpublished campaigns, deployment control, outreach, spend,
-or channel authority. Telos Stream remains silent; its
-pressure changes the visible body without claiming a second sovereign voice.
+source connected to a separate visualization. Telos enters that identity
+through its sealed public witness. The witness's bounded acquisition-state
+fields form a continuous strand rooted in the object, so Telos's actual
+operating posture is visible inside Root Logos as released evidence. The
+connection does not read the retired trading-era Telos Stream and cannot reach
+Telos source code, credentials, personal data, payment records, unpublished
+campaigns, deployment control, outreach, spend, or channel authority. The
+Telos witness remains silent; its pressure changes the visible body without
+claiming a second sovereign voice.
 
 The same complete field enters the sovereign voice. Every relation contributes
 its endpoints, type, phase, and derived weight to a deterministic harmonic

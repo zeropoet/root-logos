@@ -46,8 +46,16 @@ write access or Ethereum authority.
 Telos is Sovereign Standard's customer-acquisition operator. It discovers
 customer needs and channel opportunities, ranks bounded campaign hypotheses,
 creates truthful trackable artifacts, measures anonymous conversion events,
-and recommends whether to continue, revise, pause, or stop. Measurement is its
-feedback loop rather than its purpose.
+and decides whether to continue, revise, pause, or stop within reviewed
+authority. Its purpose is to bring qualified people to Sovereign Standard and
+convert them into paid subscribers; measurement is the feedback loop that lets
+it learn without becoming a surveillance system.
+
+Release 0.5.0 operates independently on Lightsail. A fifteen-minute observer
+records permitted anonymous events and a six-hour planner evaluates one active,
+catalog-bound organic-search campaign. Its first guide is live beneath
+`/guides/`; further expansion must be earned through indexing, qualified
+traffic, conversion, and repeatable evidence.
 
 The public witness exposes this operating loop and its reviewed authority
 without carrying personal data, payment records, credentials, unpublished

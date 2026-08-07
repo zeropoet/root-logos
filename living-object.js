@@ -205,33 +205,25 @@
     const normalized = Math.max(0, Math.min(1, Number(strength || 0)));
     return kind === "counterpoint" ? 1 - normalized : normalized;
   };
-  const fetchTelosStream = async () => {
-    try {
-      const stream = await fetchJson("https://zeropoet.github.io/telos-stream/stream.json");
-      if (stream.schema !== "telos-public-stream/v1" || stream.source?.id !== "telos") {
-        throw new Error("Unexpected Telos Stream witness.");
-      }
-      return stream;
-    } catch {
-      const witness = await fetchJson("sources/telos.public-witness.json");
-      return {
-        schema: "telos-public-stream/fallback",
-        source: {
-          id: witness.source_id,
-          status: witness.status,
-          witness: witness.witness
-        },
-        boundary: {
-          live: false,
-          mode: witness.public_state?.operational_mode
-        },
-        events: Object.entries(witness.public_state || {}).map(([key, value]) => ({
-          kind: "witness",
-          path: `telos.public_state.${key}`,
-          value: String(value)
-        }))
-      };
-    }
+  const fetchTelosWitnessStrand = async () => {
+    const witness = await fetchJson("sources/telos.public-witness.json");
+    return {
+      schema: "root-logos-telos-witness-strand/v1",
+      source: {
+        id: witness.source_id,
+        status: witness.status,
+        witness: witness.witness
+      },
+      boundary: {
+        live: false,
+        mode: witness.public_state?.operational_mode
+      },
+      events: Object.entries(witness.public_state || {}).map(([key, value]) => ({
+        kind: "witness",
+        path: `telos.public_state.${key}`,
+        value: String(value)
+      }))
+    };
   };
 
   Promise.all([
@@ -245,8 +237,8 @@
     fetchJson("sources/foldforge.snapshot.json"),
     fetchJson("sources/foldportrait.snapshot.json"),
     fetchJson("works/library-composition.json"),
-    fetchTelosStream()
-  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge, foldportrait, libraryComposition, telosStream]) => {
+    fetchTelosWitnessStrand()
+  ]).then(async ([graph, worksIndex, corpus, cultivation, memory, attractors, identity, foldforge, foldportrait, libraryComposition, telosWitnessStrand]) => {
     const works = worksIndex.works || [];
     const compiledBibleCollections = new Set([
       "Original Douay-Rheims Catholic Canon",
@@ -275,10 +267,10 @@
     $("#archive-revision").textContent = `Revision ${revision}`;
     const compositionRelations = libraryComposition.visual?.topology?.edges || [];
     const crossRelations = (corpus.edges?.length || 0) + independentRelations.length + compositionRelations.length;
-    const telosEventCount = telosStream.events?.length || 0;
+    const telosEventCount = telosWitnessStrand.events?.length || 0;
     const portraitCount = foldportrait.measures?.renders || 0;
     const embodiedPortraitCount = foldportrait.measures?.embodied_renders || 0;
-    $("#object-state").textContent = `Root Logos holds ${coherentWorkCount} coherent works and ${crossRelations.toLocaleString()} witnessed tensions. The Living Object carries ${portraitCount} FoldPortrait render witnesses, ${embodiedPortraitCount} embodied in the Sovereign Standard material lineage. Telos Stream enters through ${telosEventCount} bounded public events.`;
+    $("#object-state").textContent = `Root Logos holds ${coherentWorkCount} coherent works and ${crossRelations.toLocaleString()} witnessed tensions. The Living Object carries ${portraitCount} FoldPortrait render witnesses, ${embodiedPortraitCount} embodied in the Sovereign Standard material lineage. Telos enters through ${telosEventCount} bounded public-state witnesses.`;
     document.title = `${identity.name || "Root Logos"} — The Living Object`;
 
     if (!gl) {
@@ -298,7 +290,7 @@
       foldforge,
       foldportrait,
       libraryComposition,
-      telosStream
+      telosWitnessStrand
     });
     Object.entries(geometry.field || {}).forEach(([name, value]) => {
       canvas.dataset[name] = String(value);
@@ -390,10 +382,10 @@
         relation: "render identity enters the Living Object through its corresponding Sovereign Standard witness",
         terms: []
       }, {
-        source: "telos-stream",
-        witness: telosStream.source?.witness,
-        role: "silent public build witness",
-        relation: "released revisions and public state become bounded visual pressure",
+        source: "telos-public-witness",
+        witness: telosWitnessStrand.source?.witness,
+        role: "bounded customer-acquisition witness",
+        relation: "released acquisition state becomes bounded visual pressure",
         terms: []
       }]
     });
@@ -413,7 +405,7 @@
     foldforge,
     foldportrait,
     libraryComposition,
-    telosStream
+    telosWitnessStrand
   }) {
     const lines = [];
     const points = [];
@@ -826,10 +818,10 @@
       previousPortrait = position;
     });
 
-    // Telos Stream is a one-way public aperture, not part of Root Logos's
-    // custody or execution plane. Its released revision and state witnesses
-    // form a quiet strand rooted in the Living Object.
-    const telosEvents = (telosStream?.events || []).slice(0, 144);
+    // Telos enters through its sealed public witness, not through Root Logos's
+    // custody or execution plane. Its bounded acquisition state forms a quiet
+    // strand rooted in the Living Object.
+    const telosEvents = (telosWitnessStrand?.events || []).slice(0, 144);
     const telosRoot = trunk[Math.min(trunk.length - 1, Math.round(cycles * 0.38))];
     let previousTelos = telosRoot;
     telosEvents.forEach((event, index) => {
