@@ -151,6 +151,12 @@ history until a dedicated version archive exists.
   outward expressions with their source, relations, integrity review, return
   path, channel, and external provenance. Its compact v2 archive currently
   carries a 24-fragment founding cycle.
+- `content/design-flow-ledger.json` makes Root Logos an explicit design
+  constraint through five tracked movements: orient, relate, form, witness,
+  and return. It maps the complete 24-fragment founding cycle to canonical
+  source nodes, supporting relations, the bounded X witness, and precise Root
+  Logos return paths. X witnesses release but never selects constitutional
+  truth or design direction.
 - `content/attractor-policy.json` defines the autonomous cadence, selection rule,
   release requirements, and activation state.
 - `scripts/attractors.mjs` validates and prepares packets, selects the next due
@@ -468,6 +474,22 @@ Every refinement packet carries an epistemic status: `canonical`, `proposed`, or
 `unresolved`. Proposed and unresolved findings must expose their uncertainty as
 a question; they cannot borrow the declarative voice of settled constitutional
 language. Amendment attractors require canonical status.
+
+### Design Flow Ledger
+
+The public State includes a tracked Design Flow Ledger beside autonomous
+inquiry and witnessed sources. It uses Root Logos before form is produced:
+
+```text
+Orient → Relate → Form → Witness → Return
+```
+
+The ledger derives each of the initial 24 mappings from the Attractor archive
+rather than duplicating fragment language or publication state. Every mapping
+resolves its canonical node, supporting relations, four-part expression,
+current X witness, and return path at runtime. This makes design provenance
+visible while keeping platform response, personal data, and channel authority
+outside the design grammar.
 
 When a reader follows the return path, the browser waits for the generated node,
 opens any enclosing document structure, brings the node into view, and marks it

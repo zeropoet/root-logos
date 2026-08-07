@@ -1,0 +1,94 @@
+{
+  "schema": "root-logos-design-flow-ledger/v1",
+  "module_id": "design-flow-ledger",
+  "revision": "1.0.0",
+  "effective_date": "2026-08-07",
+  "status": "active",
+  "title": "Root Logos Design Flow Ledger",
+  "purpose": "Use Root Logos as a constitutional design constraint and preserve how canonical relation becomes designed form, external witness, and return.",
+  "constitutional_node_id": "design-flow-ledger",
+  "flow": [
+    {
+      "sequence": 1,
+      "id": "orient",
+      "label": "Orient",
+      "reads": "Canonical Root Logos node",
+      "produces": "A bounded design intention"
+    },
+    {
+      "sequence": 2,
+      "id": "relate",
+      "label": "Relate",
+      "reads": "Explicit supporting relations",
+      "produces": "A traceable design structure"
+    },
+    {
+      "sequence": 3,
+      "id": "form",
+      "label": "Form",
+      "reads": "Recognition, tension, reorientation, and aperture",
+      "produces": "A faithful but incomplete expression"
+    },
+    {
+      "sequence": 4,
+      "id": "witness",
+      "label": "Witness",
+      "reads": "The bounded X channel adapter",
+      "produces": "An externally witnessed fragment"
+    },
+    {
+      "sequence": 5,
+      "id": "return",
+      "label": "Return",
+      "reads": "The canonical Root Logos URL",
+      "produces": "A path back to source authority"
+    }
+  ],
+  "x_witness_relation": {
+    "source_id": "x",
+    "account": "rootlogos",
+    "adapter": "attractor-membrane-v2",
+    "direction": "Root Logos -> Attractor Membrane -> X witness -> canonical return path",
+    "authority": "X witnesses publication but does not select constitutional truth, design direction, or continuation."
+  },
+  "founding_fragment_source": "content/attractor-packets.json",
+  "founding_fragments": [
+    { "sequence": 1, "attractor_id": "RL-ATTRACTOR-0001" },
+    { "sequence": 2, "attractor_id": "RL-ATTRACTOR-0002" },
+    { "sequence": 3, "attractor_id": "RL-ATTRACTOR-0003" },
+    { "sequence": 4, "attractor_id": "RL-ATTRACTOR-0004" },
+    { "sequence": 5, "attractor_id": "RL-ATTRACTOR-0005" },
+    { "sequence": 6, "attractor_id": "RL-ATTRACTOR-0006" },
+    { "sequence": 7, "attractor_id": "RL-ATTRACTOR-0007" },
+    { "sequence": 8, "attractor_id": "RL-ATTRACTOR-0008" },
+    { "sequence": 9, "attractor_id": "RL-ATTRACTOR-0009" },
+    { "sequence": 10, "attractor_id": "RL-ATTRACTOR-0010" },
+    { "sequence": 11, "attractor_id": "RL-ATTRACTOR-0011" },
+    { "sequence": 12, "attractor_id": "RL-ATTRACTOR-0012" },
+    { "sequence": 13, "attractor_id": "RL-ATTRACTOR-0013" },
+    { "sequence": 14, "attractor_id": "RL-ATTRACTOR-0014" },
+    { "sequence": 15, "attractor_id": "RL-ATTRACTOR-0015" },
+    { "sequence": 16, "attractor_id": "RL-ATTRACTOR-0016" },
+    { "sequence": 17, "attractor_id": "RL-ATTRACTOR-0017" },
+    { "sequence": 18, "attractor_id": "RL-ATTRACTOR-0018" },
+    { "sequence": 19, "attractor_id": "RL-ATTRACTOR-0019" },
+    { "sequence": 20, "attractor_id": "RL-ATTRACTOR-0020" },
+    { "sequence": 21, "attractor_id": "RL-ATTRACTOR-0021" },
+    { "sequence": 22, "attractor_id": "RL-ATTRACTOR-0022" },
+    { "sequence": 23, "attractor_id": "RL-ATTRACTOR-0023" },
+    { "sequence": 24, "attractor_id": "RL-ATTRACTOR-0024" }
+  ],
+  "tracking_contract": {
+    "derived_at_runtime": [
+      "canonical source node",
+      "supporting relations",
+      "four-part fragment",
+      "publication state",
+      "X witness URL",
+      "canonical return path"
+    ],
+    "append_only_lineage": true,
+    "platform_metrics_are_design_authority": false,
+    "personal_data_collected": false
+  }
+}

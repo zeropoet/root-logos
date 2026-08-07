@@ -77,10 +77,13 @@ community records do not enter the witness.
 ## One account, many boundaries
 
 X supplies public observation and outward exchange without allowing engagement
-to determine truth. FoldForge supplies compositional grammar without transferring
-Ethereum authority. Telos supplies bounded acquisition practice without
-financial authority. Sovereign Standard supplies material practice without
-private participant data.
+to determine truth. The Design Flow Ledger now maps that witness relation across
+the initial 24 Attractor Fragments: Root Logos orients each design through a
+canonical node and explicit relations; X witnesses only the bounded expression;
+the return path restores source authority. FoldForge supplies compositional
+grammar without transferring Ethereum authority. Telos supplies bounded
+acquisition practice without financial authority. Sovereign Standard supplies
+material practice without private participant data.
 
 The emerging whole is not a holding company, a dashboard, or a merged codebase.
 It is one living account of relation across independently real domains. Its

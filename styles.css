@@ -2066,12 +2066,60 @@ body.archive-open .site-footer nav {
 .state-space .source-reading > a { color:#fff; }
 .state-space .decision-seal { color:#fff;border-color:rgba(255,255,255,.3); }
 .state-space .decision-seal.is-rejected { color:#e21b1b;border-color:#e21b1b; }
+.state-design-flow {
+  margin-top:clamp(90px,11vw,150px);
+  padding-top:30px;
+  border-top:1px solid rgba(255,255,255,.32);
+}
+.state-design-flow > header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  margin-bottom:clamp(44px,6vw,76px);
+}
+.state-design-flow > header > p:last-child {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:0;
+  color:rgba(255,255,255,.4);
+  font:500 .46rem/1 var(--mono);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.state-design-flow > header > p i { width:20px;height:1px;background:rgba(255,255,255,.2); }
+.design-flow-introduction { display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:8vw;align-items:end; }
+.design-flow-introduction h3 { max-width:780px;margin:0 0 24px;color:#fff;font:300 clamp(2rem,4.2vw,5rem)/.96 var(--display);letter-spacing:-.055em; }
+.design-flow-introduction p { max-width:760px;margin:0;color:rgba(255,255,255,.64);font-size:clamp(.95rem,1.25vw,1.16rem);line-height:1.65; }
+.design-flow-measures { display:grid;grid-template-columns:1fr 1fr;margin:0;border-top:1px solid rgba(255,255,255,.18);border-left:1px solid rgba(255,255,255,.18); }
+.design-flow-measures div { display:grid;gap:8px;padding:15px;border-right:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18); }
+.design-flow-measures dt { color:rgba(255,255,255,.38);font:500 .43rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase; }
+.design-flow-measures dd { margin:0;color:#fff;font:400 1rem/1.2 var(--body); }
+.design-flow-stages { display:grid;grid-template-columns:repeat(5,1fr);margin:clamp(54px,7vw,90px) 0 0;padding:0;border-top:1px solid rgba(255,255,255,.18);list-style:none; }
+.design-flow-stages li { min-height:180px;padding:22px 18px;border-right:1px solid rgba(255,255,255,.14); }
+.design-flow-stages li:last-child { border-right:0; }
+.design-flow-stages span { color:#e21b1b;font:500 .48rem/1 var(--mono);letter-spacing:.1em; }
+.design-flow-stages h4 { margin:30px 0 10px;color:#fff;font:400 clamp(1.05rem,1.5vw,1.45rem)/1 var(--display); }
+.design-flow-stages p { margin:0;color:rgba(255,255,255,.44);font:.48rem/1.55 var(--mono);letter-spacing:.035em; }
+.design-fragment-map { display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid rgba(255,255,255,.2);border-left:1px solid rgba(255,255,255,.14); }
+.design-fragment { display:grid;min-height:138px;padding:16px;border-right:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.48);transition:.25s; }
+.design-fragment:hover { background:#fff;color:#000; }
+.design-fragment > span { align-self:start;font:500 .43rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase; }
+.design-fragment b { align-self:end;color:inherit;font:400 .9rem/1.25 var(--body); }
+.design-fragment small { margin-top:8px;color:inherit;font:500 .4rem/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.68; }
+.design-fragment.is-witnessed { color:#fff; }
+.design-fragment.is-witnessed > span::after { content:"";display:inline-block;width:5px;height:5px;margin-left:8px;border-radius:50%;background:#e21b1b; }
+.design-flow-boundary { max-width:980px;margin:28px 0 0;color:rgba(255,255,255,.38);font:.48rem/1.65 var(--mono);letter-spacing:.055em;text-transform:uppercase; }
 
 @media (max-width:1000px) {
   .state-source-layout { grid-template-columns:1fr; }
   .state-cycle { min-height:380px;padding-right:0; }
   .state-space .source-nodes { display:grid;grid-template-columns:1fr 1fr;border-right:0;border-bottom:1px solid rgba(255,255,255,.16); }
   .state-space .source-node:nth-child(odd) { border-right:1px solid rgba(255,255,255,.12); }
+  .design-flow-introduction { grid-template-columns:1fr; }
+  .design-flow-stages { grid-template-columns:repeat(5,minmax(150px,1fr));overflow-x:auto; }
+  .design-fragment-map { grid-template-columns:repeat(4,1fr); }
 }
 
 @media (max-width:640px) {
@@ -2084,6 +2132,10 @@ body.archive-open .site-footer nav {
   .state-space .source-node:nth-child(odd) { border-right:0; }
   .state-space .source-reading { padding:32px 0; }
   .state-space .source-measures { grid-template-columns:1fr 1fr; }
+  .state-design-flow > header { display:block; }
+  .state-design-flow > header > p:last-child { margin-top:18px; }
+  .design-flow-measures { grid-template-columns:1fr 1fr; }
+  .design-fragment-map { grid-template-columns:repeat(2,1fr); }
 }
 
 /* Revision 1.4 — Living Architectural Data Archive

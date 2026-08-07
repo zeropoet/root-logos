@@ -32,6 +32,7 @@ const app = {
   selectedNode: null,
   selectedProposal: null,
   attractors: null,
+  designFlow: null,
   filter: "all",
   observatoryMode: "causality",
   observatorySelection: null,
@@ -50,13 +51,14 @@ const fetchJson = async (url) => {
 };
 
 const loadData = async () => {
-  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult, sovereignMaterialResult, foldPortraitResult] = await Promise.allSettled([
+  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, designFlowResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult, sovereignMaterialResult, foldPortraitResult] = await Promise.allSettled([
     fetchJson("content/constitutional-graph.json"),
     fetchJson(`${RUNTIME}/v1/status`),
     fetchJson(`${RUNTIME}/v1/cycles`),
     fetchJson("cultivation/memory.json"),
     fetchJson("cultivation/state.json"),
     fetchJson("content/attractor-packets.json"),
+    fetchJson("content/design-flow-ledger.json"),
     fetchJson("self-authorship/current.json"),
     fetchJson("sources/registry.json"),
     fetchJson("sources/foldforge.snapshot.json"),
@@ -70,6 +72,7 @@ const loadData = async () => {
   app.graph = graphResult.value;
   app.memory = memoryResult.status === "fulfilled" ? memoryResult.value : null;
   app.attractors = attractorResult.status === "fulfilled" ? attractorResult.value : { packets: [] };
+  app.designFlow = designFlowResult.status === "fulfilled" ? designFlowResult.value : null;
   app.identity = identityResult.status === "fulfilled" ? identityResult.value : null;
   app.sources = sourcesResult.status === "fulfilled" ? sourcesResult.value : { sources: [] };
   app.foldforge = foldForgeResult.status === "fulfilled" ? foldForgeResult.value : null;
@@ -237,6 +240,49 @@ const renderSources = () => {
   });
   selectSource("foldforge");
 
+};
+
+const renderDesignFlow = () => {
+  const module = app.designFlow;
+  if (!module) return;
+  const packets = new Map((app.attractors?.packets || []).map((packet) => [packet.attractor_id, packet]));
+  const defaults = app.attractors?.defaults || {};
+  const mappings = module.founding_fragments.map((mapping) => {
+    const packet = packets.get(mapping.attractor_id);
+    const publication = { ...(defaults.publication || {}), ...(packet?.publication || {}) };
+    return { ...mapping, packet, publication };
+  });
+  const witnessed = mappings.filter(({ publication }) => publication.status === "published");
+  const sourceNodes = new Set(mappings.map(({ packet }) => packet?.node).filter(Boolean));
+  const relationNodes = new Set(mappings.flatMap(({ packet }) => packet?.relations || []));
+
+  $("#design-flow-status").textContent = `${sentence(module.status)} module / revision ${module.revision}`;
+  $("#design-flow-witness").textContent = `${witnessed.length} / ${mappings.length} X witnessed`;
+  $("#design-flow-purpose").textContent = module.purpose;
+  $("#design-flow-measures").innerHTML = [
+    ["Mapped fragments", mappings.length],
+    ["X witnessed", witnessed.length],
+    ["Canonical nodes", sourceNodes.size],
+    ["Relation nodes", relationNodes.size]
+  ].map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(String(value))}</dd></div>`).join("");
+  $("#design-flow-stages").innerHTML = module.flow.map((stage) => `
+    <li>
+      <span>${String(stage.sequence).padStart(2, "0")}</span>
+      <h4>${escapeHtml(stage.label)}</h4>
+      <p>${escapeHtml(stage.reads)} → ${escapeHtml(stage.produces)}</p>
+    </li>
+  `).join("");
+  $("#design-fragment-map").innerHTML = mappings.map(({ sequence, attractor_id: id, packet, publication }) => {
+    const witnessedOnX = publication.status === "published" && publication.external_url;
+    const href = witnessedOnX ? publication.external_url : `https://rootlogos.com/#${packet?.node || "root-logos"}`;
+    const aperture = Array.isArray(packet?.fragment) ? packet.fragment[3] : id;
+    return `<a class="design-fragment${witnessedOnX ? " is-witnessed" : ""}" href="${escapeHtml(href)}"${witnessedOnX ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>
+      <span>${String(sequence).padStart(2, "0")} / ${escapeHtml(witnessedOnX ? "X witnessed" : "scheduled")}</span>
+      <b>${escapeHtml(aperture)}</b>
+      <small>${escapeHtml(packet?.node || "Unresolved source")}</small>
+    </a>`;
+  }).join("");
+  $("#design-flow-boundary").textContent = module.x_witness_relation.authority;
 };
 
 const submitObservation = async (form) => {
@@ -923,6 +969,7 @@ const initialize = async () => {
     await loadData();
     renderPresence();
     renderSources();
+    renderDesignFlow();
     renderLatestCycle();
     field = new ConstitutionalField($("#field-canvas"), app.graph);
     if (!resolveFieldDeepLink()) {
@@ -938,7 +985,7 @@ const initialize = async () => {
       requestAnimationFrame(() => $("#field").scrollIntoView({ behavior: "auto" }));
     }
     window.dispatchEvent(new CustomEvent("rootlogos:ready", { detail: {
-      graph: app.graph, runtime: app.runtime, cycles: app.cycles, memory: app.memory, attractors: app.attractors, identity: app.identity, sources: app.sources, foldforge: app.foldforge, sourceWitnesses: app.sourceWitnesses
+      graph: app.graph, runtime: app.runtime, cycles: app.cycles, memory: app.memory, attractors: app.attractors, designFlow: app.designFlow, identity: app.identity, sources: app.sources, foldforge: app.foldforge, sourceWitnesses: app.sourceWitnesses
     } }));
   } catch (error) {
     console.error(error);
