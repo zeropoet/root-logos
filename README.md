@@ -561,7 +561,8 @@ credentials; OAuth 2.0 bearer user access remains available for manual use. The
 adapter rejects ineligible, invalid, premature, or already-published packets. A
 successful response writes the external post ID, URL, and publication time back
 to the packet archive and changes its state to `emitted`. The workflow commits
-that provenance to the repository. The adapter also sends X's `made_with_ai`
+that provenance to the repository, rebasing and retrying its push when an
+unrelated concurrent update advances `main`. The adapter also sends X's `made_with_ai`
 disclosure because the fragments are constitutionally co-generated. Real
 credentials belong only in repository secrets or the local environment; `.env`
 files are ignored.

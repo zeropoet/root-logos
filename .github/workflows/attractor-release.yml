@@ -63,4 +63,12 @@ jobs:
           git config user.email "root-logos-attractor@users.noreply.github.com"
           git add content/attractor-packets.json
           git commit -m "Archive attractor emission"
-          git push
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Emission receipt push raced with another update; retrying ($attempt/3)."
+          done
+          echo "Unable to preserve the emission receipt after three rebased attempts."
+          exit 1
