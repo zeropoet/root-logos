@@ -3,7 +3,7 @@
   "source_id": "foldforge",
   "status": "witnessed",
   "source_revision": "v0.1",
-  "witness": "sha256:7b9968806b477a308ce45d8f3c91440ec816dc4f217496780061df96446f2ad2",
+  "witness": "sha256:ab74df70860f1ff9f29d579522b490bfaf3f5a019f2050a683837f3ecadf4efe",
   "identity": {
     "name": "FoldForge",
     "definition": "An Ethereum NFT data composer that discovers, versions, and renders grammars latent within held works and their relationships.",
@@ -124,7 +124,8 @@
       "owner": "zeropoet.eth",
       "address": "0xbd4b3a05c6a585f226afb1952cedd8c410c52e8f",
       "source_works": 298,
-      "state_witness": "sha256:74566975ebc3a1122ae36a9458f79c37a441e515377bee368d7abd5d8ce30f09"
+      "state_witness": "sha256:74566975ebc3a1122ae36a9458f79c37a441e515377bee368d7abd5d8ce30f09",
+      "confirmation_policy": "two-consecutive-observations"
     },
     "terms": [
       {
@@ -202,7 +203,8 @@
     ],
     "claim": "These twelve terms are the strongest current recurrences in FoldForge's selected archive source language.",
     "boundary": "Recurrence witnesses presence. It does not determine authorial intention, semantic truth, final interpretation, value, or authority.",
-    "witness": "sha256:9b3b7a06c30d308dfafa771725de23e84b8d064780f7ac6723ad56e1deeae927"
+    "semantic_witness": "sha256:f78275326733ce18839873972b3ae0531ed0f2aa381c89d1d722e1d9eaccdd96",
+    "witness": "sha256:b4ba604a75c540723ed427eb0d94e52adb919e1c76ade9da480ffbec2d7982a8"
   },
   "relations": [
     "visible held tokens → resolve → token-specific canonical media",
@@ -235,5 +237,6 @@
     "Which relations found in one evidence domain remain valid when tested against another?",
     "What changes in Root Logos when composition is treated as a method of knowing rather than a final representation?",
     "Can one coherent account preserve source difference while revealing structures no source contains alone?"
-  ]
+  ],
+  "composition_witness": "sha256:66fe1570c9e7f30136632a28ab19a317e5347fe0d7e63c14884f4e9671c0efe6"
 }
