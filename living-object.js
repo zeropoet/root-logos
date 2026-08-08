@@ -19,7 +19,8 @@
   ]);
   const syncExperienceMode = () => {
     const target = location.hash.slice(1);
-    const archiveOpen = archiveTargets.has(target);
+    const standaloneObject = document.body.hasAttribute("data-living-object-standalone");
+    const archiveOpen = !standaloneObject && archiveTargets.has(target);
     document.body.classList.toggle("archive-open", archiveOpen);
     document.body.classList.toggle("object-open", !archiveOpen);
     document.querySelectorAll("main > .space").forEach((space) => {
@@ -49,7 +50,9 @@
   let touchOrigin = null;
   const enterArchive = () => {
     if (!document.body.classList.contains("object-open")) return;
-    location.hash = "field";
+    const archiveUrl = document.body.dataset.archiveUrl;
+    if (archiveUrl) location.assign(archiveUrl);
+    else location.hash = "field";
   };
   addEventListener("wheel", (event) => {
     if (!document.body.classList.contains("object-open") || event.deltaY <= 0) return;
@@ -263,8 +266,10 @@
     $("#object-work-count").textContent = `${coherentWorkCount} coherent works`;
     $("#object-cycle-count").textContent = `${cycles} cycles`;
     $("#object-revision").textContent = `Revision ${revision}`;
-    $("#archive-works").textContent = `${coherentWorkCount} works`;
-    $("#archive-revision").textContent = `Revision ${revision}`;
+    const archiveWorks = $("#archive-works");
+    const archiveRevision = $("#archive-revision");
+    if (archiveWorks) archiveWorks.textContent = `${coherentWorkCount} works`;
+    if (archiveRevision) archiveRevision.textContent = `Revision ${revision}`;
     const compositionRelations = libraryComposition.visual?.topology?.edges || [];
     const crossRelations = (corpus.edges?.length || 0) + independentRelations.length + compositionRelations.length;
     const telosEventCount = telosWitnessStrand.events?.length || 0;

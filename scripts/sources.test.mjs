@@ -18,6 +18,7 @@ const sovereignStandardSnapshotPath = resolve(root, "sources/sovereign-standard.
 const originalFoldForgeSnapshot = await readFile(foldForgeSnapshotPath, "utf8");
 const originalSovereignStandardSnapshot = await readFile(sovereignStandardSnapshotPath, "utf8");
 const publicIndex = await readFile(resolve(root, "index.html"), "utf8");
+const livingObjectPage = await readFile(resolve(root, "living-object.html"), "utf8");
 
 const first = await syncFoldForge(foldForge);
 const firstBytes = await readFile(resolve(root, "sources/foldforge.snapshot.json"), "utf8");
@@ -70,6 +71,18 @@ assert.equal(validated.registry.sources.find(({ id }) => id === "telos").public_
 assert.equal(validated.registry.sources.find(({ id }) => id === "sovereign-standard").public_url, "https://sovereignstandard.co");
 assert.match(publicIndex, /class="footer-tea" href="https:\/\/sovereignstandard\.co"/);
 assert.doesNotMatch(publicIndex, /class="footer-tea" href="https:\/\/sovereignstandard\.co\/purchase\.html/);
+assert.match(publicIndex, /<body class="archive-open">/);
+assert.ok(
+  publicIndex.indexOf('id="field"') < publicIndex.indexOf('id="works"'),
+  "Every homepage viewport must begin with the Constitutional Field."
+);
+assert.doesNotMatch(publicIndex, /id="living-object-canvas"/);
+assert.doesNotMatch(publicIndex, /src="living-object\.js/);
+assert.match(publicIndex, /class="footer-object-link" href="living-object\.html"/);
+assert.match(livingObjectPage, /data-living-object-standalone/);
+assert.match(livingObjectPage, /id="living-object-canvas"/);
+assert.match(livingObjectPage, /src="living-object\.js/);
+assert.match(livingObjectPage, /href="index\.html#field">Return to the field/);
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldportrait").public_url, "https://zeropoet.github.io/FoldPortrait/");
 const telosWitness = validated.publicWitnesses.find(({ source_id }) => source_id === "telos");
 assert.equal(telosWitness.work_relations.length, 0);

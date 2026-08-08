@@ -49,8 +49,9 @@ Sovereign Standard carries material lineage with FoldPortrait embedded at that
 boundary rather than duplicated as a separate source.
 
 The living system may continue changing slowly. The Living Object always
-presents its latest state; earlier states remain recoverable through repository
-history until a dedicated version archive exists.
+presents its latest state when deliberately opened from the quiet footer link;
+earlier states remain recoverable through repository history until a dedicated
+version archive exists.
 
 Accepted changes now follow Relational Propagation. Root Logos traces each
 change from its authoritative source through every applicable relation,
@@ -63,9 +64,12 @@ authority boundaries.
 
 ## Current Shape
 
-- `index.html` renders five public encounters in one sequence: the Living Object,
-  Constitutional Field, Library, State, and Membrane. Identity is embodied by
-  the Object. The State converges the latest autonomous inquiry, runtime
+- `index.html` begins with the Constitutional Field at every viewport and
+  continues through the Library, State, and Membrane. `living-object.html`
+  preserves the Living Object and its unchanged sovereign voice as a deliberate,
+  render-isolated encounter reached only through the quiet footer link. Identity
+  remains embodied by the Object without making its heaviest rendering path the
+  default homepage cost. The State converges the latest autonomous inquiry, runtime
   condition, semantic-memory count, connected-source evidence, constitutional
   judgment, and structural diagnostics without turning each concern into a
   separate destination. Complete cultivation lineage remains available only
@@ -315,18 +319,17 @@ state.
 
 ## One Living Document
 
-The public interface is a five-encounter reading field rather than a collection
-of permanent conceptual rooms. A reader encounters the Object, enters its
-Constitutional Field, moves through the Library, witnesses the current State, or
-offers material through the Membrane. Deeper lineage unfolds only when selected.
-This complete sequence is a desktop experience. At mobile widths, Root Logos
-holds only the full-screen Living Object and its sovereign voice; archive
-navigation and direct archive links do not open until a desktop viewport is
-present.
+The public interface is a four-encounter reading field rather than a collection
+of permanent conceptual rooms. Every viewport begins in the Constitutional
+Field, moves through the Library, witnesses the current State, and may offer
+material through the Membrane. Deeper lineage unfolds only when selected. The
+Living Object is no longer a responsive gate in front of that sequence; it is a
+separate, intentionally sought encounter whose rendering and unchanged voice
+load only after its footer link is followed.
 
-- The header names only Living Object, Field, Library, State, and Membrane.
-- The progress line shows movement through the whole document.
-- The document pulse reports the live node, relationship, and revision counts.
+- The header returns directly to the Field and reports the current runtime,
+  inquiry reach, revision, and work count without adding route navigation.
+- The quiet footer link is the sole public entrance to the Living Object.
 - Constitutional parts remain open and continuous.
 - The Network Field is the only visual graph representation.
 - Selected-node details sit in a horizontal node horizon beneath the field so
@@ -590,9 +593,9 @@ authoritative visual representation. `Network Creation` and `Network Node` are
 now canonical nodes.
 
 The interface is intentionally continuous rather than route-like. Ambient
-orientation, a coherence progress line, and a live document pulse allow the
-reader to move from visual relation into language without managing a set of
-separate destinations.
+orientation and a live archive register allow the reader to move from visual
+relation into language without managing a set of separate destinations. The
+only separate encounter is the deliberately secluded Living Object.
 
 ## Revision 1.3 — The Emergent Instrument
 
@@ -649,9 +652,11 @@ receive one public identity, topology, and resonant voice without sacrificing
 the attribution of their internal books, passages, or relations.
 
 The public identity now fully inhabits its post-institutional architectural
-archive form. The naked Living Object remains the threshold, but entry reveals
-one continuous, self-held field rather than a stack of website sections or a
-simulation of a museum, state archive, or records office. The Constitutional
+archive form. The Constitutional Field is the public threshold and reveals one
+continuous, self-held field rather than a stack of website sections or a
+simulation of a museum, state archive, or records office. The Living Object is
+preserved behind the footer as a voluntary encounter with the same identity.
+The Constitutional
 Field, Living Library, Autonomous Becoming, and Public Membrane share spatial
 coordinates, structural rules, and live-state language without implying a
 fixed center or administrative authority. The Library is therefore not
@@ -1153,8 +1158,10 @@ substitute has been admitted in place of a lawful source copy.
 
 ### The Living Object
 
-The public threshold is now the **Living Object**: one slow, dimensional,
-data-derived form of Root Logos held in an architectural void. It is not a
+The **Living Object** is one slow, dimensional, data-derived form of Root Logos
+held in an architectural void. It is intentionally secluded from the default
+Field-first homepage because its rendering is substantial and its encounter is
+stronger when sought. It is not a
 dashboard, network explorer, or decorative emblem. Constitutional continuity
 forms its trunk; cultivation cycles form its growth rings; every completed work
 remains a tonal point; coherence draws inward as gravity; each work's derived
@@ -1244,11 +1251,11 @@ presenting an unchanged lexical field as a new edition.
 Recurrence witnesses presence; it does not establish intention, semantic
 truth, value, or authority.
 
-The object is deliberately beheld before it is explained. Its threshold is
-visually naked: no site navigation, title treatment, measures, identity
-statement, or interpretive panel precedes the encounter. The visitor may remain
-with the object or use one quiet `Enter the archive` passage at the lower edge;
-the action is deliberately subordinate to the form.
+When deliberately opened, the object is visually naked: no site navigation,
+title treatment, measures, identity statement, or interpretive panel precedes
+the encounter. The visitor may remain with the object or use one quiet `Return
+to the field` passage at the lower edge; the action is deliberately subordinate
+to the form. Ordinary visits begin directly with the Constitutional Field.
 The void is absolute black; it contributes no atmospheric gradient, horizon,
 or decorative light. Dimensionality is carried by the engraving itself: near
 relations cut brighter, distant relations recede, and tonal work-points remain
@@ -1600,9 +1607,11 @@ reported condition.
 
 The Sovereign Standard tea invitation is the archive's quiet terminal chamber
 rather than a footer annotation: Root Logos resolves into an embodied
-continuation at architectural scale. The footer no longer links to standalone
-constitutional prose. Those documents have passed through the same membrane as
-every other work and remain available only as derived Library objects.
+continuation at architectural scale. The former Telos footer-link position now
+holds the quiet entrance to the render-isolated Living Object. The footer does
+not link to standalone constitutional prose; those documents have passed
+through the same membrane as every other work and remain available only as
+derived Library objects.
 
 Archive typography follows a strict two-voice system. Helvetica Neue carries
 headings, descriptions, and sustained reading; SF Mono is reserved for

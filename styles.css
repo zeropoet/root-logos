@@ -1388,7 +1388,7 @@ h1, h2, h3, h4,
   .field-intro { display:none; }
   .field-object-controls { top:310px;right:20px;left:20px;width:auto;padding:12px 0;background:rgba(7,8,6,.48); }
   .state-declaration { font-size:1rem; }
-  .field-controls { top:468px;right:20px;left:20px;bottom:auto;display:flex;justify-content:center;gap:12px; }
+  .field-controls { top:auto;right:20px;bottom:96px;left:auto;display:grid;justify-items:end;gap:5px; }
   .field-control { font-size:.45rem; }
   .field-inspector { top:auto;right:20px;bottom:170px;left:20px;width:auto;max-width:none;max-height:330px;overflow:auto;transform:translateY(150%); }
   .field-inspector.is-visible:not(.is-intentional) { transform:translateY(150%); }
@@ -2457,6 +2457,15 @@ body.archive-open .site-footer > div small {
   body.archive-open .space {
     padding-right:20px;
     padding-left:20px;
+  }
+  body.archive-open .field-controls {
+    top:auto;
+    right:20px;
+    bottom:96px;
+    left:auto;
+    display:grid;
+    justify-items:end;
+    gap:5px;
   }
   body.archive-open .works-space { padding:0; }
   body.archive-open .library-shell {

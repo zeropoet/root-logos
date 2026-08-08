@@ -115,7 +115,7 @@ const loadData = async () => {
 const renderPresence = () => {
   const service = app.runtime.service;
   if (app.identity) {
-    document.title = `${app.identity.name} — The Living Object`;
+    document.title = `${app.identity.name} — Constitutional Field`;
     $("meta[name='description']")?.setAttribute("content", app.identity.declaration);
   }
   const status = service.status || "unknown";
@@ -345,7 +345,8 @@ const renderLatestCycle = () => {
       : null;
   const reachLabel = reach == null ? "—" : `${reach}%`;
   $("#cycle-id").textContent = `${cycle.cultivation_id} / ${sentence(cycle.lens?.id || "inquiry")}`;
-  $("#object-inquiry-reach").textContent = `Inquiry reach ${reachLabel}`;
+  const objectInquiryReach = $("#object-inquiry-reach");
+  if (objectInquiryReach) objectInquiryReach.textContent = `Inquiry reach ${reachLabel}`;
   $("#archive-inquiry-reach").textContent = `Inquiry reach / ${reachLabel}`;
   $("#cycle-decision").textContent = sentence(cycle.status);
   $("#cycle-decision").classList.toggle("is-rejected", String(cycle.status).includes("rejected"));
