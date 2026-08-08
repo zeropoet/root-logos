@@ -48,16 +48,23 @@ jobs:
           EVENT_ACTION: ${{ github.event.action }}
           FOLDFORGE_REVISION: ${{ github.event.client_payload.revision }}
           FOLDFORGE_LANGUAGE_WITNESS: ${{ github.event.client_payload.language_witness }}
+          FOLDFORGE_SEMANTIC_WITNESS: ${{ github.event.client_payload.semantic_witness }}
           SOVEREIGN_STANDARD_WITNESS: ${{ github.event.client_payload.witness }}
         run: |
+          previous_foldforge_composition=$(node scripts/sources.mjs composition-witness sources/foldforge.snapshot.json)
           foldforge_language_source=https://foldforge.xyz/root-logos-language-composition.json
           if [ "$EVENT_ACTION" = "foldforge-published" ]; then
             node -e 'if (!/^[a-f0-9]{40}$/.test(process.env.FOLDFORGE_REVISION || "")) process.exit(1)'
             node -e 'if (!/^sha256:[a-f0-9]{64}$/.test(process.env.FOLDFORGE_LANGUAGE_WITNESS || "")) process.exit(1)'
+            node -e 'if (!/^sha256:[a-f0-9]{64}$/.test(process.env.FOLDFORGE_SEMANTIC_WITNESS || "")) process.exit(1)'
             test "$(git -C ../FoldForge rev-parse HEAD)" = "$FOLDFORGE_REVISION"
             foldforge_language_source="https://foldforge.xyz/root-logos-language-composition.json?witness=${FOLDFORGE_LANGUAGE_WITNESS#sha256:}"
           fi
           node scripts/sources.mjs sync ../FoldForge "$foldforge_language_source"
+          current_foldforge_composition=$(node scripts/sources.mjs composition-witness sources/foldforge.snapshot.json)
+          if [ "$EVENT_ACTION" = "foldforge-published" ]; then
+            test "$(node -e 'process.stdout.write(require("./sources/foldforge.snapshot.json").language_composition.semantic_witness)')" = "$FOLDFORGE_SEMANTIC_WITNESS"
+          fi
           sovereign_source=https://sovereignstandard.co/root-logos-witness-export.json
           if [ "$EVENT_ACTION" = "sovereign-standard-witness-published" ]; then
             node -e 'if (!/^sha256:[a-f0-9]{64}$/.test(process.env.SOVEREIGN_STANDARD_WITNESS || "")) process.exit(1)'
@@ -70,12 +77,21 @@ jobs:
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+          if [ "$previous_foldforge_composition" = "$current_foldforge_composition" ]; then
+            echo "foldforge_composition_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "foldforge_composition_changed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Let changed evidence wake cultivation
         if: steps.source.outputs.changed == 'true'
         working-directory: root-logos
+        env:
+          FOLDFORGE_COMPOSITION_CHANGED: ${{ steps.source.outputs.foldforge_composition_changed }}
         run: |
-          npm run works:recompose-foldforge
+          if [ "$FOLDFORGE_COMPOSITION_CHANGED" = "true" ]; then
+            npm run works:recompose-foldforge
+          fi
           npm run works:check-foldforge
           node scripts/cultivate.mjs cycle
           node scripts/cultivate.mjs validate

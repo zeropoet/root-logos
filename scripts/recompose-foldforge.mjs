@@ -3,7 +3,11 @@
 import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
-import { applyFoldForgeComposition, foldForgeCompositionIdentity } from "./foldforge-score.mjs";
+import {
+  applyFoldForgeComposition,
+  foldForgeCompositionIdentity,
+  foldForgeCompositionSourceWitness
+} from "./foldforge-score.mjs";
 import { applyCanonicalWorkCoordinates } from "./work-coordinates.mjs";
 
 const root = resolve(new URL("..", import.meta.url).pathname);
@@ -24,12 +28,22 @@ const COMPILED_CORPORA = new Map([
 
 const snapshot = JSON.parse(await readFile(join(root, "sources", "foldforge.snapshot.json"), "utf8"));
 const inheritance = foldForgeCompositionIdentity(snapshot);
+const compositionWitness = foldForgeCompositionSourceWitness(snapshot);
 const checkOnly = process.argv.includes("--check");
 
+const currentSemanticEvents = (score) => (score.events || [])
+  .filter(({ composition_source }) => composition_source === "foldforge")
+  .map(({ term, rank, recurrence, traces }) => ({ term, rank, recurrence, traces }));
+const expectedSemanticEvents = (snapshot.language_composition?.terms || [])
+  .map(({ term, rank, works: recurrence, traces }) => ({ term, rank, recurrence, traces }));
+const hasCurrentInheritance = (score) => {
+  const inheritedGrammars = score?.composition_inheritance?.grammars || [];
+  return JSON.stringify(inheritedGrammars) === JSON.stringify(inheritance.grammars)
+    && JSON.stringify(currentSemanticEvents(score)) === JSON.stringify(expectedSemanticEvents);
+};
+
 const assertCurrentInheritance = (score, label) => {
-  if (score?.composition_inheritance?.source_witness !== snapshot.witness) {
-    throw new Error(`${label} does not inherit the current FoldForge witness ${snapshot.witness}.`);
-  }
+  if (!hasCurrentInheritance(score)) throw new Error(`${label} does not inherit the current FoldForge composition ${compositionWitness}.`);
   const inheritedEvents = (score.events || []).filter(({ composition_source }) => composition_source === "foldforge");
   const expectedEvents = snapshot.language_composition?.terms?.length || 0;
   if (inheritedEvents.length !== expectedEvents) {
@@ -42,9 +56,9 @@ const recomposeWork = async (entry) => {
   const manifestPath = join(workDir, "manifest.json");
   const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
   const prior = JSON.parse(await readFile(join(root, entry.edition), "utf8"));
-  if (prior.sound?.composition_inheritance?.source_witness === snapshot.witness) return { entry, changed: false };
+  if (hasCurrentInheritance(prior.sound)) return { entry, changed: false };
 
-  const editionId = `${entry.work_id}--${String(prior.root_logos_revision).replace(/[^\w.-]+/g, "-")}-foldforge-${digest(`${prior.edition_id}:${snapshot.witness}`).slice(0, 10)}`;
+  const editionId = `${entry.work_id}--${String(prior.root_logos_revision).replace(/[^\w.-]+/g, "-")}-foldforge-${digest(`${prior.edition_id}:${compositionWitness}`).slice(0, 10)}`;
   const createdAt = now();
   const edition = applyCanonicalWorkCoordinates({
     ...prior,
@@ -88,9 +102,9 @@ const recomposeWork = async (entry) => {
 const recomposeCorpus = async ({ filename, workId }) => {
   const corpusPath = join(worksRoot, "corpora", filename);
   const corpus = JSON.parse(await readFile(corpusPath, "utf8"));
-  if (corpus.sound?.composition_inheritance?.source_witness === snapshot.witness) return { corpus, changed: false };
+  if (hasCurrentInheritance(corpus.sound)) return { corpus, changed: false };
   const priorId = corpus.current_sound_edition || `corpus-score-${corpus.sound.signature}`;
-  const editionId = `corpus-score-foldforge-${digest(`${priorId}:${snapshot.witness}`).slice(0, 10)}`;
+  const editionId = `corpus-score-foldforge-${digest(`${priorId}:${compositionWitness}`).slice(0, 10)}`;
   const createdAt = now();
   const sound = applyFoldForgeComposition({
     score: corpus.sound,
@@ -130,7 +144,7 @@ if (checkOnly) {
     const corpus = JSON.parse(await readFile(join(worksRoot, "corpora", filename), "utf8"));
     assertCurrentInheritance(corpus.sound, label);
   }
-  process.stdout.write(`FoldForge composition inheritance is current for every public Library voice (${snapshot.witness}).\n`);
+  process.stdout.write(`FoldForge composition inheritance is current for every public Library voice (${compositionWitness}).\n`);
   process.exit(0);
 }
 

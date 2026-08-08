@@ -2,10 +2,17 @@ import { createHash } from "node:crypto";
 
 const digest = (value) => createHash("sha256").update(String(value)).digest("hex");
 
+export const foldForgeCompositionSourceWitness = (snapshot) => snapshot.composition_witness
+  || `sha256:${digest(JSON.stringify({
+    compositions: (snapshot.compositions || []).map(({ id, title, version, witness }) => ({ id, title, version, witness })),
+    language: snapshot.language_composition?.semantic_witness || null,
+    terms: snapshot.language_composition?.terms || []
+  }))}`;
+
 const compositionIdentity = (snapshot) => ({
   source_id: "foldforge",
-  source_witness: snapshot.witness,
-  language_witness: snapshot.language_composition?.witness || null,
+  source_witness: foldForgeCompositionSourceWitness(snapshot),
+  language_witness: snapshot.language_composition?.semantic_witness || null,
   grammars: (snapshot.compositions || []).map(({ id, title, version, witness }) => ({
     id, title, version, witness
   }))
@@ -16,14 +23,14 @@ const foldForgeEvents = ({ score, workId, snapshot }) => {
   const root = Math.max(32, Number(score.root_hz || 55));
   const scale = [1, 1.125, 1.25, 1.333333, 1.5, 1.666667, 1.875, 2];
   return terms.map(({ term, rank, works, traces }, index) => {
-    const seed = Number.parseInt(digest(`${snapshot.witness}:${workId}:${term}`).slice(0, 8), 16);
+    const seed = Number.parseInt(digest(`${foldForgeCompositionSourceWitness(snapshot)}:${workId}:${term}`).slice(0, 8), 16);
     return {
       voice: "foldforge",
       waveform: index % 3 === 0 ? "triangle" : "sine",
       provenance: `sources/foldforge.snapshot.json#language_composition/terms/${index}`,
       composition_source: "foldforge",
       composition_id: snapshot.language_composition?.grammar?.id || "FF-COMP-0002",
-      composition_witness: snapshot.language_composition?.witness || snapshot.witness,
+      composition_witness: snapshot.language_composition?.semantic_witness || foldForgeCompositionSourceWitness(snapshot),
       term,
       rank,
       recurrence: works,
@@ -37,8 +44,9 @@ const foldForgeEvents = ({ score, workId, snapshot }) => {
 };
 
 export const applyFoldForgeComposition = ({ score, workId, snapshot }) => {
-  if (!score || !snapshot?.witness) return score;
-  if (score.composition_inheritance?.source_witness === snapshot.witness) return score;
+  if (!score || !snapshot?.language_composition) return score;
+  const sourceWitness = foldForgeCompositionSourceWitness(snapshot);
+  if (score.composition_inheritance?.source_witness === sourceWitness) return score;
   const base = (score.events || []).filter(({ composition_source: source }) => source !== "foldforge");
   const additions = foldForgeEvents({ score, workId, snapshot });
   const interval = Math.max(1, Math.ceil(base.length / Math.max(1, additions.length)));

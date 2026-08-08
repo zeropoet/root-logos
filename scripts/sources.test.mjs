@@ -2,7 +2,13 @@ import assert from "node:assert/strict";
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { sealPublicWitnesses, syncFoldForge, syncSovereignStandard, validateSources } from "./sources.mjs";
+import {
+  foldForgeMeaningWitness,
+  sealPublicWitnesses,
+  syncFoldForge,
+  syncSovereignStandard,
+  validateSources
+} from "./sources.mjs";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const foldForge = resolve(root, "../FoldForge");
@@ -42,6 +48,21 @@ assert.deepEqual(
   "The current terms must remain deterministically ranked."
 );
 assert.match(first.language_composition.witness, /^sha256:[a-f0-9]{64}$/);
+assert.equal(first.language_composition.semantic_witness, foldForgeMeaningWitness(first.language_composition));
+assert.match(first.composition_witness, /^sha256:[a-f0-9]{64}$/);
+const archiveOnlyVariation = {
+  ...first.language_composition,
+  archive: {
+    ...first.language_composition.archive,
+    source_works: first.language_composition.archive.source_works + 6,
+    state_witness: `sha256:${"f".repeat(64)}`
+  }
+};
+assert.equal(
+  foldForgeMeaningWitness(archiveOnlyVariation),
+  first.language_composition.semantic_witness,
+  "Archive-only provider variation must not change the lexical meaning witness."
+);
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").status, "active");
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").public_url, "https://foldforge.xyz");
 assert.equal(validated.registry.sources.find(({ id }) => id === "x").public_url, "https://x.com/rootlogos");

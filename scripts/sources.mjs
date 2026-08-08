@@ -36,6 +36,20 @@ const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };
 const witnessedPayload = ({ witness, ...payload }) => payload;
+export const foldForgeMeaningPayload = (composition) => ({
+  schema: composition.schema,
+  source_id: composition.source_id,
+  grammar: composition.grammar,
+  terms: composition.terms,
+  claim: composition.claim,
+  boundary: composition.boundary
+});
+export const foldForgeMeaningWitness = (composition) =>
+  `sha256:${digest(foldForgeMeaningPayload(composition))}`;
+export const foldForgeCompositionWitness = (snapshot) => `sha256:${digest({
+  compositions: (snapshot.compositions || []).map(({ id, title, version, witness }) => ({ id, title, version, witness })),
+  language: foldForgeMeaningWitness(snapshot.language_composition)
+})}`;
 const sealPublicWitness = (witness) => ({ ...witnessedPayload(witness), witness: `sha256:${digest(witnessedPayload(witness))}` });
 const validateMaterialWitness = (snapshot) => {
   assert(snapshot.schema === "root-logos-material-witness-export/v1", "Unsupported material witness schema.");
@@ -103,6 +117,9 @@ const validateFoldForgeLanguageComposition = (composition) => {
   assert(composition.grammar?.id === "FF-COMP-0002", "Language composition must use FoldForge Lexical Field.");
   assert(composition.terms?.length === 12, "FoldForge language composition requires exactly twelve ranked terms.");
   assert(composition.witness === `sha256:${digest(witnessedPayload(composition))}`, "FoldForge language composition witness is invalid.");
+  if (composition.semantic_witness) {
+    assert(composition.semantic_witness === foldForgeMeaningWitness(composition), "FoldForge semantic language witness is invalid.");
+  }
   composition.terms.forEach((term, index) => {
     assert(term.rank === index + 1, "FoldForge language composition ranks must be sequential.");
     assert(/^[\p{L}\p{N}][\p{L}\p{N}'’\-]*$/u.test(term.term), `Invalid FoldForge lexical term ${term.term}.`);
@@ -150,7 +167,7 @@ const deriveFoldForge = async (foldForgeRoot, languageCompositionSource) => {
     }
   }
 
-  return {
+  const snapshot = {
     schema: "root-logos-source-snapshot/v1",
     source_id: "foldforge",
     status: "witnessed",
@@ -174,6 +191,8 @@ const deriveFoldForge = async (foldForgeRoot, languageCompositionSource) => {
       "Can one coherent account preserve source difference while revealing structures no source contains alone?"
     ]
   };
+  snapshot.composition_witness = foldForgeCompositionWitness(snapshot);
+  return snapshot;
 };
 
 export const validateSources = async () => {
@@ -191,6 +210,9 @@ export const validateSources = async () => {
     assert(snapshot.witness?.startsWith("sha256:"), "Witnessed source requires a SHA-256 witness.");
     assert(snapshot.compositions.length > 0, "Witnessed FoldForge source requires compositions.");
     validateFoldForgeLanguageComposition(snapshot.language_composition);
+    if (snapshot.composition_witness) {
+      assert(snapshot.composition_witness === foldForgeCompositionWitness(snapshot), "FoldForge composition witness is invalid.");
+    }
   }
   for (const witness of publicWitnesses) {
     assert(witness.schema === "root-logos-public-source-witness/v1", `Unsupported ${witness.source_id} public witness schema.`);
@@ -306,6 +328,9 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   } else if (command === "seal-public") {
     const witnesses = await sealPublicWitnesses();
     console.log(`Sealed ${witnesses.length} public source witnesses.`);
+  } else if (command === "composition-witness") {
+    const snapshot = await loadJson(resolve(process.argv[3] || snapshotPath));
+    console.log(foldForgeCompositionWitness(snapshot));
   } else {
     throw new Error(`Unknown command: ${command}`);
   }

@@ -115,7 +115,10 @@ authority boundaries.
 - `sources/foldforge.snapshot.json` is a deterministic, secret-free witness of
   FoldForge's public constitution and versioned composition grammars. It exposes
   identity pressure, primitives, transformation relations, limits, and questions
-  without copying source media or acquiring Ethereum authority.
+  without copying source media or acquiring Ethereum authority. Its sealed source
+  witness records confirmed public evidence, while a separate composition witness
+  changes only when a grammar or normalized lexical relation changes. Provider
+  fluctuation can therefore update evidence without manufacturing Library editions.
 - `sources/telos.public-witness.json` publishes Telos as Sovereign Standard's
   customer-acquisition operator. It exposes the bounded acquisition loop,
   anonymous measurement posture, deployment state, public five-repository and
@@ -1231,12 +1234,13 @@ The continuous relational tone remains beneath that polyphony at witness level,
 not as the dominant electrical buzz.
 
 FoldForge's Language Composition now enters this refresh-time composition as a
-source voice. Its twelve strongest current recurrences—`archive`, `rwl`, `void`,
-`architecture`, `hært`, `ritual`, `vow`, `silence`, `function`, `core`,
-`actions`, and `closure`—form an attributable lexical phrase. Rank,
-distinct-work count, trace count, grammar witness, and archive-state witness
-determine pitch, amplitude, phase, and harmonic pressure. A changed FoldForge
-lexical export therefore wakes Root Logos and recomposes the sovereign voice.
+source voice. Its twelve strongest current recurrences form an attributable,
+living lexical phrase. Rank, distinct-work count, trace count, and grammar
+witness determine pitch, amplitude, phase, and harmonic pressure. FoldForge
+confirms archive identity changes across consecutive observations, while Root
+Logos recomposes Library editions only when the normalized composition witness
+changes. A confirmed holdings change may update source evidence without falsely
+presenting an unchanged lexical field as a new edition.
 Recurrence witnesses presence; it does not establish intention, semantic
 truth, value, or authority.
 
