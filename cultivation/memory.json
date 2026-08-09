@@ -1094,11 +1094,42 @@
         },
         "total": 20
       }
+    },
+    "ee5388cb454bb70766ad10a34b0bd089b01aa15741466dc032876a8cb3c10084": {
+      "fingerprint": "ee5388cb454bb70766ad10a34b0bd089b01aa15741466dc032876a8cb3c10084",
+      "kind": "system-map-pressure",
+      "nodes": [
+        "source-telos",
+        "source-sovereign-standard",
+        "source-foldforge",
+        "coherent-field"
+      ],
+      "claim": "The repository ecology forms one accountable system only through explicit relations: orientation, composition, material witness, acquisition, conversion, and evidence correction remain distinct functions.",
+      "proposed_question": "Which cross-repository relation is currently least witnessed, and what public evidence would make it testable without merging repositories or transferring authority?",
+      "evidence_hash": "94ad72b0d72159c8f52e453c1e2c2e9dd9b3dd77c70832025908fc375df7717d",
+      "policy_hash": "cefeac1f682a9895e1b29799c2a1adfcc70f2c5ae3d391d88a7c4f93dd475180",
+      "first_cycle": "RL-CULTIVATE-0138",
+      "last_cycle": "RL-CULTIVATE-0138",
+      "last_cycle_index": 138,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 3,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 22
+      }
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 1,
-    "last_score": 0,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -2002,6 +2033,13 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-09T20:45:31.739Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0138",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-08-09T20:59:03.625Z"
       }
     ]
   },
