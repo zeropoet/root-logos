@@ -7,7 +7,6 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const foldPortraitRoot = resolve(process.env.FOLDPORTRAIT_PATH || resolve(root, "../FoldPortrait"));
-const sovereignStandardRoot = resolve(process.env.SOVEREIGN_STANDARD_PATH || resolve(root, "../sovereign-standard"));
 const materialPath = resolve(root, "sources/sovereign-standard.snapshot.json");
 const outputPath = resolve(root, "sources/foldportrait.snapshot.json");
 const stable = (value) => Array.isArray(value)
@@ -34,15 +33,9 @@ for (const entry of ledger) {
   const artifactId = basename(entry.svgPath, ".svg");
   const materialWork = materialWorks.get(artifactId);
   assert(materialWork, `${artifactId} has no Sovereign Standard material witness.`);
-  const sovereignManifest = await readJson(resolve(
-    sovereignStandardRoot, "witness/archive", artifactId, "manifest.json"
-  ));
   const pngPath = resolve(foldPortraitRoot, "Output/png", `${artifactId}.png`);
   const pngHash = digest(await readFile(pngPath));
   assert(pngHash === materialWork.file_sha256, `${artifactId} PNG does not match its material witness.`);
-  assert(sovereignManifest.sha256 === pngHash, `${artifactId} archive manifest has a different PNG witness.`);
-  assert(sovereignManifest.foldportrait?.render_hash === entry.renderHash, `${artifactId} render hash diverged.`);
-  assert(sovereignManifest.foldportrait?.convergence_hash === entry.convergenceHash, `${artifactId} convergence hash diverged.`);
 
   renders.push({
     artifact_id: artifactId,
@@ -117,7 +110,8 @@ const payload = {
   },
   renders,
   reflections,
-  current_reflection: currentReflection.cycleID
+  current_reflection: currentReflection.cycleID,
+  material_source_witness: material.witness
 };
 const snapshot = { ...payload, witness: `sha256:${digest(payload)}` };
 await writeFile(outputPath, `${JSON.stringify(snapshot, null, 2)}\n`);

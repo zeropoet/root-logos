@@ -256,6 +256,11 @@ Library merely because they occupy a vessel, and vessels do not become works.
 Token ownership witnesses stewardship but grants neither archive access,
 custody, minting power, nor constitutional authority.
 
+FoldPortrait synchronization reads this already sealed public material snapshot
+rather than checking out Sovereign Standard's source repository. That keeps the
+connected-source workflow reproducible while preserving the private repository
+and commerce boundary.
+
 FoldPortrait's sealed first era is joined to that bridge through
 `sources/foldportrait.snapshot.json`. Root Logos verifies all 52 completed
 renders against both the FoldPortrait evolution ledger and their corresponding
