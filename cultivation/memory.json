@@ -1061,11 +1061,44 @@
         },
         "total": 20
       }
+    },
+    "682c7f240e981b961b3ef9ac615d8d186e0b5e582fe960f8cc170a0942128f39": {
+      "fingerprint": "682c7f240e981b961b3ef9ac615d8d186e0b5e582fe960f8cc170a0942128f39",
+      "kind": "generative-compression",
+      "nodes": [
+        "coherent-field",
+        "principle-relational-propagation",
+        "source-foldforge",
+        "source-telos",
+        "source-sovereign-standard",
+        "source-foldportrait"
+      ],
+      "claim": "source + witness recurs across 6 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can source and witness be composed as a primitive relation that regenerates these 6 appearances without collapsing their differences?",
+      "evidence_hash": "40e7d059b087abfbf7728b2d971141c93d050a9af7ef7fab8ec6b9f579d909d6",
+      "policy_hash": "cefeac1f682a9895e1b29799c2a1adfcc70f2c5ae3d391d88a7c4f93dd475180",
+      "first_cycle": "RL-CULTIVATE-0135",
+      "last_cycle": "RL-CULTIVATE-0135",
+      "last_cycle_index": 135,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 1,
-    "last_score": 0,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -1948,6 +1981,13 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-09T18:26:39.244Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0135",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-08-09T18:56:30.122Z"
       }
     ]
   },
