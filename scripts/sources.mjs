@@ -75,7 +75,7 @@ const validateMaterialWitness = (snapshot) => {
   return snapshot;
 };
 const validateFoldPortraitWitness = (snapshot, material) => {
-  assert(snapshot.schema === "root-logos-foldportrait-witness/v1", "Unsupported FoldPortrait witness schema.");
+  assert(snapshot.schema === "root-logos-foldportrait-witness/v2", "Unsupported FoldPortrait witness schema.");
   assert(snapshot.source_id === "foldportrait" && snapshot.status === "witnessed", "FoldPortrait witness is not active.");
   assert(snapshot.witness === `sha256:${digest(witnessedPayload(snapshot))}`, "FoldPortrait witness digest is invalid.");
   assert(snapshot.measures?.renders === snapshot.renders?.length, "FoldPortrait render count is inconsistent.");
@@ -91,6 +91,25 @@ const validateFoldPortraitWitness = (snapshot, material) => {
     assert(/^[a-f0-9]{64}$/.test(render.convergence_hash), `${render.artifact_id} lacks a convergence hash.`);
     assert(/^https:\/\/zeropoet\.github\.io\/FoldPortrait\//.test(render.svg_url), `${render.artifact_id} has an invalid render URL.`);
   }
+  assert(snapshot.measures?.reflection_cycles === snapshot.reflections?.length, "FoldPortrait reflection count is inconsistent.");
+  assert(snapshot.reflections.length > 0, "FoldPortrait must expose at least one preserved autonomous reflection.");
+  assert(snapshot.current_reflection === snapshot.reflections.at(-1).cycle_id, "FoldPortrait current reflection is not its lineage head.");
+  snapshot.reflections.forEach((reflection, index) => {
+    assert(reflection.sequence === index + 1, `${reflection.cycle_id} is out of sequence.`);
+    assert(/^FP-REFLECT-\d{4}$/.test(reflection.cycle_id), "FoldPortrait reflection identity is invalid.");
+    assert(/^[a-f0-9]{64}$/.test(reflection.witness_digest), `${reflection.cycle_id} lacks a witness digest.`);
+    assert(/^[a-f0-9]{64}$/.test(reflection.foldkernel_identity), `${reflection.cycle_id} lacks FoldKernel identity.`);
+    assert(/^[a-f0-9]{64}$/.test(reflection.render_hash), `${reflection.cycle_id} lacks a render hash.`);
+    assert(reflection.correlations.length > 0 && reflection.chosen_rules.length > 0, `${reflection.cycle_id} lacks visual choices.`);
+    reflection.correlations.forEach((correlation) => {
+      assert(correlation.left.split(".")[0] !== correlation.right.split(".")[0], `${reflection.cycle_id} contains a same-source relation.`);
+      assert(["structural-resonance", "pearson"].includes(correlation.method), `${reflection.cycle_id} has an invalid relation method.`);
+      assert(correlation.interpretation, `${reflection.cycle_id} lacks an epistemic relation boundary.`);
+    });
+    assert(/^https:\/\/zeropoet\.github\.io\/FoldPortrait\/Output\/reflections\//.test(reflection.svg_url), `${reflection.cycle_id} has an invalid SVG URL.`);
+  });
+  assert(snapshot.measures.current_correlations === snapshot.reflections.at(-1).correlations.length, "Current reflection correlation count diverged.");
+  assert(snapshot.measures.current_rules === snapshot.reflections.at(-1).chosen_rules.length, "Current reflection rule count diverged.");
   return snapshot;
 };
 
@@ -279,7 +298,10 @@ export const refreshMaterialLineage = async (
       renders: renders.length,
       material_matches: renders.length,
       embodied_renders: renders.filter(({ material_witness }) => material_witness.vessels.length).length,
-      prepared_renders: renders.filter(({ material_witness }) => !material_witness.vessels.length).length
+      prepared_renders: renders.filter(({ material_witness }) => !material_witness.vessels.length).length,
+      reflection_cycles: priorPortrait.reflections.length,
+      current_correlations: priorPortrait.reflections.at(-1)?.correlations.length || 0,
+      current_rules: priorPortrait.reflections.at(-1)?.chosen_rules.length || 0
     },
     renders
   };

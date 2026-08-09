@@ -114,6 +114,13 @@ assert.equal(validated.sovereignStandardSnapshot.authority.root_logos_has_mintin
 assert.equal(validated.foldPortraitSnapshot.measures.renders, 52);
 assert.equal(validated.foldPortraitSnapshot.measures.material_matches, 52);
 assert.equal(validated.foldPortraitSnapshot.measures.embodied_renders, 12);
+assert.equal(validated.foldPortraitSnapshot.schema, "root-logos-foldportrait-witness/v2");
+assert.equal(validated.foldPortraitSnapshot.measures.reflection_cycles, 2);
+assert.equal(validated.foldPortraitSnapshot.measures.current_correlations, 7);
+assert.equal(validated.foldPortraitSnapshot.measures.current_rules, 5);
+assert.equal(validated.foldPortraitSnapshot.current_reflection, "FP-REFLECT-0002");
+assert.ok(validated.foldPortraitSnapshot.reflections[0].correlations.every(({ left, right }) => left.split(".")[0] !== right.split(".")[0]));
+assert.equal(validated.registry.sources.find(({ id }) => id === "foldportrait").surface, "tracked-reflection");
 assert.ok(validated.foldPortraitSnapshot.renders.every(({ material_witness }) => material_witness.file_sha256));
 assert.ok(validated.publicWitnesses.every(({ witness }) => /^sha256:[a-f0-9]{64}$/.test(witness)));
 assert.match(first.compositions[0].witness, /^[a-f0-9]{64}$/);

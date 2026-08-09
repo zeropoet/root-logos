@@ -44,9 +44,11 @@ grammars; those grammars compose one higher Library form. The Living Object is
 Root Logos held as a sovereign presence, and the Library Field is the same
 identity unfolded through its works. The Constitution remains the higher
 reference. FoldForge is the primary compositional data constraint beside it,
-Telos witnesses bounded, evidence-led customer acquisition, and
-Sovereign Standard carries material lineage with FoldPortrait embedded at that
-boundary rather than duplicated as a separate source.
+Telos witnesses bounded, evidence-led customer acquisition, and Sovereign
+Standard carries material lineage. FoldPortrait's sealed first era remains
+embedded at that material boundary, while its additive second era now enters as
+a distinct public reflection source: a FoldKernel-bound painting of bounded,
+aggregate relations across the connected system.
 
 The living system may continue changing slowly. The Living Object always
 presents its latest state when deliberately opened from the quiet footer link;
@@ -254,7 +256,7 @@ Library merely because they occupy a vessel, and vessels do not become works.
 Token ownership witnesses stewardship but grants neither archive access,
 custody, minting power, nor constitutional authority.
 
-FoldPortrait is joined to that bridge through
+FoldPortrait's sealed first era is joined to that bridge through
 `sources/foldportrait.snapshot.json`. Root Logos verifies all 52 completed
 renders against both the FoldPortrait evolution ledger and their corresponding
 Sovereign Standard archive manifests: artifact identity, convergence hash,
@@ -265,12 +267,17 @@ numbered vessels bind more strongly to its trunk. This connection is visual and
 evidentiary only. Root Logos receives no FoldPortrait generation authority and
 no Sovereign Standard minting, custody, collector, or private-order authority.
 
-FoldPortrait does not appear as a separate node in the public **Witnessed
-Relations** surface. Its verified renders are already expressed inside the
-Sovereign Standard material-witness lineage and in the Living Object; repeating
-it as an independent source would falsely duplicate one evidentiary relation.
-The registry therefore marks it as `embedded-material-lineage` while retaining
-the complete snapshot, validation, and Living Object influence.
+FoldPortrait's second era does appear as a distinct node in the public
+**Witnessed Relations** surface because it is not another material claim. The
+current `root-logos-foldportrait-witness/v2` snapshot preserves two additive
+reflection cycles; the current cycle selects seven cross-system relations and five visual
+rules alongside the 52 sealed renders. Root Logos may receive those declared,
+noncausal visual choices as pressure for cultivation and composition, but it
+cannot choose FoldPortrait's rules, generate or rewrite its paintings, alter
+its FoldKernel identity, infer causation or private behavior, or inherit source
+authority. The material render lineage remains expressed once, through
+Sovereign Standard; the autonomous reflection is witnessed once, through
+FoldPortrait.
 
 Every serialized wake begins by scanning Sovereign Standard's canonical public
 export. `scripts/sources.mjs refresh-material-lineage` validates the new sealed
@@ -620,9 +627,10 @@ archive finality. Ethereum evidence remains prior to FoldForge, while
 FoldForge's witnessed instrument supplies the primary compositional data
 constraint. Telos can contribute anonymous, evidence-led acquisition signals
 but gives Root Logos no customer data, publishing authority, or governing
-authority. FoldPortrait
-renders remain visible through their corresponding Sovereign Standard material
-witness lineage; they are not repeated as an independent connected-source node.
+authority. FoldPortrait renders remain visible through their corresponding
+Sovereign Standard material witness lineage. Its additive reflection chamber is
+independently witnessed as a connected source because it contributes bounded
+visual counterreflection, not a duplicate material claim.
 
 The Living Object always sounds the latest Root Logos state. Historical audio
 states are not carried in the live architecture; repository history is enough
@@ -1211,8 +1219,9 @@ four living grammars and all 25 witnessed transformation relations form one
 restrained lattice bound into the constitutional trunk. The lattice expresses
 how evidence becomes composition without presenting FoldForge as another Root
 Logos identity or altering the sealed works it constrains. Material lineage is
-not repeated: the existing FoldPortrait strand already embeds its corresponding
-Sovereign Standard vessel witnesses. Rejected memory hypotheses and future
+not repeated: the sealed FoldPortrait strand still embeds its corresponding
+Sovereign Standard vessel witnesses, while autonomous reflection enters as a
+separate, noncausal pressure layer. Rejected memory hypotheses and future
 attractors remain pressure rather than geometry until constitutionally admitted.
 
 Root Logos is the identity embodied by the Living Object; it is not an external

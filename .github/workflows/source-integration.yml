@@ -7,6 +7,7 @@ on:
   repository_dispatch:
     types:
       - foldforge-published
+      - foldportrait-reflected
       - sovereign-standard-witness-published
 
 permissions:
@@ -35,6 +36,14 @@ jobs:
           ref: ${{ github.event.action == 'foldforge-published' && github.event.client_payload.revision || 'main' }}
           fetch-depth: 1
 
+      - name: Check out FoldPortrait public reflection
+        uses: actions/checkout@v7
+        with:
+          repository: zeropoet/FoldPortrait
+          path: FoldPortrait
+          ref: ${{ github.event.action == 'foldportrait-reflected' && github.event.client_payload.revision || 'main' }}
+          fetch-depth: 1
+
       - name: Set up Node
         uses: actions/setup-node@v7
         with:
@@ -49,6 +58,7 @@ jobs:
           FOLDFORGE_REVISION: ${{ github.event.client_payload.revision }}
           FOLDFORGE_LANGUAGE_WITNESS: ${{ github.event.client_payload.language_witness }}
           FOLDFORGE_SEMANTIC_WITNESS: ${{ github.event.client_payload.semantic_witness }}
+          FOLDPORTRAIT_REVISION: ${{ github.event.client_payload.revision }}
           SOVEREIGN_STANDARD_WITNESS: ${{ github.event.client_payload.witness }}
         run: |
           previous_foldforge_composition=$(node scripts/sources.mjs composition-witness sources/foldforge.snapshot.json)
@@ -71,8 +81,13 @@ jobs:
             sovereign_source="https://raw.githubusercontent.com/zeropoet/sovereign-standard-site/main/root-logos-witness-export.json?witness=${SOVEREIGN_STANDARD_WITNESS#sha256:}"
           fi
           node scripts/sources.mjs sync-sovereign-standard "$sovereign_source"
+          if [ "$EVENT_ACTION" = "foldportrait-reflected" ]; then
+            node -e 'if (!/^[a-f0-9]{40}$/.test(process.env.FOLDPORTRAIT_REVISION || "")) process.exit(1)'
+            test "$(git -C ../FoldPortrait rev-parse HEAD)" = "$FOLDPORTRAIT_REVISION"
+          fi
+          node scripts/foldportrait-source.mjs ../FoldPortrait
           node scripts/sources.mjs validate
-          if git diff --quiet -- sources/foldforge.snapshot.json sources/sovereign-standard.snapshot.json; then
+          if git diff --quiet -- sources/foldforge.snapshot.json sources/foldportrait.snapshot.json sources/sovereign-standard.snapshot.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -103,12 +118,12 @@ jobs:
         run: |
           git config user.name "root-logos-integrator[bot]"
           git config user.email "root-logos-integrator[bot]@users.noreply.github.com"
-          git add sources/foldforge.snapshot.json sources/sovereign-standard.snapshot.json cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json works/index.json works/corpora works/*/manifest.json works/*/editions
+          git add sources/foldforge.snapshot.json sources/foldportrait.snapshot.json sources/sovereign-standard.snapshot.json cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json works/index.json works/corpora works/*/manifest.json works/*/editions
           if git diff --cached --quiet; then
             echo "Connected source evidence is unchanged."
             exit 0
           fi
-          witness=$(node -e 'const f=require("./sources/foldforge.snapshot.json"); const s=require("./sources/sovereign-standard.snapshot.json"); process.stdout.write(`${f.witness.slice(7,13)}-${s.witness.slice(7,13)}`)')
+          witness=$(node -e 'const f=require("./sources/foldforge.snapshot.json"); const p=require("./sources/foldportrait.snapshot.json"); const s=require("./sources/sovereign-standard.snapshot.json"); process.stdout.write(`${f.witness.slice(7,13)}-${p.witness.slice(7,13)}-${s.witness.slice(7,13)}`)')
           git commit -m "Witness connected sources (${witness})"
           git push origin HEAD:main
 

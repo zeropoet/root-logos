@@ -24,6 +24,8 @@ const assert = (condition, message) => {
 };
 
 const ledger = await readJson(resolve(foldPortraitRoot, "Output/iterations/evolution.json"));
+const reflectionLedger = await readJson(resolve(foldPortraitRoot, "Output/reflections/reflection-ledger.json"));
+const currentReflection = await readJson(resolve(foldPortraitRoot, "Output/reflections/current.json"));
 const material = await readJson(materialPath);
 const materialWorks = new Map(material.works.map((work) => [work.artifact_id, work]));
 const renders = [];
@@ -62,24 +64,61 @@ for (const entry of ledger) {
   });
 }
 
+const reflections = reflectionLedger.map((cycle) => {
+  assert(cycle.schema === "foldportrait-reflection-cycle/v1", `${cycle.cycleID} has an unsupported reflection schema.`);
+  assert(/^FP-REFLECT-\d{4}$/.test(cycle.cycleID), `${cycle.cycleID} has an invalid reflection identity.`);
+  assert(/^[a-f0-9]{64}$/.test(cycle.witnessDigest), `${cycle.cycleID} lacks a system witness digest.`);
+  assert(/^[a-f0-9]{64}$/.test(cycle.foldKernelIdentity), `${cycle.cycleID} lacks FoldKernel identity continuity.`);
+  assert(/^[a-f0-9]{64}$/.test(cycle.renderHash), `${cycle.cycleID} lacks a render hash.`);
+  assert(cycle.correlations.length > 0 && cycle.chosenRules.length > 0, `${cycle.cycleID} made no visual reflection choices.`);
+  cycle.correlations.forEach((correlation) => {
+    assert(correlation.left.split(".")[0] !== correlation.right.split(".")[0], `${cycle.cycleID} contains a same-source correlation.`);
+    assert(["structural-resonance", "pearson"].includes(correlation.method), `${cycle.cycleID} has an invalid correlation method.`);
+    assert(correlation.interpretation, `${cycle.cycleID} lacks an epistemic interpretation.`);
+  });
+  const artifact = basename(cycle.artifact);
+  const notes = basename(cycle.notes);
+  return {
+    cycle_id: cycle.cycleID,
+    sequence: cycle.sequence,
+    witnessed_at: cycle.witnessedAt,
+    witness_digest: cycle.witnessDigest,
+    foldkernel_identity: cycle.foldKernelIdentity,
+    render_hash: cycle.renderHash,
+    previous_cycle_id: cycle.previousCycleID,
+    chosen_rules: cycle.chosenRules,
+    correlations: cycle.correlations,
+    svg_url: `https://zeropoet.github.io/FoldPortrait/Output/reflections/${artifact}`,
+    notes_url: `https://zeropoet.github.io/FoldPortrait/Output/reflections/${notes}`,
+    boundary: cycle.boundary
+  };
+});
+assert(reflections.at(-1)?.cycle_id === currentReflection.cycleID, "The FoldPortrait current reflection does not match its lineage head.");
+assert(reflections.at(-1)?.render_hash === currentReflection.renderHash, "The FoldPortrait current reflection hash diverged.");
+
 const payload = {
-  schema: "root-logos-foldportrait-witness/v1",
+  schema: "root-logos-foldportrait-witness/v2",
   source_id: "foldportrait",
   status: "witnessed",
-  source_revision: `sha256:${digest(ledger)}`,
+  source_revision: `sha256:${digest({ ledger, reflectionLedger, currentReflection })}`,
   repository: "https://github.com/zeropoet/FoldPortrait",
   public_url: "https://zeropoet.github.io/FoldPortrait/",
-  relation: "render-materializes-as-witness-work",
-  statement: "Each FoldPortrait render is bound to its corresponding Sovereign Standard material-witness object by artifact identity, render hash, convergence hash, and archived PNG hash.",
-  boundary: "Root Logos receives public render identity and material lineage, not generation authority, minting authority, custody, collector identity, or private order data.",
+  relation: "render-materializes-as-witness-work; system-witness-becomes-autonomous-visual-reflection",
+  statement: "FoldPortrait preserves its sealed material render lineage while autonomously choosing bounded, noncausal visual relations from aggregate public system witnesses. Each reflection remains FoldKernel-bound, additive, and independently witnessed.",
+  boundary: "Root Logos receives public render identity, material lineage, reflection choices, and epistemic limits—not FoldPortrait generation authority, source authority, minting authority, custody, collector identity, private order data, or causal truth.",
   measures: {
     renders: renders.length,
     material_matches: renders.length,
     embodied_renders: renders.filter(({ material_witness }) => material_witness.vessels.length).length,
-    prepared_renders: renders.filter(({ material_witness }) => material_witness.mint_status === "prepared").length
+    prepared_renders: renders.filter(({ material_witness }) => material_witness.mint_status === "prepared").length,
+    reflection_cycles: reflections.length,
+    current_correlations: reflections.at(-1)?.correlations.length || 0,
+    current_rules: reflections.at(-1)?.chosen_rules.length || 0
   },
-  renders
+  renders,
+  reflections,
+  current_reflection: currentReflection.cycleID
 };
 const snapshot = { ...payload, witness: `sha256:${digest(payload)}` };
 await writeFile(outputPath, `${JSON.stringify(snapshot, null, 2)}\n`);
-process.stdout.write(`Witnessed ${renders.length} FoldPortrait renders at ${snapshot.witness}.\n`);
+process.stdout.write(`Witnessed ${renders.length} sealed FoldPortrait renders and ${reflections.length} autonomous reflections at ${snapshot.witness}.\n`);

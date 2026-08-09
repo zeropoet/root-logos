@@ -45,7 +45,10 @@ const app = {
 };
 
 const fetchJson = async (url) => {
-  const response = await fetch(url, { headers: { accept: "application/json" } });
+  const response = await fetch(url, {
+    headers: { accept: "application/json" },
+    cache: "no-store"
+  });
   if (!response.ok) throw new Error(`${url} returned ${response.status}`);
   return response.json();
 };
@@ -153,15 +156,18 @@ const renderSources = () => {
   const selectSource = (id) => {
     const source = sources.find((candidate) => candidate.id === id) || sources[0];
     const foldForgeLive = source.id === "foldforge" && app.foldforge?.status === "witnessed";
+    const foldPortraitLive = source.id === "foldportrait" && app.foldportrait?.status === "witnessed";
     const publicWitness = app.sourceWitnesses[source.id];
     const materialWitness = app.materialWitnesses[source.id];
-    const live = foldForgeLive || publicWitness?.status === "witnessed" || Boolean(materialWitness);
+    const live = foldForgeLive || foldPortraitLive || publicWitness?.status === "witnessed" || Boolean(materialWitness);
     $$("[data-source-id]").forEach((button) => button.classList.toggle("is-active", button.dataset.sourceId === source.id));
     $("#source-coordinate").textContent = `${sentence(source.status)} source / ${source.visibility}`;
     $("#source-title").textContent = source.name;
     $("#source-role").textContent = source.role;
     $("#source-discovery").textContent = foldForgeLive
       ? app.foldforge.identity.maxim
+      : foldPortraitLive
+        ? app.foldportrait.statement
       : publicWitness
         ? publicWitness.identity.role_in_coherent_field
         : source.connection_message || source.returns;
@@ -186,6 +192,15 @@ const renderSources = () => {
       measures = materialWitness
         ? [["Vessels", materialWitness.measures.public_vessel_records], ["Witness works", materialWitness.measures.witness_works], ["Embodied", materialWitness.measures.vessel_work_relations], ["Minted", materialWitness.measures.minted_works]]
         : [["Public records", publicWitness.public_state.published_vessel_records], ["Physical form", "Black Tin Vessel"], ["Private orders", "Excluded"], ["Witness", "Current"]];
+    }
+    if (foldPortraitLive) {
+      const reflection = app.foldportrait.reflections.at(-1);
+      measures = [
+        ["Reflection cycles", app.foldportrait.measures.reflection_cycles],
+        ["Chosen relations", reflection.correlations.length],
+        ["Visual rules", reflection.chosen_rules.length],
+        ["FoldKernel", reflection.foldkernel_identity.slice(0, 12)]
+      ];
     }
     $("#source-measures").innerHTML = measures.map(([label, value]) => `<span><small>${escapeHtml(label)}</small><b>${escapeHtml(value)}</b></span>`).join("");
     $("#source-boundary").textContent = source.boundary;

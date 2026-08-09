@@ -8,6 +8,7 @@ const [module, archive, registry, graph] = await Promise.all([
   readJson("sources/registry.json"),
   readJson("content/constitutional-graph.json")
 ]);
+const publicRenderer = await readFile(new URL("../script.js", import.meta.url), "utf8");
 
 assert.equal(module.schema, "root-logos-design-flow-ledger/v1");
 assert.equal(module.module_id, "design-flow-ledger");
@@ -43,10 +44,17 @@ assert.equal(x.adapter, module.x_witness_relation.adapter);
 assert.equal(x.status, "active");
 assert.equal(module.tracking_contract.platform_metrics_are_design_authority, false);
 assert.equal(module.tracking_contract.personal_data_collected, false);
+assert.match(
+  publicRenderer,
+  /fetch\(url,\s*\{[\s\S]*cache:\s*["']no-store["']/,
+  "Public witness data must bypass the browser cache so publication counts advance without a hard refresh."
+);
 
 assert.ok(graph.nodes.some(({ id, type }) => id === module.constitutional_node_id && type === "tracked-module"));
 assert.ok(graph.nodes.some(({ id, type }) => id === "principle-relational-propagation" && type === "architectural-principle"));
 assert.ok(graph.edges.some((edge) => edge.from === "principle-relational-propagation" && edge.to === "coherent-field"));
+assert.ok(graph.nodes.some(({ id, type }) => id === "source-foldportrait" && type === "source"));
+assert.ok(graph.edges.some((edge) => edge.from === "principle-relational-propagation" && edge.to === "source-foldportrait"));
 for (const [to, type] of [
   ["attractor-fragment", "tracks founding forms through"],
   ["channel-adapter", "maps X witness through"],

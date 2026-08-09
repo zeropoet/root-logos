@@ -1670,6 +1670,17 @@
       "keywords": ["Sovereign Standard", "source", "tea", "vessel", "physical", "provenance", "stewardship", "product", "community", "witness"]
     },
     {
+      "id": "source-foldportrait",
+      "type": "source",
+      "label": "Connected Source IV",
+      "title": "FoldPortrait",
+      "status": "Public Witness",
+      "summary": "A FoldKernel-bound autonomous visual reflection that selects bounded, noncausal relations across the connected system and layers them through time.",
+      "definition": "FoldPortrait preserves its 52 sealed first-era renders inside the Sovereign Standard material lineage, then adds an independent reflection chamber above them. Each additive cycle reads only aggregate public witnesses, chooses cross-source relations and visual rules deterministically, and paints them over prior states without changing FoldKernel identity. Root Logos may receive the declared reflection as cultivation pressure but cannot choose its rules, generate or alter its paintings, infer causation or private behavior, or inherit authority over any witnessed source.",
+      "answers": "What visual relations does the bounded system choose to notice when it reflects on itself without treating resonance as causation?",
+      "keywords": ["FoldPortrait", "FoldKernel", "source", "reflection", "painting", "correlation", "noncausal", "witness", "lineage", "autonomy"]
+    },
+    {
       "id": "foldforge-composition-luminance",
       "type": "source-grammar",
       "label": "FoldForge Grammar I",
@@ -1713,10 +1724,10 @@
       "source_export": "RL-REVISION-1.3",
       "added": ["Hierarchy of Emergence", "Library Composition", "Embedded material lineage"],
       "modified": ["Root Logos current identity", "Living Object and Library Field relation", "FoldForge constraint role", "Connected-source surface"],
-      "removed": ["The assumption that completed work models change with Library growth", "Redundant state snapshots", "Duplicate FoldPortrait source representation"],
+      "removed": ["The assumption that completed work models change with Library growth", "Redundant state snapshots", "Duplicate FoldPortrait first-era material representation"],
       "relationships": ["Constitution -> Higher Reference", "Ethereum Evidence -> FoldForge Instrument", "FoldForge -> Compositional Constraint", "Sealed Works -> Witnessed Relations", "Witnessed Relations -> Relation Grammars", "Relation Grammars -> Library Composition", "FoldPortrait -> Sovereign Standard Material Lineage", "Telos -> State Distance Witness"],
       "reason": "The works began composing themselves into a higher layer. Making that emergence structurally visible clarified what remains fixed, what may evolve, and what constrains the composition.",
-      "notes": "The Living Object presents the latest Root Logos state. Earlier states remain recoverable through repository lineage rather than competing on the live surface.",
+      "notes": "The Living Object presents the latest Root Logos state. Earlier states remain recoverable through repository lineage rather than competing on the live surface. The later additive FoldPortrait reflection chamber is a distinct non-material witness and does not reverse this first-era deduplication.",
       "keywords": ["emergent instrument", "hierarchy", "stable works", "relation grammar", "Library composition", "Living Object", "FoldForge", "Telos", "material lineage"]
     },
     {
@@ -2893,6 +2904,11 @@
       "type": "witnesses"
     },
     {
+      "from": "coherent-field",
+      "to": "source-foldportrait",
+      "type": "witnesses"
+    },
+    {
       "from": "source-telos",
       "to": "logos-2",
       "type": "tests materially"
@@ -2926,6 +2942,16 @@
       "from": "source-foldforge",
       "to": "foldforge-composition-resonance",
       "type": "contributes"
+    },
+    {
+      "from": "source-foldportrait",
+      "to": "constitutional-self-authorship",
+      "type": "offers bounded visual counterreflection to"
+    },
+    {
+      "from": "source-foldportrait",
+      "to": "principle-witness-before-interpretation",
+      "type": "remains bounded by"
     },
     {
       "from": "foldforge-composition-resonance",
@@ -3034,6 +3060,11 @@
     },
     {
       "from": "principle-participatory-coherence",
+      "to": "source-foldportrait",
+      "type": "accepts reflection without visual authority"
+    },
+    {
+      "from": "principle-participatory-coherence",
       "to": "constitutional-object",
       "type": "becomes visible through"
     },
@@ -3051,6 +3082,11 @@
       "from": "principle-relational-propagation",
       "to": "source-telos",
       "type": "governs mapped system maintenance through"
+    },
+    {
+      "from": "principle-relational-propagation",
+      "to": "source-foldportrait",
+      "type": "keeps reflection witness current through"
     },
     {
       "from": "principle-relational-propagation",
