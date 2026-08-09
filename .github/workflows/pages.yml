@@ -3,6 +3,9 @@ name: Deploy Root Logos Pages
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows: ["Cultivation Chamber", "Connected Source Integration"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -16,10 +19,13 @@ concurrency:
 
 jobs:
   build:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out public archive
         uses: actions/checkout@v7
+        with:
+          ref: main
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
