@@ -1238,7 +1238,7 @@ relation count are exposed as canvas data for audit. An unchanged archive
 always resolves to the same form.
 
 FoldForge's compositional constraint is now structural as well as audible. Its
-four living grammars and all 25 witnessed transformation relations form one
+five living grammars and all 32 witnessed transformation relations form one
 restrained lattice bound into the constitutional trunk. The lattice expresses
 how evidence becomes composition without presenting FoldForge as another Root
 Logos identity or altering the sealed works it constrains. Material lineage is
@@ -1282,6 +1282,16 @@ changes. A confirmed holdings change may update source evidence without falsely
 presenting an unchanged lexical field as a new edition.
 Recurrence witnesses presence; it does not establish intention, semantic
 truth, value, or authority.
+
+FoldForge's Chromatic Field enters through the same witnessed boundary without
+coloring Root Logos or overriding its sovereign voice. It converts source-image
+evidence to OKLab, keeps low-chroma works in an achromatic ground, and lets the
+archive's largest unoccupied hue interval determine where its circular color
+continuum begins. Root Logos records that grammar and recomposes its inherited
+Library scores when the normalized FoldForge composition witness changes. A
+later Root Logos state may then deform FoldForge's sound through the witnessed
+Living Object displacement field, but unchanged semantic and grammar witnesses
+close the return path rather than producing an infinite trigger loop.
 
 When deliberately opened, the object is visually naked: no site navigation,
 title treatment, measures, identity statement, or interpretive panel precedes

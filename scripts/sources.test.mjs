@@ -36,7 +36,7 @@ assert.equal(firstBytes, secondBytes, "Source synchronization must be determinis
 assert.equal(materialFirst.witness, materialSecond.witness, "Unchanged material evidence must preserve its witness.");
 assert.equal(materialFirstBytes, materialSecondBytes, "Material witness synchronization must be deterministic.");
 assert.equal(first.status, "witnessed");
-assert.equal(first.compositions.length, 4);
+assert.equal(first.compositions.length, 5);
 assert.equal(first.language_composition.terms.length, 12);
 assert.equal(
   new Set(first.language_composition.terms.map(({ term }) => term)).size,
