@@ -1252,11 +1252,10 @@ source connected to a separate visualization. Telos enters that identity
 through its sealed public witness. The witness's bounded acquisition-state
 fields form a continuous strand rooted in the object, so Telos's actual
 operating posture is visible inside Root Logos as released evidence. The
-connection does not read the retired trading-era Telos Stream and cannot reach
-Telos source code, credentials, personal data, payment records, unpublished
-campaigns, deployment control, outreach, spend, or channel authority. The
-Telos witness remains silent; its pressure changes the visible body without
-claiming a second sovereign voice.
+connection cannot reach Telos source code, credentials, personal data, payment
+records, unpublished campaigns, deployment control, outreach, spend, or
+channel authority. The Telos witness remains silent; its pressure changes the
+visible body without claiming a second sovereign voice.
 
 The same complete field enters the sovereign voice. Every relation contributes
 its endpoints, type, phase, and derived weight to a deterministic harmonic
