@@ -98,24 +98,24 @@
       ],
       "claim": "Knowing and Consciousness share consciousness, experience, identity, knowing but have no explicit constitutional relation.",
       "proposed_question": null,
-      "evidence_hash": "66fb440929811767903644e4e545cb945859703544ebe940f9b9b15f7cadb75f",
-      "policy_hash": "c448f8e75185f80072d54ea96a8c7f7b601263eaa3706139b39815114f65cb20",
+      "evidence_hash": "375e1bdd31be61424b0591a9577acb8c0a150ce242aab7c167bd5d25e85801e7",
+      "policy_hash": "cefeac1f682a9895e1b29799c2a1adfcc70f2c5ae3d391d88a7c4f93dd475180",
       "first_cycle": "RL-CULTIVATE-0004",
-      "last_cycle": "RL-CULTIVATE-0004",
-      "last_cycle_index": 4,
-      "considerations": 1,
-      "status": "awaiting-human-review",
-      "last_novelty_reason": "historical-import",
+      "last_cycle": "RL-CULTIVATE-0139",
+      "last_cycle_index": 139,
+      "considerations": 3,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "evidence-changed",
       "last_evaluation": {
         "dimensions": {
           "source_fidelity": 4,
-          "relational_gain": 4,
+          "relational_gain": 2,
           "compression": 3,
           "testability": 4,
           "corrigibility": 4,
-          "novelty_without_drift": 3
+          "novelty_without_drift": 1
         },
-        "total": 22
+        "total": 18
       }
     },
     "d4abbea3f4901678e698da4eee8e7fc1a25d9dc760a800576a37a0570e9a7765": {
@@ -1129,7 +1129,7 @@
   },
   "novelty": {
     "consecutive_low_yield_cycles": 0,
-    "last_score": 4,
+    "last_score": 3,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -2040,6 +2040,13 @@
         "reason": "new-hypothesis",
         "status": "autonomously-rejected",
         "at": "2026-08-09T20:59:03.625Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0139",
+        "score": 3,
+        "reason": "evidence-changed",
+        "status": "autonomously-rejected",
+        "at": "2026-08-09T21:08:29.898Z"
       }
     ]
   },
