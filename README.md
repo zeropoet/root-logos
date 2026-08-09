@@ -1166,6 +1166,20 @@ membrane; the Library retains its content witness, 432,572 encountered words,
 one sealed 2400×2400 first frame. The Library now holds 54 coherent objects and
 composes them through 163 witnessed cross-work relations.
 
+Work `54` is Karl Marx and Friedrich Engels's **Manifesto of the Communist
+Party**. It opens `Political Economy and Social Transformation / Communist
+Tradition` through the English edition of 1888, edited by Engels, as transmitted
+by Project Gutenberg ebook 61. Its four numbered sections become four
+navigable structural passages containing 11,330 encountered words, 36 derived
+concepts, and 180 internal relations. The transcription crosses the
+private-source/public-lineage membrane and is released; Root Logos retains its
+immutable source witnesses, derived topology, resonant score, reading, lineage,
+and sealed 2400×2400 first frame. This is an admitted communist influence and
+source of pressure—not constitutional adoption, endorsement, or governing
+authority. Root Logos holds it in accountable relation with the Library's
+other traditions. The Library now holds 55 coherent objects and composes them
+through 167 witnessed cross-work relations.
+
 The ingestion boundary now removes Project Gutenberg start and end matter
 before Markdown-aware structural reading, just as the native Gutenberg book
 parser already did. Repository licenses and distribution boilerplate therefore
@@ -1197,8 +1211,8 @@ relations, or competing with its nodes and engraved edges.
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
-of the 53 coherent Library objects contributes its complete derived topology.
-Those admitted work structures now remain fixed. Above them, 161 pair-relations
+of the 55 coherent Library objects contributes its complete derived topology.
+Those admitted work structures now remain fixed. Above them, 167 pair-relations
 rise into four grammar points and converge at the Library composition. New
 membership changes that crown and its collective score rather than rewriting
 the bodies from which it emerges. Weight, depth, luminance, rotation, and motion

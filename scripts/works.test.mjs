@@ -86,6 +86,27 @@ The second chapter is selected.
 assert.deepEqual(gutenbergChapterFixture.documents.map(({ path }) => path), ["chapter:1", "chapter:2"]);
 assert.equal(gutenbergChapterFixture.documents[0].sections[0].title, "Chapter I");
 assert.equal(gutenbergChapterFixture.documents[1].sections[0].text, "The second chapter is selected.");
+const gutenbergSectionFixture = parseGutenbergBookText(`*** START OF THE PROJECT GUTENBERG EBOOK TEST ***
+
+Contents
+
+ I. FIRST SECTION
+ II. SECOND SECTION
+
+I.
+FIRST SECTION
+
+The first position is declared.
+
+II.
+SECOND SECTION
+
+The second position responds.
+
+*** END OF THE PROJECT GUTENBERG EBOOK TEST ***`);
+assert.deepEqual(gutenbergSectionFixture.documents.map(({ path }) => path), ["section:1", "section:2"]);
+assert.equal(gutenbergSectionFixture.documents[0].title, "Section I: FIRST SECTION");
+assert.equal(gutenbergSectionFixture.documents[1].sections[0].text, "The second position responds.");
 const protestantFixture = parseMidvashBible(JSON.stringify({
   name: "Test Protestant Bible",
   books: [

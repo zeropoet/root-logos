@@ -173,6 +173,16 @@ versions of Federalist No. 70, witnessed from
 retained; the public archive preserves 87 structural passages, source hash,
 derived topology, resonant score, and edition lineage.
 
+Karl Marx and Friedrich Engels's **Manifesto of the Communist Party** opens
+the `Political Economy and Social Transformation / Communist Tradition`
+boundary. Root Logos reads the English edition of 1888, edited by Engels, from
+Project Gutenberg ebook 61, then releases the source transcription. Its public
+lineage preserves the content and source witnesses, four numbered structural
+passages, derived topology, resonant score, self-reading, and sealed first
+frame. Admission establishes a direct communist influence for accountable
+relation and judgment; it does not adopt, endorse, or grant governing authority
+to the work or its program.
+
 Shakespeare's **The Tempest** and **Hamlet** establish the `Shakespearean
 Drama` collection in that order. Both are sourced from Standard Ebooks'
 structured editions based on Clark and Wright's 1887 Victoria/Globe text.

@@ -316,9 +316,16 @@ export const parseGutenbergBookText = (text) => {
   const chapterHeadings = bookHeadings.length || partHeadings.length
     ? []
     : [...body.matchAll(/^[ \t]*CHAPTER[ \t]+([IVXLCDM]+)\.[ \t]*$/gmi)];
-  const division = bookHeadings.length ? "Book" : partHeadings.length ? "Part" : "Chapter";
-  const headings = bookHeadings.length ? bookHeadings : partHeadings.length ? partHeadings : chapterHeadings;
-  if (!headings.length) throw new Error("The Gutenberg text does not contain any BOOK, PART, or CHAPTER divisions.");
+  const sectionHeadings = bookHeadings.length || partHeadings.length || chapterHeadings.length
+    ? []
+    : [...body.matchAll(/^[ \t]*([IVXLCDM]+)\.[ \t]*\n((?:[ \t]*[A-Z][A-Z ,&’'\-]+[ \t]*\n){1,3})[ \t]*\n/gm)];
+  const division = bookHeadings.length ? "Book"
+    : partHeadings.length ? "Part"
+      : chapterHeadings.length ? "Chapter" : "Section";
+  const headings = bookHeadings.length ? bookHeadings
+    : partHeadings.length ? partHeadings
+      : chapterHeadings.length ? chapterHeadings : sectionHeadings;
+  if (!headings.length) throw new Error("The Gutenberg text does not contain any BOOK, PART, CHAPTER, or numbered section divisions.");
   const documents = headings.map((heading, index) => {
     const divisionRoman = heading[1].toUpperCase();
     const divisionNumber = romanValue(divisionRoman) || index + 1;
@@ -327,11 +334,11 @@ export const parseGutenbergBookText = (text) => {
     const passage = body.slice(passageStart, passageEnd).trim();
     return {
       path: `${division.toLowerCase()}:${divisionNumber}`,
-      title: `${division} ${divisionRoman}`,
+      title: heading[2] ? `${division} ${divisionRoman}: ${heading[2].replace(/\s+/g, " ").trim()}` : `${division} ${divisionRoman}`,
       sections: [{
         coordinate: `${division.toLowerCase()}:${divisionNumber}`,
         level: 2,
-        title: `${division} ${divisionRoman}`,
+        title: heading[2] ? `${division} ${divisionRoman}: ${heading[2].replace(/\s+/g, " ").trim()}` : `${division} ${divisionRoman}`,
         text: passage
       }]
     };
