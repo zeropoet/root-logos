@@ -197,9 +197,10 @@ const renderSources = () => {
       const reflection = app.foldportrait.reflections.at(-1);
       measures = [
         ["Reflection cycles", app.foldportrait.measures.reflection_cycles],
+        ["Archive", `${app.foldportrait.measures.reflection_pngs} SVG + PNG`],
         ["Chosen relations", reflection.correlations.length],
         ["Visual rules", reflection.chosen_rules.length],
-        ["FoldKernel", reflection.foldkernel_identity.slice(0, 12)]
+        ["XRPL boundary", sentence(reflection.mint_status)]
       ];
     }
     $("#source-measures").innerHTML = measures.map(([label, value]) => `<span><small>${escapeHtml(label)}</small><b>${escapeHtml(value)}</b></span>`).join("");

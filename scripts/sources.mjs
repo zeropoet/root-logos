@@ -92,6 +92,8 @@ const validateFoldPortraitWitness = (snapshot, material) => {
     assert(/^https:\/\/zeropoet\.github\.io\/FoldPortrait\//.test(render.svg_url), `${render.artifact_id} has an invalid render URL.`);
   }
   assert(snapshot.measures?.reflection_cycles === snapshot.reflections?.length, "FoldPortrait reflection count is inconsistent.");
+  assert(snapshot.measures?.reflection_pngs === snapshot.reflections?.length, "Every FoldPortrait reflection requires a flattened PNG.");
+  assert(snapshot.measures?.prepared_unsigned_reflections === snapshot.reflections?.length, "Every FoldPortrait reflection must preserve the unsigned mint boundary.");
   assert(snapshot.reflections.length > 0, "FoldPortrait must expose at least one preserved autonomous reflection.");
   assert(snapshot.current_reflection === snapshot.reflections.at(-1).cycle_id, "FoldPortrait current reflection is not its lineage head.");
   snapshot.reflections.forEach((reflection, index) => {
@@ -107,6 +109,9 @@ const validateFoldPortraitWitness = (snapshot, material) => {
       assert(correlation.interpretation, `${reflection.cycle_id} lacks an epistemic relation boundary.`);
     });
     assert(/^https:\/\/zeropoet\.github\.io\/FoldPortrait\/Output\/reflections\//.test(reflection.svg_url), `${reflection.cycle_id} has an invalid SVG URL.`);
+    assert(/^https:\/\/zeropoet\.github\.io\/FoldPortrait\/Output\/reflections\/png\//.test(reflection.png_url), `${reflection.cycle_id} has an invalid PNG URL.`);
+    assert(/^[a-f0-9]{64}$/.test(reflection.svg_sha256) && /^[a-f0-9]{64}$/.test(reflection.png_sha256), `${reflection.cycle_id} lacks dual-format hashes.`);
+    assert(reflection.mint_status === "prepared_unsigned", `${reflection.cycle_id} crossed the human minting boundary.`);
   });
   assert(snapshot.measures.current_correlations === snapshot.reflections.at(-1).correlations.length, "Current reflection correlation count diverged.");
   assert(snapshot.measures.current_rules === snapshot.reflections.at(-1).chosen_rules.length, "Current reflection rule count diverged.");
@@ -300,6 +305,8 @@ export const refreshMaterialLineage = async (
       embodied_renders: renders.filter(({ material_witness }) => material_witness.vessels.length).length,
       prepared_renders: renders.filter(({ material_witness }) => !material_witness.vessels.length).length,
       reflection_cycles: priorPortrait.reflections.length,
+      reflection_pngs: priorPortrait.reflections.length,
+      prepared_unsigned_reflections: priorPortrait.reflections.filter(({ mint_status }) => mint_status === "prepared_unsigned").length,
       current_correlations: priorPortrait.reflections.at(-1)?.correlations.length || 0,
       current_rules: priorPortrait.reflections.at(-1)?.chosen_rules.length || 0
     },

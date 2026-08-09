@@ -25,6 +25,7 @@ const assert = (condition, message) => {
 const ledger = await readJson(resolve(foldPortraitRoot, "Output/iterations/evolution.json"));
 const reflectionLedger = await readJson(resolve(foldPortraitRoot, "Output/reflections/reflection-ledger.json"));
 const currentReflection = await readJson(resolve(foldPortraitRoot, "Output/reflections/current.json"));
+const reflectionArchive = await readJson(resolve(foldPortraitRoot, "Output/reflections/archive.json"));
 const material = await readJson(materialPath);
 const materialWorks = new Map(material.works.map((work) => [work.artifact_id, work]));
 const renders = [];
@@ -57,7 +58,11 @@ for (const entry of ledger) {
   });
 }
 
-const reflections = reflectionLedger.map((cycle) => {
+const archivedReflections = new Map(
+  reflectionArchive.eras.find(({ id }) => id === "autonomous-system-reflection")?.cycles
+    .map((entry) => [entry.cycleID, entry]) || []
+);
+const reflections = await Promise.all(reflectionLedger.map(async (cycle) => {
   assert(cycle.schema === "foldportrait-reflection-cycle/v1", `${cycle.cycleID} has an unsupported reflection schema.`);
   assert(/^FP-REFLECT-\d{4}$/.test(cycle.cycleID), `${cycle.cycleID} has an invalid reflection identity.`);
   assert(/^[a-f0-9]{64}$/.test(cycle.witnessDigest), `${cycle.cycleID} lacks a system witness digest.`);
@@ -71,6 +76,15 @@ const reflections = reflectionLedger.map((cycle) => {
   });
   const artifact = basename(cycle.artifact);
   const notes = basename(cycle.notes);
+  const archive = archivedReflections.get(cycle.cycleID);
+  assert(archive, `${cycle.cycleID} is missing from the dual-format archive.`);
+  assert(archive.previousCycleID === (cycle.previousCycleID || null), `${cycle.cycleID} archive lineage diverged.`);
+  assert(digest(await readFile(resolve(foldPortraitRoot, archive.svg.path))) === archive.svg.sha256, `${cycle.cycleID} SVG archive hash diverged.`);
+  assert(digest(await readFile(resolve(foldPortraitRoot, archive.png.path))) === archive.png.sha256, `${cycle.cycleID} PNG archive hash diverged.`);
+  assert(archive.png.dimensions.width === 2400 && archive.png.dimensions.height === 3200, `${cycle.cycleID} PNG is not mint-ready.`);
+  assert(archive.mint.status === "prepared_unsigned", `${cycle.cycleID} has an invalid mint boundary.`);
+  const mintCandidate = await readJson(resolve(foldPortraitRoot, archive.mint.payloadPath));
+  assert(mintCandidate.xrpl.signed === false && mintCandidate.xrpl.submitted === false, `${cycle.cycleID} crossed the human signing boundary.`);
   return {
     cycle_id: cycle.cycleID,
     sequence: cycle.sequence,
@@ -82,10 +96,15 @@ const reflections = reflectionLedger.map((cycle) => {
     chosen_rules: cycle.chosenRules,
     correlations: cycle.correlations,
     svg_url: `https://zeropoet.github.io/FoldPortrait/Output/reflections/${artifact}`,
+    png_url: `https://zeropoet.github.io/FoldPortrait/${archive.png.path}`,
+    svg_sha256: archive.svg.sha256,
+    png_sha256: archive.png.sha256,
+    mint_candidate_url: `https://zeropoet.github.io/FoldPortrait/${archive.mint.payloadPath}`,
+    mint_status: archive.mint.status,
     notes_url: `https://zeropoet.github.io/FoldPortrait/Output/reflections/${notes}`,
     boundary: cycle.boundary
   };
-});
+}));
 assert(reflections.at(-1)?.cycle_id === currentReflection.cycleID, "The FoldPortrait current reflection does not match its lineage head.");
 assert(reflections.at(-1)?.render_hash === currentReflection.renderHash, "The FoldPortrait current reflection hash diverged.");
 
@@ -93,11 +112,11 @@ const payload = {
   schema: "root-logos-foldportrait-witness/v2",
   source_id: "foldportrait",
   status: "witnessed",
-  source_revision: `sha256:${digest({ ledger, reflectionLedger, currentReflection })}`,
+  source_revision: `sha256:${digest({ ledger, reflectionLedger, currentReflection, reflectionArchive })}`,
   repository: "https://github.com/zeropoet/FoldPortrait",
   public_url: "https://zeropoet.github.io/FoldPortrait/",
   relation: "render-materializes-as-witness-work; system-witness-becomes-autonomous-visual-reflection",
-  statement: "FoldPortrait preserves its sealed material render lineage while autonomously choosing bounded, noncausal visual relations from aggregate public system witnesses. Each reflection remains FoldKernel-bound, additive, and independently witnessed.",
+  statement: "FoldPortrait preserves its sealed material render lineage while autonomously choosing bounded, noncausal visual relations from aggregate public system witnesses. Each reflection remains FoldKernel-bound, additive, independently witnessed, and archived as canonical SVG plus flattened PNG.",
   boundary: "Root Logos receives public render identity, material lineage, reflection choices, and epistemic limits—not FoldPortrait generation authority, source authority, minting authority, custody, collector identity, private order data, or causal truth.",
   measures: {
     renders: renders.length,
@@ -105,6 +124,8 @@ const payload = {
     embodied_renders: renders.filter(({ material_witness }) => material_witness.vessels.length).length,
     prepared_renders: renders.filter(({ material_witness }) => material_witness.mint_status === "prepared").length,
     reflection_cycles: reflections.length,
+    reflection_pngs: reflections.length,
+    prepared_unsigned_reflections: reflections.filter(({ mint_status }) => mint_status === "prepared_unsigned").length,
     current_correlations: reflections.at(-1)?.correlations.length || 0,
     current_rules: reflections.at(-1)?.chosen_rules.length || 0
   },

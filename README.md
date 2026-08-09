@@ -274,13 +274,17 @@ no Sovereign Standard minting, custody, collector, or private-order authority.
 
 FoldPortrait's second era does appear as a distinct node in the public
 **Witnessed Relations** surface because it is not another material claim. The
-current `root-logos-foldportrait-witness/v2` snapshot preserves two additive
-reflection cycles; the current cycle selects seven cross-system relations and five visual
-rules alongside the 52 sealed renders. Root Logos may receive those declared,
+current `root-logos-foldportrait-witness/v2` snapshot preserves three additive
+reflection cycles; each is archived as a canonical SVG and a flattened 2400 ×
+3200 PNG with independent SHA-256 hashes and an unsigned XRPL mint candidate.
+The current cycle selects seven cross-system relations and five visual rules
+alongside the 52 sealed renders. Root Logos may receive those declared,
 noncausal visual choices as pressure for cultivation and composition, but it
 cannot choose FoldPortrait's rules, generate or rewrite its paintings, alter
 its FoldKernel identity, infer causation or private behavior, or inherit source
-authority. The material render lineage remains expressed once, through
+authority. Mint preparation grants neither Root Logos nor FoldPortrait signing,
+submission, token, or custody authority; Xaman remains a human-steward boundary.
+The material render lineage remains expressed once, through
 Sovereign Standard; the autonomous reflection is witnessed once, through
 FoldPortrait.
 

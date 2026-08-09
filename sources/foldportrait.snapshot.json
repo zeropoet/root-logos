@@ -2,18 +2,20 @@
   "schema": "root-logos-foldportrait-witness/v2",
   "source_id": "foldportrait",
   "status": "witnessed",
-  "source_revision": "sha256:58e1fa5f1f5d62ae9d69f1ccf1533c8d8d279923a24f2a4c738bbc678c641445",
+  "source_revision": "sha256:b4a096d9d29ec5dea2ab78e34ca8ada7cd1046c912d494476276f39ce6fcec5b",
   "repository": "https://github.com/zeropoet/FoldPortrait",
   "public_url": "https://zeropoet.github.io/FoldPortrait/",
   "relation": "render-materializes-as-witness-work; system-witness-becomes-autonomous-visual-reflection",
-  "statement": "FoldPortrait preserves its sealed material render lineage while autonomously choosing bounded, noncausal visual relations from aggregate public system witnesses. Each reflection remains FoldKernel-bound, additive, and independently witnessed.",
+  "statement": "FoldPortrait preserves its sealed material render lineage while autonomously choosing bounded, noncausal visual relations from aggregate public system witnesses. Each reflection remains FoldKernel-bound, additive, independently witnessed, and archived as canonical SVG plus flattened PNG.",
   "boundary": "Root Logos receives public render identity, material lineage, reflection choices, and epistemic limits—not FoldPortrait generation authority, source authority, minting authority, custody, collector identity, private order data, or causal truth.",
   "measures": {
     "renders": 52,
     "material_matches": 52,
     "embodied_renders": 12,
     "prepared_renders": 40,
-    "reflection_cycles": 2,
+    "reflection_cycles": 3,
+    "reflection_pngs": 3,
+    "prepared_unsigned_reflections": 3,
     "current_correlations": 7,
     "current_rules": 5
   },
@@ -1023,6 +1025,11 @@
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0001.svg",
+      "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0001.png",
+      "svg_sha256": "eaa3202a4c6f37f12a8923c72fb9af347da36c2381ad2eb1e9acd0ea1f17b364",
+      "png_sha256": "99b23bc6d82fc30f8de8f86c9e7a3222238379a7a08142d810481a6eea9fe059",
+      "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0001.json",
+      "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0001.notes.md",
       "boundary": "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior."
     },
@@ -1114,11 +1121,112 @@
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0002.svg",
+      "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0002.png",
+      "svg_sha256": "3252a43fbe32466cab18f309c768c92b7dec3c27f42de0fa9044d4fa61f4f000",
+      "png_sha256": "6ae55375523a61d9dde0e00edddcc9833c3f3b2878af119929269f97aaf54aa8",
+      "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0002.json",
+      "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0002.notes.md",
+      "boundary": "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior."
+    },
+    {
+      "cycle_id": "FP-REFLECT-0003",
+      "sequence": 3,
+      "witnessed_at": "2026-08-09T18:30:50.000Z",
+      "witness_digest": "d1f57cd3b562123326bffe436fe65e50bcb149b3f32b2ebb12cb58e616990a8b",
+      "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+      "render_hash": "d1b9cf17694ba1d2e3d73e5d77c723bcd6d12212eb834dd586640c92017417b7",
+      "previous_cycle_id": "FP-REFLECT-0002",
+      "chosen_rules": [
+        "palimpsest",
+        "strata",
+        "braid",
+        "aperture",
+        "counterfield"
+      ],
+      "correlations": [
+        {
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "foldforge.primitives",
+          "method": "structural-resonance",
+          "right": "root-logos.x_witnessed_fragments",
+          "sampleCount": 3,
+          "strength": 1,
+          "visualRule": "palimpsest"
+        },
+        {
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.connected_sources",
+          "method": "structural-resonance",
+          "right": "telos.mapped_repositories",
+          "sampleCount": 3,
+          "strength": 1,
+          "visualRule": "strata"
+        },
+        {
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "foldportrait.embodied_portraits",
+          "method": "structural-resonance",
+          "right": "sovereign-standard.embodied_foldportraits",
+          "sampleCount": 3,
+          "strength": 1,
+          "visualRule": "strata"
+        },
+        {
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "foldforge.movement_phases",
+          "method": "structural-resonance",
+          "right": "foldkernel.symmetry_transforms",
+          "sampleCount": 3,
+          "strength": 1,
+          "visualRule": "braid"
+        },
+        {
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.connected_sources",
+          "method": "structural-resonance",
+          "right": "telos.operating_components",
+          "sampleCount": 3,
+          "strength": 1,
+          "visualRule": "aperture"
+        },
+        {
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "foldportrait.first_era_anchors",
+          "method": "structural-resonance",
+          "right": "sovereign-standard.embodied_foldportraits",
+          "sampleCount": 3,
+          "strength": 1,
+          "visualRule": "palimpsest"
+        },
+        {
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "structural-resonance",
+          "right": "sovereign-standard.published_vessel_records",
+          "sampleCount": 3,
+          "strength": 0.997011,
+          "visualRule": "counterfield"
+        }
+      ],
+      "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0003.svg",
+      "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0003.png",
+      "svg_sha256": "a60ab6a7ac9731772ef49b1326a10df8a5a25d9095b19861cdadc35701f93146",
+      "png_sha256": "5b42f6c8ec658c2a845463949d3ebb7ddf4213ad263390d236b68bf4fce3a571",
+      "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0003.json",
+      "mint_status": "prepared_unsigned",
+      "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0003.notes.md",
       "boundary": "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior."
     }
   ],
-  "current_reflection": "FP-REFLECT-0002",
+  "current_reflection": "FP-REFLECT-0003",
   "material_source_witness": "sha256:6e731453baf2a08fa3bbdaf49d1d6ac0bea262a7d0eb9b8e5b6c2c313b0f18de",
-  "witness": "sha256:207a60c11813d9a0480fe464a0b0b95079b91e95c3426182ab128acf12e20bb5"
+  "witness": "sha256:e72a5027827bfa60f994ca65ce3ef7b45b21f0b9295672c69287ac5356376e1f"
 }
