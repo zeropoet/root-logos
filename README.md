@@ -198,7 +198,14 @@ authority boundaries.
 - `.github/workflows/cultivation-cycle.yml` wakes the chamber after canonical
   changes, weekly while productive, or through explicit human dispatch.
 - `.github/workflows/attractor-release.yml` runs the autonomous release cycle
-  every Monday, Wednesday, and Friday at 10:17 AM Eastern.
+  every Monday, Wednesday, and Friday at 10:17 AM Eastern. After—and only
+  after—a successful X publication receipt is committed, it explicitly
+  dispatches the Pages publisher and one bounded cultivation cycle. This
+  explicit wake is required because a workflow-token commit does not trigger
+  downstream push workflows. Root Logos therefore reflects the new witnessed
+  count, link, Constitutional Field, Design Flow, and Living Object immediately;
+  the cultivation wake adds a versioned inward ripple, and FoldForge's hourly
+  displacement renewal remains the bounded return path into sound.
 - `script.js` joins the canonical graph to the live runtime API, renders the
   constitutional field and current identity manifest, cultivation lineage,
   proposal judgment, semantic memory, constitutional threshold, intake state,
@@ -582,6 +589,12 @@ unrelated concurrent update advances `main`. The adapter also sends X's `made_wi
 disclosure because the fragments are constitutionally co-generated. Real
 credentials belong only in repository secrets or the local environment; `.env`
 files are ignored.
+
+Publication is a wake signal, not semantic authority. The X receipt changes the
+public witness state and geometry, but X engagement, reach, and reaction do not
+enter constitutional selection. The dispatched cultivation cycle still reads
+Root Logos's governed evidence and may reject or complete without a proposal;
+it does not infer truth from the platform or from the fact of publication.
 
 Autonomy is active in `content/attractor-policy.json`. It was enabled only after
 the four X OAuth 1.0a secrets authenticated as `@rootlogos` and a conservative X

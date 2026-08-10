@@ -8,7 +8,10 @@ const [module, archive, registry, graph] = await Promise.all([
   readJson("sources/registry.json"),
   readJson("content/constitutional-graph.json")
 ]);
-const publicRenderer = await readFile(new URL("../script.js", import.meta.url), "utf8");
+const [publicRenderer, releaseWorkflow] = await Promise.all([
+  readFile(new URL("../script.js", import.meta.url), "utf8"),
+  readFile(new URL("../.github/workflows/attractor-release.yml", import.meta.url), "utf8")
+]);
 
 assert.equal(module.schema, "root-logos-design-flow-ledger/v1");
 assert.equal(module.module_id, "design-flow-ledger");
@@ -49,6 +52,11 @@ assert.match(
   /fetch\(url,\s*\{[\s\S]*cache:\s*["']no-store["']/,
   "Public witness data must bypass the browser cache so publication counts advance without a hard refresh."
 );
+assert.match(releaseWorkflow, /actions:\s*write/, "Attractor release requires bounded workflow-dispatch authority.");
+assert.match(releaseWorkflow, /id:\s*preserve/, "Publication provenance must expose whether an emission was committed.");
+assert.match(releaseWorkflow, /emitted=true/, "A preserved publication must open the ripple gate.");
+assert.match(releaseWorkflow, /gh workflow run \"\$workflow\" --ref main/, "The release workflow must explicitly dispatch downstream ripples after its bot-authored commit.");
+assert.match(releaseWorkflow, /pages\.yml cultivation-cycle\.yml/, "Every publication ripple must refresh the public archive and wake bounded cultivation.");
 
 assert.ok(graph.nodes.some(({ id, type }) => id === module.constitutional_node_id && type === "tracked-module"));
 assert.ok(graph.nodes.some(({ id, type }) => id === "principle-relational-propagation" && type === "architectural-principle"));

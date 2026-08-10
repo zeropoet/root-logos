@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: attractor-release
@@ -53,10 +54,12 @@ jobs:
         run: node scripts/attractors.mjs verify-x
 
       - name: Preserve emission provenance
+        id: preserve
         if: github.event_name == 'schedule' || inputs.operation == 'release'
         run: |
           if git diff --quiet -- content/attractor-packets.json; then
             echo "No eligible fragment was emitted."
+            echo "emitted=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "root-logos-attractor"
@@ -66,9 +69,30 @@ jobs:
           for attempt in 1 2 3; do
             git pull --rebase origin main
             if git push origin HEAD:main; then
+              echo "emitted=true" >> "$GITHUB_OUTPUT"
               exit 0
             fi
             echo "Emission receipt push raced with another update; retrying ($attempt/3)."
           done
           echo "Unable to preserve the emission receipt after three rebased attempts."
           exit 1
+
+      - name: Ripple published fragment through Root Logos
+        if: steps.preserve.outputs.emitted == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for workflow in pages.yml cultivation-cycle.yml; do
+            dispatched=false
+            for attempt in 1 2 3; do
+              if gh workflow run "$workflow" --ref main; then
+                dispatched=true
+                break
+              fi
+              sleep $((attempt * 2))
+            done
+            if [ "$dispatched" != "true" ]; then
+              echo "Unable to dispatch $workflow after three attempts."
+              exit 1
+            fi
+          done
