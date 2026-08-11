@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
-const [index, renderer, styles, registry, worksIndex, libraryComposition, frameManifest, ornamentManifest] = await Promise.all([
+const [index, renderer, styles, registry, worksIndex, libraryComposition, frameManifest, ornamentManifest, withdrawals] = await Promise.all([
   read("index.html"),
   read("script.js"),
   read("styles.css"),
@@ -10,7 +10,8 @@ const [index, renderer, styles, registry, worksIndex, libraryComposition, frameM
   read("works/index.json").then(JSON.parse),
   read("works/library-composition.json").then(JSON.parse),
   read("assets/library-first-frames/manifest.json").then(JSON.parse),
-  read("works/ornament-of-abhidharma-e125ae67/manifest.json").then(JSON.parse)
+  read("works/ornament-of-abhidharma-e125ae67/manifest.json").then(JSON.parse),
+  read("works/withdrawals.json").then(JSON.parse)
 ]);
 const graph = JSON.parse(await read("content/constitutional-graph.json"));
 const exports = JSON.parse(await read("content/export-packets.json"));
@@ -38,8 +39,14 @@ assert.ok(graph.edges.some(({ from, to }) => from === "root-logos" && to === "pu
 assert.equal(exports.at(-1).export_id, "RL-EXPORT-0021");
 assert.equal(exports.at(-1).revision_entry.version, "1.4.11");
 assert.ok(worksIndex.works.some(({ work_id, title }) => work_id === "mutual-aid-a-factor-of-evolution-84650682" && title === "Mutual Aid: A Factor of Evolution"));
-assert.equal(libraryComposition.measures.works, 56);
-assert.equal(libraryComposition.measures.relations, 165);
+assert.equal(libraryComposition.measures.works, 43);
+assert.equal(libraryComposition.measures.relations, 124);
+assert.equal(withdrawals.measures.withdrawals, 13);
+assert.equal(withdrawals.measures.active_coherent_works_after_withdrawal, 43);
+assert.ok(withdrawals.withdrawals.every(({ work_id: workId }) =>
+  !worksIndex.works.some(({ work_id: activeWorkId }) => activeWorkId === workId)));
+assert.ok(withdrawals.withdrawals.every(({ work_id: workId }) =>
+  !frameManifest.archive.some(({ work_id: framedWorkId }) => framedWorkId === workId)));
 assert.equal(frameManifest.schema, "root-logos-library-first-frames/v5");
 assert.equal(frameManifest.archive.filter(({ work_id }) => work_id === ornamentManifest.work_id).length, 2);
 assert.equal(ornamentManifest.source_retained, false);
