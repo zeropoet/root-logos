@@ -491,5 +491,34 @@
       "reason": ["The integrity panel repeated assurances already made legible through the published ledgers and pushed the public surface one step beyond useful inspection."],
       "notes": ["Underlying automated verification remains intact and continues to run before publication. No source record, witness digest, or constitutional boundary was removed.", "The membrane title remains flush to the sectional axis while its explanation retains a right inset; Library section 03.01 receives additional space above its bottom rule."]
     }
+  },
+  {
+    "export_id": "RL-EXPORT-0018",
+    "date": "2026-08-11",
+    "source": "Root Logos inquiry measure clarification",
+    "status": "accepted",
+    "summary": "Root Logos replaced the ambiguous inquiry percentage with an explicit latest-proposal score and disposition, removing the incompatible judgment-gate fallback.",
+    "primary_update": {
+      "type": "measurement-semantics",
+      "title": "The Honest Proposal Measure Revision",
+      "location": "Root Logos / Navigation Runtime Cluster"
+    },
+    "changes": {
+      "added": ["Latest proposal raw score out of 24", "Latest proposal disposition", "Explicit unscored state"],
+      "modified": ["Navigation runtime measure", "README measurement contract", "Public verification tests"],
+      "removed": ["Inquiry percentage", "Judgment-gate percentage fallback", "One label representing incompatible measurements"],
+      "related": ["Cultivation Chamber", "Autonomous Judgment", "Archive Mode", "Public Measurement"]
+    },
+    "revision_entry": {
+      "version": "1.4.8",
+      "date": "2026-08-11",
+      "source_export": "RL-EXPORT-0018",
+      "added": ["Latest proposal score and disposition as one explicit measure"],
+      "modified": ["Runtime cluster language", "Latest-cycle renderer", "Initial unresolved state", "README public-surface contract", "Public verification tests"],
+      "removed": ["Normalized inquiry reach", "Gate-completion fallback"],
+      "relationships": ["Proposal Evaluation -> Score / 24", "Autonomous Judgment -> Disposition", "Missing Evaluation -> No Scored Proposal"],
+      "reason": ["A public measure must retain one definition. Proposal quality and judgment-gate completion are different facts and cannot honestly share a percentage label."],
+      "notes": ["The current display resolves to Latest proposal 18/24 · Rejected for RL-CULTIVATE-0148. Acceptance still depends on policy gates beyond the numeric evaluation."]
+    }
   }
 ]

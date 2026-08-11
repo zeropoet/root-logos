@@ -500,20 +500,23 @@ const renderLatestCycle = () => {
   const cycle = app.latest;
   if (!cycle) return;
   const finding = cycle.selected_finding || {};
-  const judgment = cycle.autonomous_judgment || {};
   const proposal = cycle.proposal || {};
   const evaluation = finding.evaluation || proposal.evaluation;
   const evaluationTotal = Number(evaluation?.total);
-  const gateValues = Object.values(judgment.checks || {});
-  const reach = Number.isFinite(evaluationTotal)
-    ? Math.round(Math.max(0, Math.min(24, evaluationTotal)) / 24 * 100)
-    : gateValues.length
-      ? Math.round(gateValues.filter(Boolean).length / gateValues.length * 100)
-      : null;
-  const reachLabel = reach == null ? "—" : `${reach}%`;
+  const status = String(proposal.status || cycle.status || "unresolved");
+  const disposition = status.includes("reject")
+    ? "Rejected"
+    : status.includes("accept") || status.includes("implement") || status.includes("applied")
+      ? "Accepted"
+      : status.includes("escalat") || proposal.human_decision_required
+        ? "Human review"
+        : sentence(status);
+  const proposalLabel = Number.isFinite(evaluationTotal)
+    ? `Latest proposal ${Math.round(Math.max(0, Math.min(24, evaluationTotal)))}/24 · ${disposition}`
+    : "No scored proposal";
   const objectInquiryReach = $("#object-inquiry-reach");
-  if (objectInquiryReach) objectInquiryReach.textContent = `Inquiry reach ${reachLabel}`;
-  $("#archive-inquiry-reach").textContent = `Inquiry ${reachLabel}`;
+  if (objectInquiryReach) objectInquiryReach.textContent = proposalLabel;
+  $("#archive-inquiry-reach").textContent = proposalLabel;
 };
 
 const renderMemory = () => {

@@ -94,7 +94,10 @@ authority boundaries.
   immediate inspection instead of issuing an unbounded request burst. Six relational projections, semantic memory, and
   adversarial proposal review restore deeper visual inspection without making
   GitHub a prerequisite for understanding Root Logos. Interface version
-  `1.4.7` removes the separate browser-verification panel from the public
+  `1.4.8` replaces the ambiguous inquiry percentage with one explicit latest-
+  proposal measure: raw score out of 24 and recorded disposition. It never
+  substitutes judgment-gate completion for proposal evaluation; an absent
+  evaluation reads `No scored proposal`. `1.4.7` removes the separate browser-verification panel from the public
   sequence: the input and propagation ledgers already disclose the evidence,
   while repository verification continues to enforce the underlying contract.
   The following modules close their numbering around that removal. It also
