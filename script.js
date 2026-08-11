@@ -532,18 +532,9 @@ const renderLatestCycle = () => {
       ? Math.round(gateValues.filter(Boolean).length / gateValues.length * 100)
       : null;
   const reachLabel = reach == null ? "—" : `${reach}%`;
-  $("#cycle-id").textContent = `${cycle.cultivation_id} / ${sentence(cycle.lens?.id || "inquiry")}`;
   const objectInquiryReach = $("#object-inquiry-reach");
   if (objectInquiryReach) objectInquiryReach.textContent = `Inquiry reach ${reachLabel}`;
   $("#archive-inquiry-reach").textContent = `Inquiry reach / ${reachLabel}`;
-  $("#cycle-decision").textContent = sentence(cycle.status);
-  $("#cycle-decision").classList.toggle("is-rejected", String(cycle.status).includes("rejected"));
-  $("#cycle-question").textContent = cycle.lens?.question || cycle.self_prompt || "Inquiry record unavailable.";
-  $("#cycle-answer").textContent = finding.claim || proposal.summary || "No answer crossed the inquiry threshold.";
-  $("#cycle-proposal").textContent = finding.claim || proposal.summary || "No proposal emerged from this cycle.";
-  $("#cycle-counterargument").textContent = judgment.counterargument || "No adversarial judgment was required because no proposal crossed the threshold.";
-  const checks = judgment.checks || {};
-  $("#cycle-gates").innerHTML = Object.entries(checks).slice(0, 6).map(([name, passed]) => `<span class="${passed ? "" : "failed"}">${escapeHtml(sentence(name))}</span>`).join("") || `<span>${escapeHtml(sentence(cycle.status))}</span>`;
 };
 
 const renderMemory = () => {
@@ -605,26 +596,6 @@ const selectProposal = (id) => {
   $("#review-reversibility").textContent = operations.length && operations.every(({ operation }) => operation === "add-edge") ? "Additive graph operations; reversible through a witnessed revision." : "Requires human evaluation of semantic reversibility.";
   $("#review-nodes").textContent = (finding.nodes || cycle.proposal?.affected_nodes || []).map(nodeTitle).join(" · ") || "No canonical mutation proposed.";
   $("#review-authority").textContent = sentence(judgment.authority || cycle.application?.authority || "Delegated autonomous authority");
-};
-
-const renderDrawer = () => {
-  const cycle = app.latest;
-  if (!cycle) return;
-  $("#drawer-title").textContent = `${cycle.cultivation_id} — ${sentence(cycle.status)}`;
-  const finding = cycle.selected_finding || {};
-  const evaluation = finding.evaluation || cycle.proposal?.evaluation || {};
-  const judgment = cycle.autonomous_judgment || {};
-  const compression = finding.compression_grammar || cycle.proposal?.compression_grammar;
-  const mapping = cycle.system_mapping;
-  $("#drawer-content").innerHTML = `
-    <section class="drawer-section"><h3>Self-prompt</h3><p>${escapeHtml(cycle.self_prompt || cycle.lens?.question || "—")}</p></section>
-    <section class="drawer-section"><h3>Selected finding</h3><p>${escapeHtml(finding.claim || "No finding selected.")}</p></section>
-    <section class="drawer-section"><h3>Proposed test</h3><p>${escapeHtml(finding.proposed_test || "No test proposed.")}</p></section>
-    ${mapping ? `<section class="drawer-section"><h3>Mapped operating context</h3><p>${escapeHtml(`${mapping.repositories?.length || 0} repositories · ${mapping.operating_components?.length || 0} components · subscriber thresholds ${(mapping.subscriber_targets || []).map(({ target }) => target).join(" → ") || "unconnected"} · ${sentence(mapping.measurement_state || "measurement unknown")} · authority ${mapping.authority || "bounded"}`)}</p></section>` : ""}
-    <section class="drawer-section"><h3>Evaluation</h3><p>${escapeHtml(String(evaluation.total ?? "—"))} / 24 · ${escapeHtml(Object.entries(evaluation.dimensions || {}).map(([key, value]) => `${sentence(key)} ${value}`).join(" · "))}</p></section>
-    ${compression ? `<section class="drawer-section"><h3>Compression grammar</h3><p>${escapeHtml(compression.direction || "Direction unresolved.")} ${escapeHtml(compression.boundary || "Boundary unresolved.")}</p><p>${escapeHtml(compression.residue || "Irreducible residue unresolved.")}</p><p>${escapeHtml(compression.correction || "Correction condition unresolved.")}</p><p>${escapeHtml(compression.authority || "Authority limit unresolved.")}</p></section>` : ""}
-    <section class="drawer-section"><h3>Adversarial judgment</h3><p>${escapeHtml(judgment.counterargument || "No counterargument recorded.")}</p></section>
-    <section class="drawer-section"><h3>Event lineage</h3><ol class="drawer-events">${(cycle.events || []).map((event) => `<li><span>${String(event.sequence).padStart(2, "0")}</span><span>${escapeHtml(sentence(event.type))}</span></li>`).join("")}</ol></section>`;
 };
 
 const buildWaveform = () => {
@@ -1132,16 +1103,6 @@ const bindInterface = () => {
     app.filter = control.dataset.filter;
     $$(".field-control").forEach((item) => item.classList.toggle("is-active", item === control));
   }));
-  $("#open-cycle").addEventListener("click", () => {
-    renderDrawer();
-    $("#cycle-drawer").hidden = false;
-    document.body.style.overflow = "hidden";
-    $(".drawer-close").focus();
-  });
-  $$('[data-close-drawer]').forEach((element) => element.addEventListener("click", () => {
-    $("#cycle-drawer").hidden = true;
-    document.body.style.overflow = "";
-  }));
   $("#observation-form").addEventListener("submit", (event) => {
     event.preventDefault();
     submitObservation(event.currentTarget);
@@ -1178,10 +1139,6 @@ const bindInterface = () => {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && $("#field-inspector").classList.contains("is-visible")) {
       closeFieldInspector();
-    }
-    if (event.key === "Escape" && !$("#cycle-drawer").hidden) {
-      $("#cycle-drawer").hidden = true;
-      document.body.style.overflow = "";
     }
   });
   window.addEventListener("hashchange", () => {

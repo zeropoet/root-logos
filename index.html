@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="alternate" type="application/json" href="content/citizenship.json" title="Root Logos Constitutional Citizenship Protocol">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=2.51-uppercase-display" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
+    <link rel="stylesheet" href="styles.css?v=2.52-guided-sections" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
     <script>setTimeout(() => document.documentElement.classList.remove("style-pending"), 4000);</script>
   </head>
   <body class="archive-open">
@@ -74,6 +74,8 @@
 
         <div class="field-header">
           <p class="coordinate" data-module="01">Constitutional Field</p>
+          <h1>Read the constitution <em>as a relation.</em></h1>
+          <p class="field-intro">Every point is a published structure; every line is an explicit canonical relation. Filter the field, rotate its depth, and select any structure to inspect what it means and what it touches.</p>
         </div>
 
         <div class="field-controls" aria-label="Constitutional field controls">
@@ -272,6 +274,11 @@
           <div class="library-stage">
             <canvas id="work-canvas" aria-label="The Library Field: Root Logos viewed through the complete architecture of its living works. Select a structure to describe it."></canvas>
             <div class="works-veil" aria-hidden="true"></div>
+            <header class="library-guide">
+              <p class="micro-label" data-module="03.00">How to read the library</p>
+              <h2>Read each work as a field.</h2>
+              <p>Choose the Library Field to see the archive as one architecture, or select a work to inspect its structures, statement, and resonant edition.</p>
+            </header>
 
             <aside class="work-node-detail" id="work-node-detail" hidden>
               <button type="button" id="work-node-detail-close" aria-label="Close structural detail">×</button>
@@ -298,42 +305,28 @@
         </div>
       </section>
 
-      <section class="space state-space" id="state" data-space-name="State" aria-label="Autonomous Becoming">
-        <header class="section-heading state-heading">
+      <section class="space state-space" id="state" data-space-name="State" aria-labelledby="state-title">
+        <header class="space-heading state-heading" data-depth="Connected evidence / outward consequence">
           <p class="coordinate" data-module="04">Autonomous Becoming</p>
+          <div>
+            <h2 id="state-title">See what Root Logos is reading—and what it returns.</h2>
+            <p>The relations below are live public inputs, not authorities over Root Logos. Inspect what each source contributes, where its boundary remains, and how canonical structure moves outward through the design flow.</p>
+          </div>
         </header>
-
-        <div class="state-primary">
-          <article class="state-cycle" id="latest-cycle">
-            <header>
-              <p class="micro-label" data-module="04.01">Latest autonomous inquiry</p>
-              <span class="decision-seal" id="cycle-decision">—</span>
-            </header>
-            <h3 id="cycle-id">Loading lineage</h3>
-            <blockquote id="cycle-question">Contacting the cultivation archive.</blockquote>
-            <div class="inquiry-answer">
-              <small>Answer / selected finding</small>
-              <p id="cycle-answer">The inquiry is resolving an attributable answer.</p>
-            </div>
-            <div hidden aria-hidden="true">
-              <p id="cycle-proposal">—</p>
-              <p id="cycle-counterargument">—</p>
-              <div id="cycle-gates"></div>
-            </div>
-            <button class="text-action" type="button" id="open-cycle">Open lineage <span>↗</span></button>
-          </article>
-
-        </div>
 
         <div class="state-sources">
           <header>
-            <p class="coordinate" data-module="04.02">Witnessed Relations</p>
+            <div class="state-module-heading">
+              <p class="coordinate" data-module="04.01">Witnessed Relations</p>
+              <h3>Inspect the sources Root Logos reads.</h3>
+              <p>Choose a relation to see its current discovery, public measures, material lineage, and the limit of what it may determine.</p>
+            </div>
             <p><span id="source-count">— sources</span><i></i><span id="source-witness">Awaiting witness</span></p>
           </header>
           <div class="state-source-layout">
             <div class="source-nodes" id="source-nodes" aria-label="Connected source field"></div>
             <aside class="source-reading" id="source-reading" aria-live="polite">
-              <p class="coordinate" id="source-coordinate" data-module="04.02.R">Active source / establishing witness</p>
+              <p class="coordinate" id="source-coordinate" data-module="04.01.R">Active source / establishing witness</p>
               <h3 id="source-title">FoldForge</h3>
               <p class="source-role" id="source-role">Identity composition and evidence-to-grammar research</p>
               <blockquote id="source-discovery">Reading public constitutional and composition evidence.</blockquote>
@@ -353,12 +346,12 @@
 
         <section class="state-design-flow" id="design-flow" aria-labelledby="design-flow-title">
           <header>
-            <p class="coordinate" data-module="04.03">Design Flow Ledger</p>
+            <p class="coordinate" data-module="04.02">Design Flow Ledger</p>
             <p><span id="design-flow-status">Resolving module</span><i></i><span id="design-flow-witness">X witness</span></p>
           </header>
           <div class="design-flow-introduction">
             <div>
-              <h3 id="design-flow-title">Root Logos as design constraint.</h3>
+              <h3 id="design-flow-title">Follow canonical relation into public form.</h3>
               <p id="design-flow-purpose">Canonical relation becomes form, witness, and return without surrendering authority to the channel.</p>
             </div>
             <dl class="design-flow-measures" id="design-flow-measures"></dl>
@@ -368,23 +361,14 @@
           <p class="design-flow-boundary" id="design-flow-boundary">X witnesses release; Root Logos remains the canonical source.</p>
         </section>
 
-        <div class="cycle-drawer" id="cycle-drawer" hidden>
-          <div class="drawer-scrim" data-close-drawer></div>
-          <article role="dialog" aria-modal="true" aria-labelledby="drawer-title">
-            <button type="button" class="drawer-close" data-close-drawer aria-label="Close lineage">×</button>
-            <p class="coordinate" data-module="04.01.R">Complete cultivation lineage</p>
-            <h2 id="drawer-title">Cycle</h2>
-            <div id="drawer-content"></div>
-          </article>
-        </div>
       </section>
 
       <section class="space intake-space" id="intake" data-space-name="Intake" aria-label="The Membrane">
         <div class="observation-instrument">
           <header>
             <p class="coordinate" id="intake-coordinate" data-module="05">Public Membrane</p>
-            <h3 id="intake-terminal-title">Enter the living field.</h3>
-            <p id="intake-terminal-copy">Root Logos will receive this offering, reveal where the Living Object responds, and release the source wording.</p>
+            <h3 id="intake-terminal-title">Offer something to the field.</h3>
+            <p id="intake-terminal-copy">Submit a public encounter for constitutional transformation. Root Logos will show how deeply it entered, preserve only what survives its thresholds, and release the original wording rather than retain it as private source material.</p>
           </header>
           <form id="observation-form">
             <div class="intake-mode-fields field-wide">
@@ -434,7 +418,7 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field.</p></noscript>
-    <script src="script.js?v=2.50-public-observatory" defer></script>
+    <script src="script.js?v=2.51-guided-sections" defer></script>
     <script src="works.js?v=2.23-expanded-corpora" defer></script>
   </body>
 </html>

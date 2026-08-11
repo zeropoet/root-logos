@@ -25,12 +25,22 @@ assert.match(renderer, /const publicIntegrityChecks/);
 assert.match(renderer, /publishedSourceRecords/);
 assert.match(styles, /\.verification-ledger-layout/);
 assert.match(styles, /\.propagation-column-head/);
-assert.equal(graph.meta.interfaceVersion, "1.4.2");
+assert.equal(graph.meta.interfaceVersion, "1.4.3");
 assert.ok(graph.nodes.some(({ id }) => id === "public-verification-observatory"));
 assert.ok(graph.edges.some(({ from, to }) => from === "root-logos" && to === "public-verification-observatory"));
-assert.equal(exports.at(-1).export_id, "RL-EXPORT-0012");
-assert.equal(exports.at(-1).revision_entry.version, "1.4.2");
+assert.equal(exports.at(-1).export_id, "RL-EXPORT-0013");
+assert.equal(exports.at(-1).revision_entry.version, "1.4.3");
 assert.match(styles, /h1, h2, h3, h4,[\s\S]*?text-transform:\s*uppercase;/);
+assert.doesNotMatch(index, /Latest autonomous inquiry|id="latest-cycle"|id="cycle-drawer"/);
+assert.match(index, /Read the constitution <em>as a relation\.<\/em>/);
+assert.match(index, /Read each work as a field\./);
+assert.match(index, /See what Root Logos is reading—and what it returns\./);
+assert.match(index, /Offer something to the field\./);
+assert.match(index, /data-module="04\.01">Witnessed Relations/);
+assert.match(index, /data-module="04\.02">Design Flow Ledger/);
+for (const [id, order] of [["field", 1], ["coordinate", 2], ["verify", 3], ["works", 4], ["state", 5], ["intake", 6]]) {
+  assert.match(styles, new RegExp(`body\\.archive-open #${id} \\{ order: ${order}; \\}`), `${id} does not preserve the public encounter order.`);
+}
 
 for (const source of registry.sources) {
   assert.match(renderer, new RegExp(`${source.id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`), `${source.id} has no public verification mapping.`);

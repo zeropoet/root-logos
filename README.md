@@ -97,18 +97,27 @@ authority boundaries.
   delivered to the browser. Six relational projections, semantic memory, and
   adversarial proposal review restore deeper visual inspection without making
   GitHub a prerequisite for understanding Root Logos. Interface version
-  `1.4.2` applies one public display law across static and dynamic surfaces:
+  `1.4.3` keeps that display law and adds a plain-language reading layer to
+  every inherited public section: the Field explains its points and relations,
+  the Library explains its field/work distinction, State explains connected
+  evidence and outward consequence, and the Membrane explains retention and
+  release before submission. Explicit layout ordering preserves Field →
+  Coordinate → Verification → Library → State → Enter at every viewport. The
+  duplicated latest-inquiry card and lineage
+  drawer were removed from State because the Public Verification Observatory
+  now exposes the same cultivation evidence with greater context through its
+  propagation, memory, and proposal ledgers. `1.4.2` established one public
+  display law across static and dynamic surfaces:
   every heading and display-scale title renders in uppercase, while body prose,
   metadata, witness digests, and compact labels preserve their source case.
   `living-object.html`
   preserves the Living Object and its unchanged sovereign voice as a deliberate,
   render-isolated encounter reached only through the quiet footer link. Identity
   remains embodied by the Object without making its heaviest rendering path the
-  default homepage cost. The State converges the latest autonomous inquiry, runtime
-  condition, semantic-memory count, connected-source evidence, constitutional
-  judgment, and structural diagnostics without turning each concern into a
-  separate destination. Complete cultivation lineage remains available only
-  when requested. The Resonant Chamber exists as the Living
+  default homepage cost. State now concentrates on witnessed relations and the
+  outward design flow; current inquiry lineage, semantic memory, and judgments
+  are inspected once—through Verification—rather than repeated in a second
+  module. The Resonant Chamber exists as the Living
   Object's sovereign voice and as each work's visual-resonant edition—not as a
   duplicate archive surface. There is no system-layer switchboard, hidden
   destination, private review interface, or repeated explanatory room.
