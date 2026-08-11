@@ -1306,6 +1306,35 @@
         },
         "total": 20
       }
+    },
+    "567b59619605401904735c33af246137dd3cc1bcfe2eafe1289de555f5060f3d": {
+      "fingerprint": "567b59619605401904735c33af246137dd3cc1bcfe2eafe1289de555f5060f3d",
+      "kind": "reflexive-test",
+      "nodes": [
+        "cultivation-chamber",
+        "principle-witness-before-interpretation"
+      ],
+      "claim": "Receive Without Possession is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
+      "proposed_question": "What observable failure would show that the Cultivation Chamber violates Receive Without Possession?",
+      "evidence_hash": "0837ec1bf15a9a920fec94f0d30c3951ce9b29031a5f34113835e03bf186988d",
+      "policy_hash": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1",
+      "first_cycle": "RL-CULTIVATE-0151",
+      "last_cycle": "RL-CULTIVATE-0151",
+      "last_cycle_index": 151,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
     }
   },
   "novelty": {
@@ -2305,6 +2334,13 @@
         "reason": "new-hypothesis",
         "status": "autonomously-rejected",
         "at": "2026-08-11T15:44:55.530Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0151",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-08-11T16:16:10.296Z"
       }
     ]
   },
