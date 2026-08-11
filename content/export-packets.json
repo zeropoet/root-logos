@@ -317,5 +317,34 @@
       "reason": ["The constitutional structure was public but its verification burden still fell too heavily on implementation records. The public surface now makes evidence movement and non-action as visible as successful propagation."],
       "notes": ["The observatory reads existing public records and performs local consistency checks. It does not manufacture cryptographic proof, validate the truth of external sources, or grant authority through visibility."]
     }
+  },
+  {
+    "export_id": "RL-EXPORT-0012",
+    "date": "2026-08-11",
+    "source": "Root Logos public typography revision conversation",
+    "status": "accepted",
+    "summary": "Root Logos established uppercase as the universal treatment for headings and display-scale titles across static and dynamically rendered public surfaces.",
+    "primary_update": {
+      "type": "interface-law",
+      "title": "The Uppercase Display Law",
+      "location": "Root Logos / Public Typography"
+    },
+    "changes": {
+      "added": ["Universal uppercase treatment for heading elements and display-scale semantic titles"],
+      "modified": ["Living Coordinate declaration", "Library work titles", "source titles", "cultivation titles", "proposal titles", "observatory titles", "responsive public typography", "README interface contract"],
+      "removed": ["Mixed-case authored-title exception at display scale"],
+      "related": ["The Public Verification Observatory", "The Living Coordinate", "The Living Library", "The Cultivation Chamber"]
+    },
+    "revision_entry": {
+      "version": "1.4.2",
+      "date": "2026-08-11",
+      "source_export": "RL-EXPORT-0012",
+      "added": ["One uppercase display rule"],
+      "modified": ["CSS typography policy", "Interface version", "Public verification test", "Operational documentation"],
+      "removed": ["Display-scale source-case preservation"],
+      "relationships": ["Heading -> Uppercase Display", "Dynamic Title -> Uppercase Display", "Body Copy -> Source Case"],
+      "reason": ["A single typographic law makes the architectural hierarchy coherent across every public module, including titles populated after page load."],
+      "notes": ["Text transformation is presentational. Canonical titles, accessibility names, JSON values, source prose, metadata, and witness digests remain unchanged."]
+    }
   }
 ]

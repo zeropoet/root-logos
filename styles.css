@@ -1428,9 +1428,8 @@ body.constitution-index::before { opacity:.7; }
 .reading-actions span { color: var(--ivory); font: 500 .56rem/1 var(--mono); letter-spacing: .11em; text-transform: uppercase; }
 .reading-actions i { color: var(--gold); font-size: .86rem; }
 .inspector-provenance { margin: 18px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line); color: var(--inquiry); font: 500 .54rem/1.6 var(--mono); letter-spacing: .05em; }
-/* FoldForge type presentation: the sans face stays light and tightly set at
-   display scale; architectural headings are uppercase, while authored work
-   titles and sustained prose retain their original casing. */
+/* Public display law: every heading and display-scale title is uppercase.
+   Body prose, metadata, witness digests, and compact labels retain source case. */
 h1, h2, h3, h4,
 .identity-core strong,
 .identity-organ b,
@@ -1438,6 +1437,7 @@ h1, h2, h3, h4,
 .intake-readout strong,
 .source-field-core strong {
   font-weight: 300;
+  text-transform: uppercase;
 }
 
 .object-identity h1,

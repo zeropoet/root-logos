@@ -25,10 +25,12 @@ assert.match(renderer, /const publicIntegrityChecks/);
 assert.match(renderer, /publishedSourceRecords/);
 assert.match(styles, /\.verification-ledger-layout/);
 assert.match(styles, /\.propagation-column-head/);
-assert.equal(graph.meta.interfaceVersion, "1.4.1");
+assert.equal(graph.meta.interfaceVersion, "1.4.2");
 assert.ok(graph.nodes.some(({ id }) => id === "public-verification-observatory"));
 assert.ok(graph.edges.some(({ from, to }) => from === "root-logos" && to === "public-verification-observatory"));
-assert.equal(exports.at(-1).export_id, "RL-EXPORT-0011");
+assert.equal(exports.at(-1).export_id, "RL-EXPORT-0012");
+assert.equal(exports.at(-1).revision_entry.version, "1.4.2");
+assert.match(styles, /h1, h2, h3, h4,[\s\S]*?text-transform:\s*uppercase;/);
 
 for (const source of registry.sources) {
   assert.match(renderer, new RegExp(`${source.id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`), `${source.id} has no public verification mapping.`);

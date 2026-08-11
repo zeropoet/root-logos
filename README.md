@@ -96,7 +96,10 @@ authority boundaries.
   coverage, witness form, and authority exclusions from the records already
   delivered to the browser. Six relational projections, semantic memory, and
   adversarial proposal review restore deeper visual inspection without making
-  GitHub a prerequisite for understanding Root Logos.
+  GitHub a prerequisite for understanding Root Logos. Interface version
+  `1.4.2` applies one public display law across static and dynamic surfaces:
+  every heading and display-scale title renders in uppercase, while body prose,
+  metadata, witness digests, and compact labels preserve their source case.
   `living-object.html`
   preserves the Living Object and its unchanged sovereign voice as a deliberate,
   render-isolated encounter reached only through the quiet footer link. Identity
