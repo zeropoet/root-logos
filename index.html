@@ -46,25 +46,17 @@
         <a href="#works" data-space="works"><span>03</span>Library</a>
         <a href="#state" data-space="state"><span>04</span>State</a>
         <a href="#intake" data-space="intake"><span>05</span>Enter</a>
+        <div class="system-presence" role="status" aria-live="polite" aria-label="Current Root Logos runtime condition">
+          <span class="presence-orbit" aria-hidden="true"><i id="presence-core"></i></span>
+          <b id="header-state">Connecting</b>
+          <span class="archive-register" aria-label="Current archive measures">
+            <span id="archive-inquiry-reach">Inquiry —</span>
+            <span id="archive-revision">—</span>
+          </span>
+        </div>
       </nav>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open archive navigation"><span></span><span></span></button>
-
-      <div class="system-presence" aria-live="polite">
-        <div class="presence-primary">
-          <span class="presence-orbit"><i id="presence-core"></i></span>
-          <span><b id="header-state">Connecting</b><small id="header-detail">Runtime / awaiting signal</small></span>
-        </div>
-        <aside class="archive-register" aria-label="Current archive condition">
-          <span id="archive-runtime">Runtime / resolving</span>
-          <i></i>
-          <span id="archive-inquiry-reach">Inquiry reach / —</span>
-          <i></i>
-          <span id="archive-revision">Revision —</span>
-          <i></i>
-          <span id="archive-works">— works</span>
-        </aside>
-      </div>
     </header>
 
     <main id="main">
@@ -420,7 +412,7 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field.</p></noscript>
-    <script src="script.js?v=2.52-object-interaction" defer></script>
+    <script src="script.js?v=2.53-nav-runtime" defer></script>
     <script src="works.js?v=2.23-expanded-corpora" defer></script>
   </body>
 </html>

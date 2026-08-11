@@ -136,9 +136,7 @@ const renderPresence = () => {
   header.dataset.pulsing = String(runtimeIsAwake());
   const displayedStatus = sentence(status === "archive" ? "Archive mode" : status);
   $("#header-state").textContent = displayedStatus;
-  $("#header-detail").textContent = app.runtime.archival_fallback ? "Runtime / archival witness" : "Runtime / live contact";
-  $("#archive-runtime").textContent = `Runtime / ${displayedStatus}`;
-  $("#archive-revision").textContent = `Revision ${app.identity?.revision || app.graph.meta?.revision || "—"}`;
+  $("#archive-revision").textContent = app.identity?.revision || app.graph.meta?.revision || "—";
 
   const sleeping = status === "sleeping";
   const running = status === "running";
@@ -534,7 +532,7 @@ const renderLatestCycle = () => {
   const reachLabel = reach == null ? "—" : `${reach}%`;
   const objectInquiryReach = $("#object-inquiry-reach");
   if (objectInquiryReach) objectInquiryReach.textContent = `Inquiry reach ${reachLabel}`;
-  $("#archive-inquiry-reach").textContent = `Inquiry reach / ${reachLabel}`;
+  $("#archive-inquiry-reach").textContent = `Inquiry ${reachLabel}`;
 };
 
 const renderMemory = () => {
