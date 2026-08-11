@@ -41,8 +41,11 @@ black. `assets/library-first-frames/manifest.json` witnesses its Library order,
 work and edition identity, dimensions, renderer, path, and SHA-256. Filenames
 are content-addressed: whenever the pixels change, the SHA-256 suffix changes
 the public URL and makes stale browser or CDN reuse impossible. The manifest
-points only to the current portrait; immutable edition history remains in
-`works/`.
+points to the current portrait in `frames` and preserves the admission portrait
+plus every structurally re-read successor portrait in `archive`. Re-ingestion under
+a changed reading grammar must form a visibly distinct witnessed encounter
+rather than silently inheriting the earlier edition's image. Immutable edition
+history remains in `works/`.
 
 First-frame rendering is part of both the single-work and complete-corpus
 ingestion paths. It is not a manual publication step. Recovery and validation
@@ -84,6 +87,13 @@ translation and rights witness, source SHA-256, derived graph, paired scores,
 and edition lineage. It does not receive the repository URL, local path,
 filenames, verses, annotations, or source prose. `.private-sources/` and
 `private-works/` are ignored as an additional local safety boundary.
+
+Owned Wisdom Publications EPUBs use the deterministic `wisdom-epub` adapter.
+The adapter reads the package spine and selected structural XHTML directly in
+memory through `/usr/bin/unzip -p`; it creates no extracted source directory
+and publishes no protected prose. The raw EPUB SHA-256 belongs in the opaque
+source-witness identity, while the manifest separately witnesses the exact
+canonical in-memory XHTML stream read by the grammar.
 
 The transformation grammar is part of edition identity. If Root Logos changes
 how it reads—even without a constitutional revision—the prior reading remains

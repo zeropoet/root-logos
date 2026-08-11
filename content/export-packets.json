@@ -549,5 +549,63 @@
       "reason": ["A nested scroll area must end where its visible container ends. Viewport-derived sizing allowed the list's scrollbar and final works to extend behind the Library shell boundary."],
       "notes": ["Desktop and tablet layouts scroll vertically inside the archive column. Mobile retains the existing horizontal work sequence and explicitly releases the desktop clipping contract."]
     }
+  },
+  {
+    "export_id": "RL-EXPORT-0020",
+    "date": "2026-08-11",
+    "source": "Mutual Aid Living Library ingestion",
+    "status": "accepted",
+    "summary": "Root Logos admitted Peter Kropotkin's Mutual Aid as its 56th coherent Library object, adding cooperation as an evolutionary and decentralized counterpressure without granting the work constitutional authority.",
+    "primary_update": {
+      "type": "living-library-ingestion",
+      "title": "The Mutual Aid Revision",
+      "location": "Root Logos / Living Library / Work 55"
+    },
+    "changes": {
+      "added": ["Mutual Aid: A Factor of Evolution", "Cooperation and Post-Institutional Coordination collection", "Mutual Aid Tradition division", "Sealed PNG and SVG first frames", "Project Gutenberg source witnesses"],
+      "modified": ["Living Library membership", "Whole-Library composition", "Gutenberg chapter parser", "Living Object work and pair-relation counts", "README Library record", "Public verification tests"],
+      "removed": ["Temporary source transcription after ingestion", "Assumption that Gutenberg chapter numerals always end in a period"],
+      "related": ["On the Origin of Species", "Manifesto of the Communist Party", "Great Founder Theory", "The Federalist Papers", "Can civilization become post-institutional?"]
+    },
+    "revision_entry": {
+      "version": "1.4.10",
+      "date": "2026-08-11",
+      "source_export": "RL-EXPORT-0020",
+      "added": ["One witnessed eight-chapter work", "92,901 encountered words", "36 derived concepts", "287 internal work relations", "31.0% derived relation density", "0.9527 relation-weight entropy", "Structural signature 9789f3e9859568ed", "Three new cross-work relations"],
+      "modified": ["Library count from 55 to 56", "Cross-work relations from 167 to 170", "Single-work derivation from v3 to v4 structural depth", "English stopword boundary", "Windowed concept association", "Library composition witness", "Gutenberg parser coverage", "Living Object counts", "README and tests"],
+      "removed": ["Unwitnessed source prose from persistent storage"],
+      "relationships": ["Mutual Aid -> Evolutionary Cooperation", "Mutual Aid -> Post-Institutional Coordination", "56 Sealed Works -> 170 Cross-Work Relations", "287 Internal Relations -> Structural Signature"],
+      "reason": ["The Library held extensive treatments of evolution, collective struggle, institutional governance, leadership, competition, strategy, and discipline, but lacked a foundational account of cooperation as an evolutionary and decentralized organizing force."],
+      "notes": ["The work is an attributable interlocutor, not doctrine or governing authority.", "Its v3 admission portrait and 180-relation edition remain immutable lineage; the current v4 successor carries 287 uncapped relations and explicit structural-depth measures.", "V4 comparison across the rest of the Library requires exact source reconstruction; no work will be approximated from its derived edition.", "The raw Project Gutenberg download SHA-256 is 8397bb704142c9740e28b7f7a64142890233df8d572ed29d417fcc87b38ab464; the boundary-stripped content SHA-256 is 84ed35fc30db122e96dab92a9f239a7c525085709a30a33cd94e8c6b5ff745bb."]
+    }
+  },
+  {
+    "export_id": "RL-EXPORT-0021",
+    "date": "2026-08-11",
+    "source": "Ornament of Abhidharma structural-depth re-ingestion",
+    "status": "accepted",
+    "summary": "Root Logos re-read the exact previously witnessed owned EPUB of Ornament of Abhidharma through the v4 structural-depth grammar, preserving its protected source boundary, prior editions, and admission portrait while adding a distinct successor edition and visual witness.",
+    "primary_update": {
+      "type": "living-library-successor-reading",
+      "title": "The Luminous Depth Revision",
+      "location": "Root Logos / Living Library / Work 03"
+    },
+    "changes": {
+      "added": ["Deterministic in-memory Wisdom EPUB adapter", "V4 structural-depth successor edition", "Distinct 2400×2400 PNG and SVG successor portraits", "Visual-lineage archive contract"],
+      "modified": ["Ornament of Abhidharma current reading", "First-frame manifest schema from v4 to v5", "Library composition witness", "README Library record", "Public verification version"],
+      "removed": ["Dependence on an undocumented one-off EPUB conversion", "180-relation single-work ceiling"],
+      "related": ["Ornament of Abhidharma", "Buddhist Classics", "Structural Depth", "Visual Lineage", "Private-Source Membrane"]
+    },
+    "revision_entry": {
+      "version": "1.4.11",
+      "date": "2026-08-11",
+      "source_export": "RL-EXPORT-0021",
+      "added": ["1,264 internal relations", "52.54% derived relation density", "0.9129 normalized relation-weight entropy", "Structural signature 28f62b6ac5b99295", "A second sealed visual witness for Work 03"],
+      "modified": ["Work 03 from v3 admission reading to v4 current successor", "Visual archives from one current pointer to admission-plus-successor lineage", "EPUB parsing from transient manual preparation to deterministic memory-only adapter"],
+      "removed": ["Any need to persist extracted XHTML or protected prose"],
+      "relationships": ["Exact EPUB Witness -> Private In-Memory Reading", "V3 Admission Frame -> V4 Successor Portrait", "1,264 Relations -> Structural Signature", "Structural Grammar Change -> Distinct Visual Witness"],
+      "reason": ["A structurally deep work must be allowed to disclose its actual relational density, and a changed reading grammar must remain visually distinguishable without overwriting its first encounter."],
+      "notes": ["The supplied EPUB exactly matches the original raw SHA-256 witness 5fabe0c44228aa46448f37e265f2bf92c4a0dd14ec5df63b7197773f5446f87b.", "The EPUB and extracted source prose are not copied into Root Logos.", "The new canonical in-memory XHTML witness hashes to 46653974e321946a55cf92de2685fd89e234c74c455fa03ecfe9ce6d5c56a4a9.", "The v3 admission edition and portrait remain immutable and publicly attributable."]
+    }
   }
 ]

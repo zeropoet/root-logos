@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
 import { createHash } from "node:crypto";
+import { execFile } from "node:child_process";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, extname, join, relative, resolve } from "node:path";
+import { promisify } from "node:util";
 import { applyFoldForgeComposition, foldForgeCompositionIdentity } from "./foldforge-score.mjs";
 import { renderLibraryFirstFrames } from "./work-first-frame.mjs";
 import { applyCanonicalWorkCoordinates } from "./work-coordinates.mjs";
@@ -12,6 +14,7 @@ const archiveRoot = join(root, "works");
 const now = () => new Date().toISOString();
 const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const digest = (value) => createHash("sha256").update(value).digest("hex");
+const execFileAsync = promisify(execFile);
 const slug = (value) => String(value).toLowerCase().normalize("NFKD")
   .replace(/[^\w\s-]/g, "").trim().replace(/[\s_]+/g, "-").replace(/-+/g, "-");
 const words = (value, language = null) => {
@@ -24,13 +27,13 @@ const words = (value, language = null) => {
   }
   return normalized.match(/[\p{L}\p{N}'’]+/gu) || [];
 };
-const STOP = new Set("a an and are as at be been but by can could did do does for from had has have he her hers him his how i if in into is it its may me more most my no nor not of on one only or our ours she so than that the their them then there these they this those through to too under up upon us was we were what when where which who will with would you your".split(" "));
+const STOP = new Set("a all also among an and another any are as at be been being both but by can could did do does each either even every few first for former from further had has have he her hers him his how however i if in into is it its latter many may me might more most much must my no nor not of on one only or other others our ours own same several she should since so some still such than that the their them then there these they this those through thus to too under up upon us very was we well were what when where which while who will with within without would yet you your".split(" "));
 const LANGUAGE_STOP = {
   de: new Set("aber alle allem allen aller alles also am an andere auch auf aus bei bin bis bist da dadurch daher darum das dass dein deine dem den denn der des die dies diese diesem diesen dieser dieses doch dort durch ein eine einem einen einer eines er es etwas für gegen gewesen hat hatte haben hier hin hinter ich ihm ihn ihnen ihr ihre im in ist ja jede jedem jeden jeder jedes kann kein keine mit muss nach nicht nichts noch nun nur ob oder ohne sehr sein seine sich sie sind so über um und uns unter vom von vor war waren was weg weil weiter welche wenn wer werden wie wieder will wir wo zu zum zur".split(" ")),
   es: new Set("al algo algún alguna algunas alguno algunos ante antes aquel aquella aquellas aquello aquellos aquí así aun aunque bajo bien cada casi como con contra cual cuando de del desde donde dos el ella ellas ello ellos en entre era eran es esa esas ese eso esos esta estaba estaban estar estas este esto estos fue fueron ha había habían hacia hasta hay la las le les lo los más me mi mientras muy nada ni no nos o otra otras otro otros para pero poco por porque que quien se ser si sin sobre solo son su sus también tan tanto te tiene todo todos tras un una unas uno unos ya y yo".split(" ")),
   ja: new Set("あれ ある いる から が こと この これ され し する その それ ため たり だ で て と とき ない なり なる に の は へ べし また まで もの も よう より を 事 也".split(" "))
 };
-const DEFAULT_TRANSFORMATION = "deterministic-structural-reading/v3";
+const DEFAULT_TRANSFORMATION = "deterministic-structural-reading/v4-structural-depth";
 const COMPILED_CORPUS_COLLECTIONS = new Set([
   "Original Douay-Rheims Catholic Canon",
   "King James Bible (1769) Protestant Canon"
@@ -229,6 +232,92 @@ const xmlDescendants = (node, predicate, matches = []) => {
   return matches;
 };
 
+const EPUB_BLOCKS = new Set(["blockquote", "div", "li", "p", "pre", "table", "td", "th"]);
+const epubSections = (body, fallbackTitle) => {
+  const sections = [];
+  let current = { level: 1, title: fallbackTitle, text: [] };
+  const flush = () => {
+    const text = current.text.join(" ").replace(/\s+/g, " ").trim();
+    if (text) sections.push({ ...current, text });
+  };
+  const visit = (node) => {
+    if (typeof node === "string") {
+      current.text.push(node);
+      return;
+    }
+    if (!node) return;
+    const heading = node.name.match(/^h([1-6])$/);
+    if (heading) {
+      flush();
+      current = { level: Number(heading[1]), title: xmlText(node) || fallbackTitle, text: [] };
+      return;
+    }
+    if (node.name === "img") {
+      const alt = node.attributes?.alt?.trim();
+      if (alt && alt.toLowerCase() !== "image") current.text.push(alt);
+      return;
+    }
+    for (const child of node.children || []) visit(child);
+    if (EPUB_BLOCKS.has(node.name)) current.text.push(" ");
+  };
+  for (const child of body?.children || []) visit(child);
+  flush();
+  return sections;
+};
+
+export const parseWisdomEpubXhtml = (text, path) => {
+  const tree = parseXmlTree(text);
+  const body = xmlDescendants(tree, ({ name }) => name === "body")[0];
+  if (!body) throw new Error(`${path} has no XHTML body.`);
+  const fallbackTitle = basename(path, extname(path));
+  const sections = epubSections(body, fallbackTitle).map((section, index) => ({
+    coordinate: `${path}#${index + 1}`,
+    level: section.level,
+    title: section.title,
+    text: section.text
+  }));
+  return { path, title: sections[0]?.title || fallbackTitle, sections };
+};
+
+const readZipEntry = async (epubPath, entry) => {
+  const { stdout } = await execFileAsync("/usr/bin/unzip", ["-p", epubPath, entry], {
+    encoding: "utf8",
+    maxBuffer: 64 * 1024 * 1024
+  });
+  return stdout.replace(/\r\n/g, "\n");
+};
+
+const parseWisdomEpub = async (sourcePath) => {
+  const container = await readZipEntry(sourcePath, "META-INF/container.xml");
+  const packagePath = container.match(/full-path=["']([^"']+)["']/)?.[1];
+  if (!packagePath) throw new Error("The EPUB container does not identify its package document.");
+  const packageText = await readZipEntry(sourcePath, packagePath);
+  const packageTree = parseXmlTree(packageText);
+  const manifest = new Map(xmlDescendants(packageTree, ({ name }) => name === "item")
+    .map(({ attributes }) => [attributes.id, attributes.href]));
+  const spineIds = xmlDescendants(packageTree, ({ name }) => name === "itemref")
+    .map(({ attributes }) => attributes.idref);
+  const selectedIds = spineIds.filter((id) =>
+    /^(?:mes|spe|pub|gen|tra|tec|c\d\d|app1|app2|note|san|bib)$/.test(id));
+  if (selectedIds.length !== 48) {
+    throw new Error(`The witnessed Wisdom EPUB requires 48 structural documents; found ${selectedIds.length}.`);
+  }
+  const packageDirectory = packagePath.includes("/")
+    ? packagePath.slice(0, packagePath.lastIndexOf("/") + 1)
+    : "";
+  const records = await Promise.all(selectedIds.map(async (id) => {
+    const href = manifest.get(id);
+    if (!href) throw new Error(`The EPUB spine item ${id} has no manifest path.`);
+    const path = `${packageDirectory}${href}`;
+    const xhtml = await readZipEntry(sourcePath, path);
+    return { id, path, xhtml, document: parseWisdomEpubXhtml(xhtml, path) };
+  }));
+  return {
+    canonicalSource: records.map(({ path, xhtml }) => `--- ${path} ---\n${xhtml}`).join("\n"),
+    documents: records.map(({ document }) => document)
+  };
+};
+
 const roman = (value) => {
   const numerals = [["M", 1000], ["CM", 900], ["D", 500], ["CD", 400], ["C", 100], ["XC", 90],
     ["L", 50], ["XL", 40], ["X", 10], ["IX", 9], ["V", 5], ["IV", 4], ["I", 1]];
@@ -315,7 +404,7 @@ export const parseGutenbergBookText = (text) => {
     : [...body.matchAll(/^[ \t]*PART[ \t]+([IVXLCDM]+)[ \t]*$/gmi)];
   const chapterHeadings = bookHeadings.length || partHeadings.length
     ? []
-    : [...body.matchAll(/^[ \t]*CHAPTER[ \t]+([IVXLCDM]+)\.[ \t]*$/gmi)];
+    : [...body.matchAll(/^[ \t]*CHAPTER[ \t]+([IVXLCDM]+)\.?[ \t]*$/gmi)];
   const sectionHeadings = bookHeadings.length || partHeadings.length || chapterHeadings.length
     ? []
     : [...body.matchAll(/^[ \t]*([IVXLCDM]+)\.[ \t]*\n((?:[ \t]*[A-Z][A-Z ,&’'\-]+[ \t]*\n){1,3})[ \t]*\n/gm)];
@@ -382,24 +471,53 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
     for (const token of conceptTokens(document.sections.map(({ text }) => text).join(" "))) {
       if (conceptIndex.has(token)) seen.set(token, (seen.get(token) || 0) + 1);
     }
-    [...seen].sort((a, b) => b[1] - a[1]).slice(0, 14).forEach(([concept, count]) => edges.push({
+    const ranked = [...seen].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    const strongest = ranked[0]?.[1] || 0;
+    const expressionFloor = strongest <= 3 ? 1 : Math.max(2, Math.ceil(strongest * .1));
+    ranked.filter(([, count]) => count >= expressionFloor).forEach(([concept, count]) => edges.push({
       from: `document-${documentIndex + 1}`, to: `concept-${conceptIndex.get(concept) + 1}`,
       relation: "expresses", weight: count
     }));
   });
+  const relationWindows = sectionRows.flatMap((section) => {
+    const tokens = conceptTokens(section.text);
+    const windows = [];
+    for (let offset = 0; offset < tokens.length; offset += 120) {
+      windows.push(new Set(tokens.slice(offset, offset + 120).filter((token) => conceptIndex.has(token))));
+    }
+    return windows.length ? windows : [new Set()];
+  });
+  const conceptPresence = concepts.map(([concept]) => relationWindows.reduce((count, window) => count + Number(window.has(concept)), 0));
   for (let left = 0; left < concepts.length; left += 1) {
     for (let right = left + 1; right < concepts.length; right += 1) {
-      let shared = 0;
-      for (const section of sectionRows) {
-        const tokens = new Set(conceptTokens(section.text));
-        if (tokens.has(concepts[left][0]) && tokens.has(concepts[right][0])) shared += 1;
-      }
-      if (shared) edges.push({ from: `concept-${left + 1}`, to: `concept-${right + 1}`, relation: "co-occurs", weight: shared });
+      const shared = relationWindows.reduce((count, window) => count + Number(window.has(concepts[left][0]) && window.has(concepts[right][0])), 0);
+      const minimumShared = relationWindows.length <= 2 ? 1 : 2;
+      const association = shared / Math.sqrt(Math.max(1, conceptPresence[left] * conceptPresence[right]));
+      if (shared >= minimumShared && association >= .18) edges.push({
+        from: `concept-${left + 1}`, to: `concept-${right + 1}`, relation: "co-occurs",
+        weight: Number((shared * (1 + association)).toFixed(4)),
+        shared_windows: shared, association: Number(association.toFixed(4))
+      });
     }
   }
   const palette = ["#cbb77a", "#e9e5d8", "#93b9bb", "#9a8cb6", "#ad7159", "#8aa681"];
   const scale = [1, 1.125, 1.25, 1.333333, 1.5, 1.666667, 1.875, 2];
-  const graphEdges = edges.sort((a, b) => b.weight - a.weight).slice(0, 180);
+  const graphEdges = edges.sort((a, b) => b.weight - a.weight || a.relation.localeCompare(b.relation) || a.from.localeCompare(b.from) || a.to.localeCompare(b.to));
+  const relationProfile = Object.fromEntries(["contains", "expresses", "co-occurs"].map((relation) => [relation, graphEdges.filter((edge) => edge.relation === relation).length]));
+  const possibleRelations = documents.length + documents.length * concepts.length + concepts.length * (concepts.length - 1) / 2;
+  const relationDensity = possibleRelations ? graphEdges.length / possibleRelations : 0;
+  const relationWeight = graphEdges.reduce((sum, edge) => sum + Math.max(0, Number(edge.weight) || 0), 0);
+  const relationWeightEntropy = graphEdges.length > 1 && relationWeight
+    ? -graphEdges.reduce((sum, edge) => {
+      const probability = Math.max(0, Number(edge.weight) || 0) / relationWeight;
+      return probability ? sum + probability * Math.log(probability) : sum;
+    }, 0) / Math.log(graphEdges.length)
+    : 0;
+  const structuralSignature = digest(JSON.stringify({
+    documents: documents.map((document) => document.sections.length), concepts,
+    relations: graphEdges.map(({ from, to, relation, weight }) => [from, to, relation, weight]),
+    profile: relationProfile
+  })).slice(0, 16);
   const readingHash = digest(JSON.stringify({
     sourceHash, transformation, readingContext, concepts, graphEdges,
     foldforge: foldForgeCompositionIdentity(foldForgeSnapshot)
@@ -432,7 +550,9 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
       measures: {
         documents: documents.length, sections: sectionRows.length,
         words: sectionRows.reduce((sum, section) => sum + words(section.text, language).length, 0),
-        concepts: concepts.length, relations: graphEdges.length
+        concepts: concepts.length, relations: graphEdges.length,
+        relation_density: Number(relationDensity.toFixed(4)),
+        relation_weight_entropy: Number(relationWeightEntropy.toFixed(4))
       },
       visual: {
         schema: "root-logos-visual-score/v1", seed, palette,
@@ -445,7 +565,14 @@ const deriveWork = ({ title, author, kind, source, translation, language, rights
       } }),
       reading: {
         dominant_concepts: concepts.slice(0, 12).map(([concept, count]) => ({ concept, count })),
-        statement: `${title} resolves as ${documents.length} document${documents.length === 1 ? "" : "s"}, ${sectionRows.length} structural passage${sectionRows.length === 1 ? "" : "s"}, and ${graphEdges.length} witnessed relations.`
+        structural_depth: {
+          signature: structuralSignature,
+          relation_profile: relationProfile,
+          relation_density: Number(relationDensity.toFixed(4)),
+          relation_weight_entropy: Number(relationWeightEntropy.toFixed(4)),
+          comparison_boundary: "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+        },
+        statement: `${title} resolves as ${documents.length} document${documents.length === 1 ? "" : "s"}, ${sectionRows.length} structural passage${sectionRows.length === 1 ? "" : "s"}, and ${graphEdges.length} witnessed relations at ${(relationDensity * 100).toFixed(1)}% derived density. Structural signature ${structuralSignature}.`
       }
     }
   };
@@ -467,10 +594,15 @@ export const ingestWork = async ({
   const midvashBibleBook = sourceStat.isFile() && format === "midvash-bible-book-json";
   const perseusTei = sourceStat.isFile() && (format === "perseus-tei" || (format === "auto" && extname(sourcePath).toLowerCase() === ".xml"));
   const gutenbergText = sourceStat.isFile() && (format === "gutenberg-book-text" || (format === "auto" && extname(sourcePath).toLowerCase() === ".txt"));
+  const wisdomEpub = sourceStat.isFile() && format === "wisdom-epub";
   let documents;
   let canonicalSource;
   let inferredTitle;
-  if (midvashBibleBook) {
+  if (wisdomEpub) {
+    const parsed = await parseWisdomEpub(sourcePath);
+    canonicalSource = parsed.canonicalSource;
+    documents = parsed.documents;
+  } else if (midvashBibleBook) {
     canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
     const parsed = parseMidvashBibleBook(canonicalSource);
     documents = parsed.documents;
@@ -566,7 +698,10 @@ export const ingestWork = async ({
     edition_id: editionId, root_logos_revision: rootRevision, transformation, created_at: derived.edition.created_at,
     href: `works/${workId}/editions/${editionId}/edition.json`
   };
-  derived.manifest.editions = [...priorEditions.filter(({ edition_id: id }) => id !== editionId), currentEditionRecord];
+  derived.manifest.editions = [...new Map([
+    ...priorEditions.filter(({ edition_id: id }) => id !== editionId),
+    currentEditionRecord
+  ].map((record) => [record.edition_id, record])).values()];
   await mkdir(editionDir, { recursive: true });
   await writeFile(join(workDir, "manifest.json"), json(derived.manifest));
   await writeFile(join(editionDir, "edition.json"), json(derived.edition));
@@ -586,7 +721,7 @@ export const ingestWork = async ({
   await writeFile(join(workDir, "manifest.json"), json(derived.manifest));
   const entry = {
     work_id: workId, title: resolvedTitle, author, kind, current_edition: editionId,
-    editions: sameEdition ? priorEntry.editions : (priorEntry?.editions || 0) + 1, updated_at: derived.edition.created_at,
+    editions: derived.manifest.editions.length, updated_at: derived.edition.created_at,
     library_order: libraryOrder,
     edition_history: derived.manifest.editions,
     source_visibility: derived.manifest.source_visibility,
@@ -627,7 +762,7 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text|wisdom-epub>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();

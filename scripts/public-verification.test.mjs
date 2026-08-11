@@ -2,11 +2,15 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
-const [index, renderer, styles, registry] = await Promise.all([
+const [index, renderer, styles, registry, worksIndex, libraryComposition, frameManifest, ornamentManifest] = await Promise.all([
   read("index.html"),
   read("script.js"),
   read("styles.css"),
-  read("sources/registry.json").then(JSON.parse)
+  read("sources/registry.json").then(JSON.parse),
+  read("works/index.json").then(JSON.parse),
+  read("works/library-composition.json").then(JSON.parse),
+  read("assets/library-first-frames/manifest.json").then(JSON.parse),
+  read("works/ornament-of-abhidharma-e125ae67/manifest.json").then(JSON.parse)
 ]);
 const graph = JSON.parse(await read("content/constitutional-graph.json"));
 const exports = JSON.parse(await read("content/export-packets.json"));
@@ -26,11 +30,19 @@ assert.doesNotMatch(renderer, /const publicIntegrityChecks|const runPublicVerifi
 assert.match(renderer, /publishedSourceRecords/);
 assert.match(styles, /\.verification-ledger-layout/);
 assert.match(styles, /\.propagation-column-head/);
-assert.equal(graph.meta.interfaceVersion, "1.4.9");
+assert.equal(graph.meta.interfaceVersion, "1.4.11");
 assert.ok(graph.nodes.some(({ id }) => id === "public-verification-observatory"));
 assert.ok(graph.edges.some(({ from, to }) => from === "root-logos" && to === "public-verification-observatory"));
-assert.equal(exports.at(-1).export_id, "RL-EXPORT-0019");
-assert.equal(exports.at(-1).revision_entry.version, "1.4.9");
+assert.equal(exports.at(-1).export_id, "RL-EXPORT-0021");
+assert.equal(exports.at(-1).revision_entry.version, "1.4.11");
+assert.ok(worksIndex.works.some(({ work_id, title }) => work_id === "mutual-aid-a-factor-of-evolution-84650682" && title === "Mutual Aid: A Factor of Evolution"));
+assert.equal(libraryComposition.measures.works, 56);
+assert.equal(libraryComposition.measures.relations, 170);
+assert.equal(frameManifest.schema, "root-logos-library-first-frames/v5");
+assert.equal(frameManifest.archive.filter(({ work_id }) => work_id === ornamentManifest.work_id).length, 2);
+assert.equal(ornamentManifest.source_retained, false);
+assert.equal(ornamentManifest.source, null);
+assert.equal(ornamentManifest.current_edition, "ornament-of-abhidharma-e125ae67--v14-read-34d3c9-e321946a");
 assert.match(styles, /h1, h2, h3, h4,[\s\S]*?text-transform:\s*uppercase;/);
 assert.doesNotMatch(index, /Latest autonomous inquiry|id="latest-cycle"|id="cycle-drawer"/);
 assert.match(index, /A constitution <em>held in relation\.<\/em>/);

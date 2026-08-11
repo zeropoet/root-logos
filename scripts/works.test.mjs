@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { coherentLibraryIdentity, ingestWork, parseGutenbergBookText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei } from "./works.mjs";
+import { coherentLibraryIdentity, ingestWork, parseGutenbergBookText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei, parseWisdomEpubXhtml } from "./works.mjs";
 import { CATHOLIC_CANON } from "./works-corpus.mjs";
 
 const fixture = await mkdtemp(join(tmpdir(), "root-logos-work-"));
@@ -41,6 +41,15 @@ assert.equal(euclidFixture.documents[0].title, "Book I");
 assert.deepEqual(euclidFixture.documents[0].sections.map(({ coordinate }) => coordinate), [
   "book:1:def:1", "book:1:prop:1"
 ]);
+const epubFixture = parseWisdomEpubXhtml(`<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml"><body>
+<h1>Chapter One</h1><h2><i>Luminous Ground</i></h2>
+<p>Awareness enters relation &amp; remains attributable.</p>
+<h3>Second Movement</h3><p>Form does not erase emptiness.</p>
+</body></html>`, "OEBPS/c01.html");
+assert.equal(epubFixture.title, "Luminous Ground");
+assert.deepEqual(epubFixture.sections.map(({ title }) => title), ["Luminous Ground", "Second Movement"]);
+assert.equal(epubFixture.sections[0].text, "Awareness enters relation & remains attributable.");
 const gutenbergFixture = parseGutenbergBookText(`Project Gutenberg header
 *** START OF THIS PROJECT GUTENBERG EBOOK TEST ***
 
@@ -74,11 +83,11 @@ const gutenbergChapterFixture = parseGutenbergBookText(`*** START OF THE PROJECT
 
 CHAPTER I. A TABLE-OF-CONTENTS ENTRY.
 
-CHAPTER I.
+CHAPTER I
 
 The first chapter varies.
 
-CHAPTER II.
+CHAPTER II
 
 The second chapter is selected.
 
@@ -156,6 +165,12 @@ assert.ok(edition.visual.topology.edges.every(({ canonical_coordinate, from_coor
 ));
 assert.equal(edition.measures.documents, 2);
 assert.ok(edition.measures.sections >= 3);
+assert.equal(edition.transformation, "deterministic-structural-reading/v4-structural-depth");
+assert.ok(Number.isFinite(edition.measures.relation_density));
+assert.ok(Number.isFinite(edition.measures.relation_weight_entropy));
+assert.match(edition.reading.structural_depth.signature, /^[0-9a-f]{16}$/);
+assert.deepEqual(Object.keys(edition.reading.structural_depth.relation_profile), ["contains", "expresses", "co-occurs"]);
+assert.match(edition.reading.statement, /derived density\. Structural signature [0-9a-f]{16}\./);
 assert.ok(edition.visual.topology.nodes.length > 3);
 assert.ok(edition.visual.topology.edges.length > 1);
 assert.equal(edition.sound.events.length, 84);

@@ -24,6 +24,7 @@ const frameName = (order, id, fingerprint) =>
 const vectorName = (order, id, fingerprint) =>
   `${frameStem(order, id)}-${String(fingerprint).slice(0, 12)}.svg`;
 const decimal = (value) => Number(value.toFixed(3));
+const structuralGrammar = (transformation = "") => String(transformation).split("+")[0];
 const escapeAttribute = (value) => String(value).replace(/[&"]/g, (character) => character === "&" ? "&amp;" : "&quot;");
 const renderSceneSvg = ({ edges, nodes }) => {
   const paths = edges.map(({ alpha, control, coordinate, from, fromCoordinate, lineWidth, to, toCoordinate }) =>
@@ -266,18 +267,35 @@ export const renderLibraryFirstFrames = async () => {
     .catch(() => null);
   const priorByIdentity = new Map((priorManifest?.frames || [])
     .map((frame) => [`${frame.order}:${frame.work_id}`, frame]));
-  const missingWorks = works.filter((entry) =>
-    !priorByIdentity.has(`${Number(entry.library_order)}:${entry.work_id}`));
+  const changedWorks = [];
+  for (const entry of works) {
+    const prior = priorByIdentity.get(`${Number(entry.library_order)}:${entry.work_id}`);
+    if (!prior) {
+      changedWorks.push(entry);
+      continue;
+    }
+    const priorHref = entry.edition_history?.find(({ edition_id: editionId }) =>
+      editionId === prior.edition_id)?.href;
+    const [priorEdition, currentEdition] = await Promise.all([
+      priorHref ? readFile(resolve(root, priorHref), "utf8").then(JSON.parse) : null,
+      readFile(resolve(root, entry.edition), "utf8").then(JSON.parse)
+    ]);
+    if (!priorEdition || structuralGrammar(priorEdition.transformation) !== structuralGrammar(currentEdition.transformation)) {
+      changedWorks.push(entry);
+    }
+  }
   const priorCorpus = priorByIdentity.get(`1:${corpus.corpus_id}`);
-  const captures = missingWorks.length || !priorCorpus
-    ? await captureLiveLibraryFrames({ corpus, works: missingWorks, captureCorpus: !priorCorpus })
+  const currentCorpusEdition = `corpus-${corpus.sound.signature}`;
+  const corpusChanged = !priorCorpus;
+  const captures = changedWorks.length || corpusChanged
+    ? await captureLiveLibraryFrames({ corpus, works: changedWorks, captureCorpus: corpusChanged })
     : new Map();
   const frames = [];
   await mkdir(outputRoot, { recursive: true });
 
   for (const entry of works) {
     const prior = priorByIdentity.get(`${Number(entry.library_order)}:${entry.work_id}`);
-    if (prior) {
+    if (prior && !changedWorks.some(({ work_id: workId }) => workId === entry.work_id)) {
       frames.push(prior);
       continue;
     }
@@ -303,7 +321,7 @@ export const renderLibraryFirstFrames = async () => {
     });
   }
 
-  if (priorCorpus) {
+  if (!corpusChanged) {
     frames.push(priorCorpus);
   } else {
     const { png: corpusPng, svg: corpusSvg } = captures.get(corpus.corpus_id);
@@ -317,7 +335,7 @@ export const renderLibraryFirstFrames = async () => {
       order: 1,
       work_id: corpus.corpus_id,
       title: corpus.title,
-      edition_id: `corpus-${corpus.sound.signature}`,
+      edition_id: currentCorpusEdition,
       file: `assets/library-first-frames/${corpusFilename}`,
       svg_file: `assets/library-first-frames/${corpusSvgFilename}`,
       width: WIDTH,
@@ -328,20 +346,28 @@ export const renderLibraryFirstFrames = async () => {
   }
 
   frames.sort((left, right) => left.order - right.order);
-  const expected = new Set(frames.flatMap(({ file, svg_file: svgFile }) => [basename(file), basename(svgFile)]));
+  const archivedByEdition = new Map([
+    ...((priorManifest?.archive || priorManifest?.frames || []).map((frame) =>
+      [`${frame.work_id}:${frame.edition_id}`, frame])),
+    ...frames.map((frame) => [`${frame.work_id}:${frame.edition_id}`, frame])
+  ]);
+  const archive = [...archivedByEdition.values()].sort((left, right) =>
+    left.order - right.order || String(left.edition_id).localeCompare(String(right.edition_id)));
+  const expected = new Set(archive.flatMap(({ file, svg_file: svgFile }) => [basename(file), basename(svgFile)]));
   for (const filename of await readdir(outputRoot)) {
     if ((filename.endsWith(".png") || filename.endsWith(".svg")) && !expected.has(filename)) {
       await unlink(join(outputRoot, filename));
     }
   }
   const manifest = {
-    schema: "root-logos-library-first-frames/v4",
-    generated_at: missingWorks.length || !priorCorpus
+    schema: "root-logos-library-first-frames/v5",
+    generated_at: changedWorks.length || corpusChanged
       ? new Date().toISOString()
       : priorManifest.generated_at,
     renderer: "isolated-relational-portrait/v1-lines-and-nodes",
     resolution: { width: WIDTH, height: HEIGHT },
-    frames
+    frames,
+    archive
   };
   await writeFile(join(outputRoot, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
   return manifest;
@@ -352,7 +378,7 @@ export const validateLibraryFirstFrames = async () => {
     currentLibraryFrames(),
     readFile(join(outputRoot, "manifest.json"), "utf8").then(JSON.parse)
   ]);
-  if (manifest.schema !== "root-logos-library-first-frames/v4") throw new Error("Unexpected first-frame manifest schema.");
+  if (manifest.schema !== "root-logos-library-first-frames/v5") throw new Error("Unexpected first-frame manifest schema.");
   if (manifest.renderer !== "isolated-relational-portrait/v1-lines-and-nodes") {
     throw new Error("First frames must contain only the isolated relational portrait.");
   }
@@ -373,6 +399,13 @@ export const validateLibraryFirstFrames = async () => {
   ].sort((left, right) => left.order - right.order);
   if (manifest.frames?.length !== expected.length) {
     throw new Error(`Expected ${expected.length} first frames; found ${manifest.frames?.length || 0}.`);
+  }
+  const archived = new Map((manifest.archive || []).map((frame) =>
+    [`${frame.work_id}:${frame.edition_id}`, frame]));
+  for (const frame of manifest.frames || []) {
+    if (!archived.has(`${frame.work_id}:${frame.edition_id}`)) {
+      throw new Error(`${frame.title} current portrait is absent from its visual lineage.`);
+    }
   }
   for (let index = 0; index < expected.length; index += 1) {
     const wanted = expected[index];
@@ -418,6 +451,24 @@ export const validateLibraryFirstFrames = async () => {
       const entry = works.find(({ work_id }) => work_id === wanted.work_id);
       if (!entry.edition_history?.some(({ edition_id: editionId }) => editionId === actual.edition_id)) {
         throw new Error(`${actual.file} does not preserve an edition in the lineage of ${entry.title}.`);
+      }
+    }
+  }
+  if (archived.size !== manifest.archive.length) {
+    throw new Error("Visual lineage contains a duplicate work and edition identity.");
+  }
+  for (const frame of manifest.archive) {
+    const [png, svg] = await Promise.all([
+      readFile(resolve(root, frame.file)),
+      readFile(resolve(root, frame.svg_file), "utf8")
+    ]);
+    if (digest(png) !== frame.sha256 || digest(svg) !== frame.svg_sha256) {
+      throw new Error(`${frame.title} archived portrait does not match its witnessed SHA-256.`);
+    }
+    if (frame.work_id !== corpus.corpus_id) {
+      const entry = works.find(({ work_id: workId }) => workId === frame.work_id);
+      if (!entry?.edition_history?.some(({ edition_id: editionId }) => editionId === frame.edition_id)) {
+        throw new Error(`${frame.title} archived portrait is detached from its edition lineage.`);
       }
     }
   }
