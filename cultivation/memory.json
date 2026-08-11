@@ -1217,11 +1217,40 @@
         },
         "total": 20
       }
+    },
+    "5098ae19077f0bd343472db8126e6bc146242ca30dd13b19f451cc0b6974303c": {
+      "fingerprint": "5098ae19077f0bd343472db8126e6bc146242ca30dd13b19f451cc0b6974303c",
+      "kind": "relational-gap",
+      "nodes": [
+        "participation",
+        "bridge-004"
+      ],
+      "claim": "Participation and From Reference to Participation share corrigibility, intelligence, participation, source but have no explicit constitutional relation.",
+      "proposed_question": null,
+      "evidence_hash": "a3bf7c205e15d5abd983d9dd7c4fc1de8a7dc179b14b5155c33100810bf28685",
+      "policy_hash": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1",
+      "first_cycle": "RL-CULTIVATE-0147",
+      "last_cycle": "RL-CULTIVATE-0147",
+      "last_cycle_index": 147,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 2,
+          "compression": 3,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 1
+        },
+        "total": 18
+      }
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 2,
-    "last_score": 0,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -2188,6 +2217,13 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-11T15:20:06.546Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0147",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-08-11T15:25:23.816Z"
       }
     ]
   },
