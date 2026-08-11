@@ -97,7 +97,9 @@ authority boundaries.
   delivered to the browser. Six relational projections, semantic memory, and
   adversarial proposal review restore deeper visual inspection without making
   GitHub a prerequisite for understanding Root Logos. Interface version
-  `1.4.5` brings runtime presence into the navigation as one concise cluster:
+  `1.4.6` removes the Public Membrane's remaining internal editorial gutters
+  and protects whole-word display wrapping, giving its invitation the full
+  width of the left column without breaking “conversation.” `1.4.5` brings runtime presence into the navigation as one concise cluster:
   current mode, inquiry reach, and revision appear once, in line with the five
   public coordinates. The `03.00` threshold now reserves enough vertical space
   that its title and statement cannot enter the Living Library instrument, and

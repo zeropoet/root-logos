@@ -25,11 +25,11 @@ assert.match(renderer, /const publicIntegrityChecks/);
 assert.match(renderer, /publishedSourceRecords/);
 assert.match(styles, /\.verification-ledger-layout/);
 assert.match(styles, /\.propagation-column-head/);
-assert.equal(graph.meta.interfaceVersion, "1.4.5");
+assert.equal(graph.meta.interfaceVersion, "1.4.6");
 assert.ok(graph.nodes.some(({ id }) => id === "public-verification-observatory"));
 assert.ok(graph.edges.some(({ from, to }) => from === "root-logos" && to === "public-verification-observatory"));
-assert.equal(exports.at(-1).export_id, "RL-EXPORT-0015");
-assert.equal(exports.at(-1).revision_entry.version, "1.4.5");
+assert.equal(exports.at(-1).export_id, "RL-EXPORT-0016");
+assert.equal(exports.at(-1).revision_entry.version, "1.4.6");
 assert.match(styles, /h1, h2, h3, h4,[\s\S]*?text-transform:\s*uppercase;/);
 assert.doesNotMatch(index, /Latest autonomous inquiry|id="latest-cycle"|id="cycle-drawer"/);
 assert.match(index, /A constitution <em>held in relation\.<\/em>/);
@@ -46,6 +46,8 @@ assert.match(index, /<nav class="primary-nav"[\s\S]*?<div class="system-presence
 assert.doesNotMatch(index, /id="header-detail"|id="archive-runtime"|id="archive-works"/);
 assert.match(styles, /body\.archive-open \.library-shell \{[\s\S]*?inset:390px/);
 assert.match(styles, /body\.archive-open \.observation-instrument \{[\s\S]*?width:min\(1500px,100%\)/);
+assert.match(styles, /body\.archive-open \.observation-instrument > header \{[\s\S]*?padding-right:0;[\s\S]*?padding-left:0;/);
+assert.match(styles, /\.observation-instrument > header h3 \{[^}]*overflow-wrap: normal;[^}]*word-break: normal;/);
 assert.match(index, /data-module="04\.01">Witnessed Relations/);
 assert.match(index, /data-module="04\.02">Design Flow Ledger/);
 for (const [id, order] of [["field", 1], ["coordinate", 2], ["verify", 3], ["works", 4], ["state", 5], ["intake", 6]]) {
