@@ -94,7 +94,10 @@ authority boundaries.
   immediate inspection instead of issuing an unbounded request burst. Six relational projections, semantic memory, and
   adversarial proposal review restore deeper visual inspection without making
   GitHub a prerequisite for understanding Root Logos. Interface version
-  `1.4.8` replaces the ambiguous inquiry percentage with one explicit latest-
+  `1.4.9` makes the Living Library archive column own its remaining vertical
+  space: the works list now scrolls to a visible endpoint inside the instrument
+  instead of extending behind the shell's clipped boundary. Narrow layouts
+  retain their horizontal work sequence. `1.4.8` replaces the ambiguous inquiry percentage with one explicit latest-
   proposal measure: raw score out of 24 and recorded disposition. It never
   substitutes judgment-gate completion for proposal evaluation; an absent
   evaluation reads `No scored proposal`. `1.4.7` removes the separate browser-verification panel from the public
