@@ -48,6 +48,15 @@ assert.ok(withdrawals.withdrawals.every(({ work_id: workId }) =>
 assert.ok(withdrawals.withdrawals.every(({ work_id: workId }) =>
   !frameManifest.archive.some(({ work_id: framedWorkId }) => framedWorkId === workId)));
 assert.equal(frameManifest.schema, "root-logos-library-first-frames/v5");
+assert.deepEqual(
+  frameManifest.frames.map(({ order }) => order),
+  Array.from({ length: 43 }, (_, index) => index + 1)
+);
+assert.ok(frameManifest.frames.every(({ file, order, svg_file: svgFile }) => {
+  const prefix = String(order).padStart(2, "0");
+  return file.startsWith(`assets/library-first-frames/${prefix}-`)
+    && svgFile.startsWith(`assets/library-first-frames/${prefix}-`);
+}));
 assert.equal(frameManifest.archive.filter(({ work_id }) => work_id === ornamentManifest.work_id).length, 2);
 assert.equal(ornamentManifest.source_retained, false);
 assert.equal(ornamentManifest.source, null);

@@ -11,6 +11,7 @@ const outputRoot = join(root, "assets", "library-first-frames");
 const archiveRoot = join(root, "works");
 const WIDTH = 2400;
 const HEIGHT = 2400;
+const CORPUS_ORDER = 2;
 const COMPILED_BIBLE_COLLECTIONS = new Set([
   "Original Douay-Rheims Catholic Canon",
   "King James Bible (1769) Protestant Canon"
@@ -284,7 +285,7 @@ export const renderLibraryFirstFrames = async () => {
       changedWorks.push(entry);
     }
   }
-  const priorCorpus = priorByIdentity.get(`1:${corpus.corpus_id}`);
+  const priorCorpus = priorByIdentity.get(`${CORPUS_ORDER}:${corpus.corpus_id}`);
   const currentCorpusEdition = `corpus-${corpus.sound.signature}`;
   const corpusChanged = !priorCorpus;
   const captures = changedWorks.length || corpusChanged
@@ -326,13 +327,13 @@ export const renderLibraryFirstFrames = async () => {
   } else {
     const { png: corpusPng, svg: corpusSvg } = captures.get(corpus.corpus_id);
     const corpusSha256 = digest(corpusPng);
-    const corpusFilename = frameName(1, "original-douay-rheims", corpusSha256);
+    const corpusFilename = frameName(CORPUS_ORDER, "original-douay-rheims", corpusSha256);
     const corpusSvgSha256 = digest(corpusSvg);
-    const corpusSvgFilename = vectorName(1, "original-douay-rheims", corpusSvgSha256);
+    const corpusSvgFilename = vectorName(CORPUS_ORDER, "original-douay-rheims", corpusSvgSha256);
     await writeFile(join(outputRoot, corpusFilename), corpusPng);
     await writeFile(join(outputRoot, corpusSvgFilename), corpusSvg);
     frames.push({
-      order: 1,
+      order: CORPUS_ORDER,
       work_id: corpus.corpus_id,
       title: corpus.title,
       edition_id: currentCorpusEdition,
@@ -392,13 +393,16 @@ export const validateLibraryFirstFrames = async () => {
       file_stem: `assets/library-first-frames/${frameStem(entry.library_order, entry.work_id)}-`
     })),
     {
-      order: 1,
+      order: CORPUS_ORDER,
       work_id: corpus.corpus_id,
-      file_stem: `assets/library-first-frames/${frameStem(1, "original-douay-rheims")}-`
+      file_stem: `assets/library-first-frames/${frameStem(CORPUS_ORDER, "original-douay-rheims")}-`
     }
   ].sort((left, right) => left.order - right.order);
   if (manifest.frames?.length !== expected.length) {
     throw new Error(`Expected ${expected.length} first frames; found ${manifest.frames?.length || 0}.`);
+  }
+  if (expected.some(({ order }, index) => order !== index + 1)) {
+    throw new Error(`Library first-frame orders must form the continuous sequence 1-${expected.length}.`);
   }
   const archived = new Map((manifest.archive || []).map((frame) =>
     [`${frame.work_id}:${frame.edition_id}`, frame]));

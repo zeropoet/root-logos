@@ -65,7 +65,7 @@ export const buildStructuralDepthMigration = async () => {
     .sort((left, right) => Number(left.library_order) - Number(right.library_order));
   const works = await Promise.all(entries.map((entry) => workRecord(entry, frameByWork.get(entry.work_id))));
   works.splice(1, 0, {
-    order: 1,
+    order: 2,
     work_id: corpus.corpus_id,
     title: corpus.title,
     genre: "scriptural corpus",

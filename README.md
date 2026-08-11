@@ -1345,7 +1345,9 @@ retains its raw and transformed content witnesses, attribution, rights,
 derived topology, resonant score, CWCS lineage, and sealed 2400×2400 PNG and
 SVG first frames. After enforcing the exact-source structural-depth admission
 standard, the Library now holds 43 coherent objects and composes them through
-124 witnessed cross-work relations.
+124 witnessed cross-work relations. Its active first-frame ordinal layer is
+compacted continuously from `1` through `43`; subtraction leaves no false gaps
+in the public Library sequence and does not alter portrait bytes or hashes.
 
 The relation totals describe different layers. Version 4 removes the former
 `180` single-work ceiling, derives co-occurrence through bounded lexical

@@ -151,7 +151,7 @@ export const ingestKingJamesCorpus = async ({ sourceRoot, sourceWitness, rootRev
   manifest.editions = [...(manifest.editions || []).filter(({ edition_id: id }) => id !== editionId), editionRecord];
   manifest.collection = "Protestant Scripture";
   manifest.division = "Sixty-six-book canon";
-  manifest.library_order = 13;
+  manifest.library_order = 14;
   manifest.constitutional_role = "A complete Protestant scriptural corpus whose independently read books exert attributable cross-work pressure within one coherent Library body.";
   await writeFile(manifestPath, json(manifest));
 
@@ -167,7 +167,7 @@ export const ingestKingJamesCorpus = async ({ sourceRoot, sourceWitness, rootRev
     current_edition: editionId,
     editions: manifest.editions.length,
     updated_at: createdAt,
-    library_order: 13,
+    library_order: 14,
     edition_history: manifest.editions,
     source_visibility: "private",
     translation: manifest.translation,

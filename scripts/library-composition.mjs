@@ -50,8 +50,16 @@ const frameRows = await Promise.all([...frameManifest.frames]
   .sort((left, right) => left.order - right.order)
   .map(async (frame) => {
     const prior = priorPrimitives.get(`${frame.work_id}:${frame.sha256}`);
-    if (prior) return prior;
-    const entry = frame.order === 1 ? {
+    if (prior) return {
+      ...prior,
+      order: Number(frame.order),
+      portrait: {
+        ...prior.portrait,
+        png: frame.file,
+        svg: frame.svg_file
+      }
+    };
+    const entry = frame.work_id === corpus.corpus_id ? {
       work_id: corpus.corpus_id,
       title: corpus.title,
       kind: "coherent corpus",
@@ -61,7 +69,7 @@ const frameRows = await Promise.all([...frameManifest.frames]
       current_edition: frame.edition_id
     } : byOrder.get(Number(frame.order));
     if (!entry) throw new Error(`Library order ${frame.order} has no attributable work.`);
-    const edition = frame.order === 1
+    const edition = frame.work_id === corpus.corpus_id
       ? { reading: { dominant_concepts: [] }, sound: corpus.sound }
       : await readFile(resolve(
           root,

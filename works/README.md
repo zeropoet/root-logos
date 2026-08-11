@@ -56,6 +56,14 @@ npm run works:first-frames
 node scripts/work-first-frame.mjs --check
 ```
 
+Active first-frame ordinals are a continuous one-based sequence. When Library
+membership contracts, compact the ordinal layer without altering portrait
+bytes, hashes, sealed editions, or lineage:
+
+```sh
+npm run works:reindex-library
+```
+
 `works/structural-depth-migration.json` is the public migration ledger for the
 v4 reading grammar. It enumerates every active coherent Library object and
 witnesses the current structural signature plus content-addressed PNG and SVG
@@ -77,8 +85,10 @@ npm run works:withdraw-noncompliant
 Withdrawal removes the active work, its public edition lineage, and its image
 assets; it does not rewrite Git history. `works/withdrawals.json` publishes the
 identity, reason, prior order, prior current edition, and source witness for each
-subtraction. A withdrawn work can return only through a newly verified exact
-source ingestion under the current grammar.
+subtraction. The withdrawal command then compacts the surviving first-frame
+ordinals and rebuilds the Library composition and structural-depth ledger. A
+withdrawn work can return only through a newly verified exact-source ingestion
+under the current grammar.
 
 The two scriptural corpora use
 `deterministic-corpus-reading/v2-structural-depth`. Their density and entropy
