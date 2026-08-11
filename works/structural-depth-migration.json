@@ -1,14 +1,14 @@
 {
   "schema": "root-logos-structural-depth-migration/v1",
-  "generated_at": "2026-08-11T16:58:05.763Z",
+  "generated_at": "2026-08-11T18:03:35.614Z",
   "target_work_grammar": "deterministic-structural-reading/v4-structural-depth",
   "target_corpus_grammar": "deterministic-corpus-reading/v2-structural-depth",
   "policy": "Exact witnessed sources only. Historical editions and admission portraits remain immutable; every new structural reading receives a distinct PNG and SVG successor portrait.",
   "measures": {
     "coherent_works": 56,
-    "migrated": 37,
-    "exact_source_required": 19,
-    "completion": 0.6607
+    "migrated": 43,
+    "exact_source_required": 13,
+    "completion": 0.7679
   },
   "works": [
     {
@@ -449,14 +449,29 @@
       "work_id": "the-life-of-the-buddha-according-to-the-pali-canon-67799d95",
       "title": "The Life of the Buddha: According to the Pali Canon",
       "genre": "canonical biography",
-      "status": "exact-source-required",
-      "recovery": "public-or-authorized-witness",
-      "source_witness": "bps-pariyatti-edition:pdf-isbn-978-1-928706-97-7:sha256:b2dabb9aa8f8c7c4150e56efa4d4e099c583211051da681f90a55884393e6ffd",
-      "source_sha256": "4220112ecac7a4a7ea1f100de957177c09098eecb72581bb371727aebae4252b",
-      "current_edition": "the-life-of-the-buddha-according-to-the-pali-canon-67799d95--v1.2-foldforge-4e1174eaf6",
-      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
-      "structural_depth": null,
-      "successor_portrait": null
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "user-supplied-bps-pariyatti-edition:pdf-sha256:114fac13a5246f4c2666405cf2eb392d110441c6cd5dfccb11f399be01dd5983",
+      "source_sha256": "1cce210efba18d3997d12f01716e15f927bb596aec6c91cf50d01a09ae979dce",
+      "current_edition": "the-life-of-the-buddha-according-to-the-pali-canon-67799d95--v14-read-34d3c9-fba18d39",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "f602bfe13b106df6",
+        "relation_profile": {
+          "contains": 20,
+          "expresses": 429,
+          "co-occurs": 177
+        },
+        "relation_density": 0.4569,
+        "relation_weight_entropy": 0.9157,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/15-the-life-of-the-buddha-according-to-the-pali-canon-67799d95-ebabf4ee04a8.png",
+        "png_sha256": "ebabf4ee04a8bc9b6713fe6b3ad84d5f22ac04a137d55ffc25c78d4c690e3ece",
+        "svg": "assets/library-first-frames/15-the-life-of-the-buddha-according-to-the-pali-canon-67799d95-cfac35aeb993.svg",
+        "svg_sha256": "cfac35aeb9930022c6251b81e176d325aa0b73c10dbaf11642490d72a52238ef"
+      }
     },
     {
       "order": 16,
@@ -477,42 +492,87 @@
       "work_id": "constructor-theory-3b6d4667",
       "title": "Constructor Theory",
       "genre": "foundational physics paper",
-      "status": "exact-source-required",
-      "recovery": "public-or-authorized-witness",
-      "source_witness": "arxiv:1210.7439v1:sha256:30b65e454a104aff5203046a2ba18fd1d11f010995c629ad68b2e55dc1ca0a0a",
-      "source_sha256": "e83452483e474379406e94263d8303be4002e6f9c969f188854bdedb10e30fe8",
-      "current_edition": "constructor-theory-3b6d4667--v1.2-foldforge-2d9323e1ff",
-      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
-      "structural_depth": null,
-      "successor_portrait": null
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "sha256:30b65e454a104aff5203046a2ba18fd1d11f010995c629ad68b2e55dc1ca0a0a",
+      "source_sha256": "76250326bb4642655f4a11aefab30b57ac5f7962569faa273fac23e1f3798f93",
+      "current_edition": "constructor-theory-3b6d4667--v14-read-34d3c9-bb464265",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "8b1bf7fb2f00222d",
+        "relation_profile": {
+          "contains": 4,
+          "expresses": 98,
+          "co-occurs": 398
+        },
+        "relation_density": 0.6427,
+        "relation_weight_entropy": 0.9643,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/17-constructor-theory-3b6d4667-3fa10b0305c5.png",
+        "png_sha256": "3fa10b0305c58a37b0addd6f644989f51cd70aee7e151eea938fdd2ced19e63b",
+        "svg": "assets/library-first-frames/17-constructor-theory-3b6d4667-a375f513742b.svg",
+        "svg_sha256": "a375f513742b1fb24b3e46a963f16dfe38bb7dda98e286c687b385722d49ccdd"
+      }
     },
     {
       "order": 18,
       "work_id": "quantum-theory-the-church-turing-principle-and-the-universal-quantum-computer-4f4946f6",
       "title": "Quantum Theory, the Church-Turing Principle and the Universal Quantum Computer",
       "genre": "foundational quantum computation paper",
-      "status": "exact-source-required",
-      "recovery": "public-or-authorized-witness",
-      "source_witness": "proceedings-royal-society-a400-1985:author-hosted-1999-edition:sha256:18b422fdcbfa29098c65ecbe90797883d38ba8b065064b0234cbae0f48c26e43",
-      "source_sha256": "34a199470ce117e227f017f0cddfceb4b3378543dfe387105d7575f82c0dbbf0",
-      "current_edition": "quantum-theory-the-church-turing-principle-and-the-universal-quantum-computer-4f4946f6--v1.2-foldforge-0aa6b3a317",
-      "current_transformation": "deterministic-structural-reading/v4-unicode-normalization+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
-      "structural_depth": null,
-      "successor_portrait": null
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "proceedings-royal-society-a400-1985:author-hosted-1999-edition:pdf-sha256:18b422fdcbfa29098c65ecbe90797883d38ba8b065064b0234cbae0f48c26e43",
+      "source_sha256": "8f38f59a32befbd627d44bc3ab95ec1eb0957606de78a8d7d5e252cd362ac84f",
+      "current_edition": "quantum-theory-the-church-turing-principle-and-the-universal-quantum-computer-4f4946f6--v14-read-34d3c9-32befbd6",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "4de03a1168a0e623",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 383
+        },
+        "relation_density": 0.6297,
+        "relation_weight_entropy": 0.9624,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/18-quantum-theory-the-church-turing-principle-and-the-universal-quantum-computer-4f4946f6-2062e3a091d4.png",
+        "png_sha256": "2062e3a091d4bba8c8f9d1d00688e08180f8f27f0dfa2d109cd569868b6d079c",
+        "svg": "assets/library-first-frames/18-quantum-theory-the-church-turing-principle-and-the-universal-quantum-computer-4f4946f6-a06872abc144.svg",
+        "svg_sha256": "a06872abc14470dcbd2f3341ef48dcfc536104d63ad56e08c141aee33bb11eb5"
+      }
     },
     {
       "order": 19,
       "work_id": "the-logical-writings-of-karl-popper-f5c2ab71",
       "title": "The Logical Writings of Karl Popper",
       "genre": "critical edition and deductive logic collection",
-      "status": "exact-source-required",
-      "recovery": "public-or-authorized-witness",
-      "source_witness": "doi:10.1007/978-3-030-94926-6:isbn:978-3-030-94926-6:sha256:50436e189fd73012a16fc9e700456f5f775a33f47288baa7cb6e5d66e6b9c47b",
-      "source_sha256": "be74593c7a7975fad2f6e7f51928c6c7d9c2c7e14bf041d90e9d739e65061584",
-      "current_edition": "the-logical-writings-of-karl-popper-f5c2ab71--v1.2-foldforge-286e709022",
-      "current_transformation": "deterministic-structural-reading/v4-unicode-normalization+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
-      "structural_depth": null,
-      "successor_portrait": null
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "doi:10.1007/978-3-030-94926-6:isbn:978-3-030-94926-6:pdf-sha256:50436e189fd73012a16fc9e700456f5f775a33f47288baa7cb6e5d66e6b9c47b",
+      "source_sha256": "e05e633df9c9595fb6c3ec81ac7bb7eaa3e6ffa660411756a8076c1b9f658481",
+      "current_edition": "the-logical-writings-of-karl-popper-f5c2ab71--v14-read-34d3c9-f9c9595f",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "c0a5b382babadb1e",
+        "relation_profile": {
+          "contains": 34,
+          "expresses": 575,
+          "co-occurs": 171
+        },
+        "relation_density": 0.4131,
+        "relation_weight_entropy": 0.9082,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/19-the-logical-writings-of-karl-popper-f5c2ab71-f090a6a6f334.png",
+        "png_sha256": "f090a6a6f334b126e9462afeef0eeeef23db9ae5a5d106981be27593b04e7d82",
+        "svg": "assets/library-first-frames/19-the-logical-writings-of-karl-popper-f5c2ab71-0bfb22ddb9d5.svg",
+        "svg_sha256": "0bfb22ddb9d51c9e14137cbedb66f8b0b509c178e9d6090fd1321525f0c6ab16"
+      }
     },
     {
       "order": 20,
@@ -547,14 +607,29 @@
       "work_id": "great-founder-theory-808e6c69",
       "title": "Great Founder Theory",
       "genre": "institutional theory manuscript",
-      "status": "exact-source-required",
-      "recovery": "public-or-authorized-witness",
-      "source_witness": "samoburja:gft:2020-manuscript:sha256:1ea39345762cb154a88d6e1959e2ffc1afd464b1661e9f813ed009cbd19120de",
-      "source_sha256": "1c2ede9b0cfbed511afe7c587b71f30459704223a3ab6aeb6930c557f44b709c",
-      "current_edition": "great-founder-theory-808e6c69--v1.2-foldforge-c29c5e2a2c",
-      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
-      "structural_depth": null,
-      "successor_portrait": null
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "sha256:7d11e8c1cb755a1f5f574f88a39bd42ae65c6775e3fbcaa41c04f113d661148f",
+      "source_sha256": "a2a3fbea379fc31efc3fcceb393ab48f4f1e30e15cf839780a204649bd2223ac",
+      "current_edition": "great-founder-theory-808e6c69--v14-read-34d3c9-379fc31e",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "87bdba21cc2ba880",
+        "relation_profile": {
+          "contains": 12,
+          "expresses": 118,
+          "co-occurs": 204
+        },
+        "relation_density": 0.311,
+        "relation_weight_entropy": 0.9322,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/22-great-founder-theory-808e6c69-f3c7765f08cf.png",
+        "png_sha256": "f3c7765f08cf9df3c92cbca6406e18cbbc4125722fd254230108c546e7aece9e",
+        "svg": "assets/library-first-frames/22-great-founder-theory-808e6c69-8a2d72a3e8eb.svg",
+        "svg_sha256": "8a2d72a3e8eb777ee2fedbe62374d3fc8ae6e2107cc6c9025789103db510572e"
+      }
     },
     {
       "order": 23,
@@ -1082,14 +1157,29 @@
       "work_id": "a-mathematical-theory-of-communication-75a5723f",
       "title": "A Mathematical Theory of Communication",
       "genre": "foundational information theory paper",
-      "status": "exact-source-required",
-      "recovery": "public-or-authorized-witness",
-      "source_witness": "bell-system-technical-journal-1948-corrected-reprint",
-      "source_sha256": "3c0d2cdd7d0170391789a63b0c69c0670bc9d6962e141f077b367235a207f7bc",
-      "current_edition": "a-mathematical-theory-of-communication-75a5723f--v1.2-foldforge-8f4846f93f",
-      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
-      "structural_depth": null,
-      "successor_portrait": null
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "sha256:fb5fb174215df021dc5ed32a43f55b539ddfd323b90486d277abacdb95990ac6",
+      "source_sha256": "2b8b2ed0cb3a96a589a1a45514f6025bda62df2a5887c048e62cd2fdddfaee32",
+      "current_edition": "a-mathematical-theory-of-communication-75a5723f--v14-read-34d3c9-cb3a96a5",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "b23d92d3ca8e9a8c",
+        "relation_profile": {
+          "contains": 6,
+          "expresses": 122,
+          "co-occurs": 359
+        },
+        "relation_density": 0.5716,
+        "relation_weight_entropy": 0.9743,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/42-a-mathematical-theory-of-communication-75a5723f-2cca25a66622.png",
+        "png_sha256": "2cca25a66622f2d6049cdf07bf2d9d4dd8eebb359e8f4c79a04d53646ebcae51",
+        "svg": "assets/library-first-frames/42-a-mathematical-theory-of-communication-75a5723f-bc2c791c7d30.svg",
+        "svg_sha256": "bc2c791c7d3090af635a603b353b0b8b30e066aab391482c2067412574df9189"
+      }
     },
     {
       "order": 43,

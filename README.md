@@ -1345,11 +1345,11 @@ windows, and publishes containment, expression, and co-occurrence profiles
 alongside density, weight entropy, and a structural signature. These measures
 are comparable only among v4 successor editions. The admission of work `55`
 produced `170` cross-work relations; the current exact-source successor field
-derives `168` cross-work relations across the same 56 coherent objects.
+derives `165` cross-work relations across the same 56 coherent objects.
 The deterministic migration ledger at
-`works/structural-depth-migration.json` currently witnesses 37 exact-source v4
+`works/structural-depth-migration.json` currently witnesses 43 exact-source v4
 successors across the 56 coherent objects, including both complete scriptural
-corpora. The remaining source-recovery cases stay explicitly unconverted until
+corpora. The remaining 13 source-recovery cases stay explicitly unconverted until
 their exact public or authorized witnesses can be verified; historical
 editions and admission portraits remain immutable throughout the migration.
 
@@ -1385,7 +1385,7 @@ The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
 of the 56 coherent Library objects contributes its complete derived topology.
-Those admitted work structures now remain fixed. Above them, 168 pair-relations
+Those admitted work structures now remain fixed. Above them, 165 pair-relations
 rise into four grammar points and converge at the Library composition. New
 membership changes that crown and its collective score rather than rewriting
 the bodies from which it emerges. Weight, depth, luminance, rotation, and motion

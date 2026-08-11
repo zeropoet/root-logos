@@ -39,7 +39,7 @@ assert.equal(exports.at(-1).export_id, "RL-EXPORT-0021");
 assert.equal(exports.at(-1).revision_entry.version, "1.4.11");
 assert.ok(worksIndex.works.some(({ work_id, title }) => work_id === "mutual-aid-a-factor-of-evolution-84650682" && title === "Mutual Aid: A Factor of Evolution"));
 assert.equal(libraryComposition.measures.works, 56);
-assert.equal(libraryComposition.measures.relations, 168);
+assert.equal(libraryComposition.measures.relations, 165);
 assert.equal(frameManifest.schema, "root-logos-library-first-frames/v5");
 assert.equal(frameManifest.archive.filter(({ work_id }) => work_id === ornamentManifest.work_id).length, 2);
 assert.equal(ornamentManifest.source_retained, false);
