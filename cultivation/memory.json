@@ -1335,11 +1335,40 @@
         },
         "total": 20
       }
+    },
+    "f616ef40f980f11e5cd77d45f74c5dd3fff1e8780da49a7c91be07dce6cc66db": {
+      "fingerprint": "f616ef40f980f11e5cd77d45f74c5dd3fff1e8780da49a7c91be07dce6cc66db",
+      "kind": "relational-gap",
+      "nodes": [
+        "bridge-002",
+        "field-note-nihilism-freedom"
+      ],
+      "claim": "Freedom Through Non-Possession and From Nihilism to Freedom share freedom, non-possession, participation but have no explicit constitutional relation.",
+      "proposed_question": null,
+      "evidence_hash": "9331fe9b9b4be05c77be79f42a8071935295730f5a552ed6a8d6d0a4d27a628d",
+      "policy_hash": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1",
+      "first_cycle": "RL-CULTIVATE-0155",
+      "last_cycle": "RL-CULTIVATE-0155",
+      "last_cycle_index": 155,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 2,
+          "compression": 2,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 1
+        },
+        "total": 17
+      }
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 3,
-    "last_score": 0,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -2362,13 +2391,20 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-11T19:25:07.220Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0155",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-08-11T20:26:27.523Z"
       }
     ]
   },
   "dormancy": {
-    "active": true,
-    "entered_at": "2026-08-11T19:25:07.258Z",
-    "reason": "3 consecutive low-yield cycles",
+    "active": false,
+    "entered_at": null,
+    "reason": null,
     "source_snapshot": {
       "combined": "e08b813f068642136de5f7b025786fd58a2f25e6c58a6a155ee7c7c84f0d5d27",
       "policy": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1"
@@ -2464,6 +2500,10 @@
       },
       {
         "at": "2026-08-06T22:44:24.030Z",
+        "reason": "canonical-source-changed"
+      },
+      {
+        "at": "2026-08-11T20:26:27.176Z",
         "reason": "canonical-source-changed"
       }
     ]
