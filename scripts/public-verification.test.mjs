@@ -15,21 +15,22 @@ assert.ok(index.indexOf('id="coordinate"') < index.indexOf('id="verify"'));
 assert.ok(index.indexOf('id="verify"') < index.indexOf('id="works"'));
 for (const id of [
   "verification-source-list", "verify-source-witness", "propagation-events",
-  "run-public-verification", "observatory-canvas", "memory-ledger", "proposal-stack"
+  "observatory-canvas", "memory-ledger", "proposal-stack"
 ]) assert.match(index, new RegExp(`id="${id}"`), `${id} is not exposed on the public surface.`);
 
 assert.doesNotMatch(index, /github\.com\/zeropoet\/root-logos\/blob\/main\/PARTICIPATION\.md/);
 assert.match(renderer, /const renderVerification/);
 assert.match(renderer, /const propagationEvents/);
-assert.match(renderer, /const publicIntegrityChecks/);
+assert.doesNotMatch(index, /data-module="02\.03">Browser-verifiable integrity|id="run-public-verification"|id="public-verification-results"/);
+assert.doesNotMatch(renderer, /const publicIntegrityChecks|const runPublicVerification/);
 assert.match(renderer, /publishedSourceRecords/);
 assert.match(styles, /\.verification-ledger-layout/);
 assert.match(styles, /\.propagation-column-head/);
-assert.equal(graph.meta.interfaceVersion, "1.4.6");
+assert.equal(graph.meta.interfaceVersion, "1.4.7");
 assert.ok(graph.nodes.some(({ id }) => id === "public-verification-observatory"));
 assert.ok(graph.edges.some(({ from, to }) => from === "root-logos" && to === "public-verification-observatory"));
-assert.equal(exports.at(-1).export_id, "RL-EXPORT-0016");
-assert.equal(exports.at(-1).revision_entry.version, "1.4.6");
+assert.equal(exports.at(-1).export_id, "RL-EXPORT-0017");
+assert.equal(exports.at(-1).revision_entry.version, "1.4.7");
 assert.match(styles, /h1, h2, h3, h4,[\s\S]*?text-transform:\s*uppercase;/);
 assert.doesNotMatch(index, /Latest autonomous inquiry|id="latest-cycle"|id="cycle-drawer"/);
 assert.match(index, /A constitution <em>held in relation\.<\/em>/);
@@ -48,6 +49,11 @@ assert.match(styles, /body\.archive-open \.library-shell \{[\s\S]*?inset:390px/)
 assert.match(styles, /body\.archive-open \.observation-instrument \{[\s\S]*?width:min\(1500px,100%\)/);
 assert.match(styles, /body\.archive-open \.observation-instrument > header \{[\s\S]*?padding-right:0;[\s\S]*?padding-left:0;/);
 assert.match(styles, /\.observation-instrument > header h3 \{[^}]*overflow-wrap: normal;[^}]*word-break: normal;/);
+assert.match(styles, /body\.archive-open \.observation-instrument > header > p:last-child \{[\s\S]*?padding-right:clamp/);
+assert.match(styles, /body\.archive-open \.work-reading \{ padding:26px 0 42px 26px; \}/);
+assert.match(index, /data-module="02\.03">Relational observatory/);
+assert.match(index, /data-module="02\.04">Semantic memory/);
+assert.match(index, /data-module="02\.05">Adversarial review/);
 assert.match(index, /data-module="04\.01">Witnessed Relations/);
 assert.match(index, /data-module="04\.02">Design Flow Ledger/);
 for (const [id, order] of [["field", 1], ["coordinate", 2], ["verify", 3], ["works", 4], ["state", 5], ["intake", 6]]) {
@@ -58,4 +64,4 @@ for (const source of registry.sources) {
   assert.match(renderer, new RegExp(`${source.id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`), `${source.id} has no public verification mapping.`);
 }
 
-console.log("PASS public input inspection, propagation lineage, in-browser integrity checks, relational observatory, semantic memory, and adversarial review are published without requiring repository navigation.");
+console.log("PASS public input inspection, propagation lineage, relational observatory, semantic memory, and adversarial review are published without requiring repository navigation.");

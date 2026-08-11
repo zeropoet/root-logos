@@ -91,13 +91,15 @@ authority boundaries.
   ledger joins incoming witnesses, cultivation dispositions, identity exports,
   and outward X fragments into one dated surface. The archive count remains
   complete while archival fallback loads the latest 24 detailed cycles for
-  immediate inspection instead of issuing an unbounded request burst. Client-side integrity checks
-  validate graph endpoints, revision agreement, protocol state, source
-  coverage, witness form, and authority exclusions from the records already
-  delivered to the browser. Six relational projections, semantic memory, and
+  immediate inspection instead of issuing an unbounded request burst. Six relational projections, semantic memory, and
   adversarial proposal review restore deeper visual inspection without making
   GitHub a prerequisite for understanding Root Logos. Interface version
-  `1.4.6` removes the Public Membrane's remaining internal editorial gutters
+  `1.4.7` removes the separate browser-verification panel from the public
+  sequence: the input and propagation ledgers already disclose the evidence,
+  while repository verification continues to enforce the underlying contract.
+  The following modules close their numbering around that removal. It also
+  preserves a right reading inset for the Public Membrane explanation and adds
+  bottom clearance beneath the active Library holding. `1.4.6` removes the Public Membrane's remaining internal editorial gutters
   and protects whole-word display wrapping, giving its invitation the full
   width of the left column without breaking “conversation.” `1.4.5` brings runtime presence into the navigation as one concise cluster:
   current mode, inquiry reach, and revision appear once, in line with the five

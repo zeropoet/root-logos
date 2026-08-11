@@ -268,25 +268,6 @@ const renderPropagation = () => {
     </a></li>`).join("") || `<li class="propagation-empty">No events match this view.</li>`;
 };
 
-const publicIntegrityChecks = () => {
-  const nodeIds = new Set(app.graph.nodes.map(({ id }) => id));
-  const witnessedSources = (app.sources?.sources || []).filter(({ id }) => Boolean(sourceWitness(id))).length;
-  return [
-    ["Graph endpoints", app.graph.edges.every(({ from, to }) => nodeIds.has(from) && nodeIds.has(to)), `${app.graph.edges.length} relations resolve to published structures`],
-    ["Identity revision", app.identity?.revision === app.graph.meta?.revision, `${app.identity?.revision || "missing"} identity / ${app.graph.meta?.revision || "missing"} graph`],
-    ["Citizenship protocol", app.citizenship?.revision === app.identity?.revision && app.citizenship?.status === "active-public-protocol", `${app.citizenship?.participants?.length || 0} participant classes declared`],
-    ["Source coverage", (app.sources?.sources || []).every(({ id }) => Boolean(publishedSourceRecords[id])), `${app.sources?.sources?.length || 0} inputs expose local public records`],
-    ["Witness form", witnessedSources >= 4 && (app.sources?.sources || []).filter(({ id }) => sourceWitness(id)?.startsWith("sha256:")).every(({ id }) => /^sha256:[a-f0-9]{64}$/.test(sourceWitness(id))), `${witnessedSources} input channels carry a witness`],
-    ["Authority exclusions", app.citizenship?.authority && Object.values(app.citizenship.authority).every((value) => value === false), "Arrival, popularity, participant type, and self-expansion grant no authority"]
-  ];
-};
-
-const runPublicVerification = () => {
-  const checks = publicIntegrityChecks();
-  $("#public-verification-results").innerHTML = checks.map(([name, passed, detail]) => `<span class="${passed ? "is-pass" : "is-fail"}"><i>${passed ? "✓" : "×"}</i><b>${escapeHtml(name)}</b><small>${escapeHtml(detail)}</small></span>`).join("");
-  $("#run-public-verification").textContent = checks.every(([, passed]) => passed) ? "Verified / all checks pass" : "Verification found a boundary";
-};
-
 const renderVerification = () => {
   const sources = app.sources?.sources || [];
   const witnesses = sources.filter(({ id }) => Boolean(sourceWitness(id))).length;
@@ -1128,7 +1109,6 @@ const bindInterface = () => {
     $$("[data-propagation-filter]").forEach((item) => item.classList.toggle("is-active", item === button));
     renderPropagation();
   }));
-  $("#run-public-verification")?.addEventListener("click", runPublicVerification);
   $("#copy-source-witness")?.addEventListener("click", async () => {
     const value = $("#verify-source-witness").textContent;
     try {
