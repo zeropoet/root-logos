@@ -97,7 +97,14 @@ authority boundaries.
   delivered to the browser. Six relational projections, semantic memory, and
   adversarial proposal review restore deeper visual inspection without making
   GitHub a prerequisite for understanding Root Logos. Interface version
-  `1.4.3` keeps that display law and adds a plain-language reading layer to
+  `1.4.4` recasts that reading layer as an intrinsic voice rather than a guided
+  introduction: the archive names what is present and leaves interaction to the
+  observer. Module `03.00` now stands outside and above the Living Library as
+  its own threshold. Adversarial proposal cards select on hover, focus, or
+  click, keeping the visible proposal and its judgment in agreement. One flush
+  typographic axis removes decorative indentation across display lines; scale,
+  weight, measure, and interval now carry the hierarchy. `1.4.3` added a
+  plain-language reading layer to
   every inherited public section: the Field explains its points and relations,
   the Library explains its field/work distinction, State explains connected
   evidence and outward consequence, and the Membrane explains retention and

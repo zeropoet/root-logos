@@ -578,6 +578,12 @@ const renderProposals = () => {
     <h3>${escapeHtml(sentence(cycle.lens?.id || "Inquiry"))}</h3>
     <p>${escapeHtml(proposalSummary(cycle))}</p>
   </button>`).join("") || `<p class="memory-loading">No proposals are preserved.</p>`;
+  $$(".proposal-card").forEach((card) => {
+    const select = () => selectProposal(card.dataset.proposal);
+    card.addEventListener("pointerenter", select);
+    card.addEventListener("focus", select);
+    card.addEventListener("click", select);
+  });
   if (proposals[0]) selectProposal(proposals[0].cultivation_id);
 };
 
@@ -585,7 +591,11 @@ const selectProposal = (id) => {
   const cycle = app.cycles.find((item) => item.cultivation_id === id);
   if (!cycle) return;
   app.selectedProposal = cycle;
-  $$(".proposal-card").forEach((card) => card.classList.toggle("is-active", card.dataset.proposal === id));
+  $$(".proposal-card").forEach((card) => {
+    const selected = card.dataset.proposal === id;
+    card.classList.toggle("is-active", selected);
+    card.setAttribute("aria-pressed", String(selected));
+  });
   const judgment = cycle.autonomous_judgment || {};
   const operations = judgment.operations || cycle.proposal?.operations || [];
   const finding = cycle.selected_finding || {};
@@ -605,12 +615,12 @@ const buildWaveform = () => {
 };
 
 const observatoryModes = {
-  causality: ["Consequence lineage", "The Causal Thread", "Trace an arrival through admission, wake, inquiry, judgment, and structural consequence."],
-  epistemic: ["Kinds of knowing", "The Epistemic Field", "See what is canonical, interrogative, provisional, remembered, rejected, and implemented."],
-  pressure: ["Attention topology", "Pressure + Attention", "Witness where recent inquiry, structural connectivity, and unresolved questions gather force."],
-  absence: ["Computed negative space", "The Negative-Space Map", "Reveal relations the architecture can name as missing without pretending they already exist."],
-  authority: ["Permission topology", "The Stewardship Ledger", "See what may arrive, inquire, judge, apply, and publish—and where action must stop."],
-  respiration: ["Constitutional exchange", "The Attractor Constellation", "Follow meaning outward through emission and inward through observed consequence."],
+  causality: ["Consequence lineage", "The Causal Thread", "An arrival passes through admission, wake, inquiry, judgment, and structural consequence."],
+  epistemic: ["Kinds of knowing", "The Epistemic Field", "Canonical, interrogative, provisional, remembered, rejected, and implemented knowledge share one field."],
+  pressure: ["Attention topology", "Pressure + Attention", "Recent inquiry, structural connectivity, and unresolved questions gather force here."],
+  absence: ["Computed negative space", "The Negative-Space Map", "Missing relations remain named without being mistaken for structures that already exist."],
+  authority: ["Permission topology", "The Stewardship Ledger", "Permission runs from arrival to publication, with every place of required stopping held visible."],
+  respiration: ["Constitutional exchange", "The Attractor Constellation", "Meaning moves outward through emission and inward through observed consequence."],
 };
 
 const sharedKeywords = (left, right) => {

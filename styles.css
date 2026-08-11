@@ -604,8 +604,8 @@ body.archive-open #intake { order: 6; }
 
 /* Living Works */
 .works-space {
-  height: 100svh;
-  min-height: 720px;
+  height: max(112svh, 980px);
+  min-height: 980px;
   padding: 0;
   overflow: hidden;
   isolation: isolate;
@@ -614,7 +614,7 @@ body.archive-open #intake { order: 6; }
 }
 .library-shell {
   position:absolute;
-  inset:72px var(--edge) 24px;
+  inset:300px var(--edge) 24px;
   display:grid;
   grid-template-columns:minmax(230px,280px) minmax(0,1fr) minmax(270px,330px);
   border-top:1px solid rgba(255,255,255,.42);
@@ -627,9 +627,10 @@ body.archive-open #intake { order: 6; }
   border-right:1px solid rgba(255,255,255,.18);
   border-left:1px solid rgba(255,255,255,.18);
 }
-.library-guide { position:absolute;z-index:3;top:clamp(32px,5vw,70px);left:clamp(28px,4vw,62px);width:min(430px,calc(100% - 56px));padding-bottom:24px;background:linear-gradient(180deg,#000 0%,rgba(0,0,0,.94) 82%,transparent 100%);pointer-events:none; }
-.library-guide h2 { margin:18px 0 14px;color:#fff;font:300 clamp(1.75rem,3vw,3.5rem)/.98 var(--display);letter-spacing:-.05em; }
-.library-guide > p:last-child { max-width:380px;margin:0;color:rgba(255,255,255,.58);font-size:clamp(.78rem,1vw,.95rem);line-height:1.6; }
+.library-guide { position:absolute;z-index:6;top:118px;right:var(--edge);left:var(--edge);display:grid;grid-template-columns:minmax(220px,.72fr) minmax(0,1.8fr);gap:8vw;align-items:start;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.42);pointer-events:none; }
+.library-guide > div { max-width:920px; }
+.library-guide h2 { max-width:14ch;margin:0 0 20px;color:#fff;font:300 clamp(2.2rem,4.2vw,5.2rem)/1 var(--display);letter-spacing:-.035em; }
+.library-guide > div > p { max-width:650px;margin:0;color:rgba(255,255,255,.62);font-size:clamp(.88rem,1.08vw,1.05rem);line-height:1.68; }
 .works-space .coordinate,
 .works-space .micro-label { color:rgba(255,255,255,.62); }
 .works-space::before {
@@ -2031,6 +2032,9 @@ body.archive-open .site-footer nav {
   body.object-open main > .space { display:none !important; }
   body.object-open .object-instruction { display:block;bottom:max(24px,env(safe-area-inset-bottom));color:rgba(255,255,255,.5);font-size:.48rem; }
   .works-space { height:auto;min-height:100svh;padding:0;overflow:visible; }
+  .library-guide { position:relative;top:auto;right:auto;left:auto;display:block;width:auto;margin:110px 20px 0;padding-bottom:38px; }
+  .library-guide > div { margin-top:38px; }
+  .library-guide h2 { max-width:11ch;font-size:clamp(2.4rem,12vw,4rem);line-height:1; }
   .library-shell {
     position:relative;
     inset:auto;
@@ -2039,7 +2043,7 @@ body.archive-open .site-footer nav {
     grid-template-rows:minmax(390px,54svh) auto auto;
     width:calc(100% - 40px);
     min-height:calc(100svh - 86px);
-    margin:86px 20px 24px;
+    margin:52px 20px 24px;
   }
   .library-stage {
     grid-row:1;
@@ -2415,8 +2419,12 @@ body.archive-open .field-inspector {
 }
 
 body.archive-open .works-space { padding:0; }
+body.archive-open .library-guide {
+  right:var(--archive-edge);
+  left:calc(var(--archive-edge) + var(--archive-rail) + 28px);
+}
 body.archive-open .library-shell {
-  inset:104px var(--archive-edge) 30px calc(var(--archive-edge) + var(--archive-rail) + 28px);
+  inset:300px var(--archive-edge) 30px calc(var(--archive-edge) + var(--archive-rail) + 28px);
   border-top-color:rgba(255,255,255,.56);
 }
 body.archive-open .works-archive > header {
@@ -2581,9 +2589,16 @@ body.archive-open .site-footer > div small {
     gap:5px;
   }
   body.archive-open .works-space { padding:0; }
+  body.archive-open .library-guide {
+    position:relative;
+    top:auto;
+    right:auto;
+    left:auto;
+    margin:110px 20px 0;
+  }
   body.archive-open .library-shell {
     inset:auto;
-    margin:86px 20px 24px;
+    margin:52px 20px 24px;
   }
   body.archive-open .state-space { padding-top:118px; }
   body.archive-open .state-heading { min-height:0;padding-bottom:28px; }
@@ -2645,4 +2660,43 @@ body.archive-open .site-footer > div small {
   .verification-proposals .threshold-layout { grid-template-columns:1fr; }
   .review-surface { min-height:0; }
   .review-grid { grid-template-columns:1fr; }
+}
+
+/* Revision 1.4.4 — one object, one typographic axis.
+   Display language remains architectural but no line is decoratively indented;
+   hierarchy comes from scale, measure, weight, and interval. */
+body.archive-open h1,
+body.archive-open h2,
+body.archive-open h3,
+body.archive-open h4 {
+  margin-left:0;
+  font-weight:300;
+  text-indent:0;
+  text-wrap:balance;
+}
+body.archive-open h1 { line-height:.96;letter-spacing:-.035em; }
+body.archive-open h2 { line-height:1;letter-spacing:-.032em; }
+body.archive-open h3 { line-height:1.05;letter-spacing:-.025em; }
+body.archive-open h4 { line-height:1.08;letter-spacing:-.018em; }
+body.archive-open p,
+body.archive-open blockquote { text-indent:0; }
+body.archive-open .field-header h1 em,
+body.archive-open .coordinate-declaration h1 em,
+body.archive-open .field-intro,
+body.archive-open .works-heading > p:last-child { margin-left:0; }
+body.archive-open .field-intro,
+body.archive-open .coordinate-copy p,
+body.archive-open .space-heading > div > p,
+body.archive-open .library-guide > div > p,
+body.archive-open .state-module-heading > p:last-child,
+body.archive-open .design-flow-introduction p,
+body.archive-open .observation-instrument > header > p:last-child {
+  line-height:1.68;
+  text-wrap:pretty;
+}
+body.archive-open .proposal-card:focus-visible {
+  position:relative;
+  z-index:1;
+  outline:1px solid #fff;
+  outline-offset:-1px;
 }

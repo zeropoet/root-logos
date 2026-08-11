@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="alternate" type="application/json" href="content/citizenship.json" title="Root Logos Constitutional Citizenship Protocol">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=2.52-guided-sections" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
+    <link rel="stylesheet" href="styles.css?v=2.53-object-language" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
     <script>setTimeout(() => document.documentElement.classList.remove("style-pending"), 4000);</script>
   </head>
   <body class="archive-open">
@@ -74,8 +74,8 @@
 
         <div class="field-header">
           <p class="coordinate" data-module="01">Constitutional Field</p>
-          <h1>Read the constitution <em>as a relation.</em></h1>
-          <p class="field-intro">Every point is a published structure; every line is an explicit canonical relation. Filter the field, rotate its depth, and select any structure to inspect what it means and what it touches.</p>
+          <h1>A constitution <em>held in relation.</em></h1>
+          <p class="field-intro">Published structures gather as points; their explicit relations draw the field. Rotation changes the view, never the record. Any structure can be held close.</p>
         </div>
 
         <div class="field-controls" aria-label="Constitutional field controls">
@@ -92,7 +92,7 @@
           </div>
           <p class="micro-label" id="inspector-type" data-module="01.01">Constitutional source</p>
           <h2 id="inspector-title">Root Logos</h2>
-          <p id="inspector-summary">Rotate the object and select a structure to witness its position in the constitutional field.</p>
+          <p id="inspector-summary">The field turns in depth. A selected structure reveals its position, meaning, and relations.</p>
           <p class="inspector-provenance" id="inspector-provenance" hidden></p>
           <div class="inspector-relations" id="inspector-relations"></div>
           <a id="inspector-source" href="#state">Trace into current state <span>↗</span></a>
@@ -163,8 +163,8 @@
         <header class="space-heading observatory-heading" data-depth="Public evidence / live propagation">
           <p class="coordinate" data-module="02">Public Verification</p>
           <div>
-            <h2 id="verification-title">Nothing important should require <em>opening the repository.</em></h2>
-            <p>This surface reads the same published records that constitute Root Logos. Inspect incoming sources, witness digests, constitutional transformations, rejected proposals, outward fragments, and current authority boundaries from one public instrument.</p>
+            <h2 id="verification-title">The record lives <em>beside the object.</em></h2>
+            <p>Published inputs, witness digests, constitutional transformations, rejected proposals, outward fragments, and authority boundaries remain present together. The same records that constitute Root Logos are legible here.</p>
           </div>
         </header>
 
@@ -179,7 +179,7 @@
 
         <section class="verification-ledger" aria-labelledby="input-ledger-title">
           <header>
-            <div><p class="micro-label" data-module="02.01">Input ledger</p><h3 id="input-ledger-title">What is entering the field now.</h3></div>
+            <div><p class="micro-label" data-module="02.01">Input ledger</p><h3 id="input-ledger-title">What enters the field.</h3></div>
             <p id="verification-freshness"><i></i>Resolving published records</p>
           </header>
           <div class="verification-ledger-layout">
@@ -199,7 +199,7 @@
 
         <section class="propagation-ledger" aria-labelledby="propagation-title">
           <header>
-            <div><p class="micro-label" data-module="02.02">Propagation ledger</p><h3 id="propagation-title">Watch evidence move through the system.</h3></div>
+            <div><p class="micro-label" data-module="02.02">Propagation ledger</p><h3 id="propagation-title">Evidence in motion.</h3></div>
             <div class="propagation-filters" aria-label="Filter propagation events">
               <button type="button" class="is-active" data-propagation-filter="all">All</button>
               <button type="button" data-propagation-filter="input">Inputs</button>
@@ -213,14 +213,14 @@
         </section>
 
         <section class="public-integrity" aria-labelledby="integrity-title">
-          <header><div><p class="micro-label" data-module="02.03">Browser-verifiable integrity</p><h3 id="integrity-title">Test the published system in place.</h3></div><button type="button" id="run-public-verification">Run verification</button></header>
+          <header><div><p class="micro-label" data-module="02.03">Browser-verifiable integrity</p><h3 id="integrity-title">The published object, tested in place.</h3></div><button type="button" id="run-public-verification">Run verification</button></header>
           <p>These checks operate only on records already delivered to this page: graph integrity, revision agreement, declared-source coverage, witness form, participant protocol, and authority exclusions.</p>
           <div id="public-verification-results" aria-live="polite"><span>Verification has not yet run.</span></div>
         </section>
 
         <section class="observatory-substrate" aria-labelledby="observatory-title">
           <header>
-            <div><p class="micro-label" data-module="02.04">Relational observatory</p><h3 id="observatory-title">Inspect the architecture from six directions.</h3></div>
+            <div><p class="micro-label" data-module="02.04">Relational observatory</p><h3 id="observatory-title">One architecture, six ways of seeing.</h3></div>
             <p><span id="observatory-substrate-count">— structures</span><i></i><span>select any visible point</span></p>
           </header>
           <div class="observatory-instrument">
@@ -248,18 +248,26 @@
         </section>
 
         <section class="observatory-substrate verification-memory" aria-labelledby="memory-title">
-          <header><div><p class="micro-label" data-module="02.05">Semantic memory</p><h3 id="memory-title">What the system remembers—and why it did not act.</h3></div><p><span id="memory-total">bounded hypotheses</span><i></i><span>public disposition</span></p></header>
+          <header><div><p class="micro-label" data-module="02.05">Semantic memory</p><h3 id="memory-title">What remains; what did not become structure.</h3></div><p><span id="memory-total">bounded hypotheses</span><i></i><span>public disposition</span></p></header>
           <div class="memory-ledger-head"><span>Claim / relation</span><span>Disposition</span><span>Evidence</span><span>Return condition</span></div>
           <div class="memory-ledger" id="memory-ledger"></div>
         </section>
 
         <section class="observatory-substrate verification-proposals" aria-labelledby="proposal-title">
-          <header><div><p class="micro-label" data-module="02.06">Adversarial review</p><h3 id="proposal-title">Inspect proposals before consequence.</h3></div><p><span>selection</span><i></i><span>judgment + reversibility</span></p></header>
+          <header><div><p class="micro-label" data-module="02.06">Adversarial review</p><h3 id="proposal-title">Proposal and resistance, held together.</h3></div><p><span>selection</span><i></i><span>judgment + reversibility</span></p></header>
           <div class="threshold-layout"><div class="proposal-stack" id="proposal-stack"></div><article class="review-surface"><header><div><p class="micro-label">Selected proposal</p><h3 id="review-title">No proposal selected</h3></div><span id="review-risk">—</span></header><p class="review-claim" id="review-claim"></p><div class="review-grid"><div><p class="micro-label">Judgment</p><p id="review-judgment"></p></div><div><p class="micro-label">Reversibility</p><p id="review-reversibility"></p></div><div><p class="micro-label">Affected structures</p><p id="review-nodes"></p></div><div><p class="micro-label">Authority</p><p id="review-authority"></p></div></div></article></div>
         </section>
       </section>
 
-      <section class="space works-space" id="works" data-space-name="Works" aria-labelledby="work-title">
+      <section class="space works-space" id="works" data-space-name="Works" aria-labelledby="library-title">
+        <header class="library-guide">
+          <p class="coordinate" data-module="03.00">Works in relation</p>
+          <div>
+            <h2 id="library-title">Many works, one field.</h2>
+            <p>Each work remains whole while its structures join a common architecture. The Library Field holds the composition; each accession carries its own statement, relations, and resonant edition.</p>
+          </div>
+        </header>
+
         <div class="library-shell">
           <aside class="works-archive" aria-label="Living works archive">
             <header><span class="coordinate" data-module="03">Living Library</span><b id="work-count">00 works</b></header>
@@ -274,12 +282,6 @@
           <div class="library-stage">
             <canvas id="work-canvas" aria-label="The Library Field: Root Logos viewed through the complete architecture of its living works. Select a structure to describe it."></canvas>
             <div class="works-veil" aria-hidden="true"></div>
-            <header class="library-guide">
-              <p class="micro-label" data-module="03.00">How to read the library</p>
-              <h2>Read each work as a field.</h2>
-              <p>Choose the Library Field to see the archive as one architecture, or select a work to inspect its structures, statement, and resonant edition.</p>
-            </header>
-
             <aside class="work-node-detail" id="work-node-detail" hidden>
               <button type="button" id="work-node-detail-close" aria-label="Close structural detail">×</button>
               <p class="micro-label" id="work-node-detail-type" data-module="03.01.R">Structure</p>
@@ -309,8 +311,8 @@
         <header class="space-heading state-heading" data-depth="Connected evidence / outward consequence">
           <p class="coordinate" data-module="04">Autonomous Becoming</p>
           <div>
-            <h2 id="state-title">See what Root Logos is reading—and what it returns.</h2>
-            <p>The relations below are live public inputs, not authorities over Root Logos. Inspect what each source contributes, where its boundary remains, and how canonical structure moves outward through the design flow.</p>
+            <h2 id="state-title">What Root Logos reads; what it returns.</h2>
+            <p>These relations are live public inputs, never authorities over Root Logos. Each carries a contribution, a visible boundary, and a place in the outward design flow.</p>
           </div>
         </header>
 
@@ -318,8 +320,8 @@
           <header>
             <div class="state-module-heading">
               <p class="coordinate" data-module="04.01">Witnessed Relations</p>
-              <h3>Inspect the sources Root Logos reads.</h3>
-              <p>Choose a relation to see its current discovery, public measures, material lineage, and the limit of what it may determine.</p>
+              <h3>The sources within the present field.</h3>
+              <p>Each relation carries its current discovery, public measures, material lineage, and the limit of what it may determine.</p>
             </div>
             <p><span id="source-count">— sources</span><i></i><span id="source-witness">Awaiting witness</span></p>
           </header>
@@ -351,7 +353,7 @@
           </header>
           <div class="design-flow-introduction">
             <div>
-              <h3 id="design-flow-title">Follow canonical relation into public form.</h3>
+              <h3 id="design-flow-title">Canonical relation in public form.</h3>
               <p id="design-flow-purpose">Canonical relation becomes form, witness, and return without surrendering authority to the channel.</p>
             </div>
             <dl class="design-flow-measures" id="design-flow-measures"></dl>
@@ -367,8 +369,8 @@
         <div class="observation-instrument">
           <header>
             <p class="coordinate" id="intake-coordinate" data-module="05">Public Membrane</p>
-            <h3 id="intake-terminal-title">Offer something to the field.</h3>
-            <p id="intake-terminal-copy">Submit a public encounter for constitutional transformation. Root Logos will show how deeply it entered, preserve only what survives its thresholds, and release the original wording rather than retain it as private source material.</p>
+            <h3 id="intake-terminal-title">The conversation remains open.</h3>
+            <p id="intake-terminal-copy">An observation may enter as a public encounter. Its passage through the constitutional thresholds remains visible; only what survives them may become structure, while the original wording is released.</p>
           </header>
           <form id="observation-form">
             <div class="intake-mode-fields field-wide">
@@ -418,7 +420,7 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field.</p></noscript>
-    <script src="script.js?v=2.51-guided-sections" defer></script>
+    <script src="script.js?v=2.52-object-interaction" defer></script>
     <script src="works.js?v=2.23-expanded-corpora" defer></script>
   </body>
 </html>
