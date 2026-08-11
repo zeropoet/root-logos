@@ -41,7 +41,11 @@ const app = {
   foldforge: null,
   foldportrait: null,
   sourceWitnesses: {},
-  materialWitnesses: {}
+  materialWitnesses: {},
+  citizenship: null,
+  exports: [],
+  localState: null,
+  propagationFilter: "all"
 };
 
 const fetchJson = async (url) => {
@@ -54,7 +58,7 @@ const fetchJson = async (url) => {
 };
 
 const loadData = async () => {
-  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, designFlowResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult, sovereignMaterialResult, foldPortraitResult] = await Promise.allSettled([
+  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, designFlowResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult, sovereignMaterialResult, foldPortraitResult, citizenshipResult, exportsResult] = await Promise.allSettled([
     fetchJson("content/constitutional-graph.json"),
     fetchJson(`${RUNTIME}/v1/status`),
     fetchJson(`${RUNTIME}/v1/cycles`),
@@ -68,7 +72,9 @@ const loadData = async () => {
     fetchJson("sources/telos.public-witness.json"),
     fetchJson("sources/sovereign-standard.public-witness.json"),
     fetchJson("sources/sovereign-standard.snapshot.json"),
-    fetchJson("sources/foldportrait.snapshot.json")
+    fetchJson("sources/foldportrait.snapshot.json"),
+    fetchJson("content/citizenship.json"),
+    fetchJson("content/export-packets.json")
   ]);
 
   if (graphResult.status !== "fulfilled") throw graphResult.reason;
@@ -80,6 +86,9 @@ const loadData = async () => {
   app.sources = sourcesResult.status === "fulfilled" ? sourcesResult.value : { sources: [] };
   app.foldforge = foldForgeResult.status === "fulfilled" ? foldForgeResult.value : null;
   app.foldportrait = foldPortraitResult.status === "fulfilled" ? foldPortraitResult.value : null;
+  app.citizenship = citizenshipResult.status === "fulfilled" ? citizenshipResult.value : null;
+  app.exports = exportsResult.status === "fulfilled" ? exportsResult.value : [];
+  app.localState = localStateResult.status === "fulfilled" ? localStateResult.value : null;
   app.sourceWitnesses = Object.fromEntries([
     telosResult.status === "fulfilled" ? [telosResult.value.source_id, telosResult.value] : null,
     sovereignStandardResult.status === "fulfilled" ? [sovereignStandardResult.value.source_id, sovereignStandardResult.value] : null
@@ -108,7 +117,7 @@ const loadData = async () => {
   }
 
   if (!app.cycles.length && app.runtime.cultivation?.history?.length) {
-    const ids = app.runtime.cultivation.history.map(({ cultivation_id }) => canonicalCultivationId(cultivation_id)).reverse();
+    const ids = app.runtime.cultivation.history.map(({ cultivation_id }) => canonicalCultivationId(cultivation_id)).reverse().slice(0, 24);
     const loaded = await Promise.allSettled(ids.map((id) => fetchJson(`cultivation/cycles/${id}.json`)));
     app.cycles = loaded.filter(({ status }) => status === "fulfilled").map(({ value }) => canonicalCycle(value));
   }
@@ -150,6 +159,153 @@ const renderCoordinate = () => {
   $("#coordinate-declaration").textContent = app.identity.declaration;
   $("#coordinate-present").textContent = `${app.identity.revision} / ${present}`;
   $("#coordinate-field").textContent = `${app.graph.nodes.length} structures / ${app.graph.edges.length} relations`;
+};
+
+const publishedSourceRecords = {
+  foldforge: "sources/foldforge.snapshot.json",
+  x: "content/attractor-packets.json",
+  telos: "sources/telos.public-witness.json",
+  "sovereign-standard": "sources/sovereign-standard.public-witness.json",
+  foldportrait: "sources/foldportrait.snapshot.json"
+};
+
+const sourcePayload = (id) => {
+  if (id === "foldforge") return app.foldforge;
+  if (id === "foldportrait") return app.foldportrait;
+  if (id === "x") return app.attractors;
+  return app.sourceWitnesses[id] || app.materialWitnesses[id] || null;
+};
+
+const sourceWitness = (id) => {
+  const payload = sourcePayload(id);
+  if (payload?.witness) return payload.witness;
+  if (payload?.composition_witness) return payload.composition_witness;
+  if (id === "x") {
+    const publications = (app.attractors?.packets || []).filter(({ publication }) => publication?.status === "published");
+    return publications.at(-1)?.publication?.external_id ? `x-status:${publications.at(-1).publication.external_id}` : null;
+  }
+  return null;
+};
+
+const sourceRevision = (payload) => payload?.source_revision || payload?.revision || payload?.current_reflection || payload?.public_state?.source_successor_version || "Published record";
+const sourceDate = (payload) => payload?.effective_date || payload?.updated_at || payload?.generated_at || payload?.current_reflection?.created_at || null;
+const displayEventDate = (value) => {
+  if (!value) return "Published state";
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    const [year, month, day] = value.split("-");
+    return new Intl.DateTimeFormat("en", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(new Date(`${year}-${month}-${day}T00:00:00Z`));
+  }
+  return new Date(value).toLocaleString();
+};
+
+const selectVerificationSource = (id) => {
+  const source = (app.sources?.sources || []).find((item) => item.id === id);
+  if (!source) return;
+  const payload = sourcePayload(id);
+  const witness = sourceWitness(id);
+  $$("[data-verification-source]").forEach((button) => button.classList.toggle("is-active", button.dataset.verificationSource === id));
+  $("#verify-source-coordinate").textContent = `${sentence(source.visibility)} / ${sentence(source.adapter)}`;
+  $("#verify-source-status").textContent = sentence(payload?.status || source.status || "published");
+  $("#verify-source-title").textContent = source.name;
+  $("#verify-source-role").textContent = source.connection_message || source.role;
+  const measures = [
+    ["Schema", payload?.schema || source.adapter],
+    ["Revision", sourceRevision(payload)],
+    ["Read paths", source.reads?.length || 0],
+    ["Visibility", sentence(source.visibility)]
+  ];
+  if (id === "foldforge") measures.splice(2, 0, ["Compositions", payload?.compositions?.length || 0]);
+  if (id === "foldportrait") measures.splice(2, 0, ["Reflections", payload?.reflections?.length || 0]);
+  if (id === "x") measures.splice(2, 0, ["Published", (payload?.packets || []).filter(({ publication }) => publication?.status === "published").length]);
+  $("#verify-source-measures").innerHTML = measures.map(([name, value]) => `<div><dt>${escapeHtml(name)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("");
+  $("#verify-source-witness").textContent = witness || "No cryptographic digest declared for this channel";
+  $("#copy-source-witness").disabled = !witness;
+  $("#verify-source-paths").innerHTML = (source.reads || []).map((path) => `<code>${escapeHtml(path)}</code>`).join("");
+  $("#verify-source-boundary").textContent = source.boundary;
+  $("#verify-source-record").href = publishedSourceRecords[id] || "sources/registry.json";
+  $("#verify-source-origin").href = source.public_url || source.repository || publishedSourceRecords[id] || "#verify";
+};
+
+const propagationEvents = () => {
+  const events = [];
+  (app.sources?.sources || []).forEach((source) => {
+    const payload = sourcePayload(source.id);
+    const witness = sourceWitness(source.id);
+    events.push({
+      type: "input", at: sourceDate(payload), title: `${source.name} input witnessed`, origin: sentence(source.adapter),
+      consequence: source.returns || source.receives, witness: witness || publishedSourceRecords[source.id], href: publishedSourceRecords[source.id]
+    });
+  });
+  app.cycles.forEach((cycle) => {
+    const last = (cycle.events || []).at(-1);
+    events.push({
+      type: "inquiry", at: last?.at, title: `${cycle.cultivation_id} / ${sentence(cycle.status)}`, origin: sentence(cycle.lens?.id || "cultivation"),
+      consequence: cycle.application ? "Canonical operations applied with preserved lineage." : cycle.autonomous_judgment?.reason || cycle.selected_finding?.claim || "No constitutional mutation entered the graph.",
+      witness: `${(cycle.events || []).length} events`, href: `cultivation/cycles/${cycle.cultivation_id}.json`
+    });
+  });
+  if (app.identity) events.push({
+    type: "identity", at: app.identity.effective_at, title: `${app.identity.revision} / current identity`, origin: "Self-authorship lineage",
+    consequence: typeof app.identity.headline === "string" ? app.identity.headline : `${app.identity.headline?.lead || ""} ${app.identity.headline?.emphasis || ""}`.trim() || app.identity.declaration,
+    witness: app.identity.signature, href: "self-authorship/current.json"
+  });
+  (app.exports || []).forEach((packet) => events.push({
+    type: "identity", at: packet.date, title: `${packet.export_id} / ${packet.primary_update?.title || "accepted export"}`, origin: packet.source,
+    consequence: packet.summary, witness: packet.status, href: "content/export-packets.json"
+  }));
+  (app.attractors?.packets || []).filter(({ publication }) => publication?.status === "published").forEach((packet) => events.push({
+    type: "output", at: packet.publication.published_at, title: `${packet.attractor_id} / fragment published`, origin: nodeTitle(packet.node),
+    consequence: (packet.fragment || []).at(-1) || "A constitutional fragment crossed the public membrane.", witness: packet.publication.external_id,
+    href: packet.publication.external_url
+  }));
+  return events.sort((left, right) => new Date(right.at || 0) - new Date(left.at || 0));
+};
+
+const renderPropagation = () => {
+  const filtered = propagationEvents().filter(({ type }) => app.propagationFilter === "all" || type === app.propagationFilter).slice(0, 48);
+  $("#propagation-events").innerHTML = filtered.map((event, index) => `<li data-propagation-type="${escapeHtml(event.type)}">
+    <a href="${escapeHtml(event.href || "#verify")}"${String(event.href || "").startsWith("http") ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>
+      <span><i>${String(index + 1).padStart(2, "0")}</i><b>${escapeHtml(event.title)}</b><small>${escapeHtml(displayEventDate(event.at))}</small></span>
+      <span>${escapeHtml(event.origin || "Root Logos")}</span><span>${escapeHtml(event.consequence || "Preserved without mutation")}</span><code>${escapeHtml(event.witness || "public record")}</code>
+    </a></li>`).join("") || `<li class="propagation-empty">No events match this view.</li>`;
+};
+
+const publicIntegrityChecks = () => {
+  const nodeIds = new Set(app.graph.nodes.map(({ id }) => id));
+  const witnessedSources = (app.sources?.sources || []).filter(({ id }) => Boolean(sourceWitness(id))).length;
+  return [
+    ["Graph endpoints", app.graph.edges.every(({ from, to }) => nodeIds.has(from) && nodeIds.has(to)), `${app.graph.edges.length} relations resolve to published structures`],
+    ["Identity revision", app.identity?.revision === app.graph.meta?.revision, `${app.identity?.revision || "missing"} identity / ${app.graph.meta?.revision || "missing"} graph`],
+    ["Citizenship protocol", app.citizenship?.revision === app.identity?.revision && app.citizenship?.status === "active-public-protocol", `${app.citizenship?.participants?.length || 0} participant classes declared`],
+    ["Source coverage", (app.sources?.sources || []).every(({ id }) => Boolean(publishedSourceRecords[id])), `${app.sources?.sources?.length || 0} inputs expose local public records`],
+    ["Witness form", witnessedSources >= 4 && (app.sources?.sources || []).filter(({ id }) => sourceWitness(id)?.startsWith("sha256:")).every(({ id }) => /^sha256:[a-f0-9]{64}$/.test(sourceWitness(id))), `${witnessedSources} input channels carry a witness`],
+    ["Authority exclusions", app.citizenship?.authority && Object.values(app.citizenship.authority).every((value) => value === false), "Arrival, popularity, participant type, and self-expansion grant no authority"]
+  ];
+};
+
+const runPublicVerification = () => {
+  const checks = publicIntegrityChecks();
+  $("#public-verification-results").innerHTML = checks.map(([name, passed, detail]) => `<span class="${passed ? "is-pass" : "is-fail"}"><i>${passed ? "✓" : "×"}</i><b>${escapeHtml(name)}</b><small>${escapeHtml(detail)}</small></span>`).join("");
+  $("#run-public-verification").textContent = checks.every(([, passed]) => passed) ? "Verified / all checks pass" : "Verification found a boundary";
+};
+
+const renderVerification = () => {
+  const sources = app.sources?.sources || [];
+  const witnesses = sources.filter(({ id }) => Boolean(sourceWitness(id))).length;
+  const published = (app.attractors?.packets || []).filter(({ publication }) => publication?.status === "published").length;
+  $("#verify-input-count").textContent = sources.length;
+  $("#verify-witness-count").textContent = witnesses;
+  $("#verify-node-count").textContent = app.graph.nodes.length;
+  $("#verify-edge-count").textContent = app.graph.edges.length;
+  $("#verify-cycle-count").textContent = app.localState?.history?.length || app.cycles.length;
+  $("#verify-emission-count").textContent = published;
+  $("#observatory-substrate-count").textContent = `${app.graph.nodes.length} structures`;
+  $("#memory-total").textContent = `${Object.keys(app.memory?.hypotheses || {}).length || "bounded"} hypotheses`;
+  $("#verification-freshness").innerHTML = `<i></i>Loaded directly from ${sources.length} published input records`;
+  $("#verification-source-list").innerHTML = sources.map((source, index) => `<button type="button" data-verification-source="${escapeHtml(source.id)}" class="${index === 0 ? "is-active" : ""}"><span>${String(index + 1).padStart(2, "0")}</span><b>${escapeHtml(source.name)}</b><small>${escapeHtml(sentence(source.visibility))}</small><i>${sourceWitness(source.id) ? "Witnessed" : "Declared channel"}</i></button>`).join("");
+  $$("[data-verification-source]").forEach((button) => button.addEventListener("click", () => selectVerificationSource(button.dataset.verificationSource)));
+  if (sources[0]) selectVerificationSource(sources[0].id);
+  renderPropagation();
 };
 
 const renderSources = () => {
@@ -959,6 +1115,18 @@ const bindInterface = () => {
     updateNavigationState();
   };
 
+  $(".nav-toggle")?.addEventListener("click", () => {
+    const navigation = $(".primary-nav");
+    const open = !navigation.classList.contains("is-open");
+    navigation.classList.toggle("is-open", open);
+    $(".nav-toggle").setAttribute("aria-expanded", String(open));
+    $(".nav-toggle").setAttribute("aria-label", open ? "Close archive navigation" : "Open archive navigation");
+  });
+  navLinks.forEach((link) => link.addEventListener("click", () => {
+    $(".primary-nav").classList.remove("is-open");
+    $(".nav-toggle")?.setAttribute("aria-expanded", "false");
+  }));
+
   $("[data-field-inspector-close]").addEventListener("click", closeFieldInspector);
   $$(".field-control").forEach((control) => control.addEventListener("click", () => {
     app.filter = control.dataset.filter;
@@ -977,6 +1145,35 @@ const bindInterface = () => {
   $("#observation-form").addEventListener("submit", (event) => {
     event.preventDefault();
     submitObservation(event.currentTarget);
+  });
+  $$("[data-observatory-mode]").forEach((button) => button.addEventListener("click", () => observatory?.setMode(button.dataset.observatoryMode)));
+  $("#observatory-selection")?.addEventListener("click", () => {
+    if (app.observatorySelection) observatory?.select(app.observatorySelection, true);
+  });
+  $("#close-observatory-reading")?.addEventListener("click", () => {
+    $("#observatory-reading").classList.remove("is-open");
+    $("#observatory-selection").setAttribute("aria-expanded", "false");
+  });
+  $$("[data-propagation-filter]").forEach((button) => button.addEventListener("click", () => {
+    app.propagationFilter = button.dataset.propagationFilter;
+    $$("[data-propagation-filter]").forEach((item) => item.classList.toggle("is-active", item === button));
+    renderPropagation();
+  }));
+  $("#run-public-verification")?.addEventListener("click", runPublicVerification);
+  $("#copy-source-witness")?.addEventListener("click", async () => {
+    const value = $("#verify-source-witness").textContent;
+    try {
+      await navigator.clipboard.writeText(value);
+      $("#copy-source-witness").textContent = "Copied";
+      setTimeout(() => { $("#copy-source-witness").textContent = "Copy"; }, 1600);
+    } catch {
+      $("#copy-source-witness").textContent = "Select digest";
+      const selection = getSelection();
+      const range = document.createRange();
+      range.selectNodeContents($("#verify-source-witness"));
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
   });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && $("#field-inspector").classList.contains("is-visible")) {
@@ -1006,9 +1203,13 @@ const initialize = async () => {
     await loadData();
     renderPresence();
     renderCoordinate();
+    renderVerification();
     renderSources();
     renderDesignFlow();
     renderLatestCycle();
+    renderMemory();
+    renderProposals();
+    observatory = new LivingObservatory($("#observatory-canvas"));
     field = new ConstitutionalField($("#field-canvas"), app.graph);
     if (!resolveFieldDeepLink()) {
       const returningFragmentId = new URLSearchParams(location.search).get("from");

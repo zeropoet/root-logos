@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="alternate" type="application/json" href="content/citizenship.json" title="Root Logos Constitutional Citizenship Protocol">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=2.40-living-coordinate" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
+    <link rel="stylesheet" href="styles.css?v=2.50-public-observatory" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
     <script>setTimeout(() => document.documentElement.classList.remove("style-pending"), 4000);</script>
   </head>
   <body class="archive-open">
@@ -39,6 +39,16 @@
         <span class="brand-mark"><img src="assets/root-logos-mark-open.svg" width="28" height="28" alt=""></span>
         <span class="brand-word">Root Logos</span>
       </a>
+
+      <nav class="primary-nav" aria-label="Root Logos public archive">
+        <a href="#field" data-space="field"><span>01</span>Field</a>
+        <a href="#verify" data-space="verify"><span>02</span>Verify</a>
+        <a href="#works" data-space="works"><span>03</span>Library</a>
+        <a href="#state" data-space="state"><span>04</span>State</a>
+        <a href="#intake" data-space="intake"><span>05</span>Enter</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open archive navigation"><span></span><span></span></button>
 
       <div class="system-presence" aria-live="polite">
         <div class="presence-primary">
@@ -140,17 +150,117 @@
         <div class="coordinate-paths" aria-label="Ways to participate">
           <a href="#field"><span>Encounter</span><b>Trace the constitutional field</b><i>01 ↗</i></a>
           <a href="#intake"><span>Offer</span><b>Enter through the Public Membrane</b><i>02 ↗</i></a>
-          <a href="https://github.com/zeropoet/root-logos/blob/main/PARTICIPATION.md" target="_blank" rel="noreferrer"><span>Build</span><b>Propose a coherent Library work</b><i>03 ↗</i></a>
+          <a href="#intake"><span>Build</span><b>Propose a coherent Library work</b><i>03 ↗</i></a>
           <a href="content/citizenship.json"><span>Protocol</span><b>Read the machine contract</b><i>04 ↗</i></a>
         </div>
 
         <p class="coordinate-boundary">Constitutional citizenship is not legal citizenship, personhood certification, nationality, ownership, voting power, or institutional membership. Root Logos remains answerable to its Constitution, higher reference, source boundaries, privacy exclusions, public lineage, and capacity for correction.</p>
       </section>
 
+      <section class="space observatory-space" id="verify" data-space-name="Verify" aria-labelledby="verification-title">
+        <header class="space-heading observatory-heading" data-depth="Public evidence / live propagation">
+          <p class="coordinate" data-module="02">Public Verification</p>
+          <div>
+            <h2 id="verification-title">Nothing important should require <em>opening the repository.</em></h2>
+            <p>This surface reads the same published records that constitute Root Logos. Inspect incoming sources, witness digests, constitutional transformations, rejected proposals, outward fragments, and current authority boundaries from one public instrument.</p>
+          </div>
+        </header>
+
+        <dl class="verification-register" id="verification-register" aria-label="Public verification summary">
+          <div><dt>Inputs</dt><dd id="verify-input-count">—</dd><small>declared public sources</small></div>
+          <div><dt>Witnessed</dt><dd id="verify-witness-count">—</dd><small>sealed input records</small></div>
+          <div><dt>Structures</dt><dd id="verify-node-count">—</dd><small>constitutional nodes</small></div>
+          <div><dt>Relations</dt><dd id="verify-edge-count">—</dd><small>explicit graph edges</small></div>
+          <div><dt>Inquiry</dt><dd id="verify-cycle-count">—</dd><small>preserved cycles</small></div>
+          <div><dt>Emitted</dt><dd id="verify-emission-count">—</dd><small>public fragments</small></div>
+        </dl>
+
+        <section class="verification-ledger" aria-labelledby="input-ledger-title">
+          <header>
+            <div><p class="micro-label" data-module="02.01">Input ledger</p><h3 id="input-ledger-title">What is entering the field now.</h3></div>
+            <p id="verification-freshness"><i></i>Resolving published records</p>
+          </header>
+          <div class="verification-ledger-layout">
+            <div class="verification-source-list" id="verification-source-list"></div>
+            <article class="verification-source-detail" id="verification-source-detail" aria-live="polite">
+              <header><p class="micro-label" id="verify-source-coordinate">Published input</p><span id="verify-source-status">—</span></header>
+              <h3 id="verify-source-title">Resolving source</h3>
+              <p id="verify-source-role"></p>
+              <dl id="verify-source-measures"></dl>
+              <div class="verification-digest"><small>Witness digest</small><code id="verify-source-witness">No sealed digest published</code><button type="button" id="copy-source-witness">Copy</button></div>
+              <div class="verification-read-paths"><small>Records read by Root Logos</small><div id="verify-source-paths"></div></div>
+              <p class="verification-boundary" id="verify-source-boundary"></p>
+              <div class="verification-actions"><a id="verify-source-record" href="#">Inspect published record ↗</a><a id="verify-source-origin" href="#" target="_blank" rel="noreferrer">Visit public origin ↗</a></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="propagation-ledger" aria-labelledby="propagation-title">
+          <header>
+            <div><p class="micro-label" data-module="02.02">Propagation ledger</p><h3 id="propagation-title">Watch evidence move through the system.</h3></div>
+            <div class="propagation-filters" aria-label="Filter propagation events">
+              <button type="button" class="is-active" data-propagation-filter="all">All</button>
+              <button type="button" data-propagation-filter="input">Inputs</button>
+              <button type="button" data-propagation-filter="inquiry">Inquiry</button>
+              <button type="button" data-propagation-filter="identity">Identity</button>
+              <button type="button" data-propagation-filter="output">Outputs</button>
+            </div>
+          </header>
+          <div class="propagation-column-head" aria-hidden="true"><span>Time / event</span><span>Origin</span><span>Consequence</span><span>Witness</span></div>
+          <ol id="propagation-events"></ol>
+        </section>
+
+        <section class="public-integrity" aria-labelledby="integrity-title">
+          <header><div><p class="micro-label" data-module="02.03">Browser-verifiable integrity</p><h3 id="integrity-title">Test the published system in place.</h3></div><button type="button" id="run-public-verification">Run verification</button></header>
+          <p>These checks operate only on records already delivered to this page: graph integrity, revision agreement, declared-source coverage, witness form, participant protocol, and authority exclusions.</p>
+          <div id="public-verification-results" aria-live="polite"><span>Verification has not yet run.</span></div>
+        </section>
+
+        <section class="observatory-substrate" aria-labelledby="observatory-title">
+          <header>
+            <div><p class="micro-label" data-module="02.04">Relational observatory</p><h3 id="observatory-title">Inspect the architecture from six directions.</h3></div>
+            <p><span id="observatory-substrate-count">— structures</span><i></i><span>select any visible point</span></p>
+          </header>
+          <div class="observatory-instrument">
+            <nav class="observatory-modes" aria-label="Observatory modes">
+              <button type="button" class="is-active" data-observatory-mode="causality"><span>01</span><b>Causality</b><small>arrival → consequence</small></button>
+              <button type="button" data-observatory-mode="epistemic"><span>02</span><b>Knowing</b><small>canonical → uncertain</small></button>
+              <button type="button" data-observatory-mode="pressure"><span>03</span><b>Pressure</b><small>attention topology</small></button>
+              <button type="button" data-observatory-mode="absence"><span>04</span><b>Absence</b><small>missing relations</small></button>
+              <button type="button" data-observatory-mode="authority"><span>05</span><b>Authority</b><small>where action stops</small></button>
+              <button type="button" data-observatory-mode="respiration"><span>06</span><b>Exchange</b><small>meaning outward</small></button>
+            </nav>
+            <div class="observatory-stage" data-mode="causality">
+              <canvas id="observatory-canvas" aria-label="Interactive relational observatory. Choose a mode and select a point to inspect its evidence."></canvas>
+              <div class="observatory-grid" aria-hidden="true"></div>
+              <header class="observatory-stage-head"><div><p class="micro-label" id="observatory-coordinate">Consequence lineage</p><h3 id="observatory-mode-title">The Causal Thread</h3></div><p id="observatory-mode-copy">Trace an arrival through admission, wake, inquiry, judgment, and structural consequence.</p></header>
+              <div class="observatory-legend" id="observatory-legend"></div>
+              <button class="observatory-selection" id="observatory-selection" type="button" aria-expanded="false"><span id="selection-index">01</span><span><small id="selection-kind">Evidence</small><b id="selection-title">Select a point</b></span><i>Inspect record ↗</i></button>
+              <aside class="observatory-reading" id="observatory-reading" aria-live="polite">
+                <header><p class="micro-label" id="reading-coordinate">Evidence</p><button type="button" id="close-observatory-reading" aria-label="Close evidence detail">×</button></header>
+                <h3 id="reading-title">Record</h3><p id="reading-body"></p>
+                <div class="reading-measures" id="reading-measures"></div><div class="reading-trace" id="reading-trace"></div><div class="reading-actions" id="reading-actions"></div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <section class="observatory-substrate verification-memory" aria-labelledby="memory-title">
+          <header><div><p class="micro-label" data-module="02.05">Semantic memory</p><h3 id="memory-title">What the system remembers—and why it did not act.</h3></div><p><span id="memory-total">bounded hypotheses</span><i></i><span>public disposition</span></p></header>
+          <div class="memory-ledger-head"><span>Claim / relation</span><span>Disposition</span><span>Evidence</span><span>Return condition</span></div>
+          <div class="memory-ledger" id="memory-ledger"></div>
+        </section>
+
+        <section class="observatory-substrate verification-proposals" aria-labelledby="proposal-title">
+          <header><div><p class="micro-label" data-module="02.06">Adversarial review</p><h3 id="proposal-title">Inspect proposals before consequence.</h3></div><p><span>selection</span><i></i><span>judgment + reversibility</span></p></header>
+          <div class="threshold-layout"><div class="proposal-stack" id="proposal-stack"></div><article class="review-surface"><header><div><p class="micro-label">Selected proposal</p><h3 id="review-title">No proposal selected</h3></div><span id="review-risk">—</span></header><p class="review-claim" id="review-claim"></p><div class="review-grid"><div><p class="micro-label">Judgment</p><p id="review-judgment"></p></div><div><p class="micro-label">Reversibility</p><p id="review-reversibility"></p></div><div><p class="micro-label">Affected structures</p><p id="review-nodes"></p></div><div><p class="micro-label">Authority</p><p id="review-authority"></p></div></div></article></div>
+        </section>
+      </section>
+
       <section class="space works-space" id="works" data-space-name="Works" aria-labelledby="work-title">
         <div class="library-shell">
           <aside class="works-archive" aria-label="Living works archive">
-            <header><span class="coordinate" data-module="02">Living Library</span><b id="work-count">00 works</b></header>
+            <header><span class="coordinate" data-module="03">Living Library</span><b id="work-count">00 works</b></header>
             <div class="library-entries">
               <button class="library-entry" id="library-entry" type="button">
                 <span>∞</span><span><b>Library Field</b><small id="library-entry-detail">Resolving living collections</small></span>
@@ -165,14 +275,14 @@
 
             <aside class="work-node-detail" id="work-node-detail" hidden>
               <button type="button" id="work-node-detail-close" aria-label="Close structural detail">×</button>
-              <p class="micro-label" id="work-node-detail-type" data-module="02.01.R">Structure</p>
+              <p class="micro-label" id="work-node-detail-type" data-module="03.01.R">Structure</p>
               <h3 id="work-node-detail-title">Selected node</h3>
               <p id="work-node-detail-body"></p>
             </aside>
           </div>
 
           <aside class="work-reading">
-            <p class="micro-label" id="work-coordinate" data-module="02.01">Active holding / visual-resonant edition</p>
+            <p class="micro-label" id="work-coordinate" data-module="03.01">Active holding / visual-resonant edition</p>
             <h3 id="work-title" role="button" tabindex="0" aria-describedby="work-sound-status">Resolving the first work</h3>
             <p id="work-statement">The archive is establishing its shape.</p>
             <div class="work-listening">
@@ -190,13 +300,13 @@
 
       <section class="space state-space" id="state" data-space-name="State" aria-label="Autonomous Becoming">
         <header class="section-heading state-heading">
-          <p class="coordinate" data-module="03">Autonomous Becoming</p>
+          <p class="coordinate" data-module="04">Autonomous Becoming</p>
         </header>
 
         <div class="state-primary">
           <article class="state-cycle" id="latest-cycle">
             <header>
-              <p class="micro-label" data-module="03.01">Latest autonomous inquiry</p>
+              <p class="micro-label" data-module="04.01">Latest autonomous inquiry</p>
               <span class="decision-seal" id="cycle-decision">—</span>
             </header>
             <h3 id="cycle-id">Loading lineage</h3>
@@ -217,13 +327,13 @@
 
         <div class="state-sources">
           <header>
-            <p class="coordinate" data-module="03.02">Witnessed Relations</p>
+            <p class="coordinate" data-module="04.02">Witnessed Relations</p>
             <p><span id="source-count">— sources</span><i></i><span id="source-witness">Awaiting witness</span></p>
           </header>
           <div class="state-source-layout">
             <div class="source-nodes" id="source-nodes" aria-label="Connected source field"></div>
             <aside class="source-reading" id="source-reading" aria-live="polite">
-              <p class="coordinate" id="source-coordinate" data-module="03.02.R">Active source / establishing witness</p>
+              <p class="coordinate" id="source-coordinate" data-module="04.02.R">Active source / establishing witness</p>
               <h3 id="source-title">FoldForge</h3>
               <p class="source-role" id="source-role">Identity composition and evidence-to-grammar research</p>
               <blockquote id="source-discovery">Reading public constitutional and composition evidence.</blockquote>
@@ -243,7 +353,7 @@
 
         <section class="state-design-flow" id="design-flow" aria-labelledby="design-flow-title">
           <header>
-            <p class="coordinate" data-module="03.03">Design Flow Ledger</p>
+            <p class="coordinate" data-module="04.03">Design Flow Ledger</p>
             <p><span id="design-flow-status">Resolving module</span><i></i><span id="design-flow-witness">X witness</span></p>
           </header>
           <div class="design-flow-introduction">
@@ -262,7 +372,7 @@
           <div class="drawer-scrim" data-close-drawer></div>
           <article role="dialog" aria-modal="true" aria-labelledby="drawer-title">
             <button type="button" class="drawer-close" data-close-drawer aria-label="Close lineage">×</button>
-            <p class="coordinate" data-module="03.01.R">Complete cultivation lineage</p>
+            <p class="coordinate" data-module="04.01.R">Complete cultivation lineage</p>
             <h2 id="drawer-title">Cycle</h2>
             <div id="drawer-content"></div>
           </article>
@@ -272,7 +382,7 @@
       <section class="space intake-space" id="intake" data-space-name="Intake" aria-label="The Membrane">
         <div class="observation-instrument">
           <header>
-            <p class="coordinate" id="intake-coordinate" data-module="04">Public Membrane</p>
+            <p class="coordinate" id="intake-coordinate" data-module="05">Public Membrane</p>
             <h3 id="intake-terminal-title">Enter the living field.</h3>
             <p id="intake-terminal-copy">Root Logos will receive this offering, reveal where the Living Object responds, and release the source wording.</p>
           </header>
@@ -324,7 +434,7 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field.</p></noscript>
-    <script src="script.js?v=2.41-living-coordinate" defer></script>
+    <script src="script.js?v=2.50-public-observatory" defer></script>
     <script src="works.js?v=2.23-expanded-corpora" defer></script>
   </body>
 </html>

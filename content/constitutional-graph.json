@@ -4,6 +4,7 @@
     "subtitle": "Living Constitutional Grammar",
     "revision": "v1.4",
     "revisionLabel": "The Living Coordinate",
+    "interfaceVersion": "1.4.1",
     "updated": "August 2026",
     "status": "Living Document",
     "maxim": "Enter truthfully; relate without possession; cultivate what can survive correction."
@@ -1863,6 +1864,17 @@
         "architecture",
         "export"
       ]
+    },
+    {
+      "id": "public-verification-observatory",
+      "type": "export-system",
+      "label": "Public Verification Observatory",
+      "title": "The Public Verification Observatory",
+      "status": "Active Public Instrument",
+      "summary": "A human-readable evidence instrument that exposes Root Logos inputs, witnesses, transformations, dispositions, propagation, memory, and authority boundaries from the published surface.",
+      "definition": "The Public Verification Observatory makes the same published records Root Logos reads available for direct human inspection without requiring repository navigation. It joins declared input records, full witness digests, source boundaries, chronological propagation, browser-verifiable integrity checks, relational projections, semantic memory, and adversarial proposal review. It does not create evidence, certify external truth, or convert visibility into authority; it renders existing public lineage legible and links every claim back to its published record.",
+      "answers": "How can a human visitor verify what enters Root Logos, what changes, what is rejected, and what propagates without inspecting implementation source?",
+      "keywords": ["public verification", "observatory", "input ledger", "witness digest", "propagation", "integrity", "lineage", "human legibility"]
     }
   ],
   "edges": [
@@ -3230,6 +3242,36 @@
       "from": "principle-relational-propagation",
       "to": "principle-constitutional-citizenship",
       "type": "keeps participation contract current through"
+    },
+    {
+      "from": "root-logos",
+      "to": "public-verification-observatory",
+      "type": "makes public evidence inspectable through"
+    },
+    {
+      "from": "public-verification-observatory",
+      "to": "source-foldforge",
+      "type": "exposes published input from"
+    },
+    {
+      "from": "public-verification-observatory",
+      "to": "cultivation-chamber",
+      "type": "renders inquiry lineage from"
+    },
+    {
+      "from": "public-verification-observatory",
+      "to": "constitutional-self-authorship",
+      "type": "witnesses identity propagation from"
+    },
+    {
+      "from": "public-verification-observatory",
+      "to": "attractor-membrane",
+      "type": "traces outward publication through"
+    },
+    {
+      "from": "public-verification-observatory",
+      "to": "principle-constitutional-citizenship",
+      "type": "fulfills public legibility obligations of"
     }
   ]
 }

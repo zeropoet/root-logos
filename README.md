@@ -33,8 +33,12 @@ source, grammar, witness, and identity lineage. Maintenance
 commands remain strictly for recovery, verification, and migration. They are
 not creative steps in the pipeline.
 
-The site is not organized as a blog, feed, dashboard, or publication archive.
-It is one continuously readable, versioned knowledge system whose public surface
+The site is not organized as a blog, feed, conventional analytics dashboard,
+or publication archive. It is one continuously readable, versioned knowledge
+system whose public surface is also its human verification instrument. A
+visitor can inspect inputs, complete witness digests, transformations,
+rejections, propagation events, authority boundaries, and machine-readable
+records without navigating the implementation repository. The public surface
 and documentary record are views of the same constitutional network:
 Logoi, vocabulary, Living Statements, Constitutional Bridges, Field Notes,
 Artifact Seeds, Open Questions, Export Packets, and published revisions.
@@ -75,10 +79,24 @@ authority boundaries.
 ## Current Shape
 
 - `index.html` begins with the Constitutional Field at every viewport and
-  continues through the Living Coordinate, Library, State, and Membrane. The
+  continues through the Living Coordinate, Public Verification Observatory,
+  Library, State, and Membrane. Persistent section navigation lets human users
+  move directly among those five encounters. The
   Coordinate exposes the current identity, witnessed space-time register,
   Constitutional Citizenship contract, human and machine participation paths,
   and machine-readable protocol without displacing the Field as the threshold.
+  The Observatory exposes every declared input through a local published
+  record; its schema, revision, visibility, full witness digest, read paths,
+  boundary, and public origin remain inspectable. A filterable propagation
+  ledger joins incoming witnesses, cultivation dispositions, identity exports,
+  and outward X fragments into one dated surface. The archive count remains
+  complete while archival fallback loads the latest 24 detailed cycles for
+  immediate inspection instead of issuing an unbounded request burst. Client-side integrity checks
+  validate graph endpoints, revision agreement, protocol state, source
+  coverage, witness form, and authority exclusions from the records already
+  delivered to the browser. Six relational projections, semantic memory, and
+  adversarial proposal review restore deeper visual inspection without making
+  GitHub a prerequisite for understanding Root Logos.
   `living-object.html`
   preserves the Living Object and its unchanged sovereign voice as a deliberate,
   render-isolated encounter reached only through the quiet footer link. Identity
@@ -118,8 +136,8 @@ authority boundaries.
   the structured Original Douay-Rheims JSON format
   through a private-source membrane: only its opaque revision witness, content
   digest, derived work, and lineage become public.
-- The Constitutional Object is now the central public experience. Its 97
-  canonical structures and 273 explicit relations are projected into a stable
+- The Constitutional Object is now the central public experience. Its 98
+  canonical structures and 279 explicit relations are projected into a stable
   three-dimensional constellation generated directly from the graph. Readers
   can rotate, approach, search, filter, inspect, unfold, and refold it. Depth,
   light, scale, and motion change legibility without changing canon.
@@ -361,16 +379,18 @@ state.
 
 ## One Living Document
 
-The public interface is a four-encounter reading field rather than a collection
-of permanent conceptual rooms. Every viewport begins in the Constitutional
-Field, moves through the Library, witnesses the current State, and may offer
-material through the Membrane. Deeper lineage unfolds only when selected. The
+The public interface is a five-encounter reading field rather than a collection
+of disconnected pages. Every viewport begins in the Constitutional Field,
+states the Living Coordinate, opens the Public Verification Observatory, moves
+through the Library, witnesses the current State, and may offer material
+through the Membrane. Deeper lineage unfolds when selected. The
 Living Object is no longer a responsive gate in front of that sequence; it is a
 separate, intentionally sought encounter whose rendering and unchanged voice
 load only after its footer link is followed.
 
-- The header returns directly to the Field and reports the current runtime,
-  inquiry reach, revision, and work count without adding route navigation.
+- The header returns directly to the Field, reports the current runtime,
+  inquiry reach, revision, and work count, and provides persistent navigation
+  through the public evidence sequence.
 - The quiet footer link is the sole public entrance to the Living Object.
 - Constitutional parts remain open and continuous.
 - The Network Field is the only visual graph representation.
@@ -378,8 +398,9 @@ load only after its footer link is followed.
   topology retains the full available width.
 - The Relationship Ledger is the exact textual record of every canonical edge.
 
-The visual network and documentary ledger are deliberately different expressions
-of the same data: one supports perception; the other supports inspection.
+The visual network, public verification ledgers, and documentary records are
+deliberately different expressions of the same data: one supports perception,
+one supports inspection, and one preserves machine-readable evidence.
 
 ## Relational Sufficiency Standard
 
