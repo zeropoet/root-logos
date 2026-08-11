@@ -494,6 +494,113 @@ body.archive-open #intake { order: 4; }
 .inspector-relations span { padding: 5px 7px; border: 1px solid var(--line); color: var(--dim); font: .48rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .field-inspector a { display: flex; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--line); color: var(--gold); font: .55rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 
+/* Revision 1.4 — the public archive becomes a living coordinate.
+   Citizenship is expressed through structural standing, not decorative civic
+   metaphor: one current identity, three participant conditions, four paths. */
+.coordinate-space {
+  min-height:100svh;
+  padding:clamp(128px,14vw,190px) var(--edge) clamp(110px,13vw,175px);
+  background:#000;
+}
+.coordinate-space > * { width:min(1500px,100%);margin-right:auto;margin-left:auto; }
+.coordinate-heading {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+  padding-bottom:30px;
+  border-bottom:1px solid rgba(255,255,255,.48);
+}
+.coordinate-status {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:0;
+  color:rgba(255,255,255,.42);
+  font:500 .46rem/1 var(--mono);
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.coordinate-status i { width:24px;height:1px;background:rgba(255,255,255,.24); }
+.coordinate-declaration {
+  display:grid;
+  grid-template-columns:minmax(0,1.38fr) minmax(300px,.62fr);
+  gap:clamp(52px,9vw,150px);
+  align-items:end;
+  padding:clamp(68px,9vw,130px) 0 clamp(58px,8vw,108px);
+}
+.coordinate-declaration h1 {
+  max-width:950px;
+  margin:30px 0 0;
+  color:#fff;
+  font:300 clamp(3rem,7.4vw,9rem)/.87 var(--display);
+  letter-spacing:-.075em;
+}
+.coordinate-declaration h1 span,
+.coordinate-declaration h1 em { display:block; }
+.coordinate-declaration h1 em { margin-left:clamp(24px,6vw,110px);color:rgba(255,255,255,.54); }
+.coordinate-copy { display:grid;gap:24px;padding-bottom:8px; }
+.coordinate-copy p { margin:0;color:rgba(255,255,255,.48);font-size:clamp(.9rem,1.05vw,1.06rem);line-height:1.7; }
+.coordinate-copy p:first-child { color:#fff;font-size:clamp(1.05rem,1.35vw,1.32rem);line-height:1.55; }
+.coordinate-register {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  margin:0;
+  border-top:1px solid rgba(255,255,255,.22);
+  border-left:1px solid rgba(255,255,255,.16);
+}
+.coordinate-register div { min-height:112px;padding:18px;border-right:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16); }
+.coordinate-register dt { color:rgba(255,255,255,.36);font:500 .44rem/1 var(--mono);letter-spacing:.11em;text-transform:uppercase; }
+.coordinate-register dd { margin:34px 0 0;color:#fff;font:400 clamp(.86rem,1.1vw,1.06rem)/1.35 var(--body); }
+.citizenship-introduction {
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);
+  gap:clamp(52px,9vw,150px);
+  align-items:end;
+  margin-top:clamp(110px,14vw,210px);
+  padding-top:32px;
+  border-top:1px solid rgba(255,255,255,.48);
+}
+.citizenship-introduction h2 { margin:28px 0 0;color:#fff;font:300 clamp(2.4rem,5vw,6.2rem)/.94 var(--display);letter-spacing:-.065em; }
+.citizenship-introduction > p { max-width:620px;margin:0;color:rgba(255,255,255,.6);font-size:clamp(1rem,1.35vw,1.28rem);line-height:1.65; }
+.citizenship-grid { display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(60px,8vw,110px);border-top:1px solid rgba(255,255,255,.2);border-left:1px solid rgba(255,255,255,.15); }
+.citizenship-grid article { min-height:370px;padding:clamp(24px,3.5vw,52px);border-right:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15); }
+.citizenship-grid span { color:#e21b1b;font:500 .48rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase; }
+.citizenship-grid h3 { max-width:12ch;margin:clamp(64px,8vw,116px) 0 22px;color:#fff;font:300 clamp(1.65rem,2.8vw,3.3rem)/.96 var(--display);letter-spacing:-.05em; }
+.citizenship-grid p { max-width:430px;margin:0;color:rgba(255,255,255,.48);font-size:.92rem;line-height:1.65; }
+.coordinate-paths { display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(70px,9vw,125px);border-top:1px solid rgba(255,255,255,.3); }
+.coordinate-paths a { display:grid;min-height:170px;padding:20px 20px 18px 0;border-right:1px solid rgba(255,255,255,.15);transition:.25s; }
+.coordinate-paths a:not(:first-child) { padding-left:20px; }
+.coordinate-paths a:hover { background:#fff;color:#000;padding-right:20px;padding-left:20px; }
+.coordinate-paths span { color:currentColor;opacity:.46;font:500 .44rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase; }
+.coordinate-paths b { align-self:end;max-width:19ch;font:400 clamp(.96rem,1.3vw,1.24rem)/1.25 var(--body); }
+.coordinate-paths i { justify-self:end;margin-top:15px;font:normal .48rem/1 var(--mono); }
+.coordinate-boundary { max-width:1040px!important;margin-top:34px!important;margin-right:0!important;color:rgba(255,255,255,.32);font:.48rem/1.7 var(--mono);letter-spacing:.055em;text-transform:uppercase; }
+
+@media (max-width:1000px) {
+  .coordinate-declaration,
+  .citizenship-introduction { grid-template-columns:1fr; }
+  .coordinate-declaration h1 em { margin-left:0; }
+  .coordinate-register,
+  .coordinate-paths { grid-template-columns:1fr 1fr; }
+  .citizenship-grid { grid-template-columns:1fr; }
+  .citizenship-grid article { min-height:300px; }
+  .citizenship-grid h3 { margin-top:72px; }
+  .coordinate-paths a:nth-child(2n) { border-right:0; }
+}
+
+@media (max-width:640px) {
+  .coordinate-space { padding:104px 20px 90px; }
+  .coordinate-heading { display:block; }
+  .coordinate-status { margin-top:18px; }
+  .coordinate-declaration h1 { font-size:clamp(3.2rem,18vw,5.8rem); }
+  .coordinate-register,
+  .coordinate-paths { grid-template-columns:1fr; }
+  .coordinate-paths a { padding-left:0!important;border-right:0;border-bottom:1px solid rgba(255,255,255,.15); }
+  .coordinate-paths a:hover { padding-left:20px!important; }
+  .citizenship-introduction h2 { font-size:clamp(2.5rem,12vw,4.4rem); }
+}
+
 /* Living Works */
 .works-space {
   height: 100svh;
@@ -2138,7 +2245,7 @@ body.archive-open .site-footer nav {
   .design-fragment-map { grid-template-columns:repeat(2,1fr); }
 }
 
-/* Revision 1.4 — Living Architectural Data Archive
+/* Living Architectural Data Archive surface
    The interface is not a set of pages around an object. It is the visible
    circulation system of one spatial archive. */
 body.archive-open {
@@ -2279,6 +2386,10 @@ body.archive-open .micro-label[data-module]::after {
 }
 
 body.archive-open .field-space {
+  padding-left:calc(var(--archive-edge) + var(--archive-rail) + 28px);
+}
+body.archive-open .coordinate-space {
+  padding-right:var(--archive-edge);
   padding-left:calc(var(--archive-edge) + var(--archive-rail) + 28px);
 }
 body.archive-open .field-header {

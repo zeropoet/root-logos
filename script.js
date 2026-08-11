@@ -137,6 +137,21 @@ const renderPresence = () => {
   if (state) state.dataset.runtimeState = running ? "running" : sleeping ? "sleeping" : status;
 };
 
+const renderCoordinate = () => {
+  if (!app.identity || !app.graph) return;
+  const effective = new Date(app.identity.effective_at);
+  const present = Number.isNaN(effective.valueOf())
+    ? app.identity.effective_at
+    : new Intl.DateTimeFormat("en", { year: "numeric", month: "long", day: "numeric" }).format(effective);
+  $("#coordinate-revision").textContent = `Revision ${app.identity.revision}`;
+  $("#coordinate-time").textContent = `Present / ${present}`;
+  $("#coordinate-lead").textContent = app.identity.headline.lead;
+  $("#coordinate-emphasis").textContent = app.identity.headline.emphasis;
+  $("#coordinate-declaration").textContent = app.identity.declaration;
+  $("#coordinate-present").textContent = `${app.identity.revision} / ${present}`;
+  $("#coordinate-field").textContent = `${app.graph.nodes.length} structures / ${app.graph.edges.length} relations`;
+};
+
 const renderSources = () => {
   const sources = (app.sources?.sources || []).filter(
     ({ surface }) => surface !== "embedded-material-lineage"
@@ -310,6 +325,7 @@ const submitObservation = async (form) => {
   const payload = {
     observation: data.get("observation"),
     attribution: data.get("attribution") || "Anonymous",
+    participant_class: data.get("participant_class") || "undeclared",
     consent: data.get("consent") === "on",
     website: data.get("website")
   };
@@ -989,6 +1005,7 @@ const initialize = async () => {
   try {
     await loadData();
     renderPresence();
+    renderCoordinate();
     renderSources();
     renderDesignFlow();
     renderLatestCycle();

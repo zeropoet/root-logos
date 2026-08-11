@@ -155,10 +155,13 @@ export const createRuntime = async (options = {}) => {
     const errors = [];
     const observation = String(body?.observation || "").trim();
     const attribution = String(body?.attribution || "Anonymous").trim();
+    const participantClass = String(body?.participant_class || "undeclared").trim().toLowerCase();
+    const participantClasses = new Set(["human", "machine", "human-machine", "undeclared"]);
     if (observation.length < 20 || observation.length > 6000) errors.push("observation must be between 20 and 6000 characters");
     if (attribution.length > 120) errors.push("attribution must be 120 characters or fewer");
+    if (!participantClasses.has(participantClass)) errors.push("participant_class must be human, machine, human-machine, or undeclared");
     if (body?.consent !== true) errors.push("consent is required");
-    return { errors, payload: { observation, attribution } };
+    return { errors, payload: { observation, attribution, participant_class: participantClass } };
   };
 
   const currentIntake = () => [...observations.values()].map((record) => {
@@ -519,7 +522,7 @@ export const createRuntime = async (options = {}) => {
         const owner = payload.attribution || "Anonymous";
         const content = payload.observation;
         const grant = await journalMembrane.createGrant({
-          source: "Public terminal entry",
+          source: `Public terminal entry / ${payload.participant_class}`,
           owner,
           adapter: "local-drop",
           include: ["*.md"],
@@ -541,6 +544,7 @@ export const createRuntime = async (options = {}) => {
             status: result.status,
             wake_queued: result.wake_queued,
             source_released: true,
+            participant_class: payload.participant_class,
             penetration: result.penetration
           }, cors);
         } catch (error) {

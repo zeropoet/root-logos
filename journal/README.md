@@ -30,4 +30,6 @@ logs, outward fragments, or the Resonant Chamber. Root Logos preserves derived
 structures and auditable transformation lineage rather than original prose.
 If admitted structure changes witnessed topology, that derived structure—not
 the released prose—enters the completed visual and resonant pipeline
-automatically. Submission is the entire ordinary human task.
+automatically. Submission is the entire ordinary participant task. Human,
+machine, human-machine, and undeclared participant classes share this same
+membrane and receive no different epistemic weight or governing authority.

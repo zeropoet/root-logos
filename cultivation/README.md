@@ -113,10 +113,14 @@ low-yield cycles cause the chamber to:
 Dormancy is an earned conclusion, not a failure. It prevents the system from
 manufacturing activity when no new distinction has been found.
 
-The four inquiry lenses now have distinct search behavior: relational gaps use
-graph distance, question pressure measures integration and affinity, generative
-compression searches recurring primitive pairs across three or more nodes, and
-reflexive testing applies untested architectural principles back to the chamber.
+The seven inquiry lenses now have distinct search behavior: relational gaps use
+graph distance; question pressure measures integration and affinity; generative
+compression searches recurring primitive pairs; reflexive testing applies
+untested architectural principles back to the chamber; connected-source and
+system-map pressure test witnessed boundaries and propagated consequences; and
+constitutional-citizenship pressure audits equivalent standing, honest
+difference, judgment, correction, privacy, departure, and authority across
+human, machine, collaborative, and undeclared participation.
 
 ## Durable runtime
 

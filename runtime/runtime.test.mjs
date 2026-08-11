@@ -41,7 +41,7 @@ try {
   const health = await fetch(`${base}/health`).then((response) => response.json());
   assert.equal(health.ok, true);
   const status = await fetch(`${base}/v1/status`).then((response) => response.json());
-  assert.equal(status.policy.constitutional_revision, "v1.3");
+  assert.equal(status.policy.constitutional_revision, "v1.4");
   assert.equal(status.intake_count, 0);
   assert.equal(status.journal.status, "online");
   assert.equal(status.journal.active_grants, 0);
@@ -50,13 +50,14 @@ try {
 
   const publicOffer = await fetch(`${base}/v1/public/intake`, { method: "POST", body: JSON.stringify({
     observation: "A public entry brings memory, identity, relation, evidence, autonomy, judgment, responsibility, coherence, transformation, consequence, lineage, provenance, tension, inquiry, architecture, cultivation, witness, revision, emergence, reciprocity, uncertainty, continuity, structure, and meaning into contact.",
-    attribution: "Runtime Test", consent: true, website: ""
+    attribution: "Runtime Test", participant_class: "human-machine", consent: true, website: ""
   }), headers: { "content-type": "application/json", origin: "https://rootlogos.com", "x-forwarded-for": "192.0.2.40" } });
   assert.equal(publicOffer.status, 202);
   const publicReceipt = await publicOffer.json();
   assert.match(publicReceipt.event_id, /^RL-JOURNAL-/);
   assert.equal(publicReceipt.status, "admissible");
   assert.equal(publicReceipt.source_released, true);
+  assert.equal(publicReceipt.participant_class, "human-machine");
   assert.equal(publicReceipt.wake_queued, true);
   await runtime.waitForIdle();
   assert.ok(calls.some((args) => args.includes("--intake-context")));
