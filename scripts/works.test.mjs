@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { coherentLibraryIdentity, ingestWork, parseGutenbergBookText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei, parseWisdomEpubXhtml } from "./works.mjs";
-import { CATHOLIC_CANON } from "./works-corpus.mjs";
+import { coherentLibraryIdentity, ingestWork, parseFederalistText, parseGilgameshText, parseGutenbergBookText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei, parseSiddharthaGermanText, parseTaoTeChingText, parseUnitedStatesConstitutionText, parseWisdomEpubXhtml } from "./works.mjs";
+import { CATHOLIC_CANON, deriveCorpusStructuralDepth } from "./works-corpus.mjs";
 
 const fixture = await mkdtemp(join(tmpdir(), "root-logos-work-"));
 const book = join(fixture, "book");
@@ -23,6 +23,21 @@ const coherentIdentity = coherentLibraryIdentity({
 }, { corpus_id: "bible", current_sound_edition: "bible-v1" });
 assert.equal(coherentIdentity.workCount, 2);
 assert.match(coherentIdentity.signature, /^[0-9a-f]{64}$/);
+const corpusDepth = deriveCorpusStructuralDepth({
+  nodes: [
+    { id: "one", current_edition: "one-v4" },
+    { id: "two", current_edition: "two-v4" },
+    { id: "three", current_edition: "three-v4" }
+  ],
+  edges: [
+    { from: "one", to: "two", relation: "shared-derived-language", weight: 4 },
+    { from: "two", to: "three", relation: "shared-derived-language", weight: 3 }
+  ]
+});
+assert.match(corpusDepth.signature, /^[0-9a-f]{16}$/);
+assert.deepEqual(corpusDepth.relation_profile, { contains: 3, "shared-derived-language": 2 });
+assert.equal(corpusDepth.relation_density, 0.8333);
+assert.ok(corpusDepth.relation_weight_entropy > 0);
 const euclidFixture = parsePerseusTei(`<?xml version="1.0"?>
 <TEI><teiHeader><fileDesc><titleStmt><title>Euclid Test</title></titleStmt></fileDesc></teiHeader>
 <text><body><div type="translation">
@@ -116,6 +131,81 @@ The second position responds.
 assert.deepEqual(gutenbergSectionFixture.documents.map(({ path }) => path), ["section:1", "section:2"]);
 assert.equal(gutenbergSectionFixture.documents[0].title, "Section I: FIRST SECTION");
 assert.equal(gutenbergSectionFixture.documents[1].sections[0].text, "The second position responds.");
+const gutenbergTitledChapterFixture = parseGutenbergBookText(`*** START OF THE PROJECT GUTENBERG EBOOK TEST ***
+
+Chapter I. LAYING PLANS
+
+The first chapter.
+
+Chapter II. WAGING WAR
+
+The second chapter.
+
+*** END OF THE PROJECT GUTENBERG EBOOK TEST ***`);
+assert.deepEqual(gutenbergTitledChapterFixture.documents.map(({ title }) => title), ["Chapter I: LAYING PLANS", "Chapter II: WAGING WAR"]);
+const taoFixture = parseTaoTeChingText(`*** START OF THE PROJECT GUTENBERG EBOOK TEST ***
+Ch. 1. 1. First witness.
+${Array.from({ length: 80 }, (_, index) => `${index + 2}. 1. Witness ${index + 2}.`).join("\n")}
+*** END OF THE PROJECT GUTENBERG EBOOK TEST ***`);
+assert.equal(taoFixture.documents.length, 81);
+assert.equal(taoFixture.documents.at(-1).title, "Chapter 81");
+const siddharthaFixture = parseSiddharthaGermanText(`*** START OF THE PROJECT GUTENBERG EBOOK TEST ***
+${["DER SOHN DES BRAHMANEN", "BEI DEN SAMANAS", "GOTAMA", "ERWACHEN", "KAMALA", "BEI DEN KINDERMENSCHEN", "SANSARA", "AM FLUSSE", "DER FÄHRMANN", "DER SOHN", "OM", "GOVINDA"].map((title) => `${title}\n\n${title} trägt die Begegnung.`).join("\n\n")}
+*** END OF THE PROJECT GUTENBERG EBOOK TEST ***`);
+assert.equal(siddharthaFixture.documents.length, 12);
+assert.equal(siddharthaFixture.documents[0].title, "DER SOHN DES BRAHMANEN");
+const constitutionFixture = parseUnitedStatesConstitutionText(`*** START OF THE PROJECT GUTENBERG EBOOK TEST ***
+We the People establish this Constitution.
+Article 1
+Section 1. Legislative witness.
+Section 2. Representative witness.
+ARTICLE 2
+Section 1. Executive witness.
+ARTICLE THREE
+Section 1. Judicial witness.
+ARTICLE FOUR
+Section 1. Interstate witness.
+ARTICLE FIVE
+Amendment witness.
+ARTICLE SIX
+Supremacy witness.
+ARTICLE SEVEN
+Ratification witness.
+*** END OF THE PROJECT GUTENBERG EBOOK TEST ***`);
+assert.equal(constitutionFixture.documents.length, 8);
+assert.equal(constitutionFixture.documents.flatMap(({ sections }) => sections).length, 9);
+const federalistFixture = parseFederalistText(`*** START OF THE PROJECT GUTENBERG EBOOK TEST ***
+${[...Array.from({ length: 70 }, (_, index) => index + 1), 70, ...Array.from({ length: 15 }, (_, index) => index + 71)].map((number) => `FEDERALIST${number === 1 || number === 7 ? "." : ""} No. ${number}\n\nEssay ${number}.`).join("\n\n")}
+*** END OF THE PROJECT GUTENBERG EBOOK TEST ***`);
+assert.equal(federalistFixture.documents.length, 86);
+assert.equal(federalistFixture.documents.filter(({ path }) => path.startsWith("federalist:70")).length, 2);
+const gilgameshFixture = parseGilgameshText(`*** START OF THE PROJECT GUTENBERG EBOOK TEST ***
+PREFATORY NOTE
+Preface.
+INTRODUCTION.
+Introduction.
+PENNSYLVANIA TABLET.
+Tablet.
+TRANSLITERATION.
+Signs.
+TRANSLATION.
+Language.
+COMMENTARY ON THE PENNSYLVANIA TABLET.
+Commentary.
+YALE TABLET.
+Tablet.
+TRANSLITERATION.
+Signs.
+TRANSLATION.
+Language.
+CORRECTIONS TO THE TEXT OF LANGDON'S EDITION OF THE PENNSYLVANIA
+TABLET. [157]
+Corrections.
+NOTES
+Notes.
+*** END OF THE PROJECT GUTENBERG EBOOK TEST ***`);
+assert.equal(gilgameshFixture.documents.length, 11);
+assert.equal(gilgameshFixture.documents.at(-1).title, "Notes");
 const protestantFixture = parseMidvashBible(JSON.stringify({
   name: "Test Protestant Bible",
   books: [

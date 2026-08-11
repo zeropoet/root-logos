@@ -1,0 +1,4147 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "aggeus-560cf50b--v14-read-34d3c9-c871673e",
+  "work_id": "aggeus-560cf50b",
+  "created_at": "2026-08-11T16:39:36.713Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "50e593c2c871673ec5b53c937c9df20f6b9df3f4195acf1cca858f4cfc62b4f0",
+  "parent_edition": "aggeus-560cf50b--v11-read-acbd48-c871673e",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 3,
+    "sections": 41,
+    "words": 1323,
+    "concepts": 36,
+    "relations": 263,
+    "relation_density": 0.3549,
+    "relation_weight_entropy": 0.9644
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 1437012021,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "Aggeus",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "Original argument and apparatus",
+          "weight": 1,
+          "coordinate": "apparatus:introduction",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0001",
+          "source_coordinate_witness": "sha256:516f2252ff053155eafcfa7cf6494f39d86b814a3e11907a5e06208ba52c84a2"
+        },
+        {
+          "id": "document-2",
+          "type": "document",
+          "label": "Chapter 1",
+          "weight": 15,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "document-3",
+          "type": "document",
+          "label": "Chapter 2",
+          "weight": 25,
+          "coordinate": "chapter:2",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "source_coordinate_witness": "sha256:9d2d057eebed4abea73b0a9c37305a8b9bbba2e8373fd331dfbb45a04cc09043"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "lord",
+          "weight": 34,
+          "coordinate": "lexicon:lord",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "source_coordinate_witness": "sha256:71ce91971174b724b007c1558909f2319a6b51daf52aaa0527c702846be58df3"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "saith",
+          "weight": 21,
+          "coordinate": "lexicon:saith",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002",
+          "source_coordinate_witness": "sha256:b07a364da8afaf03a1df7736d750a6ab2ed84dba5cb5f2556d98e4c596544c63"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "hosts",
+          "weight": 15,
+          "coordinate": "lexicon:hosts",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "source_coordinate_witness": "sha256:63eb80004e36c9c2305823b48d954c31c05534858cad7fbddaf17c124a601ff3"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "shall",
+          "weight": 12,
+          "coordinate": "lexicon:shall",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004",
+          "source_coordinate_witness": "sha256:e93d552fa711a6a5d2a42d581c784bef6ddc8f77e767c330b596a7083c9c91f9"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "aggeus",
+          "weight": 10,
+          "coordinate": "lexicon:aggeus",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "source_coordinate_witness": "sha256:69d2014c37bf15e39b7cda5b5b5668c0aec4fe4f342655ca89b05da5d178aee2"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "house",
+          "weight": 10,
+          "coordinate": "lexicon:house",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0006",
+          "source_coordinate_witness": "sha256:7563d11bd02f2fb82669548575c719575a377fa865b7ee20416b01064fd30fb2"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "saying",
+          "weight": 10,
+          "coordinate": "lexicon:saying",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "source_coordinate_witness": "sha256:4e551de01d8e0f36faaceefc42083a51e731afc62bd35990e6a141d102a722bd"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "month",
+          "weight": 9,
+          "coordinate": "lexicon:month",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008",
+          "source_coordinate_witness": "sha256:4370f3217b20522fd361013b13c71b221bfbea13189872df01b9ca276e935324"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "people",
+          "weight": 8,
+          "coordinate": "lexicon:people",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009",
+          "source_coordinate_witness": "sha256:74da8e5d29b95267bd6caba0294e60d149123fb1d2fa6de6c666eaac74131548"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "temple",
+          "weight": 7,
+          "coordinate": "lexicon:temple",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0010",
+          "source_coordinate_witness": "sha256:b47c9ee6fd6342d0719a77e4704d0dac790b8e506bbcdafe49defb8900909c8e"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "zorobabel",
+          "weight": 7,
+          "coordinate": "lexicon:zorobabel",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011",
+          "source_coordinate_witness": "sha256:4e5b30a4933c9a40f924da673d6c44e63c0ed5f33e20d84baebb97e36d871f8a"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "word",
+          "weight": 6,
+          "coordinate": "lexicon:word",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012",
+          "source_coordinate_witness": "sha256:d2123ccae6fad691a196720c1965284e1acd853001e09bdfbc17a69203d62acd"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "building",
+          "weight": 5,
+          "coordinate": "lexicon:building",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0013",
+          "source_coordinate_witness": "sha256:dc0f9c7462d1672f980833ea8377d38a453f8f098a81e9c35c5f9769f5aecca3"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "glory",
+          "weight": 5,
+          "coordinate": "lexicon:glory",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0014",
+          "source_coordinate_witness": "sha256:738167938c906ee3a6d209e31e20f4e1afeaf8055511cf28632c4f981c5364f1"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "hearts",
+          "weight": 5,
+          "coordinate": "lexicon:hearts",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0015",
+          "source_coordinate_witness": "sha256:c9da4a827137dee816d358eed17a2cfb6dfc30bb8763b65d772c9574c7456436"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "jesus",
+          "weight": 5,
+          "coordinate": "lexicon:jesus",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016",
+          "source_coordinate_witness": "sha256:df0b5de09bd1fc073e417686b43974fdf9eaf18f0bc068e4dabe0b18a57b26a1"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "josedec",
+          "weight": 5,
+          "coordinate": "lexicon:josedec",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017",
+          "source_coordinate_witness": "sha256:5b9b18dc7fe2068f6e88bea9ddc65c4c0ce42cac79c8b2f882132488e9852e5b"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "made",
+          "weight": 5,
+          "coordinate": "lexicon:made",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018",
+          "source_coordinate_witness": "sha256:b454ec1951926ef35f549211a6566bd5edc1acd3ac3ca4c9b86287d6409215d3"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "priest",
+          "weight": 5,
+          "coordinate": "lexicon:priest",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019",
+          "source_coordinate_witness": "sha256:2542f0017609e0c4cd774cdc955ca5c083261c957546683f469d4d7d2d4287a6"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "prophet",
+          "weight": 5,
+          "coordinate": "lexicon:prophet",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020",
+          "source_coordinate_witness": "sha256:6a52f638a84e5dbd696c6d191c58cc60b940b2964ddfc45f6093bcbbcb1f6ac4"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "salathiel",
+          "weight": 5,
+          "coordinate": "lexicon:salathiel",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021",
+          "source_coordinate_witness": "sha256:da21d0be6d59dac7ec5b97d4e0c14fcdc0e44be355370b798c6037f318ed31da"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "second",
+          "weight": 5,
+          "coordinate": "lexicon:second",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022",
+          "source_coordinate_witness": "sha256:b567f48876e7b0461faa723e658dd48571e91c9b9667412b54bae42d34576bef"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "take",
+          "weight": 5,
+          "coordinate": "lexicon:take",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0023",
+          "source_coordinate_witness": "sha256:4cd8d8d0a361ae028a1e85743a463185042716e3dfbe4b0fbe945633b1b12433"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "twentieth",
+          "weight": 5,
+          "coordinate": "lexicon:twentieth",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024",
+          "source_coordinate_witness": "sha256:f2d77872d3c1e93f459b1dba95235b348f40ad100a88731a6564282c2b9f8fd2"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "year",
+          "weight": 5,
+          "coordinate": "lexicon:year",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025",
+          "source_coordinate_witness": "sha256:a6f7ac909e5034c9af0e4e74653d5912a40fbbdd0613ae7cf407e33ceeb17929"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "because",
+          "weight": 4,
+          "coordinate": "lexicon:because",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0026",
+          "source_coordinate_witness": "sha256:00dc7a72ce6b97a916fdc1fcecb6a3e57f1a9b0f4b49b1f04023fc3b109fd911"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "cause",
+          "weight": 4,
+          "coordinate": "lexicon:cause",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0027",
+          "source_coordinate_witness": "sha256:223ece2f517e1fd850186dc865234d0e4bcd0014f081130a3d078e2f95078bae"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "darius",
+          "weight": 4,
+          "coordinate": "lexicon:darius",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028",
+          "source_coordinate_witness": "sha256:91360b15cc5fa59f3e0f129a0fdcc860c217c4c01869d597025adbeed828e854"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "duke",
+          "weight": 4,
+          "coordinate": "lexicon:duke",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029",
+          "source_coordinate_witness": "sha256:95c269889c61aabbb75218f3996e19045112d56f1de684b3b32314298c4290b4"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "earth",
+          "weight": 4,
+          "coordinate": "lexicon:earth",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0030",
+          "source_coordinate_witness": "sha256:3e2a17349ec82937e48aefd6afe0a3869d25f9eff8bdcc8c999b72f51563ad59"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "four",
+          "weight": 4,
+          "coordinate": "lexicon:four",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031",
+          "source_coordinate_witness": "sha256:c59affa108a8970265bf0a6a2db1791af88466a5fe571558f726920e61789b93"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "grand",
+          "weight": 4,
+          "coordinate": "lexicon:grand",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032",
+          "source_coordinate_witness": "sha256:04cee7988ad652ac76e212ac1902df66f3e316cf1f67a7533531609245858b60"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "juda",
+          "weight": 4,
+          "coordinate": "lexicon:juda",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033",
+          "source_coordinate_witness": "sha256:4cbbccb7f9f29edb04ef4368563a879173f99ae48da218080522e22d83b02a14"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "king",
+          "weight": 4,
+          "coordinate": "lexicon:king",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034",
+          "source_coordinate_witness": "sha256:1f7c709ed4925bf29b686214fc3db0d42fd152e30d75eb8130939cbea5ae2262"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "said",
+          "weight": 4,
+          "coordinate": "lexicon:said",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0035",
+          "source_coordinate_witness": "sha256:a6155b7d86a261f333fbd0ec18702bd223f8c7adafc5a63cf005d5be30f4f83c"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "spirit",
+          "weight": 4,
+          "coordinate": "lexicon:spirit",
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0036",
+          "source_coordinate_witness": "sha256:4e95577d5c786ce3899f464d47562a23ee289941578276c026ac90706173ba47"
+        }
+      ],
+      "edges": [
+        {
+          "from": "concept-1",
+          "to": "concept-2",
+          "relation": "co-occurs",
+          "weight": 26.8585,
+          "shared_windows": 15,
+          "association": 0.7906,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0001",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-3",
+          "relation": "contains",
+          "weight": 25,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0002",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/work",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 20.4853,
+          "shared_windows": 12,
+          "association": 0.7071,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0003",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 20.0188,
+          "shared_windows": 11,
+          "association": 0.8199,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0004",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 19,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0005",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001"
+        },
+        {
+          "from": "work",
+          "to": "document-2",
+          "relation": "contains",
+          "weight": 15,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0006",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/work",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 15,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0007",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 14,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0008",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 12.1312,
+          "shared_windows": 8,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0009",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 12.1312,
+          "shared_windows": 8,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0010",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 10,
+          "shared_windows": 5,
+          "association": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0011",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 10,
+          "shared_windows": 5,
+          "association": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0012",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 10,
+          "shared_windows": 5,
+          "association": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0013",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 10,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0014",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 9.6,
+          "shared_windows": 6,
+          "association": 0.6,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0015",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 9.5644,
+          "shared_windows": 5,
+          "association": 0.9129,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0016",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 9.5644,
+          "shared_windows": 5,
+          "association": 0.9129,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0017",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 9.2258,
+          "shared_windows": 5,
+          "association": 0.8452,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0018",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 9.2258,
+          "shared_windows": 5,
+          "association": 0.8452,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0019",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 9.2258,
+          "shared_windows": 5,
+          "association": 0.8452,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0020",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 9.2258,
+          "shared_windows": 5,
+          "association": 0.8452,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0021",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0022",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 8.7775,
+          "shared_windows": 6,
+          "association": 0.4629,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0023",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 8.5981,
+          "shared_windows": 6,
+          "association": 0.433,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0024",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0006"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 8.5355,
+          "shared_windows": 5,
+          "association": 0.7071,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0025",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 8.5355,
+          "shared_windows": 5,
+          "association": 0.7071,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0026",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 8.5355,
+          "shared_windows": 5,
+          "association": 0.7071,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0027",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 8.2275,
+          "shared_windows": 5,
+          "association": 0.6455,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0028",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 8.2275,
+          "shared_windows": 5,
+          "association": 0.6455,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0029",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012"
+        },
+        {
+          "from": "concept-25",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 8,
+          "shared_windows": 4,
+          "association": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0030",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "concept-25",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 8,
+          "shared_windows": 4,
+          "association": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0031",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "concept-28",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 8,
+          "shared_windows": 4,
+          "association": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0032",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "concept-29",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 8,
+          "shared_windows": 4,
+          "association": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0033",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 7.5777,
+          "shared_windows": 4,
+          "association": 0.8944,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0034",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 7.5777,
+          "shared_windows": 4,
+          "association": 0.8944,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0035",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 7.5777,
+          "shared_windows": 4,
+          "association": 0.8944,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0036",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "concept-22",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 7.5777,
+          "shared_windows": 4,
+          "association": 0.8944,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0037",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025"
+        },
+        {
+          "from": "concept-22",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 7.5777,
+          "shared_windows": 4,
+          "association": 0.8944,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0038",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "concept-22",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 7.5777,
+          "shared_windows": 4,
+          "association": 0.8944,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0039",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "concept-24",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 7.5777,
+          "shared_windows": 4,
+          "association": 0.8944,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0040",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 7.5516,
+          "shared_windows": 5,
+          "association": 0.5103,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0041",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0006"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 7.2822,
+          "shared_windows": 5,
+          "association": 0.4564,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0042",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 7.2822,
+          "shared_windows": 5,
+          "association": 0.4564,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0043",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 7.2822,
+          "shared_windows": 5,
+          "association": 0.4564,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0044",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0006"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 7.266,
+          "shared_windows": 4,
+          "association": 0.8165,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0045",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 7.2,
+          "shared_windows": 4,
+          "association": 0.8,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0046",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 7.2,
+          "shared_windows": 4,
+          "association": 0.8,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0047",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 7.2,
+          "shared_windows": 4,
+          "association": 0.8,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0048",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 7.2,
+          "shared_windows": 4,
+          "association": 0.8,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0049",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 7.0833,
+          "shared_windows": 5,
+          "association": 0.4167,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0050",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 7.0833,
+          "shared_windows": 5,
+          "association": 0.4167,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0051",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 7.0237,
+          "shared_windows": 4,
+          "association": 0.7559,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0052",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 7.0237,
+          "shared_windows": 4,
+          "association": 0.7559,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0053",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 7.0237,
+          "shared_windows": 4,
+          "association": 0.7559,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0054",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0055",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0056",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0006"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0057",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 6.9288,
+          "shared_windows": 5,
+          "association": 0.3858,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0058",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 6.9212,
+          "shared_windows": 4,
+          "association": 0.7303,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0059",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 6.9212,
+          "shared_windows": 4,
+          "association": 0.7303,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0060",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 6.9212,
+          "shared_windows": 4,
+          "association": 0.7303,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0061",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 6.7045,
+          "shared_windows": 4,
+          "association": 0.6761,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0062",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 6.7045,
+          "shared_windows": 4,
+          "association": 0.6761,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0063",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 6.7045,
+          "shared_windows": 4,
+          "association": 0.6761,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0064",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 6.6667,
+          "shared_windows": 4,
+          "association": 0.6667,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0065",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 6.3094,
+          "shared_windows": 4,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0066",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0026"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 6.2857,
+          "shared_windows": 4,
+          "association": 0.5714,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0067",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 6.2627,
+          "shared_windows": 4,
+          "association": 0.5657,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0068",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0014"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 6.2627,
+          "shared_windows": 4,
+          "association": 0.5657,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0069",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 6.2627,
+          "shared_windows": 4,
+          "association": 0.5657,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0070",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 6.0656,
+          "shared_windows": 4,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0071",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0026"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 6.0656,
+          "shared_windows": 4,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0072",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 6.0656,
+          "shared_windows": 4,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0073",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0074",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 5.633,
+          "shared_windows": 4,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0075",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0015"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 5.633,
+          "shared_windows": 4,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0076",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0026"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 5.5614,
+          "shared_windows": 4,
+          "association": 0.3904,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0077",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 5.4606,
+          "shared_windows": 4,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0078",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 5.4606,
+          "shared_windows": 4,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0079",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 5.4606,
+          "shared_windows": 4,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0080",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 5.4606,
+          "shared_windows": 4,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0081",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 5.4606,
+          "shared_windows": 4,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0082",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 5.3064,
+          "shared_windows": 4,
+          "association": 0.3266,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0083",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004"
+        },
+        {
+          "from": "concept-29",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 5.25,
+          "shared_windows": 3,
+          "association": 0.75,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0084",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "concept-32",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 5.25,
+          "shared_windows": 3,
+          "association": 0.75,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0085",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 5.0328,
+          "shared_windows": 4,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0086",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 5.0125,
+          "shared_windows": 3,
+          "association": 0.6708,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0087",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0010",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0013"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 5.0125,
+          "shared_windows": 3,
+          "association": 0.6708,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0088",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 5.0125,
+          "shared_windows": 3,
+          "association": 0.6708,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0089",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 5.0125,
+          "shared_windows": 3,
+          "association": 0.6708,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0090",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 5.0125,
+          "shared_windows": 3,
+          "association": 0.6708,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0091",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 5.0125,
+          "shared_windows": 3,
+          "association": 0.6708,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0092",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 5.0125,
+          "shared_windows": 3,
+          "association": 0.6708,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0093",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "concept-21",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 5.0125,
+          "shared_windows": 3,
+          "association": 0.6708,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0094",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029"
+        },
+        {
+          "from": "concept-21",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 5.0125,
+          "shared_windows": 3,
+          "association": 0.6708,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0095",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "concept-21",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 5.0125,
+          "shared_windows": 3,
+          "association": 0.6708,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0096",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "concept-22",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 5.0125,
+          "shared_windows": 3,
+          "association": 0.6708,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0097",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0098",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0099",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0100",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0023"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0101",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0102",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 4.8371,
+          "shared_windows": 3,
+          "association": 0.6124,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0103",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 4.8371,
+          "shared_windows": 3,
+          "association": 0.6124,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0104",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 4.8371,
+          "shared_windows": 3,
+          "association": 0.6124,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0105",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 4.8,
+          "shared_windows": 3,
+          "association": 0.6,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0106",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 4.8,
+          "shared_windows": 3,
+          "association": 0.6,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0107",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024"
+        },
+        {
+          "from": "concept-22",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 4.8,
+          "shared_windows": 3,
+          "association": 0.6,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0108",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 4.7008,
+          "shared_windows": 3,
+          "association": 0.5669,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0109",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 4.6432,
+          "shared_windows": 3,
+          "association": 0.5477,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0110",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 4.6432,
+          "shared_windows": 3,
+          "association": 0.5477,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0111",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 4.6432,
+          "shared_windows": 3,
+          "association": 0.5477,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0112",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0035"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 4.6432,
+          "shared_windows": 3,
+          "association": 0.5477,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0113",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 4.5213,
+          "shared_windows": 3,
+          "association": 0.5071,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0114",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 4.423,
+          "shared_windows": 3,
+          "association": 0.4743,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0115",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 4.423,
+          "shared_windows": 3,
+          "association": 0.4743,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0116",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 4.423,
+          "shared_windows": 3,
+          "association": 0.4743,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0117",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 4.423,
+          "shared_windows": 3,
+          "association": 0.4743,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0118",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0006",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0014"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 4.423,
+          "shared_windows": 3,
+          "association": 0.4743,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0119",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 4.423,
+          "shared_windows": 3,
+          "association": 0.4743,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0120",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 4.2728,
+          "shared_windows": 3,
+          "association": 0.4243,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0121",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 4.2728,
+          "shared_windows": 3,
+          "association": 0.4243,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0122",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 4.2728,
+          "shared_windows": 3,
+          "association": 0.4243,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0123",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 4.0757,
+          "shared_windows": 3,
+          "association": 0.3586,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0124",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 4.0757,
+          "shared_windows": 3,
+          "association": 0.3586,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0125",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 4.0757,
+          "shared_windows": 3,
+          "association": 0.3586,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0126",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 4.0062,
+          "shared_windows": 3,
+          "association": 0.3354,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0127",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0006"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0128",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0129",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0130",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0010"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0131",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0132",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0133",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0014"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0134",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0135",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0035"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.982,
+          "shared_windows": 3,
+          "association": 0.3273,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0136",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 3.982,
+          "shared_windows": 3,
+          "association": 0.3273,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0137",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 3.9186,
+          "shared_windows": 3,
+          "association": 0.3062,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0138",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 3.9186,
+          "shared_windows": 3,
+          "association": 0.3062,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0139",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 3.9,
+          "shared_windows": 3,
+          "association": 0.3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0140",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 3.8216,
+          "shared_windows": 3,
+          "association": 0.2739,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0141",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 3.7348,
+          "shared_windows": 3,
+          "association": 0.2449,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0142",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007"
+        },
+        {
+          "from": "concept-23",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0143",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0023",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0026"
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0144",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0013",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0027"
+        },
+        {
+          "from": "concept-25",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0145",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031"
+        },
+        {
+          "from": "concept-28",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0146",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031"
+        },
+        {
+          "from": "concept-31",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0147",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0148",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0149",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0013"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0150",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0151",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0152",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0153",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0154",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0155",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0027"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0156",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0036"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0157",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0015"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0158",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0159",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0160",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0026"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0161",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0006"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0162",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0163",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0010",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0015"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0164",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0010",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0027"
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0165",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0013",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0014"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0166",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0167",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0168",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0169",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0170",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0171",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0172",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "concept-24",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0173",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025"
+        },
+        {
+          "from": "concept-24",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0174",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "concept-24",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0175",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.8729,
+          "shared_windows": 2,
+          "association": 0.4364,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0176",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0023"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0177",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0178",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0179",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0180",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.8,
+          "shared_windows": 2,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0181",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0010",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0014"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.8,
+          "shared_windows": 2,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0182",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.8,
+          "shared_windows": 2,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0183",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.8,
+          "shared_windows": 2,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0184",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2.8,
+          "shared_windows": 2,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0185",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 2.8,
+          "shared_windows": 2,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0186",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.8,
+          "shared_windows": 2,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0187",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0024"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0188",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0026"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0189",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0190",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 2.7303,
+          "shared_windows": 2,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0191",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0035"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.6761,
+          "shared_windows": 2,
+          "association": 0.3381,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0192",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.6667,
+          "shared_windows": 2,
+          "association": 0.3333,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0193",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0023"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0194",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0013"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0195",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0196",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0197",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0198",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0031"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0199",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0200",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.5963,
+          "shared_windows": 2,
+          "association": 0.2981,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0201",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0023"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0202",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0015"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0203",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0204",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0010"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0205",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0206",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0207",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0208",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0209",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0210",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0211",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0212",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 2.5345,
+          "shared_windows": 2,
+          "association": 0.2673,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0213",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0006",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0009"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0214",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0015"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0215",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0014"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0216",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0217",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0218",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0219",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2.4781,
+          "shared_windows": 2,
+          "association": 0.239,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0220",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0221",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0023"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.4619,
+          "shared_windows": 2,
+          "association": 0.2309,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0222",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0014"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0223",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0224",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0225",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0226",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0227",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2.3904,
+          "shared_windows": 2,
+          "association": 0.1952,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0228",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0011"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.3651,
+          "shared_windows": 2,
+          "association": 0.1826,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0229",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0010"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.3651,
+          "shared_windows": 2,
+          "association": 0.1826,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0230",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0014"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 2.3651,
+          "shared_windows": 2,
+          "association": 0.1826,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0231",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 2.3651,
+          "shared_windows": 2,
+          "association": 0.1826,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0232",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0007"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0233",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0010"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0234",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0235",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0012"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0236",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0015"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0237",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0018"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0238",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0239",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0030"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0240",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0241",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0242",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0243",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0002",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0008"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0244",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0016"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0245",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0017"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0246",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0019"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0247",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0020"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0248",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0021"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0249",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0025"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0250",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0251",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0029"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0252",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0030"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0253",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0032"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0254",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0033"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0255",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0003",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0256",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/work",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0001"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0257",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0013"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0258",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0014"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0259",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0022"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0260",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0028"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0261",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0034"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0262",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0004"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/relation/0263",
+          "from_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/0001",
+          "to_coordinate": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/concept/0005"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.17,
+      "pulse": 10,
+      "fold": 7
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "5bffca0e4576",
+    "tempo": 62,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:second",
+        "frequency": 137.5,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:duke",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:spirit",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:saying",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0494
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:glory",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:salathiel",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:darius",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:said",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:house",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0494
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:building",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:prophet",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:cause",
+        "frequency": 550,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:king",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:aggeus",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0494
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:word",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0396
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:priest",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:because",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:juda",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 366.6667,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:shall",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0543
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:zorobabel",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0421
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:made",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:year",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:grand",
+        "frequency": 293.33326,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:hosts",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0616
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 293.3333,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:temple",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0421
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:josedec",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:twentieth",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:four",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:saith",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0762
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:people",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0445
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:jesus",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:take",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:earth",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:lord",
+        "frequency": 137.5,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.1079
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:month",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.047
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:hearts",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 366.6667,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:second",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:duke",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:spirit",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:saying",
+        "frequency": 165,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0494
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:glory",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:salathiel",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:darius",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:said",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:house",
+        "frequency": 586.66652,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0494
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:building",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:prophet",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:cause",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 137.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:king",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:aggeus",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0494
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:word",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0396
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:priest",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:because",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:juda",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0348
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 293.3333,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:shall",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0543
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:zorobabel",
+        "frequency": 247.5,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0421
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:made",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:year",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:grand",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:hosts",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0616
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 110,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:temple",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0421
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:josedec",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:twentieth",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:four",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:saith",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0762
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:people",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0445
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 206.25,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:jesus",
+        "frequency": 110,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:take",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0372
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:earth",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0348
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:lord",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.1079
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:month",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.047
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:hearts",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0372
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 366.6667,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "lord",
+        "count": 34
+      },
+      {
+        "concept": "saith",
+        "count": 21
+      },
+      {
+        "concept": "hosts",
+        "count": 15
+      },
+      {
+        "concept": "shall",
+        "count": 12
+      },
+      {
+        "concept": "aggeus",
+        "count": 10
+      },
+      {
+        "concept": "house",
+        "count": 10
+      },
+      {
+        "concept": "saying",
+        "count": 10
+      },
+      {
+        "concept": "month",
+        "count": 9
+      },
+      {
+        "concept": "people",
+        "count": 8
+      },
+      {
+        "concept": "temple",
+        "count": 7
+      },
+      {
+        "concept": "zorobabel",
+        "count": 7
+      },
+      {
+        "concept": "word",
+        "count": 6
+      }
+    ],
+    "structural_depth": {
+      "signature": "a598e34843648de2",
+      "relation_profile": {
+        "contains": 3,
+        "expresses": 67,
+        "co-occurs": 193
+      },
+      "relation_density": 0.3549,
+      "relation_weight_entropy": 0.9644,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "Aggeus resolves as 3 documents, 41 structural passages, and 263 witnessed relations at 35.5% derived density. Structural signature a598e34843648de2."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e",
+    "origin": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:39:36.713Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/work",
+      "document": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/{document-ordinal}",
+      "section": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/aggeus-560cf50b/edition/aggeus-560cf50b--v14-read-34d3c9-c871673e/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}

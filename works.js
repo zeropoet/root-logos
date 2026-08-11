@@ -112,16 +112,15 @@
         is_corpus: true,
         public_order: 1,
         title: "Original Douay-Rheims",
-        kind: `${this.corpus.canonical_work_count} books / ${this.corpus.measures.passages.toLocaleString()} passages`
+        kind: "Scripture / Catholic canon"
       });
       entries.sort((a, b) => Number(a.public_order ?? 9999) - Number(b.public_order ?? 9999));
       $("#work-list").innerHTML = entries.map((work) => work.is_corpus ? `
         <button type="button" class="corpus-entry" id="corpus-entry" data-corpus="true">
-          <span>01</span><span><b>${escapeHtml(work.title)}</b><small>${escapeHtml(work.kind)}</small></span>
+          <span><b>${escapeHtml(work.title)}</b><small>${escapeHtml(work.kind)}</small></span>
         </button>` : `
         <button type="button" data-work="${escapeHtml(work.work_id)}">
-          <span>${String(work.library_order ?? "—").padStart(2, "0")}</span>
-          <span><b>${escapeHtml(work.title)}</b><small>${escapeHtml(work.kind)} / ${work.editions} edition${work.editions === 1 ? "" : "s"}</small></span>
+          <span><b>${escapeHtml(work.title)}</b><small>${escapeHtml(work.kind)}</small></span>
         </button>`).join("") || "<p class=\"works-loading\">The archive is open. No work has crossed the membrane yet.</p>";
       document.querySelectorAll("#work-list [data-work]").forEach((button) =>
         button.classList.toggle("is-active", button.dataset.work === this.entry?.work_id));

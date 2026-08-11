@@ -1,0 +1,3118 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "malachie-b30d8cc0--v14-read-34d3c9-e70b9291",
+  "work_id": "malachie-b30d8cc0",
+  "created_at": "2026-08-11T16:39:36.751Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "fb19ba19e70b9291fc35b6335127ca7284a2de87c7d08661d5eb5e79b14763a4",
+  "parent_edition": "malachie-b30d8cc0--v11-read-acbd48-e70b9291",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 5,
+    "sections": 60,
+    "words": 1956,
+    "concepts": 36,
+    "relations": 168,
+    "relation_density": 0.2061,
+    "relation_weight_entropy": 0.924
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 3783073168,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "Malachie",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "Original argument and apparatus",
+          "weight": 1,
+          "coordinate": "apparatus:introduction",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0001",
+          "source_coordinate_witness": "sha256:516f2252ff053155eafcfa7cf6494f39d86b814a3e11907a5e06208ba52c84a2"
+        },
+        {
+          "id": "document-2",
+          "type": "document",
+          "label": "Chapter 1",
+          "weight": 15,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "document-3",
+          "type": "document",
+          "label": "Chapter 2",
+          "weight": 18,
+          "coordinate": "chapter:2",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "source_coordinate_witness": "sha256:9d2d057eebed4abea73b0a9c37305a8b9bbba2e8373fd331dfbb45a04cc09043"
+        },
+        {
+          "id": "document-4",
+          "type": "document",
+          "label": "Chapter 3",
+          "weight": 19,
+          "coordinate": "chapter:3",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "source_coordinate_witness": "sha256:fcdad38567e5eaf92bdd3e5d16c9add9eb150d2fab8fa1e5d715c2401abde352"
+        },
+        {
+          "id": "document-5",
+          "type": "document",
+          "label": "Chapter 4",
+          "weight": 7,
+          "coordinate": "chapter:4",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0005",
+          "source_coordinate_witness": "sha256:ef515e16f724ced4ed063d318dc52bc0028c3ae59b85c7e93fe194e6c13f6c48"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "lord",
+          "weight": 50,
+          "coordinate": "lexicon:lord",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "source_coordinate_witness": "sha256:71ce91971174b724b007c1558909f2319a6b51daf52aaa0527c702846be58df3"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "shall",
+          "weight": 46,
+          "coordinate": "lexicon:shall",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "source_coordinate_witness": "sha256:e93d552fa711a6a5d2a42d581c784bef6ddc8f77e767c330b596a7083c9c91f9"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "saith",
+          "weight": 26,
+          "coordinate": "lexicon:saith",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "source_coordinate_witness": "sha256:b07a364da8afaf03a1df7736d750a6ab2ed84dba5cb5f2556d98e4c596544c63"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "hosts",
+          "weight": 23,
+          "coordinate": "lexicon:hosts",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "source_coordinate_witness": "sha256:63eb80004e36c9c2305823b48d954c31c05534858cad7fbddaf17c124a601ff3"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "name",
+          "weight": 10,
+          "coordinate": "lexicon:name",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0005",
+          "source_coordinate_witness": "sha256:4a97bcc275a836b79fd2698246f5bae3fd48438d3798387fcf414296236da241"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "said",
+          "weight": 9,
+          "coordinate": "lexicon:said",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0006",
+          "source_coordinate_witness": "sha256:a6155b7d86a261f333fbd0ec18702bd223f8c7adafc5a63cf005d5be30f4f83c"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "because",
+          "weight": 8,
+          "coordinate": "lexicon:because",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007",
+          "source_coordinate_witness": "sha256:00dc7a72ce6b97a916fdc1fcecb6a3e57f1a9b0f4b49b1f04023fc3b109fd911"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "before",
+          "weight": 8,
+          "coordinate": "lexicon:before",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0008",
+          "source_coordinate_witness": "sha256:cf6a842c737ca5a9fd90023f80069c74433353db02040af6479954c7c8dafdc7"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "hath",
+          "weight": 8,
+          "coordinate": "lexicon:hath",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0009",
+          "source_coordinate_witness": "sha256:db7809b97ca0bb2967730fbbab46cad442495fb7e7ccaaa6899ec9cdc553c267"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "come",
+          "weight": 6,
+          "coordinate": "lexicon:come",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0010",
+          "source_coordinate_witness": "sha256:1896a0f4a716bfc747ed46a7e557ec976e335148415880360444b95cc7f3de91"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "face",
+          "weight": 6,
+          "coordinate": "lexicon:face",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0011",
+          "source_coordinate_witness": "sha256:79550b08a00b6ac17f4d9e082eb2a3e298e9937b23f3da5359baae8883419d91"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "wherein",
+          "weight": 6,
+          "coordinate": "lexicon:wherein",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0012",
+          "source_coordinate_witness": "sha256:089758531e632d463910039c207222529e73658a071079e96b9649cd45055e51"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "behold",
+          "weight": 5,
+          "coordinate": "lexicon:behold",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0013",
+          "source_coordinate_witness": "sha256:7d098087ac12e3fd8a4e317b7aef700d53d54ef3fd5c3c1907719598e3d97f3f"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "covenant",
+          "weight": 5,
+          "coordinate": "lexicon:covenant",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0014",
+          "source_coordinate_witness": "sha256:eddbd09e0f3a9309ea88341f2e0b0bb4e0405dbb357874a8439ca657b3eb95fe"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "great",
+          "weight": 5,
+          "coordinate": "lexicon:great",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0015",
+          "source_coordinate_witness": "sha256:419ef33b20eb69269665d12397d9978d630c73890c7a6b9540bf287d51b90940"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "hand",
+          "weight": 5,
+          "coordinate": "lexicon:hand",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0016",
+          "source_coordinate_witness": "sha256:15263b559f9ed68955e89881f21978a4ae12c87f64c953a3bcbc32d8ae0c3714"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "israel",
+          "weight": 5,
+          "coordinate": "lexicon:israel",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0017",
+          "source_coordinate_witness": "sha256:26457d7dadcd3998f206ca5de8e985b6fb4d6bb9df999a107cd9f1565ca17010"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "jacob",
+          "weight": 5,
+          "coordinate": "lexicon:jacob",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0018",
+          "source_coordinate_witness": "sha256:ba777f12b824e8ae23e86fac1c24e826410921dceaf63b488d513fd55a85548b"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "made",
+          "weight": 5,
+          "coordinate": "lexicon:made",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0019",
+          "source_coordinate_witness": "sha256:b454ec1951926ef35f549211a6566bd5edc1acd3ac3ca4c9b86287d6409215d3"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "offer",
+          "weight": 5,
+          "coordinate": "lexicon:offer",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0020",
+          "source_coordinate_witness": "sha256:70df677fe61b398215e025c089193929b14bb467ceb3a194a45ad9608195df35"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "priests",
+          "weight": 5,
+          "coordinate": "lexicon:priests",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0021",
+          "source_coordinate_witness": "sha256:4122bd23818834a6823fc4973d632ce5d876df8bf581e40685d8c57d741a8ca3"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "receive",
+          "weight": 5,
+          "coordinate": "lexicon:receive",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0022",
+          "source_coordinate_witness": "sha256:8972f03143679bf28ef2d41b2fb2821ee491c23dcc0fcafdebca7e1e82b7ecda"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "whom",
+          "weight": 5,
+          "coordinate": "lexicon:whom",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0023",
+          "source_coordinate_witness": "sha256:59bf24c4c68e3fecd6c075be8208bc4c53ee267fe11da0adeee9a73a6d2c66a5"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "despise",
+          "weight": 4,
+          "coordinate": "lexicon:despise",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0024",
+          "source_coordinate_witness": "sha256:66a0b44f4c62735de43030eb133ed306069d8ecbe578463733f61301473e1845"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "done",
+          "weight": 4,
+          "coordinate": "lexicon:done",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0025",
+          "source_coordinate_witness": "sha256:431035ec32c15447191f30a3561bab6f663442577360eb0e6b5cbeba53a7fd6c"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "evil",
+          "weight": 4,
+          "coordinate": "lexicon:evil",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0026",
+          "source_coordinate_witness": "sha256:1788e2e24f3e69d2fea3858d1648a374259dd36abaa9bd61da24beec07cc6d01"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "fasten",
+          "weight": 4,
+          "coordinate": "lexicon:fasten",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0027",
+          "source_coordinate_witness": "sha256:8944d06fa8fb92517a3df0856e2339b8008103a7ac905d72ca100b6f5398fe00"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "fathers",
+          "weight": 4,
+          "coordinate": "lexicon:fathers",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0028",
+          "source_coordinate_witness": "sha256:df1c770127668e887decab4a350bb4e64684c9cec8c4e119584d10a963659d7e"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "fear",
+          "weight": 4,
+          "coordinate": "lexicon:fear",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0029",
+          "source_coordinate_witness": "sha256:a3da9de8eb3da0de81bdd7edde441b61cdf95879a5cfe715d4a806f227ce839b"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "gentiles",
+          "weight": 4,
+          "coordinate": "lexicon:gentiles",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0030",
+          "source_coordinate_witness": "sha256:a4bd6ee5654342473d67c24dd2a25b9c8bb1c54fe730dd86aed56801e1f0b02b"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "heart",
+          "weight": 4,
+          "coordinate": "lexicon:heart",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0031",
+          "source_coordinate_witness": "sha256:26a3c6646e41f520ab3b585fa0c05784f628e7b105315c0b4c4c924c896870cd"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "loved",
+          "weight": 4,
+          "coordinate": "lexicon:loved",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0032",
+          "source_coordinate_witness": "sha256:a67836f65ded79c3781060b59f2ca2afc5e2a67d2f4cd83665b3cbb5ee63c1d9"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "please",
+          "weight": 4,
+          "coordinate": "lexicon:please",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0033",
+          "source_coordinate_witness": "sha256:6ee71030d67d7f521a5fe4bbcac7357d3088fede34f676e2c510c167bb43a109"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "return",
+          "weight": 4,
+          "coordinate": "lexicon:return",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0034",
+          "source_coordinate_witness": "sha256:21ed1a7a170162b30361fb77c8aa21e51b2e9cc7e4c85e8241e55d8e96d96ad5"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "sacrifice",
+          "weight": 4,
+          "coordinate": "lexicon:sacrifice",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0035",
+          "source_coordinate_witness": "sha256:67bd095c5b6711e2e509d0c87377736800ec5f31917e6d0a7966ab9a244100f1"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "thee",
+          "weight": 4,
+          "coordinate": "lexicon:thee",
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0036",
+          "source_coordinate_witness": "sha256:0c3a0ac74bd143a33534f5a673f0c267ef350617751ff304b042b24a3b3e8db4"
+        }
+      ],
+      "edges": [
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 40.6628,
+          "shared_windows": 23,
+          "association": 0.7679,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0001",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 40.6628,
+          "shared_windows": 23,
+          "association": 0.7679,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0002",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 37.3913,
+          "shared_windows": 20,
+          "association": 0.8696,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0003",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-2",
+          "relation": "co-occurs",
+          "weight": 24.0394,
+          "shared_windows": 16,
+          "association": 0.5025,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0004",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 19.9109,
+          "shared_windows": 13,
+          "association": 0.5316,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0005",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004"
+        },
+        {
+          "from": "work",
+          "to": "document-4",
+          "relation": "contains",
+          "weight": 19,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0006",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/work",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 19,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0007",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 19,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0008",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-3",
+          "relation": "contains",
+          "weight": 18,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0009",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/work",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 17.8886,
+          "shared_windows": 12,
+          "association": 0.4907,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0010",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003"
+        },
+        {
+          "from": "work",
+          "to": "document-2",
+          "relation": "contains",
+          "weight": 15,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0011",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/work",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 15,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0012",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 13,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0013",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 12,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0014",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 11,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0015",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 9.7741,
+          "shared_windows": 7,
+          "association": 0.3963,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0016",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0006"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0017",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 8.9528,
+          "shared_windows": 5,
+          "association": 0.7906,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0018",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0006",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0012"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 8.0381,
+          "shared_windows": 6,
+          "association": 0.3397,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0019",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0020",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0021",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003"
+        },
+        {
+          "from": "work",
+          "to": "document-5",
+          "relation": "contains",
+          "weight": 7,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0022",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/work",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0005"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0023",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 6.8284,
+          "shared_windows": 4,
+          "association": 0.7071,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0024",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0006",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0036"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 6.7903,
+          "shared_windows": 5,
+          "association": 0.3581,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0025",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0016"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 6.6343,
+          "shared_windows": 5,
+          "association": 0.3269,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0026",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0009"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 6.5131,
+          "shared_windows": 5,
+          "association": 0.3026,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0027",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0005"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0028",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0005"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0029",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0030",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0009"
+        },
+        {
+          "from": "concept-26",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 5.5981,
+          "shared_windows": 3,
+          "association": 0.866,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0031",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0026",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0033"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 5.492,
+          "shared_windows": 4,
+          "association": 0.373,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0032",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0022"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 5.492,
+          "shared_windows": 4,
+          "association": 0.373,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0033",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0022"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 5.281,
+          "shared_windows": 4,
+          "association": 0.3203,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0034",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0025"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 5.281,
+          "shared_windows": 4,
+          "association": 0.3203,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0035",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0010"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 5.186,
+          "shared_windows": 4,
+          "association": 0.2965,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0036",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0008"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 5.1795,
+          "shared_windows": 4,
+          "association": 0.2949,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0037",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 5.1458,
+          "shared_windows": 4,
+          "association": 0.2864,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0038",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0012"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 5.1458,
+          "shared_windows": 4,
+          "association": 0.2864,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0039",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0017"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 5.1458,
+          "shared_windows": 4,
+          "association": 0.2864,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0040",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0022"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 5.046,
+          "shared_windows": 4,
+          "association": 0.2615,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0041",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0010"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0042",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0014"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0043",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0044",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0045",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 4.9684,
+          "shared_windows": 4,
+          "association": 0.2421,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0046",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0008"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 4.8371,
+          "shared_windows": 3,
+          "association": 0.6124,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0047",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0010",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0013"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 4.8371,
+          "shared_windows": 3,
+          "association": 0.6124,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0048",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0009",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0025"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 4.8,
+          "shared_windows": 3,
+          "association": 0.6,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0049",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0016",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0022"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 4.7008,
+          "shared_windows": 3,
+          "association": 0.5669,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0050",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0029"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 4.591,
+          "shared_windows": 3,
+          "association": 0.5303,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0051",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0015"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 4.3887,
+          "shared_windows": 3,
+          "association": 0.4629,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0052",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0008",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0010"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 4.299,
+          "shared_windows": 3,
+          "association": 0.433,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0053",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0009"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 4.2027,
+          "shared_windows": 3,
+          "association": 0.4009,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0054",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0055",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0016"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0056",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0020"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0057",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0022"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0058",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0019"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0059",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0027"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0060",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0006"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0061",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0008"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 3.8825,
+          "shared_windows": 3,
+          "association": 0.2942,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0062",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0013"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 3.8825,
+          "shared_windows": 3,
+          "association": 0.2942,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0063",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0023"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 3.8825,
+          "shared_windows": 3,
+          "association": 0.2942,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0064",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0033"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 3.8825,
+          "shared_windows": 3,
+          "association": 0.2942,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0065",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0035"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 3.8393,
+          "shared_windows": 3,
+          "association": 0.2798,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0066",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0016"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 3.8393,
+          "shared_windows": 3,
+          "association": 0.2798,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0067",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0016"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 3.7894,
+          "shared_windows": 3,
+          "association": 0.2631,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0068",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0022"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 3.7661,
+          "shared_windows": 3,
+          "association": 0.2554,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0069",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0010"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.7661,
+          "shared_windows": 3,
+          "association": 0.2554,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0070",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0011"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 3.7661,
+          "shared_windows": 3,
+          "association": 0.2554,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0071",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0010"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.7661,
+          "shared_windows": 3,
+          "association": 0.2554,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0072",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0011"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 3.7661,
+          "shared_windows": 3,
+          "association": 0.2554,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0073",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0009"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 3.7206,
+          "shared_windows": 3,
+          "association": 0.2402,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0074",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0013"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 3.7206,
+          "shared_windows": 3,
+          "association": 0.2402,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0075",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0015"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 3.7206,
+          "shared_windows": 3,
+          "association": 0.2402,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0076",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0018"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 3.7206,
+          "shared_windows": 3,
+          "association": 0.2402,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0077",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0023"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 3.7206,
+          "shared_windows": 3,
+          "association": 0.2402,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0078",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0033"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 3.7206,
+          "shared_windows": 3,
+          "association": 0.2402,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0079",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0036"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.7206,
+          "shared_windows": 3,
+          "association": 0.2402,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0080",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0011"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 3.7093,
+          "shared_windows": 3,
+          "association": 0.2364,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0081",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0005"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 3.7093,
+          "shared_windows": 3,
+          "association": 0.2364,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0082",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0005"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 3.6635,
+          "shared_windows": 3,
+          "association": 0.2212,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0083",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0006"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 3.6635,
+          "shared_windows": 3,
+          "association": 0.2212,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0084",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 3.6635,
+          "shared_windows": 3,
+          "association": 0.2212,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0085",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0006"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 3.6445,
+          "shared_windows": 3,
+          "association": 0.2148,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0086",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0014"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 3.624,
+          "shared_windows": 3,
+          "association": 0.208,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0087",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0006"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.5883,
+          "shared_windows": 3,
+          "association": 0.1961,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0088",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0011"
+        },
+        {
+          "from": "concept-15",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0089",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0015",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0030"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 3.0328,
+          "shared_windows": 2,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0090",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0020",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0021"
+        },
+        {
+          "from": "concept-22",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 3.0328,
+          "shared_windows": 2,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0091",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0022",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0026"
+        },
+        {
+          "from": "concept-33",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0092",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0033",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0035"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0093",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0012"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0094",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0015"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0095",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0018"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0096",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0030"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0097",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0032"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0098",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0006"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0099",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0011"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0100",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0024"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0101",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0025"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0102",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0010"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0103",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0034"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0104",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0105",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0010"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0106",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0012",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0036"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0107",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0016",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0025"
+        },
+        {
+          "from": "concept-22",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0108",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0022",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0033"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2.8729,
+          "shared_windows": 2,
+          "association": 0.4364,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0109",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0030"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0110",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0011",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0013"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0111",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0030"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0112",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0015"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0113",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0008",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0013"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0114",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0008",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0023"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 2.7303,
+          "shared_windows": 2,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0115",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0011",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0022"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.7303,
+          "shared_windows": 2,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0116",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0009",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0014"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 2.7071,
+          "shared_windows": 2,
+          "association": 0.3536,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0117",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0036"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.5547,
+          "shared_windows": 2,
+          "association": 0.2774,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0118",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0034"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 2.5,
+          "shared_windows": 2,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0119",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0006",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2.4815,
+          "shared_windows": 2,
+          "association": 0.2408,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0120",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0030"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2.4815,
+          "shared_windows": 2,
+          "association": 0.2408,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0121",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0030"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 2.4529,
+          "shared_windows": 2,
+          "association": 0.2265,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0122",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0032"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.4529,
+          "shared_windows": 2,
+          "association": 0.2265,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0123",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0020"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2.4529,
+          "shared_windows": 2,
+          "association": 0.2265,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0124",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0026"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.4529,
+          "shared_windows": 2,
+          "association": 0.2265,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0125",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0028"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2.417,
+          "shared_windows": 2,
+          "association": 0.2085,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0126",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0013"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.417,
+          "shared_windows": 2,
+          "association": 0.2085,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0127",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0015"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.417,
+          "shared_windows": 2,
+          "association": 0.2085,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0128",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0023"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2.417,
+          "shared_windows": 2,
+          "association": 0.2085,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0129",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0013"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.417,
+          "shared_windows": 2,
+          "association": 0.2085,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0130",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0015"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.417,
+          "shared_windows": 2,
+          "association": 0.2085,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0131",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0023"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.417,
+          "shared_windows": 2,
+          "association": 0.2085,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0132",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0025"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2.373,
+          "shared_windows": 2,
+          "association": 0.1865,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0133",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0012"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.373,
+          "shared_windows": 2,
+          "association": 0.1865,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0134",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0014"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.373,
+          "shared_windows": 2,
+          "association": 0.1865,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0135",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0014"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.3698,
+          "shared_windows": 2,
+          "association": 0.1849,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0136",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0020"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2.3698,
+          "shared_windows": 2,
+          "association": 0.1849,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0137",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0026"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2.3698,
+          "shared_windows": 2,
+          "association": 0.1849,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0138",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0030"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0139",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0008"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0140",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0011"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0141",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0017"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0142",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0021"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0143",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0026"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0144",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0007"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0145",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0002",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0009"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0146",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0017"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0147",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0021"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0148",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0031"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0149",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0005"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0150",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0003",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0006"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0151",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0012"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0152",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0013"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0153",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0023"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0154",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0033"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0155",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0035"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0156",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0004",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0036"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0157",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0013"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0158",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0028"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0159",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0003"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0160",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0031"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0161",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0004"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0162",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0005",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0008"
+        },
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 1,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0163",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/work",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0001"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0164",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0002"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0165",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0020"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0166",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0021"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0167",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0023"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/relation/0168",
+          "from_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/0001",
+          "to_coordinate": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/concept/0030"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.24,
+      "pulse": 8,
+      "fold": 3
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "e01bb0e30253",
+    "tempo": 51,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:fear",
+        "frequency": 165,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:thee",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:because",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:covenant",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:priests",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:fathers",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:sacrifice",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:said",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.04
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:behold",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:offer",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:fasten",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:return",
+        "frequency": 733.33348,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:name",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0417
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:wherein",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.035
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:made",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:evil",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:please",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:hosts",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0633
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 366.6667,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:face",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:jacob",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:done",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:loved",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:saith",
+        "frequency": 330,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0683
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:come",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 165,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:israel",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:despise",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:heart",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:shall",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.1017
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:hath",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:hand",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 366.6667,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:whom",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:gentiles",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.1083
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:before",
+        "frequency": 146.66663,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:great",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:receive",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 440,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:fear",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:thee",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:because",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:covenant",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:priests",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:fathers",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:sacrifice",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:said",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.04
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:behold",
+        "frequency": 495,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:offer",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:fasten",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:return",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 440,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:name",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0417
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:wherein",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:made",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:evil",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:please",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:hosts",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0633
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:face",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:jacob",
+        "frequency": 275,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:done",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:loved",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:saith",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0683
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:come",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:israel",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:despise",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:heart",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:shall",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.1017
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:hath",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:hand",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0333
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:whom",
+        "frequency": 146.66663,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:gentiles",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.1083
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:before",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:great",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:receive",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0333
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 293.3333,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "lord",
+        "count": 50
+      },
+      {
+        "concept": "shall",
+        "count": 46
+      },
+      {
+        "concept": "saith",
+        "count": 26
+      },
+      {
+        "concept": "hosts",
+        "count": 23
+      },
+      {
+        "concept": "name",
+        "count": 10
+      },
+      {
+        "concept": "said",
+        "count": 9
+      },
+      {
+        "concept": "because",
+        "count": 8
+      },
+      {
+        "concept": "before",
+        "count": 8
+      },
+      {
+        "concept": "hath",
+        "count": 8
+      },
+      {
+        "concept": "come",
+        "count": 6
+      },
+      {
+        "concept": "face",
+        "count": 6
+      },
+      {
+        "concept": "wherein",
+        "count": 6
+      }
+    ],
+    "structural_depth": {
+      "signature": "53b0c73037789b9c",
+      "relation_profile": {
+        "contains": 5,
+        "expresses": 66,
+        "co-occurs": 97
+      },
+      "relation_density": 0.2061,
+      "relation_weight_entropy": 0.924,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "Malachie resolves as 5 documents, 60 structural passages, and 168 witnessed relations at 20.6% derived density. Structural signature 53b0c73037789b9c."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291",
+    "origin": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:39:36.751Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/work",
+      "document": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/{document-ordinal}",
+      "section": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/malachie-b30d8cc0/edition/malachie-b30d8cc0--v14-read-34d3c9-e70b9291/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}

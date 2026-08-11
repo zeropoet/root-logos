@@ -109,7 +109,7 @@ export const ingestKingJamesCorpus = async ({ sourceRoot, sourceWitness, rootRev
     source_hash: manifest.source_hash,
     parent_edition: parentEdition,
     status: "archived",
-    transformation: "deterministic-corpus-reading/v1",
+    transformation: "deterministic-corpus-reading/v2-structural-depth",
     corpus_ref: "works/corpora/king-james-bible-1769.json",
     reading_context: {
       kind: "complete-corpus-compilation",
@@ -124,13 +124,16 @@ export const ingestKingJamesCorpus = async ({ sourceRoot, sourceWitness, rootRev
       sections: corpus.measures.passages,
       words: corpus.measures.words,
       concepts: concepts.size,
-      relations: corpus.visual.topology.edges.length
+      relations: corpus.visual.topology.edges.length,
+      relation_density: corpus.structural_depth.relation_density,
+      relation_weight_entropy: corpus.structural_depth.relation_weight_entropy
     },
     visual: corpus.visual,
     sound: corpus.sound,
     reading: {
       dominant_concepts: dominantConcepts,
-      statement: `King James Bible (1769) resolves as ${corpus.canonical_work_count} independently read books, ${corpus.measures.passages.toLocaleString()} passage coordinates, and ${corpus.measures.cross_work_relations.toLocaleString()} cross-book relations.`
+      structural_depth: corpus.structural_depth,
+      statement: `King James Bible (1769) resolves as ${corpus.canonical_work_count} independently read books, ${corpus.measures.passages.toLocaleString()} passage coordinates, and ${corpus.measures.cross_work_relations.toLocaleString()} cross-book relations. Structural signature ${corpus.structural_depth.signature}.`
     }
   };
   const editionDir = join(publicWorkDir, "editions", editionId);

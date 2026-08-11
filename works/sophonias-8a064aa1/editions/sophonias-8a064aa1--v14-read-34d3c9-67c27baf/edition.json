@@ -1,0 +1,3010 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "sophonias-8a064aa1--v14-read-34d3c9-67c27baf",
+  "work_id": "sophonias-8a064aa1",
+  "created_at": "2026-08-11T16:39:36.696Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "14da127967c27baf39edaf22116e2f8b9bf59c2fa83a624ffa1ce42d47322606",
+  "parent_edition": "sophonias-8a064aa1--v11-read-acbd48-67c27baf",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 4,
+    "sections": 57,
+    "words": 1826,
+    "concepts": 36,
+    "relations": 157,
+    "relation_density": 0.2018,
+    "relation_weight_entropy": 0.9466
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 592221351,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "Sophonias",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "Original argument and apparatus",
+          "weight": 1,
+          "coordinate": "apparatus:introduction",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0001",
+          "source_coordinate_witness": "sha256:516f2252ff053155eafcfa7cf6494f39d86b814a3e11907a5e06208ba52c84a2"
+        },
+        {
+          "id": "document-2",
+          "type": "document",
+          "label": "Chapter 1",
+          "weight": 19,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "document-3",
+          "type": "document",
+          "label": "Chapter 2",
+          "weight": 16,
+          "coordinate": "chapter:2",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "source_coordinate_witness": "sha256:9d2d057eebed4abea73b0a9c37305a8b9bbba2e8373fd331dfbb45a04cc09043"
+        },
+        {
+          "id": "document-4",
+          "type": "document",
+          "label": "Chapter 3",
+          "weight": 21,
+          "coordinate": "chapter:3",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "source_coordinate_witness": "sha256:fcdad38567e5eaf92bdd3e5d16c9add9eb150d2fab8fa1e5d715c2401abde352"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "shall",
+          "weight": 51,
+          "coordinate": "lexicon:shall",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "source_coordinate_witness": "sha256:e93d552fa711a6a5d2a42d581c784bef6ddc8f77e767c330b596a7083c9c91f9"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "lord",
+          "weight": 35,
+          "coordinate": "lexicon:lord",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "source_coordinate_witness": "sha256:71ce91971174b724b007c1558909f2319a6b51daf52aaa0527c702846be58df3"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "because",
+          "weight": 13,
+          "coordinate": "lexicon:because",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003",
+          "source_coordinate_witness": "sha256:00dc7a72ce6b97a916fdc1fcecb6a3e57f1a9b0f4b49b1f04023fc3b109fd911"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "thee",
+          "weight": 11,
+          "coordinate": "lexicon:thee",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0004",
+          "source_coordinate_witness": "sha256:0c3a0ac74bd143a33534f5a673f0c267ef350617751ff304b042b24a3b3e8db4"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "hath",
+          "weight": 9,
+          "coordinate": "lexicon:hath",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0005",
+          "source_coordinate_witness": "sha256:db7809b97ca0bb2967730fbbab46cad442495fb7e7ccaaa6899ec9cdc553c267"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "earth",
+          "weight": 8,
+          "coordinate": "lexicon:earth",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006",
+          "source_coordinate_witness": "sha256:3e2a17349ec82937e48aefd6afe0a3869d25f9eff8bdcc8c999b72f51563ad59"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "thou",
+          "weight": 8,
+          "coordinate": "lexicon:thou",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0007",
+          "source_coordinate_witness": "sha256:e41d9097d059b5966986e4c5bcd01cc0cc13894cfc68ad0e6aacd1d35127195a"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "gentiles",
+          "weight": 7,
+          "coordinate": "lexicon:gentiles",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0008",
+          "source_coordinate_witness": "sha256:a4bd6ee5654342473d67c24dd2a25b9c8bb1c54fe730dd86aed56801e1f0b02b"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "midst",
+          "weight": 7,
+          "coordinate": "lexicon:midst",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0009",
+          "source_coordinate_witness": "sha256:58c151f9f823b91d56f21c5bbc232c8f87cc0472469f77e6b08eda15c9073ccd"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "away",
+          "weight": 6,
+          "coordinate": "lexicon:away",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0010",
+          "source_coordinate_witness": "sha256:7243851e671fc387731169e8f10c9e2c22dc286014db78a85fc24300c93be296"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "before",
+          "weight": 6,
+          "coordinate": "lexicon:before",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0011",
+          "source_coordinate_witness": "sha256:cf6a842c737ca5a9fd90023f80069c74433353db02040af6479954c7c8dafdc7"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "desert",
+          "weight": 6,
+          "coordinate": "lexicon:desert",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0012",
+          "source_coordinate_witness": "sha256:98d20c818864fd266c9a9eb5ee6e44ee837754de42c526d95722cff60a8a2b8b"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "jerusalem",
+          "weight": 6,
+          "coordinate": "lexicon:jerusalem",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0013",
+          "source_coordinate_witness": "sha256:7cfb170a37ac51361d68529a447a9b9182970bb59f863ba8edb7d0f4bae968fe"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "people",
+          "weight": 6,
+          "coordinate": "lexicon:people",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0014",
+          "source_coordinate_witness": "sha256:74da8e5d29b95267bd6caba0294e60d149123fb1d2fa6de6c666eaac74131548"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "saith",
+          "weight": 6,
+          "coordinate": "lexicon:saith",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0015",
+          "source_coordinate_witness": "sha256:b07a364da8afaf03a1df7736d750a6ab2ed84dba5cb5f2556d98e4c596544c63"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "after",
+          "weight": 5,
+          "coordinate": "lexicon:after",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0016",
+          "source_coordinate_witness": "sha256:9ffec6c112ad735caf2c1ab56000137f24e1747c93e9ef19603d76db39dff509"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "gather",
+          "weight": 5,
+          "coordinate": "lexicon:gather",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0017",
+          "source_coordinate_witness": "sha256:e6fdef113d581c310d81983221ab45e8d5979ccd1cc163a05e1812878a3284d7"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "shalt",
+          "weight": 5,
+          "coordinate": "lexicon:shalt",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0018",
+          "source_coordinate_witness": "sha256:9dacda0efcbe1ab74a6bbec296405d6601fc9420ac90eab6ed8e740776f631a7"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "captivity",
+          "weight": 4,
+          "coordinate": "lexicon:captivity",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0019",
+          "source_coordinate_witness": "sha256:bfd15bdbbc827b2167dc597f0c4fa917b2ea54fd926cd99879dd8395e4907116"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "destroy",
+          "weight": 4,
+          "coordinate": "lexicon:destroy",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0020",
+          "source_coordinate_witness": "sha256:a662576eebed4164c585fc3dbd86e1405a2635a10b822fbedf2f030c73150e74"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "destroyed",
+          "weight": 4,
+          "coordinate": "lexicon:destroyed",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0021",
+          "source_coordinate_witness": "sha256:af700aa3feab27a745c27311e000b9a4aeccc9e019402877db2168b9626d4562"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "houses",
+          "weight": 4,
+          "coordinate": "lexicon:houses",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0022",
+          "source_coordinate_witness": "sha256:f822fc74bf22af2e776c683e75caed24d8f146edf5c5176f23e436d13208d80f"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "israel",
+          "weight": 4,
+          "coordinate": "lexicon:israel",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0023",
+          "source_coordinate_witness": "sha256:26457d7dadcd3998f206ca5de8e985b6fb4d6bb9df999a107cd9f1565ca17010"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "juda",
+          "weight": 4,
+          "coordinate": "lexicon:juda",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0024",
+          "source_coordinate_witness": "sha256:4cbbccb7f9f29edb04ef4368563a879173f99ae48da218080522e22d83b02a14"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "judgement",
+          "weight": 4,
+          "coordinate": "lexicon:judgement",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0025",
+          "source_coordinate_witness": "sha256:cf7ba700f63361a1325f72d3d2e70514de0128b71fb7707b27864b3c4cbc0594"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "king",
+          "weight": 4,
+          "coordinate": "lexicon:king",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0026",
+          "source_coordinate_witness": "sha256:1f7c709ed4925bf29b686214fc3db0d42fd152e30d75eb8130939cbea5ae2262"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "make",
+          "weight": 4,
+          "coordinate": "lexicon:make",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0027",
+          "source_coordinate_witness": "sha256:79d52321050e04798b1e3cb374ce81f0eda83d8ed95a963172ffd3be29379910"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "name",
+          "weight": 4,
+          "coordinate": "lexicon:name",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0028",
+          "source_coordinate_witness": "sha256:4a97bcc275a836b79fd2698246f5bae3fd48438d3798387fcf414296236da241"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "praise",
+          "weight": 4,
+          "coordinate": "lexicon:praise",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0029",
+          "source_coordinate_witness": "sha256:06814e8c2c765d0569bc62ef72c5161210ae1752849c08f37977a4957fa32d91"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "time",
+          "weight": 4,
+          "coordinate": "lexicon:time",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0030",
+          "source_coordinate_witness": "sha256:f13378b8fdcc55a6f02f015be0d0c1af9f7e7aa9e514cc0bc15bfdd6f91e85ef"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "together",
+          "weight": 4,
+          "coordinate": "lexicon:together",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0031",
+          "source_coordinate_witness": "sha256:1959d0f49eaf2a8292002e5135999c1cd6038ac1fdb2cd9c6d4d85e25ef7416a"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "visit",
+          "weight": 4,
+          "coordinate": "lexicon:visit",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0032",
+          "source_coordinate_witness": "sha256:33f2f2b23504337dced6162d4b4c37d2861c2cf83c792cbd29842dd5023b9dcf"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "voice",
+          "weight": 4,
+          "coordinate": "lexicon:voice",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0033",
+          "source_coordinate_witness": "sha256:61888d692bdbfee3e197cafa09a05cd54ba942c6021631509375e3cd17fc5e04"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "wrath",
+          "weight": 4,
+          "coordinate": "lexicon:wrath",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0034",
+          "source_coordinate_witness": "sha256:4ed8b6ae5be2a0b2bb6894e0fe3461a3c2387a95abcfd1e7bf147ff7200ea4e8"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "adore",
+          "weight": 3,
+          "coordinate": "lexicon:adore",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0035",
+          "source_coordinate_witness": "sha256:0edbaba3b786da4d04f60d6395e46c6e642bde6be435943bb3dbe5872fe781dd"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "bring",
+          "weight": 3,
+          "coordinate": "lexicon:bring",
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0036",
+          "source_coordinate_witness": "sha256:3e2dbcdcae1b598e5841371ae3ff2bea973f25128f8486027348f6e2588dbf69"
+        }
+      ],
+      "edges": [
+        {
+          "from": "concept-1",
+          "to": "concept-2",
+          "relation": "co-occurs",
+          "weight": 25.1429,
+          "shared_windows": 16,
+          "association": 0.5714,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0001",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-4",
+          "relation": "contains",
+          "weight": 21,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0002",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/work",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004"
+        },
+        {
+          "from": "work",
+          "to": "document-2",
+          "relation": "contains",
+          "weight": 19,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0003",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/work",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 19,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0004",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 17,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0005",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 17,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0006",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001"
+        },
+        {
+          "from": "work",
+          "to": "document-3",
+          "relation": "contains",
+          "weight": 16,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0007",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/work",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 15,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0008",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 11.4915,
+          "shared_windows": 8,
+          "association": 0.4364,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0009",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 10.5,
+          "shared_windows": 7,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0010",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 10,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0011",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0004"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 9.6732,
+          "shared_windows": 7,
+          "association": 0.3819,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0012",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0013",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0014",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 8.7775,
+          "shared_windows": 6,
+          "association": 0.4629,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0015",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0015"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0016",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0007"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0017",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0005"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 6.9288,
+          "shared_windows": 5,
+          "association": 0.3858,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0018",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0015"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 6.7857,
+          "shared_windows": 5,
+          "association": 0.3571,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0019",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 6.5298,
+          "shared_windows": 4,
+          "association": 0.6325,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0020",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0007"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 6.4689,
+          "shared_windows": 4,
+          "association": 0.6172,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0021",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0015"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 6.1381,
+          "shared_windows": 4,
+          "association": 0.5345,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0022",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0009"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0023",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0009"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 5.5119,
+          "shared_windows": 4,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0024",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0025"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 5.5119,
+          "shared_windows": 4,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0025",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0032"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 5.5119,
+          "shared_windows": 4,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0026",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0005"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 5.3522,
+          "shared_windows": 4,
+          "association": 0.3381,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0027",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0010"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 5.3238,
+          "shared_windows": 3,
+          "association": 0.7746,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0028",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0007",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0018"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 5.2344,
+          "shared_windows": 4,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0029",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0012"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 5.2344,
+          "shared_windows": 4,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0030",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0014"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 5.2344,
+          "shared_windows": 4,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0031",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0008"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 5.2344,
+          "shared_windows": 4,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0032",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0014"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 5.1429,
+          "shared_windows": 4,
+          "association": 0.2857,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0033",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0009"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 5.069,
+          "shared_windows": 4,
+          "association": 0.2673,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0034",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0004"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0035",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0018"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0036",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003"
+        },
+        {
+          "from": "concept-15",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 4.6432,
+          "shared_windows": 3,
+          "association": 0.5477,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0037",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0015",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0017"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 4.5213,
+          "shared_windows": 3,
+          "association": 0.5071,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0038",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0017"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0039",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0040",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0041",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0012"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0042",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0043",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0017"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0044",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0028"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0045",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0029"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 3.8504,
+          "shared_windows": 3,
+          "association": 0.2835,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0046",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0019"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 3.8504,
+          "shared_windows": 3,
+          "association": 0.2835,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0047",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0032"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 3.8504,
+          "shared_windows": 3,
+          "association": 0.2835,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0048",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0033"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.8504,
+          "shared_windows": 3,
+          "association": 0.2835,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0049",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0011"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 3.8504,
+          "shared_windows": 3,
+          "association": 0.2835,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0050",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0028"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 3.8504,
+          "shared_windows": 3,
+          "association": 0.2835,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0051",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0033"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 3.8504,
+          "shared_windows": 3,
+          "association": 0.2835,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0052",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0034"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 3.7606,
+          "shared_windows": 3,
+          "association": 0.2535,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0053",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0017"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 3.6944,
+          "shared_windows": 3,
+          "association": 0.2315,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0054",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0013"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 3.6429,
+          "shared_windows": 3,
+          "association": 0.2143,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0055",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0009"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0056",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0011",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0036"
+        },
+        {
+          "from": "concept-24",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0057",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0024",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0026"
+        },
+        {
+          "from": "concept-28",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0058",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0028",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0030"
+        },
+        {
+          "from": "concept-29",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0059",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0029",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0030"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 3.0328,
+          "shared_windows": 2,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0060",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0010",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0018"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 3.0328,
+          "shared_windows": 2,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0061",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0017",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0030"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 3.0328,
+          "shared_windows": 2,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0062",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0017",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0031"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0063",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0011",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0019"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0064",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0019",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0024"
+        },
+        {
+          "from": "concept-23",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0065",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0023",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0027"
+        },
+        {
+          "from": "concept-27",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0066",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0027",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0029"
+        },
+        {
+          "from": "concept-28",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0067",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0028",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0029"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0068",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0005",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0025"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0069",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0016"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0070",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0015"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0071",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0022"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0072",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0032"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0073",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0011"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0074",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0014"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0075",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0010"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0076",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0013"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0077",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0021"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0078",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0023"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0079",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0025"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0080",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0027"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0081",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0030"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0082",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0008"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2.9428,
+          "shared_windows": 2,
+          "association": 0.4714,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0083",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0012",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0021"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2.9428,
+          "shared_windows": 2,
+          "association": 0.4714,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0084",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0008",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0021"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0085",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0017",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0028"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0086",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0017",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0029"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2.8729,
+          "shared_windows": 2,
+          "association": 0.4364,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0087",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0009",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0018"
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0088",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0013",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0024"
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0089",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0014",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0028"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0090",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0018"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.8,
+          "shared_windows": 2,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0091",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0007",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0010"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0092",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0005",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0009"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0093",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0025"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0094",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0034"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0095",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0009",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0025"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.7071,
+          "shared_windows": 2,
+          "association": 0.3536,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0096",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0028"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2.7071,
+          "shared_windows": 2,
+          "association": 0.3536,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0097",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0029"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 2.6761,
+          "shared_windows": 2,
+          "association": 0.3381,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0098",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0007",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0009"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.6761,
+          "shared_windows": 2,
+          "association": 0.3381,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0099",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0009",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0010"
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.6667,
+          "shared_windows": 2,
+          "association": 0.3333,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0100",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0014",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0015"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2.6667,
+          "shared_windows": 2,
+          "association": 0.3333,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0101",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0008",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0013"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0102",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0010"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0103",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0017"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 2.6172,
+          "shared_windows": 2,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0104",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0008"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0105",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0027"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0106",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0034"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 2.5345,
+          "shared_windows": 2,
+          "association": 0.2673,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0107",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0035"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0108",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0010"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0109",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0017"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0110",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0007"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0111",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0008"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0112",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0021"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0113",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0022"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0114",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0030"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0115",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0036"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0116",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0022"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0117",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0026"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0118",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0030"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0119",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0036"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0120",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0121",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0009"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0122",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0004"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0123",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0020"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0124",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0023"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0125",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0025"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0126",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0027"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0127",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0028"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0128",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0034"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0129",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0019"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0130",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0020"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0131",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0023"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0132",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0024"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0133",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0029"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0134",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0026"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0135",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0008"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0136",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0013"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0137",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0016"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0138",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0020"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0139",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0024"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0140",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0033"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0141",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0034"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0142",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0035"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0143",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0002",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0005"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0144",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0010"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0145",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0020"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0146",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0031"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0147",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0148",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0003",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0008"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0149",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0014"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0150",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0015"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0151",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0036"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0152",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0004",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0006"
+        },
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 1,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0153",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/work",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0001"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0154",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0011"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0155",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0013"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0156",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0019"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/relation/0157",
+          "from_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/0001",
+          "to_coordinate": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/concept/0024"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.27,
+      "pulse": 10,
+      "fold": 4
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "0178422dc00d",
+    "tempo": 59,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:thee",
+        "frequency": 137.5,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0443
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:before",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:shalt",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0338
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:judgement",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:visit",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:because",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0478
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:away",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:gather",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0338
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:juda",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:together",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:lord",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0864
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:midst",
+        "frequency": 880,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0373
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:after",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0338
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:israel",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.032
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:time",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:shall",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.1145
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:gentiles",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0373
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:saith",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:houses",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:praise",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:bring",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0303
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:thou",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.039
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:people",
+        "frequency": 440,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:destroyed",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 293.3333,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:name",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:adore",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0303
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:earth",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.039
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:jerusalem",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:destroy",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:make",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 366.6667,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:wrath",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:hath",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0408
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:desert",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0355
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:captivity",
+        "frequency": 206.25,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:king",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.032
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:voice",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 293.3333,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:thee",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0443
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:before",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:shalt",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0338
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:judgement",
+        "frequency": 110,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.032
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:visit",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:because",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0478
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 366.6667,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:away",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:gather",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0338
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:juda",
+        "frequency": 880,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:together",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:lord",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0864
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:midst",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0373
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 293.3333,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:after",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0338
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:israel",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:time",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:shall",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.1145
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:gentiles",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0373
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:saith",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:houses",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:praise",
+        "frequency": 220,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:bring",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0303
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:thou",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.039
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:people",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:destroyed",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 110,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:name",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:adore",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0303
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:earth",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.039
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:jerusalem",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:destroy",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:make",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.032
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 206.25,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:wrath",
+        "frequency": 123.75,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:hath",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0408
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:desert",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:captivity",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:king",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:voice",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 293.3333,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "shall",
+        "count": 51
+      },
+      {
+        "concept": "lord",
+        "count": 35
+      },
+      {
+        "concept": "because",
+        "count": 13
+      },
+      {
+        "concept": "thee",
+        "count": 11
+      },
+      {
+        "concept": "hath",
+        "count": 9
+      },
+      {
+        "concept": "earth",
+        "count": 8
+      },
+      {
+        "concept": "thou",
+        "count": 8
+      },
+      {
+        "concept": "gentiles",
+        "count": 7
+      },
+      {
+        "concept": "midst",
+        "count": 7
+      },
+      {
+        "concept": "away",
+        "count": 6
+      },
+      {
+        "concept": "before",
+        "count": 6
+      },
+      {
+        "concept": "desert",
+        "count": 6
+      }
+    ],
+    "structural_depth": {
+      "signature": "8923eec8f58e53d3",
+      "relation_profile": {
+        "contains": 4,
+        "expresses": 56,
+        "co-occurs": 97
+      },
+      "relation_density": 0.2018,
+      "relation_weight_entropy": 0.9466,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "Sophonias resolves as 4 documents, 57 structural passages, and 157 witnessed relations at 20.2% derived density. Structural signature 8923eec8f58e53d3."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf",
+    "origin": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:39:36.696Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/work",
+      "document": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/{document-ordinal}",
+      "section": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/sophonias-8a064aa1/edition/sophonias-8a064aa1--v14-read-34d3c9-67c27baf/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}

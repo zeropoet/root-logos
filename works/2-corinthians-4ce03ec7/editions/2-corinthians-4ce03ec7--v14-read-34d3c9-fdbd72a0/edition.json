@@ -1,0 +1,3342 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0",
+  "work_id": "2-corinthians-4ce03ec7",
+  "created_at": "2026-08-11T16:38:55.942Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "30c9c1a9fdbd72a0077c57a1890d125d9cb1d760a50c4b928a44e797917e48b5",
+  "parent_edition": "2-corinthians-4ce03ec7--v12-read-b1dda3-fdbd72a0",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 13,
+    "sections": 257,
+    "words": 6069,
+    "concepts": 36,
+    "relations": 198,
+    "relation_density": 0.1782,
+    "relation_weight_entropy": 0.9356
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 2603214825,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "2 Corinthians",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "2 Corinthians 1",
+          "weight": 24,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "document-2",
+          "type": "document",
+          "label": "2 Corinthians 2",
+          "weight": 17,
+          "coordinate": "chapter:2",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0002",
+          "source_coordinate_witness": "sha256:9d2d057eebed4abea73b0a9c37305a8b9bbba2e8373fd331dfbb45a04cc09043"
+        },
+        {
+          "id": "document-3",
+          "type": "document",
+          "label": "2 Corinthians 3",
+          "weight": 18,
+          "coordinate": "chapter:3",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0003",
+          "source_coordinate_witness": "sha256:fcdad38567e5eaf92bdd3e5d16c9add9eb150d2fab8fa1e5d715c2401abde352"
+        },
+        {
+          "id": "document-4",
+          "type": "document",
+          "label": "2 Corinthians 4",
+          "weight": 18,
+          "coordinate": "chapter:4",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "source_coordinate_witness": "sha256:ef515e16f724ced4ed063d318dc52bc0028c3ae59b85c7e93fe194e6c13f6c48"
+        },
+        {
+          "id": "document-5",
+          "type": "document",
+          "label": "2 Corinthians 5",
+          "weight": 21,
+          "coordinate": "chapter:5",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "source_coordinate_witness": "sha256:fc4ad47b78d0a1fa0d7ec0c54f7395aba4ed46c4ea4e74d77f1c2d7fa31140ae"
+        },
+        {
+          "id": "document-6",
+          "type": "document",
+          "label": "2 Corinthians 6",
+          "weight": 18,
+          "coordinate": "chapter:6",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0006",
+          "source_coordinate_witness": "sha256:4aadb1f27fbb149b4c25b75120749f87626870db3229556c9c41e5816079d143"
+        },
+        {
+          "id": "document-7",
+          "type": "document",
+          "label": "2 Corinthians 7",
+          "weight": 16,
+          "coordinate": "chapter:7",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "source_coordinate_witness": "sha256:2fbf4515daac0931222e48bfd2b909e2b9e8e6d1ba01fc6d210c7b67078c219f"
+        },
+        {
+          "id": "document-8",
+          "type": "document",
+          "label": "2 Corinthians 8",
+          "weight": 24,
+          "coordinate": "chapter:8",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "source_coordinate_witness": "sha256:f82491310a0fb58771671b22f7cb38923d1418314d13c974cac9833414c4d51e"
+        },
+        {
+          "id": "document-9",
+          "type": "document",
+          "label": "2 Corinthians 9",
+          "weight": 15,
+          "coordinate": "chapter:9",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0009",
+          "source_coordinate_witness": "sha256:aae047f3e721d070df292c7fe876ed833feb6ee7bfff7491de65c53888ca291d"
+        },
+        {
+          "id": "document-10",
+          "type": "document",
+          "label": "2 Corinthians 10",
+          "weight": 18,
+          "coordinate": "chapter:10",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "source_coordinate_witness": "sha256:3db8b26d85f723c0911f77243acd50cb8197ee845b84116ec3e9a896f025a234"
+        },
+        {
+          "id": "document-11",
+          "type": "document",
+          "label": "2 Corinthians 11",
+          "weight": 33,
+          "coordinate": "chapter:11",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "source_coordinate_witness": "sha256:9dafd264badab8591f91ac5b86f2ac8cc1f59c768734833c0d7d0a0884ba6fdd"
+        },
+        {
+          "id": "document-12",
+          "type": "document",
+          "label": "2 Corinthians 12",
+          "weight": 21,
+          "coordinate": "chapter:12",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "source_coordinate_witness": "sha256:ba86ba8e89530abee7c4e64fa4ebf2e86df768abf8dc2a3cb60f2ec20306c8b2"
+        },
+        {
+          "id": "document-13",
+          "type": "document",
+          "label": "2 Corinthians 13",
+          "weight": 14,
+          "coordinate": "chapter:13",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0013",
+          "source_coordinate_witness": "sha256:2c051236283dc6a7829e8e6fb73b0dde4d86801deeb20a01fd37b75b41203e03"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "unto",
+          "weight": 46,
+          "coordinate": "lexicon:unto",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001",
+          "source_coordinate_witness": "sha256:10037e9bf5d7de29a900d0cf5311bf4ed709ea5aafd27b6ac684fc19b1fb6536"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "christ",
+          "weight": 43,
+          "coordinate": "lexicon:christ",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002",
+          "source_coordinate_witness": "sha256:ce7895ccf869946ad57c693088f4cab46096005f340a1d536b30e3f6197efb26"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "things",
+          "weight": 32,
+          "coordinate": "lexicon:things",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003",
+          "source_coordinate_witness": "sha256:9fb18c3c810481061d608553f67958ef9788254dfdd128cb115045628b3f154e"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "lord",
+          "weight": 30,
+          "coordinate": "lexicon:lord",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004",
+          "source_coordinate_witness": "sha256:71ce91971174b724b007c1558909f2319a6b51daf52aaa0527c702846be58df3"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "glory",
+          "weight": 28,
+          "coordinate": "lexicon:glory",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0005",
+          "source_coordinate_witness": "sha256:738167938c906ee3a6d209e31e20f4e1afeaf8055511cf28632c4f981c5364f1"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "hath",
+          "weight": 28,
+          "coordinate": "lexicon:hath",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0006",
+          "source_coordinate_witness": "sha256:db7809b97ca0bb2967730fbbab46cad442495fb7e7ccaaa6899ec9cdc553c267"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "shall",
+          "weight": 23,
+          "coordinate": "lexicon:shall",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0007",
+          "source_coordinate_witness": "sha256:e93d552fa711a6a5d2a42d581c784bef6ddc8f77e767c330b596a7083c9c91f9"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "jesus",
+          "weight": 18,
+          "coordinate": "lexicon:jesus",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0008",
+          "source_coordinate_witness": "sha256:df0b5de09bd1fc073e417686b43974fdf9eaf18f0bc068e4dabe0b18a57b26a1"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "made",
+          "weight": 18,
+          "coordinate": "lexicon:made",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0009",
+          "source_coordinate_witness": "sha256:b454ec1951926ef35f549211a6566bd5edc1acd3ac3ca4c9b86287d6409215d3"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "though",
+          "weight": 18,
+          "coordinate": "lexicon:though",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0010",
+          "source_coordinate_witness": "sha256:6cb147df23edd942b9aac6e355b6bacb8e1d01f58310041e888acc5cf4f29017"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "ourselves",
+          "weight": 17,
+          "coordinate": "lexicon:ourselves",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0011",
+          "source_coordinate_witness": "sha256:ae570b0142628c85e62b550d82515f36fc3997820d8374d8c50aa5311f4f3e21"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "therefore",
+          "weight": 17,
+          "coordinate": "lexicon:therefore",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0012",
+          "source_coordinate_witness": "sha256:0d7be7e5ddc7f3e5eeef715a6030f7ab45ba1b2ce51c98b9f9cd8b227a0e7f62"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "spirit",
+          "weight": 15,
+          "coordinate": "lexicon:spirit",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0013",
+          "source_coordinate_witness": "sha256:4e95577d5c786ce3899f464d47562a23ee289941578276c026ac90706173ba47"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "lest",
+          "weight": 14,
+          "coordinate": "lexicon:lest",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0014",
+          "source_coordinate_witness": "sha256:7741a66938e150596ea5da2705c3dfb90cd6a57f6e129915d19bd80a17aad4a8"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "grace",
+          "weight": 13,
+          "coordinate": "lexicon:grace",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0015",
+          "source_coordinate_witness": "sha256:7668eadf1a97fc6cc98495ca185c6b0b29e293938aa2e17834583f23f9011097"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "thing",
+          "weight": 13,
+          "coordinate": "lexicon:thing",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0016",
+          "source_coordinate_witness": "sha256:f2550485c336f5fcd14763d54809afebe31602f8e63c18bb646b04a1c50da52a"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "come",
+          "weight": 12,
+          "coordinate": "lexicon:come",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0017",
+          "source_coordinate_witness": "sha256:1896a0f4a716bfc747ed46a7e557ec976e335148415880360444b95cc7f3de91"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "whether",
+          "weight": 12,
+          "coordinate": "lexicon:whether",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0018",
+          "source_coordinate_witness": "sha256:1cf765e27daed43ed83d83c639cdb47c5306440de9b0c78d41f0db8ea27ab4f8"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "according",
+          "weight": 11,
+          "coordinate": "lexicon:according",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0019",
+          "source_coordinate_witness": "sha256:65baeed34e8784e4cb19cd10dedad518868ca55e952179baa9e3ca4975975f47"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "flesh",
+          "weight": 11,
+          "coordinate": "lexicon:flesh",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0020",
+          "source_coordinate_witness": "sha256:59af318707ee469f5f751a97250110403663decb6d2eb3ce7e209097ba3edbd4"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "love",
+          "weight": 11,
+          "coordinate": "lexicon:love",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0021",
+          "source_coordinate_witness": "sha256:5b53e31d9b66d7edde42f1a7f6da803e644d0c4747e897e1f7d50f8beaaa7dbb"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "speak",
+          "weight": 11,
+          "coordinate": "lexicon:speak",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0022",
+          "source_coordinate_witness": "sha256:2c323f0526d37468bde104e967ea80e16913fd8fc2e330514165a2bf0b00a0b6"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "again",
+          "weight": 10,
+          "coordinate": "lexicon:again",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0023",
+          "source_coordinate_witness": "sha256:90257068cd6ac2ec51d0afae8282d3e445760888b30398189c6876b84a051e8b"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "before",
+          "weight": 10,
+          "coordinate": "lexicon:before",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0024",
+          "source_coordinate_witness": "sha256:cf6a842c737ca5a9fd90023f80069c74433353db02040af6479954c7c8dafdc7"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "after",
+          "weight": 9,
+          "coordinate": "lexicon:after",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0025",
+          "source_coordinate_witness": "sha256:9ffec6c112ad735caf2c1ab56000137f24e1747c93e9ef19603d76db39dff509"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "body",
+          "weight": 9,
+          "coordinate": "lexicon:body",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0026",
+          "source_coordinate_witness": "sha256:01d171c5c85e04229d695c8445bb8a994012b2254ff19343a3f41e7d59264731"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "gospel",
+          "weight": 9,
+          "coordinate": "lexicon:gospel",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0027",
+          "source_coordinate_witness": "sha256:4f04628a056e472b1f93565cc43e95c69d42fe57c7f417ecbbb66da4444fb450"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "know",
+          "weight": 9,
+          "coordinate": "lexicon:know",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0028",
+          "source_coordinate_witness": "sha256:33fc64e3e771682e24d1700d1975dc7be101382bdb85c26e567371a0462ae503"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "measure",
+          "weight": 9,
+          "coordinate": "lexicon:measure",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0029",
+          "source_coordinate_witness": "sha256:4423074bf9e82bb81324b05d61610c77a8b663ddd697b26151f685e5ecabfbfa"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "present",
+          "weight": 9,
+          "coordinate": "lexicon:present",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0030",
+          "source_coordinate_witness": "sha256:5d47857b6d40efd6a385107fc3f19f02a3d2427321ed99b2631fffdac3b27890"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "titus",
+          "weight": 9,
+          "coordinate": "lexicon:titus",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0031",
+          "source_coordinate_witness": "sha256:dffc368ba3a7308f0c2ae8ca6cd0d64a7470cedfb73dce7bdbd64b3891e7e6c8"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "toward",
+          "weight": 9,
+          "coordinate": "lexicon:toward",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0032",
+          "source_coordinate_witness": "sha256:186502b15f041c80d51017d6746a7322c148b829409b76d87cce054305fae711"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "whom",
+          "weight": 9,
+          "coordinate": "lexicon:whom",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0033",
+          "source_coordinate_witness": "sha256:59bf24c4c68e3fecd6c075be8208bc4c53ee267fe11da0adeee9a73a6d2c66a5"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "brethren",
+          "weight": 8,
+          "coordinate": "lexicon:brethren",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0034",
+          "source_coordinate_witness": "sha256:724bb44a0ebbc5c7736a587468ae2c96faa2ff0c0edf2553199e127d606d1506"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "churches",
+          "weight": 8,
+          "coordinate": "lexicon:churches",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0035",
+          "source_coordinate_witness": "sha256:19cef8cb101d0d4fc34d4fd4a9f3ab432590ca1e8bae6cc820f8abf5fb866180"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "death",
+          "weight": 8,
+          "coordinate": "lexicon:death",
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0036",
+          "source_coordinate_witness": "sha256:f02e5514a4a913810b46e6f508eb7ec55dab57554f4d01d5615ca18980d7a8b6"
+        }
+      ],
+      "edges": [
+        {
+          "from": "work",
+          "to": "document-11",
+          "relation": "contains",
+          "weight": 33,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0001",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011"
+        },
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 24,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0002",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001"
+        },
+        {
+          "from": "work",
+          "to": "document-8",
+          "relation": "contains",
+          "weight": 24,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0003",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008"
+        },
+        {
+          "from": "work",
+          "to": "document-12",
+          "relation": "contains",
+          "weight": 21,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0004",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012"
+        },
+        {
+          "from": "work",
+          "to": "document-5",
+          "relation": "contains",
+          "weight": 21,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0005",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005"
+        },
+        {
+          "from": "work",
+          "to": "document-10",
+          "relation": "contains",
+          "weight": 18,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0006",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010"
+        },
+        {
+          "from": "work",
+          "to": "document-3",
+          "relation": "contains",
+          "weight": 18,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0007",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0003"
+        },
+        {
+          "from": "work",
+          "to": "document-4",
+          "relation": "contains",
+          "weight": 18,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0008",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004"
+        },
+        {
+          "from": "work",
+          "to": "document-6",
+          "relation": "contains",
+          "weight": 18,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0009",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0006"
+        },
+        {
+          "from": "work",
+          "to": "document-2",
+          "relation": "contains",
+          "weight": 17,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0010",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-7",
+          "relation": "contains",
+          "weight": 16,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0011",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 15.6677,
+          "shared_windows": 11,
+          "association": 0.4243,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0012",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0008"
+        },
+        {
+          "from": "work",
+          "to": "document-9",
+          "relation": "contains",
+          "weight": 15,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0013",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0009"
+        },
+        {
+          "from": "work",
+          "to": "document-13",
+          "relation": "contains",
+          "weight": 14,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0014",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0013"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 12.8269,
+          "shared_windows": 9,
+          "association": 0.4252,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0015",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0008"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-2",
+          "relation": "co-occurs",
+          "weight": 11.0275,
+          "shared_windows": 9,
+          "association": 0.2253,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0016",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0017",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0003",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0005"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 8.6499,
+          "shared_windows": 7,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0018",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0006"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0019",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0020",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0021",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0022",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0003",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0013"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0023",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0008"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0024",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0025",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0006"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 6.494,
+          "shared_windows": 5,
+          "association": 0.2988,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0026",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0019"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0027",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0028",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0029",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0014"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0030",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0031",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0006",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0006"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0032",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0009",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 5.4606,
+          "shared_windows": 4,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0033",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0017",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0023"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 5.2649,
+          "shared_windows": 4,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0034",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0019"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 5.1041,
+          "shared_windows": 4,
+          "association": 0.276,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0035",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0006",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0019"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0036",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0008"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0037",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0029"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0038",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0022"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0039",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0005"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0040",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0005"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0041",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0003",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0042",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0009"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0043",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0009"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0044",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0015"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0045",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0035"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 4.8652,
+          "shared_windows": 4,
+          "association": 0.2163,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0046",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0027"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 4.8386,
+          "shared_windows": 4,
+          "association": 0.2097,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0047",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0015"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 4.823,
+          "shared_windows": 4,
+          "association": 0.2057,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0048",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0018"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 4.8208,
+          "shared_windows": 4,
+          "association": 0.2052,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0049",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0023"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 4.7559,
+          "shared_windows": 4,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0050",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0012"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 4.7493,
+          "shared_windows": 4,
+          "association": 0.1873,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0051",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0017"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 4.2247,
+          "shared_windows": 3,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0052",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0018",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0026"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 4.0607,
+          "shared_windows": 3,
+          "association": 0.3536,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0053",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0020",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0025"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0054",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0055",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0056",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0057",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0017"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0058",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0026"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0059",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0007"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0060",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0013",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0007"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0061",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0062",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0018"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0063",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0064",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0010"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0065",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004"
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 3.8825,
+          "shared_windows": 3,
+          "association": 0.2942,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0066",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0013",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0031"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 3.7894,
+          "shared_windows": 3,
+          "association": 0.2631,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0067",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0023"
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 3.75,
+          "shared_windows": 3,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0068",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0014",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0017"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 3.6944,
+          "shared_windows": 3,
+          "association": 0.2315,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0069",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0026"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 3.624,
+          "shared_windows": 3,
+          "association": 0.208,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0070",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0013"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 3.624,
+          "shared_windows": 3,
+          "association": 0.208,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0071",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0015"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 3.596,
+          "shared_windows": 3,
+          "association": 0.1987,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0072",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0014"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 3.5727,
+          "shared_windows": 3,
+          "association": 0.1909,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0073",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0015"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 3.5669,
+          "shared_windows": 3,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0074",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0024"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 3.5669,
+          "shared_windows": 3,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0075",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0030"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 3.5447,
+          "shared_windows": 3,
+          "association": 0.1816,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0076",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0006",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0013"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0077",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0011"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0078",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0079",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0010"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0080",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0011"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0081",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0019"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0082",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0083",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0020"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0084",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0085",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0010"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0086",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0018"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0087",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0088",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0013",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0089",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0014"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0090",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0033"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0091",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0003",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0011"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0092",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0003",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0093",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0003",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0007"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0094",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0011"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0095",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0012"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0096",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0097",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0098",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0005"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0099",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0012"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0100",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0026"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0101",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0028"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0102",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0103",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0006",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0104",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0012"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0105",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0106",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0031"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0107",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0032"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0108",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0109",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0021"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0110",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0031"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0111",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0009",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0006"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0112",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0019",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0029"
+        },
+        {
+          "from": "concept-34",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 2.5,
+          "shared_windows": 2,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0113",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0034",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0035"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0114",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0018",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0028"
+        },
+        {
+          "from": "concept-27",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0115",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0027",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0033"
+        },
+        {
+          "from": "concept-22",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.4444,
+          "shared_windows": 2,
+          "association": 0.2222,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0116",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0022",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0024"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.4216,
+          "shared_windows": 2,
+          "association": 0.2108,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0117",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0019",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0020"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2.4216,
+          "shared_windows": 2,
+          "association": 0.2108,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0118",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0019",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0030"
+        },
+        {
+          "from": "concept-23",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.4216,
+          "shared_windows": 2,
+          "association": 0.2108,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0119",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0023",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0024"
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0120",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0014",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0033"
+        },
+        {
+          "from": "concept-15",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 2.3922,
+          "shared_windows": 2,
+          "association": 0.1961,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0121",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0015",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0035"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.3849,
+          "shared_windows": 2,
+          "association": 0.1925,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0122",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0017",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0024"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0123",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0015"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0124",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0017"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0125",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0018"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0126",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0127",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0032"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0128",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0036"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0129",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0006"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0130",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0001",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0007"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0131",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0132",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0025"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0133",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0027"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0134",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0030"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0135",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0010",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0006"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0136",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0010"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0137",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0025"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0138",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0027"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0139",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0030"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0140",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0034"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0141",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0035"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0142",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0143",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0007"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0144",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0011",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0008"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0145",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0012"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0146",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0023"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0147",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0029"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0148",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0031"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0149",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0012",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0150",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0013",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0010"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0151",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0013",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0021"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0152",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0013",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0028"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0153",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0013",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0030"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0154",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0013",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0155",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0013",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0008"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0156",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0016"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0157",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0021"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0158",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0028"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0159",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0160",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0002",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0036"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0161",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0003",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0009"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0162",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0163",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0026"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0164",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0027"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0165",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0036"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0166",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0006"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0167",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0007"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0168",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0004",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0009"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0169",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0010"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0170",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0011"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0171",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0020"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0172",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0023"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0173",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0025"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0174",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0030"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0175",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0005",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0005"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0176",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0006",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0016"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0177",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0006",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0178",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0006",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0004"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0179",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0006",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0007"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0180",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0001"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0181",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0013"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0182",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0016"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0183",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0020"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0184",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0024"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0185",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0007",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0025"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0186",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0012"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0187",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0019"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0188",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0002"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0189",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0024"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0190",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0003"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0191",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0034"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0192",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0005"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0193",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0008",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0006"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0194",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0009",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0014"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0195",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0009",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0015"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0196",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0009",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0024"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0197",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0009",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0034"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/relation/0198",
+          "from_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/0009",
+          "to_coordinate": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/concept/0007"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.21000000000000002,
+      "pulse": 13,
+      "fold": 4
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "27e3d8c9ae55",
+    "tempo": 59,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:brethren",
+        "frequency": 123.75,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0281
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:glory",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0359
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:therefore",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0316
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:according",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:body",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:whom",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 110,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:lord",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0367
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:ourselves",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0316
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:whether",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0297
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:after",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:toward",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:things",
+        "frequency": 550,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0375
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:though",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:come",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0297
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:before",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0289
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:titus",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:christ",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0417
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:made",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:thing",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0301
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:again",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0289
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:present",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:unto",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0429
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:jesus",
+        "frequency": 366.66674,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:grace",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0301
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 110,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:speak",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:measure",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:death",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0281
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:shall",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0339
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:lest",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0304
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:love",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 366.6667,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:know",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:churches",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0281
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:hath",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0359
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:spirit",
+        "frequency": 146.66663,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0308
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:flesh",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:gospel",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:brethren",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0281
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:glory",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0359
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:therefore",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0316
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:according",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:body",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:whom",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:lord",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0367
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:ourselves",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0316
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:whether",
+        "frequency": 495,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0297
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:after",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:toward",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:things",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0375
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 293.3333,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:though",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:come",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0297
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:before",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0289
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:titus",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:christ",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0417
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:made",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.032
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 293.3333,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:thing",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0301
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:again",
+        "frequency": 220,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0289
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:present",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:unto",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0429
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:jesus",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.032
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:grace",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0301
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:speak",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:measure",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:death",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0281
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:shall",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0339
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:lest",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0304
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:love",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0293
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 293.3333,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:know",
+        "frequency": 110,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:churches",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0281
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:hath",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0359
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:spirit",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0308
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:flesh",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:gospel",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0285
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 247.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "unto",
+        "count": 46
+      },
+      {
+        "concept": "christ",
+        "count": 43
+      },
+      {
+        "concept": "things",
+        "count": 32
+      },
+      {
+        "concept": "lord",
+        "count": 30
+      },
+      {
+        "concept": "glory",
+        "count": 28
+      },
+      {
+        "concept": "hath",
+        "count": 28
+      },
+      {
+        "concept": "shall",
+        "count": 23
+      },
+      {
+        "concept": "jesus",
+        "count": 18
+      },
+      {
+        "concept": "made",
+        "count": 18
+      },
+      {
+        "concept": "though",
+        "count": 18
+      },
+      {
+        "concept": "ourselves",
+        "count": 17
+      },
+      {
+        "concept": "therefore",
+        "count": 17
+      }
+    ],
+    "structural_depth": {
+      "signature": "f8026d16fc81d8df",
+      "relation_profile": {
+        "contains": 13,
+        "expresses": 147,
+        "co-occurs": 38
+      },
+      "relation_density": 0.1782,
+      "relation_weight_entropy": 0.9356,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "2 Corinthians resolves as 13 documents, 257 structural passages, and 198 witnessed relations at 17.8% derived density. Structural signature f8026d16fc81d8df."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0",
+    "origin": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:38:55.942Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/work",
+      "document": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/{document-ordinal}",
+      "section": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/2-corinthians-4ce03ec7/edition/2-corinthians-4ce03ec7--v14-read-34d3c9-fdbd72a0/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}

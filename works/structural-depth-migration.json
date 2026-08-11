@@ -1,0 +1,1352 @@
+{
+  "schema": "root-logos-structural-depth-migration/v1",
+  "generated_at": "2026-08-11T16:58:05.763Z",
+  "target_work_grammar": "deterministic-structural-reading/v4-structural-depth",
+  "target_corpus_grammar": "deterministic-corpus-reading/v2-structural-depth",
+  "policy": "Exact witnessed sources only. Historical editions and admission portraits remain immutable; every new structural reading receives a distinct PNG and SVG successor portrait.",
+  "measures": {
+    "coherent_works": 56,
+    "migrated": 37,
+    "exact_source_required": 19,
+    "completion": 0.6607
+  },
+  "works": [
+    {
+      "order": 0,
+      "work_id": "root-logos-founding-constitution-0e20f4a9",
+      "title": "Root Logos: Founding Constitution",
+      "genre": "constitution",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "root-logos:founding-constitution:git-history:17cdc8a2^:f963be95802f8d90c8a23397f329b2fafcaeb2e5b808e880b0809fdefe94034b",
+      "source_sha256": "f963be95802f8d90c8a23397f329b2fafcaeb2e5b808e880b0809fdefe94034b",
+      "current_edition": "root-logos-founding-constitution-0e20f4a9--v14-read-34d3c9-802f8d90",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "b2abf6065e423069",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 468
+        },
+        "relation_density": 0.7571,
+        "relation_weight_entropy": 0.9697,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/00-root-logos-founding-constitution-0e20f4a9-db9977641537.png",
+        "png_sha256": "db99776415375fbe8a33b0d100b323df1aaba4af5844915450915c893ce60c66",
+        "svg": "assets/library-first-frames/00-root-logos-founding-constitution-0e20f4a9-00098bb4c5cc.svg",
+        "svg_sha256": "00098bb4c5cc9308d8be7ab997136a8b2d62ccac9fedfd5bd9cfd47db1cdd4be"
+      }
+    },
+    {
+      "order": 1,
+      "work_id": "original-douay-rheims-catholic-canon",
+      "title": "Original Douay-Rheims Catholic Canon",
+      "genre": "scriptural corpus",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "original-douay-rheims@0bf4218b9b46b5b00d29a703b5b74226051b97a5",
+      "source_sha256": null,
+      "current_edition": "corpus-1e6d7f07832e",
+      "current_transformation": "deterministic-corpus-reading/v2-structural-depth",
+      "structural_depth": {
+        "signature": "d642134192f21a42",
+        "relation_profile": {
+          "contains": 73,
+          "shared-derived-language": 1651
+        },
+        "relation_density": 0.6383,
+        "relation_weight_entropy": 0.9918,
+        "comparison_boundary": "Comparable only with coherent corpora derived through deterministic-corpus-reading/v2-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/01-original-douay-rheims-63f4bf57ccd1.png",
+        "png_sha256": "63f4bf57ccd1335e31e05b8225799cc0916552439f7b806651ad00042edc87f0",
+        "svg": "assets/library-first-frames/01-original-douay-rheims-59536b2a1fec.svg",
+        "svg_sha256": "59536b2a1fec86f5969418ef03e514114351541953c044c1bb5b52ad9ec4eabc"
+      }
+    },
+    {
+      "order": 2,
+      "work_id": "the-odyssey-cfbe5b1d",
+      "title": "The Odyssey",
+      "genre": "epic-poetry",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "standardebooks/homer_the-odyssey_william-cullen-bryant@ed70ea3a46d5f49260723894ae04fb56d5edd50b",
+      "source_sha256": "c3330ad5a78902d30e5b2e5175a93b48beaa8998b2e232e03d7d2e24da35d863",
+      "current_edition": "the-odyssey-cfbe5b1d--v14-read-34d3c9-a78902d3",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "20733bfa4cf67378",
+        "relation_profile": {
+          "contains": 25,
+          "expresses": 734,
+          "co-occurs": 281
+        },
+        "relation_density": 0.6688,
+        "relation_weight_entropy": 0.9185,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/02-the-odyssey-cfbe5b1d-221bfce0dbee.png",
+        "png_sha256": "221bfce0dbee04eb9db4db28d2ac2e02607690fa2ec1f423307daaa6a0beb85b",
+        "svg": "assets/library-first-frames/02-the-odyssey-cfbe5b1d-293790f9ceed.svg",
+        "svg_sha256": "293790f9ceed3e19e51f925552433198fbcf68a47662db7c29857f73c4fed95c"
+      }
+    },
+    {
+      "order": 3,
+      "work_id": "ornament-of-abhidharma-e125ae67",
+      "title": "Ornament of Abhidharma",
+      "genre": "buddhist-commentary",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "owned-epub:isbn-9781614295341:sha256-5fabe0c44228aa46448f37e265f2bf92c4a0dd14ec5df63b7197773f5446f87b",
+      "source_sha256": "46653974e321946a55cf92de2685fd89e234c74c455fa03ecfe9ce6d5c56a4a9",
+      "current_edition": "ornament-of-abhidharma-e125ae67--v14-read-34d3c9-e321946a",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "28f62b6ac5b99295",
+        "relation_profile": {
+          "contains": 48,
+          "expresses": 910,
+          "co-occurs": 306
+        },
+        "relation_density": 0.5254,
+        "relation_weight_entropy": 0.9129,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/03-ornament-of-abhidharma-e125ae67-6f32fc77dfdc.png",
+        "png_sha256": "6f32fc77dfdc060f03c0eda70f2343ac5e0ef3b15710810ec17d5d657d8e0f47",
+        "svg": "assets/library-first-frames/03-ornament-of-abhidharma-e125ae67-7b7f16483c85.svg",
+        "svg_sha256": "7b7f16483c8512b30deffa9511c11246106531595f3d714ee1775b90c97caa1b"
+      }
+    },
+    {
+      "order": 4,
+      "work_id": "bitcoin-a-peer-to-peer-electronic-cash-system-0110e266",
+      "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+      "genre": "whitepaper",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "dhimmel/bitcoin-whitepaper@df23738277034e9e7b626c92fb78feb3d6aaa310",
+      "source_sha256": "81ebba38a8b07a2b5b8a32ce5e4805aa65a08e782c160ea2996f36d71e53f387",
+      "current_edition": "bitcoin-a-peer-to-peer-electronic-cash-system-0110e266--v14-read-34d3c9-a8b07a2b",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "397bcc92d69b858f",
+        "relation_profile": {
+          "contains": 4,
+          "expresses": 45,
+          "co-occurs": 234
+        },
+        "relation_density": 0.3638,
+        "relation_weight_entropy": 0.958,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/04-bitcoin-a-peer-to-peer-electronic-cash-system-0110e266-bc6c0639af03.png",
+        "png_sha256": "bc6c0639af03b73b7ac2bf8f47b3813f0a2e2fae8f35b11f40929a4226e7401e",
+        "svg": "assets/library-first-frames/04-bitcoin-a-peer-to-peer-electronic-cash-system-0110e266-654c1d01916d.svg",
+        "svg_sha256": "654c1d01916dba20ed671d7c2e21fd3a86de92ffea2394b4c726610c380d42d0"
+      }
+    },
+    {
+      "order": 5,
+      "work_id": "the-constitution-of-the-united-states-of-america-1787-c8f33517",
+      "title": "The Constitution of the United States of America, 1787",
+      "genre": "constitution",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "GITenberg/The-United-States-Constitution_5@474c00255be3e730f3711f9d916176175e88e824#5-0.txt",
+      "source_sha256": "f51ca0ab0f576ba99ebed5cd881d6928bcf4e1f390140be2977b061584eb9205",
+      "current_edition": "the-constitution-of-the-united-states-of-america-1787-c8f33517--v14-read-34d3c9-0f576ba9",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "78cc34d00883830e",
+        "relation_profile": {
+          "contains": 8,
+          "expresses": 61,
+          "co-occurs": 342
+        },
+        "relation_density": 0.4438,
+        "relation_weight_entropy": 0.9342,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/05-the-constitution-of-the-united-states-of-america-1787-c8f33517-8c47b02517c1.png",
+        "png_sha256": "8c47b02517c1ed7dc6fe33a7019233131a28e71e47478e2caee2c29a3a5d2179",
+        "svg": "assets/library-first-frames/05-the-constitution-of-the-united-states-of-america-1787-c8f33517-e31fd12594b2.svg",
+        "svg_sha256": "e31fd12594b2615a33e9e8a8fa51eee4aa9a59eb4f0cc3083f6a6a73a397cf68"
+      }
+    },
+    {
+      "order": 6,
+      "work_id": "the-twenty-seven-amendments-to-the-constitution-of-the-united-states-a0e1fd3a",
+      "title": "The Twenty-Seven Amendments to the Constitution of the United States",
+      "genre": "constitutional amendments",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "JesseKPhillips/USA-Constitution@4cfdd130709fa7e8db998383b6917ba33b402ec6#BillOfRights.md+amendments/",
+      "source_sha256": "012e4f8ada0bca1f5002f53b809ed45b8e7d2c578c057f45918770de0c750e0f",
+      "current_edition": "the-twenty-seven-amendments-to-the-constitution-of-the-united-states-a0e1fd3a--v14-read-34d3c9-da0bca1f",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "e105b75a9945151a",
+        "relation_profile": {
+          "contains": 18,
+          "expresses": 173,
+          "co-occurs": 377
+        },
+        "relation_density": 0.4383,
+        "relation_weight_entropy": 0.9496,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/06-the-twenty-seven-amendments-to-the-constitution-of-the-united-states-a0e1fd3a-31e14610fe99.png",
+        "png_sha256": "31e14610fe99fd24a0a30df3a0e4db5a2331afc4c609ad14a3ac3043d210baaa",
+        "svg": "assets/library-first-frames/06-the-twenty-seven-amendments-to-the-constitution-of-the-united-states-a0e1fd3a-5d5e3086d43d.svg",
+        "svg_sha256": "5d5e3086d43df8d48d9d850154215545d9889eb7ec2ee41989102e48789d85c5"
+      }
+    },
+    {
+      "order": 7,
+      "work_id": "the-republic-1e98719b",
+      "title": "The Republic",
+      "genre": "philosophical dialogue",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "GITenberg/The-Republic_1497@013f8ef56b6abf6165755ed1a88d4cdcc512be6c; Project Gutenberg ebook 1497",
+      "source_sha256": "1b2986d5ecc717a1ffcfaf9c8bbc20f63b6a5955cd60553e8c2fe6c0de6f521c",
+      "current_edition": "the-republic-1e98719b--v14-read-34d3c9-ecc717a1",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "4e7774b342176045",
+        "relation_profile": {
+          "contains": 10,
+          "expresses": 257,
+          "co-occurs": 161
+        },
+        "relation_density": 0.428,
+        "relation_weight_entropy": 0.9454,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/07-the-republic-1e98719b-473b2724d8c9.png",
+        "png_sha256": "473b2724d8c9a13d77b3d788ced3665aaed7037176db2e1192ac6fe8ea8ab54e",
+        "svg": "assets/library-first-frames/07-the-republic-1e98719b-da11ae02f9da.svg",
+        "svg_sha256": "da11ae02f9dad7fab92233003a76010f49d14578555a853aaeebee0f8012a68f"
+      }
+    },
+    {
+      "order": 8,
+      "work_id": "the-federalist-papers-06d5dc9d",
+      "title": "The Federalist Papers",
+      "genre": "constitutional essays",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "GITenberg/The-Federalist-Papers_18@fc8172eca561443699d3b0fd6c0387e89f0d9f00; Project Gutenberg ebook 18",
+      "source_sha256": "8f5c908f36ba17b959ea83ec79764fa1e3835a4dd5fe28549096647268b0cb2a",
+      "current_edition": "the-federalist-papers-06d5dc9d--v14-read-34d3c9-36ba17b9",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "1c79ddefd2292f2f",
+        "relation_profile": {
+          "contains": 86,
+          "expresses": 1814,
+          "co-occurs": 194
+        },
+        "relation_density": 0.5493,
+        "relation_weight_entropy": 0.8613,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/08-the-federalist-papers-06d5dc9d-ce395080969c.png",
+        "png_sha256": "ce395080969c6089b5a10656a7355f8a1ef1981c35b4051a7bc70557a9057a37",
+        "svg": "assets/library-first-frames/08-the-federalist-papers-06d5dc9d-30927dd62f4b.svg",
+        "svg_sha256": "30927dd62f4bbad839a6f73cf35be145296b983b8f7f241235de7eedd90e1702"
+      }
+    },
+    {
+      "order": 9,
+      "work_id": "the-tempest-ba182d88",
+      "title": "The Tempest",
+      "genre": "dramatic romance",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "standardebooks/william-shakespeare_the-tempest@d3bd4b5d405e1ad18b808bf67a6888bc4596d9d1",
+      "source_sha256": "be5009f5fe396bac4b929bdfe1db07ee79331c79ad26b840ef4c3e3c65255abf",
+      "current_edition": "the-tempest-ba182d88--v14-read-34d3c9-fe396bac",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "d2b160af5c7550e6",
+        "relation_profile": {
+          "contains": 7,
+          "expresses": 148,
+          "co-occurs": 379
+        },
+        "relation_density": 0.6007,
+        "relation_weight_entropy": 0.9602,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/09-the-tempest-ba182d88-fe7f339d0a04.png",
+        "png_sha256": "fe7f339d0a046900b8dd1f5a4d806425e3e1cf6218eb862897b9337604b5900e",
+        "svg": "assets/library-first-frames/09-the-tempest-ba182d88-4f9056fe84c7.svg",
+        "svg_sha256": "4f9056fe84c764e757e13aa6b1dfcdc4c24add4a675a7a1ade618ff1cd80c1bb"
+      }
+    },
+    {
+      "order": 10,
+      "work_id": "hamlet-a1dd42e7",
+      "title": "Hamlet",
+      "genre": "tragedy",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "standardebooks/william-shakespeare_hamlet@5d8c63a57200871ab28a9ff13f62768ac340ded1",
+      "source_sha256": "5c6b1768624f9761b364da0e84e2db5d580f7a0765967dbcfea84df3cae6e01e",
+      "current_edition": "hamlet-a1dd42e7--v14-read-34d3c9-624f9761",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "fc279f8b9c16c8f3",
+        "relation_profile": {
+          "contains": 6,
+          "expresses": 118,
+          "co-occurs": 361
+        },
+        "relation_density": 0.5692,
+        "relation_weight_entropy": 0.9653,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/10-hamlet-a1dd42e7-597e67e2ce9a.png",
+        "png_sha256": "597e67e2ce9a48f976735f9c84fa45f956bb440644c7acf70d98e84940971c4d",
+        "svg": "assets/library-first-frames/10-hamlet-a1dd42e7-ddac795a2e85.svg",
+        "svg_sha256": "ddac795a2e853a83fe5669b2b2be24aeaab8065fb3e0d11aa806f735c4cc801d"
+      }
+    },
+    {
+      "order": 11,
+      "work_id": "the-thirteen-books-of-euclids-elements-be0f80f9",
+      "title": "The Thirteen Books of Euclid's Elements",
+      "genre": "mathematical-treatise",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "github:PerseusDL/canonical-greekLit@91595f89e15b4d3000cd93efcf8990720c8be2b9:data/tlg1799/tlg001/tlg1799.tlg001.perseus-eng2.xml",
+      "source_sha256": "ba12e2e47aec41f853ff32929a2d0467926f93280f1bf8870bda5016c29d143c",
+      "current_edition": "the-thirteen-books-of-euclids-elements-be0f80f9--v14-read-34d3c9-7aec41f8",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "c8e12966bf73f008",
+        "relation_profile": {
+          "contains": 13,
+          "expresses": 173,
+          "co-occurs": 273
+        },
+        "relation_density": 0.4131,
+        "relation_weight_entropy": 0.9428,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/11-the-thirteen-books-of-euclids-elements-be0f80f9-c649fb94aabf.png",
+        "png_sha256": "c649fb94aabff5085f45a0910bbb7cb0897b1c00ea28c58e385fa213d7e3f840",
+        "svg": "assets/library-first-frames/11-the-thirteen-books-of-euclids-elements-be0f80f9-987578d5393c.svg",
+        "svg_sha256": "987578d5393ca195fa454e9751b0083907d145b4a9ece548cab3a3b858f5fea0"
+      }
+    },
+    {
+      "order": 12,
+      "work_id": "the-iliad-26ba2542",
+      "title": "The Iliad",
+      "genre": "epic-poem",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "github:GITenberg/The-Iliad_2199@f12180f6352c763be11901f7ca6b04cb4737409e:2199.txt",
+      "source_sha256": "1c34129a0d77a11a71abe881653f5c0508926e5c8dcd2caef5a68e9d1c24cac6",
+      "current_edition": "the-iliad-26ba2542--v14-read-34d3c9-0d77a11a",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "5493737f1f64c5f7",
+        "relation_profile": {
+          "contains": 24,
+          "expresses": 765,
+          "co-occurs": 328
+        },
+        "relation_density": 0.7358,
+        "relation_weight_entropy": 0.9325,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/12-the-iliad-26ba2542-b190c6bb40f1.png",
+        "png_sha256": "b190c6bb40f1c93961ff02a2a0863a672fcba1089a2285c480566c0b1e26c341",
+        "svg": "assets/library-first-frames/12-the-iliad-26ba2542-834b65fc7fc2.svg",
+        "svg_sha256": "834b65fc7fc2feada3023c0a6944d5330488afd7c96f9a3a88cfdb4745909892"
+      }
+    },
+    {
+      "order": 13,
+      "work_id": "king-james-bible-1769-78d562e1",
+      "title": "King James Bible (1769)",
+      "genre": "scriptural corpus",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "midvash/bible-data@d9fe1779447717bbfcb578e505b893125cad581c",
+      "source_sha256": "952c4b97e500261f183afa82d997909139797d6830fe464d1d7b45a7c130397d",
+      "current_edition": "king-james-bible-1769-78d562e1--v1.4-cwcs-9d417a8849",
+      "current_transformation": "deterministic-corpus-reading/v2-structural-depth+canonical-work-coordinates/v1",
+      "structural_depth": {
+        "signature": "9c77e5f9b7d0795b",
+        "relation_profile": {
+          "contains": 66,
+          "shared-derived-language": 1472
+        },
+        "relation_density": 0.6956,
+        "relation_weight_entropy": 0.9913,
+        "comparison_boundary": "Comparable only with coherent corpora derived through deterministic-corpus-reading/v2-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/13-king-james-bible-1769-78d562e1-4aa1b5f9fe51.png",
+        "png_sha256": "4aa1b5f9fe51421170f5a027dabfdcbb4a4018a0c6bc8b29f98e6956adcb1a04",
+        "svg": "assets/library-first-frames/13-king-james-bible-1769-78d562e1-3b9dae0b8575.svg",
+        "svg_sha256": "3b9dae0b85757f01248619ddc53c8db3d89a2eb5592d7b0f936e4a8aa1c42d7e"
+      }
+    },
+    {
+      "order": 14,
+      "work_id": "siddhartha-eine-indische-dichtung-212991e1",
+      "title": "Siddhartha: eine indische Dichtung",
+      "genre": "philosophical novel",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-ebook-2499@2026-08-11:raw-sha256:4abd9cdc1e98e880229eab7a4b565e8867b0438b007117780078626e8a200102",
+      "source_sha256": "afeb1a10c36633f74c03af29ef3b341ded8047f09271e637d89e5b65c1627e54",
+      "current_edition": "siddhartha-eine-indische-dichtung-212991e1--v14-read-34d3c9-c36633f7",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "05d6da140f1b5b39",
+        "relation_profile": {
+          "contains": 12,
+          "expresses": 275,
+          "co-occurs": 261
+        },
+        "relation_density": 0.5102,
+        "relation_weight_entropy": 0.9552,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/14-siddhartha-eine-indische-dichtung-212991e1-50b68380de43.png",
+        "png_sha256": "50b68380de43e008e2ae1b52509fd61bc3803d1219c2b7061981ebf41c9e618b",
+        "svg": "assets/library-first-frames/14-siddhartha-eine-indische-dichtung-212991e1-98727dac31ff.svg",
+        "svg_sha256": "98727dac31ff8d47d18fa72e76df00ceac89533c6dfcbe83029b1344ba122f15"
+      }
+    },
+    {
+      "order": 15,
+      "work_id": "the-life-of-the-buddha-according-to-the-pali-canon-67799d95",
+      "title": "The Life of the Buddha: According to the Pali Canon",
+      "genre": "canonical biography",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "bps-pariyatti-edition:pdf-isbn-978-1-928706-97-7:sha256:b2dabb9aa8f8c7c4150e56efa4d4e099c583211051da681f90a55884393e6ffd",
+      "source_sha256": "4220112ecac7a4a7ea1f100de957177c09098eecb72581bb371727aebae4252b",
+      "current_edition": "the-life-of-the-buddha-according-to-the-pali-canon-67799d95--v1.2-foldforge-4e1174eaf6",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 16,
+      "work_id": "on-the-sources-of-knowledge-and-of-ignorance-cb3ae522",
+      "title": "On the Sources of Knowledge and of Ignorance",
+      "genre": "philosophical lecture",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "british-academy-proceedings-46-1960:sha256:768b94584bc87c985ec832788adc693f8700c52cce30796329c283ff31b01364",
+      "source_sha256": "ce7ede04cbf986cf0df0d23c42efb65eea06281ea5bc7145c96aa7ce6b37a63f",
+      "current_edition": "on-the-sources-of-knowledge-and-of-ignorance-cb3ae522--v1.2-foldforge-8eb3c7132d",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 17,
+      "work_id": "constructor-theory-3b6d4667",
+      "title": "Constructor Theory",
+      "genre": "foundational physics paper",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "arxiv:1210.7439v1:sha256:30b65e454a104aff5203046a2ba18fd1d11f010995c629ad68b2e55dc1ca0a0a",
+      "source_sha256": "e83452483e474379406e94263d8303be4002e6f9c969f188854bdedb10e30fe8",
+      "current_edition": "constructor-theory-3b6d4667--v1.2-foldforge-2d9323e1ff",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 18,
+      "work_id": "quantum-theory-the-church-turing-principle-and-the-universal-quantum-computer-4f4946f6",
+      "title": "Quantum Theory, the Church-Turing Principle and the Universal Quantum Computer",
+      "genre": "foundational quantum computation paper",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "proceedings-royal-society-a400-1985:author-hosted-1999-edition:sha256:18b422fdcbfa29098c65ecbe90797883d38ba8b065064b0234cbae0f48c26e43",
+      "source_sha256": "34a199470ce117e227f017f0cddfceb4b3378543dfe387105d7575f82c0dbbf0",
+      "current_edition": "quantum-theory-the-church-turing-principle-and-the-universal-quantum-computer-4f4946f6--v1.2-foldforge-0aa6b3a317",
+      "current_transformation": "deterministic-structural-reading/v4-unicode-normalization+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 19,
+      "work_id": "the-logical-writings-of-karl-popper-f5c2ab71",
+      "title": "The Logical Writings of Karl Popper",
+      "genre": "critical edition and deductive logic collection",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "doi:10.1007/978-3-030-94926-6:isbn:978-3-030-94926-6:sha256:50436e189fd73012a16fc9e700456f5f775a33f47288baa7cb6e5d66e6b9c47b",
+      "source_sha256": "be74593c7a7975fad2f6e7f51928c6c7d9c2c7e14bf041d90e9d739e65061584",
+      "current_edition": "the-logical-writings-of-karl-popper-f5c2ab71--v1.2-foldforge-286e709022",
+      "current_transformation": "deterministic-structural-reading/v4-unicode-normalization+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 20,
+      "work_id": "the-book-of-five-rings-ded07c35",
+      "title": "The Book of Five Rings (五輪書)",
+      "genre": "strategy treatise",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "ndl:000000714654:doi:10.11501/1071527:1939-typeset-witness:sha256:321adc565103302c3f3424458be197eda685af590a37e8ca768de565e3d3d580",
+      "source_sha256": "1235f602e47958ea5b472519fb1c477862ef98be82cd3834e3f30b614601f89b",
+      "current_edition": "the-book-of-five-rings-ded07c35--v1.2-foldforge-be32f51372",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 21,
+      "work_id": "the-principal-upanishads-f91e18bd",
+      "title": "The Principal Upanishads",
+      "genre": "sacred philosophical corpus",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "oll:title:2058:hume-thirteen-principal-upanishads-1921:selected-six:sha256:1e3dddfd1b703b90b71f0287f4b84fdc660ae30b87c3608bab39a2f99669ee40",
+      "source_sha256": "ee6f3a363ef3217053b017f41ff000cae7356065a5c1c59d4add2d3c63da177e",
+      "current_edition": "the-principal-upanishads-f91e18bd--v1.2-foldforge-6006faf402",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 22,
+      "work_id": "great-founder-theory-808e6c69",
+      "title": "Great Founder Theory",
+      "genre": "institutional theory manuscript",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "samoburja:gft:2020-manuscript:sha256:1ea39345762cb154a88d6e1959e2ffc1afd464b1661e9f813ed009cbd19120de",
+      "source_sha256": "1c2ede9b0cfbed511afe7c587b71f30459704223a3ab6aeb6930c557f44b709c",
+      "current_edition": "great-founder-theory-808e6c69--v1.2-foldforge-c29c5e2a2c",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 23,
+      "work_id": "tao-te-ching-70fce866",
+      "title": "Tao Te Ching",
+      "genre": "classical philosophical text",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-ebook-216@2026-08-11:raw-sha256:041568f8dfef3ac6c2deb7699756f9d26d6aa8669647f4ce611b0ed4a95b0db6",
+      "source_sha256": "823baa8873fdbf3597780e9e747c721e8fac6efdb6d0a5a786686f0de10c4726",
+      "current_edition": "tao-te-ching-70fce866--v14-read-34d3c9-73fdbf35",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "b72b65ca0ad3a31a",
+        "relation_profile": {
+          "contains": 81,
+          "expresses": 387,
+          "co-occurs": 167
+        },
+        "relation_density": 0.1751,
+        "relation_weight_entropy": 0.9491,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/23-tao-te-ching-70fce866-31f2edfea779.png",
+        "png_sha256": "31f2edfea7793176606f7a45c100cd2d26a89eaefbc9d4ceb0ed6bb63515d1c4",
+        "svg": "assets/library-first-frames/23-tao-te-ching-70fce866-f4646b90f450.svg",
+        "svg_sha256": "f4646b90f450a5a03cdf387d1ccdb299f5ec89b25d898fcd8d75a570c0cbaef1"
+      }
+    },
+    {
+      "order": 24,
+      "work_id": "moral-letters-to-lucilius-1584630f",
+      "title": "Moral Letters to Lucilius",
+      "genre": "philosophical letters",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "internet-archive:gummere-ad-lucilium-vols-1-3:sha256:6063b0f0b59550faa218b5c5732bf1befb5aa2e1300bb5d93ede79034dd3c4a5+810eaffb2c0aff44ab0f90ce0e01ce595c583e3487dc4d0f3ecba3b57be7bec6+ab0c666f4957c7bdd32f2be9d39bdd38f36d922b76fe816bc52d79452e3d8a83",
+      "source_sha256": "394ed35a9d095180008383edbc0ce503f5413b1337fcfabbf9c0d00c4ee71401",
+      "current_edition": "moral-letters-to-lucilius-1584630f--v1.2-foldforge-9324dc6436",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 25,
+      "work_id": "the-journal-membrane-762f1b41",
+      "title": "The Journal Membrane",
+      "genre": "constitutional document",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "root-logos:journal-membrane:sha256:ac472125be8a2bdf48d7cc10a1856b0008f3b2f40d03dfd31154486bb79a9183",
+      "source_sha256": "b16f5c2a2867cef93f54cfee35c2598b56014ab2d0683e45da640761128f444a",
+      "current_edition": "the-journal-membrane-762f1b41--v14-read-34d3c9-2867cef9",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "71bf16a404bbb60f",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 421
+        },
+        "relation_density": 0.6867,
+        "relation_weight_entropy": 0.9762,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/25-the-journal-membrane-762f1b41-13c6b9bf0994.png",
+        "png_sha256": "13c6b9bf09941e03ea362524ed73f53e4cc337549c7796bad89b48a767ea5ec0",
+        "svg": "assets/library-first-frames/25-the-journal-membrane-762f1b41-c5c17f3af06c.svg",
+        "svg_sha256": "c5c17f3af06c94af26b1563f9cc1ec32c13aed0ca5b28838b858b961421246e5"
+      }
+    },
+    {
+      "order": 26,
+      "work_id": "the-resonant-chamber-5aa7d02c",
+      "title": "The Resonant Chamber",
+      "genre": "constitutional document",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "root-logos:resonant-chamber:sha256:b1cb0a3413cd8ed8f9ca92d0c154a43ff31376d04bb4e5689528abdc265cecf9",
+      "source_sha256": "a314b458fcf3453c435b9fdc0802e25c78dfc889480c1a5097ce3e117f272ecb",
+      "current_edition": "the-resonant-chamber-5aa7d02c--v14-read-34d3c9-fcf3453c",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "35a44194c8338682",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 369
+        },
+        "relation_density": 0.6087,
+        "relation_weight_entropy": 0.9827,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/26-the-resonant-chamber-5aa7d02c-9b322b66e8f9.png",
+        "png_sha256": "9b322b66e8f9cd810c7b567599d08dde0dad5486211e0653ac9f1a5696d8f0b7",
+        "svg": "assets/library-first-frames/26-the-resonant-chamber-5aa7d02c-54478bb2997f.svg",
+        "svg_sha256": "54478bb2997f206f42da938abf55ea1bfcc29e6b52cd1fe8a96598ff491faf96"
+      }
+    },
+    {
+      "order": 27,
+      "work_id": "toward-a-moral-constitution-for-human-machine-civilization-f9b6ad99",
+      "title": "Toward a Moral Constitution for Human-Machine Civilization",
+      "genre": "living statement",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "root-logos:living-statement-001:sha256:ff07f6a6d6574759aa1d34812bd83aa43018231aa0451e013e560306e3d12dc7",
+      "source_sha256": "5c33656122abfad36f496f6d7e946b7c0d63186179cdf6c9956e3730b84e1b2b",
+      "current_edition": "toward-a-moral-constitution-for-human-machine-civilization-f9b6ad99--v14-read-34d3c9-22abfad3",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "997a9694607221fc",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 133
+        },
+        "relation_density": 0.2549,
+        "relation_weight_entropy": 0.9849,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/27-toward-a-moral-constitution-for-human-machine-civilization-f9b6ad99-31addd58fb53.png",
+        "png_sha256": "31addd58fb5327266de6a865a1c98a8647d0f05c1cd363bdbe8664cef4c18c34",
+        "svg": "assets/library-first-frames/27-toward-a-moral-constitution-for-human-machine-civilization-f9b6ad99-0d99723a6c67.svg",
+        "svg_sha256": "0d99723a6c67511fe147bb38cdab3a3d8db21e2dda3ba75f24497cac0596d599"
+      }
+    },
+    {
+      "order": 28,
+      "work_id": "the-invisible-substrate-3cf922fa",
+      "title": "The Invisible Substrate",
+      "genre": "living statement",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "root-logos:living-statement-002:sha256:ccb0ab13e47addfd6c799e09ca6fa9afc009eb65187d6cfb3266e0e35fd0d900",
+      "source_sha256": "e0d558b964914c24c4d3d3e5982686e992202efbad9d55f2d6494fbb47192624",
+      "current_edition": "the-invisible-substrate-3cf922fa--v14-read-34d3c9-64914c24",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "4a0af989dfbc099e",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 182
+        },
+        "relation_density": 0.3283,
+        "relation_weight_entropy": 0.9892,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/28-the-invisible-substrate-3cf922fa-1319079f18c0.png",
+        "png_sha256": "1319079f18c01ee89dd7d0afe071eb33b40b5c2cdfb70750cc6dff324bc475dc",
+        "svg": "assets/library-first-frames/28-the-invisible-substrate-3cf922fa-67c06e138acd.svg",
+        "svg_sha256": "67c06e138acd2aa1fc6a9f3fa44f2a5be5c9d82e0ff62fd89a193e73414fd3f7"
+      }
+    },
+    {
+      "order": 29,
+      "work_id": "constitutional-naturalization-1a2ad829",
+      "title": "Constitutional Naturalization",
+      "genre": "living statement",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "root-logos:living-statement-003:sha256:df8c894d709779bf6e27620102cdad6a62861e0964691e30b528b9e08df141cd",
+      "source_sha256": "5736cc51c154fb47e707fe6326ab44ba6d6f5be6c00cffe27470c9eb6d14e5fe",
+      "current_edition": "constitutional-naturalization-1a2ad829--v14-read-34d3c9-c154fb47",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "a5fd120e371b5586",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 225
+        },
+        "relation_density": 0.3928,
+        "relation_weight_entropy": 0.9878,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/29-constitutional-naturalization-1a2ad829-d07bb52b5c72.png",
+        "png_sha256": "d07bb52b5c72ecb1c6857a93cdead3e1d9b6879e62b234d687b020bd397efc5e",
+        "svg": "assets/library-first-frames/29-constitutional-naturalization-1a2ad829-e4657d678df5.svg",
+        "svg_sha256": "e4657d678df58e3f8302eda583192239d0898f8c4873f7cc4dc2fac4c9b6fb6b"
+      }
+    },
+    {
+      "order": 30,
+      "work_id": "participation-without-possession-31458969",
+      "title": "Participation Without Possession",
+      "genre": "living statement",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "root-logos:living-statement-004:sha256:e35dd68f6aafdff9248318a5dcb9db170f73d02f4d0e58801e72f7213234ae6f",
+      "source_sha256": "6030d36892f0cd31d9593b7ae43f57bbe1bba8df62ff50b323036bcc6a71025e",
+      "current_edition": "participation-without-possession-31458969--v14-read-34d3c9-92f0cd31",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "ab882de517fd980f",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 154
+        },
+        "relation_density": 0.2864,
+        "relation_weight_entropy": 0.9924,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/30-participation-without-possession-31458969-2647e62f03c0.png",
+        "png_sha256": "2647e62f03c0919556da09d146ce5d37eae92464c67243aa7c62f461c79437cc",
+        "svg": "assets/library-first-frames/30-participation-without-possession-31458969-ac8f2f727c7f.svg",
+        "svg_sha256": "ac8f2f727c7f0a4c583bbc8b399add4880c5150e4330747d0add1bf912199dde"
+      }
+    },
+    {
+      "order": 31,
+      "work_id": "participatory-sovereignty-55bb4e0d",
+      "title": "Participatory Sovereignty",
+      "genre": "constitutional bridge",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "root-logos:constitutional-bridge-001:sha256:f9711a4882dc12d02aa6351f2a82d458e513ea731e23ad3d88ed17aa446a94bc",
+      "source_sha256": "8a48d4454dc6659b392beca1fa792940fde0fbd45413bd8fb5fe66ed5dd858a2",
+      "current_edition": "participatory-sovereignty-55bb4e0d--v14-read-34d3c9-4dc6659b",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "33e548f10c322bdb",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 27,
+          "co-occurs": 43
+        },
+        "relation_density": 0.1064,
+        "relation_weight_entropy": 0.9904,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/31-participatory-sovereignty-55bb4e0d-0b4d419a1955.png",
+        "png_sha256": "0b4d419a195529c95764f630aaad6b52e26b7c033865f7c3c9e85cd0b0dda98d",
+        "svg": "assets/library-first-frames/31-participatory-sovereignty-55bb4e0d-898dc0f9ab19.svg",
+        "svg_sha256": "898dc0f9ab19830d10c6216eda973ef03478c1f59f0b7dff9ccfba3ad59ce263"
+      }
+    },
+    {
+      "order": 32,
+      "work_id": "freedom-through-non-possession-7a38d7c0",
+      "title": "Freedom Through Non-Possession",
+      "genre": "constitutional bridge",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "root-logos:constitutional-bridge-002:sha256:81509cbe22e43f3c7ae4b79267f32b6bd50d9eccaf989b3aaf118a57aa67658c",
+      "source_sha256": "dbe57d031ffdcdb0bb58c5a7db74c6b68bcb9292f48002bb18e084bccd04e2fe",
+      "current_edition": "freedom-through-non-possession-7a38d7c0--v14-read-34d3c9-1ffdcdb0",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "d24ec4a971560273",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 16,
+          "co-occurs": 24
+        },
+        "relation_density": 0.0615,
+        "relation_weight_entropy": 0.9916,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/32-freedom-through-non-possession-7a38d7c0-25a44966171d.png",
+        "png_sha256": "25a44966171d89163b648d07c7a1141e7176e014a41345e9e031750d0f4a28fe",
+        "svg": "assets/library-first-frames/32-freedom-through-non-possession-7a38d7c0-4995aa888036.svg",
+        "svg_sha256": "4995aa88803617e3cfccd12e227ffa8130e637a4672b206ed55cb91962986f97"
+      }
+    },
+    {
+      "order": 33,
+      "work_id": "conscious-participation-a384431f",
+      "title": "Conscious Participation",
+      "genre": "constitutional bridge",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "root-logos:constitutional-bridge-003:sha256:44c5e5958ac892cf7ba62ee38a39942f43f908996471b4b9a0f1111fd71dbcc5",
+      "source_sha256": "da0c7353fc6bc73201c2ca81d5c9012dd22491b8e0f50ce913f7e25404adbcb9",
+      "current_edition": "conscious-participation-a384431f--v14-read-34d3c9-fc6bc732",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "bf2544140518447b",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 161
+        },
+        "relation_density": 0.2969,
+        "relation_weight_entropy": 0.988,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/33-conscious-participation-a384431f-6c48b17393fb.png",
+        "png_sha256": "6c48b17393fbc7ee784b67207c8dabcd497cb7a4234468764c47e919e0ccc548",
+        "svg": "assets/library-first-frames/33-conscious-participation-a384431f-9e660f142e4a.svg",
+        "svg_sha256": "9e660f142e4a7a852388b06e25d321a9bddffd0e2d6c2f9985296c8ee791ea6d"
+      }
+    },
+    {
+      "order": 34,
+      "work_id": "from-reference-to-participation-847921ae",
+      "title": "From Reference to Participation",
+      "genre": "constitutional bridge",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "root-logos:constitutional-bridge-004:sha256:e62be908058f4ca483379c67f6536cdafbe9655d64d6169bcacdb7d11c755c87",
+      "source_sha256": "3ab39f0659dd2f90aa6e9211b2f7a3acbf1104150fed4a540fe5e28333531449",
+      "current_edition": "from-reference-to-participation-847921ae--v14-read-34d3c9-59dd2f90",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "d63c2684ddc10c24",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 196
+        },
+        "relation_density": 0.3493,
+        "relation_weight_entropy": 0.9864,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/34-from-reference-to-participation-847921ae-fb04bd630ff9.png",
+        "png_sha256": "fb04bd630ff9d8771e1245539f8f2b41a08ac6d0405ef4d3f1403441612a4ac8",
+        "svg": "assets/library-first-frames/34-from-reference-to-participation-847921ae-2b44043dff96.svg",
+        "svg_sha256": "2b44043dff96b1403282fc70b13f0a5af95a2575cb0e19cea1d135d4c9064cc6"
+      }
+    },
+    {
+      "order": 35,
+      "work_id": "the-art-of-war-fdadac27",
+      "title": "The Art of War",
+      "genre": "military strategy classic",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-ebook-132@2026-08-11:raw-sha256:c478f7e05a07bf190585fcea0bc4658ce22e47949ac18444eca53fb274878ffe",
+      "source_sha256": "5119d1ed3da6a6881532aac1ac47d79575c2dc63241a122b66e61ee751721cb2",
+      "current_edition": "the-art-of-war-fdadac27--v14-read-34d3c9-3da6a688",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "77fbb08378d8975c",
+        "relation_profile": {
+          "contains": 13,
+          "expresses": 314,
+          "co-occurs": 207
+        },
+        "relation_density": 0.4806,
+        "relation_weight_entropy": 0.9439,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/35-the-art-of-war-fdadac27-1ee882fa7d4a.png",
+        "png_sha256": "1ee882fa7d4a673ca3379f02416c7d5333f8d089971bcac1ff5d60ee1fe28da5",
+        "svg": "assets/library-first-frames/35-the-art-of-war-fdadac27-1ea22f4de8c3.svg",
+        "svg_sha256": "1ea22f4de8c3df1d5b646aafdacbbefb973cf7ecdaf43e8bab8209dd705518f0"
+      }
+    },
+    {
+      "order": 36,
+      "work_id": "everything-and-nothing-669c30b7",
+      "title": "Everything and Nothing",
+      "genre": "short literary-philosophical prose",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "educ.ar:everything-and-nothing:fundacion-internacional-jorge-luis-borges-authorized",
+      "source_sha256": "4ac8eb5070152715ae436deef570e63fe1ebecba4e081820d29bef84ee9f9190",
+      "current_edition": "everything-and-nothing-669c30b7--v1.2-foldforge-06290d7fd4",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+canonical-work-coordinates/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 37,
+      "work_id": "psychology-of-the-unconscious-8d4378c9",
+      "title": "Psychology of the Unconscious",
+      "genre": "foundational analytical psychology",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "gutenberg:65903:hinkle-psychology-of-the-unconscious",
+      "source_sha256": "eb3f548ae70d03767ed3db80afa4619ac1354df992a6362d61fbc1c016849f15",
+      "current_edition": "psychology-of-the-unconscious-8d4378c9--v14-read-34d3c9-e70d0376",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "dea2ee760a9f55ca",
+        "relation_profile": {
+          "contains": 6,
+          "expresses": 91,
+          "co-occurs": 69
+        },
+        "relation_density": 0.1948,
+        "relation_weight_entropy": 0.9161,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/37-psychology-of-the-unconscious-8d4378c9-4e6bb0a46edd.png",
+        "png_sha256": "4e6bb0a46edd0c05ef5825edd3a88cd46fb1c5ff911754b7a2c004431296d64c",
+        "svg": "assets/library-first-frames/37-psychology-of-the-unconscious-8d4378c9-1a72f7e0e3f7.svg",
+        "svg_sha256": "1a72f7e0e3f79204fb156950ff415cd4a0f15a85276b2f25ded0d4e62165c907"
+      }
+    },
+    {
+      "order": 38,
+      "work_id": "the-poetic-edda-984c1889",
+      "title": "The Poetic Edda",
+      "genre": "Old Norse mythological and heroic poetry",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "gutenberg:73533:bellows-poetic-edda",
+      "source_sha256": "c62b188122ae1fe04a1bbfa0e9f06e63de6b35f3a5a8a560a1f41b7acb636316",
+      "current_edition": "the-poetic-edda-984c1889--v14-read-34d3c9-22ae1fe0",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "f9cdb7c98d94e468",
+        "relation_profile": {
+          "contains": 2,
+          "expresses": 59,
+          "co-occurs": 196
+        },
+        "relation_density": 0.3651,
+        "relation_weight_entropy": 0.949,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/38-the-poetic-edda-984c1889-99ffdb9e2e6b.png",
+        "png_sha256": "99ffdb9e2e6b15400a7b712856abc975b7ea0015dc3413764193a4d7bb9fb4d5",
+        "svg": "assets/library-first-frames/38-the-poetic-edda-984c1889-398ecd8f8f18.svg",
+        "svg_sha256": "398ecd8f8f1834678251e648ef2d72bbb432a8aae06727fe09978fe509553977"
+      }
+    },
+    {
+      "order": 39,
+      "work_id": "the-dhammapada-60b21b01",
+      "title": "The Dhammapada",
+      "genre": "buddhist verse scripture",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-2017",
+      "source_sha256": "f69de0fef89409005a7cfce2557319cc78c91dbcdfee2c110ef7cb7285ef320a",
+      "current_edition": "the-dhammapada-60b21b01--v14-read-34d3c9-f8940900",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "856cf1d2e7a1e86b",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 324
+        },
+        "relation_density": 0.5412,
+        "relation_weight_entropy": 0.9503,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/39-the-dhammapada-60b21b01-b851b9da50b5.png",
+        "png_sha256": "b851b9da50b5dd4b7ad42cb774864214f9dd49b3b15ae482c4ba1f14329ce254",
+        "svg": "assets/library-first-frames/39-the-dhammapada-60b21b01-61b8665760a6.svg",
+        "svg_sha256": "61b8665760a60c6a80f405943806a70e1c2c5c0d4a39e12a166fc01906fc3f03"
+      }
+    },
+    {
+      "order": 40,
+      "work_id": "zhuangzi-ed0e03f3",
+      "title": "Zhuangzi",
+      "genre": "daoist philosophical classic",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-ebook-59709@2026-08-11:raw-sha256:71e7d719aa5b75b4cf234fcf02e38e5aa15a327c257ed77950504bfb758ca6c8",
+      "source_sha256": "51e91b1fe0e90317087aba442c23528baa336b820609072ece4418680950a911",
+      "current_edition": "zhuangzi-ed0e03f3--v14-read-34d3c9-e0e90317",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "9f89ecf2b421ec1f",
+        "relation_profile": {
+          "contains": 33,
+          "expresses": 813,
+          "co-occurs": 96
+        },
+        "relation_density": 0.5089,
+        "relation_weight_entropy": 0.9208,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/40-zhuangzi-ed0e03f3-215f09cfecdd.png",
+        "png_sha256": "215f09cfecddb7a9fd440fb794b9905ebad8f442b57dbdbd30ec804c2264fc19",
+        "svg": "assets/library-first-frames/40-zhuangzi-ed0e03f3-2394b9b40bee.svg",
+        "svg_sha256": "2394b9b40bee0bab9d8c66a6f34a423d79f4510843defb3daaadd011bc849c36"
+      }
+    },
+    {
+      "order": 41,
+      "work_id": "the-bhagavad-gita-3a4dcb45",
+      "title": "The Bhagavad Gita",
+      "genre": "hindu philosophical scripture",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-ebook-2388@2026-08-11:raw-sha256:85b22401a9d256179f9a2e407215eb516da9b8213f23c32e03d66709d839a9e0",
+      "source_sha256": "38e499ca8cadb46c4b289c2810fa54de23d54af8f8ab66ec2b4e4bc469586ac3",
+      "current_edition": "the-bhagavad-gita-3a4dcb45--v14-read-34d3c9-8cadb46c",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "ae54ee739d7fef48",
+        "relation_profile": {
+          "contains": 18,
+          "expresses": 331,
+          "co-occurs": 353
+        },
+        "relation_density": 0.5417,
+        "relation_weight_entropy": 0.9583,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/41-the-bhagavad-gita-3a4dcb45-760463aeab35.png",
+        "png_sha256": "760463aeab35ba01ca6a50d3725440bef3691f1b45daae78c112cd159bad8d51",
+        "svg": "assets/library-first-frames/41-the-bhagavad-gita-3a4dcb45-0d801d3ff488.svg",
+        "svg_sha256": "0d801d3ff488a4a6593e3d9148fd9721593de39d6a0de131fe5ab83f3d2deaa0"
+      }
+    },
+    {
+      "order": 42,
+      "work_id": "a-mathematical-theory-of-communication-75a5723f",
+      "title": "A Mathematical Theory of Communication",
+      "genre": "foundational information theory paper",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "bell-system-technical-journal-1948-corrected-reprint",
+      "source_sha256": "3c0d2cdd7d0170391789a63b0c69c0670bc9d6962e141f077b367235a207f7bc",
+      "current_edition": "a-mathematical-theory-of-communication-75a5723f--v1.2-foldforge-8f4846f93f",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 43,
+      "work_id": "on-computable-numbers-with-an-application-to-the-entscheidungsproblem-c57b33a3",
+      "title": "On Computable Numbers, with an Application to the Entscheidungsproblem",
+      "genre": "foundational computability paper",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "proceedings-london-mathematical-society-1936",
+      "source_sha256": "739e9b92920b155dfafd2e822e9eb6fa38bdc36dfd6c4d56bc9c550030727734",
+      "current_edition": "on-computable-numbers-with-an-application-to-the-entscheidungsproblem-c57b33a3--v1.2-foldforge-d890b98162",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 44,
+      "work_id": "uber-formal-unentscheidbare-satze-der-principia-mathematica-und-verwandter-systeme-i-6780b46b",
+      "title": "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I",
+      "genre": "foundational mathematical logic paper",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "monatshefte-fuer-mathematik-und-physik-38-1931",
+      "source_sha256": "b24c436191b8cb9a27888cd9d1e8ae9fb2ea1a48a03952f74799574f28c2c675",
+      "current_edition": "uber-formal-unentscheidbare-satze-der-principia-mathematica-und-verwandter-systeme-i-6780b46b--v1.2-foldforge-f26d14903e",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 45,
+      "work_id": "the-epic-of-gilgamesh-an-old-babylonian-version-b7fe130b",
+      "title": "The Epic of Gilgamesh: An Old Babylonian Version",
+      "genre": "ancient mesopotamian epic and critical edition",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-ebook-11000@2026-08-11:raw-sha256:5c031b38575310168898753578b03ed23fe51f6ddac3b7437aea441959505a8f",
+      "source_sha256": "6fb706654c161657969a4e26f28f31f80ca121e9c0d2ef09a1e51b97a8f0f464",
+      "current_edition": "the-epic-of-gilgamesh-an-old-babylonian-version-b7fe130b--v14-read-34d3c9-4c161657",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "42a0e14b4873004d",
+        "relation_profile": {
+          "contains": 11,
+          "expresses": 115,
+          "co-occurs": 268
+        },
+        "relation_density": 0.3799,
+        "relation_weight_entropy": 0.9454,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/45-the-epic-of-gilgamesh-an-old-babylonian-version-b7fe130b-6496d41e55ff.png",
+        "png_sha256": "6496d41e55ff482ecaeb65ee3d2b94d83ef6d2eb44c7909ae3594864955bed80",
+        "svg": "assets/library-first-frames/45-the-epic-of-gilgamesh-an-old-babylonian-version-b7fe130b-393028c48b0e.svg",
+        "svg_sha256": "393028c48b0e782cdba26d0269dda8c859fb3252bab7096c8c5d9bc776160b0a"
+      }
+    },
+    {
+      "order": 46,
+      "work_id": "frankenstein-or-the-modern-prometheus-e5a8c3b2",
+      "title": "Frankenstein; or, The Modern Prometheus",
+      "genre": "gothic philosophical novel",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-ebook-41445@2026-08-11:raw-sha256:54b2faba2485a5697606ecd0e4afb574e14bab51820bef4efa72ce8c91eff787",
+      "source_sha256": "b58e0f211f5f67b03501c1b4df65bd30f0c835d05221bf0ddfeb3c11fc3c782a",
+      "current_edition": "frankenstein-or-the-modern-prometheus-e5a8c3b2--v14-read-34d3c9-1f5f67b0",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "b761f1a240e24b71",
+        "relation_profile": {
+          "contains": 23,
+          "expresses": 577,
+          "co-occurs": 73
+        },
+        "relation_density": 0.4544,
+        "relation_weight_entropy": 0.9503,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/46-frankenstein-or-the-modern-prometheus-e5a8c3b2-ec31d5dcabc9.png",
+        "png_sha256": "ec31d5dcabc959e1317afb2b96926ceb906f0ae1c7aa6833aee053ba4bb26cf7",
+        "svg": "assets/library-first-frames/46-frankenstein-or-the-modern-prometheus-e5a8c3b2-e149851fe828.svg",
+        "svg_sha256": "e149851fe828fb6f2ebc25d6acd73fe4575c1df0f20b0fdff77b568e4d3fae92"
+      }
+    },
+    {
+      "order": 47,
+      "work_id": "the-quran-the-meaning-of-the-glorious-koran-d05be571",
+      "title": "The Qur’an — The Meaning of the Glorious Koran",
+      "genre": "Islamic scripture in explanatory English translation",
+      "status": "exact-source-required",
+      "recovery": "exact-witness-reconstruction",
+      "source_witness": "pickthall-1930:scan-sha256:20344d0d77833ef6cb29f61814a6ee02a813a86f879f7a409426c9d4e06608a5:transcription-sha256:f70ecc2fb6d5957df690e13911925c4723913cebf4d38455eaa1d9eb9aae42a8",
+      "source_sha256": "9fb98392b330891ceac4f253a6806860509437c4eabdfeb7214e48adee95d339",
+      "current_edition": "the-quran-the-meaning-of-the-glorious-koran-d05be571--v1.3-foldforge-6e1694fbc9",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 48,
+      "work_id": "on-the-origin-of-species-by-means-of-natural-selection-5430976d",
+      "title": "On the Origin of Species by Means of Natural Selection",
+      "genre": "foundational evolutionary biology treatise",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-1228-1859-first-edition-sha256:ededa9c0bf8761efed092c303b46c1c92de956838cba6249a33bedfd6d7363b4",
+      "source_sha256": "873e32a80875f38788e25af5ae275f20115dff217e630c5f06a79102c5beace5",
+      "current_edition": "on-the-origin-of-species-by-means-of-natural-selection-5430976d--v14-read-34d3c9-0875f387",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "8b6db563620134c4",
+        "relation_profile": {
+          "contains": 14,
+          "expresses": 339,
+          "co-occurs": 168
+        },
+        "relation_density": 0.4538,
+        "relation_weight_entropy": 0.943,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/48-on-the-origin-of-species-by-means-of-natural-selection-5430976d-ddfbd693a377.png",
+        "png_sha256": "ddfbd693a37701be8d47c9d14362546c57c6edd72bea8363928227a97e1d0a96",
+        "svg": "assets/library-first-frames/48-on-the-origin-of-species-by-means-of-natural-selection-5430976d-c17b948a81ab.svg",
+        "svg_sha256": "c17b948a81ab0c4144ba08a0b6fe7fb7cdb8c2a9c50962ecd20b31329dcfc74d"
+      }
+    },
+    {
+      "order": 49,
+      "work_id": "repeticion-de-amores-y-arte-de-ajedrez-2adfcfc8",
+      "title": "Repetición de Amores y Arte de Ajedrez",
+      "genre": "chess incunable; documentary facsimile witness",
+      "status": "exact-source-required",
+      "recovery": "exact-witness-reconstruction",
+      "source_witness": "Universidad de Salamanca BG/I.182; Cleveland Public Library p4014coll20/4944 (Frederic Madden manuscript copy, 1855)",
+      "source_sha256": "ffec8f4e0e5b0bf5ee9ff6def5c9e87f9f6a14047fa9633390237ce91920dd82",
+      "current_edition": "repeticion-de-amores-y-arte-de-ajedrez-2adfcfc8--v1.0-foldforge-10b13cc768",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 50,
+      "work_id": "libro-de-la-invencion-liberal-y-arte-del-juego-del-axedrez-7a995d63",
+      "title": "Libro de la invención liberal y arte del juego del Axedrez",
+      "genre": "chess treatise",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "Google Books n3s8AAAAcAAJ; Internet Archive bub_gb_n3s8AAAAcAAJ; Wikimedia Commons public-domain DjVu",
+      "source_sha256": "608c7798f4f67059596347f6511d07d15e0073abc1e5d5f07604b022e6197280",
+      "current_edition": "libro-de-la-invencion-liberal-y-arte-del-juego-del-axedrez-7a995d63--v1.0-foldforge-b6913f9206",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 51,
+      "work_id": "analyse-du-jeu-des-echecs-dd0f70b3",
+      "title": "Analyse du jeu des Échecs",
+      "genre": "chess treatise",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "Gallica BnF bpt6k1050358s; French Wikisource L’Analyze des Échecs revision 15896711 and 191 page transcriptions",
+      "source_sha256": "4b904ca484c00ea750f4fef832b033906151e296ad755fe0c206312250d52e2e",
+      "current_edition": "analyse-du-jeu-des-echecs-dd0f70b3--v1.0-foldforge-2857c6f5ea",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 52,
+      "work_id": "laws-of-the-game-8500de86",
+      "title": "Laws of the Game",
+      "genre": "association football laws",
+      "status": "exact-source-required",
+      "recovery": "exact-witness-reconstruction",
+      "source_witness": "English Wikisource Laws of the Game (1863), revision 13901609; December 1863 period newspaper witnesses",
+      "source_sha256": "d6f8f0acb8f6588e967c418ee17ea6184d2e65ed64a5e3f6727982f31333421e",
+      "current_edition": "laws-of-the-game-8500de86--v1.0-foldforge-7eec3129b6",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 53,
+      "work_id": "on-the-sensations-of-tone-as-a-physiological-basis-for-the-theory-of-music-c5ba1f49",
+      "title": "On the Sensations of Tone as a Physiological Basis for the Theory of Music",
+      "genre": "foundational treatise on musical acoustics and auditory perception",
+      "status": "exact-source-required",
+      "recovery": "public-or-authorized-witness",
+      "source_witness": "Internet Archive onsensationsofto00helmrich; Wellcome Collection rby988rq; 1895 Longmans, Green & Co. third English edition",
+      "source_sha256": "d35d1e23a6f63ad8b924d22b3735274dd675761d7fd92f1ed5236b8d7d740b88",
+      "current_edition": "on-the-sensations-of-tone-as-a-physiological-basis-for-the-theory-of-music-c5ba1f49--v1.0-foldforge-167ebdb96e",
+      "current_transformation": "deterministic-structural-reading/v3+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1+foldforge-composition-inheritance/v1",
+      "structural_depth": null,
+      "successor_portrait": null
+    },
+    {
+      "order": 54,
+      "work_id": "manifesto-of-the-communist-party-217d3335",
+      "title": "Manifesto of the Communist Party",
+      "genre": "political manifesto",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-ebook-61@2022-03-02:sha256:ba4623f09e411351ad4f34488289c70eceda8fb9d7977c1db64f0f01ed80cb59",
+      "source_sha256": "e88cb87c8906683320ed44529d01412c8970e2e765ce6656e1156a14efb30031",
+      "current_edition": "manifesto-of-the-communist-party-217d3335--v14-read-34d3c9-89066833",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "470145bb74967e08",
+        "relation_profile": {
+          "contains": 4,
+          "expresses": 96,
+          "co-occurs": 407
+        },
+        "relation_density": 0.6517,
+        "relation_weight_entropy": 0.9665,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/54-manifesto-of-the-communist-party-217d3335-240414224693.png",
+        "png_sha256": "2404142246937d7bedf2ebb265b72b4f82f5200e825eb240124c4483f125207e",
+        "svg": "assets/library-first-frames/54-manifesto-of-the-communist-party-217d3335-90cf15a28264.svg",
+        "svg_sha256": "90cf15a28264f1748b46e1e94749d8c1cc3134c91849691cdedd112701fd3390"
+      }
+    },
+    {
+      "order": 55,
+      "work_id": "mutual-aid-a-factor-of-evolution-84650682",
+      "title": "Mutual Aid: A Factor of Evolution",
+      "genre": "social and evolutionary theory",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-ebook-4341@2026-08-02:sha256:8397bb704142c9740e28b7f7a64142890233df8d572ed29d417fcc87b38ab464",
+      "source_sha256": "84ed35fc30db122e96dab92a9f239a7c525085709a30a33cd94e8c6b5ff745bb",
+      "current_edition": "mutual-aid-a-factor-of-evolution-84650682--v14-read-34d3c9-30db122e",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "9789f3e9859568ed",
+        "relation_profile": {
+          "contains": 8,
+          "expresses": 206,
+          "co-occurs": 73
+        },
+        "relation_density": 0.3099,
+        "relation_weight_entropy": 0.9527,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/55-mutual-aid-a-factor-of-evolution-84650682-b17d36a7a654.png",
+        "png_sha256": "b17d36a7a654e88209979ba3518819b83c1c4439ef94b5cae611a23857ceadd1",
+        "svg": "assets/library-first-frames/55-mutual-aid-a-factor-of-evolution-84650682-bf203f62dc3b.svg",
+        "svg_sha256": "bf203f62dc3b858e9ddff56ccb7326f241553a62db914bcdcec7a3917c0a85ad"
+      }
+    }
+  ]
+}

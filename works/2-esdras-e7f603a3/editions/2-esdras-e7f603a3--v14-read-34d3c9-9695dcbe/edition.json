@@ -1,0 +1,3773 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe",
+  "work_id": "2-esdras-e7f603a3",
+  "created_at": "2026-08-11T16:39:35.982Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "8b864e7a9695dcbeceb88b02dad1abb366e1c15c78912add0b7fa9e039337bdd",
+  "parent_edition": "2-esdras-e7f603a3--v11-read-acbd48-9695dcbe",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 14,
+    "sections": 418,
+    "words": 10837,
+    "concepts": 36,
+    "relations": 240,
+    "relation_density": 0.2091,
+    "relation_weight_entropy": 0.9078
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 2137079239,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "2 Esdras",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "Original argument and apparatus",
+          "weight": 1,
+          "coordinate": "apparatus:introduction",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0001",
+          "source_coordinate_witness": "sha256:516f2252ff053155eafcfa7cf6494f39d86b814a3e11907a5e06208ba52c84a2"
+        },
+        {
+          "id": "document-2",
+          "type": "document",
+          "label": "Chapter 1",
+          "weight": 12,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "document-3",
+          "type": "document",
+          "label": "Chapter 2",
+          "weight": 21,
+          "coordinate": "chapter:2",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003",
+          "source_coordinate_witness": "sha256:9d2d057eebed4abea73b0a9c37305a8b9bbba2e8373fd331dfbb45a04cc09043"
+        },
+        {
+          "id": "document-4",
+          "type": "document",
+          "label": "Chapter 3",
+          "weight": 32,
+          "coordinate": "chapter:3",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0004",
+          "source_coordinate_witness": "sha256:fcdad38567e5eaf92bdd3e5d16c9add9eb150d2fab8fa1e5d715c2401abde352"
+        },
+        {
+          "id": "document-5",
+          "type": "document",
+          "label": "Chapter 4",
+          "weight": 24,
+          "coordinate": "chapter:4",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "source_coordinate_witness": "sha256:ef515e16f724ced4ed063d318dc52bc0028c3ae59b85c7e93fe194e6c13f6c48"
+        },
+        {
+          "id": "document-6",
+          "type": "document",
+          "label": "Chapter 5",
+          "weight": 20,
+          "coordinate": "chapter:5",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006",
+          "source_coordinate_witness": "sha256:fc4ad47b78d0a1fa0d7ec0c54f7395aba4ed46c4ea4e74d77f1c2d7fa31140ae"
+        },
+        {
+          "id": "document-7",
+          "type": "document",
+          "label": "Chapter 6",
+          "weight": 20,
+          "coordinate": "chapter:6",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "source_coordinate_witness": "sha256:4aadb1f27fbb149b4c25b75120749f87626870db3229556c9c41e5816079d143"
+        },
+        {
+          "id": "document-8",
+          "type": "document",
+          "label": "Chapter 7",
+          "weight": 74,
+          "coordinate": "chapter:7",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0008",
+          "source_coordinate_witness": "sha256:2fbf4515daac0931222e48bfd2b909e2b9e8e6d1ba01fc6d210c7b67078c219f"
+        },
+        {
+          "id": "document-9",
+          "type": "document",
+          "label": "Chapter 8",
+          "weight": 19,
+          "coordinate": "chapter:8",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "source_coordinate_witness": "sha256:f82491310a0fb58771671b22f7cb38923d1418314d13c974cac9833414c4d51e"
+        },
+        {
+          "id": "document-10",
+          "type": "document",
+          "label": "Chapter 9",
+          "weight": 39,
+          "coordinate": "chapter:9",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0010",
+          "source_coordinate_witness": "sha256:aae047f3e721d070df292c7fe876ed833feb6ee7bfff7491de65c53888ca291d"
+        },
+        {
+          "id": "document-11",
+          "type": "document",
+          "label": "Chapter 10",
+          "weight": 40,
+          "coordinate": "chapter:10",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "source_coordinate_witness": "sha256:3db8b26d85f723c0911f77243acd50cb8197ee845b84116ec3e9a896f025a234"
+        },
+        {
+          "id": "document-12",
+          "type": "document",
+          "label": "Chapter 11",
+          "weight": 37,
+          "coordinate": "chapter:11",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "source_coordinate_witness": "sha256:9dafd264badab8591f91ac5b86f2ac8cc1f59c768734833c0d7d0a0884ba6fdd"
+        },
+        {
+          "id": "document-13",
+          "type": "document",
+          "label": "Chapter 12",
+          "weight": 47,
+          "coordinate": "chapter:12",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "source_coordinate_witness": "sha256:ba86ba8e89530abee7c4e64fa4ebf2e86df768abf8dc2a3cb60f2ec20306c8b2"
+        },
+        {
+          "id": "document-14",
+          "type": "document",
+          "label": "Chapter 13",
+          "weight": 32,
+          "coordinate": "chapter:13",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "source_coordinate_witness": "sha256:2c051236283dc6a7829e8e6fb73b0dde4d86801deeb20a01fd37b75b41203e03"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "children",
+          "weight": 123,
+          "coordinate": "lexicon:children",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001",
+          "source_coordinate_witness": "sha256:d9f54ff5bf8e6194b249cb28bed5111d42ce509d758e4cae7a15238751186cc9"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "thou",
+          "weight": 66,
+          "coordinate": "lexicon:thou",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0002",
+          "source_coordinate_witness": "sha256:e41d9097d059b5966986e4c5bcd01cc0cc13894cfc68ad0e6aacd1d35127195a"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "hundred",
+          "weight": 50,
+          "coordinate": "lexicon:hundred",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0003",
+          "source_coordinate_witness": "sha256:a262f1f1c607d15668e4c0696974ce79c02bf1a20387fb255f09ba87dced5431"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "people",
+          "weight": 50,
+          "coordinate": "lexicon:people",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004",
+          "source_coordinate_witness": "sha256:74da8e5d29b95267bd6caba0294e60d149123fb1d2fa6de6c666eaac74131548"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "house",
+          "weight": 47,
+          "coordinate": "lexicon:house",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005",
+          "source_coordinate_witness": "sha256:7563d11bd02f2fb82669548575c719575a377fa865b7ee20416b01064fd30fb2"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "levites",
+          "weight": 45,
+          "coordinate": "lexicon:levites",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006",
+          "source_coordinate_witness": "sha256:b95efdc60f399b03bfcc612c79a92d058677e7deb36311281b31334a4e557aa6"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "said",
+          "weight": 44,
+          "coordinate": "lexicon:said",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007",
+          "source_coordinate_witness": "sha256:a6155b7d86a261f333fbd0ec18702bd223f8c7adafc5a63cf005d5be30f4f83c"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "jerusalem",
+          "weight": 43,
+          "coordinate": "lexicon:jerusalem",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008",
+          "source_coordinate_witness": "sha256:7cfb170a37ac51361d68529a447a9b9182970bb59f863ba8edb7d0f4bae968fe"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "built",
+          "weight": 38,
+          "coordinate": "lexicon:built",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0009",
+          "source_coordinate_witness": "sha256:ac46407efc72574f31cd4d2aac9b058f53bb43bfddfaa61bf3e0d81b35323dcb"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "priests",
+          "weight": 36,
+          "coordinate": "lexicon:priests",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0010",
+          "source_coordinate_witness": "sha256:4122bd23818834a6823fc4973d632ce5d876df8bf581e40685d8c57d741a8ca3"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "unto",
+          "weight": 34,
+          "coordinate": "lexicon:unto",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011",
+          "source_coordinate_witness": "sha256:10037e9bf5d7de29a900d0cf5311bf4ed709ea5aafd27b6ac684fc19b1fb6536"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "king",
+          "weight": 32,
+          "coordinate": "lexicon:king",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0012",
+          "source_coordinate_witness": "sha256:1f7c709ed4925bf29b686214fc3db0d42fd152e30d75eb8130939cbea5ae2262"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "came",
+          "weight": 31,
+          "coordinate": "lexicon:came",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0013",
+          "source_coordinate_witness": "sha256:b68b1bad5c6c2bcffc44f7f89f3c3d7c5ff815e0e80e6f714aaef52c85549908"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "gate",
+          "weight": 29,
+          "coordinate": "lexicon:gate",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0014",
+          "source_coordinate_witness": "sha256:e286093102f954358347730a50322251ed86577f94538f3fa6096491285e5827"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "wall",
+          "weight": 29,
+          "coordinate": "lexicon:wall",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015",
+          "source_coordinate_witness": "sha256:7529965f3d8f1a81641a404c03a20b3d6735ef8766722ff05e01d4aab4a7df1f"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "great",
+          "weight": 27,
+          "coordinate": "lexicon:great",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016",
+          "source_coordinate_witness": "sha256:419ef33b20eb69269665d12397d9978d630c73890c7a6b9540bf287d51b90940"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "against",
+          "weight": 26,
+          "coordinate": "lexicon:against",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0017",
+          "source_coordinate_witness": "sha256:eeda2d45b0ef8da05e8cbeb5750bb2d3b5a008aa09c3552ee62812e23a43bbad"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "brethren",
+          "weight": 26,
+          "coordinate": "lexicon:brethren",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0018",
+          "source_coordinate_witness": "sha256:724bb44a0ebbc5c7736a587468ae2c96faa2ff0c0edf2553199e127d606d1506"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "didst",
+          "weight": 26,
+          "coordinate": "lexicon:didst",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0019",
+          "source_coordinate_witness": "sha256:42949b3f43291dc94a4f0983ea5832d786cebb1e52f8f671fd69afbf32a89e19"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "princes",
+          "weight": 26,
+          "coordinate": "lexicon:princes",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0020",
+          "source_coordinate_witness": "sha256:7407b03f552684cc56c88984a7b8d2bafbdaaf782c6bdf1fd80ca1998ae6c4a7"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "after",
+          "weight": 23,
+          "coordinate": "lexicon:after",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0021",
+          "source_coordinate_witness": "sha256:9ffec6c112ad735caf2c1ab56000137f24e1747c93e9ef19603d76db39dff509"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "before",
+          "weight": 23,
+          "coordinate": "lexicon:before",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0022",
+          "source_coordinate_witness": "sha256:cf6a842c737ca5a9fd90023f80069c74433353db02040af6479954c7c8dafdc7"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "days",
+          "weight": 22,
+          "coordinate": "lexicon:days",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0023",
+          "source_coordinate_witness": "sha256:9849ed003425e585d75fc7d88e0a46a480fd9fa824959e71736c19e733d46161"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "israel",
+          "weight": 22,
+          "coordinate": "lexicon:israel",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0024",
+          "source_coordinate_witness": "sha256:26457d7dadcd3998f206ca5de8e985b6fb4d6bb9df999a107cd9f1565ca17010"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "lord",
+          "weight": 21,
+          "coordinate": "lexicon:lord",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0025",
+          "source_coordinate_witness": "sha256:71ce91971174b724b007c1558909f2319a6b51daf52aaa0527c702846be58df3"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "made",
+          "weight": 21,
+          "coordinate": "lexicon:made",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0026",
+          "source_coordinate_witness": "sha256:b454ec1951926ef35f549211a6566bd5edc1acd3ac3ca4c9b86287d6409215d3"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "work",
+          "weight": 20,
+          "coordinate": "lexicon:work",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0027",
+          "source_coordinate_witness": "sha256:65d581b3c12d92eeda95adb35be2f9f93d850692a016acfb19b20be2eb73d58d"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "hand",
+          "weight": 19,
+          "coordinate": "lexicon:hand",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0028",
+          "source_coordinate_witness": "sha256:15263b559f9ed68955e89881f21978a4ae12c87f64c953a3bcbc32d8ae0c3714"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "juda",
+          "weight": 19,
+          "coordinate": "lexicon:juda",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0029",
+          "source_coordinate_witness": "sha256:4cbbccb7f9f29edb04ef4368563a879173f99ae48da218080522e22d83b02a14"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "land",
+          "weight": 19,
+          "coordinate": "lexicon:land",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0030",
+          "source_coordinate_witness": "sha256:14fefe72f028ac6c91df2caa75528c556676ff687984c3da25e8eb4b5e405eb6"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "part",
+          "weight": 19,
+          "coordinate": "lexicon:part",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0031",
+          "source_coordinate_witness": "sha256:642e2649ba0eff5b8c491c71c6e3d24065cab9a4f433dac24d02df86c80184c9"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "therefore",
+          "weight": 19,
+          "coordinate": "lexicon:therefore",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0032",
+          "source_coordinate_witness": "sha256:0d7be7e5ddc7f3e5eeef715a6030f7ab45ba1b2ce51c98b9f9cd8b227a0e7f62"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "things",
+          "weight": 19,
+          "coordinate": "lexicon:things",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0033",
+          "source_coordinate_witness": "sha256:9fb18c3c810481061d608553f67958ef9788254dfdd128cb115045628b3f154e"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "thousand",
+          "weight": 19,
+          "coordinate": "lexicon:thousand",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0034",
+          "source_coordinate_witness": "sha256:180a0334fc114f7e299817bc6579ad9b668a06ac6b603949d3b0e9b01a6837a2"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "according",
+          "weight": 18,
+          "coordinate": "lexicon:according",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0035",
+          "source_coordinate_witness": "sha256:65baeed34e8784e4cb19cd10dedad518868ca55e952179baa9e3ca4975975f47"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "over",
+          "weight": 18,
+          "coordinate": "lexicon:over",
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0036",
+          "source_coordinate_witness": "sha256:74a9db837e4865b69dd75a38e7d837716ee1ef063a72a883b61c07b01b4e38fc"
+        }
+      ],
+      "edges": [
+        {
+          "from": "document-8",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 89,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0001",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0008",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001"
+        },
+        {
+          "from": "work",
+          "to": "document-8",
+          "relation": "contains",
+          "weight": 74,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0002",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0008"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 53,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0003",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0010",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-13",
+          "relation": "contains",
+          "weight": 47,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0004",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 41,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0005",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0008",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0003"
+        },
+        {
+          "from": "work",
+          "to": "document-11",
+          "relation": "contains",
+          "weight": 40,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0006",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 39.1975,
+          "shared_windows": 27,
+          "association": 0.4518,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0007",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0003"
+        },
+        {
+          "from": "work",
+          "to": "document-10",
+          "relation": "contains",
+          "weight": 39,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0008",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0010"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 38.7395,
+          "shared_windows": 22,
+          "association": 0.7609,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0009",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0019"
+        },
+        {
+          "from": "work",
+          "to": "document-12",
+          "relation": "contains",
+          "weight": 37,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0010",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 34,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0011",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0009"
+        },
+        {
+          "from": "work",
+          "to": "document-14",
+          "relation": "contains",
+          "weight": 32,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0012",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014"
+        },
+        {
+          "from": "work",
+          "to": "document-4",
+          "relation": "contains",
+          "weight": 32,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0013",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0004"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 25,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0014",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0010",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0019"
+        },
+        {
+          "from": "work",
+          "to": "document-5",
+          "relation": "contains",
+          "weight": 24,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0015",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 22.929,
+          "shared_windows": 16,
+          "association": 0.4331,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0016",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0010"
+        },
+        {
+          "from": "work",
+          "to": "document-3",
+          "relation": "contains",
+          "weight": 21,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0017",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003"
+        },
+        {
+          "from": "work",
+          "to": "document-6",
+          "relation": "contains",
+          "weight": 20,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0018",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006"
+        },
+        {
+          "from": "work",
+          "to": "document-7",
+          "relation": "contains",
+          "weight": 20,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0019",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007"
+        },
+        {
+          "from": "work",
+          "to": "document-9",
+          "relation": "contains",
+          "weight": 19,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0020",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009"
+        },
+        {
+          "from": "document-8",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 18,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0021",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0008",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0034"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 17.0944,
+          "shared_windows": 12,
+          "association": 0.4245,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0022",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0003",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0034"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 17,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0023",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0021"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 16.207,
+          "shared_windows": 11,
+          "association": 0.4734,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0024",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0021"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 16,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0025",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0012"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 15.7099,
+          "shared_windows": 11,
+          "association": 0.4282,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0026",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0014"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 15,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0027",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 14.1842,
+          "shared_windows": 11,
+          "association": 0.2895,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0028",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0024"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 14,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0029",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 14,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0030",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0014"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 13.315,
+          "shared_windows": 10,
+          "association": 0.3315,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0031",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0010",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0020"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 13.2275,
+          "shared_windows": 10,
+          "association": 0.3227,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0032",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0017"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 13,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0033",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0010",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0030"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 12.3927,
+          "shared_windows": 9,
+          "association": 0.377,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0034",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0030"
+        },
+        {
+          "from": "work",
+          "to": "document-2",
+          "relation": "contains",
+          "weight": 12,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0035",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 12,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0036",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0017"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 12,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0037",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 11.7462,
+          "shared_windows": 9,
+          "association": 0.3051,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0038",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 11.5231,
+          "shared_windows": 8,
+          "association": 0.4404,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0039",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0019",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0030"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 11.3383,
+          "shared_windows": 9,
+          "association": 0.2598,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0040",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0009"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 11.2535,
+          "shared_windows": 9,
+          "association": 0.2504,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0041",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0034"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 11,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0042",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 11,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0043",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 11,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0044",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 10.3851,
+          "shared_windows": 8,
+          "association": 0.2981,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0045",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0021"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 10.235,
+          "shared_windows": 8,
+          "association": 0.2794,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0046",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0012"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 10,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0047",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0010"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 10,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0048",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0023"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 10,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0049",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 9.9141,
+          "shared_windows": 8,
+          "association": 0.2393,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0050",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 9.8711,
+          "shared_windows": 8,
+          "association": 0.2339,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0051",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0013"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 9.5628,
+          "shared_windows": 8,
+          "association": 0.1954,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0052",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0053",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0054",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0020"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0055",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0056",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0027"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 8.9399,
+          "shared_windows": 7,
+          "association": 0.2771,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0057",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0014"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 8.8736,
+          "shared_windows": 7,
+          "association": 0.2677,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0058",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0028"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 8.8261,
+          "shared_windows": 7,
+          "association": 0.2609,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0059",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0017"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 8.7774,
+          "shared_windows": 7,
+          "association": 0.2539,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0060",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0012"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 8.6518,
+          "shared_windows": 7,
+          "association": 0.236,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0061",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0014"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 8.5388,
+          "shared_windows": 7,
+          "association": 0.2198,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0062",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0020"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 8.2631,
+          "shared_windows": 7,
+          "association": 0.1804,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0063",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0010"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0064",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0065",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0029"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0066",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0067",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0014"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0068",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 7.8091,
+          "shared_windows": 6,
+          "association": 0.3015,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0069",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0019",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0028"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 7.7321,
+          "shared_windows": 6,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0070",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0017",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0021"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 7.6641,
+          "shared_windows": 6,
+          "association": 0.2774,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0071",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0020",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0029"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 7.6197,
+          "shared_windows": 6,
+          "association": 0.27,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0072",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0032"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 7.6197,
+          "shared_windows": 6,
+          "association": 0.27,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0073",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0020",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0023"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 7.5757,
+          "shared_windows": 6,
+          "association": 0.2626,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0074",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0021"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 7.5407,
+          "shared_windows": 6,
+          "association": 0.2568,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0075",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0026"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 7.5079,
+          "shared_windows": 6,
+          "association": 0.2513,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0076",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0031"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 7.412,
+          "shared_windows": 6,
+          "association": 0.2353,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0077",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0018",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0020"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 7.396,
+          "shared_windows": 6,
+          "association": 0.2327,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0078",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0010",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0032"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 7.3587,
+          "shared_windows": 6,
+          "association": 0.2265,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0079",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0029"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 7.3225,
+          "shared_windows": 6,
+          "association": 0.2204,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0080",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0032"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 7.2898,
+          "shared_windows": 6,
+          "association": 0.215,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0081",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0025"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 7.2865,
+          "shared_windows": 6,
+          "association": 0.2144,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0082",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 7.1094,
+          "shared_windows": 6,
+          "association": 0.1849,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0083",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 7.1026,
+          "shared_windows": 6,
+          "association": 0.1838,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0084",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 7.082,
+          "shared_windows": 6,
+          "association": 0.1803,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0085",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0086",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0010",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0028"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0087",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0010",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0033"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0088",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0003"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0089",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0090",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0091",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0092",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0093",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0018"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0094",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0026"
+        },
+        {
+          "from": "concept-21",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 6.3518,
+          "shared_windows": 5,
+          "association": 0.2704,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0095",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0021",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0031"
+        },
+        {
+          "from": "concept-27",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 6.3158,
+          "shared_windows": 5,
+          "association": 0.2632,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0096",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0027",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0031"
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 6.088,
+          "shared_windows": 5,
+          "association": 0.2176,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0097",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0017"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 6.065,
+          "shared_windows": 5,
+          "association": 0.213,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0098",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0031"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 6.0471,
+          "shared_windows": 5,
+          "association": 0.2094,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0099",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0033"
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 6.0258,
+          "shared_windows": 5,
+          "association": 0.2052,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0100",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 6.0008,
+          "shared_windows": 5,
+          "association": 0.2002,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0101",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0017"
+        },
+        {
+          "from": "document-10",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0102",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0010",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0025"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0103",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0010"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0104",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0105",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0012"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0106",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0107",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0108",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0013"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0109",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0110",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0025"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 5.9615,
+          "shared_windows": 5,
+          "association": 0.1923,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0111",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0020"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 5.9436,
+          "shared_windows": 5,
+          "association": 0.1887,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0112",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0029"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 5.9184,
+          "shared_windows": 5,
+          "association": 0.1837,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0113",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0025"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 5.9068,
+          "shared_windows": 5,
+          "association": 0.1814,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0114",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0031"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0115",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0018"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0116",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0117",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0018"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0118",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0013"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0119",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0017"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0120",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0024"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0121",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0032"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0122",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0036"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0123",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0022"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0124",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0031"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0125",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0126",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0002"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0127",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0035"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0128",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0022"
+        },
+        {
+          "from": "concept-28",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 4.9147,
+          "shared_windows": 4,
+          "association": 0.2287,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0129",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0028",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0035"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 4.8208,
+          "shared_windows": 4,
+          "association": 0.2052,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0130",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0032"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 4.8165,
+          "shared_windows": 4,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0131",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0017",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0036"
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 4.804,
+          "shared_windows": 4,
+          "association": 0.201,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0132",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0021"
+        },
+        {
+          "from": "concept-15",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 4.7698,
+          "shared_windows": 4,
+          "association": 0.1925,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0133",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0036"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0134",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0030"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0135",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0136",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0020"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0137",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0138",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0139",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0140",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0029"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0141",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0029"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0142",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0013"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0143",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0014"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0144",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0002"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0145",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0146",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0004",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0147",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0035"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0148",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0032"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0149",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0006"
+        },
+        {
+          "from": "concept-28",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 3.5477,
+          "shared_windows": 3,
+          "association": 0.1826,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0150",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0028",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0030"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0151",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0152",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0025"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0153",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0031"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0154",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0010"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0155",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0156",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0026"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0157",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0031"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0158",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0159",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0160",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0010"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0161",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0023"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0162",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0026"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0163",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0033"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0164",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0165",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0166",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0167",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0002"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0168",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0022"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0169",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0170",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0017"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0171",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0018"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0172",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0020"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0173",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0031"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0174",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0175",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0176",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0012"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0177",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0013"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0178",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0179",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0027"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0180",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0181",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0014"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0182",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0183",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0023"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0184",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0024"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0185",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0032"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0186",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0187",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0001",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0033"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0188",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0189",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0018"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0190",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0024"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0191",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0026"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0192",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0028"
+        },
+        {
+          "from": "document-11",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0193",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0011",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0033"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0194",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0024"
+        },
+        {
+          "from": "document-12",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0195",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0012",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0036"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0196",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0013"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0197",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0021"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0198",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0022"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0199",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0035"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0200",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0036"
+        },
+        {
+          "from": "document-13",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0201",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0013",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0202",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016"
+        },
+        {
+          "from": "document-14",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0203",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0014",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0035"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0204",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0205",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0013"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0206",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0024"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0207",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0025"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0208",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0007"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0209",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0210",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0211",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0003",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0028"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0212",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0213",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0214",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0022"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0215",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0005",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0009"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0216",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0217",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0012"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0218",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0016"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0219",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0017"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0220",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0027"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0221",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0006",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0033"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0222",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0023"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0223",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0033"
+        },
+        {
+          "from": "document-7",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0224",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0007",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0225",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0001"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0226",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0028"
+        },
+        {
+          "from": "document-9",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0227",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0009",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005"
+        },
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0228",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0001"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0229",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0001",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0021"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0230",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0001",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0231",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0001",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0008"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0232",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0011"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0233",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0015"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0234",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0018"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0235",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0019"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0236",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0023"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0237",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0028"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0238",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0029"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0239",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0004"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/relation/0240",
+          "from_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/0002",
+          "to_coordinate": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/concept/0005"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.35,
+      "pulse": 14,
+      "fold": 4
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "1e8ac6d2c1cc",
+    "tempo": 45,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:jerusalem",
+        "frequency": 137.5,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0353
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:wall",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0319
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:before",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0305
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:juda",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:over",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:said",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:gate",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0319
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:after",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0305
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:hand",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:according",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:levites",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0358
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:came",
+        "frequency": 880,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0324
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 110,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:princes",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0312
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:work",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0298
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:thousand",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:house",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0362
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:king",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0327
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:didst",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0312
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 366.6667,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:made",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.03
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:things",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:people",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:unto",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0331
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:brethren",
+        "frequency": 293.33326,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0312
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:lord",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.03
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 440,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:therefore",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:hundred",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:priests",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0336
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:against",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0312
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:israel",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0303
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:part",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:thou",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0408
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:built",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0341
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:great",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:days",
+        "frequency": 110,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0303
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:land",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:children",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0544
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 293.3333,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:jerusalem",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0353
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:wall",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0319
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:before",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0305
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:juda",
+        "frequency": 220,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:over",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:said",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0355
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:gate",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0319
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:after",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0305
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:hand",
+        "frequency": 825,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:according",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:levites",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0358
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:came",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0324
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 206.25,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:princes",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0312
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:work",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0298
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:thousand",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:house",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0362
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:king",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0327
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:didst",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0312
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 293.3333,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:made",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.03
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:things",
+        "frequency": 440,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:people",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:unto",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0331
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:brethren",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0312
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:lord",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.03
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:therefore",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:hundred",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:priests",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0336
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:against",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0312
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:israel",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0303
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:part",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0295
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 165,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:thou",
+        "frequency": 220,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0408
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:built",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0341
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:great",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:days",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0303
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:land",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:children",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0544
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 137.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "children",
+        "count": 123
+      },
+      {
+        "concept": "thou",
+        "count": 66
+      },
+      {
+        "concept": "hundred",
+        "count": 50
+      },
+      {
+        "concept": "people",
+        "count": 50
+      },
+      {
+        "concept": "house",
+        "count": 47
+      },
+      {
+        "concept": "levites",
+        "count": 45
+      },
+      {
+        "concept": "said",
+        "count": 44
+      },
+      {
+        "concept": "jerusalem",
+        "count": 43
+      },
+      {
+        "concept": "built",
+        "count": 38
+      },
+      {
+        "concept": "priests",
+        "count": 36
+      },
+      {
+        "concept": "unto",
+        "count": 34
+      },
+      {
+        "concept": "king",
+        "count": 32
+      }
+    ],
+    "structural_depth": {
+      "signature": "74aa7bcba1809f8c",
+      "relation_profile": {
+        "contains": 14,
+        "expresses": 166,
+        "co-occurs": 60
+      },
+      "relation_density": 0.2091,
+      "relation_weight_entropy": 0.9078,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "2 Esdras resolves as 14 documents, 418 structural passages, and 240 witnessed relations at 20.9% derived density. Structural signature 74aa7bcba1809f8c."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe",
+    "origin": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:39:35.982Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/work",
+      "document": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/{document-ordinal}",
+      "section": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/2-esdras-e7f603a3/edition/2-esdras-e7f603a3--v14-read-34d3c9-9695dcbe/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}

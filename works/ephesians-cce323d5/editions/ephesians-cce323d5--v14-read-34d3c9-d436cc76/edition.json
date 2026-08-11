@@ -1,0 +1,3113 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "ephesians-cce323d5--v14-read-34d3c9-d436cc76",
+  "work_id": "ephesians-cce323d5",
+  "created_at": "2026-08-11T16:38:55.999Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "51ad6887d436cc7635f99a5289a8da148f12c7c1794da53259e51db0b332ebd4",
+  "parent_edition": "ephesians-cce323d5--v12-read-b1dda3-d436cc76",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 6,
+    "sections": 155,
+    "words": 3024,
+    "concepts": 36,
+    "relations": 174,
+    "relation_density": 0.2042,
+    "relation_weight_entropy": 0.9385
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 1929226174,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "Ephesians",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "Ephesians 1",
+          "weight": 23,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "document-2",
+          "type": "document",
+          "label": "Ephesians 2",
+          "weight": 22,
+          "coordinate": "chapter:2",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "source_coordinate_witness": "sha256:9d2d057eebed4abea73b0a9c37305a8b9bbba2e8373fd331dfbb45a04cc09043"
+        },
+        {
+          "id": "document-3",
+          "type": "document",
+          "label": "Ephesians 3",
+          "weight": 21,
+          "coordinate": "chapter:3",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "source_coordinate_witness": "sha256:fcdad38567e5eaf92bdd3e5d16c9add9eb150d2fab8fa1e5d715c2401abde352"
+        },
+        {
+          "id": "document-4",
+          "type": "document",
+          "label": "Ephesians 4",
+          "weight": 32,
+          "coordinate": "chapter:4",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "source_coordinate_witness": "sha256:ef515e16f724ced4ed063d318dc52bc0028c3ae59b85c7e93fe194e6c13f6c48"
+        },
+        {
+          "id": "document-5",
+          "type": "document",
+          "label": "Ephesians 5",
+          "weight": 33,
+          "coordinate": "chapter:5",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "source_coordinate_witness": "sha256:fc4ad47b78d0a1fa0d7ec0c54f7395aba4ed46c4ea4e74d77f1c2d7fa31140ae"
+        },
+        {
+          "id": "document-6",
+          "type": "document",
+          "label": "Ephesians 6",
+          "weight": 24,
+          "coordinate": "chapter:6",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "source_coordinate_witness": "sha256:4aadb1f27fbb149b4c25b75120749f87626870db3229556c9c41e5816079d143"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "christ",
+          "weight": 45,
+          "coordinate": "lexicon:christ",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "source_coordinate_witness": "sha256:ce7895ccf869946ad57c693088f4cab46096005f340a1d536b30e3f6197efb26"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "unto",
+          "weight": 37,
+          "coordinate": "lexicon:unto",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "source_coordinate_witness": "sha256:10037e9bf5d7de29a900d0cf5311bf4ed709ea5aafd27b6ac684fc19b1fb6536"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "lord",
+          "weight": 25,
+          "coordinate": "lexicon:lord",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003",
+          "source_coordinate_witness": "sha256:71ce91971174b724b007c1558909f2319a6b51daf52aaa0527c702846be58df3"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "jesus",
+          "weight": 21,
+          "coordinate": "lexicon:jesus",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0004",
+          "source_coordinate_witness": "sha256:df0b5de09bd1fc073e417686b43974fdf9eaf18f0bc068e4dabe0b18a57b26a1"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "hath",
+          "weight": 17,
+          "coordinate": "lexicon:hath",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005",
+          "source_coordinate_witness": "sha256:db7809b97ca0bb2967730fbbab46cad442495fb7e7ccaaa6899ec9cdc553c267"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "according",
+          "weight": 16,
+          "coordinate": "lexicon:according",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006",
+          "source_coordinate_witness": "sha256:65baeed34e8784e4cb19cd10dedad518868ca55e952179baa9e3ca4975975f47"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "spirit",
+          "weight": 15,
+          "coordinate": "lexicon:spirit",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0007",
+          "source_coordinate_witness": "sha256:4e95577d5c786ce3899f464d47562a23ee289941578276c026ac90706173ba47"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "love",
+          "weight": 14,
+          "coordinate": "lexicon:love",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0008",
+          "source_coordinate_witness": "sha256:5b53e31d9b66d7edde42f1a7f6da803e644d0c4747e897e1f7d50f8beaaa7dbb"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "things",
+          "weight": 13,
+          "coordinate": "lexicon:things",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0009",
+          "source_coordinate_witness": "sha256:9fb18c3c810481061d608553f67958ef9788254dfdd128cb115045628b3f154e"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "grace",
+          "weight": 12,
+          "coordinate": "lexicon:grace",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0010",
+          "source_coordinate_witness": "sha256:7668eadf1a97fc6cc98495ca185c6b0b29e293938aa2e17834583f23f9011097"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "whom",
+          "weight": 11,
+          "coordinate": "lexicon:whom",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0011",
+          "source_coordinate_witness": "sha256:59bf24c4c68e3fecd6c075be8208bc4c53ee267fe11da0adeee9a73a6d2c66a5"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "father",
+          "weight": 10,
+          "coordinate": "lexicon:father",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0012",
+          "source_coordinate_witness": "sha256:adf09cc25c15ab89720fc5f41ca46cc6fab3a8c03ba863e0e039b94634b57864"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "flesh",
+          "weight": 10,
+          "coordinate": "lexicon:flesh",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0013",
+          "source_coordinate_witness": "sha256:59af318707ee469f5f751a97250110403663decb6d2eb3ce7e209097ba3edbd4"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "having",
+          "weight": 10,
+          "coordinate": "lexicon:having",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0014",
+          "source_coordinate_witness": "sha256:b6a95e1043320ebb1843ec8b8df6b112a0f5239e006833b13b82f2963b709204"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "made",
+          "weight": 10,
+          "coordinate": "lexicon:made",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0015",
+          "source_coordinate_witness": "sha256:b454ec1951926ef35f549211a6566bd5edc1acd3ac3ca4c9b86287d6409215d3"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "body",
+          "weight": 9,
+          "coordinate": "lexicon:body",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0016",
+          "source_coordinate_witness": "sha256:01d171c5c85e04229d695c8445bb8a994012b2254ff19343a3f41e7d59264731"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "children",
+          "weight": 9,
+          "coordinate": "lexicon:children",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0017",
+          "source_coordinate_witness": "sha256:d9f54ff5bf8e6194b249cb28bed5111d42ce509d758e4cae7a15238751186cc9"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "church",
+          "weight": 9,
+          "coordinate": "lexicon:church",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0018",
+          "source_coordinate_witness": "sha256:e48fe044d7ae202e23262eb6eb3d71f77dc93a26420668c82917532a443cf088"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "himself",
+          "weight": 9,
+          "coordinate": "lexicon:himself",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0019",
+          "source_coordinate_witness": "sha256:650642d601e3962ca9eefbf0051887e502a473d1de8db4da48f795823abde252"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "saints",
+          "weight": 9,
+          "coordinate": "lexicon:saints",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0020",
+          "source_coordinate_witness": "sha256:64c0c78cb7af10c18539b9b522ded6a74ca8ea2973f6d42c4f6efbe2aee0d270"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "faith",
+          "weight": 8,
+          "coordinate": "lexicon:faith",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0021",
+          "source_coordinate_witness": "sha256:6b82e70a67303a285c0cb377c816805cce82cddb25f88a5bf7f284b2f00f13db"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "glory",
+          "weight": 8,
+          "coordinate": "lexicon:glory",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0022",
+          "source_coordinate_witness": "sha256:738167938c906ee3a6d209e31e20f4e1afeaf8055511cf28632c4f981c5364f1"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "wherefore",
+          "weight": 8,
+          "coordinate": "lexicon:wherefore",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0023",
+          "source_coordinate_witness": "sha256:8aa69841d8620088533b452cd66522510866c2357ad67e82de953380932733f7"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "given",
+          "weight": 7,
+          "coordinate": "lexicon:given",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0024",
+          "source_coordinate_witness": "sha256:51b0e322777b7761882e538950818bf1af47d7c1b2d3a16b146e8fc06c192d01"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "good",
+          "weight": 7,
+          "coordinate": "lexicon:good",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0025",
+          "source_coordinate_witness": "sha256:0379ef72216edaea4b8232ded036460245ae1d1bcfaa383e54e39f61c4136c0f"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "peace",
+          "weight": 7,
+          "coordinate": "lexicon:peace",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0026",
+          "source_coordinate_witness": "sha256:2cc163e692393aec85506072b2a5e8160a7f2e539a8452fc13da1a99fca8b67d"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "power",
+          "weight": 7,
+          "coordinate": "lexicon:power",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0027",
+          "source_coordinate_witness": "sha256:945d1a71a2b25d421e12d661e53d402df1fc4a9a9562a90b8fe6e81f2a0fd8b9"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "shall",
+          "weight": 7,
+          "coordinate": "lexicon:shall",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0028",
+          "source_coordinate_witness": "sha256:e93d552fa711a6a5d2a42d581c784bef6ddc8f77e767c330b596a7083c9c91f9"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "therefore",
+          "weight": 7,
+          "coordinate": "lexicon:therefore",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0029",
+          "source_coordinate_witness": "sha256:0d7be7e5ddc7f3e5eeef715a6030f7ab45ba1b2ce51c98b9f9cd8b227a0e7f62"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "together",
+          "weight": 7,
+          "coordinate": "lexicon:together",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0030",
+          "source_coordinate_witness": "sha256:1959d0f49eaf2a8292002e5135999c1cd6038ac1fdb2cd9c6d4d85e25ef7416a"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "walk",
+          "weight": 7,
+          "coordinate": "lexicon:walk",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0031",
+          "source_coordinate_witness": "sha256:2a286448738e7c829aef799144e0230336c3063c29a602ae65fbc6ddafc4520b"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "world",
+          "weight": 7,
+          "coordinate": "lexicon:world",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0032",
+          "source_coordinate_witness": "sha256:3a7e45e2d004ff447c4b9bfb2143ef791b9c5711dbf229aadddd4fd96a09497c"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "against",
+          "weight": 6,
+          "coordinate": "lexicon:against",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0033",
+          "source_coordinate_witness": "sha256:eeda2d45b0ef8da05e8cbeb5750bb2d3b5a008aa09c3552ee62812e23a43bbad"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "holy",
+          "weight": 6,
+          "coordinate": "lexicon:holy",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0034",
+          "source_coordinate_witness": "sha256:f300fadbace104343b4e51037cacfc860539dbd8ac9e4c0d4610bf94c191b7a1"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "known",
+          "weight": 6,
+          "coordinate": "lexicon:known",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0035",
+          "source_coordinate_witness": "sha256:9f5ae0729c9da628f6ee340ee34a30a82250a3b2ca8a3eb221f484049de52202"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "mystery",
+          "weight": 6,
+          "coordinate": "lexicon:mystery",
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0036",
+          "source_coordinate_witness": "sha256:bc43db227f3cd6a1b413f0c63754df96817c5b89f813b0cc5835fba255b28ab0"
+        }
+      ],
+      "edges": [
+        {
+          "from": "work",
+          "to": "document-5",
+          "relation": "contains",
+          "weight": 33,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0001",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/work",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005"
+        },
+        {
+          "from": "work",
+          "to": "document-4",
+          "relation": "contains",
+          "weight": 32,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0002",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/work",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 29.1791,
+          "shared_windows": 18,
+          "association": 0.6211,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0003",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0004"
+        },
+        {
+          "from": "work",
+          "to": "document-6",
+          "relation": "contains",
+          "weight": 24,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0004",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/work",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006"
+        },
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 23,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0005",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/work",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001"
+        },
+        {
+          "from": "work",
+          "to": "document-2",
+          "relation": "contains",
+          "weight": 22,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0006",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/work",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-3",
+          "relation": "contains",
+          "weight": 21,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0007",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/work",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-2",
+          "relation": "co-occurs",
+          "weight": 14.202,
+          "shared_windows": 11,
+          "association": 0.2911,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0008",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 12.6224,
+          "shared_windows": 9,
+          "association": 0.4025,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0009",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0004"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 10,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0010",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 10,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0011",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 9.9751,
+          "shared_windows": 8,
+          "association": 0.2469,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0012",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 9.1698,
+          "shared_windows": 7,
+          "association": 0.31,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0013",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 9.0207,
+          "shared_windows": 7,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0014",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0008"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0015",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 8.9522,
+          "shared_windows": 7,
+          "association": 0.2789,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0016",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 8.8791,
+          "shared_windows": 7,
+          "association": 0.2684,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0017",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0004"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 8.6807,
+          "shared_windows": 7,
+          "association": 0.2401,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0018",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 8.5456,
+          "shared_windows": 6,
+          "association": 0.4243,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0019",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0012"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 8.2768,
+          "shared_windows": 6,
+          "association": 0.3795,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0020",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0012"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0021",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0022",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0023",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0024",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 7.7566,
+          "shared_windows": 6,
+          "association": 0.2928,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0025",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0012"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 7.6036,
+          "shared_windows": 6,
+          "association": 0.2673,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0026",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0010"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0027",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0004"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0028",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 6.7504,
+          "shared_windows": 5,
+          "association": 0.3501,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0029",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0035"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 6.6205,
+          "shared_windows": 5,
+          "association": 0.3241,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0030",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0024"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 6.3558,
+          "shared_windows": 5,
+          "association": 0.2712,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0031",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0012"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 6.2859,
+          "shared_windows": 5,
+          "association": 0.2572,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0032",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0018"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0033",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0034",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0035",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0036",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0018"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0037",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0038",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0033"
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 5.7778,
+          "shared_windows": 4,
+          "association": 0.4444,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0039",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0014",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0019"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 5.7457,
+          "shared_windows": 4,
+          "association": 0.4364,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0040",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0010",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0024"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 5.6865,
+          "shared_windows": 4,
+          "association": 0.4216,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0041",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0027"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 5.4254,
+          "shared_windows": 4,
+          "association": 0.3563,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0042",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0008",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0019"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 5.3064,
+          "shared_windows": 4,
+          "association": 0.3266,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0043",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0015"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 5.0371,
+          "shared_windows": 4,
+          "association": 0.2593,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0044",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0025"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0045",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0046",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0022"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0047",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0013"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0048",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0030"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0049",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0004"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0050",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0004"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0051",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0052",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0019"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0053",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 4.9238,
+          "shared_windows": 4,
+          "association": 0.2309,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0054",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 4.9147,
+          "shared_windows": 4,
+          "association": 0.2287,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0055",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0014"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 4.8677,
+          "shared_windows": 4,
+          "association": 0.2169,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0056",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0015"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 4.823,
+          "shared_windows": 4,
+          "association": 0.2057,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0057",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0019"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 4.7921,
+          "shared_windows": 4,
+          "association": 0.198,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0058",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0010"
+        },
+        {
+          "from": "concept-35",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 4.5,
+          "shared_windows": 3,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0059",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0035",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0036"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 4.1619,
+          "shared_windows": 3,
+          "association": 0.3873,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0060",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0011",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0030"
+        },
+        {
+          "from": "concept-15",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 4.1619,
+          "shared_windows": 3,
+          "association": 0.3873,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0061",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0015",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0035"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0062",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0011"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0063",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0064",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0009"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0065",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0015"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0066",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0067",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0068",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0016"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0069",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0007"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0070",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0028"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0071",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0008"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0072",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0009"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0073",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 3.9487,
+          "shared_windows": 3,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0074",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0007",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0034"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 3.8504,
+          "shared_windows": 3,
+          "association": 0.2835,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0075",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0008",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0021"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 3.7348,
+          "shared_windows": 3,
+          "association": 0.2449,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0076",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0031"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.7348,
+          "shared_windows": 3,
+          "association": 0.2449,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0077",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0011"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 3.6708,
+          "shared_windows": 3,
+          "association": 0.2236,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0078",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0010"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 3.6364,
+          "shared_windows": 3,
+          "association": 0.2121,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0079",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0021"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 3.6301,
+          "shared_windows": 3,
+          "association": 0.21,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0080",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0034"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 3.6301,
+          "shared_windows": 3,
+          "association": 0.21,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0081",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0036"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 3.6,
+          "shared_windows": 3,
+          "association": 0.2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0082",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0017"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 3.5809,
+          "shared_windows": 3,
+          "association": 0.1936,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0083",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0010"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 3.5669,
+          "shared_windows": 3,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0084",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0030"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 3.5669,
+          "shared_windows": 3,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0085",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0036"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 3.5457,
+          "shared_windows": 3,
+          "association": 0.1819,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0086",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0022"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 3.5457,
+          "shared_windows": 3,
+          "association": 0.1819,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0087",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0023"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0088",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0010"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0089",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0012"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0090",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0020"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0091",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0027"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0092",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0010"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0093",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0011"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0094",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0014"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0095",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0026"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0096",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0007"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0097",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0010"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0098",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0015"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0099",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0022"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0100",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0024"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0101",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0035"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0102",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0036"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0103",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0104",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0031"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0105",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0106",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0008"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0107",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0013"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0108",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0017"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0109",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0029"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0110",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0031"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0111",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0112",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0014"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0113",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0028"
+        },
+        {
+          "from": "concept-27",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 2.6172,
+          "shared_windows": 2,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0114",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0027",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0032"
+        },
+        {
+          "from": "concept-29",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 2.6172,
+          "shared_windows": 2,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0115",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0029",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0031"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0116",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0011",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0034"
+        },
+        {
+          "from": "concept-15",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0117",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0015",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0036"
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.504,
+          "shared_windows": 2,
+          "association": 0.252,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0118",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0014",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0025"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.504,
+          "shared_windows": 2,
+          "association": 0.252,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0119",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0019",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0025"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2.4781,
+          "shared_windows": 2,
+          "association": 0.239,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0120",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0012",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0026"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.4444,
+          "shared_windows": 2,
+          "association": 0.2222,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0121",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0018",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0019"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2.4216,
+          "shared_windows": 2,
+          "association": 0.2108,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0122",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0030"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 2.4216,
+          "shared_windows": 2,
+          "association": 0.2108,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0123",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0031"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 2.4216,
+          "shared_windows": 2,
+          "association": 0.2108,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0124",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0036"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.3904,
+          "shared_windows": 2,
+          "association": 0.1952,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0125",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0025"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 2.3904,
+          "shared_windows": 2,
+          "association": 0.1952,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0126",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0032"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.3904,
+          "shared_windows": 2,
+          "association": 0.1952,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0127",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0024"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.3904,
+          "shared_windows": 2,
+          "association": 0.1952,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0128",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0025"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 2.3904,
+          "shared_windows": 2,
+          "association": 0.1952,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0129",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0032"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.3651,
+          "shared_windows": 2,
+          "association": 0.1826,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0130",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0010",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0015"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 2.3651,
+          "shared_windows": 2,
+          "association": 0.1826,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0131",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0007",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0022"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0132",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0014"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0133",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0015"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0134",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0019"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0135",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0025"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0136",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0032"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0137",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0034"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0138",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0007"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0139",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0001",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0008"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0140",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0017"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0141",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0019"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0142",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0032"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0143",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0002",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0006"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0144",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0011"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0145",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0018"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0146",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0020"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0147",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0021"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0148",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0027"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0149",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0003"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0150",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0032"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0151",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0007"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0152",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0003",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0008"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0153",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0010"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0154",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0021"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0155",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0023"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0156",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0024"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0157",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0025"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0158",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0029"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0159",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0004",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0009"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0160",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0012"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0161",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0016"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0162",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0023"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0163",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0005",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0007"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0164",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0012"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0165",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0013"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0166",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0017"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0167",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0021"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0168",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0025"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0169",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0026"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0170",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0035"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0171",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0004"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0172",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0007"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0173",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0008"
+        },
+        {
+          "from": "document-6",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/relation/0174",
+          "from_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/0006",
+          "to_coordinate": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/concept/0009"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.30000000000000004,
+      "pulse": 14,
+      "fold": 4
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "039c82c7b48c",
+    "tempo": 45,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:known",
+        "frequency": 165,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0289
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:according",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0353
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:flesh",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:saints",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0308
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:power",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:holy",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0289
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:hath",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.036
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:father",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:himself",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0308
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:peace",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:against",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0289
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:jesus",
+        "frequency": 660,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0385
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 165,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:whom",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0321
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:church",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0308
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:good",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:world",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0411
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:grace",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0327
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 366.6667,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:children",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0308
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:given",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:walk",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:unto",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0489
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:things",
+        "frequency": 366.66674,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0334
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:body",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0308
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 137.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:wherefore",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0302
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:together",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:christ",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.054
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:love",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.034
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:made",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:glory",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0302
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 110,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:therefore",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:mystery",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0289
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:spirit",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0347
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:having",
+        "frequency": 146.66663,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:faith",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0302
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:shall",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:known",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0289
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:according",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0353
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:flesh",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:saints",
+        "frequency": 165,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0308
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:power",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:holy",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0289
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:hath",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.036
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:father",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:himself",
+        "frequency": 586.66652,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0308
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:peace",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:against",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0289
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:jesus",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0385
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 137.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:whom",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0321
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:church",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0308
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:good",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:world",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0411
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:grace",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0327
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:children",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0308
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:given",
+        "frequency": 275,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:walk",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:unto",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0489
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:things",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0334
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:body",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0308
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:wherefore",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0302
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:together",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:christ",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.054
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:love",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.034
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:made",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:glory",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0302
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 366.6667,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:therefore",
+        "frequency": 146.66663,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:mystery",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0289
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:spirit",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0347
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:having",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:faith",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0302
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:shall",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0295
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 206.25,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "christ",
+        "count": 45
+      },
+      {
+        "concept": "unto",
+        "count": 37
+      },
+      {
+        "concept": "lord",
+        "count": 25
+      },
+      {
+        "concept": "jesus",
+        "count": 21
+      },
+      {
+        "concept": "hath",
+        "count": 17
+      },
+      {
+        "concept": "according",
+        "count": 16
+      },
+      {
+        "concept": "spirit",
+        "count": 15
+      },
+      {
+        "concept": "love",
+        "count": 14
+      },
+      {
+        "concept": "things",
+        "count": 13
+      },
+      {
+        "concept": "grace",
+        "count": 12
+      },
+      {
+        "concept": "whom",
+        "count": 11
+      },
+      {
+        "concept": "father",
+        "count": 10
+      }
+    ],
+    "structural_depth": {
+      "signature": "fb63e57968e1bb32",
+      "relation_profile": {
+        "contains": 6,
+        "expresses": 105,
+        "co-occurs": 63
+      },
+      "relation_density": 0.2042,
+      "relation_weight_entropy": 0.9385,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "Ephesians resolves as 6 documents, 155 structural passages, and 174 witnessed relations at 20.4% derived density. Structural signature fb63e57968e1bb32."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76",
+    "origin": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:38:55.999Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/work",
+      "document": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/{document-ordinal}",
+      "section": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/ephesians-cce323d5/edition/ephesians-cce323d5--v14-read-34d3c9-d436cc76/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}

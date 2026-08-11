@@ -1,0 +1,3165 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "jonah-03ef0e60--v14-read-34d3c9-90f06b38",
+  "work_id": "jonah-03ef0e60",
+  "created_at": "2026-08-11T16:38:55.523Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "5126cb3190f06b380ac981533f8876f40092cfcb929b395be0c94b2ea70174a2",
+  "parent_edition": "jonah-03ef0e60--v12-read-b1dda3-90f06b38",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 4,
+    "sections": 48,
+    "words": 1320,
+    "concepts": 36,
+    "relations": 172,
+    "relation_density": 0.2211,
+    "relation_weight_entropy": 0.9604
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 847955677,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "Jonah",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "Jonah 1",
+          "weight": 17,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "document-2",
+          "type": "document",
+          "label": "Jonah 2",
+          "weight": 10,
+          "coordinate": "chapter:2",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002",
+          "source_coordinate_witness": "sha256:9d2d057eebed4abea73b0a9c37305a8b9bbba2e8373fd331dfbb45a04cc09043"
+        },
+        {
+          "id": "document-3",
+          "type": "document",
+          "label": "Jonah 3",
+          "weight": 10,
+          "coordinate": "chapter:3",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "source_coordinate_witness": "sha256:fcdad38567e5eaf92bdd3e5d16c9add9eb150d2fab8fa1e5d715c2401abde352"
+        },
+        {
+          "id": "document-4",
+          "type": "document",
+          "label": "Jonah 4",
+          "weight": 11,
+          "coordinate": "chapter:4",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "source_coordinate_witness": "sha256:ef515e16f724ced4ed063d318dc52bc0028c3ae59b85c7e93fe194e6c13f6c48"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "unto",
+          "weight": 30,
+          "coordinate": "lexicon:unto",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "source_coordinate_witness": "sha256:10037e9bf5d7de29a900d0cf5311bf4ed709ea5aafd27b6ac684fc19b1fb6536"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "lord",
+          "weight": 26,
+          "coordinate": "lexicon:lord",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "source_coordinate_witness": "sha256:71ce91971174b724b007c1558909f2319a6b51daf52aaa0527c702846be58df3"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "jonah",
+          "weight": 18,
+          "coordinate": "lexicon:jonah",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "source_coordinate_witness": "sha256:1ff3d3e7cfceb8a66f7ca681796665d261f0c2544210c74e98eca8f8748ad5e7"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "said",
+          "weight": 18,
+          "coordinate": "lexicon:said",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004",
+          "source_coordinate_witness": "sha256:a6155b7d86a261f333fbd0ec18702bd223f8c7adafc5a63cf005d5be30f4f83c"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "thou",
+          "weight": 13,
+          "coordinate": "lexicon:thou",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005",
+          "source_coordinate_witness": "sha256:e41d9097d059b5966986e4c5bcd01cc0cc13894cfc68ad0e6aacd1d35127195a"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "thee",
+          "weight": 11,
+          "coordinate": "lexicon:thee",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006",
+          "source_coordinate_witness": "sha256:0c3a0ac74bd143a33534f5a673f0c267ef350617751ff304b042b24a3b3e8db4"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "nineveh",
+          "weight": 9,
+          "coordinate": "lexicon:nineveh",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0007",
+          "source_coordinate_witness": "sha256:8a98d491eb26826f2971a2582524e9165e821fa9b9dae97d4c3898d465ff4fe5"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "city",
+          "weight": 8,
+          "coordinate": "lexicon:city",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0008",
+          "source_coordinate_witness": "sha256:983d9f80e968b953779cdc2cb084de07c5235d8352d7ace43e5c415c30c46f75"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "great",
+          "weight": 8,
+          "coordinate": "lexicon:great",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0009",
+          "source_coordinate_witness": "sha256:419ef33b20eb69269665d12397d9978d630c73890c7a6b9540bf287d51b90940"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "came",
+          "weight": 7,
+          "coordinate": "lexicon:came",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010",
+          "source_coordinate_witness": "sha256:b68b1bad5c6c2bcffc44f7f89f3c3d7c5ff815e0e80e6f714aaef52c85549908"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "cast",
+          "weight": 7,
+          "coordinate": "lexicon:cast",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0011",
+          "source_coordinate_witness": "sha256:c46fe34c408b028da0484b54d07f2181b521ba1206589fc624165a281a7064f7"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "evil",
+          "weight": 6,
+          "coordinate": "lexicon:evil",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0012",
+          "source_coordinate_witness": "sha256:1788e2e24f3e69d2fea3858d1648a374259dd36abaa9bd61da24beec07cc6d01"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "about",
+          "weight": 5,
+          "coordinate": "lexicon:about",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0013",
+          "source_coordinate_witness": "sha256:4489febf8a99cb634bd394eb183b471b960c1801ec6f3626663709da6dd0f923"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "cried",
+          "weight": 5,
+          "coordinate": "lexicon:cried",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0014",
+          "source_coordinate_witness": "sha256:0ce619cf85b8ab0432bb203eb6cf9439010f6b24634b172bfc027ad7993dbadb"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "gourd",
+          "weight": 5,
+          "coordinate": "lexicon:gourd",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0015",
+          "source_coordinate_witness": "sha256:434f2ec1bd2d655712ce4051aa9b752df8968d92bb50887b4d73f1cd6730bcdd"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "hast",
+          "weight": 5,
+          "coordinate": "lexicon:hast",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0016",
+          "source_coordinate_witness": "sha256:ddc762f551c7a98e4d45daca1f89ebfd36ab2a5a8d09a283529f6da3f13b857b"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "went",
+          "weight": 5,
+          "coordinate": "lexicon:went",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0017",
+          "source_coordinate_witness": "sha256:ccbabca13cf5a51835e94bcf3f95d0b004374811f3c34f2a6ec6ff734038eec4"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "angry",
+          "weight": 4,
+          "coordinate": "lexicon:angry",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0018",
+          "source_coordinate_witness": "sha256:554930763fa88264b55ba4314771b417f79887cd47b1fe20e1c5de06a23f72c9"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "arise",
+          "weight": 4,
+          "coordinate": "lexicon:arise",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0019",
+          "source_coordinate_witness": "sha256:4b3198656a0043dc6cc1b0d2b0ec23c277260e3acb0aefa44977808e517dad65"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "down",
+          "weight": 4,
+          "coordinate": "lexicon:down",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0020",
+          "source_coordinate_witness": "sha256:20b4d9200031b87b0d369a155982193469bd368fe734da516784e20b5d63d2b1"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "made",
+          "weight": 4,
+          "coordinate": "lexicon:made",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0021",
+          "source_coordinate_witness": "sha256:b454ec1951926ef35f549211a6566bd5edc1acd3ac3ca4c9b86287d6409215d3"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "prepared",
+          "weight": 4,
+          "coordinate": "lexicon:prepared",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0022",
+          "source_coordinate_witness": "sha256:5674b485866e3a721cb40963d5ccd7e901fd58ab32511029905c899a7fe02787"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "saying",
+          "weight": 4,
+          "coordinate": "lexicon:saying",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0023",
+          "source_coordinate_witness": "sha256:4e551de01d8e0f36faaceefc42083a51e731afc62bd35990e6a141d102a722bd"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "ship",
+          "weight": 4,
+          "coordinate": "lexicon:ship",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0024",
+          "source_coordinate_witness": "sha256:969e84fe66f0d4e1d1142de9d3b0f51926bf29fad3b0ed070a49e8429e3bfa0d"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "tarshish",
+          "weight": 4,
+          "coordinate": "lexicon:tarshish",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0025",
+          "source_coordinate_witness": "sha256:dfc4d568d5e91aafa88ca7d8ef329a286e0a84805edbf7a2e469590f17c328b4"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "word",
+          "weight": 4,
+          "coordinate": "lexicon:word",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0026",
+          "source_coordinate_witness": "sha256:d2123ccae6fad691a196720c1965284e1acd853001e09bdfbc17a69203d62acd"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "belly",
+          "weight": 3,
+          "coordinate": "lexicon:belly",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0027",
+          "source_coordinate_witness": "sha256:72c228ed40f4ef8845c915abe38cb8568663b57875b3e26dfae14aaff2727a19"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "beseech",
+          "weight": 3,
+          "coordinate": "lexicon:beseech",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0028",
+          "source_coordinate_witness": "sha256:8a83a0e5c332d7f8c41995d174090b4b38a1ab6f67b705dd81e206500f636f0c"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "come",
+          "weight": 3,
+          "coordinate": "lexicon:come",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0029",
+          "source_coordinate_witness": "sha256:1896a0f4a716bfc747ed46a7e557ec976e335148415880360444b95cc7f3de91"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "exceedingly",
+          "weight": 3,
+          "coordinate": "lexicon:exceedingly",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0030",
+          "source_coordinate_witness": "sha256:fbc0189d66485852461ed0cb15a422bd26dfc2ced16a044576e6c6a072460e4a"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "fish",
+          "weight": 3,
+          "coordinate": "lexicon:fish",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0031",
+          "source_coordinate_witness": "sha256:60178cb31c101b7095849e9f47cdb5736afa5783d863d32fe1c3f5a5e235a892"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "forth",
+          "weight": 3,
+          "coordinate": "lexicon:forth",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0032",
+          "source_coordinate_witness": "sha256:e1b53a1dadae82eefc8523ab304928e015c2956f48622a49d55f39685f164bcd"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "head",
+          "weight": 3,
+          "coordinate": "lexicon:head",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0033",
+          "source_coordinate_witness": "sha256:b018ca21078a3956f0a55a643eb93fc6b53b4860b89bde486631286af4ac9459"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "land",
+          "weight": 3,
+          "coordinate": "lexicon:land",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0034",
+          "source_coordinate_witness": "sha256:14fefe72f028ac6c91df2caa75528c556676ff687984c3da25e8eb4b5e405eb6"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "life",
+          "weight": 3,
+          "coordinate": "lexicon:life",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0035",
+          "source_coordinate_witness": "sha256:f614b25e23d36ebfa26e3e9e5e9caf879c8c73083ee7e65d8c0fbbaac35667da"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "over",
+          "weight": 3,
+          "coordinate": "lexicon:over",
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0036",
+          "source_coordinate_witness": "sha256:74a9db837e4865b69dd75a38e7d837716ee1ef063a72a883b61c07b01b4e38fc"
+        }
+      ],
+      "edges": [
+        {
+          "from": "concept-1",
+          "to": "concept-2",
+          "relation": "co-occurs",
+          "weight": 22.7305,
+          "shared_windows": 14,
+          "association": 0.6236,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0001",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 17,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0002",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/work",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 16.9904,
+          "shared_windows": 11,
+          "association": 0.5446,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0003",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 15,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0004",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 14.9233,
+          "shared_windows": 9,
+          "association": 0.6581,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0005",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 12,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0006",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 11.4915,
+          "shared_windows": 8,
+          "association": 0.4364,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0007",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 11.266,
+          "shared_windows": 8,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0008",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003"
+        },
+        {
+          "from": "work",
+          "to": "document-4",
+          "relation": "contains",
+          "weight": 11,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0009",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/work",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 10.5363,
+          "shared_windows": 7,
+          "association": 0.5052,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0010",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 10.224,
+          "shared_windows": 7,
+          "association": 0.4606,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0011",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 10.0157,
+          "shared_windows": 7,
+          "association": 0.4308,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0012",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005"
+        },
+        {
+          "from": "work",
+          "to": "document-2",
+          "relation": "contains",
+          "weight": 10,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0013",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/work",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-3",
+          "relation": "contains",
+          "weight": 10,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0014",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/work",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 9.5934,
+          "shared_windows": 7,
+          "association": 0.3705,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0015",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 8.6084,
+          "shared_windows": 5,
+          "association": 0.7217,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0016",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0007",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0008"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0017",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0018",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0019",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0020",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0007"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 6.9288,
+          "shared_windows": 5,
+          "association": 0.3858,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0021",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 6.9288,
+          "shared_windows": 5,
+          "association": 0.3858,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0022",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 6.4121,
+          "shared_windows": 4,
+          "association": 0.603,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0023",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0016"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 6.3094,
+          "shared_windows": 4,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0024",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0008",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0009"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 6,
+          "shared_windows": 4,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0025",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0007",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0009"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0026",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0027",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0028",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0029",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 5.7457,
+          "shared_windows": 4,
+          "association": 0.4364,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0030",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0016"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 5.7354,
+          "shared_windows": 4,
+          "association": 0.4339,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0031",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0012"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 5.633,
+          "shared_windows": 4,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0032",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0026"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 5.4606,
+          "shared_windows": 4,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0033",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0012"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 5.372,
+          "shared_windows": 4,
+          "association": 0.343,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0034",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 5.3197,
+          "shared_windows": 4,
+          "association": 0.3299,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0035",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 5.2344,
+          "shared_windows": 4,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0036",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0009"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 5.1547,
+          "shared_windows": 4,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0037",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0009"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 5.1213,
+          "shared_windows": 3,
+          "association": 0.7071,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0038",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0011",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0032"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0039",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0011"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0040",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0041",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0042",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0043",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0013"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0044",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0015"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0045",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 4.9701,
+          "shared_windows": 4,
+          "association": 0.2425,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0046",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 4.7008,
+          "shared_windows": 3,
+          "association": 0.5669,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0047",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0026"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 4.1339,
+          "shared_windows": 3,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0048",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0027"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 4.1339,
+          "shared_windows": 3,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0049",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0035"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 4.125,
+          "shared_windows": 3,
+          "association": 0.375,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0050",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0017"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 4.125,
+          "shared_windows": 3,
+          "association": 0.375,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0051",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0022"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 4.125,
+          "shared_windows": 3,
+          "association": 0.375,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0052",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0026"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 4.0914,
+          "shared_windows": 3,
+          "association": 0.3638,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0053",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0014"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 4.0914,
+          "shared_windows": 3,
+          "association": 0.3638,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0054",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0016"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0055",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0024"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0056",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0009"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0057",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0018"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0058",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0008"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 3.982,
+          "shared_windows": 3,
+          "association": 0.3273,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0059",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0017"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 3.982,
+          "shared_windows": 3,
+          "association": 0.3273,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0060",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0021"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 3.982,
+          "shared_windows": 3,
+          "association": 0.3273,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0061",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0023"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 3.982,
+          "shared_windows": 3,
+          "association": 0.3273,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0062",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0026"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 3.9594,
+          "shared_windows": 3,
+          "association": 0.3198,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0063",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 3.9186,
+          "shared_windows": 3,
+          "association": 0.3062,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0064",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0014"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 3.9186,
+          "shared_windows": 3,
+          "association": 0.3062,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0065",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0023"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.9186,
+          "shared_windows": 3,
+          "association": 0.3062,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0066",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0011"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 3.9186,
+          "shared_windows": 3,
+          "association": 0.3062,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0067",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0008"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.8911,
+          "shared_windows": 3,
+          "association": 0.297,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0068",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0011"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 3.8504,
+          "shared_windows": 3,
+          "association": 0.2835,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0069",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 3.825,
+          "shared_windows": 3,
+          "association": 0.275,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0070",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 3.6495,
+          "shared_windows": 3,
+          "association": 0.2165,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0071",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0007"
+        },
+        {
+          "from": "concept-28",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 3.633,
+          "shared_windows": 2,
+          "association": 0.8165,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0072",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0028",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0035"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 3.3333,
+          "shared_windows": 2,
+          "association": 0.6667,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0073",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0020",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0024"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0074",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0016",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0035"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0075",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0017",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0020"
+        },
+        {
+          "from": "concept-22",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0076",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0022",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0033"
+        },
+        {
+          "from": "concept-15",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0077",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0015",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0022"
+        },
+        {
+          "from": "concept-23",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0078",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0023",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0026"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0079",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0028"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0080",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0020"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0081",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0025"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0082",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0032"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0083",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0084",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0012"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0085",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0026"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0086",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0087",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0008"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0088",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0089",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0022"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0090",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0091",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0035"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0092",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0008",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0017"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0093",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0008",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0019"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0094",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0019"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.7559,
+          "shared_windows": 2,
+          "association": 0.378,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0095",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0023"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 2.7071,
+          "shared_windows": 2,
+          "association": 0.3536,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0096",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0031"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.7071,
+          "shared_windows": 2,
+          "association": 0.3536,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0097",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0007",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0019"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2.7071,
+          "shared_windows": 2,
+          "association": 0.3536,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0098",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0007",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0026"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.7071,
+          "shared_windows": 2,
+          "association": 0.3536,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0099",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0009",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0019"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2.6963,
+          "shared_windows": 2,
+          "association": 0.3482,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0100",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0013"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2.6963,
+          "shared_windows": 2,
+          "association": 0.3482,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0101",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0018"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 2.6963,
+          "shared_windows": 2,
+          "association": 0.3482,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0102",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0035"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0103",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0012"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.6172,
+          "shared_windows": 2,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0104",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0025"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.6172,
+          "shared_windows": 2,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0105",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0028"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 2.6172,
+          "shared_windows": 2,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0106",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0031"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.603,
+          "shared_windows": 2,
+          "association": 0.3015,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0107",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0014"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.603,
+          "shared_windows": 2,
+          "association": 0.3015,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0108",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0015"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0109",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0025"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0110",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0018"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0111",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0020"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0112",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0024"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0113",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0027"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0114",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0029"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0115",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0032"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0116",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0033"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2.5601,
+          "shared_windows": 2,
+          "association": 0.2801,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0117",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0018"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2.5394,
+          "shared_windows": 2,
+          "association": 0.2697,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0118",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0012"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.504,
+          "shared_windows": 2,
+          "association": 0.252,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0119",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0020"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.504,
+          "shared_windows": 2,
+          "association": 0.252,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0120",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0024"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2.504,
+          "shared_windows": 2,
+          "association": 0.252,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0121",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0030"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.504,
+          "shared_windows": 2,
+          "association": 0.252,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0122",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0034"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.5,
+          "shared_windows": 2,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0123",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0014"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.5,
+          "shared_windows": 2,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0124",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0015"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2.5,
+          "shared_windows": 2,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0125",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0021"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.5,
+          "shared_windows": 2,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0126",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0023"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 2.5,
+          "shared_windows": 2,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0127",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0009"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.4851,
+          "shared_windows": 2,
+          "association": 0.2425,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0128",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0015"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.4851,
+          "shared_windows": 2,
+          "association": 0.2425,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0129",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0019"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0130",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0020"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0131",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0024"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0132",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0027"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-30",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0133",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0030"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0134",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0032"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0135",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0034"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.4558,
+          "shared_windows": 2,
+          "association": 0.2279,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0136",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0005",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0137",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0014"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0138",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0015"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0139",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0022"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0140",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0016"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0141",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0017"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0142",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0019"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0143",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0021"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0144",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0145",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0012"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0146",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0014"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0147",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0016"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0148",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0017"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0149",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0019"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0150",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0021"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0151",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0028"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0152",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0029"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0153",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0030"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0154",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0031"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0155",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0001",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0034"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0156",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0011"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0157",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0014"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0158",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0027"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0159",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0003"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0160",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0161",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0002",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0006"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0162",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0163",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0002"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0164",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0023"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0165",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0004"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0166",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0003",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0009"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0167",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0010"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0168",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0016"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0169",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0021"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0170",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0033"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0171",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0036"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/relation/0172",
+          "from_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/0004",
+          "to_coordinate": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/concept/0009"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.33,
+      "pulse": 11,
+      "fold": 5
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "2b705199f1b4",
+    "tempo": 60,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:cried",
+        "frequency": 137.5,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0354
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:made",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:beseech",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:life",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:thee",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0479
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:about",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0354
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:down",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:belly",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:land",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:thou",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0521
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:evil",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0375
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:arise",
+        "frequency": 550,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 293.3333,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:word",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:head",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:said",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0625
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:cast",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0396
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:angry",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:tarshish",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 440,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:forth",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:jonah",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0625
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:came",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0396
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:went",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0354
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:ship",
+        "frequency": 293.33326,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:fish",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 110,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0792
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:great",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0417
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:hast",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0354
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:saying",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:exceedingly",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:unto",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0875
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 206.25,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:city",
+        "frequency": 220,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0417
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:gourd",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0354
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:prepared",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:come",
+        "frequency": 146.66663,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:over",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:nineveh",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0437
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 440,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:cried",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0354
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:made",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:beseech",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:life",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:thee",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0479
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:about",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0354
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:down",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:belly",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:land",
+        "frequency": 660,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:thou",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0521
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:evil",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0375
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:arise",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 206.25,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:word",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:head",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:said",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0625
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:cast",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0396
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:angry",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:tarshish",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0333
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:forth",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:jonah",
+        "frequency": 330,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0625
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:came",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0396
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:went",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0354
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:ship",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:fish",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 165,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0792
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:great",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0417
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:hast",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0354
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:saying",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:exceedingly",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:unto",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0875
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 165,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:city",
+        "frequency": 146.66663,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0417
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:gourd",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0354
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:prepared",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0333
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:come",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:over",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0313
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:nineveh",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0437
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 137.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "unto",
+        "count": 30
+      },
+      {
+        "concept": "lord",
+        "count": 26
+      },
+      {
+        "concept": "jonah",
+        "count": 18
+      },
+      {
+        "concept": "said",
+        "count": 18
+      },
+      {
+        "concept": "thou",
+        "count": 13
+      },
+      {
+        "concept": "thee",
+        "count": 11
+      },
+      {
+        "concept": "nineveh",
+        "count": 9
+      },
+      {
+        "concept": "city",
+        "count": 8
+      },
+      {
+        "concept": "great",
+        "count": 8
+      },
+      {
+        "concept": "came",
+        "count": 7
+      },
+      {
+        "concept": "cast",
+        "count": 7
+      },
+      {
+        "concept": "evil",
+        "count": 6
+      }
+    ],
+    "structural_depth": {
+      "signature": "deef79b949f437af",
+      "relation_profile": {
+        "contains": 4,
+        "expresses": 61,
+        "co-occurs": 107
+      },
+      "relation_density": 0.2211,
+      "relation_weight_entropy": 0.9604,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "Jonah resolves as 4 documents, 48 structural passages, and 172 witnessed relations at 22.1% derived density. Structural signature deef79b949f437af."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38",
+    "origin": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:38:55.523Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/work",
+      "document": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/{document-ordinal}",
+      "section": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/jonah-03ef0e60/edition/jonah-03ef0e60--v14-read-34d3c9-90f06b38/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}

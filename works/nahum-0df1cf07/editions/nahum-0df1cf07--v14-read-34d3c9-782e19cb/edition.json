@@ -1,0 +1,2284 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "nahum-0df1cf07--v14-read-34d3c9-782e19cb",
+  "work_id": "nahum-0df1cf07",
+  "created_at": "2026-08-11T16:39:36.661Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "65549c71782e19cb7ddb08190389e0356510c86c29ddc7c2e9216958f0eef252",
+  "parent_edition": "nahum-0df1cf07--v11-read-acbd48-782e19cb",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 4,
+    "sections": 50,
+    "words": 1347,
+    "concepts": 36,
+    "relations": 89,
+    "relation_density": 0.1144,
+    "relation_weight_entropy": 0.9337
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 1176695978,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "Nahum",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "Original argument and apparatus",
+          "weight": 1,
+          "coordinate": "apparatus:introduction",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0001",
+          "source_coordinate_witness": "sha256:516f2252ff053155eafcfa7cf6494f39d86b814a3e11907a5e06208ba52c84a2"
+        },
+        {
+          "id": "document-2",
+          "type": "document",
+          "label": "Chapter 1",
+          "weight": 16,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "document-3",
+          "type": "document",
+          "label": "Chapter 2",
+          "weight": 14,
+          "coordinate": "chapter:2",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "source_coordinate_witness": "sha256:9d2d057eebed4abea73b0a9c37305a8b9bbba2e8373fd331dfbb45a04cc09043"
+        },
+        {
+          "id": "document-4",
+          "type": "document",
+          "label": "Chapter 3",
+          "weight": 19,
+          "coordinate": "chapter:3",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "source_coordinate_witness": "sha256:fcdad38567e5eaf92bdd3e5d16c9add9eb150d2fab8fa1e5d715c2401abde352"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "shall",
+          "weight": 34,
+          "coordinate": "lexicon:shall",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "source_coordinate_witness": "sha256:e93d552fa711a6a5d2a42d581c784bef6ddc8f77e767c330b596a7083c9c91f9"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "thee",
+          "weight": 23,
+          "coordinate": "lexicon:thee",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002",
+          "source_coordinate_witness": "sha256:0c3a0ac74bd143a33534f5a673f0c267ef350617751ff304b042b24a3b3e8db4"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "lord",
+          "weight": 12,
+          "coordinate": "lexicon:lord",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0003",
+          "source_coordinate_witness": "sha256:71ce91971174b724b007c1558909f2319a6b51daf52aaa0527c702846be58df3"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "hath",
+          "weight": 7,
+          "coordinate": "lexicon:hath",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0004",
+          "source_coordinate_witness": "sha256:db7809b97ca0bb2967730fbbab46cad442495fb7e7ccaaa6899ec9cdc553c267"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "because",
+          "weight": 6,
+          "coordinate": "lexicon:because",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0005",
+          "source_coordinate_witness": "sha256:00dc7a72ce6b97a916fdc1fcecb6a3e57f1a9b0f4b49b1f04023fc3b109fd911"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "thou",
+          "weight": 6,
+          "coordinate": "lexicon:thou",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0006",
+          "source_coordinate_witness": "sha256:e41d9097d059b5966986e4c5bcd01cc0cc13894cfc68ad0e6aacd1d35127195a"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "against",
+          "weight": 5,
+          "coordinate": "lexicon:against",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0007",
+          "source_coordinate_witness": "sha256:eeda2d45b0ef8da05e8cbeb5750bb2d3b5a008aa09c3552ee62812e23a43bbad"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "away",
+          "weight": 5,
+          "coordinate": "lexicon:away",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0008",
+          "source_coordinate_witness": "sha256:7243851e671fc387731169e8f10c9e2c22dc286014db78a85fc24300c93be296"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "behold",
+          "weight": 5,
+          "coordinate": "lexicon:behold",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0009",
+          "source_coordinate_witness": "sha256:7d098087ac12e3fd8a4e317b7aef700d53d54ef3fd5c3c1907719598e3d97f3f"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "ninive",
+          "weight": 5,
+          "coordinate": "lexicon:ninive",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0010",
+          "source_coordinate_witness": "sha256:c9609d4c66ede38596cb121a1f1a6a55db87023bd8c00a573da5dc01badc2979"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "waters",
+          "weight": 5,
+          "coordinate": "lexicon:waters",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0011",
+          "source_coordinate_witness": "sha256:48e90732342f9012b5030cf02cd8d02d290d8fcbb0ac4809c0ca52bccd9d2d96"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "made",
+          "weight": 4,
+          "coordinate": "lexicon:made",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0012",
+          "source_coordinate_witness": "sha256:b454ec1951926ef35f549211a6566bd5edc1acd3ac3ca4c9b86287d6409215d3"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "make",
+          "weight": 4,
+          "coordinate": "lexicon:make",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0013",
+          "source_coordinate_witness": "sha256:79d52321050e04798b1e3cb374ce81f0eda83d8ed95a963172ffd3be29379910"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "shalt",
+          "weight": 4,
+          "coordinate": "lexicon:shalt",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0014",
+          "source_coordinate_witness": "sha256:9dacda0efcbe1ab74a6bbec296405d6601fc9420ac90eab6ed8e740776f631a7"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "ways",
+          "weight": 4,
+          "coordinate": "lexicon:ways",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0015",
+          "source_coordinate_witness": "sha256:f51d104acc5d91602c62c3d8de3754aa2b75c9b843e3cc7eb6e60ef705ec09ac"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "before",
+          "weight": 3,
+          "coordinate": "lexicon:before",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0016",
+          "source_coordinate_witness": "sha256:cf6a842c737ca5a9fd90023f80069c74433353db02040af6479954c7c8dafdc7"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "bruke",
+          "weight": 3,
+          "coordinate": "lexicon:bruke",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0017",
+          "source_coordinate_witness": "sha256:80e5a9daf16efdba24731fba1352d07b55bc48d10d39492f527f9575355baadf"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "enemies",
+          "weight": 3,
+          "coordinate": "lexicon:enemies",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0018",
+          "source_coordinate_witness": "sha256:1375815bcb786df853bd9d5172ba378e1e5d36f5fc01a75268dd84ddfc029735"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "fall",
+          "weight": 3,
+          "coordinate": "lexicon:fall",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0019",
+          "source_coordinate_witness": "sha256:4114977a438c224ab3039f62e6200e1f0ed56f72dabe616ba9589c93b774f45f"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "fire",
+          "weight": 3,
+          "coordinate": "lexicon:fire",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0020",
+          "source_coordinate_witness": "sha256:51948bee4040fad6fe6e64b5d65746e660b25830188e6f2785ba03f5de5de207"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "full",
+          "weight": 3,
+          "coordinate": "lexicon:full",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0021",
+          "source_coordinate_witness": "sha256:6dcb66e30c2aff731d169ae86c875f5ae8007c75f21c0c3f14072f9d54872a02"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "great",
+          "weight": 3,
+          "coordinate": "lexicon:great",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0022",
+          "source_coordinate_witness": "sha256:419ef33b20eb69269665d12397d9978d630c73890c7a6b9540bf287d51b90940"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "little",
+          "weight": 3,
+          "coordinate": "lexicon:little",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0023",
+          "source_coordinate_witness": "sha256:22113561aa950ea2623a620d57a4d11567fbcd1a7ba51f8acfd124415edb195d"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "locusts",
+          "weight": 3,
+          "coordinate": "lexicon:locusts",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0024",
+          "source_coordinate_witness": "sha256:22d0b4e8c5213ba09a65df073761441482eebeca3a62749fe156c78469e74ea7"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "mountains",
+          "weight": 3,
+          "coordinate": "lexicon:mountains",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0025",
+          "source_coordinate_witness": "sha256:65b5059474aa820814c87cec89ff17c15b2fe46458c09def45e69655fb20834c"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "nations",
+          "weight": 3,
+          "coordinate": "lexicon:nations",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0026",
+          "source_coordinate_witness": "sha256:3cd8f3db34a44ca5ad2b3ff1d8ac903220f1aa4943108ea46345543e3a0b2535"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "none",
+          "weight": 3,
+          "coordinate": "lexicon:none",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0027",
+          "source_coordinate_witness": "sha256:5e657d0946187b5e3397abd44cbfd8a771f36e9f9556de2b882c76bbf9c93763"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "ones",
+          "weight": 3,
+          "coordinate": "lexicon:ones",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0028",
+          "source_coordinate_witness": "sha256:c1ede1e42c0e575b8eb82163a5cfee2e8f48faa377b3fd0d0998a30e4a39fd40"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "revenging",
+          "weight": 3,
+          "coordinate": "lexicon:revenging",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0029",
+          "source_coordinate_witness": "sha256:e96aa4530f699b09f871d77d53f1502ac2e039c762c91b4176d52eccc06af3c5"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "rivers",
+          "weight": 3,
+          "coordinate": "lexicon:rivers",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0030",
+          "source_coordinate_witness": "sha256:1ae738f328b9d28a6d6b31502721834c84bf372994159007cfda685720f862f2"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "ruin",
+          "weight": 3,
+          "coordinate": "lexicon:ruin",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0031",
+          "source_coordinate_witness": "sha256:ce80a3e603f1702b0836a9345a1fcf0672f28e8070194caafe0a2da2b42bcdc7"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "saith",
+          "weight": 3,
+          "coordinate": "lexicon:saith",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0032",
+          "source_coordinate_witness": "sha256:b07a364da8afaf03a1df7736d750a6ab2ed84dba5cb5f2556d98e4c596544c63"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "spoil",
+          "weight": 3,
+          "coordinate": "lexicon:spoil",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0033",
+          "source_coordinate_witness": "sha256:41e2a7f7893e642bc293d17a01c97fd5b453ba1c488fb7f5615f9d4bfad947bc"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "stand",
+          "weight": 3,
+          "coordinate": "lexicon:stand",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0034",
+          "source_coordinate_witness": "sha256:5d4e64353da0ea81c82d34cc35371405de82a9fd73882d0bd70df58df49dfe66"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "sword",
+          "weight": 3,
+          "coordinate": "lexicon:sword",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0035",
+          "source_coordinate_witness": "sha256:182afb72f77a1052c24296808de59fc85c19041af645e6379dabc053b395c338"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "thereof",
+          "weight": 3,
+          "coordinate": "lexicon:thereof",
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0036",
+          "source_coordinate_witness": "sha256:b4b1c0deed0da70a18e793cbb1ee48bb16dcf96178d075d4dc0ad3466a863666"
+        }
+      ],
+      "edges": [
+        {
+          "from": "work",
+          "to": "document-4",
+          "relation": "contains",
+          "weight": 19,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0001",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/work",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-2",
+          "relation": "co-occurs",
+          "weight": 16.2994,
+          "shared_windows": 10,
+          "association": 0.6299,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0002",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-2",
+          "relation": "contains",
+          "weight": 16,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0003",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/work",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 16,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0004",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-3",
+          "relation": "contains",
+          "weight": 14,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0005",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/work",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 14,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0006",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 13,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0007",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0008",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0003"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 7.9881,
+          "shared_windows": 5,
+          "association": 0.5976,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0009",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0009"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 7.1129,
+          "shared_windows": 5,
+          "association": 0.4226,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0010",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0003"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0011",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 6.8634,
+          "shared_windows": 5,
+          "association": 0.3727,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0012",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0003"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 5.6865,
+          "shared_windows": 4,
+          "association": 0.4216,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0013",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0009"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0014",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0015",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0006"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 4.6432,
+          "shared_windows": 3,
+          "association": 0.5477,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0016",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0032"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 4.3887,
+          "shared_windows": 3,
+          "association": 0.4629,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0017",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0032"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 4.2247,
+          "shared_windows": 3,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0018",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0020"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 4.2247,
+          "shared_windows": 3,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0019",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0035"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0020",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0004"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0021",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0014"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 3.9487,
+          "shared_windows": 3,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0022",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0005"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 3.9487,
+          "shared_windows": 3,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0023",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0007"
+        },
+        {
+          "from": "concept-23",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 3.633,
+          "shared_windows": 2,
+          "association": 0.8165,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0024",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0023",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0028"
+        },
+        {
+          "from": "concept-26",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 3.3333,
+          "shared_windows": 2,
+          "association": 0.6667,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0025",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0026",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0031"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 3.2649,
+          "shared_windows": 2,
+          "association": 0.6325,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0026",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0006",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0014"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 3.2649,
+          "shared_windows": 2,
+          "association": 0.6325,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0027",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0006",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0017"
+        },
+        {
+          "from": "concept-15",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0028",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0015",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0022"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 3.0328,
+          "shared_windows": 2,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0029",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0009",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0032"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0030",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0008",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0012"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0031",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0013"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0032",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0029"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0033",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0005"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0034",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0007"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0035",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0011"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0036",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0008"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0037",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0012"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0038",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0017"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0039",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0024"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0040",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0028"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0041",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0006",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0012"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 2.8,
+          "shared_windows": 2,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0042",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0005"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.8,
+          "shared_windows": 2,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0043",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0007",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0010"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 2.7303,
+          "shared_windows": 2,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0044",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0022"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0045",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0013"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.6172,
+          "shared_windows": 2,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0046",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0020"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 2.6172,
+          "shared_windows": 2,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0047",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0035"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0048",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0005"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0049",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0007"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 2.5657,
+          "shared_windows": 2,
+          "association": 0.2828,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0050",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0009"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 2.5443,
+          "shared_windows": 2,
+          "association": 0.2722,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0051",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0016"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2.5443,
+          "shared_windows": 2,
+          "association": 0.2722,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0052",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0018"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.5443,
+          "shared_windows": 2,
+          "association": 0.2722,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0053",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0019"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2.5443,
+          "shared_windows": 2,
+          "association": 0.2722,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0054",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0021"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.5443,
+          "shared_windows": 2,
+          "association": 0.2722,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0055",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0025"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 2.5443,
+          "shared_windows": 2,
+          "association": 0.2722,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0056",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0032"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 2.5443,
+          "shared_windows": 2,
+          "association": 0.2722,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0057",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0036"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 2.4781,
+          "shared_windows": 2,
+          "association": 0.239,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0058",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0005"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 2.4781,
+          "shared_windows": 2,
+          "association": 0.239,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0059",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0006"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0060",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0013"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.4216,
+          "shared_windows": 2,
+          "association": 0.2108,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0061",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0010"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 2.4216,
+          "shared_windows": 2,
+          "association": 0.2108,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0062",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0006"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0063",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0010"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0064",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0018"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0065",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0022"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0066",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0002",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0025"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0067",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0015"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0068",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0002"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0069",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0027"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0070",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0003"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0071",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0033"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0072",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0034"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0073",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0005"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0074",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0003",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0009"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0075",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0011"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0076",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0019"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0077",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0020"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0078",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0021"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0079",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0023"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0080",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0035"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0081",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0004"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0082",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0008"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0083",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0004",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0009"
+        },
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 1,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0084",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/work",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0001"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0085",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0010"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0086",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0016"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0087",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0026"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0088",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0031"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 1,
+          "canonical_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/relation/0089",
+          "from_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/0001",
+          "to_coordinate": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/concept/0007"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.33999999999999997,
+      "pulse": 12,
+      "fold": 6
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "0a250cf7eece",
+    "tempo": 61,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:ways",
+        "frequency": 206.25,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.033
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:great",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:revenging",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:thereof",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:against",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:shalt",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 165,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:full",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:ones",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:sword",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:thou",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:make",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:fire",
+        "frequency": 825,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 206.25,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:none",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:stand",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.031
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:because",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:made",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.033
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:fall",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.031
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:nations",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:spoil",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:hath",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.039
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:waters",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:enemies",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:mountains",
+        "frequency": 440,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:saith",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 247.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.049
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:ninive",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:bruke",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.031
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:locusts",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:ruin",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:thee",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.071
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:behold",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:before",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:little",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:rivers",
+        "frequency": 110,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:shall",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.093
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:away",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:ways",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:great",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:revenging",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:thereof",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.031
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:against",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:shalt",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:full",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:ones",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:sword",
+        "frequency": 495,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:thou",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:make",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:fire",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 165,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:none",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:stand",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:because",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:made",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:fall",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.031
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:nations",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:spoil",
+        "frequency": 220,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.031
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:hath",
+        "frequency": 412.5,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.039
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:waters",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:enemies",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:mountains",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:saith",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.049
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:ninive",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:bruke",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:locusts",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:ruin",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:thee",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.071
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:behold",
+        "frequency": 183.33337,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.035
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:before",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:little",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:rivers",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.031
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:shall",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.093
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:away",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.035
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 137.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "shall",
+        "count": 34
+      },
+      {
+        "concept": "thee",
+        "count": 23
+      },
+      {
+        "concept": "lord",
+        "count": 12
+      },
+      {
+        "concept": "hath",
+        "count": 7
+      },
+      {
+        "concept": "because",
+        "count": 6
+      },
+      {
+        "concept": "thou",
+        "count": 6
+      },
+      {
+        "concept": "against",
+        "count": 5
+      },
+      {
+        "concept": "away",
+        "count": 5
+      },
+      {
+        "concept": "behold",
+        "count": 5
+      },
+      {
+        "concept": "ninive",
+        "count": 5
+      },
+      {
+        "concept": "waters",
+        "count": 5
+      },
+      {
+        "concept": "made",
+        "count": 4
+      }
+    ],
+    "structural_depth": {
+      "signature": "7f5f366215eb7543",
+      "relation_profile": {
+        "contains": 4,
+        "expresses": 45,
+        "co-occurs": 40
+      },
+      "relation_density": 0.1144,
+      "relation_weight_entropy": 0.9337,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "Nahum resolves as 4 documents, 50 structural passages, and 89 witnessed relations at 11.4% derived density. Structural signature 7f5f366215eb7543."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb",
+    "origin": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:39:36.661Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/work",
+      "document": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/{document-ordinal}",
+      "section": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/nahum-0df1cf07/edition/nahum-0df1cf07--v14-read-34d3c9-782e19cb/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}

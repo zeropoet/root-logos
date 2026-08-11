@@ -54,16 +54,17 @@ export const coherentLibraryIdentity = (index, corpus = null) => {
   };
 };
 
-const walkMarkdown = async (path) => {
+const walkExtension = async (path, extension) => {
   const stat = await import("node:fs/promises").then(({ stat }) => stat(path));
-  if (stat.isFile()) return extname(path).toLowerCase() === ".md" ? [path] : [];
+  if (stat.isFile()) return extname(path).toLowerCase() === extension ? [path] : [];
   const entries = await readdir(path, { withFileTypes: true });
   const nested = await Promise.all(entries
     .filter(({ name }) => !name.startsWith("."))
     .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))
-    .map(({ name }) => walkMarkdown(join(path, name))));
+    .map(({ name }) => walkExtension(join(path, name), extension)));
   return nested.flat();
 };
+const walkMarkdown = (path) => walkExtension(path, ".md");
 
 const parseDocument = (text, file, sourceRoot) => {
   const normalized = text.replace(/\r\n/g, "\n");
@@ -398,22 +399,27 @@ export const parseGutenbergBookText = (text) => {
   const bodyStart = startMarker ? startMarker.index + startMarker[0].length : 0;
   const bodyEnd = endMarker ? endMarker.index : normalized.length;
   const body = normalized.slice(bodyStart, bodyEnd).trim();
-  const bookHeadings = [...body.matchAll(/^[ \t]*BOOK[ \t]+([IVXLCDM]+)[ \t]*$/gmi)];
+  const bookHeadings = [...body.matchAll(/^[ \t]*BOOK[ \t]+([IVXLCDM]+)\.?[ \t]*$/gmi)];
   const partHeadings = bookHeadings.length
     ? []
     : [...body.matchAll(/^[ \t]*PART[ \t]+([IVXLCDM]+)[ \t]*$/gmi)];
   const chapterHeadings = bookHeadings.length || partHeadings.length
     ? []
     : [...body.matchAll(/^[ \t]*CHAPTER[ \t]+([IVXLCDM]+)\.?[ \t]*$/gmi)];
-  const sectionHeadings = bookHeadings.length || partHeadings.length || chapterHeadings.length
+  const titledChapterHeadings = bookHeadings.length || partHeadings.length || chapterHeadings.length
+    ? []
+    : [...body.matchAll(/^[ \t]*Chapter[ \t]+([IVXLCDM]+)\.[ \t]+([^\n]+?)[ \t]*$/gm)]
+      .filter(([, , title]) => /\p{L}/u.test(title) && title === title.toUpperCase());
+  const sectionHeadings = bookHeadings.length || partHeadings.length || chapterHeadings.length || titledChapterHeadings.length
     ? []
     : [...body.matchAll(/^[ \t]*([IVXLCDM]+)\.[ \t]*\n((?:[ \t]*[A-Z][A-Z ,&’'\-]+[ \t]*\n){1,3})[ \t]*\n/gm)];
   const division = bookHeadings.length ? "Book"
     : partHeadings.length ? "Part"
-      : chapterHeadings.length ? "Chapter" : "Section";
+      : chapterHeadings.length || titledChapterHeadings.length ? "Chapter" : "Section";
   const headings = bookHeadings.length ? bookHeadings
     : partHeadings.length ? partHeadings
-      : chapterHeadings.length ? chapterHeadings : sectionHeadings;
+      : chapterHeadings.length ? chapterHeadings
+        : titledChapterHeadings.length ? titledChapterHeadings : sectionHeadings;
   if (!headings.length) throw new Error("The Gutenberg text does not contain any BOOK, PART, CHAPTER, or numbered section divisions.");
   const documents = headings.map((heading, index) => {
     const divisionRoman = heading[1].toUpperCase();
@@ -433,6 +439,177 @@ export const parseGutenbergBookText = (text) => {
     };
   });
   return { documents };
+};
+
+const boundedGutenbergBody = (text) => {
+  const normalized = text.replace(/\r\n/g, "\n");
+  const startMarker = normalized.match(/^\*{3}\s*START OF (?:THIS|THE) PROJECT GUTENBERG EBOOK[^\n]*\*{3}\s*$/mi);
+  const endMarker = normalized.match(/^\*{3}\s*END OF (?:THIS|THE) PROJECT GUTENBERG EBOOK[^\n]*\*{3}\s*$/mi);
+  return normalized.slice(
+    startMarker ? startMarker.index + startMarker[0].length : 0,
+    endMarker ? endMarker.index : normalized.length
+  ).trim();
+};
+
+export const parseTaoTeChingText = (text) => {
+  const body = boundedGutenbergBody(text);
+  const headings = [{ number: 1, index: body.search(/^Ch\. 1\. 1\./m) }];
+  for (let number = 2; number <= 81; number += 1) {
+    const remainderOffset = Math.max(0, headings.at(-1).index + 1);
+    const remainder = body.slice(remainderOffset);
+    const numbered = new RegExp(`^${number}\\. 1\\.`, "m").exec(remainder);
+    const standalone = new RegExp(`^${number}\\.[ \\t]*$`, "m").exec(remainder);
+    const prose = new RegExp(`^${number}\\.[ \\t]+\\S`, "m").exec(remainder);
+    const match = numbered || standalone || prose;
+    if (!match) throw new Error(`The Tao Te Ching witness is missing chapter ${number}.`);
+    headings.push({ number, index: remainderOffset + match.index });
+  }
+  if (headings[0].index < 0) throw new Error("The Tao Te Ching witness is missing chapter 1.");
+  return {
+    documents: headings.map((heading, index) => ({
+      path: `chapter:${heading.number}`,
+      title: `Chapter ${heading.number}`,
+      sections: [{
+        coordinate: `chapter:${heading.number}`,
+        level: 2,
+        title: `Chapter ${heading.number}`,
+        text: body.slice(heading.index, headings[index + 1]?.index ?? body.length).trim()
+      }]
+    }))
+  };
+};
+
+export const parseSiddharthaGermanText = (text) => {
+  const body = boundedGutenbergBody(text);
+  const titles = [
+    "DER SOHN DES BRAHMANEN", "BEI DEN SAMANAS", "GOTAMA", "ERWACHEN",
+    "KAMALA", "BEI DEN KINDERMENSCHEN", "SANSARA", "AM FLUSSE",
+    "DER FÄHRMANN", "DER SOHN", "OM", "GOVINDA"
+  ];
+  const headings = titles.map((title) => {
+    const match = new RegExp(`^${title}$`, "m").exec(body);
+    if (!match) throw new Error(`The Siddhartha witness is missing ${title}.`);
+    return { title, index: match.index };
+  }).sort((left, right) => left.index - right.index);
+  return {
+    documents: headings.map((heading, index) => ({
+      path: `chapter:${index + 1}`,
+      title: heading.title,
+      sections: [{
+        coordinate: `chapter:${index + 1}`,
+        level: 2,
+        title: heading.title,
+        text: body.slice(heading.index + heading.title.length, headings[index + 1]?.index ?? body.length).trim()
+      }]
+    }))
+  };
+};
+
+export const parseUnitedStatesConstitutionText = (text) => {
+  const body = boundedGutenbergBody(text);
+  const articleHeadings = [...body.matchAll(/^(Article 1|ARTICLE (?:2|THREE|FOUR|FIVE|SIX|SEVEN))[ \t]*$/gm)];
+  if (articleHeadings.length !== 7) throw new Error(`The Constitution witness requires seven articles; found ${articleHeadings.length}.`);
+  const preambleStart = body.search(/^We the people\b/mi);
+  if (preambleStart < 0) throw new Error("The Constitution witness is missing the preamble.");
+  const wordNumbers = { THREE: 3, FOUR: 4, FIVE: 5, SIX: 6, SEVEN: 7 };
+  const documents = [{
+    path: "preamble",
+    title: "Preamble",
+    sections: [{
+      coordinate: "preamble",
+      level: 2,
+      title: "Preamble",
+      text: body.slice(preambleStart, articleHeadings[0].index).trim()
+    }]
+  }];
+  for (const [articleIndex, heading] of articleHeadings.entries()) {
+    const articleNumber = Number(heading[1].match(/\d+/)?.[0])
+      || wordNumbers[heading[1].split(/\s+/).at(-1)]
+      || articleIndex + 1;
+    const start = heading.index + heading[0].length;
+    const end = articleHeadings[articleIndex + 1]?.index ?? body.length;
+    const article = body.slice(start, end).trim();
+    const sectionHeadings = [...article.matchAll(/^Section (\d+)\.[ \t]*/gm)];
+    documents.push({
+      path: `article:${articleNumber}`,
+      title: `Article ${articleNumber}`,
+      sections: sectionHeadings.length ? sectionHeadings.map((section, sectionIndex) => ({
+        coordinate: `article:${articleNumber}:section:${section[1]}`,
+        level: 3,
+        title: `Article ${articleNumber} / Section ${section[1]}`,
+        text: article.slice(section.index + section[0].length, sectionHeadings[sectionIndex + 1]?.index ?? article.length).trim()
+      })) : [{
+        coordinate: `article:${articleNumber}`,
+        level: 2,
+        title: `Article ${articleNumber}`,
+        text: article
+      }]
+    });
+  }
+  return { documents };
+};
+
+export const parseFederalistText = (text) => {
+  const body = boundedGutenbergBody(text);
+  const headings = [...body.matchAll(/^FEDERALIST\.? No\. (\d+)[ \t]*$/gm)];
+  if (headings.length !== 86) throw new Error(`The Federalist witness requires 86 transmitted essays including both No. 70 versions; found ${headings.length}.`);
+  const occurrences = new Map();
+  return {
+    documents: headings.map((heading, index) => {
+      const number = Number(heading[1]);
+      const occurrence = (occurrences.get(number) || 0) + 1;
+      occurrences.set(number, occurrence);
+      const suffix = occurrence > 1 ? `:${occurrence}` : "";
+      const title = `Federalist No. ${number}${occurrence > 1 ? ` / Version ${occurrence}` : ""}`;
+      return {
+        path: `federalist:${number}${suffix}`,
+        title,
+        sections: [{
+          coordinate: `federalist:${number}${suffix}`,
+          level: 2,
+          title,
+          text: body.slice(heading.index + heading[0].length, headings[index + 1]?.index ?? body.length).trim()
+        }]
+      };
+    })
+  };
+};
+
+export const parseGilgameshText = (text) => {
+  const body = boundedGutenbergBody(text);
+  const patterns = [
+    ["prefatory-note", "Prefatory Note", /^PREFATORY NOTE$/m],
+    ["introduction", "Introduction", /^INTRODUCTION\.$/m],
+    ["pennsylvania-tablet", "Pennsylvania Tablet", /^PENNSYLVANIA TABLET\.$/m],
+    ["pennsylvania-transliteration", "Pennsylvania Tablet / Transliteration", /^TRANSLITERATION\.$/m],
+    ["pennsylvania-translation", "Pennsylvania Tablet / Translation", /^TRANSLATION\.$/m],
+    ["pennsylvania-commentary", "Commentary on the Pennsylvania Tablet", /^COMMENTARY ON THE PENNSYLVANIA TABLET\.$/m],
+    ["yale-tablet", "Yale Tablet", /^YALE TABLET\.$/m],
+    ["yale-transliteration", "Yale Tablet / Transliteration", /^TRANSLITERATION\.$/m],
+    ["yale-translation", "Yale Tablet / Translation", /^TRANSLATION\.$/m],
+    ["corrections", "Corrections to the Pennsylvania Tablet", /^CORRECTIONS TO THE TEXT OF LANGDON'S EDITION OF THE PENNSYLVANIA\nTABLET\. \[157\]$/m],
+    ["notes", "Notes", /^NOTES$/m]
+  ];
+  let cursor = 0;
+  const headings = patterns.map(([id, title, pattern]) => {
+    const match = pattern.exec(body.slice(cursor));
+    if (!match) throw new Error(`The Gilgamesh witness is missing ${title}.`);
+    const index = cursor + match.index;
+    cursor = index + match[0].length;
+    return { id, title, index, length: match[0].length };
+  });
+  return {
+    documents: headings.map((heading, index) => ({
+      path: heading.id,
+      title: heading.title,
+      sections: [{
+        coordinate: heading.id,
+        level: 2,
+        title: heading.title,
+        text: body.slice(heading.index + heading.length, headings[index + 1]?.index ?? body.length).trim()
+      }]
+    }))
+  };
 };
 
 const deriveWork = ({ title, author, kind, source, translation, language, rights, documents, sourceHash, workId, editionId, rootRevision, transformation, readingContext }) => {
@@ -594,11 +771,23 @@ export const ingestWork = async ({
   const midvashBibleBook = sourceStat.isFile() && format === "midvash-bible-book-json";
   const perseusTei = sourceStat.isFile() && (format === "perseus-tei" || (format === "auto" && extname(sourcePath).toLowerCase() === ".xml"));
   const gutenbergText = sourceStat.isFile() && (format === "gutenberg-book-text" || (format === "auto" && extname(sourcePath).toLowerCase() === ".txt"));
+  const taoTeChingText = sourceStat.isFile() && format === "tao-te-ching-text";
+  const siddharthaGermanText = sourceStat.isFile() && format === "siddhartha-german-text";
+  const unitedStatesConstitutionText = sourceStat.isFile() && format === "us-constitution-text";
+  const federalistText = sourceStat.isFile() && format === "federalist-text";
+  const gilgameshText = sourceStat.isFile() && format === "gilgamesh-text";
+  const xhtmlDirectory = sourceStat.isDirectory() && format === "xhtml-directory";
   const wisdomEpub = sourceStat.isFile() && format === "wisdom-epub";
   let documents;
   let canonicalSource;
   let inferredTitle;
-  if (wisdomEpub) {
+  if (xhtmlDirectory) {
+    const files = await walkExtension(sourcePath, ".xhtml");
+    if (!files.length) throw new Error("No XHTML files were found in the supplied work.");
+    const texts = await Promise.all(files.map((file) => readFile(file, "utf8")));
+    canonicalSource = files.map((file, index) => `--- ${relative(sourcePath, file)} ---\n${texts[index].replace(/\r\n/g, "\n")}`).join("\n");
+    documents = texts.map((text, index) => parseWisdomEpubXhtml(text, relative(sourcePath, files[index])));
+  } else if (wisdomEpub) {
     const parsed = await parseWisdomEpub(sourcePath);
     canonicalSource = parsed.canonicalSource;
     documents = parsed.documents;
@@ -622,6 +811,21 @@ export const ingestWork = async ({
     const parsed = parsePerseusTei(canonicalSource);
     documents = parsed.documents;
     inferredTitle = parsed.title;
+  } else if (taoTeChingText) {
+    canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
+    documents = parseTaoTeChingText(canonicalSource).documents;
+  } else if (siddharthaGermanText) {
+    canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
+    documents = parseSiddharthaGermanText(canonicalSource).documents;
+  } else if (unitedStatesConstitutionText) {
+    canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
+    documents = parseUnitedStatesConstitutionText(canonicalSource).documents;
+  } else if (federalistText) {
+    canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
+    documents = parseFederalistText(canonicalSource).documents;
+  } else if (gilgameshText) {
+    canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
+    documents = parseGilgameshText(canonicalSource).documents;
   } else if (gutenbergText) {
     canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
     documents = parseGutenbergBookText(canonicalSource).documents;
@@ -762,7 +966,7 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text|wisdom-epub>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text|tao-te-ching-text|siddhartha-german-text|us-constitution-text|federalist-text|gilgamesh-text|xhtml-directory|wisdom-epub>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();

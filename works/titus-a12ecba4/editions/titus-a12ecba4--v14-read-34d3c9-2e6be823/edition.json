@@ -1,0 +1,2107 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "titus-a12ecba4--v14-read-34d3c9-2e6be823",
+  "work_id": "titus-a12ecba4",
+  "created_at": "2026-08-11T16:38:56.120Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "863826402e6be8232138871f0ca89a8ef49f7e5cf9721baecb6f1d1654fbcbce",
+  "parent_edition": "titus-a12ecba4--v12-read-b1dda3-2e6be823",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 3,
+    "sections": 46,
+    "words": 896,
+    "concepts": 36,
+    "relations": 73,
+    "relation_density": 0.0985,
+    "relation_weight_entropy": 0.9529
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 1040290515,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "Titus",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "Titus 1",
+          "weight": 16,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "document-2",
+          "type": "document",
+          "label": "Titus 2",
+          "weight": 15,
+          "coordinate": "chapter:2",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "source_coordinate_witness": "sha256:9d2d057eebed4abea73b0a9c37305a8b9bbba2e8373fd331dfbb45a04cc09043"
+        },
+        {
+          "id": "document-3",
+          "type": "document",
+          "label": "Titus 3",
+          "weight": 15,
+          "coordinate": "chapter:3",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003",
+          "source_coordinate_witness": "sha256:fcdad38567e5eaf92bdd3e5d16c9add9eb150d2fab8fa1e5d715c2401abde352"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "good",
+          "weight": 11,
+          "coordinate": "lexicon:good",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0001",
+          "source_coordinate_witness": "sha256:0379ef72216edaea4b8232ded036460245ae1d1bcfaa383e54e39f61c4136c0f"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "things",
+          "weight": 11,
+          "coordinate": "lexicon:things",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002",
+          "source_coordinate_witness": "sha256:9fb18c3c810481061d608553f67958ef9788254dfdd128cb115045628b3f154e"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "unto",
+          "weight": 11,
+          "coordinate": "lexicon:unto",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0003",
+          "source_coordinate_witness": "sha256:10037e9bf5d7de29a900d0cf5311bf4ed709ea5aafd27b6ac684fc19b1fb6536"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "saviour",
+          "weight": 6,
+          "coordinate": "lexicon:saviour",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0004",
+          "source_coordinate_witness": "sha256:995d69b076d0d257499419dc2b1b94b0aa4157ab7ace90efcf3044344c76a7c8"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "works",
+          "weight": 6,
+          "coordinate": "lexicon:works",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0005",
+          "source_coordinate_witness": "sha256:a80d71d978c736daabaa30ab1233a317bae1c31a29097e6dacc3b14c1e3a5860"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "faith",
+          "weight": 5,
+          "coordinate": "lexicon:faith",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0006",
+          "source_coordinate_witness": "sha256:6b82e70a67303a285c0cb377c816805cce82cddb25f88a5bf7f284b2f00f13db"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "sound",
+          "weight": 5,
+          "coordinate": "lexicon:sound",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0007",
+          "source_coordinate_witness": "sha256:2c02d55e4da3ae9c884589079437ca1d5f3fa78ec50570af90ce280b6f7d43b5"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "thee",
+          "weight": 5,
+          "coordinate": "lexicon:thee",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0008",
+          "source_coordinate_witness": "sha256:0c3a0ac74bd143a33534f5a673f0c267ef350617751ff304b042b24a3b3e8db4"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "according",
+          "weight": 4,
+          "coordinate": "lexicon:according",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0009",
+          "source_coordinate_witness": "sha256:65baeed34e8784e4cb19cd10dedad518868ca55e952179baa9e3ca4975975f47"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "after",
+          "weight": 4,
+          "coordinate": "lexicon:after",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0010",
+          "source_coordinate_witness": "sha256:9ffec6c112ad735caf2c1ab56000137f24e1747c93e9ef19603d76db39dff509"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "christ",
+          "weight": 4,
+          "coordinate": "lexicon:christ",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0011",
+          "source_coordinate_witness": "sha256:ce7895ccf869946ad57c693088f4cab46096005f340a1d536b30e3f6197efb26"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "doctrine",
+          "weight": 4,
+          "coordinate": "lexicon:doctrine",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0012",
+          "source_coordinate_witness": "sha256:8d8e3c2e9e0f92ce4b0e7ec8d4c920f476ad0334fc91c641f5421697ef175938"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "exhort",
+          "weight": 4,
+          "coordinate": "lexicon:exhort",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0013",
+          "source_coordinate_witness": "sha256:6709449c6f436db42d04bb04c815f819902e4186b665c55fc017ddc8fc250b53"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "grace",
+          "weight": 4,
+          "coordinate": "lexicon:grace",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0014",
+          "source_coordinate_witness": "sha256:7668eadf1a97fc6cc98495ca185c6b0b29e293938aa2e17834583f23f9011097"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "jesus",
+          "weight": 4,
+          "coordinate": "lexicon:jesus",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0015",
+          "source_coordinate_witness": "sha256:df0b5de09bd1fc073e417686b43974fdf9eaf18f0bc068e4dabe0b18a57b26a1"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "love",
+          "weight": 4,
+          "coordinate": "lexicon:love",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0016",
+          "source_coordinate_witness": "sha256:5b53e31d9b66d7edde42f1a7f6da803e644d0c4747e897e1f7d50f8beaaa7dbb"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "shewing",
+          "weight": 4,
+          "coordinate": "lexicon:shewing",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0017",
+          "source_coordinate_witness": "sha256:26cb810edf7455e363a16b4484d3116252697d8a1a83f3050a10052e4787687d"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "sober",
+          "weight": 4,
+          "coordinate": "lexicon:sober",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0018",
+          "source_coordinate_witness": "sha256:bbb9d17a6436cef931a315592e2e92cdcc7bb18fd40f6288e4b5468ba4fc193d"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "evil",
+          "weight": 3,
+          "coordinate": "lexicon:evil",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0019",
+          "source_coordinate_witness": "sha256:1788e2e24f3e69d2fea3858d1648a374259dd36abaa9bd61da24beec07cc6d01"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "faithful",
+          "weight": 3,
+          "coordinate": "lexicon:faithful",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0020",
+          "source_coordinate_witness": "sha256:1e72d26b4c226b4f724cd0f644ef051d1debc94edcba46bcfc029ed263a5194a"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "given",
+          "weight": 3,
+          "coordinate": "lexicon:given",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0021",
+          "source_coordinate_witness": "sha256:51b0e322777b7761882e538950818bf1af47d7c1b2d3a16b146e8fc06c192d01"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "hath",
+          "weight": 3,
+          "coordinate": "lexicon:hath",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0022",
+          "source_coordinate_witness": "sha256:db7809b97ca0bb2967730fbbab46cad442495fb7e7ccaaa6899ec9cdc553c267"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "himself",
+          "weight": 3,
+          "coordinate": "lexicon:himself",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0023",
+          "source_coordinate_witness": "sha256:650642d601e3962ca9eefbf0051887e502a473d1de8db4da48f795823abde252"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "hope",
+          "weight": 3,
+          "coordinate": "lexicon:hope",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0024",
+          "source_coordinate_witness": "sha256:5055e15d9342e60fb50372a8eb1b6c35ea1c880f14bf71a2d315a72089a428c6"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "pure",
+          "weight": 3,
+          "coordinate": "lexicon:pure",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0025",
+          "source_coordinate_witness": "sha256:c553f0149b69b87eca6a431404c5da8cdcbe4a40bbeb6e71bcae156be7c5500e"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "speak",
+          "weight": 3,
+          "coordinate": "lexicon:speak",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0026",
+          "source_coordinate_witness": "sha256:2c323f0526d37468bde104e967ea80e16913fd8fc2e330514165a2bf0b00a0b6"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "thou",
+          "weight": 3,
+          "coordinate": "lexicon:thou",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0027",
+          "source_coordinate_witness": "sha256:e41d9097d059b5966986e4c5bcd01cc0cc13894cfc68ad0e6aacd1d35127195a"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "word",
+          "weight": 3,
+          "coordinate": "lexicon:word",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0028",
+          "source_coordinate_witness": "sha256:d2123ccae6fad691a196720c1965284e1acd853001e09bdfbc17a69203d62acd"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "aged",
+          "weight": 2,
+          "coordinate": "lexicon:aged",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0029",
+          "source_coordinate_witness": "sha256:5c09b10a782b8ccecabe3f934c5d0cef1043de8bc54eb190239eb201f393a4b1"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "appeared",
+          "weight": 2,
+          "coordinate": "lexicon:appeared",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0030",
+          "source_coordinate_witness": "sha256:00f9b8f6d0c7c724763598730d700745f246416ee785c724291237d9ee734222"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "blameless",
+          "weight": 2,
+          "coordinate": "lexicon:blameless",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0031",
+          "source_coordinate_witness": "sha256:3664226cd1dfd0e0cb23f6b2d3644b64bbb83e4b685b86882c161752341b47ef"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "cannot",
+          "weight": 2,
+          "coordinate": "lexicon:cannot",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0032",
+          "source_coordinate_witness": "sha256:437a3f19901767e49143b0a2e64d0db47dce26ac972f23d50f87b2cb8f578f8c"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "children",
+          "weight": 2,
+          "coordinate": "lexicon:children",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0033",
+          "source_coordinate_witness": "sha256:d9f54ff5bf8e6194b249cb28bed5111d42ce509d758e4cae7a15238751186cc9"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "condemned",
+          "weight": 2,
+          "coordinate": "lexicon:condemned",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0034",
+          "source_coordinate_witness": "sha256:6bd3b9de5e8a4acbc6a0aa33bd4fd6ed76c3124a9a3c9368f11a1fbfe1e34d9e"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "defiled",
+          "weight": 2,
+          "coordinate": "lexicon:defiled",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0035",
+          "source_coordinate_witness": "sha256:b7025ad73be00e49de3565a3d89a5cc4aeb92e6077bfeb9455f385635290de1b"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "disobedient",
+          "weight": 2,
+          "coordinate": "lexicon:disobedient",
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0036",
+          "source_coordinate_witness": "sha256:30e43b4506d4150aa24187372472d5d69c62ce480c76e235ef5be90aa025d22e"
+        }
+      ],
+      "edges": [
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 16,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0001",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/work",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001"
+        },
+        {
+          "from": "work",
+          "to": "document-2",
+          "relation": "contains",
+          "weight": 15,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0002",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/work",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-3",
+          "relation": "contains",
+          "weight": 15,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0003",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/work",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 8.2275,
+          "shared_windows": 5,
+          "association": 0.6455,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0004",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0005"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 8,
+          "shared_windows": 4,
+          "association": 1,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0005",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0011",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0015"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0006",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-2",
+          "relation": "co-occurs",
+          "weight": 5.6,
+          "shared_windows": 4,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0007",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0008",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0001"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0009",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0003"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 4.8371,
+          "shared_windows": 3,
+          "association": 0.6124,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0010",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0004",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0011"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 4.8371,
+          "shared_windows": 3,
+          "association": 0.6124,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0011",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0004",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0015"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 4.6432,
+          "shared_windows": 3,
+          "association": 0.5477,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0012",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0027"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 4.423,
+          "shared_windows": 3,
+          "association": 0.4743,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0013",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0012"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 4.2247,
+          "shared_windows": 3,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0014",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0003",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0005"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0015",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0003"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0016",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0001"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 3.9487,
+          "shared_windows": 3,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0017",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0003"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 3.9487,
+          "shared_windows": 3,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0018",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0003"
+        },
+        {
+          "from": "concept-22",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 3.3333,
+          "shared_windows": 2,
+          "association": 0.6667,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0019",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0022",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0028"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0020",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0012",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0017"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0021",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0010",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0011"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 3,
+          "shared_windows": 2,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0022",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0010",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0015"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0023",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0024",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0025"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0025",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0006"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0026",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0012"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0027",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0013"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0028",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0017"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0029",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0018"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0030",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0007"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0031",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0005"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0032",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0006",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0010"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0033",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0006",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0011"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0034",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0006",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0014"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0035",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0006",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0015"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0036",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0007",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0012"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0037",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0004",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0010"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 2.8,
+          "shared_windows": 2,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0038",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0006",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0007"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2.7303,
+          "shared_windows": 2,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0039",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0017"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2.7303,
+          "shared_windows": 2,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0040",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0017"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2.7303,
+          "shared_windows": 2,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0041",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0026"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0042",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0012"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0043",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0013"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0044",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0008"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0045",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0005"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0046",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0001"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0047",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0010"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0048",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0011"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0049",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0015"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0050",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0020"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0051",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0021"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0052",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0022"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0053",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0028"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0054",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0031"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0055",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0035"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0056",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0004"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0057",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0007"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0058",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0008"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0059",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0001",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0009"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0060",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0016"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0061",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0023"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0062",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0026"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0063",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0029"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0064",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0003"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0065",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0004"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0066",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0002",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0005"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0067",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0010"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0068",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0014"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0069",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0016"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0070",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0002"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0071",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0004"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0072",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0008"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/relation/0073",
+          "from_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/0003",
+          "to_coordinate": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/concept/0009"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.31,
+      "pulse": 7,
+      "fold": 8
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "5359238c3f57",
+    "tempo": 56,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:word",
+        "frequency": 206.25,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:defiled",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:faith",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0359
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:exhort",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:faithful",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:thou",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 206.25,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:condemned",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:works",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.038
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:doctrine",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:evil",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:speak",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:children",
+        "frequency": 825,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 110,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:saviour",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.038
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:christ",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:sober",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:pure",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:cannot",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:unto",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0489
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:after",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:shewing",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:hope",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:blameless",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:things",
+        "frequency": 220,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0489
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:according",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 137.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:love",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:himself",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:appeared",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:good",
+        "frequency": 220,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0489
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:thee",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0359
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:jesus",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:hath",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:aged",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:disobedient",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:sound",
+        "frequency": 146.66663,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0359
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:grace",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:given",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0315
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 366.6667,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:word",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:defiled",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:faith",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0359
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:exhort",
+        "frequency": 165,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:faithful",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:thou",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:condemned",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:works",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.038
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:doctrine",
+        "frequency": 586.66652,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:evil",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:speak",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:children",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 440,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:saviour",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.038
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:christ",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:sober",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:pure",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:cannot",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:unto",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0489
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:after",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:shewing",
+        "frequency": 330,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:hope",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:blameless",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:things",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0489
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:according",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 165,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:love",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:himself",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:appeared",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:good",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0489
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:thee",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0359
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:jesus",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0337
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:hath",
+        "frequency": 165,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:aged",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:disobedient",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0293
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:sound",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0359
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:grace",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0337
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:given",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0315
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 293.3333,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "good",
+        "count": 11
+      },
+      {
+        "concept": "things",
+        "count": 11
+      },
+      {
+        "concept": "unto",
+        "count": 11
+      },
+      {
+        "concept": "saviour",
+        "count": 6
+      },
+      {
+        "concept": "works",
+        "count": 6
+      },
+      {
+        "concept": "faith",
+        "count": 5
+      },
+      {
+        "concept": "sound",
+        "count": 5
+      },
+      {
+        "concept": "thee",
+        "count": 5
+      },
+      {
+        "concept": "according",
+        "count": 4
+      },
+      {
+        "concept": "after",
+        "count": 4
+      },
+      {
+        "concept": "christ",
+        "count": 4
+      },
+      {
+        "concept": "doctrine",
+        "count": 4
+      }
+    ],
+    "structural_depth": {
+      "signature": "7f76423e1dff77d8",
+      "relation_profile": {
+        "contains": 3,
+        "expresses": 42,
+        "co-occurs": 28
+      },
+      "relation_density": 0.0985,
+      "relation_weight_entropy": 0.9529,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "Titus resolves as 3 documents, 46 structural passages, and 73 witnessed relations at 9.9% derived density. Structural signature 7f76423e1dff77d8."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823",
+    "origin": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:38:56.120Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/work",
+      "document": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/{document-ordinal}",
+      "section": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/titus-a12ecba4/edition/titus-a12ecba4--v14-read-34d3c9-2e6be823/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}

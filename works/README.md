@@ -56,6 +56,22 @@ npm run works:first-frames
 node scripts/work-first-frame.mjs --check
 ```
 
+`works/structural-depth-migration.json` is the public migration ledger for the
+v4 reading grammar. It enumerates all 56 coherent Library objects, distinguishes
+completed successors from works still requiring an exact source witness, and
+witnesses the current structural signature plus content-addressed PNG and SVG
+portrait for every completed reading. It is deterministic from the live archive:
+
+```sh
+npm run works:depth-ledger
+node scripts/structural-depth-migration.mjs --check
+```
+
+The two scriptural corpora use
+`deterministic-corpus-reading/v2-structural-depth`. Their density and entropy
+measure contained books plus derived cross-book language without pretending a
+corpus is structurally identical to a single prose work.
+
 Every resonant edition also inherits the current witnessed FoldForge
 composition contract. The edition preserves the FoldForge source witness,
 active grammar IDs and versions, and attributable lexical score events. Because

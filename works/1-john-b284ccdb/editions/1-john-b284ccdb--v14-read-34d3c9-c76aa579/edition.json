@@ -1,0 +1,3361 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "1-john-b284ccdb--v14-read-34d3c9-c76aa579",
+  "work_id": "1-john-b284ccdb",
+  "created_at": "2026-08-11T16:38:56.226Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "ec32bf17c76aa5794777679996fe36bb4293ef9f66ad85fb1b5f4d113534bc9a",
+  "parent_edition": "1-john-b284ccdb--v12-read-b1dda3-c76aa579",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 5,
+    "sections": 105,
+    "words": 2516,
+    "concepts": 36,
+    "relations": 195,
+    "relation_density": 0.2393,
+    "relation_weight_entropy": 0.956
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 2041513590,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "1 John",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "1 John 1",
+          "weight": 10,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "document-2",
+          "type": "document",
+          "label": "1 John 2",
+          "weight": 29,
+          "coordinate": "chapter:2",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "source_coordinate_witness": "sha256:9d2d057eebed4abea73b0a9c37305a8b9bbba2e8373fd331dfbb45a04cc09043"
+        },
+        {
+          "id": "document-3",
+          "type": "document",
+          "label": "1 John 3",
+          "weight": 24,
+          "coordinate": "chapter:3",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "source_coordinate_witness": "sha256:fcdad38567e5eaf92bdd3e5d16c9add9eb150d2fab8fa1e5d715c2401abde352"
+        },
+        {
+          "id": "document-4",
+          "type": "document",
+          "label": "1 John 4",
+          "weight": 21,
+          "coordinate": "chapter:4",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "source_coordinate_witness": "sha256:ef515e16f724ced4ed063d318dc52bc0028c3ae59b85c7e93fe194e6c13f6c48"
+        },
+        {
+          "id": "document-5",
+          "type": "document",
+          "label": "1 John 5",
+          "weight": 21,
+          "coordinate": "chapter:5",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "source_coordinate_witness": "sha256:fc4ad47b78d0a1fa0d7ec0c54f7395aba4ed46c4ea4e74d77f1c2d7fa31140ae"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "love",
+          "weight": 33,
+          "coordinate": "lexicon:love",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001",
+          "source_coordinate_witness": "sha256:5b53e31d9b66d7edde42f1a7f6da803e644d0c4747e897e1f7d50f8beaaa7dbb"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "know",
+          "weight": 27,
+          "coordinate": "lexicon:know",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002",
+          "source_coordinate_witness": "sha256:33fc64e3e771682e24d1700d1975dc7be101382bdb85c26e567371a0462ae503"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "hath",
+          "weight": 26,
+          "coordinate": "lexicon:hath",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003",
+          "source_coordinate_witness": "sha256:db7809b97ca0bb2967730fbbab46cad442495fb7e7ccaaa6899ec9cdc553c267"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "because",
+          "weight": 25,
+          "coordinate": "lexicon:because",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004",
+          "source_coordinate_witness": "sha256:00dc7a72ce6b97a916fdc1fcecb6a3e57f1a9b0f4b49b1f04023fc3b109fd911"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "unto",
+          "weight": 22,
+          "coordinate": "lexicon:unto",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "source_coordinate_witness": "sha256:10037e9bf5d7de29a900d0cf5311bf4ed709ea5aafd27b6ac684fc19b1fb6536"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "world",
+          "weight": 22,
+          "coordinate": "lexicon:world",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0006",
+          "source_coordinate_witness": "sha256:3a7e45e2d004ff447c4b9bfb2143ef791b9c5711dbf229aadddd4fd96a09497c"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "life",
+          "weight": 15,
+          "coordinate": "lexicon:life",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007",
+          "source_coordinate_witness": "sha256:f614b25e23d36ebfa26e3e9e5e9caf879c8c73083ee7e65d8c0fbbaac35667da"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "shall",
+          "weight": 14,
+          "coordinate": "lexicon:shall",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0008",
+          "source_coordinate_witness": "sha256:e93d552fa711a6a5d2a42d581c784bef6ddc8f77e767c330b596a7083c9c91f9"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "father",
+          "weight": 13,
+          "coordinate": "lexicon:father",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009",
+          "source_coordinate_witness": "sha256:adf09cc25c15ab89720fc5f41ca46cc6fab3a8c03ba863e0e039b94634b57864"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "brother",
+          "weight": 12,
+          "coordinate": "lexicon:brother",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010",
+          "source_coordinate_witness": "sha256:79548fee44384a00068a967a5bbc34e8be8a681ebfda05bf64943f3e3018df7a"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "children",
+          "weight": 12,
+          "coordinate": "lexicon:children",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0011",
+          "source_coordinate_witness": "sha256:d9f54ff5bf8e6194b249cb28bed5111d42ce509d758e4cae7a15238751186cc9"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "jesus",
+          "weight": 12,
+          "coordinate": "lexicon:jesus",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0012",
+          "source_coordinate_witness": "sha256:df0b5de09bd1fc073e417686b43974fdf9eaf18f0bc068e4dabe0b18a57b26a1"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "spirit",
+          "weight": 12,
+          "coordinate": "lexicon:spirit",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0013",
+          "source_coordinate_witness": "sha256:4e95577d5c786ce3899f464d47562a23ee289941578276c026ac90706173ba47"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "christ",
+          "weight": 10,
+          "coordinate": "lexicon:christ",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0014",
+          "source_coordinate_witness": "sha256:ce7895ccf869946ad57c693088f4cab46096005f340a1d536b30e3f6197efb26"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "truth",
+          "weight": 10,
+          "coordinate": "lexicon:truth",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0015",
+          "source_coordinate_witness": "sha256:f376fef9ad35bd69871195d127f538dea54cc3845b1fe3abdc99ae7ea7cfa0cb"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "whosoever",
+          "weight": 10,
+          "coordinate": "lexicon:whosoever",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0016",
+          "source_coordinate_witness": "sha256:74c94c68d5c588a7a99f6a58dd98213f032dc9053d9975a68e1918ed00062420"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "beginning",
+          "weight": 9,
+          "coordinate": "lexicon:beginning",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0017",
+          "source_coordinate_witness": "sha256:d96e6bc8f38fcc42799d74f5f79dd38e98d408d889334e0b3cea9c1c2cf6b849"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "heard",
+          "weight": 9,
+          "coordinate": "lexicon:heard",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0018",
+          "source_coordinate_witness": "sha256:e45a3cb03bf730be93fb3e52ff851dda30c7656dbf5dca32e468ece0278788f2"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "little",
+          "weight": 9,
+          "coordinate": "lexicon:little",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0019",
+          "source_coordinate_witness": "sha256:22113561aa950ea2623a620d57a4d11567fbcd1a7ba51f8acfd124415edb195d"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "loveth",
+          "weight": 9,
+          "coordinate": "lexicon:loveth",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0020",
+          "source_coordinate_witness": "sha256:4b41f3e92f668f6086ef92e55bdc8cf70ded8f88806072729bf489f59a7b3af8"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "things",
+          "weight": 9,
+          "coordinate": "lexicon:things",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0021",
+          "source_coordinate_witness": "sha256:9fb18c3c810481061d608553f67958ef9788254dfdd128cb115045628b3f154e"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "abideth",
+          "weight": 8,
+          "coordinate": "lexicon:abideth",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0022",
+          "source_coordinate_witness": "sha256:23cb58f7d057d8fc665814c2f9fe581931d3e950679e73592e4d92af150f24b2"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "hereby",
+          "weight": 8,
+          "coordinate": "lexicon:hereby",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0023",
+          "source_coordinate_witness": "sha256:817b76beb40a516e98183986db48e80696804f5e2b3bc1aa92a99ccd4017f475"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "seen",
+          "weight": 8,
+          "coordinate": "lexicon:seen",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0024",
+          "source_coordinate_witness": "sha256:707cc257775931bfb187817361308e228a637bb07498df28d33c101b1d851613"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "write",
+          "weight": 8,
+          "coordinate": "lexicon:write",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0025",
+          "source_coordinate_witness": "sha256:af93abdb1777778963a3ccbb62e202cbc4ce2cc65ac2a12180618cb5d726aa67"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "born",
+          "weight": 7,
+          "coordinate": "lexicon:born",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0026",
+          "source_coordinate_witness": "sha256:f667ae3d2051de075c1a78afebae05b526a82363f812e34416ab0538d9641d99"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "commandment",
+          "weight": 7,
+          "coordinate": "lexicon:commandment",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0027",
+          "source_coordinate_witness": "sha256:2897cbcca02aafba641ac23d4385a98a80674de20393e343a5cc8965123c83b1"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "commandments",
+          "weight": 7,
+          "coordinate": "lexicon:commandments",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0028",
+          "source_coordinate_witness": "sha256:1244f50a9ab5651dfa8af4fe01d8c0e0474341afe4ce547609f59c951173697c"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "darkness",
+          "weight": 7,
+          "coordinate": "lexicon:darkness",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0029",
+          "source_coordinate_witness": "sha256:3c3aef858a9cbec3149d983cb40558139d5fabbbd7b49c66d7ba5d10cd126380"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "sins",
+          "weight": 7,
+          "coordinate": "lexicon:sins",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0030",
+          "source_coordinate_witness": "sha256:ef3bc4f129946a04b51b35d495b833ccd7a66064c37e597f869bf3b11c7873ab"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "witness",
+          "weight": 7,
+          "coordinate": "lexicon:witness",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0031",
+          "source_coordinate_witness": "sha256:537b910939b2de8555631f5fc11242315f97ad0016a216b898522a5133865a33"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "word",
+          "weight": 7,
+          "coordinate": "lexicon:word",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0032",
+          "source_coordinate_witness": "sha256:d2123ccae6fad691a196720c1965284e1acd853001e09bdfbc17a69203d62acd"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "death",
+          "weight": 6,
+          "coordinate": "lexicon:death",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0033",
+          "source_coordinate_witness": "sha256:f02e5514a4a913810b46e6f508eb7ec55dab57554f4d01d5615ca18980d7a8b6"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "dwelleth",
+          "weight": 6,
+          "coordinate": "lexicon:dwelleth",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0034",
+          "source_coordinate_witness": "sha256:4e720954122aeed022fbe54fb2678d46f86d741761bf967b0664a2daa11f4616"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "eternal",
+          "weight": 6,
+          "coordinate": "lexicon:eternal",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0035",
+          "source_coordinate_witness": "sha256:5cceb53994840d35c1679888d4d9aaa62b369d7596de88d181c1816d3a42c06a"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "knoweth",
+          "weight": 6,
+          "coordinate": "lexicon:knoweth",
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0036",
+          "source_coordinate_witness": "sha256:4519802030344da2c8e4639093fbf5cfa27d62e384d089abffeb8f417b3910aa"
+        }
+      ],
+      "edges": [
+        {
+          "from": "work",
+          "to": "document-2",
+          "relation": "contains",
+          "weight": 29,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0001",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/work",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002"
+        },
+        {
+          "from": "work",
+          "to": "document-3",
+          "relation": "contains",
+          "weight": 24,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0002",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/work",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003"
+        },
+        {
+          "from": "work",
+          "to": "document-4",
+          "relation": "contains",
+          "weight": 21,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0003",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/work",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004"
+        },
+        {
+          "from": "work",
+          "to": "document-5",
+          "relation": "contains",
+          "weight": 21,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0004",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/work",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 19.1287,
+          "shared_windows": 10,
+          "association": 0.9129,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0005",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0012",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0014"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 19,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0006",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 17.1408,
+          "shared_windows": 9,
+          "association": 0.9045,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0007",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0011",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0019"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 11,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0008",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 10.6935,
+          "shared_windows": 7,
+          "association": 0.5276,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0009",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0023"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 10.2426,
+          "shared_windows": 6,
+          "association": 0.7071,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0010",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0035"
+        },
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 10,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0011",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/work",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 10,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0012",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 10,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0013",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 9.6742,
+          "shared_windows": 6,
+          "association": 0.6124,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0014",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0025"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 9.2296,
+          "shared_windows": 7,
+          "association": 0.3185,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0015",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0016",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0006"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 9,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0017",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0018",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0019",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0013"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 8,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0020",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 7.964,
+          "shared_windows": 6,
+          "association": 0.3273,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0021",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 7.6785,
+          "shared_windows": 6,
+          "association": 0.2798,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0022",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 7.665,
+          "shared_windows": 5,
+          "association": 0.533,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0023",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0020"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-25",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0024",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0025"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0025",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0006"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0026",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0027",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0028",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 6.843,
+          "shared_windows": 5,
+          "association": 0.3686,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0029",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0020"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 6.6137,
+          "shared_windows": 5,
+          "association": 0.3227,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0030",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 6.3639,
+          "shared_windows": 5,
+          "association": 0.2728,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0031",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0006"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 6.2199,
+          "shared_windows": 5,
+          "association": 0.244,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0032",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 6.1381,
+          "shared_windows": 4,
+          "association": 0.5345,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0033",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0017",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0018"
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 6,
+          "shared_windows": 4,
+          "association": 0.5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0034",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0013",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0023"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0035",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0017"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0036",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0016"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0037",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0038",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0039",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0040",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-31",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0041",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0031"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 5.6,
+          "shared_windows": 4,
+          "association": 0.4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0042",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0034"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 5.4606,
+          "shared_windows": 4,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0043",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0035"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 5.3926,
+          "shared_windows": 4,
+          "association": 0.3482,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0044",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0028"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 5.3333,
+          "shared_windows": 4,
+          "association": 0.3333,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0045",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0021"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 5.206,
+          "shared_windows": 4,
+          "association": 0.3015,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0046",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0013"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 5.1547,
+          "shared_windows": 4,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0047",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 5.1547,
+          "shared_windows": 4,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0048",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 5.1547,
+          "shared_windows": 4,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0049",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0006",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 5.1371,
+          "shared_windows": 4,
+          "association": 0.2843,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0050",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0015"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 5.0787,
+          "shared_windows": 4,
+          "association": 0.2697,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0051",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 5.0059,
+          "shared_windows": 4,
+          "association": 0.2515,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0052",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0053",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0054",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0011"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0055",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0019"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0056",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0021"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0057",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0022"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0058",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0029"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0059",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0060",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0008"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0061",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0062",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0008"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0063",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 4.9847,
+          "shared_windows": 4,
+          "association": 0.2462,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0064",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 4.8341,
+          "shared_windows": 4,
+          "association": 0.2085,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0065",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0006"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 4.7628,
+          "shared_windows": 4,
+          "association": 0.1907,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0066",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 4.299,
+          "shared_windows": 3,
+          "association": 0.433,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0067",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0033"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 4.2857,
+          "shared_windows": 3,
+          "association": 0.4286,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0068",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0017",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0032"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 4.2247,
+          "shared_windows": 3,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0069",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0016",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0026"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 4.2247,
+          "shared_windows": 3,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0070",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0019",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0025"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 4.1078,
+          "shared_windows": 3,
+          "association": 0.3693,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0071",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0011",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0025"
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 4.0062,
+          "shared_windows": 3,
+          "association": 0.3354,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0072",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0013",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0014"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0073",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0074",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0015"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0075",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0018"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0076",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0027"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0077",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0011"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0078",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0020"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0079",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0024"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0080",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0034"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0081",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0012"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0082",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0033"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0083",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0006"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 3.982,
+          "shared_windows": 3,
+          "association": 0.3273,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0084",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0024"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 3.9186,
+          "shared_windows": 3,
+          "association": 0.3062,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0085",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0012",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0013"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 3.8504,
+          "shared_windows": 3,
+          "association": 0.2835,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0086",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0017"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-34",
+          "relation": "co-occurs",
+          "weight": 3.8393,
+          "shared_windows": 3,
+          "association": 0.2798,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0087",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0034"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-14",
+          "relation": "co-occurs",
+          "weight": 3.8216,
+          "shared_windows": 3,
+          "association": 0.2739,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0088",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0014"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 3.8018,
+          "shared_windows": 3,
+          "association": 0.2673,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0089",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0025"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 3.7955,
+          "shared_windows": 3,
+          "association": 0.2652,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0090",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0018"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 3.7833,
+          "shared_windows": 3,
+          "association": 0.2611,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0091",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0035"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 3.7833,
+          "shared_windows": 3,
+          "association": 0.2611,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0092",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 3.7661,
+          "shared_windows": 3,
+          "association": 0.2554,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0093",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0036"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 3.7606,
+          "shared_windows": 3,
+          "association": 0.2535,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0094",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0024"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 3.75,
+          "shared_windows": 3,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0095",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0019"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 3.75,
+          "shared_windows": 3,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0096",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0012"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 3.7115,
+          "shared_windows": 3,
+          "association": 0.2372,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0097",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0022"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 3.6944,
+          "shared_windows": 3,
+          "association": 0.2315,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0098",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0013"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 3.6784,
+          "shared_windows": 3,
+          "association": 0.2261,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0099",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0008"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.6784,
+          "shared_windows": 3,
+          "association": 0.2261,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0100",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0011"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 3.6708,
+          "shared_windows": 3,
+          "association": 0.2236,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0101",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0016"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 3.6547,
+          "shared_windows": 3,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0102",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0019"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 3.5922,
+          "shared_windows": 3,
+          "association": 0.1974,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0103",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.5922,
+          "shared_windows": 3,
+          "association": 0.1974,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0104",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0011"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0105",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0018"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0106",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0024"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0107",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0108",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0109",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0030"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0110",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0032"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0111",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0022"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0112",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0023"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0113",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0114",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0115",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0012"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0116",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0002"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0117",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0023"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0118",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0036"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0119",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0120",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0013"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0121",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0014"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0122",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0026"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0123",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0028"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-35",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0124",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0035"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0125",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0008"
+        },
+        {
+          "from": "concept-25",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0126",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0025",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0027"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 2.6963,
+          "shared_windows": 2,
+          "association": 0.3482,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0127",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0033"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-33",
+          "relation": "co-occurs",
+          "weight": 2.6667,
+          "shared_windows": 2,
+          "association": 0.3333,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0128",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0033"
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 2.6325,
+          "shared_windows": 2,
+          "association": 0.3162,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0129",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0013",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0031"
+        },
+        {
+          "from": "concept-17",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.6172,
+          "shared_windows": 2,
+          "association": 0.3086,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0130",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0017",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0025"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-26",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0131",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0020",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0026"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0132",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0020",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0036"
+        },
+        {
+          "from": "concept-23",
+          "to": "concept-28",
+          "relation": "co-occurs",
+          "weight": 2.5774,
+          "shared_windows": 2,
+          "association": 0.2887,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0133",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0023",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0028"
+        },
+        {
+          "from": "concept-21",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.5443,
+          "shared_windows": 2,
+          "association": 0.2722,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0134",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0021",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0025"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2.5394,
+          "shared_windows": 2,
+          "association": 0.2697,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0135",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0029"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.5345,
+          "shared_windows": 2,
+          "association": 0.2673,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0136",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0018",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0024"
+        },
+        {
+          "from": "concept-18",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 2.5345,
+          "shared_windows": 2,
+          "association": 0.2673,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0137",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0018",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0032"
+        },
+        {
+          "from": "concept-20",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 2.5,
+          "shared_windows": 2,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0138",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0020",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0022"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 2.5,
+          "shared_windows": 2,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0139",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0027"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2.5,
+          "shared_windows": 2,
+          "association": 0.25,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0140",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0008",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0018"
+        },
+        {
+          "from": "concept-13",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0141",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0013",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0015"
+        },
+        {
+          "from": "concept-15",
+          "to": "concept-23",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0142",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0015",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0023"
+        },
+        {
+          "from": "concept-16",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0143",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0016",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0020"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0144",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0008",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0015"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0145",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0008",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0019"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-25",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0146",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0025"
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2.4472,
+          "shared_windows": 2,
+          "association": 0.2236,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0147",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0014",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0018"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2.4472,
+          "shared_windows": 2,
+          "association": 0.2236,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0148",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0029"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0149",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0024"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0150",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0017"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 2.4264,
+          "shared_windows": 2,
+          "association": 0.2132,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0151",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0022"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2.4264,
+          "shared_windows": 2,
+          "association": 0.2132,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0152",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0008",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0011"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-27",
+          "relation": "co-occurs",
+          "weight": 2.417,
+          "shared_windows": 2,
+          "association": 0.2085,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0153",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0027"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0154",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0012",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0018"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-35",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0155",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0035"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 2.4082,
+          "shared_windows": 2,
+          "association": 0.2041,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0156",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0018"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 2.402,
+          "shared_windows": 2,
+          "association": 0.201,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0157",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0010",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0016"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 2.4,
+          "shared_windows": 2,
+          "association": 0.2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0158",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0031"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-29",
+          "relation": "co-occurs",
+          "weight": 2.3904,
+          "shared_windows": 2,
+          "association": 0.1952,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0159",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0029"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-31",
+          "relation": "co-occurs",
+          "weight": 2.3904,
+          "shared_windows": 2,
+          "association": 0.1952,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0160",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0031"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 2.3849,
+          "shared_windows": 2,
+          "association": 0.1925,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0161",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0012",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0016"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-19",
+          "relation": "co-occurs",
+          "weight": 2.3849,
+          "shared_windows": 2,
+          "association": 0.1925,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0162",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0019"
+        },
+        {
+          "from": "concept-9",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 2.3849,
+          "shared_windows": 2,
+          "association": 0.1925,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0163",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0021"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-24",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0164",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0024"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-32",
+          "relation": "co-occurs",
+          "weight": 2.378,
+          "shared_windows": 2,
+          "association": 0.189,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0165",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0032"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-36",
+          "relation": "co-occurs",
+          "weight": 2.3651,
+          "shared_windows": 2,
+          "association": 0.1826,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0166",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0036"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0167",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0012"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0168",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0014"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0169",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0015"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-29",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0170",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0029"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-30",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0171",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0030"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-32",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0172",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0032"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0173",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0001",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0009"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0174",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0012"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0175",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0014"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0176",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0023"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0177",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0028"
+        },
+        {
+          "from": "document-2",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0178",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0002",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0007"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0179",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0015"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0180",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0017"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0181",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0019"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0182",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0020"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0183",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0021"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-26",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0184",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0026"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-27",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0185",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0027"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-28",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0186",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0028"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-33",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0187",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0033"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-34",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0188",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0034"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-36",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0189",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0036"
+        },
+        {
+          "from": "document-3",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0190",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0003",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0006"
+        },
+        {
+          "from": "document-4",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0191",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0004",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0014"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0192",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0011"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0193",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0016"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0194",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0020"
+        },
+        {
+          "from": "document-5",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/relation/0195",
+          "from_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/0005",
+          "to_coordinate": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/concept/0004"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.26,
+      "pulse": 10,
+      "fold": 7
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "75c5593e533e",
+    "tempo": 62,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:witness",
+        "frequency": 183.33337,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:know",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0507
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:father",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0374
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:whosoever",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0345
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:hereby",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0326
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:sins",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 110,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:love",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0564
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:shall",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:truth",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0345
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:abideth",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0326
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:darkness",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:knoweth",
+        "frequency": 733.33348,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0307
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 206.25,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:life",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0393
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:christ",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0345
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:things",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0336
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:commandments",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:eternal",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0307
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:world",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.046
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:spirit",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0364
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:loveth",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0336
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:commandment",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:dwelleth",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0307
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:unto",
+        "frequency": 412.5,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.046
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:jesus",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0364
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 165,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:little",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0336
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:born",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:death",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0307
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:because",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0488
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:children",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0364
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:heard",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0336
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:write",
+        "frequency": 110,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0326
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:word",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:hath",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0498
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:brother",
+        "frequency": 183.33337,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0364
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:beginning",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0336
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:seen",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0326
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 247.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:witness",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:know",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0507
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:father",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0374
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:whosoever",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0345
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:hereby",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0326
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:sins",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 110,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:love",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0564
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:shall",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:truth",
+        "frequency": 660,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0345
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:abideth",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0326
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:darkness",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:knoweth",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0307
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 110,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:life",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0393
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:christ",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0345
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:things",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0336
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:commandments",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:eternal",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0307
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:world",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.046
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 440,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:spirit",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0364
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:loveth",
+        "frequency": 330,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0336
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:commandment",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:dwelleth",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0307
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:unto",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.046
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:jesus",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0364
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:little",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0336
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:born",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:death",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0307
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:because",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0488
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:children",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0364
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:heard",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0336
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 366.6667,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:write",
+        "frequency": 165,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0326
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:word",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:hath",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0498
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:brother",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0364
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:beginning",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0336
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:seen",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0326
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 165,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "love",
+        "count": 33
+      },
+      {
+        "concept": "know",
+        "count": 27
+      },
+      {
+        "concept": "hath",
+        "count": 26
+      },
+      {
+        "concept": "because",
+        "count": 25
+      },
+      {
+        "concept": "unto",
+        "count": 22
+      },
+      {
+        "concept": "world",
+        "count": 22
+      },
+      {
+        "concept": "life",
+        "count": 15
+      },
+      {
+        "concept": "shall",
+        "count": 14
+      },
+      {
+        "concept": "father",
+        "count": 13
+      },
+      {
+        "concept": "brother",
+        "count": 12
+      },
+      {
+        "concept": "children",
+        "count": 12
+      },
+      {
+        "concept": "jesus",
+        "count": 12
+      }
+    ],
+    "structural_depth": {
+      "signature": "ec1bd43f39417930",
+      "relation_profile": {
+        "contains": 5,
+        "expresses": 93,
+        "co-occurs": 97
+      },
+      "relation_density": 0.2393,
+      "relation_weight_entropy": 0.956,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "1 John resolves as 5 documents, 105 structural passages, and 195 witnessed relations at 23.9% derived density. Structural signature ec1bd43f39417930."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579",
+    "origin": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:38:56.226Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/work",
+      "document": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/{document-ordinal}",
+      "section": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/1-john-b284ccdb/edition/1-john-b284ccdb--v14-read-34d3c9-c76aa579/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}

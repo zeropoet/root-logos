@@ -14,6 +14,35 @@ const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const digest = (value) => createHash("sha256").update(value).digest("hex");
 const foldForgeSnapshot = JSON.parse(await readFile(join(root, "sources", "foldforge.snapshot.json"), "utf8"));
 
+export const deriveCorpusStructuralDepth = ({ nodes, edges }) => {
+  const contains = nodes.map(({ id }) => ({ from: "corpus", to: id, relation: "contains", weight: 1 }));
+  const relations = [...contains, ...edges]
+    .sort((left, right) => left.relation.localeCompare(right.relation)
+      || left.from.localeCompare(right.from)
+      || left.to.localeCompare(right.to));
+  const relationProfile = Object.fromEntries(["contains", "shared-derived-language"]
+    .map((relation) => [relation, relations.filter((edge) => edge.relation === relation).length]));
+  const possibleRelations = nodes.length + nodes.length * (nodes.length - 1) / 2;
+  const relationWeight = relations.reduce((sum, edge) => sum + Math.max(0, Number(edge.weight) || 0), 0);
+  const relationWeightEntropy = relations.length > 1 && relationWeight
+    ? -relations.reduce((sum, edge) => {
+      const probability = Math.max(0, Number(edge.weight) || 0) / relationWeight;
+      return probability ? sum + probability * Math.log(probability) : sum;
+    }, 0) / Math.log(relations.length)
+    : 0;
+  return {
+    signature: digest(JSON.stringify({
+      works: nodes.map(({ id, current_edition }) => [id, current_edition]),
+      relations: relations.map(({ from, to, relation, weight }) => [from, to, relation, weight]),
+      profile: relationProfile
+    })).slice(0, 16),
+    relation_profile: relationProfile,
+    relation_density: Number((possibleRelations ? relations.length / possibleRelations : 0).toFixed(4)),
+    relation_weight_entropy: Number(relationWeightEntropy.toFixed(4)),
+    comparison_boundary: "Comparable only with coherent corpora derived through deterministic-corpus-reading/v2-structural-depth."
+  };
+};
+
 const OLD_TESTAMENT = [
   "genesis", "exodus", "leviticus", "numbers", "deuteronomy",
   "josue", "judges", "ruth", "1-kings", "2-kings", "3-kings", "4-kings",
@@ -115,6 +144,7 @@ export const buildCorpusTopology = async (entries, sourceWitness, options = {}) 
     ...nodes.map((node) => ({ from: "corpus", to: node.id, relation: "contains", weight: 1 })),
     ...sortedEdges.slice(0, 360)
   ];
+  const structuralDepth = deriveCorpusStructuralDepth({ nodes, edges: sortedEdges });
   const scoreEvents = Array.from({ length: 96 }, (_, index) => {
     const node = nodes[(seed + index * 11) % nodes.length];
     const concept = node.concepts[(seed + index * 3) % node.concepts.length] || { concept: "silence", count: 1 };
@@ -153,8 +183,11 @@ export const buildCorpusTopology = async (entries, sourceWitness, options = {}) 
       words: nodes.reduce((sum, node) => sum + node.measures.words, 0),
       derived_relations: nodes.reduce((sum, node) => sum + node.measures.relations, 0),
       cross_work_relations: edges.length,
+      relation_density: structuralDepth.relation_density,
+      relation_weight_entropy: structuralDepth.relation_weight_entropy,
       mean_outward_pressure: Number((nodes.reduce((sum, node) => sum + node.outward_pressure, 0) / nodes.length).toFixed(4))
     },
+    structural_depth: structuralDepth,
     nodes,
     edges: sortedEdges,
     visual: {

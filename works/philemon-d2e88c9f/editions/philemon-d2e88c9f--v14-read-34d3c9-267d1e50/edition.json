@@ -1,0 +1,1986 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "philemon-d2e88c9f--v14-read-34d3c9-267d1e50",
+  "work_id": "philemon-d2e88c9f",
+  "created_at": "2026-08-11T16:38:56.136Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "f0027124267d1e5079d0afd4b538598befea2a96648fde99974d9af9e64edfb1",
+  "parent_edition": "philemon-d2e88c9f--v12-read-b1dda3-267d1e50",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 1,
+    "sections": 25,
+    "words": 430,
+    "concepts": 36,
+    "relations": 60,
+    "relation_density": 0.09,
+    "relation_weight_entropy": 0.947
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 3282394723,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "Philemon",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "Philemon 1",
+          "weight": 25,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "thee",
+          "weight": 14,
+          "coordinate": "lexicon:thee",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001",
+          "source_coordinate_witness": "sha256:0c3a0ac74bd143a33534f5a673f0c267ef350617751ff304b042b24a3b3e8db4"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "christ",
+          "weight": 7,
+          "coordinate": "lexicon:christ",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0002",
+          "source_coordinate_witness": "sha256:ce7895ccf869946ad57c693088f4cab46096005f340a1d536b30e3f6197efb26"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "jesus",
+          "weight": 7,
+          "coordinate": "lexicon:jesus",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0003",
+          "source_coordinate_witness": "sha256:df0b5de09bd1fc073e417686b43974fdf9eaf18f0bc068e4dabe0b18a57b26a1"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "lord",
+          "weight": 6,
+          "coordinate": "lexicon:lord",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0004",
+          "source_coordinate_witness": "sha256:71ce91971174b724b007c1558909f2319a6b51daf52aaa0527c702846be58df3"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "thou",
+          "weight": 6,
+          "coordinate": "lexicon:thou",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0005",
+          "source_coordinate_witness": "sha256:e41d9097d059b5966986e4c5bcd01cc0cc13894cfc68ad0e6aacd1d35127195a"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "unto",
+          "weight": 6,
+          "coordinate": "lexicon:unto",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0006",
+          "source_coordinate_witness": "sha256:10037e9bf5d7de29a900d0cf5311bf4ed709ea5aafd27b6ac684fc19b1fb6536"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "brother",
+          "weight": 4,
+          "coordinate": "lexicon:brother",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0007",
+          "source_coordinate_witness": "sha256:79548fee44384a00068a967a5bbc34e8be8a681ebfda05bf64943f3e3018df7a"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "beloved",
+          "weight": 3,
+          "coordinate": "lexicon:beloved",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0008",
+          "source_coordinate_witness": "sha256:5b6ff1c758f8a3497ddfdb7b8850d3933265f7beeb7bb8d5ae86800de05592d8"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "bowels",
+          "weight": 3,
+          "coordinate": "lexicon:bowels",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0009",
+          "source_coordinate_witness": "sha256:55bdc0ac4412d7b2b8350678841efb4255add48d6e89be04da40fb5335ef9906"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "mine",
+          "weight": 3,
+          "coordinate": "lexicon:mine",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0010",
+          "source_coordinate_witness": "sha256:57ec52c3ae80012ce7cda5d5f8170c745d7919130e8faa3e18d97c428d8ea938"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "paul",
+          "weight": 3,
+          "coordinate": "lexicon:paul",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0011",
+          "source_coordinate_witness": "sha256:73b60beb91ca57e95c1af6c050cb50bd9c22fad248e2e93179a06d54a8af87ba"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "receive",
+          "weight": 3,
+          "coordinate": "lexicon:receive",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0012",
+          "source_coordinate_witness": "sha256:8972f03143679bf28ef2d41b2fb2821ee491c23dcc0fcafdebca7e1e82b7ecda"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "therefore",
+          "weight": 3,
+          "coordinate": "lexicon:therefore",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0013",
+          "source_coordinate_witness": "sha256:0d7be7e5ddc7f3e5eeef715a6030f7ab45ba1b2ce51c98b9f9cd8b227a0e7f62"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "whom",
+          "weight": 3,
+          "coordinate": "lexicon:whom",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0014",
+          "source_coordinate_witness": "sha256:59bf24c4c68e3fecd6c075be8208bc4c53ee267fe11da0adeee9a73a6d2c66a5"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "beseech",
+          "weight": 2,
+          "coordinate": "lexicon:beseech",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0015",
+          "source_coordinate_witness": "sha256:8a83a0e5c332d7f8c41995d174090b4b38a1ab6f67b705dd81e206500f636f0c"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "bonds",
+          "weight": 2,
+          "coordinate": "lexicon:bonds",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0016",
+          "source_coordinate_witness": "sha256:4ebbc704c6fcd6cefa6d32339b787c0b2fc7be2b4f8398cf3fbcf04431c732fa"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "faith",
+          "weight": 2,
+          "coordinate": "lexicon:faith",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0017",
+          "source_coordinate_witness": "sha256:6b82e70a67303a285c0cb377c816805cce82cddb25f88a5bf7f284b2f00f13db"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "grace",
+          "weight": 2,
+          "coordinate": "lexicon:grace",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0018",
+          "source_coordinate_witness": "sha256:7668eadf1a97fc6cc98495ca185c6b0b29e293938aa2e17834583f23f9011097"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "love",
+          "weight": 2,
+          "coordinate": "lexicon:love",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0019",
+          "source_coordinate_witness": "sha256:5b53e31d9b66d7edde42f1a7f6da803e644d0c4747e897e1f7d50f8beaaa7dbb"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "prayers",
+          "weight": 2,
+          "coordinate": "lexicon:prayers",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0020",
+          "source_coordinate_witness": "sha256:f184706c4e50b34216bf9998920a546744540f4c0f957c01170b57ad3b8bd0d6"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "prisoner",
+          "weight": 2,
+          "coordinate": "lexicon:prisoner",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0021",
+          "source_coordinate_witness": "sha256:cccfaf1161b853b09b3a4c1805070f37bb76ac0c3ef143a855b9dadd3d6d2de4"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "saints",
+          "weight": 2,
+          "coordinate": "lexicon:saints",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0022",
+          "source_coordinate_witness": "sha256:64c0c78cb7af10c18539b9b522ded6a74ca8ea2973f6d42c4f6efbe2aee0d270"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "servant",
+          "weight": 2,
+          "coordinate": "lexicon:servant",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0023",
+          "source_coordinate_witness": "sha256:dfa4a01320bd63e9b488059555e9f190a1f224e5a188c52ec0b4c65070526023"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "toward",
+          "weight": 2,
+          "coordinate": "lexicon:toward",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0024",
+          "source_coordinate_witness": "sha256:186502b15f041c80d51017d6746a7322c148b829409b76d87cce054305fae711"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "above",
+          "weight": 1,
+          "coordinate": "lexicon:above",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0025",
+          "source_coordinate_witness": "sha256:21099ec246694380a2e50aa4400413e376d1dd5bebb07e665f7b599b393a4f5e"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "account",
+          "weight": 1,
+          "coordinate": "lexicon:account",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0026",
+          "source_coordinate_witness": "sha256:b8fa976f648234fb2fc02080fb5be64f625c25abc4534ad2c0adc914631b79bf"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "acknowledging",
+          "weight": 1,
+          "coordinate": "lexicon:acknowledging",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0027",
+          "source_coordinate_witness": "sha256:e7ca9ddf6dc8c9f2763a8085c3ac30fda6f8fcd4ac5847c38e4632234461fa12"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "again",
+          "weight": 1,
+          "coordinate": "lexicon:again",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0028",
+          "source_coordinate_witness": "sha256:90257068cd6ac2ec51d0afae8282d3e445760888b30398189c6876b84a051e8b"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "aged",
+          "weight": 1,
+          "coordinate": "lexicon:aged",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0029",
+          "source_coordinate_witness": "sha256:5c09b10a782b8ccecabe3f934c5d0cef1043de8bc54eb190239eb201f393a4b1"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "albeit",
+          "weight": 1,
+          "coordinate": "lexicon:albeit",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0030",
+          "source_coordinate_witness": "sha256:1c06aa65f4bc55aaeae4eda37b45038e37a4a649a87a7538a6c6668991607533"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "always",
+          "weight": 1,
+          "coordinate": "lexicon:always",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0031",
+          "source_coordinate_witness": "sha256:ca28191c6ee0c9fd2593992ae4af49df4b8487e3c48e01178c92e3e06f1e2f1e"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "amen",
+          "weight": 1,
+          "coordinate": "lexicon:amen",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0032",
+          "source_coordinate_witness": "sha256:6712b65c8587c6c60762d22e16aa2cf875fad83bfa8de1f6c5308c3328223e6d"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "apphia",
+          "weight": 1,
+          "coordinate": "lexicon:apphia",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0033",
+          "source_coordinate_witness": "sha256:fef8569400eaa521567fbd7fba8d890d177dfccd0a74b9d21a21c6abde0d7369"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "archippus",
+          "weight": 1,
+          "coordinate": "lexicon:archippus",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0034",
+          "source_coordinate_witness": "sha256:5d901e99a8c08ec5c4992c1d9d4d9118419a58fc9bd5df4ad88fa4f92a4e6658"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "aristarchus",
+          "weight": 1,
+          "coordinate": "lexicon:aristarchus",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0035",
+          "source_coordinate_witness": "sha256:be6a0d7f151df88f0c3c3001f246772c7103022bad810a4e5ba6c9397aedcf63"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "because",
+          "weight": 1,
+          "coordinate": "lexicon:because",
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0036",
+          "source_coordinate_witness": "sha256:00dc7a72ce6b97a916fdc1fcecb6a3e57f1a9b0f4b49b1f04023fc3b109fd911"
+        }
+      ],
+      "edges": [
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 25,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0001",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/work",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 14,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0002",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 11.1429,
+          "shared_windows": 6,
+          "association": 0.8571,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0003",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0002",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0003"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0004",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0002"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0005",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0003"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 6,
+          "shared_windows": 3,
+          "association": 1,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0006",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0012",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0013"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0007",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0004"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0008",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0005"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0009",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0006"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 5.1213,
+          "shared_windows": 3,
+          "association": 0.7071,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0010",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0005",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0012"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-13",
+          "relation": "co-occurs",
+          "weight": 5.1213,
+          "shared_windows": 3,
+          "association": 0.7071,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0011",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0005",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0013"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 4.5213,
+          "shared_windows": 3,
+          "association": 0.5071,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0012",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0003",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0004"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 4.299,
+          "shared_windows": 3,
+          "association": 0.433,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0013",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0007"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 4.0607,
+          "shared_windows": 3,
+          "association": 0.3536,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0014",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0006"
+        },
+        {
+          "from": "concept-19",
+          "to": "concept-22",
+          "relation": "co-occurs",
+          "weight": 4,
+          "shared_windows": 2,
+          "association": 1,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0015",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0019",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0022"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0016",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0007"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-2",
+          "relation": "co-occurs",
+          "weight": 3.982,
+          "shared_windows": 3,
+          "association": 0.3273,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0017",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0002"
+        },
+        {
+          "from": "concept-11",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 3.633,
+          "shared_windows": 2,
+          "association": 0.8165,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0018",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0011",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0021"
+        },
+        {
+          "from": "concept-14",
+          "to": "concept-16",
+          "relation": "co-occurs",
+          "weight": 3.633,
+          "shared_windows": 2,
+          "association": 0.8165,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0019",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0014",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0016"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 3.2649,
+          "shared_windows": 2,
+          "association": 0.6325,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0020",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0004",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0018"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0021",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0007",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0008"
+        },
+        {
+          "from": "concept-7",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0022",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0007",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0009"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 3.069,
+          "shared_windows": 2,
+          "association": 0.5345,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0023",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0002",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0018"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 3.069,
+          "shared_windows": 2,
+          "association": 0.5345,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0024",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0002",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0021"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-17",
+          "relation": "co-occurs",
+          "weight": 3.069,
+          "shared_windows": 2,
+          "association": 0.5345,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0025",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0003",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0017"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-18",
+          "relation": "co-occurs",
+          "weight": 3.069,
+          "shared_windows": 2,
+          "association": 0.5345,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0026",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0003",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0018"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-21",
+          "relation": "co-occurs",
+          "weight": 3.069,
+          "shared_windows": 2,
+          "association": 0.5345,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0027",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0003",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0021"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0028",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0010"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0029",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0011"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0030",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0012"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0031",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0013"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0032",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0014"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0033",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0008"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0034",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0009"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.9428,
+          "shared_windows": 2,
+          "association": 0.4714,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0035",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0005",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0010"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2.9428,
+          "shared_windows": 2,
+          "association": 0.4714,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0036",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0006",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0011"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 2.9428,
+          "shared_windows": 2,
+          "association": 0.4714,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0037",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0006",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0008"
+        },
+        {
+          "from": "concept-4",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0038",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0004",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0007"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2.8729,
+          "shared_windows": 2,
+          "association": 0.4364,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0039",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0002",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0011"
+        },
+        {
+          "from": "concept-3",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2.8729,
+          "shared_windows": 2,
+          "association": 0.4364,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0040",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0003",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0011"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0041",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0015"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 2.8165,
+          "shared_windows": 2,
+          "association": 0.4082,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0042",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0006",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0007"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 2.6761,
+          "shared_windows": 2,
+          "association": 0.3381,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0043",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0002",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0004"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 2.6667,
+          "shared_windows": 2,
+          "association": 0.3333,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0044",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0010"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 2.6667,
+          "shared_windows": 2,
+          "association": 0.3333,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0045",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0011"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-9",
+          "relation": "co-occurs",
+          "weight": 2.6667,
+          "shared_windows": 2,
+          "association": 0.3333,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0046",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0009"
+        },
+        {
+          "from": "concept-5",
+          "to": "concept-6",
+          "relation": "co-occurs",
+          "weight": 2.6667,
+          "shared_windows": 2,
+          "association": 0.3333,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0047",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0005",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0006"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-4",
+          "relation": "co-occurs",
+          "weight": 2.5164,
+          "shared_windows": 2,
+          "association": 0.2582,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0048",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0004"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 2.4714,
+          "shared_windows": 2,
+          "association": 0.2357,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0049",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0005"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 2.4364,
+          "shared_windows": 2,
+          "association": 0.2182,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0050",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0003"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0051",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0015"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0052",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0016"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0053",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0017"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0054",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0018"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0055",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0019"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0056",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0020"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0057",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0021"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0058",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0022"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-23",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0059",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0023"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-24",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/relation/0060",
+          "from_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/0001",
+          "to_coordinate": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/concept/0024"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.19,
+      "pulse": 14,
+      "fold": 9
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "b26b0f11ce85",
+    "tempo": 57,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:beloved",
+        "frequency": 206.25,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.037
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:beseech",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:saints",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:aged",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:because",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:brother",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.041
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:whom",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:prisoner",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:again",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:aristarchus",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:unto",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.049
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:therefore",
+        "frequency": 880,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 165,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:prayers",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:acknowledging",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.029
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:archippus",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:thou",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.049
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:receive",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.037
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:love",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.033
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:account",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.029
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:apphia",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.049
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:paul",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:grace",
+        "frequency": 440,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:above",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 137.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:amen",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:jesus",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.053
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:mine",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.037
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:faith",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:toward",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:always",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:christ",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.053
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:bowels",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:bonds",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:servant",
+        "frequency": 110,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:albeit",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:thee",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.081
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 366.6667,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:beloved",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:beseech",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:saints",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:aged",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.029
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:because",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:brother",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.041
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:whom",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:prisoner",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:again",
+        "frequency": 440,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:aristarchus",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:unto",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.049
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:therefore",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 247.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:prayers",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:acknowledging",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:archippus",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:thou",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.049
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:receive",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.037
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:love",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 440,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:account",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:apphia",
+        "frequency": 247.5,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:lord",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.049
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:paul",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:grace",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:above",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 293.3333,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:amen",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:jesus",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.053
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:mine",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:faith",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:toward",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:always",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.029
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:christ",
+        "frequency": 110,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.053
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:bowels",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.037
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:bonds",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:servant",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.033
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:albeit",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.029
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:thee",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.081
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 293.3333,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "thee",
+        "count": 14
+      },
+      {
+        "concept": "christ",
+        "count": 7
+      },
+      {
+        "concept": "jesus",
+        "count": 7
+      },
+      {
+        "concept": "lord",
+        "count": 6
+      },
+      {
+        "concept": "thou",
+        "count": 6
+      },
+      {
+        "concept": "unto",
+        "count": 6
+      },
+      {
+        "concept": "brother",
+        "count": 4
+      },
+      {
+        "concept": "beloved",
+        "count": 3
+      },
+      {
+        "concept": "bowels",
+        "count": 3
+      },
+      {
+        "concept": "mine",
+        "count": 3
+      },
+      {
+        "concept": "paul",
+        "count": 3
+      },
+      {
+        "concept": "receive",
+        "count": 3
+      }
+    ],
+    "structural_depth": {
+      "signature": "dbc63bfc3c53ef02",
+      "relation_profile": {
+        "contains": 1,
+        "expresses": 24,
+        "co-occurs": 35
+      },
+      "relation_density": 0.09,
+      "relation_weight_entropy": 0.947,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "Philemon resolves as 1 document, 25 structural passages, and 60 witnessed relations at 9.0% derived density. Structural signature dbc63bfc3c53ef02."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50",
+    "origin": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:38:56.136Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/work",
+      "document": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/{document-ordinal}",
+      "section": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/philemon-d2e88c9f/edition/philemon-d2e88c9f--v14-read-34d3c9-267d1e50/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}

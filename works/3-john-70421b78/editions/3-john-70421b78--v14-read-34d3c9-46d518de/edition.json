@@ -1,0 +1,1726 @@
+{
+  "schema": "root-logos-work-edition/v1",
+  "edition_id": "3-john-70421b78--v14-read-34d3c9-46d518de",
+  "work_id": "3-john-70421b78",
+  "created_at": "2026-08-11T16:39:37.401Z",
+  "root_logos_revision": "v1.4",
+  "source_hash": "5d79473546d518ded6cc5718a0e213c173f284a8e16c8413d211a962a6835a70",
+  "parent_edition": "3-john-70421b78--v11-read-acbd48-46d518de",
+  "status": "archived",
+  "transformation": "deterministic-structural-reading/v4-structural-depth",
+  "reading_context": null,
+  "measures": {
+    "documents": 1,
+    "sections": 15,
+    "words": 328,
+    "concepts": 36,
+    "relations": 36,
+    "relation_density": 0.054,
+    "relation_weight_entropy": 0.96
+  },
+  "visual": {
+    "schema": "root-logos-visual-score/v1",
+    "seed": 1738471951,
+    "palette": [
+      "#cbb77a",
+      "#e9e5d8",
+      "#93b9bb",
+      "#9a8cb6",
+      "#ad7159",
+      "#8aa681"
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "work",
+          "type": "work",
+          "label": "3 John",
+          "weight": 1,
+          "coordinate": "work",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/work",
+          "source_coordinate_witness": "sha256:00e13ed7af55b27622f1d6eab5bec0147e68efe28dc2b12461117afa1a5ed40e"
+        },
+        {
+          "id": "document-1",
+          "type": "document",
+          "label": "Chapter 1",
+          "weight": 15,
+          "coordinate": "chapter:1",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "source_coordinate_witness": "sha256:5c43841a0e312f53a44a710f6ba04c370c80b55ca5e4b2f8edda13e34386b587"
+        },
+        {
+          "id": "concept-1",
+          "type": "concept",
+          "label": "truth",
+          "weight": 7,
+          "coordinate": "lexicon:truth",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0001",
+          "source_coordinate_witness": "sha256:f376fef9ad35bd69871195d127f538dea54cc3845b1fe3abdc99ae7ea7cfa0cb"
+        },
+        {
+          "id": "concept-2",
+          "type": "concept",
+          "label": "thou",
+          "weight": 6,
+          "coordinate": "lexicon:thou",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0002",
+          "source_coordinate_witness": "sha256:e41d9097d059b5966986e4c5bcd01cc0cc13894cfc68ad0e6aacd1d35127195a"
+        },
+        {
+          "id": "concept-3",
+          "type": "concept",
+          "label": "testimony",
+          "weight": 5,
+          "coordinate": "lexicon:testimony",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0003",
+          "source_coordinate_witness": "sha256:4e53e0dfd43e8d036191ad4efe79019e8e27f940f9edc3bfaa2e27af9e5c1087"
+        },
+        {
+          "id": "concept-4",
+          "type": "concept",
+          "label": "thee",
+          "weight": 5,
+          "coordinate": "lexicon:thee",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0004",
+          "source_coordinate_witness": "sha256:0c3a0ac74bd143a33534f5a673f0c267ef350617751ff304b042b24a3b3e8db4"
+        },
+        {
+          "id": "concept-5",
+          "type": "concept",
+          "label": "dearest",
+          "weight": 4,
+          "coordinate": "lexicon:dearest",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0005",
+          "source_coordinate_witness": "sha256:e252a1bfa4ffc02bc19ce52d43aabdf4d78a1e4e4a5649e9e66178a650343d56"
+        },
+        {
+          "id": "concept-6",
+          "type": "concept",
+          "label": "receive",
+          "weight": 4,
+          "coordinate": "lexicon:receive",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0006",
+          "source_coordinate_witness": "sha256:8972f03143679bf28ef2d41b2fb2821ee491c23dcc0fcafdebca7e1e82b7ecda"
+        },
+        {
+          "id": "concept-7",
+          "type": "concept",
+          "label": "brethren",
+          "weight": 3,
+          "coordinate": "lexicon:brethren",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0007",
+          "source_coordinate_witness": "sha256:724bb44a0ebbc5c7736a587468ae2c96faa2ff0c0edf2553199e127d606d1506"
+        },
+        {
+          "id": "concept-8",
+          "type": "concept",
+          "label": "church",
+          "weight": 3,
+          "coordinate": "lexicon:church",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0008",
+          "source_coordinate_witness": "sha256:e48fe044d7ae202e23262eb6eb3d71f77dc93a26420668c82917532a443cf088"
+        },
+        {
+          "id": "concept-9",
+          "type": "concept",
+          "label": "doeth",
+          "weight": 3,
+          "coordinate": "lexicon:doeth",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0009",
+          "source_coordinate_witness": "sha256:1cf6fdefeb8c4c25c9609c060f70956b21015a5423c44026e82017ea144c34bf"
+        },
+        {
+          "id": "concept-10",
+          "type": "concept",
+          "label": "doth",
+          "weight": 3,
+          "coordinate": "lexicon:doth",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0010",
+          "source_coordinate_witness": "sha256:adc4a4d7f76c6ed2b521850ded009e47f8e8ec6aed19fc63a57543517fdedbfe"
+        },
+        {
+          "id": "concept-11",
+          "type": "concept",
+          "label": "things",
+          "weight": 3,
+          "coordinate": "lexicon:things",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0011",
+          "source_coordinate_witness": "sha256:9fb18c3c810481061d608553f67958ef9788254dfdd128cb115045628b3f154e"
+        },
+        {
+          "id": "concept-12",
+          "type": "concept",
+          "label": "demetrius",
+          "weight": 2,
+          "coordinate": "lexicon:demetrius",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0012",
+          "source_coordinate_witness": "sha256:e000ffb52ec9dd316c0e868129a59f6424984edd09d93fdfdec40f71c6ff50ff"
+        },
+        {
+          "id": "concept-13",
+          "type": "concept",
+          "label": "diotrepes",
+          "weight": 2,
+          "coordinate": "lexicon:diotrepes",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0013",
+          "source_coordinate_witness": "sha256:084d5d1bf67c2aa95d5ec6351fbeb0be531fd74e68e2557a1c8d3ca466714a23"
+        },
+        {
+          "id": "concept-14",
+          "type": "concept",
+          "label": "friends",
+          "weight": 2,
+          "coordinate": "lexicon:friends",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0014",
+          "source_coordinate_witness": "sha256:bae99d36f4942536394f55b0ce9b7d26b1b535a6a8d9a53849fe9e2f7f66aaad"
+        },
+        {
+          "id": "concept-15",
+          "type": "concept",
+          "label": "gaius",
+          "weight": 2,
+          "coordinate": "lexicon:gaius",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0015",
+          "source_coordinate_witness": "sha256:921933c5400e3b68c07c4780c60c92d9b4109e4ca983729068b2cd1c50d2fa3a"
+        },
+        {
+          "id": "concept-16",
+          "type": "concept",
+          "label": "mouth",
+          "weight": 2,
+          "coordinate": "lexicon:mouth",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0016",
+          "source_coordinate_witness": "sha256:47df00ea32d6a7b51509191a79b10a3b9d90764ba1a369d37fe606d153650fd6"
+        },
+        {
+          "id": "concept-17",
+          "type": "concept",
+          "label": "name",
+          "weight": 2,
+          "coordinate": "lexicon:name",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0017",
+          "source_coordinate_witness": "sha256:4a97bcc275a836b79fd2698246f5bae3fd48438d3798387fcf414296236da241"
+        },
+        {
+          "id": "concept-18",
+          "type": "concept",
+          "label": "prosperously",
+          "weight": 2,
+          "coordinate": "lexicon:prosperously",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0018",
+          "source_coordinate_witness": "sha256:9af3ba606a33cffc33021e302d1105fe86dca122ccf010cf872f5ed2e4925702"
+        },
+        {
+          "id": "concept-19",
+          "type": "concept",
+          "label": "salute",
+          "weight": 2,
+          "coordinate": "lexicon:salute",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0019",
+          "source_coordinate_witness": "sha256:7c9bfddf6f9da9cc3a9bd53e9fb02e82b7053b5ab7e472ef4ff67366978ec286"
+        },
+        {
+          "id": "concept-20",
+          "type": "concept",
+          "label": "true",
+          "weight": 2,
+          "coordinate": "lexicon:true",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0020",
+          "source_coordinate_witness": "sha256:d8cf27ac88b830345e72c696ef186b3d2cc59175cbb3825c80bcc90cd74ed39b"
+        },
+        {
+          "id": "concept-21",
+          "type": "concept",
+          "label": "whom",
+          "weight": 2,
+          "coordinate": "lexicon:whom",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0021",
+          "source_coordinate_witness": "sha256:59bf24c4c68e3fecd6c075be8208bc4c53ee267fe11da0adeee9a73a6d2c66a5"
+        },
+        {
+          "id": "concept-22",
+          "type": "concept",
+          "label": "write",
+          "weight": 2,
+          "coordinate": "lexicon:write",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0022",
+          "source_coordinate_witness": "sha256:af93abdb1777778963a3ccbb62e202cbc4ce2cc65ac2a12180618cb5d726aa67"
+        },
+        {
+          "id": "concept-23",
+          "type": "concept",
+          "label": "advertise",
+          "weight": 1,
+          "coordinate": "lexicon:advertise",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0023",
+          "source_coordinate_witness": "sha256:8b78bebe36ba01d5889599cdb18a8fbeff1191054d178ee8168e4bf0d5fd4088"
+        },
+        {
+          "id": "concept-24",
+          "type": "concept",
+          "label": "against",
+          "weight": 1,
+          "coordinate": "lexicon:against",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0024",
+          "source_coordinate_witness": "sha256:eeda2d45b0ef8da05e8cbeb5750bb2d3b5a008aa09c3552ee62812e23a43bbad"
+        },
+        {
+          "id": "concept-25",
+          "type": "concept",
+          "label": "bear",
+          "weight": 1,
+          "coordinate": "lexicon:bear",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0025",
+          "source_coordinate_witness": "sha256:f8982fba01416a2ba5c75eb62314f69cffad2b8c5171498cb25c1cd7fd5cbbce"
+        },
+        {
+          "id": "concept-26",
+          "type": "concept",
+          "label": "bringing",
+          "weight": 1,
+          "coordinate": "lexicon:bringing",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0026",
+          "source_coordinate_witness": "sha256:822ed26da41afbbdeb59774af1c442baed7ab4479e15954855e4b5addb57c68f"
+        },
+        {
+          "id": "concept-27",
+          "type": "concept",
+          "label": "came",
+          "weight": 1,
+          "coordinate": "lexicon:came",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0027",
+          "source_coordinate_witness": "sha256:b68b1bad5c6c2bcffc44f7f89f3c3d7c5ff815e0e80e6f714aaef52c85549908"
+        },
+        {
+          "id": "concept-28",
+          "type": "concept",
+          "label": "casteth",
+          "weight": 1,
+          "coordinate": "lexicon:casteth",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0028",
+          "source_coordinate_witness": "sha256:a6ad0a27c25bf65622116d58cde8b1b07f27b7478892c367bba1fbccf9bb6ee3"
+        },
+        {
+          "id": "concept-29",
+          "type": "concept",
+          "label": "cause",
+          "weight": 1,
+          "coordinate": "lexicon:cause",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0029",
+          "source_coordinate_witness": "sha256:223ece2f517e1fd850186dc865234d0e4bcd0014f081130a3d078e2f95078bae"
+        },
+        {
+          "id": "concept-30",
+          "type": "concept",
+          "label": "charity",
+          "weight": 1,
+          "coordinate": "lexicon:charity",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0030",
+          "source_coordinate_witness": "sha256:eb0da5855606215251f5d50c8abe0e02f22355bfef2b3b2aa7c28d5281a56a0d"
+        },
+        {
+          "id": "concept-31",
+          "type": "concept",
+          "label": "chatting",
+          "weight": 1,
+          "coordinate": "lexicon:chatting",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0031",
+          "source_coordinate_witness": "sha256:bef0bf2585f5677ea151afe550d12afb1c5f1a434f6e1af04552217b40cf2b5b"
+        },
+        {
+          "id": "concept-32",
+          "type": "concept",
+          "label": "children",
+          "weight": 1,
+          "coordinate": "lexicon:children",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0032",
+          "source_coordinate_witness": "sha256:d9f54ff5bf8e6194b249cb28bed5111d42ce509d758e4cae7a15238751186cc9"
+        },
+        {
+          "id": "concept-33",
+          "type": "concept",
+          "label": "coadjutors",
+          "weight": 1,
+          "coordinate": "lexicon:coadjutors",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0033",
+          "source_coordinate_witness": "sha256:e84e99ef95023ab367fa27bc7d699f397d2811394793bd87e57634e2b0a2e41b"
+        },
+        {
+          "id": "concept-34",
+          "type": "concept",
+          "label": "come",
+          "weight": 1,
+          "coordinate": "lexicon:come",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0034",
+          "source_coordinate_witness": "sha256:1896a0f4a716bfc747ed46a7e557ec976e335148415880360444b95cc7f3de91"
+        },
+        {
+          "id": "concept-35",
+          "type": "concept",
+          "label": "commendeth",
+          "weight": 1,
+          "coordinate": "lexicon:commendeth",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0035",
+          "source_coordinate_witness": "sha256:e609e2c51bdbfeb259fb94560e1b17dc135653910fafc7fb582c71d5c4f3b5fe"
+        },
+        {
+          "id": "concept-36",
+          "type": "concept",
+          "label": "concerning",
+          "weight": 1,
+          "coordinate": "lexicon:concerning",
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0036",
+          "source_coordinate_witness": "sha256:8f1b48d73a7cfebd660219b4e1f23e1d1f71fb665a2bc617b6ce2d3da37ad713"
+        }
+      ],
+      "edges": [
+        {
+          "from": "work",
+          "to": "document-1",
+          "relation": "contains",
+          "weight": 15,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0001",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/work",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-1",
+          "relation": "expresses",
+          "weight": 7,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0002",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0001"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-2",
+          "relation": "expresses",
+          "weight": 6,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0003",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0002"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 5.3238,
+          "shared_windows": 3,
+          "association": 0.7746,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0004",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0002",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0003"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-3",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0005",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0003"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-4",
+          "relation": "expresses",
+          "weight": 5,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0006",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0004"
+        },
+        {
+          "from": "concept-12",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 4,
+          "shared_windows": 2,
+          "association": 1,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0007",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0012",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0020"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-5",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0008",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0005"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-6",
+          "relation": "expresses",
+          "weight": 4,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0009",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0006"
+        },
+        {
+          "from": "concept-10",
+          "to": "concept-11",
+          "relation": "co-occurs",
+          "weight": 3.3333,
+          "shared_windows": 2,
+          "association": 0.6667,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0010",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0010",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0011"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 3.3333,
+          "shared_windows": 2,
+          "association": 0.6667,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0011",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0006",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0010"
+        },
+        {
+          "from": "concept-6",
+          "to": "concept-8",
+          "relation": "co-occurs",
+          "weight": 3.3333,
+          "shared_windows": 2,
+          "association": 0.6667,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0012",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0006",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0008"
+        },
+        {
+          "from": "concept-8",
+          "to": "concept-10",
+          "relation": "co-occurs",
+          "weight": 3.3333,
+          "shared_windows": 2,
+          "association": 0.6667,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0013",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0008",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0010"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-12",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0014",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0012"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-15",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0015",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0015"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-20",
+          "relation": "co-occurs",
+          "weight": 3.1547,
+          "shared_windows": 2,
+          "association": 0.5774,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0016",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0020"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-7",
+          "relation": "co-occurs",
+          "weight": 3.0328,
+          "shared_windows": 2,
+          "association": 0.5164,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0017",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0002",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0007"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-10",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0018",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0010"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-11",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0019",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0011"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-7",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0020",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0007"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-8",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0021",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0008"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-9",
+          "relation": "expresses",
+          "weight": 3,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0022",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0009"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-3",
+          "relation": "co-occurs",
+          "weight": 2.9428,
+          "shared_windows": 2,
+          "association": 0.4714,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0023",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0003"
+        },
+        {
+          "from": "concept-2",
+          "to": "concept-5",
+          "relation": "co-occurs",
+          "weight": 2.8944,
+          "shared_windows": 2,
+          "association": 0.4472,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0024",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0002",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0005"
+        },
+        {
+          "from": "concept-1",
+          "to": "concept-2",
+          "relation": "co-occurs",
+          "weight": 2.7303,
+          "shared_windows": 2,
+          "association": 0.3651,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0025",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0002"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-12",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0026",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0012"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-13",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0027",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0013"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-14",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0028",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0014"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-15",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0029",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0015"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-16",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0030",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0016"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-17",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0031",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0017"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-18",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0032",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0018"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-19",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0033",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0019"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-20",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0034",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0020"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-21",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0035",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0021"
+        },
+        {
+          "from": "document-1",
+          "to": "concept-22",
+          "relation": "expresses",
+          "weight": 2,
+          "canonical_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/relation/0036",
+          "from_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/0001",
+          "to_coordinate": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/concept/0022"
+        }
+      ]
+    },
+    "motion": {
+      "drift": 0.27,
+      "pulse": 8,
+      "fold": 9
+    }
+  },
+  "sound": {
+    "schema": "root-logos-work-score/v2",
+    "signature": "6782521fd17a",
+    "tempo": 57,
+    "root_hz": 55,
+    "events": [
+      {
+        "index": 0,
+        "voice": "ground",
+        "provenance": "lexicon:true",
+        "frequency": 123.75,
+        "beats": 2,
+        "rest": true,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 1,
+        "voice": "relation",
+        "provenance": "lexicon:came",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 2,
+        "voice": "figure",
+        "provenance": "lexicon:come",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 3,
+        "voice": "breath",
+        "provenance": "lexicon:dearest",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0517
+      },
+      {
+        "index": 4,
+        "voice": "ground",
+        "provenance": "lexicon:demetrius",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 5,
+        "voice": "relation",
+        "provenance": "lexicon:salute",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/0",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "forge",
+        "rank": 1,
+        "recurrence": 56,
+        "traces": 56,
+        "frequency": 165,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0528,
+        "index": 6
+      },
+      {
+        "index": 7,
+        "voice": "figure",
+        "provenance": "lexicon:bringing",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 8,
+        "voice": "breath",
+        "provenance": "lexicon:coadjutors",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 9,
+        "voice": "ground",
+        "provenance": "lexicon:thee",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0583
+      },
+      {
+        "index": 10,
+        "voice": "relation",
+        "provenance": "lexicon:things",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.045
+      },
+      {
+        "index": 11,
+        "voice": "figure",
+        "provenance": "lexicon:prosperously",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 12,
+        "voice": "breath",
+        "provenance": "lexicon:bear",
+        "frequency": 495,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/1",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "fold",
+        "rank": 2,
+        "recurrence": 55,
+        "traces": 55,
+        "frequency": 137.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0527,
+        "index": 13
+      },
+      {
+        "index": 14,
+        "voice": "ground",
+        "provenance": "lexicon:children",
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 15,
+        "voice": "relation",
+        "provenance": "lexicon:testimony",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0583
+      },
+      {
+        "index": 16,
+        "voice": "figure",
+        "provenance": "lexicon:doth",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.045
+      },
+      {
+        "index": 17,
+        "voice": "breath",
+        "provenance": "lexicon:name",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 18,
+        "voice": "ground",
+        "provenance": "lexicon:against",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 19,
+        "voice": "relation",
+        "provenance": "lexicon:chatting",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/2",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "archive",
+        "rank": 3,
+        "recurrence": 51,
+        "traces": 51,
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.052,
+        "index": 20
+      },
+      {
+        "index": 21,
+        "voice": "figure",
+        "provenance": "lexicon:thou",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.065
+      },
+      {
+        "index": 22,
+        "voice": "breath",
+        "provenance": "lexicon:doeth",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.045
+      },
+      {
+        "index": 23,
+        "voice": "ground",
+        "provenance": "lexicon:mouth",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 24,
+        "voice": "relation",
+        "provenance": "lexicon:advertise",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 25,
+        "voice": "figure",
+        "provenance": "lexicon:charity",
+        "frequency": 275,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 26,
+        "voice": "breath",
+        "provenance": "lexicon:truth",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0717
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/3",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "rwl",
+        "rank": 4,
+        "recurrence": 47,
+        "traces": 47,
+        "frequency": 366.6667,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0513,
+        "index": 27
+      },
+      {
+        "index": 28,
+        "voice": "ground",
+        "provenance": "lexicon:church",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.045
+      },
+      {
+        "index": 29,
+        "voice": "relation",
+        "provenance": "lexicon:gaius",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 30,
+        "voice": "figure",
+        "provenance": "lexicon:write",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 31,
+        "voice": "breath",
+        "provenance": "lexicon:cause",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 32,
+        "voice": "ground",
+        "provenance": "lexicon:concerning",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 33,
+        "voice": "relation",
+        "provenance": "lexicon:brethren",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.045
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/4",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "void",
+        "rank": 5,
+        "recurrence": 43,
+        "traces": 43,
+        "frequency": 165,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0506,
+        "index": 34
+      },
+      {
+        "index": 35,
+        "voice": "figure",
+        "provenance": "lexicon:friends",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 36,
+        "voice": "breath",
+        "provenance": "lexicon:whom",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 37,
+        "voice": "ground",
+        "provenance": "lexicon:casteth",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 38,
+        "voice": "relation",
+        "provenance": "lexicon:commendeth",
+        "frequency": 146.66663,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 39,
+        "voice": "figure",
+        "provenance": "lexicon:receive",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0517
+      },
+      {
+        "index": 40,
+        "voice": "breath",
+        "provenance": "lexicon:diotrepes",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/5",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "architecture",
+        "rank": 6,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 247.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0501,
+        "index": 41
+      },
+      {
+        "index": 42,
+        "voice": "ground",
+        "provenance": "lexicon:true",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 43,
+        "voice": "relation",
+        "provenance": "lexicon:came",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 44,
+        "voice": "figure",
+        "provenance": "lexicon:come",
+        "frequency": 550,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 45,
+        "voice": "breath",
+        "provenance": "lexicon:dearest",
+        "frequency": 110,
+        "beats": 1,
+        "rest": true,
+        "amplitude": 0.0517
+      },
+      {
+        "index": 46,
+        "voice": "ground",
+        "provenance": "lexicon:demetrius",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 47,
+        "voice": "relation",
+        "provenance": "lexicon:salute",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/6",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "hært",
+        "rank": 7,
+        "recurrence": 41,
+        "traces": 41,
+        "frequency": 165,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0501,
+        "index": 48
+      },
+      {
+        "index": 49,
+        "voice": "figure",
+        "provenance": "lexicon:bringing",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 50,
+        "voice": "breath",
+        "provenance": "lexicon:coadjutors",
+        "frequency": 247.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 51,
+        "voice": "ground",
+        "provenance": "lexicon:thee",
+        "frequency": 440,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0583
+      },
+      {
+        "index": 52,
+        "voice": "relation",
+        "provenance": "lexicon:things",
+        "frequency": 123.75,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.045
+      },
+      {
+        "index": 53,
+        "voice": "figure",
+        "provenance": "lexicon:prosperously",
+        "frequency": 293.33326,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 54,
+        "voice": "breath",
+        "provenance": "lexicon:bear",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/7",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "ritual",
+        "rank": 8,
+        "recurrence": 22,
+        "traces": 22,
+        "frequency": 247.5,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0448,
+        "index": 55
+      },
+      {
+        "index": 56,
+        "voice": "ground",
+        "provenance": "lexicon:children",
+        "frequency": 110,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 57,
+        "voice": "relation",
+        "provenance": "lexicon:testimony",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0583
+      },
+      {
+        "index": 58,
+        "voice": "figure",
+        "provenance": "lexicon:doth",
+        "frequency": 440,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.045
+      },
+      {
+        "index": 59,
+        "voice": "breath",
+        "provenance": "lexicon:name",
+        "frequency": 137.5,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 60,
+        "voice": "ground",
+        "provenance": "lexicon:against",
+        "frequency": 330,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 61,
+        "voice": "relation",
+        "provenance": "lexicon:chatting",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/8",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "vow",
+        "rank": 9,
+        "recurrence": 17,
+        "traces": 17,
+        "frequency": 165,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0425,
+        "index": 62
+      },
+      {
+        "index": 63,
+        "voice": "figure",
+        "provenance": "lexicon:thou",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.065
+      },
+      {
+        "index": 64,
+        "voice": "breath",
+        "provenance": "lexicon:doeth",
+        "frequency": 440,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.045
+      },
+      {
+        "index": 65,
+        "voice": "ground",
+        "provenance": "lexicon:mouth",
+        "frequency": 495,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 66,
+        "voice": "relation",
+        "provenance": "lexicon:advertise",
+        "frequency": 146.66663,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 67,
+        "voice": "figure",
+        "provenance": "lexicon:charity",
+        "frequency": 412.5,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 68,
+        "voice": "breath",
+        "provenance": "lexicon:truth",
+        "frequency": 880,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0717
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "triangle",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/9",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "silence",
+        "rank": 10,
+        "recurrence": 16,
+        "traces": 16,
+        "frequency": 110,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.042,
+        "index": 69
+      },
+      {
+        "index": 70,
+        "voice": "ground",
+        "provenance": "lexicon:church",
+        "frequency": 206.25,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.045
+      },
+      {
+        "index": 71,
+        "voice": "relation",
+        "provenance": "lexicon:gaius",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 72,
+        "voice": "figure",
+        "provenance": "lexicon:write",
+        "frequency": 586.66652,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 73,
+        "voice": "breath",
+        "provenance": "lexicon:cause",
+        "frequency": 183.33337,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 74,
+        "voice": "ground",
+        "provenance": "lexicon:concerning",
+        "frequency": 220,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 75,
+        "voice": "relation",
+        "provenance": "lexicon:brethren",
+        "frequency": 733.33348,
+        "beats": 0.5,
+        "rest": true,
+        "amplitude": 0.045
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/10",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "function",
+        "rank": 11,
+        "recurrence": 15,
+        "traces": 15,
+        "frequency": 293.3333,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0414,
+        "index": 76
+      },
+      {
+        "index": 77,
+        "voice": "figure",
+        "provenance": "lexicon:friends",
+        "frequency": 220,
+        "beats": 2,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 78,
+        "voice": "breath",
+        "provenance": "lexicon:whom",
+        "frequency": 275,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "index": 79,
+        "voice": "ground",
+        "provenance": "lexicon:casteth",
+        "frequency": 660,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 80,
+        "voice": "relation",
+        "provenance": "lexicon:commendeth",
+        "frequency": 220,
+        "beats": 1,
+        "rest": false,
+        "amplitude": 0.0317
+      },
+      {
+        "index": 81,
+        "voice": "figure",
+        "provenance": "lexicon:receive",
+        "frequency": 366.66674,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0517
+      },
+      {
+        "index": 82,
+        "voice": "breath",
+        "provenance": "lexicon:diotrepes",
+        "frequency": 825,
+        "beats": 0.5,
+        "rest": false,
+        "amplitude": 0.0383
+      },
+      {
+        "voice": "foldforge",
+        "waveform": "sine",
+        "provenance": "sources/foldforge.snapshot.json#language_composition/terms/11",
+        "composition_source": "foldforge",
+        "composition_id": "FF-COMP-0002",
+        "composition_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+        "term": "core",
+        "rank": 12,
+        "recurrence": 14,
+        "traces": 14,
+        "frequency": 440,
+        "beats": 1.5,
+        "rest": false,
+        "amplitude": 0.0408,
+        "index": 83
+      }
+    ],
+    "composition_inheritance": {
+      "source_id": "foldforge",
+      "source_witness": "sha256:c898ce446ca5cb4b85b42484f815d331ca0cf7623896141d9eefd30a822474cd",
+      "language_witness": "sha256:b946744d174c858a197b298012447d820bc0ede93799af8c47e681ed7f774687",
+      "grammars": [
+        {
+          "id": "FF-COMP-0001",
+          "title": "Luminance Field",
+          "version": "1.0.0",
+          "witness": "382c43954911fcad12e39ecc84c3b8cafcd0c2b104ea76a0e58837101ed8e628"
+        },
+        {
+          "id": "FF-COMP-0002",
+          "title": "Lexical Field",
+          "version": "1.0.0",
+          "witness": "b74e2daa49ca83c9028cfe4c030cb9b225a77ef46561db8c4c542ec922c4d5a9"
+        },
+        {
+          "id": "FF-COMP-0003",
+          "title": "Resonant Holdings",
+          "version": "11.0.0",
+          "witness": "28e1bfed063923cf435c8eaf1ae7b21c27f614a49b22ed1eb5759a2235a063b1"
+        },
+        {
+          "id": "FF-COMP-0004",
+          "title": "Visual Relations",
+          "version": "1.0.0",
+          "witness": "92664f8b4a84d984ffd395219f41932c5e2b7067ef4491f65669acfcc2700089"
+        },
+        {
+          "id": "FF-COMP-0005",
+          "title": "Chromatic Field",
+          "version": "1.0.0",
+          "witness": "c0527a4a545fa90929cf2b063cc345a855f86a43c967e232d6156c43d7bc4177"
+        }
+      ]
+    }
+  },
+  "reading": {
+    "dominant_concepts": [
+      {
+        "concept": "truth",
+        "count": 7
+      },
+      {
+        "concept": "thou",
+        "count": 6
+      },
+      {
+        "concept": "testimony",
+        "count": 5
+      },
+      {
+        "concept": "thee",
+        "count": 5
+      },
+      {
+        "concept": "dearest",
+        "count": 4
+      },
+      {
+        "concept": "receive",
+        "count": 4
+      },
+      {
+        "concept": "brethren",
+        "count": 3
+      },
+      {
+        "concept": "church",
+        "count": 3
+      },
+      {
+        "concept": "doeth",
+        "count": 3
+      },
+      {
+        "concept": "doth",
+        "count": 3
+      },
+      {
+        "concept": "things",
+        "count": 3
+      },
+      {
+        "concept": "demetrius",
+        "count": 2
+      }
+    ],
+    "structural_depth": {
+      "signature": "b921a08ab212199c",
+      "relation_profile": {
+        "contains": 1,
+        "expresses": 22,
+        "co-occurs": 13
+      },
+      "relation_density": 0.054,
+      "relation_weight_entropy": 0.96,
+      "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+    },
+    "statement": "3 John resolves as 1 document, 15 structural passages, and 36 witnessed relations at 5.4% derived density. Structural signature b921a08ab212199c."
+  },
+  "coordinate_system": {
+    "schema": "root-logos-canonical-work-coordinate-system/v1",
+    "base": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de",
+    "origin": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/work",
+    "reference_frame": "immutable-edition-relative",
+    "temporal_coordinate": "2026-08-11T16:39:37.401Z",
+    "axes": {
+      "structural": [
+        "work",
+        "document"
+      ],
+      "semantic": [
+        "concept"
+      ],
+      "relational": [
+        "relation"
+      ]
+    },
+    "address_grammar": {
+      "work": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/work",
+      "document": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/{document-ordinal}",
+      "section": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/{document-ordinal}/section/{section-ordinal}",
+      "passage": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}",
+      "token_range": "root://work/3-john-70421b78/edition/3-john-70421b78--v14-read-34d3c9-46d518de/document/{document-ordinal}/section/{section-ordinal}/passage/{passage-ordinal}/token/{start}:{end}"
+    },
+    "ordinal_policy": "One-based, zero-padded, and ordered by witnessed source traversal.",
+    "projection": "SVG and canvas positions are non-canonical render projections.",
+    "privacy": "Public coordinates expose derived ordinals and opaque witnesses, never source prose."
+  }
+}
