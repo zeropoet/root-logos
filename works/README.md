@@ -40,6 +40,11 @@ arrangement as twenty-two major divisions and the 1,538 numbered passages
 recoverable from Project Gutenberg's current transcription. It retains the
 passage-to-division coordinates while excluding editorial footnotes from
 Leonardo's semantic field.
+`michelangelo-poetry-text` preserves William Wells Newell's restored bilingual
+selection as twenty-two sonnets, three epigrams, and twenty-five madrigals. It
+reads only the fifty English verse renderings while keeping the Italian text,
+introduction, notes, index, and Gutenberg apparatus inside the exact source
+witness rather than Michelangelo's derived semantic field.
 
 Each ingestion writes:
 
@@ -289,6 +294,16 @@ botany, sculpture, architecture, astronomy, water, geography, machines,
 philosophy, letters, and personal records. The public-domain source file is
 released after deterministic reading; its opaque witness, bounded-content
 hash, derived topology, score, CWCS lineage, and sealed PNG/SVG portrait remain.
+
+Michelangelo Buonarroti's **Sonnets and Madrigals of Michelangelo Buonarroti**
+enters as work `49` in `Renaissance Inquiry / Form, labor, and mortal beauty`.
+The exact Project Gutenberg 73109 witness is William Wells Newell's 1900
+bilingual edition based on Guasti's restored Italian text. Its twenty-two
+sonnets, three epigrams, and twenty-five madrigals become fifty English
+structural passages; editorial matter is excluded from the semantic field. The
+public-domain transcription is released after deterministic reading while its
+file witness, bounded-content hash, derived topology, score, CWCS lineage, and
+sealed PNG/SVG portrait remain.
 
 ## Spatial grammar
 

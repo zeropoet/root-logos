@@ -1,12 +1,12 @@
 {
   "schema": "root-logos-structural-depth-migration/v1",
-  "generated_at": "2026-08-12T02:28:02.649Z",
+  "generated_at": "2026-08-12T03:03:19.926Z",
   "target_work_grammar": "deterministic-structural-reading/v4-structural-depth",
   "target_corpus_grammar": "deterministic-corpus-reading/v2-structural-depth",
   "policy": "Exact witnessed sources only. Historical editions and admission portraits remain immutable; every new structural reading receives a distinct PNG and SVG successor portrait.",
   "measures": {
-    "coherent_works": 48,
-    "migrated": 48,
+    "coherent_works": 49,
+    "migrated": 49,
     "exact_source_required": 0,
     "completion": 1
   },
@@ -1399,6 +1399,35 @@
         "png_sha256": "8c4e0c28adf1101f67c97b68a38e9a2dd4fce2822f4e2b84a7864f8cc3e89ecd",
         "svg": "assets/library-first-frames/48-the-notebooks-of-leonardo-da-vinci-complete-359e73f1-dd9a0f77eb44.svg",
         "svg_sha256": "dd9a0f77eb447d8f956dbb5c9b36d83fc80d68e0359f9cdbf005d235c9be2c7a"
+      }
+    },
+    {
+      "order": 49,
+      "work_id": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+      "title": "Sonnets and Madrigals of Michelangelo Buonarroti",
+      "genre": "poetry of form, love, labor, mortality, and divine making",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg-73109@2024-03-06:sha256-9646bf43a38c3958f492027695a06507d4cdf745d76c3dfd3d227f9fd1afca26",
+      "source_sha256": "889fb81e3cc939627b06ca90b9fbb6b07fdf21cca86cb19e550f46bdee8cdb5e",
+      "current_edition": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b--v14-read-34d3c9-3cc93962",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "ca69aa37b0b56f63",
+        "relation_profile": {
+          "contains": 3,
+          "expresses": 77,
+          "co-occurs": 448
+        },
+        "relation_density": 0.7126,
+        "relation_weight_entropy": 0.9727,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/49-sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b-2cbaf842e3af.png",
+        "png_sha256": "2cbaf842e3af7001dd7f99353ecccf77e3143eb8e104f6e6ce55a761b2347300",
+        "svg": "assets/library-first-frames/49-sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b-6212e6ae4866.svg",
+        "svg_sha256": "6212e6ae48667a4db7ad8dbe7784e3bd00df66202984f17008086235a20fb161"
       }
     }
   ]

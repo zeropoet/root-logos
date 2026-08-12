@@ -30,11 +30,11 @@
   "source": {
     "first_frame_manifest": "assets/library-first-frames/manifest.json",
     "first_frame_schema": "root-logos-library-first-frames/v5",
-    "first_frame_generated_at": "2026-08-12T02:26:23.350Z"
+    "first_frame_generated_at": "2026-08-12T03:03:21.784Z"
   },
   "measures": {
-    "works": 48,
-    "relations": 140,
+    "works": 49,
+    "relations": 144,
     "relation_families": 4,
     "hierarchy_levels": 4
   },
@@ -5953,6 +5953,127 @@
           247.5
         ]
       }
+    },
+    {
+      "order": 49,
+      "work_id": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+      "title": "Sonnets and Madrigals of Michelangelo Buonarroti",
+      "kind": "poetry of form, love, labor, mortality, and divine making",
+      "collection": "Renaissance Inquiry",
+      "division": "Form, labor, and mortal beauty",
+      "author": "Michelangelo Buonarroti",
+      "sealed_edition": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b--v14-read-34d3c9-3cc93962",
+      "portrait": {
+        "png": "assets/library-first-frames/49-sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b-2cbaf842e3af.png",
+        "png_sha256": "2cbaf842e3af7001dd7f99353ecccf77e3143eb8e104f6e6ce55a761b2347300",
+        "svg": "assets/library-first-frames/49-sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b-6212e6ae4866.svg",
+        "svg_sha256": "6212e6ae48667a4db7ad8dbe7784e3bd00df66202984f17008086235a20fb161",
+        "width": 2400,
+        "height": 2400
+      },
+      "visual_signature": {
+        "centroid_x": 0.256494,
+        "centroid_y": 0.268515,
+        "spread": 0.124004,
+        "node_density": 0.15625,
+        "relation_density": 0.257813,
+        "mean_node_radius": 0.203303,
+        "nodes": 40,
+        "paths": 528
+      },
+      "concepts": [
+        "doth",
+        "love",
+        "hath",
+        "heart",
+        "beauty",
+        "thou",
+        "mine",
+        "soul",
+        "fair",
+        "life",
+        "thee",
+        "alone"
+      ],
+      "sound": {
+        "signature": "18141b68b184",
+        "tempo": 46,
+        "event_count": 84,
+        "frequencies": [
+          220,
+          550,
+          165,
+          440,
+          550,
+          293.3333,
+          123.75,
+          247.5,
+          586.66652,
+          220,
+          247.5,
+          440,
+          247.5,
+          110,
+          495,
+          123.75,
+          220,
+          880,
+          110,
+          123.75,
+          293.33326,
+          550,
+          220,
+          412.5,
+          495,
+          165,
+          137.5,
+          247.5,
+          183.33337,
+          220,
+          495,
+          440,
+          137.5,
+          412.5,
+          660,
+          220,
+          247.5,
+          440,
+          183.33337,
+          330,
+          825,
+          293.33326,
+          183.33337,
+          366.66674,
+          880,
+          146.66663,
+          366.66674,
+          660,
+          165,
+          733.33348,
+          183.33337,
+          586.66652,
+          165,
+          183.33337,
+          440,
+          825,
+          146.66663,
+          275,
+          733.33348,
+          293.3333,
+          206.25,
+          366.66674,
+          123.75,
+          330,
+          110,
+          206.25,
+          275,
+          440,
+          146.66663,
+          366.66674,
+          825,
+          110
+        ]
+      }
     }
   ],
   "relations": [
@@ -6284,6 +6405,24 @@
       }
     },
     {
+      "id": "relation-aa53e63b7381",
+      "kind": "coherence",
+      "from": "the-bhagavad-gita-3a4dcb45",
+      "to": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+      "strength": 0.333333,
+      "evidence": {
+        "shared_concepts": [
+          "thou",
+          "thee",
+          "soul",
+          "life",
+          "heart",
+          "hath"
+        ],
+        "basis": "strongest shared derived language"
+      }
+    },
+    {
       "id": "relation-3afe15f65144",
       "kind": "coherence",
       "from": "the-constitution-of-the-united-states-of-america-1787-c8f33517",
@@ -6542,13 +6681,24 @@
       }
     },
     {
-      "id": "relation-3ccd2e268dba",
+      "id": "relation-822f9f7e7eed",
+      "kind": "continuity",
+      "from": "constitutional-naturalization-1a2ad829",
+      "to": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+      "strength": 0.906868,
+      "evidence": {
+        "visual_distance": 0.093132,
+        "basis": "nearest normalized SVG geometry"
+      }
+    },
+    {
+      "id": "relation-e34657a3212f",
       "kind": "continuity",
       "from": "constructor-theory-3b6d4667",
-      "to": "participation-without-possession-31458969",
-      "strength": 0.846522,
+      "to": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+      "strength": 0.902466,
       "evidence": {
-        "visual_distance": 0.153478,
+        "visual_distance": 0.097534,
         "basis": "nearest normalized SVG geometry"
       }
     },
@@ -6978,6 +7128,17 @@
       "strength": 0.579854,
       "evidence": {
         "visual_distance": 0.579854,
+        "basis": "furthest normalized SVG geometry"
+      }
+    },
+    {
+      "id": "relation-818b58c0c537",
+      "kind": "counterpoint",
+      "from": "original-douay-rheims-catholic-canon",
+      "to": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+      "strength": 0.555385,
+      "evidence": {
+        "visual_distance": 0.555385,
         "basis": "furthest normalized SVG geometry"
       }
     },
@@ -7576,6 +7737,17 @@
       }
     },
     {
+      "id": "relation-e8f42f4e59d6",
+      "kind": "recurrence",
+      "from": "the-notebooks-of-leonardo-da-vinci-complete-359e73f1",
+      "to": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+      "strength": 1,
+      "evidence": {
+        "collection": "Renaissance Inquiry",
+        "basis": "adjacent attributable works in one collection"
+      }
+    },
+    {
       "id": "relation-5e65b2b9d3ff",
       "kind": "recurrence",
       "from": "the-odyssey-cfbe5b1d",
@@ -7678,10 +7850,10 @@
           "primitive_order": 2,
           "portrait_sha256": "63f4bf57ccd1335e31e05b8225799cc0916552439f7b806651ad00042edc87f0",
           "collection": "Original Douay-Rheims Catholic Canon",
-          "weight": 16,
-          "layoutX": -0.6538,
+          "weight": 17,
+          "layoutX": -0.658716,
           "layoutY": 0.778452,
-          "layoutZ": 0.598935
+          "layoutZ": 0.603438
         },
         {
           "id": "the-odyssey-cfbe5b1d",
@@ -8014,10 +8186,10 @@
           "primitive_order": 26,
           "portrait_sha256": "d07bb52b5c72ecb1c6857a93cdead3e1d9b6879e62b234d687b020bd397efc5e",
           "collection": "Root Logos Constitutional Documents",
-          "weight": 5,
-          "layoutX": -0.774857,
+          "weight": 6,
+          "layoutX": -0.781208,
           "layoutY": 0.469079,
-          "layoutZ": -0.2472
+          "layoutZ": -0.249227
         },
         {
           "id": "participation-without-possession-31458969",
@@ -8028,10 +8200,10 @@
           "primitive_order": 27,
           "portrait_sha256": "2647e62f03c0919556da09d146ce5d37eae92464c67243aa7c62f461c79437cc",
           "collection": "Root Logos Constitutional Documents",
-          "weight": 6,
-          "layoutX": 0.744389,
+          "weight": 5,
+          "layoutX": 0.738337,
           "layoutY": 0.693558,
-          "layoutZ": -0.343926
+          "layoutZ": -0.34113
         },
         {
           "id": "participatory-sovereignty-55bb4e0d",
@@ -8168,10 +8340,10 @@
           "primitive_order": 37,
           "portrait_sha256": "760463aeab35ba01ca6a50d3725440bef3691f1b45daae78c112cd159bad8d51",
           "collection": "Hindu Scripture",
-          "weight": 4,
-          "layoutX": 0.003935,
+          "weight": 5,
+          "layoutX": 0.003968,
           "layoutY": 0.467096,
-          "layoutZ": -0.806657
+          "layoutZ": -0.813324
         },
         {
           "id": "a-mathematical-theory-of-communication-75a5723f",
@@ -8322,10 +8494,24 @@
           "primitive_order": 48,
           "portrait_sha256": "8c4e0c28adf1101f67c97b68a38e9a2dd4fce2822f4e2b84a7864f8cc3e89ecd",
           "collection": "Renaissance Inquiry",
-          "weight": 3,
-          "layoutX": 0.76449,
+          "weight": 4,
+          "layoutX": 0.770861,
           "layoutY": 0.465352,
-          "layoutZ": -0.235701
+          "layoutZ": -0.237665
+        },
+        {
+          "id": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+          "type": "book",
+          "level": 0,
+          "label": "Sonnets and Madrigals of Michelangelo Buonarroti",
+          "coordinate": "root://library-composition/primitive/sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+          "primitive_order": 49,
+          "portrait_sha256": "2cbaf842e3af7001dd7f99353ecccf77e3143eb8e104f6e6ce55a761b2347300",
+          "collection": "Renaissance Inquiry",
+          "weight": 5,
+          "layoutX": -0.41124,
+          "layoutY": 0.682099,
+          "layoutZ": 0.701707
         },
         {
           "id": "relation-30c8fa0f812e",
@@ -8375,9 +8561,9 @@
           "relation_kind": "coherence",
           "strength": 0.263158,
           "weight": 3.105264,
-          "layoutX": -0.263751,
+          "layoutX": -0.265784,
           "layoutY": 0.153005,
-          "layoutZ": -0.230786
+          "layoutZ": -0.231435
         },
         {
           "id": "relation-6731ef85c019",
@@ -8427,9 +8613,9 @@
           "relation_kind": "coherence",
           "strength": 0.043478,
           "weight": 1.3478240000000001,
-          "layoutX": 0.177109,
+          "layoutX": 0.179147,
           "layoutY": 0.131069,
-          "layoutZ": 0.082333
+          "layoutZ": 0.081704
         },
         {
           "id": "relation-3067da6d64a2",
@@ -8453,9 +8639,9 @@
           "relation_kind": "coherence",
           "strength": 0.263158,
           "weight": 3.105264,
-          "layoutX": 0.146617,
+          "layoutX": 0.146628,
           "layoutY": 0.191085,
-          "layoutZ": -0.268686
+          "layoutZ": -0.270819
         },
         {
           "id": "relation-c265e4956586",
@@ -8492,9 +8678,9 @@
           "relation_kind": "coherence",
           "strength": 0,
           "weight": 1,
-          "layoutX": -0.056762,
+          "layoutX": -0.058335,
           "layoutY": 0.0552,
-          "layoutZ": 0.075148
+          "layoutZ": 0.076589
         },
         {
           "id": "relation-bd58c471b0ee",
@@ -8518,9 +8704,9 @@
           "relation_kind": "coherence",
           "strength": 0.142857,
           "weight": 2.142856,
-          "layoutX": -0.084544,
+          "layoutX": -0.08648,
           "layoutY": 0.137093,
-          "layoutZ": 0.054994
+          "layoutZ": 0.055889
         },
         {
           "id": "relation-85fcc6430a6a",
@@ -8614,6 +8800,19 @@
           "layoutZ": -0.314443
         },
         {
+          "id": "relation-aa53e63b7381",
+          "type": "relation",
+          "level": 1,
+          "label": "coherence: The Bhagavad Gita / Sonnets and Madrigals of Michelangelo Buonarroti",
+          "coordinate": "root://library-composition/relation/relation-aa53e63b7381",
+          "relation_kind": "coherence",
+          "strength": 0.333333,
+          "weight": 3.666664,
+          "layoutX": -0.22883,
+          "layoutY": 0.189465,
+          "layoutZ": 0.032818
+        },
+        {
           "id": "relation-3afe15f65144",
           "type": "relation",
           "level": 1,
@@ -8622,9 +8821,9 @@
           "relation_kind": "coherence",
           "strength": 0.5,
           "weight": 5,
-          "layoutX": 0.051178,
-          "layoutY": 0.189465,
-          "layoutZ": 0.183392
+          "layoutX": 0.176019,
+          "layoutY": 0.186104,
+          "layoutZ": -0.002218
         },
         {
           "id": "relation-1dd87b0c1ac5",
@@ -8635,9 +8834,9 @@
           "relation_kind": "coherence",
           "strength": 0.142857,
           "weight": 2.142856,
-          "layoutX": 0.161532,
-          "layoutY": 0.186104,
-          "layoutZ": -0.205492
+          "layoutX": 0.194856,
+          "layoutY": 0.13554,
+          "layoutZ": 0.015699
         },
         {
           "id": "relation-ea14876c4ba3",
@@ -8648,9 +8847,9 @@
           "relation_kind": "coherence",
           "strength": 0.142857,
           "weight": 2.142856,
-          "layoutX": 0.087996,
-          "layoutY": 0.13554,
-          "layoutZ": 0.575813
+          "layoutX": -0.085989,
+          "layoutY": 0.076834,
+          "layoutZ": 0.435223
         },
         {
           "id": "relation-cb2bfe9010fb",
@@ -8661,9 +8860,9 @@
           "relation_kind": "coherence",
           "strength": 0.090909,
           "weight": 1.7272720000000001,
-          "layoutX": 0.059548,
-          "layoutY": 0.076834,
-          "layoutZ": -0.451928
+          "layoutX": 0.282806,
+          "layoutY": 0.055336,
+          "layoutZ": -0.465786
         },
         {
           "id": "relation-7e3e30b629ca",
@@ -8674,9 +8873,9 @@
           "relation_kind": "coherence",
           "strength": 0.043478,
           "weight": 1.3478240000000001,
-          "layoutX": -0.022591,
-          "layoutY": 0.055336,
-          "layoutZ": 0.308584
+          "layoutX": -0.177853,
+          "layoutY": 0.087655,
+          "layoutZ": 0.469611
         },
         {
           "id": "relation-a6bcf48d3eb3",
@@ -8687,9 +8886,9 @@
           "relation_kind": "coherence",
           "strength": 0.2,
           "weight": 2.6,
-          "layoutX": 0.232706,
-          "layoutY": 0.087655,
-          "layoutZ": -0.204916
+          "layoutX": 0.238419,
+          "layoutY": 0.148823,
+          "layoutZ": -0.428531
         },
         {
           "id": "relation-f6cf0e67c5e1",
@@ -8700,9 +8899,9 @@
           "relation_kind": "coherence",
           "strength": 0.142857,
           "weight": 2.142856,
-          "layoutX": -0.22026,
-          "layoutY": 0.148823,
-          "layoutZ": -0.528938
+          "layoutX": -0.073423,
+          "layoutY": 0.191587,
+          "layoutZ": -0.360192
         },
         {
           "id": "relation-2133a5943a16",
@@ -8713,9 +8912,9 @@
           "relation_kind": "coherence",
           "strength": 0.090909,
           "weight": 1.7272720000000001,
-          "layoutX": 0.239583,
-          "layoutY": 0.191587,
-          "layoutZ": -0.204032
+          "layoutX": 0.017324,
+          "layoutY": 0.182913,
+          "layoutZ": -0.229272
         },
         {
           "id": "relation-9d13892a0bc9",
@@ -8726,9 +8925,9 @@
           "relation_kind": "coherence",
           "strength": 0.142857,
           "weight": 2.142856,
-          "layoutX": -0.465114,
-          "layoutY": 0.182913,
-          "layoutZ": -0.338459
+          "layoutX": -0.284177,
+          "layoutY": 0.1295,
+          "layoutZ": -0.469981
         },
         {
           "id": "relation-b31863d29265",
@@ -8739,9 +8938,9 @@
           "relation_kind": "coherence",
           "strength": 0.043478,
           "weight": 1.3478240000000001,
-          "layoutX": 0.123981,
-          "layoutY": 0.1295,
-          "layoutZ": -0.521563
+          "layoutX": 0.079406,
+          "layoutY": 0.072611,
+          "layoutZ": -0.302362
         },
         {
           "id": "relation-4fa1371c0266",
@@ -8752,9 +8951,9 @@
           "relation_kind": "coherence",
           "strength": 0.142857,
           "weight": 2.142856,
-          "layoutX": -0.333224,
-          "layoutY": 0.072611,
-          "layoutZ": -0.002423
+          "layoutX": -0.448424,
+          "layoutY": 0.056193,
+          "layoutZ": -0.194166
         },
         {
           "id": "relation-9f7bc8f1ae22",
@@ -8765,9 +8964,9 @@
           "relation_kind": "coherence",
           "strength": 0.2,
           "weight": 2.6,
-          "layoutX": -0.396957,
-          "layoutY": 0.056193,
-          "layoutZ": -0.119404
+          "layoutX": -0.182492,
+          "layoutY": 0.092929,
+          "layoutZ": -0.055835
         },
         {
           "id": "relation-7702cdddbd9a",
@@ -8778,9 +8977,9 @@
           "relation_kind": "coherence",
           "strength": 0.142857,
           "weight": 2.142856,
-          "layoutX": -0.117755,
-          "layoutY": 0.092929,
-          "layoutZ": -0.169546
+          "layoutX": -0.318824,
+          "layoutY": 0.15444,
+          "layoutZ": -0.073683
         },
         {
           "id": "relation-3c17d01027df",
@@ -8791,9 +8990,9 @@
           "relation_kind": "coherence",
           "strength": 0.090909,
           "weight": 1.7272720000000001,
-          "layoutX": -0.263391,
-          "layoutY": 0.15444,
-          "layoutZ": 0.310371
+          "layoutX": -0.181316,
+          "layoutY": 0.193209,
+          "layoutZ": 0.102284
         },
         {
           "id": "relation-5cb603e0b782",
@@ -8804,9 +9003,9 @@
           "relation_kind": "coherence",
           "strength": 0.142857,
           "weight": 2.142856,
-          "layoutX": -0.196024,
-          "layoutY": 0.193209,
-          "layoutZ": -0.307036
+          "layoutX": -0.115983,
+          "layoutY": 0.179286,
+          "layoutZ": -0.098159
         },
         {
           "id": "relation-e6e1f73d0810",
@@ -8817,9 +9016,9 @@
           "relation_kind": "continuity",
           "strength": 0.917552,
           "weight": 8.340416000000001,
-          "layoutX": 0.500132,
-          "layoutY": 0.134286,
-          "layoutZ": 0.206222
+          "layoutX": 0.302057,
+          "layoutY": 0.078426,
+          "layoutZ": 0.105641
         },
         {
           "id": "relation-ab3316693d38",
@@ -8830,9 +9029,9 @@
           "relation_kind": "continuity",
           "strength": 0.894667,
           "weight": 8.157336,
-          "layoutX": -0.330315,
-          "layoutY": 0.078426,
-          "layoutZ": 0.196265
+          "layoutX": -0.11524,
+          "layoutY": 0.023783,
+          "layoutZ": 0.134792
         },
         {
           "id": "relation-62b47e1e1a35",
@@ -8843,22 +9042,35 @@
           "relation_kind": "continuity",
           "strength": 0.975641,
           "weight": 8.805128,
-          "layoutX": 0.085837,
-          "layoutY": 0.023783,
-          "layoutZ": -0.261708
+          "layoutX": -0.035197,
+          "layoutY": 0.012568,
+          "layoutZ": -0.070852
         },
         {
-          "id": "relation-3ccd2e268dba",
+          "id": "relation-822f9f7e7eed",
           "type": "relation",
           "level": 1,
-          "label": "continuity: Constructor Theory / Participation Without Possession",
-          "coordinate": "root://library-composition/relation/relation-3ccd2e268dba",
+          "label": "continuity: Constitutional Naturalization / Sonnets and Madrigals of Michelangelo Buonarroti",
+          "coordinate": "root://library-composition/relation/relation-822f9f7e7eed",
           "relation_kind": "continuity",
-          "strength": 0.846522,
-          "weight": 7.772176,
-          "layoutX": 0.415739,
-          "layoutY": 0.012568,
-          "layoutZ": 0.175734
+          "strength": 0.906868,
+          "weight": 8.254944,
+          "layoutX": -0.445496,
+          "layoutY": 0.053444,
+          "layoutZ": 0.04323
+        },
+        {
+          "id": "relation-e34657a3212f",
+          "type": "relation",
+          "level": 1,
+          "label": "continuity: Constructor Theory / Sonnets and Madrigals of Michelangelo Buonarroti",
+          "coordinate": "root://library-composition/relation/relation-e34657a3212f",
+          "relation_kind": "continuity",
+          "strength": 0.902466,
+          "weight": 8.219728,
+          "layoutX": 0.183148,
+          "layoutY": 0.114836,
+          "layoutZ": 0.423992
         },
         {
           "id": "relation-c80d9ca3aaaf",
@@ -8869,9 +9081,9 @@
           "relation_kind": "continuity",
           "strength": 0.926546,
           "weight": 8.412368,
-          "layoutX": -0.099498,
-          "layoutY": 0.053444,
-          "layoutZ": -0.374027
+          "layoutX": -0.142347,
+          "layoutY": 0.149316,
+          "layoutZ": -0.217674
         },
         {
           "id": "relation-1a3215a8900d",
@@ -8882,9 +9094,9 @@
           "relation_kind": "continuity",
           "strength": 0.931622,
           "weight": 8.452976,
-          "layoutX": 0.323273,
-          "layoutY": 0.114836,
-          "layoutZ": 0.038975
+          "layoutX": 0.249254,
+          "layoutY": 0.130249,
+          "layoutZ": -0.105259
         },
         {
           "id": "relation-1cdd3ad64000",
@@ -8895,9 +9107,9 @@
           "relation_kind": "continuity",
           "strength": 0.964963,
           "weight": 8.719704,
-          "layoutX": -0.059699,
-          "layoutY": 0.149316,
-          "layoutZ": 0.190105
+          "layoutX": 0.090736,
+          "layoutY": 0.072365,
+          "layoutZ": 0.247901
         },
         {
           "id": "relation-87dc5c870f07",
@@ -8908,9 +9120,9 @@
           "relation_kind": "continuity",
           "strength": 0.71735,
           "weight": 6.7388,
-          "layoutX": 0.03598,
-          "layoutY": 0.130249,
-          "layoutZ": -0.102466
+          "layoutX": -0.114173,
+          "layoutY": 0.020378,
+          "layoutZ": -0.041341
         },
         {
           "id": "relation-1db0f294c7c2",
@@ -8921,9 +9133,9 @@
           "relation_kind": "continuity",
           "strength": 0.735742,
           "weight": 6.885936,
-          "layoutX": 0.505482,
-          "layoutY": 0.072365,
-          "layoutZ": 0.429157
+          "layoutX": 0.574911,
+          "layoutY": 0.01445,
+          "layoutZ": 0.282658
         },
         {
           "id": "relation-9be78dc76c92",
@@ -8934,9 +9146,9 @@
           "relation_kind": "continuity",
           "strength": 0.889286,
           "weight": 8.114288,
-          "layoutX": -0.126975,
-          "layoutY": 0.020378,
-          "layoutZ": 0.349468
+          "layoutX": -0.079211,
+          "layoutY": 0.05916,
+          "layoutZ": 0.50439
         },
         {
           "id": "relation-8ba7b0a7b254",
@@ -8947,9 +9159,9 @@
           "relation_kind": "continuity",
           "strength": 0.893515,
           "weight": 8.148119999999999,
-          "layoutX": -0.076262,
-          "layoutY": 0.01445,
-          "layoutZ": -0.038244
+          "layoutX": -0.21613,
+          "layoutY": 0.119969,
+          "layoutZ": -0.120215
         },
         {
           "id": "relation-fd4573a4a31f",
@@ -8960,9 +9172,9 @@
           "relation_kind": "continuity",
           "strength": 0.959302,
           "weight": 8.674416,
-          "layoutX": -0.574452,
-          "layoutY": 0.05916,
-          "layoutZ": 0.181167
+          "layoutX": -0.415948,
+          "layoutY": 0.149901,
+          "layoutZ": 0.14713
         },
         {
           "id": "relation-9a1cbe7fcf2c",
@@ -8973,9 +9185,9 @@
           "relation_kind": "continuity",
           "strength": 0.91815,
           "weight": 8.3452,
-          "layoutX": 0.49035,
-          "layoutY": 0.119969,
-          "layoutZ": -0.048534
+          "layoutX": 0.396466,
+          "layoutY": 0.125835,
+          "layoutZ": 0.083632
         },
         {
           "id": "relation-ee7ae0c0878c",
@@ -8986,9 +9198,9 @@
           "relation_kind": "continuity",
           "strength": 0.9,
           "weight": 8.2,
-          "layoutX": 0.452095,
-          "layoutY": 0.149901,
-          "layoutZ": -0.172542
+          "layoutX": 0.432045,
+          "layoutY": 0.06636,
+          "layoutZ": -0.333415
         },
         {
           "id": "relation-8511fec2744a",
@@ -8999,9 +9211,9 @@
           "relation_kind": "continuity",
           "strength": 0.928107,
           "weight": 8.424856,
-          "layoutX": 0.403397,
-          "layoutY": 0.125835,
-          "layoutZ": 0.049546
+          "layoutX": 0.526849,
+          "layoutY": 0.017423,
+          "layoutZ": 0.154626
         },
         {
           "id": "relation-0cc931f58507",
@@ -9012,9 +9224,9 @@
           "relation_kind": "continuity",
           "strength": 0.943721,
           "weight": 8.549768,
-          "layoutX": -0.084126,
-          "layoutY": 0.06636,
-          "layoutZ": 0.385786
+          "layoutX": -0.246136,
+          "layoutY": 0.016827,
+          "layoutZ": 0.391694
         },
         {
           "id": "relation-affa96de7b04",
@@ -9025,9 +9237,9 @@
           "relation_kind": "continuity",
           "strength": 0.921249,
           "weight": 8.369992,
-          "layoutX": -0.191515,
-          "layoutY": 0.017423,
-          "layoutZ": 0.5868
+          "layoutX": -0.076045,
+          "layoutY": 0.065033,
+          "layoutZ": 0.473007
         },
         {
           "id": "relation-e370b4eff09a",
@@ -9038,9 +9250,9 @@
           "relation_kind": "continuity",
           "strength": 0.92032,
           "weight": 8.36256,
-          "layoutX": 0.261543,
-          "layoutY": 0.016827,
-          "layoutZ": -0.458147
+          "layoutX": 0.253264,
+          "layoutY": 0.124801,
+          "layoutZ": -0.296241
         },
         {
           "id": "relation-e5a34e902972",
@@ -9051,9 +9263,9 @@
           "relation_kind": "continuity",
           "strength": 0.934447,
           "weight": 8.475576,
-          "layoutX": -0.1218,
-          "layoutY": 0.065033,
-          "layoutZ": -0.367119
+          "layoutX": -0.225051,
+          "layoutY": 0.14996,
+          "layoutZ": -0.494229
         },
         {
           "id": "relation-89169428047a",
@@ -9064,9 +9276,9 @@
           "relation_kind": "continuity",
           "strength": 0.913371,
           "weight": 8.306968000000001,
-          "layoutX": 0.057173,
-          "layoutY": 0.124801,
-          "layoutZ": 0.191291
+          "layoutX": 0.217735,
+          "layoutY": 0.121075,
+          "layoutZ": 0.213692
         },
         {
           "id": "relation-d6cc0f94483d",
@@ -9077,9 +9289,9 @@
           "relation_kind": "continuity",
           "strength": 0.883721,
           "weight": 8.069768,
-          "layoutX": -0.451507,
-          "layoutY": 0.14996,
-          "layoutZ": -0.364465
+          "layoutX": -0.585032,
+          "layoutY": 0.060458,
+          "layoutZ": -0.272524
         },
         {
           "id": "relation-d0815f4f316b",
@@ -9090,9 +9302,9 @@
           "relation_kind": "continuity",
           "strength": 0.97393,
           "weight": 8.79144,
-          "layoutX": 0.4289,
-          "layoutY": 0.121075,
-          "layoutZ": 0.447591
+          "layoutX": 0.465253,
+          "layoutY": 0.014938,
+          "layoutZ": 0.289601
         },
         {
           "id": "relation-8442f9a2dd8e",
@@ -9103,9 +9315,9 @@
           "relation_kind": "continuity",
           "strength": 0.926809,
           "weight": 8.414472,
-          "layoutX": -0.393294,
-          "layoutY": 0.060458,
-          "layoutZ": -0.400133
+          "layoutX": -0.313379,
+          "layoutY": 0.019679,
+          "layoutZ": -0.259081
         },
         {
           "id": "relation-6245bce5a5bb",
@@ -9116,9 +9328,9 @@
           "relation_kind": "continuity",
           "strength": 0.863189,
           "weight": 7.905512,
-          "layoutX": 0.028224,
-          "layoutY": 0.014938,
-          "layoutZ": -0.265254
+          "layoutX": -0.125982,
+          "layoutY": 0.071018,
+          "layoutZ": -0.31528
         },
         {
           "id": "relation-335c1987a7c7",
@@ -9129,9 +9341,9 @@
           "relation_kind": "continuity",
           "strength": 0.902949,
           "weight": 8.223592,
-          "layoutX": -0.192466,
-          "layoutY": 0.019679,
-          "layoutZ": 0.047492
+          "layoutX": -0.044967,
+          "layoutY": 0.129296,
+          "layoutZ": -0.019785
         },
         {
           "id": "relation-fcffdf7c5726",
@@ -9142,9 +9354,9 @@
           "relation_kind": "continuity",
           "strength": 0.833947,
           "weight": 7.671576,
-          "layoutX": -0.2984,
-          "layoutY": 0.071018,
-          "layoutZ": -0.011963
+          "layoutX": -0.361716,
+          "layoutY": 0.149492,
+          "layoutZ": 0.137279
         },
         {
           "id": "relation-5dc0e4e6f2e0",
@@ -9155,9 +9367,9 @@
           "relation_kind": "continuity",
           "strength": 0.939794,
           "weight": 8.518352,
-          "layoutX": 0.161447,
-          "layoutY": 0.129296,
-          "layoutZ": 0.001089
+          "layoutX": 0.107323,
+          "layoutY": 0.116005,
+          "layoutZ": -0.151727
         },
         {
           "id": "relation-3e4029248fc2",
@@ -9168,9 +9380,9 @@
           "relation_kind": "continuity",
           "strength": 0.921384,
           "weight": 8.371072,
-          "layoutX": -0.496163,
-          "layoutY": 0.149492,
-          "layoutZ": -0.222502
+          "layoutX": -0.353028,
+          "layoutY": 0.054704,
+          "layoutZ": -0.146381
         },
         {
           "id": "relation-918e9c458da4",
@@ -9181,9 +9393,9 @@
           "relation_kind": "continuity",
           "strength": 0.904048,
           "weight": 8.232384,
-          "layoutX": -0.297204,
-          "layoutY": 0.116005,
-          "layoutZ": -0.226639
+          "layoutX": -0.454167,
+          "layoutY": 0.012944,
+          "layoutZ": -0.186082
         },
         {
           "id": "relation-667dfd46166e",
@@ -9194,9 +9406,9 @@
           "relation_kind": "continuity",
           "strength": 0.937981,
           "weight": 8.503848,
-          "layoutX": 0.071879,
-          "layoutY": 0.054704,
-          "layoutZ": 0.244736
+          "layoutX": 0.160222,
+          "layoutY": 0.022986,
+          "layoutZ": 0.108804
         },
         {
           "id": "relation-37a2e2e167cb",
@@ -9207,9 +9419,9 @@
           "relation_kind": "continuity",
           "strength": 0.948642,
           "weight": 8.589136,
-          "layoutX": -0.475569,
-          "layoutY": 0.012944,
-          "layoutZ": -0.183569
+          "layoutX": -0.44889,
+          "layoutY": 0.077071,
+          "layoutZ": -0.023661
         },
         {
           "id": "relation-b3ba8f3f50be",
@@ -9220,9 +9432,9 @@
           "relation_kind": "continuity",
           "strength": 0.931408,
           "weight": 8.451264,
-          "layoutX": -0.019774,
-          "layoutY": 0.022986,
-          "layoutZ": 0.376418
+          "layoutX": -0.147463,
+          "layoutY": 0.133419,
+          "layoutZ": 0.276529
         },
         {
           "id": "relation-6435812c8268",
@@ -9233,9 +9445,9 @@
           "relation_kind": "continuity",
           "strength": 0.926863,
           "weight": 8.414904,
-          "layoutX": -0.291746,
-          "layoutY": 0.077071,
-          "layoutZ": 0.560833
+          "layoutX": -0.130118,
+          "layoutY": 0.148501,
+          "layoutZ": 0.548236
         },
         {
           "id": "relation-c5dd58723823",
@@ -9246,9 +9458,9 @@
           "relation_kind": "continuity",
           "strength": 0.964316,
           "weight": 8.714528,
-          "layoutX": -0.054327,
-          "layoutY": 0.133419,
-          "layoutZ": -0.129533
+          "layoutX": -0.164997,
+          "layoutY": 0.110665,
+          "layoutZ": -0.011066
         },
         {
           "id": "relation-01facecd1a9d",
@@ -9259,9 +9471,9 @@
           "relation_kind": "continuity",
           "strength": 0.916902,
           "weight": 8.335215999999999,
-          "layoutX": -0.333404,
-          "layoutY": 0.148501,
-          "layoutZ": 0.159421
+          "layoutX": -0.331822,
+          "layoutY": 0.04914,
+          "layoutZ": -0.002689
         },
         {
           "id": "relation-50791f962099",
@@ -9272,9 +9484,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.59942,
           "weight": 5.79536,
-          "layoutX": -0.073599,
-          "layoutY": 0.200665,
-          "layoutZ": 0.063639
+          "layoutX": 0.034738,
+          "layoutY": 0.101455,
+          "layoutZ": 0.184243
         },
         {
           "id": "relation-bb47dfd0f0cc",
@@ -9285,9 +9497,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.529136,
           "weight": 5.233088,
-          "layoutX": 0.122895,
-          "layoutY": 0.13914,
-          "layoutZ": -0.110654
+          "layoutX": -0.038456,
+          "layoutY": 0.116722,
+          "layoutZ": -0.126403
         },
         {
           "id": "relation-fc4b4569b143",
@@ -9298,9 +9510,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.585282,
           "weight": 5.682256,
-          "layoutX": 0.443636,
-          "layoutY": 0.101455,
-          "layoutZ": 0.230818
+          "layoutX": 0.573249,
+          "layoutY": 0.173146,
+          "layoutZ": 0.133439
         },
         {
           "id": "relation-161da4ef51b7",
@@ -9311,9 +9523,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.481606,
           "weight": 4.852848,
-          "layoutX": -0.524199,
-          "layoutY": 0.116722,
-          "layoutZ": -0.019397
+          "layoutX": -0.555566,
+          "layoutY": 0.22714,
+          "layoutZ": 0.1414
         },
         {
           "id": "relation-67bb04de1f9b",
@@ -9324,9 +9536,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.599054,
           "weight": 5.792432,
-          "layoutX": 0.107753,
-          "layoutY": 0.173146,
-          "layoutZ": 0.381441
+          "layoutX": 0.020505,
+          "layoutY": 0.236993,
+          "layoutZ": 0.245252
         },
         {
           "id": "relation-518dd95bca49",
@@ -9337,9 +9549,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.481489,
           "weight": 4.8519120000000004,
-          "layoutX": -0.103772,
-          "layoutY": 0.22714,
-          "layoutZ": 0.097729
+          "layoutX": 0.050796,
+          "layoutY": 0.195093,
+          "layoutZ": 0.142782
         },
         {
           "id": "relation-1358df5b2fc5",
@@ -9350,9 +9562,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.488651,
           "weight": 4.909208,
-          "layoutX": -0.01728,
-          "layoutY": 0.236993,
-          "layoutZ": 0.284324
+          "layoutX": -0.163446,
+          "layoutY": 0.133808,
+          "layoutZ": 0.359079
         },
         {
           "id": "relation-bbd99f803da4",
@@ -9363,9 +9575,22 @@
           "relation_kind": "counterpoint",
           "strength": 0.579854,
           "weight": 5.638832,
-          "layoutX": -0.056817,
-          "layoutY": 0.195093,
-          "layoutZ": 0.539745
+          "layoutX": -0.001295,
+          "layoutY": 0.100482,
+          "layoutZ": 0.389456
+        },
+        {
+          "id": "relation-818b58c0c537",
+          "type": "relation",
+          "level": 1,
+          "label": "counterpoint: Original Douay-Rheims Catholic Canon / Sonnets and Madrigals of Michelangelo Buonarroti",
+          "coordinate": "root://library-composition/relation/relation-818b58c0c537",
+          "relation_kind": "counterpoint",
+          "strength": 0.555385,
+          "weight": 5.44308,
+          "layoutX": -0.394305,
+          "layoutY": 0.120859,
+          "layoutZ": 0.525833
         },
         {
           "id": "relation-2ecf7406c84c",
@@ -9376,9 +9601,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.510665,
           "weight": 5.08532,
-          "layoutX": -0.183073,
-          "layoutY": 0.133808,
-          "layoutZ": -0.065932
+          "layoutX": -0.10713,
+          "layoutY": 0.179198,
+          "layoutZ": -0.137073
         },
         {
           "id": "relation-85a159fb356f",
@@ -9389,9 +9614,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.505549,
           "weight": 5.044392,
-          "layoutX": -0.096594,
-          "layoutY": 0.100482,
-          "layoutZ": -0.111173
+          "layoutX": -0.106286,
+          "layoutY": 0.230431,
+          "layoutZ": -0.005985
         },
         {
           "id": "relation-1ebc228bddf5",
@@ -9402,9 +9627,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.467813,
           "weight": 4.742504,
-          "layoutX": -0.486321,
-          "layoutY": 0.120859,
-          "layoutZ": 0.169346
+          "layoutX": -0.553422,
+          "layoutY": 0.234981,
+          "layoutZ": 0.087222
         },
         {
           "id": "relation-dd31f2d29726",
@@ -9415,9 +9640,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.505352,
           "weight": 5.042816,
-          "layoutX": -0.277458,
-          "layoutY": 0.179198,
-          "layoutZ": -0.181294
+          "layoutX": -0.174266,
+          "layoutY": 0.189333,
+          "layoutZ": -0.162498
         },
         {
           "id": "relation-37ab2b7f16fc",
@@ -9428,9 +9653,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.460036,
           "weight": 4.680288,
-          "layoutX": 0.07699,
-          "layoutY": 0.230431,
-          "layoutZ": 0.070756
+          "layoutX": -0.013557,
+          "layoutY": 0.128749,
+          "layoutZ": 0.130168
         },
         {
           "id": "relation-3b588748b371",
@@ -9441,9 +9666,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.480297,
           "weight": 4.842376,
-          "layoutX": -0.082026,
-          "layoutY": 0.234981,
-          "layoutZ": 0.140857
+          "layoutX": -0.055113,
+          "layoutY": 0.100033,
+          "layoutZ": 0.038822
         },
         {
           "id": "relation-20f4951967ce",
@@ -9454,9 +9679,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.494029,
           "weight": 4.952232,
-          "layoutX": -0.116492,
-          "layoutY": 0.189333,
-          "layoutZ": -0.1651
+          "layoutX": -0.068095,
+          "layoutY": 0.125366,
+          "layoutZ": -0.069958
         },
         {
           "id": "relation-05787085fe72",
@@ -9467,9 +9692,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.502725,
           "weight": 5.0218,
-          "layoutX": -0.117701,
-          "layoutY": 0.128749,
-          "layoutZ": 0.55711
+          "layoutX": -0.219415,
+          "layoutY": 0.18518,
+          "layoutZ": 0.523213
         },
         {
           "id": "relation-0e885e75d3d1",
@@ -9480,9 +9705,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.481802,
           "weight": 4.8544160000000005,
-          "layoutX": -0.478405,
-          "layoutY": 0.100033,
-          "layoutZ": 0.306053
+          "layoutX": -0.382267,
+          "layoutY": 0.233267,
+          "layoutZ": 0.265907
         },
         {
           "id": "relation-82f5548cd2e9",
@@ -9493,9 +9718,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.52705,
           "weight": 5.2164,
-          "layoutX": 0.685056,
-          "layoutY": 0.125366,
-          "layoutZ": 0.105984
+          "layoutX": 0.641099,
+          "layoutY": 0.23248,
+          "layoutZ": 0.202652
         },
         {
           "id": "relation-f30bb15005a8",
@@ -9506,9 +9731,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.517413,
           "weight": 5.139304,
-          "layoutX": 0.432503,
-          "layoutY": 0.18518,
-          "layoutZ": 0.055037
+          "layoutX": 0.399617,
+          "layoutY": 0.183426,
+          "layoutZ": -0.045936
         },
         {
           "id": "relation-360a37fad5d1",
@@ -9519,9 +9744,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.515595,
           "weight": 5.12476,
-          "layoutX": 0.482164,
-          "layoutY": 0.233267,
-          "layoutZ": 0.182728
+          "layoutX": 0.574619,
+          "layoutY": 0.124001,
+          "layoutZ": 0.234969
         },
         {
           "id": "relation-7c04c51ac3c6",
@@ -9532,9 +9757,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.574453,
           "weight": 5.595624,
-          "layoutX": 0.606951,
-          "layoutY": 0.23248,
-          "layoutZ": 0.323736
+          "layoutX": 0.503489,
+          "layoutY": 0.100111,
+          "layoutZ": 0.347668
         },
         {
           "id": "relation-4b0090a871e3",
@@ -9545,9 +9770,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.562588,
           "weight": 5.500704,
-          "layoutX": -0.066138,
-          "layoutY": 0.183426,
-          "layoutZ": 0.013507
+          "layoutX": -0.008047,
+          "layoutY": 0.13021,
+          "layoutZ": -0.074675
         },
         {
           "id": "relation-381454a09f2e",
@@ -9558,9 +9783,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.582801,
           "weight": 5.662408,
-          "layoutX": 0.31094,
-          "layoutY": 0.124001,
-          "layoutZ": -0.204713
+          "layoutX": 0.325735,
+          "layoutY": 0.191048,
+          "layoutZ": -0.099556
         },
         {
           "id": "relation-e75a6e915e74",
@@ -9571,9 +9796,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.565657,
           "weight": 5.525256,
-          "layoutX": 0.019371,
-          "layoutY": 0.100111,
-          "layoutZ": 0.293467
+          "layoutX": -0.062571,
+          "layoutY": 0.235626,
+          "layoutZ": 0.225921
         },
         {
           "id": "relation-fabfb7d3a28e",
@@ -9584,9 +9809,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.508636,
           "weight": 5.069088,
-          "layoutX": 0.22972,
-          "layoutY": 0.13021,
-          "layoutZ": 0.269329
+          "layoutX": 0.335769,
+          "layoutY": 0.229507,
+          "layoutZ": 0.263784
         },
         {
           "id": "relation-eb93ce45a047",
@@ -9597,9 +9822,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.537443,
           "weight": 5.299544,
-          "layoutX": 0.523953,
-          "layoutY": 0.191048,
-          "layoutZ": -0.086442
+          "layoutX": 0.449502,
+          "layoutY": 0.177419,
+          "layoutZ": -0.010719
         },
         {
           "id": "relation-bc07da0aa017",
@@ -9610,9 +9835,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.558778,
           "weight": 5.470224,
-          "layoutX": 0.054815,
-          "layoutY": 0.235626,
-          "layoutZ": -0.057631
+          "layoutX": 0.058563,
+          "layoutY": 0.119599,
+          "layoutZ": -0.163758
         },
         {
           "id": "relation-97a243c7441f",
@@ -9623,9 +9848,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.526037,
           "weight": 5.208296,
-          "layoutX": 0.598999,
-          "layoutY": 0.229507,
-          "layoutZ": 0.068325
+          "layoutX": 0.667923,
+          "layoutY": 0.100715,
+          "layoutZ": 0.149111
         },
         {
           "id": "relation-cf8afed3b2f8",
@@ -9636,9 +9861,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.473308,
           "weight": 4.7864640000000005,
-          "layoutX": 0.293892,
-          "layoutY": 0.177419,
-          "layoutZ": 0.477047
+          "layoutX": 0.188499,
+          "layoutY": 0.135353,
+          "layoutZ": 0.464035
         },
         {
           "id": "relation-a7ee76f77128",
@@ -9649,9 +9874,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.575118,
           "weight": 5.600944,
-          "layoutX": 0.433114,
-          "layoutY": 0.119599,
-          "layoutZ": -0.057145
+          "layoutX": 0.51768,
+          "layoutY": 0.196757,
+          "layoutZ": -0.117848
         },
         {
           "id": "relation-202c12d1f2c1",
@@ -9662,9 +9887,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.576398,
           "weight": 5.611184,
-          "layoutX": 0.314786,
-          "layoutY": 0.100715,
-          "layoutZ": 0.324344
+          "layoutX": 0.29261,
+          "layoutY": 0.23749,
+          "layoutZ": 0.428196
         },
         {
           "id": "relation-2bff604b54e4",
@@ -9675,9 +9900,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.572578,
           "weight": 5.580624,
-          "layoutX": 0.278061,
-          "layoutY": 0.135353,
-          "layoutZ": 0.462371
+          "layoutX": 0.224262,
+          "layoutY": 0.226087,
+          "layoutZ": 0.370814
         },
         {
           "id": "relation-7703dbe7383f",
@@ -9688,9 +9913,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.544798,
           "weight": 5.358384,
-          "layoutX": 0.021368,
-          "layoutY": 0.196757,
-          "layoutZ": 0.002067
+          "layoutX": 0.122883,
+          "layoutY": 0.171356,
+          "layoutZ": 0.033238
         },
         {
           "id": "relation-d176c0fc05de",
@@ -9701,9 +9926,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.47559,
           "weight": 4.80472,
-          "layoutX": 0.245049,
-          "layoutY": 0.23749,
-          "layoutZ": 0.397085
+          "layoutX": 0.14914,
+          "layoutY": 0.115577,
+          "layoutZ": 0.442674
         },
         {
           "id": "relation-e8ab7386dbae",
@@ -9714,9 +9939,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.567099,
           "weight": 5.536792,
-          "layoutX": 0.270633,
-          "layoutY": 0.226087,
-          "layoutZ": -0.123522
+          "layoutX": 0.310559,
+          "layoutY": 0.101841,
+          "layoutZ": -0.221924
         },
         {
           "id": "relation-a0f7026238b7",
@@ -9727,9 +9952,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.547455,
           "weight": 5.37964,
-          "layoutX": 0.64018,
-          "layoutY": 0.171356,
-          "layoutZ": 0.001171
+          "layoutX": 0.677209,
+          "layoutY": 0.140758,
+          "layoutZ": 0.100699
         },
         {
           "id": "relation-b4ed02982f10",
@@ -9740,9 +9965,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.520414,
           "weight": 5.163312,
-          "layoutX": 0.03967,
-          "layoutY": 0.115577,
-          "layoutZ": 0.205741
+          "layoutX": -0.054864,
+          "layoutY": 0.202265,
+          "layoutZ": 0.157365
         },
         {
           "id": "relation-f2aa3ef2ffe8",
@@ -9753,9 +9978,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.573315,
           "weight": 5.58652,
-          "layoutX": 0.351288,
-          "layoutY": 0.101841,
-          "layoutZ": 0.247782
+          "layoutX": 0.453672,
+          "layoutY": 0.238847,
+          "layoutZ": 0.219596
         },
         {
           "id": "relation-ba87d8cda380",
@@ -9766,9 +9991,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.544934,
           "weight": 5.359472,
-          "layoutX": 0.677899,
-          "layoutY": 0.140758,
-          "layoutZ": 0.156718
+          "layoutX": 0.621444,
+          "layoutY": 0.222244,
+          "layoutZ": 0.246661
         },
         {
           "id": "relation-5304ce4348d5",
@@ -9779,9 +10004,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.554331,
           "weight": 5.434648,
-          "layoutX": -0.025365,
-          "layoutY": 0.202265,
-          "layoutZ": 0.29924
+          "layoutX": -0.044492,
+          "layoutY": 0.165283,
+          "layoutZ": 0.194784
         },
         {
           "id": "relation-88390e529b41",
@@ -9792,9 +10017,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.585263,
           "weight": 5.682104,
-          "layoutX": 0.120812,
-          "layoutY": 0.238847,
-          "layoutZ": -0.164824
+          "layoutX": 0.205475,
+          "layoutY": 0.111965,
+          "layoutZ": -0.100721
         },
         {
           "id": "relation-7f1453682d2a",
@@ -9805,9 +10030,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.537923,
           "weight": 5.303384,
-          "layoutX": 0.148108,
-          "layoutY": 0.222244,
-          "layoutZ": 0.36182
+          "layoutX": 0.04238,
+          "layoutY": 0.10348,
+          "layoutZ": 0.371742
         },
         {
           "id": "relation-7b4950e8f588",
@@ -9818,9 +10043,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.541224,
           "weight": 5.329792,
-          "layoutX": -0.053439,
-          "layoutY": 0.165283,
-          "layoutZ": 0.17542
+          "layoutX": 0.01782,
+          "layoutY": 0.146382,
+          "layoutZ": 0.096685
         },
         {
           "id": "relation-dd119dd1d4aa",
@@ -9831,9 +10056,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.562296,
           "weight": 5.498368,
-          "layoutX": 0.464998,
-          "layoutY": 0.111965,
-          "layoutZ": -0.197893
+          "layoutX": 0.465639,
+          "layoutY": 0.207529,
+          "layoutZ": -0.091702
         },
         {
           "id": "relation-eb6d37e1abbc",
@@ -9844,9 +10069,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.502329,
           "weight": 5.018632,
-          "layoutX": 0.133881,
-          "layoutY": 0.10348,
-          "layoutZ": -0.01667
+          "layoutX": 0.061678,
+          "layoutY": 0.239685,
+          "layoutZ": -0.094539
         },
         {
           "id": "relation-2f932d05d76a",
@@ -9857,9 +10082,9 @@
           "relation_kind": "counterpoint",
           "strength": 0.450654,
           "weight": 4.605232,
-          "layoutX": 0.188304,
-          "layoutY": 0.146382,
-          "layoutZ": 0.251596
+          "layoutX": 0.294144,
+          "layoutY": 0.218008,
+          "layoutZ": 0.260242
         },
         {
           "id": "relation-4df2343859e1",
@@ -9870,9 +10095,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": 0.028614,
-          "layoutY": 0.252529,
-          "layoutZ": 0.200252
+          "layoutX": -0.05527,
+          "layoutY": 0.204245,
+          "layoutZ": 0.265371
         },
         {
           "id": "relation-1c437c608928",
@@ -9883,9 +10108,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.138361,
-          "layoutY": 0.284685,
-          "layoutZ": 0.222202
+          "layoutX": -0.120495,
+          "layoutY": 0.15379,
+          "layoutZ": 0.117523
         },
         {
           "id": "relation-26cfff7ee8c0",
@@ -9896,9 +10121,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": 0.051932,
-          "layoutY": 0.263008,
-          "layoutZ": -0.292094
+          "layoutX": 0.105499,
+          "layoutY": 0.15062,
+          "layoutZ": -0.202592
         },
         {
           "id": "relation-2780c5c4320b",
@@ -9909,9 +10134,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": 0.165624,
-          "layoutY": 0.204245,
-          "layoutZ": -0.008264
+          "layoutX": 0.062907,
+          "layoutY": 0.197185,
+          "layoutZ": -0.035214
         },
         {
           "id": "relation-5c43d1f6b9bf",
@@ -9922,9 +10147,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": 0.319759,
-          "layoutY": 0.15379,
-          "layoutZ": 0.116483
+          "layoutX": 0.413703,
+          "layoutY": 0.257511,
+          "layoutZ": 0.066971
         },
         {
           "id": "relation-98c92f8195bb",
@@ -9935,9 +10160,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": 0.255296,
-          "layoutY": 0.15062,
-          "layoutZ": 0.120291
+          "layoutX": 0.217533,
+          "layoutY": 0.284998,
+          "layoutZ": 0.221153
         },
         {
           "id": "relation-02e8aedd4e4d",
@@ -9948,9 +10173,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.269604,
-          "layoutY": 0.197185,
-          "layoutZ": 0.087727
+          "layoutX": -0.310714,
+          "layoutY": 0.25841,
+          "layoutZ": -0.010186
         },
         {
           "id": "relation-b3f8076d7185",
@@ -9961,9 +10186,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.080275,
-          "layoutY": 0.257511,
-          "layoutZ": -0.291286
+          "layoutX": 0.016177,
+          "layoutY": 0.198288,
+          "layoutZ": -0.246857
         },
         {
           "id": "relation-22406b8e82a8",
@@ -9974,9 +10199,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": 0.605868,
-          "layoutY": 0.284998,
-          "layoutZ": 0.120995
+          "layoutX": 0.504735,
+          "layoutY": 0.151076,
+          "layoutZ": 0.153387
         },
         {
           "id": "relation-9e44260dcbad",
@@ -9987,9 +10212,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.264549,
-          "layoutY": 0.25841,
-          "layoutZ": 0.118645
+          "layoutX": -0.211858,
+          "layoutY": 0.153246,
+          "layoutZ": 0.026446
         },
         {
           "id": "relation-7e7ee5815389",
@@ -10000,9 +10225,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": 0.281112,
-          "layoutY": 0.198288,
-          "layoutZ": -0.076506
+          "layoutX": 0.304539,
+          "layoutY": 0.203121,
+          "layoutZ": 0.027071
         },
         {
           "id": "relation-8cb9d9cbeb93",
@@ -10013,9 +10238,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": 0.131941,
-          "layoutY": 0.151076,
-          "layoutZ": 0.233537
+          "layoutX": 0.044701,
+          "layoutY": 0.262173,
+          "layoutZ": 0.172988
         },
         {
           "id": "relation-b8e78334cc85",
@@ -10026,9 +10251,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.551429,
-          "layoutY": 0.153246,
-          "layoutZ": -0.254014
+          "layoutX": -0.4462,
+          "layoutY": 0.284783,
+          "layoutZ": -0.268295
         },
         {
           "id": "relation-56ee17c974b5",
@@ -10039,9 +10264,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.000818,
-          "layoutY": 0.203121,
-          "layoutZ": 0.176615
+          "layoutX": -0.070795,
+          "layoutY": 0.253485,
+          "layoutZ": 0.257578
         },
         {
           "id": "relation-24646844481d",
@@ -10052,9 +10277,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.06243,
-          "layoutY": 0.262173,
-          "layoutZ": 0.242703
+          "layoutX": -0.067458,
+          "layoutY": 0.192457,
+          "layoutZ": 0.136629
         },
         {
           "id": "relation-54765a10f827",
@@ -10065,9 +10290,22 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.25535,
-          "layoutY": 0.284783,
-          "layoutZ": -0.361132
+          "layoutX": -0.179991,
+          "layoutY": 0.148843,
+          "layoutZ": -0.286312
+        },
+        {
+          "id": "relation-e8f42f4e59d6",
+          "type": "relation",
+          "level": 1,
+          "label": "recurrence: The Notebooks of Leonardo da Vinci — Complete / Sonnets and Madrigals of Michelangelo Buonarroti",
+          "coordinate": "root://library-composition/relation/relation-e8f42f4e59d6",
+          "relation_kind": "recurrence",
+          "strength": 1,
+          "weight": 9,
+          "layoutX": 0.057703,
+          "layoutY": 0.156336,
+          "layoutZ": 0.253888
         },
         {
           "id": "relation-5e65b2b9d3ff",
@@ -10078,9 +10316,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.153701,
-          "layoutY": 0.253485,
-          "layoutZ": -0.28011
+          "layoutX": -0.231317,
+          "layoutY": 0.209147,
+          "layoutZ": -0.506241
         },
         {
           "id": "relation-a2adef942214",
@@ -10091,9 +10329,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.268276,
-          "layoutY": 0.192457,
-          "layoutZ": -0.151998
+          "layoutX": -0.058295,
+          "layoutY": 0.26648,
+          "layoutZ": -0.037685
         },
         {
           "id": "relation-18a4f75a5c35",
@@ -10104,9 +10342,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.015696,
-          "layoutY": 0.148843,
-          "layoutZ": -0.174265
+          "layoutX": -0.247747,
+          "layoutY": 0.284044,
+          "layoutZ": -0.116716
         },
         {
           "id": "relation-3cf4f733cfef",
@@ -10117,9 +10355,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": -0.013568,
-          "layoutY": 0.156336,
-          "layoutZ": 0.093587
+          "layoutX": 0.118665,
+          "layoutY": 0.248271,
+          "layoutZ": -0.105596
         },
         {
           "id": "relation-e51c33cbb443",
@@ -10130,9 +10368,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": 0.203577,
-          "layoutY": 0.209147,
-          "layoutZ": 0.246704
+          "layoutX": 0.240619,
+          "layoutY": 0.186796,
+          "layoutZ": 0.482898
         },
         {
           "id": "relation-f4e5fc92167e",
@@ -10143,9 +10381,9 @@
           "relation_kind": "recurrence",
           "strength": 1,
           "weight": 9,
-          "layoutX": 0.287559,
-          "layoutY": 0.26648,
-          "layoutZ": 0.04012
+          "layoutX": 0.100698,
+          "layoutY": 0.147109,
+          "layoutZ": -0.10902
         },
         {
           "id": "grammar-continuity",
@@ -10153,7 +10391,7 @@
           "level": 2,
           "label": "continuity",
           "coordinate": "root://library-composition/grammar/continuity",
-          "weight": 35,
+          "weight": 36,
           "layoutX": -0.36,
           "layoutY": -0.46,
           "layoutZ": 0
@@ -10164,7 +10402,7 @@
           "level": 2,
           "label": "coherence",
           "coordinate": "root://library-composition/grammar/coherence",
-          "weight": 37,
+          "weight": 38,
           "layoutX": -0.12,
           "layoutY": -0.46,
           "layoutZ": 0.18
@@ -10175,7 +10413,7 @@
           "level": 2,
           "label": "counterpoint",
           "coordinate": "root://library-composition/grammar/counterpoint",
-          "weight": 46,
+          "weight": 47,
           "layoutX": 0.12,
           "layoutY": -0.46,
           "layoutZ": 0
@@ -10186,7 +10424,7 @@
           "level": 2,
           "label": "recurrence",
           "coordinate": "root://library-composition/grammar/recurrence",
-          "weight": 22,
+          "weight": 23,
           "layoutX": 0.36,
           "layoutY": -0.46,
           "layoutZ": -0.18
@@ -10197,7 +10435,7 @@
           "level": 3,
           "label": "Root Logos Library Composition",
           "coordinate": "root://library-composition",
-          "weight": 48,
+          "weight": 49,
           "layoutX": 0,
           "layoutY": -0.92,
           "layoutZ": 0
@@ -10667,6 +10905,27 @@
           "relation_kind": "coherence"
         },
         {
+          "from": "the-bhagavad-gita-3a4dcb45",
+          "to": "relation-aa53e63b7381",
+          "relation": "enters",
+          "weight": 3.666664,
+          "relation_kind": "coherence"
+        },
+        {
+          "from": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+          "to": "relation-aa53e63b7381",
+          "relation": "enters",
+          "weight": 3.666664,
+          "relation_kind": "coherence"
+        },
+        {
+          "from": "relation-aa53e63b7381",
+          "to": "grammar-coherence",
+          "relation": "composes",
+          "weight": 3.666664,
+          "relation_kind": "coherence"
+        },
+        {
           "from": "the-constitution-of-the-united-states-of-america-1787-c8f33517",
           "to": "relation-3afe15f65144",
           "relation": "enters",
@@ -11045,24 +11304,45 @@
           "relation_kind": "continuity"
         },
         {
-          "from": "constructor-theory-3b6d4667",
-          "to": "relation-3ccd2e268dba",
+          "from": "constitutional-naturalization-1a2ad829",
+          "to": "relation-822f9f7e7eed",
           "relation": "enters",
-          "weight": 7.772176,
+          "weight": 8.254944,
           "relation_kind": "continuity"
         },
         {
-          "from": "participation-without-possession-31458969",
-          "to": "relation-3ccd2e268dba",
+          "from": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+          "to": "relation-822f9f7e7eed",
           "relation": "enters",
-          "weight": 7.772176,
+          "weight": 8.254944,
           "relation_kind": "continuity"
         },
         {
-          "from": "relation-3ccd2e268dba",
+          "from": "relation-822f9f7e7eed",
           "to": "grammar-continuity",
           "relation": "composes",
-          "weight": 7.772176,
+          "weight": 8.254944,
+          "relation_kind": "continuity"
+        },
+        {
+          "from": "constructor-theory-3b6d4667",
+          "to": "relation-e34657a3212f",
+          "relation": "enters",
+          "weight": 8.219728,
+          "relation_kind": "continuity"
+        },
+        {
+          "from": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+          "to": "relation-e34657a3212f",
+          "relation": "enters",
+          "weight": 8.219728,
+          "relation_kind": "continuity"
+        },
+        {
+          "from": "relation-e34657a3212f",
+          "to": "grammar-continuity",
+          "relation": "composes",
+          "weight": 8.219728,
           "relation_kind": "continuity"
         },
         {
@@ -11882,6 +12162,27 @@
           "to": "grammar-counterpoint",
           "relation": "composes",
           "weight": 5.638832,
+          "relation_kind": "counterpoint"
+        },
+        {
+          "from": "original-douay-rheims-catholic-canon",
+          "to": "relation-818b58c0c537",
+          "relation": "enters",
+          "weight": 5.44308,
+          "relation_kind": "counterpoint"
+        },
+        {
+          "from": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+          "to": "relation-818b58c0c537",
+          "relation": "enters",
+          "weight": 5.44308,
+          "relation_kind": "counterpoint"
+        },
+        {
+          "from": "relation-818b58c0c537",
+          "to": "grammar-counterpoint",
+          "relation": "composes",
+          "weight": 5.44308,
           "relation_kind": "counterpoint"
         },
         {
@@ -13019,6 +13320,27 @@
           "relation_kind": "recurrence"
         },
         {
+          "from": "the-notebooks-of-leonardo-da-vinci-complete-359e73f1",
+          "to": "relation-e8f42f4e59d6",
+          "relation": "enters",
+          "weight": 9,
+          "relation_kind": "recurrence"
+        },
+        {
+          "from": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+          "to": "relation-e8f42f4e59d6",
+          "relation": "enters",
+          "weight": 9,
+          "relation_kind": "recurrence"
+        },
+        {
+          "from": "relation-e8f42f4e59d6",
+          "to": "grammar-recurrence",
+          "relation": "composes",
+          "weight": 9,
+          "relation_kind": "recurrence"
+        },
+        {
           "from": "the-odyssey-cfbe5b1d",
           "to": "relation-5e65b2b9d3ff",
           "relation": "enters",
@@ -13148,28 +13470,28 @@
           "from": "grammar-continuity",
           "to": "library-composition",
           "relation": "emerges-as",
-          "weight": 35,
+          "weight": 36,
           "relation_kind": "continuity"
         },
         {
           "from": "grammar-coherence",
           "to": "library-composition",
           "relation": "emerges-as",
-          "weight": 37,
+          "weight": 38,
           "relation_kind": "coherence"
         },
         {
           "from": "grammar-counterpoint",
           "to": "library-composition",
           "relation": "emerges-as",
-          "weight": 46,
+          "weight": 47,
           "relation_kind": "counterpoint"
         },
         {
           "from": "grammar-recurrence",
           "to": "library-composition",
           "relation": "emerges-as",
-          "weight": 22,
+          "weight": 23,
           "relation_kind": "recurrence"
         }
       ]
@@ -13475,7 +13797,20 @@
         "index": 22,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 129.636,
+        "frequency": 112.968,
+        "amplitude": 0.03,
+        "beats": 1,
+        "rest": false,
+        "relation_id": "relation-aa53e63b7381",
+        "from_work_id": "the-bhagavad-gita-3a4dcb45",
+        "to_work_id": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+        "provenance": "The Bhagavad Gita + Sonnets and Madrigals of Michelangelo Buonarroti / coherence"
+      },
+      {
+        "index": 23,
+        "voice": "coherence",
+        "waveform": "sine",
+        "frequency": 319.521,
         "amplitude": 0.036,
         "beats": 1,
         "rest": false,
@@ -13485,10 +13820,10 @@
         "provenance": "The Constitution of the United States of America, 1787 + The Twenty-Seven Amendments to the Constitution of the United States / coherence"
       },
       {
-        "index": 23,
+        "index": 24,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 352,
+        "frequency": 220,
         "amplitude": 0.0231,
         "beats": 1,
         "rest": false,
@@ -13498,10 +13833,10 @@
         "provenance": "The Federalist Papers + Tao Te Ching / coherence"
       },
       {
-        "index": 24,
+        "index": 25,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 165,
+        "frequency": 208.71,
         "amplitude": 0.0231,
         "beats": 1,
         "rest": false,
@@ -13511,10 +13846,10 @@
         "provenance": "The Invisible Substrate + Participatory Sovereignty / coherence"
       },
       {
-        "index": 25,
+        "index": 26,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 207.418,
+        "frequency": 116.673,
         "amplitude": 0.0213,
         "beats": 1,
         "rest": false,
@@ -13524,10 +13859,10 @@
         "provenance": "The Life of the Buddha: According to the Pali Canon + Frankenstein; or, The Modern Prometheus / coherence"
       },
       {
-        "index": 26,
+        "index": 27,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 233.345,
+        "frequency": 124.451,
         "amplitude": 0.0196,
         "beats": 1,
         "rest": false,
@@ -13537,10 +13872,10 @@
         "provenance": "The Machine Stops + Sketch of the Analytical Engine Invented by Charles Babbage, Esq. / coherence"
       },
       {
-        "index": 27,
+        "index": 28,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 146.866,
+        "frequency": 114.4,
         "amplitude": 0.0252,
         "beats": 1,
         "rest": false,
@@ -13550,10 +13885,10 @@
         "provenance": "The Odyssey + King James Bible (1769) / coherence"
       },
       {
-        "index": 28,
+        "index": 29,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 142.894,
+        "frequency": 240.998,
         "amplitude": 0.0231,
         "beats": 1,
         "rest": false,
@@ -13563,10 +13898,10 @@
         "provenance": "The Odyssey + The Poetic Edda / coherence"
       },
       {
-        "index": 29,
+        "index": 30,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 127.808,
+        "frequency": 220,
         "amplitude": 0.0213,
         "beats": 1,
         "rest": false,
@@ -13576,10 +13911,10 @@
         "provenance": "The Republic + The Dhammapada / coherence"
       },
       {
-        "index": 30,
+        "index": 31,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 220,
+        "frequency": 213.014,
         "amplitude": 0.0231,
         "beats": 1,
         "rest": false,
@@ -13589,10 +13924,10 @@
         "provenance": "The Republic + The Iliad / coherence"
       },
       {
-        "index": 31,
+        "index": 32,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 284.019,
+        "frequency": 260.888,
         "amplitude": 0.0196,
         "beats": 1,
         "rest": false,
@@ -13602,10 +13937,10 @@
         "provenance": "The Republic + The Logical Writings of Karl Popper / coherence"
       },
       {
-        "index": 32,
+        "index": 33,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 115.95,
+        "frequency": 190.526,
         "amplitude": 0.0231,
         "beats": 1,
         "rest": false,
@@ -13615,36 +13950,36 @@
         "provenance": "The Republic + The Machine Stops / coherence"
       },
       {
-        "index": 33,
+        "index": 34,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 215.555,
+        "frequency": 82.5,
         "amplitude": 0.0252,
         "beats": 1,
-        "rest": false,
+        "rest": true,
         "relation_id": "relation-9f7bc8f1ae22",
         "from_work_id": "the-republic-1e98719b",
         "to_work_id": "zhuangzi-ed0e03f3",
         "provenance": "The Republic + Zhuangzi / coherence"
       },
       {
-        "index": 34,
+        "index": 35,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 132,
+        "frequency": 284.019,
         "amplitude": 0.0231,
         "beats": 1,
-        "rest": true,
+        "rest": false,
         "relation_id": "relation-7702cdddbd9a",
         "from_work_id": "the-tempest-ba182d88",
         "to_work_id": "the-bhagavad-gita-3a4dcb45",
         "provenance": "The Tempest + The Bhagavad Gita / coherence"
       },
       {
-        "index": 35,
+        "index": 36,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 213.014,
+        "frequency": 497.803,
         "amplitude": 0.0213,
         "beats": 1,
         "rest": false,
@@ -13654,10 +13989,10 @@
         "provenance": "The Thirteen Books of Euclid's Elements + The Epic of Gilgamesh: An Old Babylonian Version / coherence"
       },
       {
-        "index": 36,
+        "index": 37,
         "voice": "coherence",
         "waveform": "sine",
-        "frequency": 130.444,
+        "frequency": 225.936,
         "amplitude": 0.0231,
         "beats": 1,
         "rest": false,
@@ -13667,10 +14002,10 @@
         "provenance": "Toward a Moral Constitution for Human-Machine Civilization + From Reference to Participation / coherence"
       },
       {
-        "index": 37,
+        "index": 38,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 147.58,
+        "frequency": 155.563,
         "amplitude": 0.051,
         "beats": 1,
         "rest": false,
@@ -13680,10 +14015,10 @@
         "provenance": "A Mathematical Theory of Communication + The Notebooks of Leonardo da Vinci — Complete / continuity"
       },
       {
-        "index": 38,
+        "index": 39,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 146.749,
+        "frequency": 147.58,
         "amplitude": 0.0502,
         "beats": 1,
         "rest": false,
@@ -13693,10 +14028,10 @@
         "provenance": "Bitcoin: A Peer-to-Peer Electronic Cash System + Psychology of the Unconscious / continuity"
       },
       {
-        "index": 39,
+        "index": 40,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 240.998,
+        "frequency": 568.038,
         "amplitude": 0.0531,
         "beats": 1,
         "rest": false,
@@ -13706,23 +14041,36 @@
         "provenance": "Constitutional Naturalization + Participation Without Possession / continuity"
       },
       {
-        "index": 40,
-        "voice": "continuity",
-        "waveform": "sine",
-        "frequency": 328.142,
-        "amplitude": 0.0485,
-        "beats": 1,
-        "rest": false,
-        "relation_id": "relation-3ccd2e268dba",
-        "from_work_id": "constructor-theory-3b6d4667",
-        "to_work_id": "participation-without-possession-31458969",
-        "provenance": "Constructor Theory + Participation Without Possession / continuity"
-      },
-      {
         "index": 41,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 466.691,
+        "frequency": 160.665,
+        "amplitude": 0.0506,
+        "beats": 1,
+        "rest": false,
+        "relation_id": "relation-822f9f7e7eed",
+        "from_work_id": "constitutional-naturalization-1a2ad829",
+        "to_work_id": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+        "provenance": "Constitutional Naturalization + Sonnets and Madrigals of Michelangelo Buonarroti / continuity"
+      },
+      {
+        "index": 42,
+        "voice": "continuity",
+        "waveform": "sine",
+        "frequency": 179.629,
+        "amplitude": 0.0505,
+        "beats": 1,
+        "rest": false,
+        "relation_id": "relation-e34657a3212f",
+        "from_work_id": "constructor-theory-3b6d4667",
+        "to_work_id": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+        "provenance": "Constructor Theory + Sonnets and Madrigals of Michelangelo Buonarroti / continuity"
+      },
+      {
+        "index": 43,
+        "voice": "continuity",
+        "waveform": "sine",
+        "frequency": 381.051,
         "amplitude": 0.0514,
         "beats": 1,
         "rest": false,
@@ -13732,10 +14080,10 @@
         "provenance": "Frankenstein; or, The Modern Prometheus + An Investigation of the Laws of Thought / continuity"
       },
       {
-        "index": 42,
+        "index": 44,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 381.051,
+        "frequency": 115.95,
         "amplitude": 0.0515,
         "beats": 1,
         "rest": false,
@@ -13745,10 +14093,10 @@
         "provenance": "Hamlet + Sketch of the Analytical Engine Invented by Charles Babbage, Esq. / continuity"
       },
       {
-        "index": 43,
+        "index": 45,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 706.126,
+        "frequency": 239.997,
         "amplitude": 0.0527,
         "beats": 1,
         "rest": false,
@@ -13758,10 +14106,10 @@
         "provenance": "Original Douay-Rheims Catholic Canon + King James Bible (1769) / continuity"
       },
       {
-        "index": 44,
+        "index": 46,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 184.476,
+        "frequency": 142.009,
         "amplitude": 0.0438,
         "beats": 1,
         "rest": false,
@@ -13771,10 +14119,10 @@
         "provenance": "Ornament of Abhidharma + Tao Te Ching / continuity"
       },
       {
-        "index": 45,
+        "index": 47,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 285.788,
+        "frequency": 133.888,
         "amplitude": 0.0445,
         "beats": 1,
         "rest": false,
@@ -13784,10 +14132,10 @@
         "provenance": "Ornament of Abhidharma + The Federalist Papers / continuity"
       },
       {
-        "index": 46,
+        "index": 48,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 90.374,
+        "frequency": 571.577,
         "amplitude": 0.05,
         "beats": 1,
         "rest": false,
@@ -13797,10 +14145,10 @@
         "provenance": "Ornament of Abhidharma + Zhuangzi / continuity"
       },
       {
-        "index": 47,
+        "index": 49,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 255.617,
+        "frequency": 155.563,
         "amplitude": 0.0502,
         "beats": 1,
         "rest": false,
@@ -13810,10 +14158,10 @@
         "provenance": "Participatory Sovereignty + Freedom Through Non-Possession / continuity"
       },
       {
-        "index": 48,
+        "index": 50,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 186.676,
+        "frequency": 123.75,
         "amplitude": 0.0525,
         "beats": 1,
         "rest": false,
@@ -13823,23 +14171,23 @@
         "provenance": "Quantum Theory, the Church-Turing Principle and the Universal Quantum Computer + From Reference to Participation / continuity"
       },
       {
-        "index": 49,
+        "index": 51,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 134.722,
+        "frequency": 85.206,
         "amplitude": 0.0511,
         "beats": 1,
-        "rest": false,
+        "rest": true,
         "relation_id": "relation-9a1cbe7fcf2c",
         "from_work_id": "root-logos-founding-constitution-0e20f4a9",
         "to_work_id": "mutual-aid-a-factor-of-evolution-84650682",
         "provenance": "Root Logos: Founding Constitution + Mutual Aid: A Factor of Evolution / continuity"
       },
       {
-        "index": 50,
+        "index": 52,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 401.663,
+        "frequency": 73.375,
         "amplitude": 0.0504,
         "beats": 1,
         "rest": false,
@@ -13849,23 +14197,23 @@
         "provenance": "Root Logos: Founding Constitution + The Calculating Engine / continuity"
       },
       {
-        "index": 51,
+        "index": 53,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 116.673,
+        "frequency": 278.28,
         "amplitude": 0.0514,
         "beats": 1,
-        "rest": true,
+        "rest": false,
         "relation_id": "relation-8511fec2744a",
         "from_work_id": "root-logos-founding-constitution-0e20f4a9",
         "to_work_id": "the-journal-membrane-762f1b41",
         "provenance": "Root Logos: Founding Constitution + The Journal Membrane / continuity"
       },
       {
-        "index": 52,
+        "index": 54,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 231.9,
+        "frequency": 98.387,
         "amplitude": 0.052,
         "beats": 1,
         "rest": false,
@@ -13875,10 +14223,10 @@
         "provenance": "Siddhartha: eine indische Dichtung + Great Founder Theory / continuity"
       },
       {
-        "index": 53,
+        "index": 55,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 120.499,
+        "frequency": 301.247,
         "amplitude": 0.0512,
         "beats": 1,
         "rest": false,
@@ -13888,10 +14236,10 @@
         "provenance": "Siddhartha: eine indische Dichtung + On the Origin of Species by Means of Natural Selection / continuity"
       },
       {
-        "index": 54,
+        "index": 56,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 224.537,
+        "frequency": 240.998,
         "amplitude": 0.0511,
         "beats": 1,
         "rest": false,
@@ -13901,10 +14249,10 @@
         "provenance": "The Art of War + Frankenstein; or, The Modern Prometheus / continuity"
       },
       {
-        "index": 55,
+        "index": 57,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 284.019,
+        "frequency": 278.28,
         "amplitude": 0.0516,
         "beats": 1,
         "rest": false,
@@ -13914,10 +14262,10 @@
         "provenance": "The Bhagavad Gita + An Investigation of the Laws of Thought / continuity"
       },
       {
-        "index": 56,
+        "index": 58,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 156.533,
+        "frequency": 437.522,
         "amplitude": 0.0509,
         "beats": 1,
         "rest": false,
@@ -13927,10 +14275,10 @@
         "provenance": "The Constitution of the United States of America, 1787 + The Twenty-Seven Amendments to the Constitution of the United States / continuity"
       },
       {
-        "index": 57,
+        "index": 59,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 185.625,
+        "frequency": 119.753,
         "amplitude": 0.0498,
         "beats": 1,
         "rest": false,
@@ -13940,10 +14288,10 @@
         "provenance": "The Iliad + An Investigation of the Laws of Thought / continuity"
       },
       {
-        "index": 58,
+        "index": 60,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 152.42,
+        "frequency": 165,
         "amplitude": 0.0531,
         "beats": 1,
         "rest": false,
@@ -13953,10 +14301,10 @@
         "provenance": "The Invisible Substrate + Conscious Participation / continuity"
       },
       {
-        "index": 59,
+        "index": 61,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 124.451,
+        "frequency": 284.019,
         "amplitude": 0.0514,
         "beats": 1,
         "rest": false,
@@ -13966,10 +14314,10 @@
         "provenance": "The Life of the Buddha: According to the Pali Canon + An Investigation of the Laws of Thought / continuity"
       },
       {
-        "index": 60,
+        "index": 62,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 463.801,
+        "frequency": 207.535,
         "amplitude": 0.0491,
         "beats": 1,
         "rest": false,
@@ -13979,10 +14327,10 @@
         "provenance": "The Logical Writings of Karl Popper + The Epic of Gilgamesh: An Old Babylonian Version / continuity"
       },
       {
-        "index": 61,
+        "index": 63,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 401.663,
+        "frequency": 196.774,
         "amplitude": 0.0505,
         "beats": 1,
         "rest": false,
@@ -13992,10 +14340,10 @@
         "provenance": "The Odyssey + Zhuangzi / continuity"
       },
       {
-        "index": 62,
+        "index": 64,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 330,
+        "frequency": 491.935,
         "amplitude": 0.048,
         "beats": 1,
         "rest": false,
@@ -14005,10 +14353,10 @@
         "provenance": "The Poetic Edda + On the Origin of Species by Means of Natural Selection / continuity"
       },
       {
-        "index": 63,
+        "index": 65,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 371.041,
+        "frequency": 142.009,
         "amplitude": 0.0518,
         "beats": 1,
         "rest": false,
@@ -14018,10 +14366,10 @@
         "provenance": "The Republic + A Mathematical Theory of Communication / continuity"
       },
       {
-        "index": 64,
+        "index": 66,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 95.263,
+        "frequency": 269.444,
         "amplitude": 0.0512,
         "beats": 1,
         "rest": false,
@@ -14031,10 +14379,10 @@
         "provenance": "The Republic + The Epic of Gilgamesh: An Old Babylonian Version / continuity"
       },
       {
-        "index": 65,
+        "index": 67,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 142.894,
+        "frequency": 115.95,
         "amplitude": 0.0505,
         "beats": 1,
         "rest": false,
@@ -14044,23 +14392,23 @@
         "provenance": "The Republic + The Machine Stops / continuity"
       },
       {
-        "index": 66,
+        "index": 68,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 160.665,
+        "frequency": 165,
         "amplitude": 0.0518,
         "beats": 1,
-        "rest": false,
+        "rest": true,
         "relation_id": "relation-667dfd46166e",
         "from_work_id": "the-resonant-chamber-5aa7d02c",
         "to_work_id": "the-dhammapada-60b21b01",
         "provenance": "The Resonant Chamber + The Dhammapada / continuity"
       },
       {
-        "index": 67,
+        "index": 69,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 240.998,
+        "frequency": 71.005,
         "amplitude": 0.0522,
         "beats": 1,
         "rest": false,
@@ -14070,23 +14418,23 @@
         "provenance": "The Tempest + Manifesto of the Communist Party / continuity"
       },
       {
-        "index": 68,
+        "index": 70,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 242.499,
+        "frequency": 206.25,
         "amplitude": 0.0515,
         "beats": 1,
-        "rest": true,
+        "rest": false,
         "relation_id": "relation-b3ba8f3f50be",
         "from_work_id": "the-thirteen-books-of-euclids-elements-be0f80f9",
         "to_work_id": "the-resonant-chamber-5aa7d02c",
         "provenance": "The Thirteen Books of Euclid's Elements + The Resonant Chamber / continuity"
       },
       {
-        "index": 69,
+        "index": 71,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 84.726,
+        "frequency": 275,
         "amplitude": 0.0514,
         "beats": 1,
         "rest": false,
@@ -14096,10 +14444,10 @@
         "provenance": "The Twenty-Seven Amendments to the Constitution of the United States + Siddhartha: eine indische Dichtung / continuity"
       },
       {
-        "index": 70,
+        "index": 72,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 132,
+        "frequency": 269.444,
         "amplitude": 0.0527,
         "beats": 1,
         "rest": false,
@@ -14109,10 +14457,10 @@
         "provenance": "Toward a Moral Constitution for Human-Machine Civilization + Participatory Sovereignty / continuity"
       },
       {
-        "index": 71,
+        "index": 73,
         "voice": "continuity",
         "waveform": "sine",
-        "frequency": 234.667,
+        "frequency": 233.345,
         "amplitude": 0.051,
         "beats": 1,
         "rest": false,
@@ -14122,10 +14470,10 @@
         "provenance": "Zhuangzi + An Investigation of the Laws of Thought / continuity"
       },
       {
-        "index": 72,
+        "index": 74,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 254.034,
+        "frequency": 208.71,
         "amplitude": 0.0396,
         "beats": 0.5,
         "rest": false,
@@ -14135,10 +14483,10 @@
         "provenance": "Bitcoin: A Peer-to-Peer Electronic Cash System + The Federalist Papers / counterpoint"
       },
       {
-        "index": 73,
+        "index": 75,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 695.701,
+        "frequency": 239.641,
         "amplitude": 0.037,
         "beats": 0.5,
         "rest": false,
@@ -14148,10 +14496,10 @@
         "provenance": "Constructor Theory + Tao Te Ching / counterpoint"
       },
       {
-        "index": 74,
+        "index": 76,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 110.685,
+        "frequency": 285.713,
         "amplitude": 0.0391,
         "beats": 0.5,
         "rest": false,
@@ -14161,10 +14509,10 @@
         "provenance": "King James Bible (1769) + Constructor Theory / counterpoint"
       },
       {
-        "index": 75,
+        "index": 77,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 208.587,
+        "frequency": 197.216,
         "amplitude": 0.0353,
         "beats": 0.5,
         "rest": false,
@@ -14174,10 +14522,10 @@
         "provenance": "Original Douay-Rheims Catholic Canon + An Investigation of the Laws of Thought / counterpoint"
       },
       {
-        "index": 76,
+        "index": 78,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 279.547,
+        "frequency": 119.849,
         "amplitude": 0.0396,
         "beats": 0.5,
         "rest": false,
@@ -14187,10 +14535,10 @@
         "provenance": "Original Douay-Rheims Catholic Canon + Constructor Theory / counterpoint"
       },
       {
-        "index": 77,
+        "index": 79,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 277.179,
+        "frequency": 209.161,
         "amplitude": 0.0353,
         "beats": 0.5,
         "rest": false,
@@ -14200,10 +14548,10 @@
         "provenance": "Original Douay-Rheims Catholic Canon + Frankenstein; or, The Modern Prometheus / counterpoint"
       },
       {
-        "index": 78,
+        "index": 80,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 151.598,
+        "frequency": 572.532,
         "amplitude": 0.0356,
         "beats": 0.5,
         "rest": false,
@@ -14213,10 +14561,10 @@
         "provenance": "Original Douay-Rheims Catholic Canon + Ornament of Abhidharma / counterpoint"
       },
       {
-        "index": 79,
+        "index": 81,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 219.233,
+        "frequency": 142.706,
         "amplitude": 0.0389,
         "beats": 0.5,
         "rest": false,
@@ -14226,10 +14574,23 @@
         "provenance": "Original Douay-Rheims Catholic Canon + Sketch of the Analytical Engine Invented by Charles Babbage, Esq. / counterpoint"
       },
       {
-        "index": 80,
+        "index": 82,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 376.307,
+        "frequency": 146.978,
+        "amplitude": 0.038,
+        "beats": 0.5,
+        "rest": false,
+        "relation_id": "relation-818b58c0c537",
+        "from_work_id": "original-douay-rheims-catholic-canon",
+        "to_work_id": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+        "provenance": "Original Douay-Rheims Catholic Canon + Sonnets and Madrigals of Michelangelo Buonarroti / counterpoint"
+      },
+      {
+        "index": 83,
+        "voice": "counterpoint",
+        "waveform": "sawtooth",
+        "frequency": 185.625,
         "amplitude": 0.0364,
         "beats": 0.5,
         "rest": false,
@@ -14239,10 +14600,10 @@
         "provenance": "Original Douay-Rheims Catholic Canon + The Art of War / counterpoint"
       },
       {
-        "index": 81,
+        "index": 84,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 110.54,
+        "frequency": 216.791,
         "amplitude": 0.0362,
         "beats": 0.5,
         "rest": false,
@@ -14252,23 +14613,23 @@
         "provenance": "Original Douay-Rheims Catholic Canon + The Bhagavad Gita / counterpoint"
       },
       {
-        "index": 82,
+        "index": 85,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 194.757,
+        "frequency": 104.314,
         "amplitude": 0.0348,
         "beats": 0.5,
-        "rest": false,
+        "rest": true,
         "relation_id": "relation-1ebc228bddf5",
         "from_work_id": "original-douay-rheims-catholic-canon",
         "to_work_id": "the-iliad-26ba2542",
         "provenance": "Original Douay-Rheims Catholic Canon + The Iliad / counterpoint"
       },
       {
-        "index": 83,
+        "index": 86,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 155.563,
+        "frequency": 253.65,
         "amplitude": 0.0362,
         "beats": 0.5,
         "rest": false,
@@ -14278,10 +14639,10 @@
         "provenance": "Original Douay-Rheims Catholic Canon + The Life of the Buddha: According to the Pali Canon / counterpoint"
       },
       {
-        "index": 84,
+        "index": 87,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 325.186,
+        "frequency": 373.643,
         "amplitude": 0.0346,
         "beats": 0.5,
         "rest": false,
@@ -14291,23 +14652,23 @@
         "provenance": "Original Douay-Rheims Catholic Canon + The Logical Writings of Karl Popper / counterpoint"
       },
       {
-        "index": 85,
+        "index": 88,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 134.669,
+        "frequency": 123.858,
         "amplitude": 0.0353,
         "beats": 0.5,
-        "rest": true,
+        "rest": false,
         "relation_id": "relation-3b588748b371",
         "from_work_id": "original-douay-rheims-catholic-canon",
         "to_work_id": "the-notebooks-of-leonardo-da-vinci-complete-359e73f1",
         "provenance": "Original Douay-Rheims Catholic Canon + The Notebooks of Leonardo da Vinci — Complete / counterpoint"
       },
       {
-        "index": 86,
+        "index": 89,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 196.476,
+        "frequency": 354.542,
         "amplitude": 0.0358,
         "beats": 0.5,
         "rest": false,
@@ -14317,10 +14678,10 @@
         "provenance": "Original Douay-Rheims Catholic Canon + The Odyssey / counterpoint"
       },
       {
-        "index": 87,
+        "index": 90,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 369.239,
+        "frequency": 132.25,
         "amplitude": 0.0361,
         "beats": 0.5,
         "rest": false,
@@ -14330,10 +14691,10 @@
         "provenance": "Original Douay-Rheims Catholic Canon + The Thirteen Books of Euclid's Elements / counterpoint"
       },
       {
-        "index": 88,
+        "index": 91,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 126.412,
+        "frequency": 101.041,
         "amplitude": 0.0353,
         "beats": 0.5,
         "rest": false,
@@ -14343,10 +14704,10 @@
         "provenance": "Original Douay-Rheims Catholic Canon + Zhuangzi / counterpoint"
       },
       {
-        "index": 89,
+        "index": 92,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 225.936,
+        "frequency": 122.984,
         "amplitude": 0.037,
         "beats": 0.5,
         "rest": false,
@@ -14356,10 +14717,10 @@
         "provenance": "Root Logos: Founding Constitution + The Federalist Papers / counterpoint"
       },
       {
-        "index": 90,
+        "index": 93,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 140.007,
+        "frequency": 152.42,
         "amplitude": 0.0366,
         "beats": 0.5,
         "rest": false,
@@ -14369,10 +14730,10 @@
         "provenance": "The Constitution of the United States of America, 1787 + The Federalist Papers / counterpoint"
       },
       {
-        "index": 91,
+        "index": 94,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 163.978,
+        "frequency": 165,
         "amplitude": 0.0366,
         "beats": 0.5,
         "rest": false,
@@ -14382,10 +14743,10 @@
         "provenance": "The Federalist Papers + A Mathematical Theory of Communication / counterpoint"
       },
       {
-        "index": 92,
+        "index": 95,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 178.618,
+        "frequency": 233.345,
         "amplitude": 0.0387,
         "beats": 0.5,
         "rest": false,
@@ -14395,10 +14756,10 @@
         "provenance": "The Federalist Papers + Conscious Participation / counterpoint"
       },
       {
-        "index": 93,
+        "index": 96,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 101.041,
+        "frequency": 122.984,
         "amplitude": 0.0383,
         "beats": 0.5,
         "rest": false,
@@ -14408,10 +14769,10 @@
         "provenance": "The Federalist Papers + Constitutional Naturalization / counterpoint"
       },
       {
-        "index": 94,
+        "index": 97,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 169.356,
+        "frequency": 220,
         "amplitude": 0.039,
         "beats": 0.5,
         "rest": false,
@@ -14421,10 +14782,10 @@
         "provenance": "The Federalist Papers + Freedom Through Non-Possession / counterpoint"
       },
       {
-        "index": 95,
+        "index": 98,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 225.936,
+        "frequency": 110,
         "amplitude": 0.0384,
         "beats": 0.5,
         "rest": false,
@@ -14434,10 +14795,10 @@
         "provenance": "The Federalist Papers + From Reference to Participation / counterpoint"
       },
       {
-        "index": 96,
+        "index": 99,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 352,
+        "frequency": 119.82,
         "amplitude": 0.0363,
         "beats": 0.5,
         "rest": false,
@@ -14447,10 +14808,10 @@
         "provenance": "The Federalist Papers + Great Founder Theory / counterpoint"
       },
       {
-        "index": 97,
+        "index": 100,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 77.782,
+        "frequency": 284.019,
         "amplitude": 0.0373,
         "beats": 0.5,
         "rest": false,
@@ -14460,10 +14821,10 @@
         "provenance": "The Federalist Papers + Hamlet / counterpoint"
       },
       {
-        "index": 98,
+        "index": 101,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 116.673,
+        "frequency": 213.014,
         "amplitude": 0.0381,
         "beats": 0.5,
         "rest": false,
@@ -14473,23 +14834,23 @@
         "provenance": "The Federalist Papers + Manifesto of the Communist Party / counterpoint"
       },
       {
-        "index": 99,
+        "index": 102,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 107.778,
+        "frequency": 202.083,
         "amplitude": 0.0369,
         "beats": 0.5,
-        "rest": false,
+        "rest": true,
         "relation_id": "relation-97a243c7441f",
         "from_work_id": "the-federalist-papers-06d5dc9d",
         "to_work_id": "mutual-aid-a-factor-of-evolution-84650682",
         "provenance": "The Federalist Papers + Mutual Aid: A Factor of Evolution / counterpoint"
       },
       {
-        "index": 100,
+        "index": 103,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 225.936,
+        "frequency": 155.563,
         "amplitude": 0.035,
         "beats": 0.5,
         "rest": false,
@@ -14499,10 +14860,10 @@
         "provenance": "The Federalist Papers + On the Origin of Species by Means of Natural Selection / counterpoint"
       },
       {
-        "index": 101,
+        "index": 104,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 319.521,
+        "frequency": 336.805,
         "amplitude": 0.0387,
         "beats": 0.5,
         "rest": false,
@@ -14512,23 +14873,23 @@
         "provenance": "The Federalist Papers + Participation Without Possession / counterpoint"
       },
       {
-        "index": 102,
+        "index": 105,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 269.444,
+        "frequency": 347.851,
         "amplitude": 0.0388,
         "beats": 0.5,
-        "rest": true,
+        "rest": false,
         "relation_id": "relation-202c12d1f2c1",
         "from_work_id": "the-federalist-papers-06d5dc9d",
         "to_work_id": "participatory-sovereignty-55bb4e0d",
         "provenance": "The Federalist Papers + Participatory Sovereignty / counterpoint"
       },
       {
-        "index": 103,
+        "index": 106,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 114.315,
+        "frequency": 287.407,
         "amplitude": 0.0386,
         "beats": 0.5,
         "rest": false,
@@ -14538,10 +14899,10 @@
         "provenance": "The Federalist Papers + Psychology of the Unconscious / counterpoint"
       },
       {
-        "index": 104,
+        "index": 107,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 120.499,
+        "frequency": 248.902,
         "amplitude": 0.0376,
         "beats": 0.5,
         "rest": false,
@@ -14551,10 +14912,10 @@
         "provenance": "The Federalist Papers + Quantum Theory, the Church-Turing Principle and the Universal Quantum Computer / counterpoint"
       },
       {
-        "index": 105,
+        "index": 108,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 220,
+        "frequency": 321.331,
         "amplitude": 0.0351,
         "beats": 0.5,
         "rest": false,
@@ -14564,10 +14925,10 @@
         "provenance": "The Federalist Papers + Siddhartha: eine indische Dichtung / counterpoint"
       },
       {
-        "index": 106,
+        "index": 109,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 101.614,
+        "frequency": 97.833,
         "amplitude": 0.0384,
         "beats": 0.5,
         "rest": false,
@@ -14577,10 +14938,10 @@
         "provenance": "The Federalist Papers + The Calculating Engine / counterpoint"
       },
       {
-        "index": 107,
+        "index": 110,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 359.258,
+        "frequency": 245.967,
         "amplitude": 0.0377,
         "beats": 0.5,
         "rest": false,
@@ -14590,10 +14951,10 @@
         "provenance": "The Federalist Papers + The Dhammapada / counterpoint"
       },
       {
-        "index": 108,
+        "index": 111,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 227.215,
+        "frequency": 276.713,
         "amplitude": 0.0367,
         "beats": 0.5,
         "rest": false,
@@ -14603,10 +14964,10 @@
         "provenance": "The Federalist Papers + The Epic of Gilgamesh: An Old Babylonian Version / counterpoint"
       },
       {
-        "index": 109,
+        "index": 112,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 186.676,
+        "frequency": 304.841,
         "amplitude": 0.0386,
         "beats": 0.5,
         "rest": false,
@@ -14616,10 +14977,10 @@
         "provenance": "The Federalist Papers + The Invisible Substrate / counterpoint"
       },
       {
-        "index": 110,
+        "index": 113,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 165,
+        "frequency": 169.356,
         "amplitude": 0.0376,
         "beats": 0.5,
         "rest": false,
@@ -14629,10 +14990,10 @@
         "provenance": "The Federalist Papers + The Journal Membrane / counterpoint"
       },
       {
-        "index": 111,
+        "index": 114,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 495,
+        "frequency": 287.407,
         "amplitude": 0.038,
         "beats": 0.5,
         "rest": false,
@@ -14642,10 +15003,10 @@
         "provenance": "The Federalist Papers + The Machine Stops / counterpoint"
       },
       {
-        "index": 112,
+        "index": 115,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 185.625,
+        "frequency": 178.618,
         "amplitude": 0.0391,
         "beats": 0.5,
         "rest": false,
@@ -14655,10 +15016,10 @@
         "provenance": "The Federalist Papers + The Poetic Edda / counterpoint"
       },
       {
-        "index": 113,
+        "index": 116,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 340.823,
+        "frequency": 233.345,
         "amplitude": 0.0374,
         "beats": 0.5,
         "rest": false,
@@ -14668,10 +15029,10 @@
         "provenance": "The Federalist Papers + The Resonant Chamber / counterpoint"
       },
       {
-        "index": 114,
+        "index": 117,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 401.663,
+        "frequency": 215.555,
         "amplitude": 0.0375,
         "beats": 0.5,
         "rest": false,
@@ -14681,10 +15042,10 @@
         "provenance": "The Federalist Papers + The Tempest / counterpoint"
       },
       {
-        "index": 115,
+        "index": 118,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 159.761,
+        "frequency": 58.336,
         "amplitude": 0.0382,
         "beats": 0.5,
         "rest": false,
@@ -14694,23 +15055,23 @@
         "provenance": "The Federalist Papers + Toward a Moral Constitution for Human-Machine Civilization / counterpoint"
       },
       {
-        "index": 116,
+        "index": 119,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 133.888,
+        "frequency": 127.017,
         "amplitude": 0.0361,
         "beats": 0.5,
-        "rest": false,
+        "rest": true,
         "relation_id": "relation-eb6d37e1abbc",
         "from_work_id": "the-republic-1e98719b",
         "to_work_id": "the-federalist-papers-06d5dc9d",
         "provenance": "The Republic + The Federalist Papers / counterpoint"
       },
       {
-        "index": 117,
+        "index": 120,
         "voice": "counterpoint",
         "waveform": "sawtooth",
-        "frequency": 414.836,
+        "frequency": 161.666,
         "amplitude": 0.0342,
         "beats": 0.5,
         "rest": false,
@@ -14720,10 +15081,10 @@
         "provenance": "The Twenty-Seven Amendments to the Constitution of the United States + The Federalist Papers / counterpoint"
       },
       {
-        "index": 118,
+        "index": 121,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 319.521,
+        "frequency": 269.444,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14733,23 +15094,23 @@
         "provenance": "Bitcoin: A Peer-to-Peer Electronic Cash System + A Mathematical Theory of Communication / recurrence"
       },
       {
-        "index": 119,
+        "index": 122,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 69.178,
+        "frequency": 338.903,
         "amplitude": 0.054,
         "beats": 2,
-        "rest": true,
+        "rest": false,
         "relation_id": "relation-1c437c608928",
         "from_work_id": "conscious-participation-a384431f",
         "to_work_id": "from-reference-to-participation-847921ae",
         "provenance": "Conscious Participation + From Reference to Participation / recurrence"
       },
       {
-        "index": 120,
+        "index": 123,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 213.014,
+        "frequency": 239.506,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14759,10 +15120,10 @@
         "provenance": "Constitutional Naturalization + Participation Without Possession / recurrence"
       },
       {
-        "index": 121,
+        "index": 124,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 451.871,
+        "frequency": 200.832,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14772,10 +15133,10 @@
         "provenance": "Freedom Through Non-Possession + Conscious Participation / recurrence"
       },
       {
-        "index": 122,
+        "index": 125,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 150.624,
+        "frequency": 89.815,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14785,10 +15146,10 @@
         "provenance": "Ornament of Abhidharma + The Dhammapada / recurrence"
       },
       {
-        "index": 123,
+        "index": 126,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 150.624,
+        "frequency": 254.034,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14798,10 +15159,10 @@
         "provenance": "Participation Without Possession + Participatory Sovereignty / recurrence"
       },
       {
-        "index": 124,
+        "index": 127,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 203.227,
+        "frequency": 126.302,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14811,10 +15172,10 @@
         "provenance": "Participatory Sovereignty + Freedom Through Non-Possession / recurrence"
       },
       {
-        "index": 125,
+        "index": 128,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 495,
+        "frequency": 82.5,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14824,10 +15185,10 @@
         "provenance": "Quantum Theory, the Church-Turing Principle and the Universal Quantum Computer + The Logical Writings of Karl Popper / recurrence"
       },
       {
-        "index": 126,
+        "index": 129,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 173.925,
+        "frequency": 213.014,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14837,10 +15198,10 @@
         "provenance": "Root Logos: Founding Constitution + The Journal Membrane / recurrence"
       },
       {
-        "index": 127,
+        "index": 130,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 202.083,
+        "frequency": 151.562,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14850,10 +15211,10 @@
         "provenance": "Sketch of the Analytical Engine Invented by Charles Babbage, Esq. + An Investigation of the Laws of Thought / recurrence"
       },
       {
-        "index": 128,
+        "index": 131,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 186.676,
+        "frequency": 180.748,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14863,10 +15224,10 @@
         "provenance": "The Calculating Engine + Sketch of the Analytical Engine Invented by Charles Babbage, Esq. / recurrence"
       },
       {
-        "index": 129,
+        "index": 132,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 220,
+        "frequency": 259.273,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14876,7 +15237,7 @@
         "provenance": "The Constitution of the United States of America, 1787 + The Twenty-Seven Amendments to the Constitution of the United States / recurrence"
       },
       {
-        "index": 130,
+        "index": 133,
         "voice": "recurrence",
         "waveform": "triangle",
         "frequency": 245.967,
@@ -14889,10 +15250,10 @@
         "provenance": "The Iliad + The Epic of Gilgamesh: An Old Babylonian Version / recurrence"
       },
       {
-        "index": 131,
+        "index": 134,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 173.925,
+        "frequency": 99,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14902,10 +15263,10 @@
         "provenance": "The Invisible Substrate + Constitutional Naturalization / recurrence"
       },
       {
-        "index": 132,
+        "index": 135,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 122.984,
+        "frequency": 119.753,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14915,23 +15276,36 @@
         "provenance": "The Journal Membrane + The Resonant Chamber / recurrence"
       },
       {
-        "index": 133,
+        "index": 136,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 239.506,
+        "frequency": 381.051,
         "amplitude": 0.054,
         "beats": 2,
-        "rest": false,
+        "rest": true,
         "relation_id": "relation-54765a10f827",
         "from_work_id": "the-life-of-the-buddha-according-to-the-pali-canon-67799d95",
         "to_work_id": "quantum-theory-the-church-turing-principle-and-the-universal-quantum-computer-4f4946f6",
         "provenance": "The Life of the Buddha: According to the Pali Canon + Quantum Theory, the Church-Turing Principle and the Universal Quantum Computer / recurrence"
       },
       {
-        "index": 134,
+        "index": 137,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 165,
+        "frequency": 202.083,
+        "amplitude": 0.054,
+        "beats": 2,
+        "rest": false,
+        "relation_id": "relation-e8f42f4e59d6",
+        "from_work_id": "the-notebooks-of-leonardo-da-vinci-complete-359e73f1",
+        "to_work_id": "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b",
+        "provenance": "The Notebooks of Leonardo da Vinci — Complete + Sonnets and Madrigals of Michelangelo Buonarroti / recurrence"
+      },
+      {
+        "index": 138,
+        "voice": "recurrence",
+        "waveform": "triangle",
+        "frequency": 119.82,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14941,10 +15315,10 @@
         "provenance": "The Odyssey + The Iliad / recurrence"
       },
       {
-        "index": 135,
+        "index": 139,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 165,
+        "frequency": 194.454,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14954,23 +15328,23 @@
         "provenance": "The Resonant Chamber + Toward a Moral Constitution for Human-Machine Civilization / recurrence"
       },
       {
-        "index": 136,
+        "index": 140,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 164.071,
+        "frequency": 179.629,
         "amplitude": 0.054,
         "beats": 2,
-        "rest": true,
+        "rest": false,
         "relation_id": "relation-18a4f75a5c35",
         "from_work_id": "the-tempest-ba182d88",
         "to_work_id": "hamlet-a1dd42e7",
         "provenance": "The Tempest + Hamlet / recurrence"
       },
       {
-        "index": 137,
+        "index": 141,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 116.673,
+        "frequency": 323.333,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14980,10 +15354,10 @@
         "provenance": "The Thirteen Books of Euclid's Elements + The Life of the Buddha: According to the Pali Canon / recurrence"
       },
       {
-        "index": 138,
+        "index": 142,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 107.171,
+        "frequency": 203.227,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -14993,10 +15367,10 @@
         "provenance": "The Twenty-Seven Amendments to the Constitution of the United States + The Federalist Papers / recurrence"
       },
       {
-        "index": 139,
+        "index": 143,
         "voice": "recurrence",
         "waveform": "triangle",
-        "frequency": 158.771,
+        "frequency": 150.624,
         "amplitude": 0.054,
         "beats": 2,
         "rest": false,
@@ -15006,9 +15380,9 @@
         "provenance": "Toward a Moral Constitution for Human-Machine Civilization + The Invisible Substrate / recurrence"
       }
     ],
-    "signature": "be9114fdf877"
+    "signature": "72cc16a731b8"
   },
   "boundary": "This composition may relate sealed work portraits and voices. It may not alter, reposition within, or regenerate an individual work.",
-  "composition_id": "library-composition-be9114fdf877",
-  "witness": "sha256:be9114fdf877010ab5909aa5becea08c62ee733e14411eef015fc6457778d65d"
+  "composition_id": "library-composition-72cc16a731b8",
+  "witness": "sha256:72cc16a731b82c0eeaec2ffb46f454b462a48036e423eb6155338accae29749c"
 }

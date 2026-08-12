@@ -679,6 +679,68 @@ export const parseLeonardoNotebooksText = (text) => {
   return { canonicalSource: body, documents };
 };
 
+const MICHELANGELO_POETRY_DIVISIONS = [
+  ["sonnet", "A SELECTION FROM THE SONNETS OF MICHELANGELO BUONARROTI", "EPIGRAMMI/EPIGRAMS", 22],
+  ["epigram", "EPIGRAMMI/EPIGRAMS", "MADRIGALI/MADRIGALS", 3],
+  ["madrigal", "MADRIGALI/MADRIGALS", "NOTES ON THE SONNETS EPIGRAMS AND MADRIGALS", 25]
+];
+
+const translatedMichelangeloStanzas = (value) => {
+  const stanzas = [...String(value).matchAll(/_([\s\S]*?)_/g)]
+    .map((match) => match[1]
+      .replace(/^\s*[“\"]|[”\"]\s*$/g, "")
+      .replace(/^\s{0,8}/gm, "")
+      .replace(/\s+/g, " ")
+      .trim())
+    .filter(Boolean);
+  return stanzas.slice(1).join(" ").replace(/\s+/g, " ").trim();
+};
+
+export const parseMichelangeloPoetryText = (text) => {
+  const body = boundedGutenbergBody(text);
+  if (!/SONNETS AND MADRIGALS[\s\S]*MICHELANGELO[\s\S]*BUONARROTI/i.test(body)
+    || !/RENDERED INTO ENGLISH[\s\S]*WILLIAM[\s\S]*WELLS NEWELL/i.test(body)
+    || !/WITH ITALIAN TEXT/i.test(body)) {
+    throw new Error("The exact Michelangelo poetry witness is missing its title, translator, or Italian source text.");
+  }
+  const documents = MICHELANGELO_POETRY_DIVISIONS.map(([kind, startTitle, endTitle, expected]) => {
+    const start = body.indexOf(startTitle);
+    const end = body.indexOf(endTitle, start + startTitle.length);
+    if (start < 0 || end < 0) throw new Error(`The exact Michelangelo poetry witness is missing its ${kind} boundary.`);
+    const division = body.slice(start + startTitle.length, end).trim();
+    const headings = [...division.matchAll(/^([IVXLCDM]+)\s*$/gm)]
+      .filter((heading, index, matches) => {
+        const number = romanValue(heading[1]);
+        const previous = index ? romanValue(matches[index - 1][1]) : 0;
+        return number === previous + 1;
+      });
+    if (headings.length !== expected || romanValue(headings.at(-1)?.[1]) !== expected) {
+      throw new Error(`The exact Michelangelo poetry witness requires ${expected} ${kind}s; resolved ${headings.length}.`);
+    }
+    return {
+      path: `${kind}s`,
+      title: `${kind[0].toUpperCase()}${kind.slice(1)}s`,
+      sections: headings.map((heading, index) => {
+        const number = romanValue(heading[1]);
+        const passageStart = heading.index + heading[0].length;
+        const passageEnd = headings[index + 1]?.index ?? division.length;
+        const translated = translatedMichelangeloStanzas(division.slice(passageStart, passageEnd));
+        if (!translated) throw new Error(`The exact Michelangelo poetry witness is missing the English rendering of ${kind} ${heading[1]}.`);
+        return {
+          coordinate: `${kind}:${number}`,
+          level: 2,
+          title: `${kind[0].toUpperCase()}${kind.slice(1)} ${heading[1]}`,
+          text: translated
+        };
+      })
+    };
+  });
+  if (documents.flatMap(({ sections }) => sections).length !== 50) {
+    throw new Error("The exact Michelangelo poetry witness must resolve fifty translated poems.");
+  }
+  return { canonicalSource: body, documents };
+};
+
 const texToPlainText = (value) => {
   let text = String(value)
     .replace(/^%.*$/gm, " ")
@@ -1059,6 +1121,7 @@ export const ingestWork = async ({
   const machineStopsText = sourceStat.isFile() && format === "machine-stops-text";
   const calculatingEngineText = sourceStat.isFile() && format === "calculating-engine-text";
   const leonardoNotebooksText = sourceStat.isFile() && format === "leonardo-notebooks-text";
+  const michelangeloPoetryText = sourceStat.isFile() && format === "michelangelo-poetry-text";
   const analyticalEngineEpub = sourceStat.isFile() && format === "analytical-engine-epub";
   const lawsOfThoughtTex = sourceStat.isFile() && format === "laws-of-thought-tex";
   const taoTeChingText = sourceStat.isFile() && format === "tao-te-ching-text";
@@ -1085,6 +1148,10 @@ export const ingestWork = async ({
     documents = parsed.documents;
   } else if (leonardoNotebooksText) {
     const parsed = parseLeonardoNotebooksText(await readFile(sourcePath, "utf8"));
+    canonicalSource = parsed.canonicalSource;
+    documents = parsed.documents;
+  } else if (michelangeloPoetryText) {
+    const parsed = parseMichelangeloPoetryText(await readFile(sourcePath, "utf8"));
     canonicalSource = parsed.canonicalSource;
     documents = parsed.documents;
   } else if (xhtmlDirectory) {
@@ -1275,7 +1342,7 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text|machine-stops-text|calculating-engine-text|leonardo-notebooks-text|analytical-engine-epub|laws-of-thought-tex|tao-te-ching-text|siddhartha-german-text|us-constitution-text|federalist-text|gilgamesh-text|xhtml-directory|wisdom-epub>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text|machine-stops-text|calculating-engine-text|leonardo-notebooks-text|michelangelo-poetry-text|analytical-engine-epub|laws-of-thought-tex|tao-te-ching-text|siddhartha-german-text|us-constitution-text|federalist-text|gilgamesh-text|xhtml-directory|wisdom-epub>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();

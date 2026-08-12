@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { coherentLibraryIdentity, ingestWork, parseCalculatingEngineText, parseFederalistText, parseGilgameshText, parseGutenbergBookText, parseLawsOfThoughtTex, parseLeonardoNotebooksText, parseMachineStopsText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei, parseSiddharthaGermanText, parseTaoTeChingText, parseUnitedStatesConstitutionText, parseWisdomEpubXhtml } from "./works.mjs";
+import { coherentLibraryIdentity, ingestWork, parseCalculatingEngineText, parseFederalistText, parseGilgameshText, parseGutenbergBookText, parseLawsOfThoughtTex, parseLeonardoNotebooksText, parseMachineStopsText, parseMichelangeloPoetryText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei, parseSiddharthaGermanText, parseTaoTeChingText, parseUnitedStatesConstitutionText, parseWisdomEpubXhtml } from "./works.mjs";
 import { CATHOLIC_CANON, deriveCorpusStructuralDepth } from "./works-corpus.mjs";
 
 const fixture = await mkdtemp(join(tmpdir(), "root-logos-work-"));
@@ -98,6 +98,38 @@ assert.equal(leonardoFixture.documents.flatMap(({ sections }) => sections).lengt
 assert.equal(leonardoFixture.documents[10].sections[0].coordinate, "division:11:passage:706");
 assert.doesNotMatch(leonardoFixture.documents[10].sections[0].text, /Editorial apparatus/);
 assert.match(leonardoFixture.documents.at(-1).sections.at(-1).text, /Observation 1566 enters experience/);
+const fixtureRoman = (value) => {
+  const numerals = [["X", 10], ["IX", 9], ["V", 5], ["IV", 4], ["I", 1]];
+  let number = value;
+  return numerals.reduce((result, [symbol, magnitude]) => {
+    while (number >= magnitude) {
+      result += symbol;
+      number -= magnitude;
+    }
+    return result;
+  }, "");
+};
+const michelangeloPoems = (kind, count) => Array.from({ length: count }, (_, index) => {
+  const numeral = fixtureRoman(index + 1);
+  return `${numeral}\n\n      _Forma italiana ${index + 1} nella pietra._\n\n      _English rendering ${index + 1} releases the figure from stone._`;
+}).join("\n\n");
+const michelangeloFixture = parseMichelangeloPoetryText(`*** START OF THE PROJECT GUTENBERG EBOOK SONNETS AND MADRIGALS OF MICHELANGELO BUONARROTI ***
+SONNETS AND MADRIGALS MICHELANGELO BUONARROTI
+RENDERED INTO ENGLISH VERSE BY WILLIAM WELLS NEWELL
+WITH ITALIAN TEXT
+A SELECTION FROM THE SONNETS OF MICHELANGELO BUONARROTI
+${michelangeloPoems("sonnet", 22)}
+EPIGRAMMI/EPIGRAMS
+${michelangeloPoems("epigram", 3)}
+MADRIGALI/MADRIGALS
+${michelangeloPoems("madrigal", 25)}
+NOTES ON THE SONNETS EPIGRAMS AND MADRIGALS
+Editorial notes must remain outside Michelangelo's semantic field.
+*** END OF THE PROJECT GUTENBERG EBOOK SONNETS AND MADRIGALS OF MICHELANGELO BUONARROTI ***`);
+assert.deepEqual(michelangeloFixture.documents.map(({ sections }) => sections.length), [22, 3, 25]);
+assert.equal(michelangeloFixture.documents.flatMap(({ sections }) => sections).length, 50);
+assert.equal(michelangeloFixture.documents[0].sections[0].text, "English rendering 1 releases the figure from stone.");
+assert.doesNotMatch(JSON.stringify(michelangeloFixture.documents), /Editorial notes|Forma italiana/);
 const gutenbergFixture = parseGutenbergBookText(`Project Gutenberg header
 *** START OF THIS PROJECT GUTENBERG EBOOK TEST ***
 
