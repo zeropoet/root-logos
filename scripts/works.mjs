@@ -441,6 +441,32 @@ export const parseGutenbergBookText = (text) => {
   return { documents };
 };
 
+export const parseMachineStopsText = (text) => {
+  const normalized = text.replace(/\r\n/g, "\n").trim();
+  const headings = [...normalized.matchAll(/^[ \t]*_Part ([IVXLCDM]+)_[ \t]*\n\s*([A-Z][A-Z -]+)[ \t]*$/gm)];
+  if (headings.length !== 3 || headings.map((heading) => romanValue(heading[1])).join(",") !== "1,2,3") {
+    throw new Error(`The exact Machine Stops witness requires Parts I-III; found ${headings.length}.`);
+  }
+  return {
+    documents: headings.map((heading, index) => {
+      const part = romanValue(heading[1]);
+      const title = heading[2].replace(/\s+/g, " ").trim();
+      const passageStart = heading.index + heading[0].length;
+      const passageEnd = headings[index + 1]?.index ?? normalized.length;
+      return {
+        path: `part:${part}`,
+        title: `Part ${heading[1]}: ${title}`,
+        sections: [{
+          coordinate: `part:${part}`,
+          level: 2,
+          title: `Part ${heading[1]}: ${title}`,
+          text: normalized.slice(passageStart, passageEnd).trim()
+        }]
+      };
+    })
+  };
+};
+
 const boundedGutenbergBody = (text) => {
   const normalized = text.replace(/\r\n/g, "\n");
   const startMarker = normalized.match(/^\*{3}\s*START OF (?:THIS|THE) PROJECT GUTENBERG EBOOK[^\n]*\*{3}\s*$/mi);
@@ -771,6 +797,7 @@ export const ingestWork = async ({
   const midvashBibleBook = sourceStat.isFile() && format === "midvash-bible-book-json";
   const perseusTei = sourceStat.isFile() && (format === "perseus-tei" || (format === "auto" && extname(sourcePath).toLowerCase() === ".xml"));
   const gutenbergText = sourceStat.isFile() && (format === "gutenberg-book-text" || (format === "auto" && extname(sourcePath).toLowerCase() === ".txt"));
+  const machineStopsText = sourceStat.isFile() && format === "machine-stops-text";
   const taoTeChingText = sourceStat.isFile() && format === "tao-te-ching-text";
   const siddharthaGermanText = sourceStat.isFile() && format === "siddhartha-german-text";
   const unitedStatesConstitutionText = sourceStat.isFile() && format === "us-constitution-text";
@@ -826,6 +853,9 @@ export const ingestWork = async ({
   } else if (gilgameshText) {
     canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
     documents = parseGilgameshText(canonicalSource).documents;
+  } else if (machineStopsText) {
+    canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
+    documents = parseMachineStopsText(canonicalSource).documents;
   } else if (gutenbergText) {
     canonicalSource = (await readFile(sourcePath, "utf8")).replace(/\r\n/g, "\n");
     documents = parseGutenbergBookText(canonicalSource).documents;
@@ -966,7 +996,7 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text|tao-te-ching-text|siddhartha-german-text|us-constitution-text|federalist-text|gilgamesh-text|xhtml-directory|wisdom-epub>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text|machine-stops-text|tao-te-ching-text|siddhartha-german-text|us-constitution-text|federalist-text|gilgamesh-text|xhtml-directory|wisdom-epub>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();

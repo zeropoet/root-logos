@@ -1344,9 +1344,10 @@ crosses the private-source/public-lineage membrane and is released; Root Logos
 retains its raw and transformed content witnesses, attribution, rights,
 derived topology, resonant score, CWCS lineage, and sealed 2400×2400 PNG and
 SVG first frames. After enforcing the exact-source structural-depth admission
-standard, the Library now holds 43 coherent objects and composes them through
-124 witnessed cross-work relations. Its active first-frame ordinal layer is
-compacted continuously from `1` through `43`; subtraction leaves no false gaps
+standard and admitting **The Machine Stops**, the Library now holds 44 coherent
+objects and composes them through 127 witnessed cross-work relations. Its
+active first-frame ordinal layer runs continuously from `1` through `44`;
+subtraction leaves no false gaps
 in the public Library sequence and does not alter portrait bytes or hashes.
 
 The relation totals describe different layers. Version 4 removes the former
@@ -1355,15 +1356,28 @@ windows, and publishes containment, expression, and co-occurrence profiles
 alongside density, weight entropy, and a structural signature. These measures
 are comparable only among v4 successor editions. Before subtraction, the
 56-object field produced 165 relations. The active exact-source field now
-derives 124 cross-work relations across 43 coherent objects.
+derives 127 cross-work relations across 44 coherent objects.
 The deterministic migration ledger at
-`works/structural-depth-migration.json` now witnesses 43 exact-source v4
-successors across all 43 active coherent objects: the active Library is at full
+`works/structural-depth-migration.json` now witnesses 44 exact-source v4
+successors across all 44 active coherent objects: the active Library is at full
 admission compliance. Thirteen works that lacked a verified exact source were
 removed from the active archive and public image lineage. Their identities,
 prior orders, prior current editions, source witnesses, and reasons for
 subtraction remain attributable in `works/withdrawals.json`; Git history is the
 recovery boundary if an exact source later permits readmission.
+
+E. M. Forster's **The Machine Stops** opens `Cyberpunk and Machine Society /
+Proto-Cyberpunk` as work `44`. Root Logos reads only the complete three-part
+story from the public-domain Project Gutenberg 72890 transcription: “The
+Air-Ship,” “The Mending Apparatus,” and “The Homeless.” Its 12,333 words form
+three structural passages, 323 internal relations, 43.6% derived density, and
+structural signature `16b77871f9a361bb`. The work introduces cyberpunk
+pressure through technologically mediated life, bodily estrangement,
+centralized machine dependence, institutional repair, machine-religion, and
+resistance through direct experience. It remains a witnessed literary source,
+not a constitutional authority or an aesthetic instruction. The transcription
+is released after ingestion; its exact source and content hashes, derived
+topology, score, interpretation, and sealed portrait remain attributable.
 
 The ingestion boundary now removes Project Gutenberg start and end matter
 before Markdown-aware structural reading, just as the native Gutenberg book
@@ -1396,8 +1410,8 @@ relations, or competing with its nodes and engraved edges.
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
-of the 43 active coherent Library objects contributes its complete derived topology.
-Those admitted work structures now remain fixed. Above them, 124 pair-relations
+of the 44 active coherent Library objects contributes its complete derived topology.
+Those admitted work structures now remain fixed. Above them, 127 pair-relations
 rise into four grammar points and converge at the Library composition. New
 membership changes that crown and its collective score rather than rewriting
 the bodies from which it emerges. Weight, depth, luminance, rotation, and motion

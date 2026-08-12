@@ -26,6 +26,11 @@ node scripts/works.mjs ingest /path/to/work \
 
 A directory is read recursively in natural filename order. Markdown headings become passage coordinates. Files become documents, books, chapters, scenes, poems, or other source-defined units without imposing a single literary hierarchy.
 
+Exact source-specific adapters preserve a work's transmitted structure when a
+generic book parser would flatten it. `machine-stops-text` reads E. M.
+Forster's three witnessed parts directly from the Project Gutenberg 72890
+transcription without rewriting its prose or headings.
+
 Each ingestion writes:
 
 - `manifest.json`: stable identity and source witness for the work;
@@ -241,6 +246,15 @@ prose. *The Tempest* preserves its dramatis personae, five acts, nine scenes,
 and epilogue as work `09`; *Hamlet* preserves its dramatis personae, five acts,
 and twenty scenes as work `10`. Each has an independently attributable
 topology, score, self-reading, and immutable edition lineage.
+
+E. M. Forster's **The Machine Stops** establishes `Cyberpunk and Machine
+Society / Proto-Cyberpunk`. Its exact Project Gutenberg 72890 witness is read
+as the transmitted three-part story rather than the surrounding collection.
+The private-source membrane releases the public-domain transcription after
+derivation while preserving its source hash, three structural passages,
+topology, score, self-reading, and first-frame lineage. The work introduces
+cyberpunk pressure without making genre, atmosphere, or technological
+rebellion into constitutional authority.
 
 ## Spatial grammar
 

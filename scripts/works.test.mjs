@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { coherentLibraryIdentity, ingestWork, parseFederalistText, parseGilgameshText, parseGutenbergBookText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei, parseSiddharthaGermanText, parseTaoTeChingText, parseUnitedStatesConstitutionText, parseWisdomEpubXhtml } from "./works.mjs";
+import { coherentLibraryIdentity, ingestWork, parseFederalistText, parseGilgameshText, parseGutenbergBookText, parseMachineStopsText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei, parseSiddharthaGermanText, parseTaoTeChingText, parseUnitedStatesConstitutionText, parseWisdomEpubXhtml } from "./works.mjs";
 import { CATHOLIC_CANON, deriveCorpusStructuralDepth } from "./works-corpus.mjs";
 
 const fixture = await mkdtemp(join(tmpdir(), "root-logos-work-"));
@@ -143,6 +143,29 @@ The second chapter.
 
 *** END OF THE PROJECT GUTENBERG EBOOK TEST ***`);
 assert.deepEqual(gutenbergTitledChapterFixture.documents.map(({ title }) => title), ["Chapter I: LAYING PLANS", "Chapter II: WAGING WAR"]);
+const machineStopsFixture = parseMachineStopsText(`THE MACHINE STOPS
+
+_Part I_
+
+THE AIR-SHIP
+
+Mediated life.
+
+_Part II_
+
+THE MENDING APPARATUS
+
+Institutional repair.
+
+_Part III_
+
+THE HOMELESS
+
+The system breaks.`);
+assert.deepEqual(machineStopsFixture.documents.map(({ title }) => title), [
+  "Part I: THE AIR-SHIP", "Part II: THE MENDING APPARATUS", "Part III: THE HOMELESS"
+]);
+assert.equal(machineStopsFixture.documents.at(-1).sections[0].text, "The system breaks.");
 const taoFixture = parseTaoTeChingText(`*** START OF THE PROJECT GUTENBERG EBOOK TEST ***
 Ch. 1. 1. First witness.
 ${Array.from({ length: 80 }, (_, index) => `${index + 2}. 1. Witness ${index + 2}.`).join("\n")}

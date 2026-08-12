@@ -1,12 +1,12 @@
 {
   "schema": "root-logos-structural-depth-migration/v1",
-  "generated_at": "2026-08-11T20:23:17.474Z",
+  "generated_at": "2026-08-12T01:16:48.348Z",
   "target_work_grammar": "deterministic-structural-reading/v4-structural-depth",
   "target_corpus_grammar": "deterministic-corpus-reading/v2-structural-depth",
   "policy": "Exact witnessed sources only. Historical editions and admission portraits remain immutable; every new structural reading receives a distinct PNG and SVG successor portrait.",
   "measures": {
-    "coherent_works": 43,
-    "migrated": 43,
+    "coherent_works": 44,
+    "migrated": 44,
     "exact_source_required": 0,
     "completion": 1
   },
@@ -1254,6 +1254,35 @@
         "png_sha256": "b17d36a7a654e88209979ba3518819b83c1c4439ef94b5cae611a23857ceadd1",
         "svg": "assets/library-first-frames/43-mutual-aid-a-factor-of-evolution-84650682-bf203f62dc3b.svg",
         "svg_sha256": "bf203f62dc3b858e9ddff56ccb7326f241553a62db914bcdcec7a3917c0a85ad"
+      }
+    },
+    {
+      "order": 44,
+      "work_id": "the-machine-stops-d3ed447b",
+      "title": "The Machine Stops",
+      "genre": "proto-cyberpunk speculative fiction",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg:72890:release-2024-02-07:the-machine-stops:collection-sha256:8460ef6ebccc633d718ae02bd2bec0515471f2b3e50fb8ad132132d3eb1063f5:lines-101-1538",
+      "source_sha256": "7433163e59763131e1955614be2b91116f9259f6c6c7245e93e3136449611c7d",
+      "current_edition": "the-machine-stops-d3ed447b--v14-read-34d3c9-59763131",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "16b77871f9a361bb",
+        "relation_profile": {
+          "contains": 3,
+          "expresses": 92,
+          "co-occurs": 228
+        },
+        "relation_density": 0.4359,
+        "relation_weight_entropy": 0.9771,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/44-the-machine-stops-d3ed447b-38edbc6e69fb.png",
+        "png_sha256": "38edbc6e69fbd1e487aef3636ad0cf9c656b8fa05842240bddb9b94489be7fd8",
+        "svg": "assets/library-first-frames/44-the-machine-stops-d3ed447b-b3bf6333e948.svg",
+        "svg_sha256": "b3bf6333e948181b0b633b61cf164e3dbbe2ba5a3341d54d7d8019f11aa575d4"
       }
     }
   ]
