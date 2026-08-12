@@ -254,8 +254,16 @@ const epubSections = (body, fallbackTitle) => {
       return;
     }
     if (node.name === "img") {
+      const tex = node.attributes?.["data-tex"]?.trim();
       const alt = node.attributes?.alt?.trim();
-      if (alt && alt.toLowerCase() !== "image") current.text.push(alt);
+      if (tex) {
+        current.text.push(tex
+          .replace(/\\(?:mathrm|mathbf|mathit|text)\{([^{}]*)\}/g, "$1")
+          .replace(/\\[a-zA-Z]+/g, " ")
+          .replace(/[{}$^_&]/g, " ")
+          .replace(/\s+/g, " ")
+          .trim());
+      } else if (alt && alt.toLowerCase() !== "image") current.text.push(alt);
       return;
     }
     for (const child of node.children || []) visit(child);
@@ -316,6 +324,66 @@ const parseWisdomEpub = async (sourcePath) => {
   return {
     canonicalSource: records.map(({ path, xhtml }) => `--- ${path} ---\n${xhtml}`).join("\n"),
     documents: records.map(({ document }) => document)
+  };
+};
+
+export const parseAnalyticalEngineEpub = async (sourcePath) => {
+  const container = await readZipEntry(sourcePath, "META-INF/container.xml");
+  const packagePath = container.match(/full-path=["']([^"']+)["']/)?.[1];
+  if (!packagePath) throw new Error("The Analytical Engine EPUB does not identify its package document.");
+  const packageText = await readZipEntry(sourcePath, packagePath);
+  const packageTree = parseXmlTree(packageText);
+  const manifest = new Map(xmlDescendants(packageTree, ({ name }) => name === "item")
+    .map(({ attributes }) => [attributes.id, attributes.href]));
+  const selectedIds = xmlDescendants(packageTree, ({ name }) => name === "itemref")
+    .map(({ attributes }) => attributes.idref)
+    .filter((id) => !/(?:cover|header|footer|nav|toc)/i.test(id))
+    .filter((id) => /\.x?html?$/i.test(manifest.get(id) || ""));
+  const packageDirectory = packagePath.includes("/")
+    ? packagePath.slice(0, packagePath.lastIndexOf("/") + 1)
+    : "";
+  const records = (await Promise.all(selectedIds.map(async (id) => {
+    const href = manifest.get(id);
+    if (!href) throw new Error(`The Analytical Engine EPUB spine item ${id} has no manifest path.`);
+    const path = `${packageDirectory}${href}`;
+    const xhtml = await readZipEntry(sourcePath, path);
+    const document = parseWisdomEpubXhtml(xhtml, path);
+    const text = document.sections.map((section) => `${section.title}\n${section.text}`).join("\n");
+    return { path, xhtml, document, text };
+  }))).filter(({ text }) => !/Transcriber[’']s Notes/i.test(text));
+  const sections = records.flatMap(({ document }) => document.sections).reduce((result, section) => {
+    if (/^\d+_75107-h-\d+\.htm$/i.test(section.title) && result.length) {
+      result.at(-1).text = `${result.at(-1).text} ${section.text}`.trim();
+    } else result.push({ ...section });
+    return result;
+  }, []);
+  const titles = sections.map(({ title }) => title);
+  for (const required of ["ARTICLE XXIX", "NOTE A", "NOTE G"]) {
+    if (!titles.some((title) => title.toUpperCase().replace(/[^A-Z0-9]+/g, " ").trim().includes(required))) {
+      throw new Error(`The exact Analytical Engine witness is missing ${required}.`);
+    }
+  }
+  const documents = [];
+  for (const section of sections) {
+    if (/^(?:ARTICLE XXIX|NOTE [A-G])\b/i.test(section.title)) {
+      documents.push({
+        path: section.title.toUpperCase().startsWith("ARTICLE")
+          ? "article:29"
+          : `translator-note:${section.title.match(/NOTE ([A-G])/i)?.[1].toLowerCase()}`,
+        title: section.title,
+        sections: [{ ...section }]
+      });
+    } else if (documents.length) documents.at(-1).sections.push({ ...section });
+  }
+  if (documents.length !== 8) {
+    throw new Error(`The exact Analytical Engine witness requires Article XXIX and Notes A-G; found ${documents.length} structural divisions.`);
+  }
+  documents.forEach((document) => document.sections.forEach((section, index) => {
+    section.coordinate = `${document.path}#${index + 1}`;
+  }));
+  return {
+    canonicalSource: records.map(({ path, xhtml }) => `--- ${path} ---\n${xhtml}`).join("\n"),
+    documents
   };
 };
 
@@ -475,6 +543,86 @@ const boundedGutenbergBody = (text) => {
     startMarker ? startMarker.index + startMarker[0].length : 0,
     endMarker ? endMarker.index : normalized.length
   ).trim();
+};
+
+export const parseCalculatingEngineText = (text) => {
+  const body = boundedGutenbergBody(text);
+  if (!/THE CALCULATING ENGINE/i.test(body) || !/Charles Babbage/i.test(body)) {
+    throw new Error("The exact Calculating Engine witness is missing its title or attribution.");
+  }
+  if (words(body).length < 10_000) {
+    throw new Error("The exact Calculating Engine witness is incomplete.");
+  }
+  return {
+    canonicalSource: body,
+    documents: [{
+      path: "article:1",
+      title: "The Calculating Engine",
+      sections: [{
+        coordinate: "article:1",
+        level: 1,
+        title: "The Calculating Engine",
+        text: body
+      }]
+    }]
+  };
+};
+
+const texToPlainText = (value) => {
+  let text = String(value)
+    .replace(/^%.*$/gm, " ")
+    .replace(/\\begin\{(?:equation\*?|align\*?|gather\*?|multline\*?|array|cases|center|flushleft|flushright|quote|quotation|verse|small|text)\}/g, " ")
+    .replace(/\\end\{[^}]+\}/g, " ")
+    .replace(/\\(?:label|index|pageref|ref|cite)\{[^{}]*\}/g, " ")
+    .replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, "$1 divided by $2")
+    .replace(/\\sqrt(?:\[[^\]]*\])?\{([^{}]*)\}/g, "square root of $1")
+    .replace(/``|''/g, '"')
+    .replace(/---/g, "—")
+    .replace(/--/g, "–");
+  for (let pass = 0; pass < 5; pass += 1) {
+    text = text.replace(/\\(?:textsc|textit|textbf|textrm|mathrm|mathbf|mathit|emph|mbox|hbox|operatorname|centerline)\{([^{}]*)\}/g, "$1");
+  }
+  return text
+    .replace(/\\(?:alpha|beta|gamma|delta|epsilon|theta|lambda|mu|pi|rho|sigma|tau|phi|chi|psi|omega)\b/gi, (match) => match.slice(1))
+    .replace(/\\(?:times|cdot)\b/g, " multiplied by ")
+    .replace(/\\div\b/g, " divided by ")
+    .replace(/\\(?:leq|le)\b/g, " less than or equal to ")
+    .replace(/\\(?:geq|ge)\b/g, " greater than or equal to ")
+    .replace(/\\neq\b/g, " not equal to ")
+    .replace(/\\[a-zA-Z]+\*?(?:\[[^\]]*\])?/g, " ")
+    .replace(/\\./g, " ")
+    .replace(/[{}$^_&~]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+};
+
+export const parseLawsOfThoughtTex = (text) => {
+  const body = boundedGutenbergBody(text);
+  const headings = [...body.matchAll(/\\chapter\[([\s\S]*?)\]\s*\{/g)]
+    .map((match) => ({
+      index: match.index,
+      end: match.index + match[0].length,
+      title: texToPlainText(match[1] || "").replace(/\s+/g, " ").trim()
+    }));
+  const selected = headings.filter(({ title }) => title && !/^CONTENTS\.?$/i.test(title));
+  if (selected.length !== 23 || !/^PREFACE\.?$/i.test(selected[0].title)
+    || !selected.some(({ title }) => /NATURE AND DESIGN OF THIS WORK/i.test(title))
+    || !/CONSTITUTION OF THE INTELLECT/i.test(selected.at(-1).title)) {
+    throw new Error(`The exact Laws of Thought witness requires its preface and 22 chapters; found ${selected.length} structural divisions.`);
+  }
+  return {
+    canonicalSource: body,
+    documents: selected.map((heading, index) => {
+      const next = headings.find(({ index: candidate }) => candidate > heading.index);
+      const chapterText = texToPlainText(body.slice(heading.end, next?.index ?? body.length));
+      const number = index === 0 ? "preface" : `chapter:${index}`;
+      return {
+        path: number,
+        title: heading.title,
+        sections: [{ coordinate: number, level: index === 0 ? 1 : 2, title: heading.title, text: chapterText }]
+      };
+    })
+  };
 };
 
 export const parseTaoTeChingText = (text) => {
@@ -798,6 +946,9 @@ export const ingestWork = async ({
   const perseusTei = sourceStat.isFile() && (format === "perseus-tei" || (format === "auto" && extname(sourcePath).toLowerCase() === ".xml"));
   const gutenbergText = sourceStat.isFile() && (format === "gutenberg-book-text" || (format === "auto" && extname(sourcePath).toLowerCase() === ".txt"));
   const machineStopsText = sourceStat.isFile() && format === "machine-stops-text";
+  const calculatingEngineText = sourceStat.isFile() && format === "calculating-engine-text";
+  const analyticalEngineEpub = sourceStat.isFile() && format === "analytical-engine-epub";
+  const lawsOfThoughtTex = sourceStat.isFile() && format === "laws-of-thought-tex";
   const taoTeChingText = sourceStat.isFile() && format === "tao-te-ching-text";
   const siddharthaGermanText = sourceStat.isFile() && format === "siddhartha-german-text";
   const unitedStatesConstitutionText = sourceStat.isFile() && format === "us-constitution-text";
@@ -808,7 +959,19 @@ export const ingestWork = async ({
   let documents;
   let canonicalSource;
   let inferredTitle;
-  if (xhtmlDirectory) {
+  if (analyticalEngineEpub) {
+    const parsed = await parseAnalyticalEngineEpub(sourcePath);
+    canonicalSource = parsed.canonicalSource;
+    documents = parsed.documents;
+  } else if (lawsOfThoughtTex) {
+    const parsed = parseLawsOfThoughtTex(await readFile(sourcePath, "utf8"));
+    canonicalSource = parsed.canonicalSource;
+    documents = parsed.documents;
+  } else if (calculatingEngineText) {
+    const parsed = parseCalculatingEngineText(await readFile(sourcePath, "utf8"));
+    canonicalSource = parsed.canonicalSource;
+    documents = parsed.documents;
+  } else if (xhtmlDirectory) {
     const files = await walkExtension(sourcePath, ".xhtml");
     if (!files.length) throw new Error("No XHTML files were found in the supplied work.");
     const texts = await Promise.all(files.map((file) => readFile(file, "utf8")));
@@ -996,7 +1159,7 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text|machine-stops-text|tao-te-ching-text|siddhartha-german-text|us-constitution-text|federalist-text|gilgamesh-text|xhtml-directory|wisdom-epub>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text|machine-stops-text|calculating-engine-text|analytical-engine-epub|laws-of-thought-tex|tao-te-ching-text|siddhartha-german-text|us-constitution-text|federalist-text|gilgamesh-text|xhtml-directory|wisdom-epub>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();

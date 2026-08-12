@@ -29,7 +29,12 @@ A directory is read recursively in natural filename order. Markdown headings bec
 Exact source-specific adapters preserve a work's transmitted structure when a
 generic book parser would flatten it. `machine-stops-text` reads E. M.
 Forster's three witnessed parts directly from the Project Gutenberg 72890
-transcription without rewriting its prose or headings.
+transcription without rewriting its prose or headings. The Computational
+Lineage adds three more exact readers: `calculating-engine-text` preserves
+Babbage's undivided article; `analytical-engine-epub` resolves Article XXIX and
+Lovelace's Notes A–G while recovering equation evidence from EPUB metadata;
+and `laws-of-thought-tex` resolves Boole's preface and twenty-two chapters
+while removing TeX typesetting commands from the derived lexicon.
 
 Each ingestion writes:
 
@@ -255,6 +260,18 @@ derivation while preserving its source hash, three structural passages,
 topology, score, self-reading, and first-frame lineage. The work introduces
 cyberpunk pressure without making genre, atmosphere, or technological
 rebellion into constitutional authority.
+
+The `Computational Lineage` collection admits three public-domain Project
+Gutenberg witnesses in attributable order. Charles Babbage's **The Calculating
+Engine** remains one undivided article as work `45`. Luigi Federico Menabrea
+and Ada Lovelace's **Sketch of the Analytical Engine Invented by Charles
+Babbage, Esq.** preserves Article XXIX and Lovelace's Notes A–G as work `46`.
+George Boole's **An Investigation of the Laws of Thought** preserves its
+preface and twenty-two chapters as work `47`. Their source files are released
+after ingestion; file witnesses, bounded-content hashes, derived structures,
+scores, CWCS lineage, and sealed PNG/SVG portraits remain. Collection order
+witnesses machine → program → logic, while cross-work semantic and visual
+relations remain derived rather than asserted.
 
 ## Spatial grammar
 

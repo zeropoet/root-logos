@@ -1,12 +1,12 @@
 {
   "schema": "root-logos-structural-depth-migration/v1",
-  "generated_at": "2026-08-12T01:16:48.348Z",
+  "generated_at": "2026-08-12T02:06:16.808Z",
   "target_work_grammar": "deterministic-structural-reading/v4-structural-depth",
   "target_corpus_grammar": "deterministic-corpus-reading/v2-structural-depth",
   "policy": "Exact witnessed sources only. Historical editions and admission portraits remain immutable; every new structural reading receives a distinct PNG and SVG successor portrait.",
   "measures": {
-    "coherent_works": 44,
-    "migrated": 44,
+    "coherent_works": 47,
+    "migrated": 47,
     "exact_source_required": 0,
     "completion": 1
   },
@@ -1283,6 +1283,93 @@
         "png_sha256": "38edbc6e69fbd1e487aef3636ad0cf9c656b8fa05842240bddb9b94489be7fd8",
         "svg": "assets/library-first-frames/44-the-machine-stops-d3ed447b-b3bf6333e948.svg",
         "svg_sha256": "b3bf6333e948181b0b633b61cf164e3dbbe2ba5a3341d54d7d8019f11aa575d4"
+      }
+    },
+    {
+      "order": 45,
+      "work_id": "the-calculating-engine-a1bdabdd",
+      "title": "The Calculating Engine",
+      "genre": "computational machinery treatise",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg:71292:update-2023-12-10:utf8-sha256-df9f5a01134b0eb7c96a89fa89e0fac27d7550853422615c94567b794334d901:bounded-work",
+      "source_sha256": "71c3daf574d3aecd379b5b0f398c402a79c2ec963f3657ce68e2a4fa2bffb991",
+      "current_edition": "the-calculating-engine-a1bdabdd--v14-read-34d3c9-74d3aecd",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "680fa66e93f21398",
+        "relation_profile": {
+          "contains": 1,
+          "expresses": 36,
+          "co-occurs": 237
+        },
+        "relation_density": 0.4108,
+        "relation_weight_entropy": 0.9473,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/45-the-calculating-engine-a1bdabdd-b0fe7c7f4159.png",
+        "png_sha256": "b0fe7c7f41591f1101c8e6ab1920ab5386a357813ccb64346cfc8965878ad920",
+        "svg": "assets/library-first-frames/45-the-calculating-engine-a1bdabdd-fa1d4ab0fbbf.svg",
+        "svg_sha256": "fa1d4ab0fbbf94d0573cb01f078e9de16b84ac197c7f7d863cc798ac02d64320"
+      }
+    },
+    {
+      "order": 46,
+      "work_id": "sketch-of-the-analytical-engine-invented-by-charles-babbage-esq-a882fb50",
+      "title": "Sketch of the Analytical Engine Invented by Charles Babbage, Esq.",
+      "genre": "computational machinery and programming treatise",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg:75107:update-2026-04-10:epub3-sha256-3989667361ef459b84fcbd48a0c5d06a555879e23f8068baa1f23f560b6724ac:article-xxix-notes-a-g",
+      "source_sha256": "50cb9a0e69346c3ffe01bfcc001873ba23c4b3f6897686e3fa540ee318c69520",
+      "current_edition": "sketch-of-the-analytical-engine-invented-by-charles-babbage-esq-a882fb50--v14-read-34d3c9-69346c3f",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "8269f948d3bcad23",
+        "relation_profile": {
+          "contains": 8,
+          "expresses": 192,
+          "co-occurs": 345
+        },
+        "relation_density": 0.5886,
+        "relation_weight_entropy": 0.9702,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/46-sketch-of-the-analytical-engine-invented-by-charles-babbage-esq-a882fb50-cd44e45d7e87.png",
+        "png_sha256": "cd44e45d7e87d97b6981a1f77e4f5a8f518a0cdca4afbc8993ff3455e4232b42",
+        "svg": "assets/library-first-frames/46-sketch-of-the-analytical-engine-invented-by-charles-babbage-esq-a882fb50-2ad1dd49a1ec.svg",
+        "svg_sha256": "2ad1dd49a1ec847dc7a8e497b0eec4d42a5797d8e68ed60d20955929c053a126"
+      }
+    },
+    {
+      "order": 47,
+      "work_id": "an-investigation-of-the-laws-of-thought-0db726cb",
+      "title": "An Investigation of the Laws of Thought",
+      "genre": "mathematical logic and probability treatise",
+      "status": "migrated",
+      "recovery": "complete",
+      "source_witness": "project-gutenberg:15114:update-2022-12-14:tex-sha256-79868898c24ed3a9cc05ce3c602ff0e84eb763735e0bed4c55675838c224c641:preface-chapters-1-22",
+      "source_sha256": "f42a9b56af21ca1a7b46f207136df477de635cf9508efef32782be802ba0ca33",
+      "current_edition": "an-investigation-of-the-laws-of-thought-0db726cb--v14-read-34d3c9-af21ca1a",
+      "current_transformation": "deterministic-structural-reading/v4-structural-depth",
+      "structural_depth": {
+        "signature": "67e03405b2059c0a",
+        "relation_profile": {
+          "contains": 23,
+          "expresses": 473,
+          "co-occurs": 204
+        },
+        "relation_density": 0.4727,
+        "relation_weight_entropy": 0.9419,
+        "comparison_boundary": "Comparable only with editions derived through deterministic-structural-reading/v4-structural-depth."
+      },
+      "successor_portrait": {
+        "png": "assets/library-first-frames/47-an-investigation-of-the-laws-of-thought-0db726cb-f84ac339af6a.png",
+        "png_sha256": "f84ac339af6aed4b6526f6010fe218c2029ffea83886d0063dc8f403a7b758aa",
+        "svg": "assets/library-first-frames/47-an-investigation-of-the-laws-of-thought-0db726cb-fe67f61049af.svg",
+        "svg_sha256": "fe67f61049af2ea76eb32e7aa41f5e6c5177b684f5b2c5001654dcea6edcd396"
       }
     }
   ]

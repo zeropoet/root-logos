@@ -1344,9 +1344,10 @@ crosses the private-source/public-lineage membrane and is released; Root Logos
 retains its raw and transformed content witnesses, attribution, rights,
 derived topology, resonant score, CWCS lineage, and sealed 2400×2400 PNG and
 SVG first frames. After enforcing the exact-source structural-depth admission
-standard and admitting **The Machine Stops**, the Library now holds 44 coherent
-objects and composes them through 127 witnessed cross-work relations. Its
-active first-frame ordinal layer runs continuously from `1` through `44`;
+standard and admitting **The Machine Stops** plus the three-work
+**Computational Lineage**, the Library now holds 47 coherent objects and
+composes them through 137 witnessed cross-work relations. Its active
+first-frame ordinal layer runs continuously from `1` through `47`;
 subtraction leaves no false gaps
 in the public Library sequence and does not alter portrait bytes or hashes.
 
@@ -1356,10 +1357,10 @@ windows, and publishes containment, expression, and co-occurrence profiles
 alongside density, weight entropy, and a structural signature. These measures
 are comparable only among v4 successor editions. Before subtraction, the
 56-object field produced 165 relations. The active exact-source field now
-derives 127 cross-work relations across 44 coherent objects.
+derives 137 cross-work relations across 47 coherent objects.
 The deterministic migration ledger at
-`works/structural-depth-migration.json` now witnesses 44 exact-source v4
-successors across all 44 active coherent objects: the active Library is at full
+`works/structural-depth-migration.json` now witnesses 47 exact-source v4
+successors across all 47 active coherent objects: the active Library is at full
 admission compliance. Thirteen works that lacked a verified exact source were
 removed from the active archive and public image lineage. Their identities,
 prior orders, prior current editions, source witnesses, and reasons for
@@ -1378,6 +1379,40 @@ resistance through direct experience. It remains a witnessed literary source,
 not a constitutional authority or an aesthetic instruction. The transcription
 is released after ingestion; its exact source and content hashes, derived
 topology, score, interpretation, and sealed portrait remain attributable.
+
+The **Computational Lineage** enters as three independently attributable works
+whose collection order states only their historical sequence: machine,
+program, logic. Charles Babbage's **The Calculating Engine** is work `45`, read
+as the complete undivided Project Gutenberg 71292 article rather than forced
+into invented chapters. Its 27,653 words form one structural passage and 274
+internal relations at 41.1% derived density, with structural signature
+`680fa66e93f21398`. Tables, number, machinery, mechanism, wheel, and mechanical
+action emerge from the source itself.
+
+Luigi Federico Menabrea and Ada Lovelace's **Sketch of the Analytical Engine
+Invented by Charles Babbage, Esq.** is work `46`. The Project Gutenberg 75107
+EPUB resolves Article XXIX and Lovelace's Notes A–G as eight structural
+divisions and ten passages; equation evidence embedded in its EPUB image
+metadata remains legible to the reading. Its 33,764 words form 545 internal
+relations at 58.9% derived density, with structural signature
+`8269f948d3bcad23`. Engine, operations, cards, arrays, columns, variables, and
+series become its dominant language.
+
+George Boole's **An Investigation of the Laws of Thought** is work `47`. Root
+Logos reads the exact Project Gutenberg 15114 TeX witness as its preface and
+twenty-two chapters, preserving mathematical operators as language while
+discarding typesetting commands. Its 143,006 transiently read words form 23
+structural passages and 700 internal relations at 47.3% derived density, with
+structural signature `67e03405b2059c0a`. Equations, probability,
+propositions, symbols, form, expression, and events emerge without granting
+the treatise constitutional authority.
+
+All three public-domain source files cross the private-source/public-lineage
+membrane and are released after ingestion. Root Logos retains exact file and
+bounded-content witnesses, attribution, rights, derived topology, resonant
+score, CWCS lineage, and sealed 2400×2400 PNG/SVG first frames. The collection
+adjacency records provenance; all semantic, visual-continuity, and
+counterpoint relations remain independently derived.
 
 The ingestion boundary now removes Project Gutenberg start and end matter
 before Markdown-aware structural reading, just as the native Gutenberg book
@@ -1410,8 +1445,8 @@ relations, or competing with its nodes and engraved edges.
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
-of the 44 active coherent Library objects contributes its complete derived topology.
-Those admitted work structures now remain fixed. Above them, 127 pair-relations
+of the 47 active coherent Library objects contributes its complete derived topology.
+Those admitted work structures now remain fixed. Above them, 137 pair-relations
 rise into four grammar points and converge at the Library composition. New
 membership changes that crown and its collective score rather than rewriting
 the bodies from which it emerges. Weight, depth, luminance, rotation, and motion

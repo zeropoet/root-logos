@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { coherentLibraryIdentity, ingestWork, parseFederalistText, parseGilgameshText, parseGutenbergBookText, parseMachineStopsText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei, parseSiddharthaGermanText, parseTaoTeChingText, parseUnitedStatesConstitutionText, parseWisdomEpubXhtml } from "./works.mjs";
+import { coherentLibraryIdentity, ingestWork, parseCalculatingEngineText, parseFederalistText, parseGilgameshText, parseGutenbergBookText, parseLawsOfThoughtTex, parseMachineStopsText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei, parseSiddharthaGermanText, parseTaoTeChingText, parseUnitedStatesConstitutionText, parseWisdomEpubXhtml } from "./works.mjs";
 import { CATHOLIC_CANON, deriveCorpusStructuralDepth } from "./works-corpus.mjs";
 
 const fixture = await mkdtemp(join(tmpdir(), "root-logos-work-"));
@@ -60,11 +60,27 @@ const epubFixture = parseWisdomEpubXhtml(`<?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml"><body>
 <h1>Chapter One</h1><h2><i>Luminous Ground</i></h2>
 <p>Awareness enters relation &amp; remains attributable.</p>
+<p><img alt="equation" data-tex="\\mathrm{V}_{2} = \\frac{A}{B}" src="equation.svg" /></p>
 <h3>Second Movement</h3><p>Form does not erase emptiness.</p>
 </body></html>`, "OEBPS/c01.html");
 assert.equal(epubFixture.title, "Luminous Ground");
 assert.deepEqual(epubFixture.sections.map(({ title }) => title), ["Luminous Ground", "Second Movement"]);
-assert.equal(epubFixture.sections[0].text, "Awareness enters relation & remains attributable.");
+assert.equal(epubFixture.sections[0].text, "Awareness enters relation & remains attributable. V 2 = A B");
+const calculatingEngineFixture = parseCalculatingEngineText(`*** START OF THE PROJECT GUTENBERG EBOOK TEST ***
+THE CALCULATING ENGINE
+BY CHARLES BABBAGE
+${"Calculation mechanism tables difference engine printing accuracy. ".repeat(1800)}
+*** END OF THE PROJECT GUTENBERG EBOOK TEST ***`);
+assert.equal(calculatingEngineFixture.documents.length, 1);
+assert.equal(calculatingEngineFixture.documents[0].path, "article:1");
+const lawsChapters = ["PREFACE.", "CONTENTS.", "NATURE AND DESIGN OF THIS WORK",
+  ...Array.from({ length: 20 }, (_, index) => `CHAPTER ${index + 2}`), "CONSTITUTION OF THE INTELLECT"];
+const lawsFixture = parseLawsOfThoughtTex(`*** START OF THIS PROJECT GUTENBERG EBOOK LAWS OF THOUGHT ***
+${lawsChapters.map((title) => `\\chapter[${title}]{\\large ${title}}\nReasoning \\textsc{enters relation} through $x \\times y$.`).join("\n")}
+*** END OF THE PROJECT GUTENBERG EBOOK AN INVESTIGATION OF THE LAWS OF THOUGHT ***`);
+assert.equal(lawsFixture.documents.length, 23);
+assert.equal(lawsFixture.documents[0].title, "PREFACE.");
+assert.match(lawsFixture.documents[1].sections[0].text, /Reasoning enters relation through x multiplied by y/);
 const gutenbergFixture = parseGutenbergBookText(`Project Gutenberg header
 *** START OF THIS PROJECT GUTENBERG EBOOK TEST ***
 
