@@ -62,3 +62,18 @@ Whenever Root Logos rewrites its identity, the Resonant Chamber recomposes
 from that same manifest rather than developing a divergent sonic
 self-description. Raw journal prose is never a resonant source; only admitted
 derived structure may affect topology and therefore sound.
+
+## FoldForge Sonic Constitution layer
+
+The Founding Constitution may enter FoldForge's Sonic Forge only through the
+bounded mapping in `foldforge-sonic-constitution-map.json`. Work `00` and the
+canonical graph witness seed a deterministic, centered convolution envelope.
+Its impulse duration is 1.8% of the ingested sound, clamped between 1.8 and 6.5
+seconds, so the same constitutional atmosphere scales to files of different
+length without changing their duration.
+
+This layer is weight, not speech. Its low-passed wet path is capped at 0.065,
+uses identical left and right impulses, and may not alter pitch, become a
+foreground voice, imply emotion or certainty, or expand Root Logos authority.
+FoldForge includes the complete source witness and resolved impulse duration in
+every Sonic Forge master witness.

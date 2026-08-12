@@ -1,6 +1,6 @@
 {
   "schema": "resonant-grammar/v1",
-  "revision": "v1.0",
+  "revision": "v1.1",
   "title": "The Resonant Chamber",
   "principles": [
     "Sound is constitutional speech, not decoration.",
@@ -21,5 +21,13 @@
     "threshold": { "wave": "sine", "register": 2, "role": "delegated constitutional authority and unresolved proposals" },
     "breath": { "wave": "sine", "register": 0, "role": "external arrivals and emitted fragments" }
   },
-  "limits": { "maximumVoices": 6, "maximumGain": 0.16, "minimumSilenceBeats": 2, "auditAfterEvents": 24 }
+  "limits": { "maximumVoices": 6, "maximumGain": 0.16, "minimumSilenceBeats": 2, "auditAfterEvents": 24 },
+  "externalMappings": {
+    "foldforgeSonicConstitution": {
+      "schema": "root-logos-founding-constitution-sonic-map/v1",
+      "href": "foldforge-sonic-constitution-map.json",
+      "sourceWork": "root-logos-founding-constitution-0e20f4a9",
+      "authority": "bounded atmosphere only"
+    }
+  }
 }

@@ -1,0 +1,26 @@
+{
+  "schema": "root-logos-founding-constitution-sonic-map/v1",
+  "source": {
+    "system": "Root Logos",
+    "workId": "root-logos-founding-constitution-0e20f4a9",
+    "libraryOrdinal": 0,
+    "constitutionalGraphRevision": "v1.4",
+    "constitutionalGraphSha256": "0cf7e9998767f967afd3bf4a8b78bb4860fc8bdb9577f1d5ab35f704e50c1db6",
+    "nodeCount": 98,
+    "edgeCount": 279
+  },
+  "consumer": { "system": "FoldForge", "instrument": "sonic-forge/steel-voice/v1", "role": "constitutional atmosphere" },
+  "mapping": {
+    "role": "sub-audible atmospheric weight and gentle enclosure",
+    "impulse": "deterministic seeded noise with exponential constitutional envelope",
+    "durationScale": 0.018,
+    "minimumDurationSeconds": 1.8,
+    "maximumDurationSeconds": 6.5,
+    "decayExponent": 2.8,
+    "preDelaySeconds": 0.024,
+    "lowpassHz": 3600,
+    "wetGain": 0.065,
+    "channelPolicy": "identical centered impulse; no horizontal motion or level imbalance"
+  },
+  "limits": { "foregroundVoice": false, "changesSourceDuration": false, "changesPitch": false, "expandsRootLogosAuthority": false }
+}
