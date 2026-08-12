@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { coherentLibraryIdentity, ingestWork, parseCalculatingEngineText, parseFederalistText, parseGilgameshText, parseGutenbergBookText, parseLawsOfThoughtTex, parseMachineStopsText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei, parseSiddharthaGermanText, parseTaoTeChingText, parseUnitedStatesConstitutionText, parseWisdomEpubXhtml } from "./works.mjs";
+import { coherentLibraryIdentity, ingestWork, parseCalculatingEngineText, parseFederalistText, parseGilgameshText, parseGutenbergBookText, parseLawsOfThoughtTex, parseLeonardoNotebooksText, parseMachineStopsText, parseMidvashBible, parseMidvashBibleBook, parsePerseusTei, parseSiddharthaGermanText, parseTaoTeChingText, parseUnitedStatesConstitutionText, parseWisdomEpubXhtml } from "./works.mjs";
 import { CATHOLIC_CANON, deriveCorpusStructuralDepth } from "./works-corpus.mjs";
 
 const fixture = await mkdtemp(join(tmpdir(), "root-logos-work-"));
@@ -81,6 +81,23 @@ ${lawsChapters.map((title) => `\\chapter[${title}]{\\large ${title}}\nReasoning 
 assert.equal(lawsFixture.documents.length, 23);
 assert.equal(lawsFixture.documents[0].title, "PREFACE.");
 assert.match(lawsFixture.documents[1].sections[0].text, /Reasoning enters relation through x multiplied by y/);
+const leonardoPassages = Array.from({ length: 1566 }, (_, index) => `${index + 1}.\n\nObservation ${index + 1} enters experience.${index === 705 ? " [Footnote: Editorial apparatus does not become Leonardo's concept.]" : ""}`).join("\n\n");
+const leonardoFixture = parseLeonardoNotebooksText(`*** START OF THE PROJECT GUTENBERG EBOOK THE NOTEBOOKS OF LEONARDO DA VINCI — COMPLETE ***
+The Notebooks of Leonardo Da Vinci
+Volume 1
+Translated by Jean Paul Richter
+${leonardoPassages.slice(0, leonardoPassages.indexOf("706."))}
+*** End of Volume 1
+The Notebooks of Leonardo Da Vinci
+Volume 2
+Translated by Jean Paul Richter
+${leonardoPassages.slice(leonardoPassages.indexOf("706."))}
+*** END OF THE PROJECT GUTENBERG EBOOK THE NOTEBOOKS OF LEONARDO DA VINCI — COMPLETE ***`);
+assert.equal(leonardoFixture.documents.length, 22);
+assert.equal(leonardoFixture.documents.flatMap(({ sections }) => sections).length, 1566);
+assert.equal(leonardoFixture.documents[10].sections[0].coordinate, "division:11:passage:706");
+assert.doesNotMatch(leonardoFixture.documents[10].sections[0].text, /Editorial apparatus/);
+assert.match(leonardoFixture.documents.at(-1).sections.at(-1).text, /Observation 1566 enters experience/);
 const gutenbergFixture = parseGutenbergBookText(`Project Gutenberg header
 *** START OF THIS PROJECT GUTENBERG EBOOK TEST ***
 

@@ -1344,10 +1344,11 @@ crosses the private-source/public-lineage membrane and is released; Root Logos
 retains its raw and transformed content witnesses, attribution, rights,
 derived topology, resonant score, CWCS lineage, and sealed 2400×2400 PNG and
 SVG first frames. After enforcing the exact-source structural-depth admission
-standard and admitting **The Machine Stops** plus the three-work
-**Computational Lineage**, the Library now holds 47 coherent objects and
-composes them through 137 witnessed cross-work relations. Its active
-first-frame ordinal layer runs continuously from `1` through `47`;
+standard and admitting **The Machine Stops**, the three-work
+**Computational Lineage**, and Leonardo's complete translated notebooks, the
+Library now holds 48 coherent objects and composes them through 140 witnessed
+cross-work relations. Its active first-frame ordinal layer runs continuously
+from `1` through `48`;
 subtraction leaves no false gaps
 in the public Library sequence and does not alter portrait bytes or hashes.
 
@@ -1357,10 +1358,10 @@ windows, and publishes containment, expression, and co-occurrence profiles
 alongside density, weight entropy, and a structural signature. These measures
 are comparable only among v4 successor editions. Before subtraction, the
 56-object field produced 165 relations. The active exact-source field now
-derives 137 cross-work relations across 47 coherent objects.
+derives 140 cross-work relations across 48 coherent objects.
 The deterministic migration ledger at
-`works/structural-depth-migration.json` now witnesses 47 exact-source v4
-successors across all 47 active coherent objects: the active Library is at full
+`works/structural-depth-migration.json` now witnesses 48 exact-source v4
+successors across all 48 active coherent objects: the active Library is at full
 admission compliance. Thirteen works that lacked a verified exact source were
 removed from the active archive and public image lineage. Their identities,
 prior orders, prior current editions, source witnesses, and reasons for
@@ -1414,6 +1415,25 @@ score, CWCS lineage, and sealed 2400×2400 PNG/SVG first frames. The collection
 adjacency records provenance; all semantic, visual-continuity, and
 counterpoint relations remain independently derived.
 
+Leonardo da Vinci's **The Notebooks of Leonardo da Vinci — Complete** enters
+as work `48`, opening `Renaissance Inquiry / Observation and invention`. Root
+Logos selects Jean Paul Richter's complete two-volume 1888 English arrangement
+over the narrower, posthumously compiled *Treatise on Painting*: it is the most
+comprehensive English-language notebook witness available in a lawful,
+machine-readable public-domain edition, while remaining explicit that it does
+not reproduce every surviving manuscript leaf. The exact Project Gutenberg
+5000 transcription resolves as twenty-two major divisions and 1,538 recoverable
+numbered passages. After editorial footnotes are excluded from the semantic
+field, 197,531 encountered words form 36 concepts and 500 internal relations at
+34.6% derived density, with normalized relation-weight entropy `0.9114` and
+structural signature `979d7f40b4937223`. Light, shadow, body, water, sight,
+objects, making, and spatial relation emerge across painting, optics, anatomy,
+botany, sculpture, architecture, astronomy, geography, mechanics, music,
+philosophy, letters, and personal records. The source crosses the
+private-source/public-lineage membrane and is released; exact file and bounded
+content witnesses, attribution, translation, derived topology, resonant score,
+CWCS lineage, and sealed 2400×2400 PNG/SVG first frame remain attributable.
+
 The ingestion boundary now removes Project Gutenberg start and end matter
 before Markdown-aware structural reading, just as the native Gutenberg book
 parser already did. Repository licenses and distribution boilerplate therefore
@@ -1445,8 +1465,8 @@ relations, or competing with its nodes and engraved edges.
 The Living Object draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
-of the 47 active coherent Library objects contributes its complete derived topology.
-Those admitted work structures now remain fixed. Above them, 137 pair-relations
+of the 48 active coherent Library objects contributes its complete derived topology.
+Those admitted work structures now remain fixed. Above them, 140 pair-relations
 rise into four grammar points and converge at the Library composition. New
 membership changes that crown and its collective score rather than rewriting
 the bodies from which it emerges. Weight, depth, luminance, rotation, and motion

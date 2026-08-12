@@ -27,7 +27,7 @@ const words = (value, language = null) => {
   }
   return normalized.match(/[\p{L}\p{N}'’]+/gu) || [];
 };
-const STOP = new Set("a all also among an and another any are as at be been being both but by can could did do does each either even every few first for former from further had has have he her hers him his how however i if in into is it its latter many may me might more most much must my no nor not of on one only or other others our ours own same several she should since so some still such than that the their them then there these they this those through thus to too under up upon us very was we well were what when where which while who will with within without would yet you your".split(" "));
+const STOP = new Set("a all also among an and another any are as at be because been being between both but by can could did do does each either even every few first for former from further had has have he her here hers him his how however i if in into is it its latter many may me might more most much must my no nor not of on one only or other others our ours own same several she should since so some still such than that the their them then there these they this those through thus to too under up upon us very was we well were what when where which while who will with within without would yet you your".split(" "));
 const LANGUAGE_STOP = {
   de: new Set("aber alle allem allen aller alles also am an andere auch auf aus bei bin bis bist da dadurch daher darum das dass dein deine dem den denn der des die dies diese diesem diesen dieser dieses doch dort durch ein eine einem einen einer eines er es etwas für gegen gewesen hat hatte haben hier hin hinter ich ihm ihn ihnen ihr ihre im in ist ja jede jedem jeden jeder jedes kann kein keine mit muss nach nicht nichts noch nun nur ob oder ohne sehr sein seine sich sie sind so über um und uns unter vom von vor war waren was weg weil weiter welche wenn wer werden wie wieder will wir wo zu zum zur".split(" ")),
   es: new Set("al algo algún alguna algunas alguno algunos ante antes aquel aquella aquellas aquello aquellos aquí así aun aunque bajo bien cada casi como con contra cual cuando de del desde donde dos el ella ellas ello ellos en entre era eran es esa esas ese eso esos esta estaba estaban estar estas este esto estos fue fueron ha había habían hacia hasta hay la las le les lo los más me mi mientras muy nada ni no nos o otra otras otro otros para pero poco por porque que quien se ser si sin sobre solo son su sus también tan tanto te tiene todo todos tras un una unas uno unos ya y yo".split(" ")),
@@ -568,6 +568,117 @@ export const parseCalculatingEngineText = (text) => {
   };
 };
 
+const LEONARDO_NOTEBOOK_DIVISIONS = [
+  [1, "Prolegomena and General Introduction to the Book on Painting"],
+  [40, "Linear Perspective"],
+  [110, "Six Books on Light and Shade"],
+  [222, "Perspective of Disappearance"],
+  [263, "Theory of Colours"],
+  [289, "Perspective of Colour and Aerial Perspective"],
+  [308, "Proportions and Movements of the Human Figure"],
+  [393, "Botany for Painters and Elements of Landscape Painting"],
+  [482, "The Practice of Painting"],
+  [663, "Studies and Sketches for Pictures and Decorations"],
+  [706, "The Notes on Sculpture"],
+  [741, "Architectural Designs"],
+  [770, "Theoretical Writings on Architecture"],
+  [796, "Anatomy, Zoology and Physiology"],
+  [857, "Astronomy"],
+  [919, "Physical Geography"],
+  [1001, "Topographical Notes"],
+  [1113, "Naval Warfare, Mechanical Appliances and Music"],
+  [1132, "Philosophical Maxims, Morals, Polemics and Speculations"],
+  [1220, "Humorous Writings"],
+  [1336, "Letters, Personal Records and Dated Notes"],
+  [1379, "Miscellaneous Notes"]
+];
+
+const stripLeonardoEditorialNotes = (value) => {
+  let source = String(value);
+  let result = "";
+  while (source) {
+    const note = source.search(/\[(?:Footnote|Illustration)\b/i);
+    if (note < 0) {
+      result += source;
+      break;
+    }
+    result += source.slice(0, note);
+    let depth = 0;
+    let end = note;
+    for (; end < source.length; end += 1) {
+      if (source[end] === "[") depth += 1;
+      if (source[end] === "]") {
+        depth -= 1;
+        if (depth === 0) {
+          end += 1;
+          break;
+        }
+      }
+    }
+    source = source.slice(end);
+  }
+  return result
+    .replace(/^\*{3}.*\*{3}\s*$/gm, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+};
+
+export const parseLeonardoNotebooksText = (text) => {
+  const body = boundedGutenbergBody(text);
+  if (!/The Notebooks of Leonardo Da Vinci/i.test(body)
+    || !/Translated by Jean Paul Richter/i.test(body)
+    || !/Volume 2/i.test(body)) {
+    throw new Error("The exact complete Leonardo notebooks witness is missing its title, translator, or second volume.");
+  }
+  const candidates = [...body.matchAll(/^([0-9O]{1,4})\.\s*$/gm)]
+    .map((match) => ({
+      number: Number(match[1].replace(/O/g, "0")),
+      index: match.index,
+      end: match.index + match[0].length
+    }));
+  const passages = [];
+  let previous = 0;
+  for (const candidate of candidates) {
+    if (candidate.number <= previous || candidate.number > previous + 10) continue;
+    passages.push(candidate);
+    previous = candidate.number;
+  }
+  if (passages.length < 1_530 || passages[0]?.number !== 1 || passages.at(-1)?.number !== 1566) {
+    throw new Error(`The exact complete Leonardo notebooks witness must preserve passages 1-1566; resolved ${passages.length} numbered passages ending at ${passages.at(-1)?.number || 0}.`);
+  }
+  const anchors = new Map(LEONARDO_NOTEBOOK_DIVISIONS);
+  const documents = LEONARDO_NOTEBOOK_DIVISIONS.map(([firstPassage, title], divisionIndex) => {
+    const lastPassage = LEONARDO_NOTEBOOK_DIVISIONS[divisionIndex + 1]?.[0] ?? 1567;
+    const sections = passages
+      .filter(({ number }) => number >= firstPassage && number < lastPassage)
+      .map((passage) => {
+        const next = passages[passages.indexOf(passage) + 1];
+        let passageEnd = next?.index ?? body.length;
+        if (next && anchors.has(next.number)) {
+          const boundaryWindow = body.slice(passage.end, next.index);
+          const volumeBoundary = boundaryWindow.search(/\n\s*(?:\*{3}\s*End of Volume 1|The Notebooks of Leonardo Da Vinci\s*\n\s*Volume 2|X{0,3}(?:IX|IV|V?I{0,3})\.\s*\n)/i);
+          if (volumeBoundary >= 0) passageEnd = passage.end + volumeBoundary;
+        }
+        return {
+          coordinate: `division:${divisionIndex + 1}:passage:${passage.number}`,
+          level: 3,
+          title: `${title} / Passage ${passage.number}`,
+          text: stripLeonardoEditorialNotes(body.slice(passage.end, passageEnd))
+        };
+      })
+      .filter(({ text: passageText }) => passageText);
+    return {
+      path: `division:${divisionIndex + 1}`,
+      title,
+      sections
+    };
+  });
+  if (documents.length !== 22 || documents.some(({ sections }) => !sections.length)) {
+    throw new Error("The exact complete Leonardo notebooks witness did not resolve all twenty-two major divisions.");
+  }
+  return { canonicalSource: body, documents };
+};
+
 const texToPlainText = (value) => {
   let text = String(value)
     .replace(/^%.*$/gm, " ")
@@ -947,6 +1058,7 @@ export const ingestWork = async ({
   const gutenbergText = sourceStat.isFile() && (format === "gutenberg-book-text" || (format === "auto" && extname(sourcePath).toLowerCase() === ".txt"));
   const machineStopsText = sourceStat.isFile() && format === "machine-stops-text";
   const calculatingEngineText = sourceStat.isFile() && format === "calculating-engine-text";
+  const leonardoNotebooksText = sourceStat.isFile() && format === "leonardo-notebooks-text";
   const analyticalEngineEpub = sourceStat.isFile() && format === "analytical-engine-epub";
   const lawsOfThoughtTex = sourceStat.isFile() && format === "laws-of-thought-tex";
   const taoTeChingText = sourceStat.isFile() && format === "tao-te-ching-text";
@@ -969,6 +1081,10 @@ export const ingestWork = async ({
     documents = parsed.documents;
   } else if (calculatingEngineText) {
     const parsed = parseCalculatingEngineText(await readFile(sourcePath, "utf8"));
+    canonicalSource = parsed.canonicalSource;
+    documents = parsed.documents;
+  } else if (leonardoNotebooksText) {
+    const parsed = parseLeonardoNotebooksText(await readFile(sourcePath, "utf8"));
     canonicalSource = parsed.canonicalSource;
     documents = parsed.documents;
   } else if (xhtmlDirectory) {
@@ -1159,7 +1275,7 @@ const args = process.argv.slice(2);
 if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const command = args.shift();
   if (command !== "ingest") {
-    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text|machine-stops-text|calculating-engine-text|analytical-engine-epub|laws-of-thought-tex|tao-te-ching-text|siddhartha-german-text|us-constitution-text|federalist-text|gilgamesh-text|xhtml-directory|wisdom-epub>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
+    process.stderr.write("Usage: node scripts/works.mjs ingest <path> [--title <title>] [--author <author>] [--kind <kind>] [--source <url>] [--source-visibility <public|private>] [--source-witness <id>] [--format <auto|douay-rheims-json|midvash-bible-json|midvash-bible-book-json|perseus-tei|gutenberg-book-text|machine-stops-text|calculating-engine-text|leonardo-notebooks-text|analytical-engine-epub|laws-of-thought-tex|tao-te-ching-text|siddhartha-german-text|us-constitution-text|federalist-text|gilgamesh-text|xhtml-directory|wisdom-epub>] [--translation <name>] [--language <code>] [--rights <statement>] [--collection <name>] [--division <name>] [--canonical-order <number>] [--revision <revision>]\n");
     process.exitCode = 1;
   } else {
     const input = args.shift();

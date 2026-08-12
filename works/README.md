@@ -35,6 +35,11 @@ Babbage's undivided article; `analytical-engine-epub` resolves Article XXIX and
 Lovelace's Notes A–G while recovering equation evidence from EPUB metadata;
 and `laws-of-thought-tex` resolves Boole's preface and twenty-two chapters
 while removing TeX typesetting commands from the derived lexicon.
+`leonardo-notebooks-text` preserves Jean Paul Richter's complete two-volume
+arrangement as twenty-two major divisions and the 1,538 numbered passages
+recoverable from Project Gutenberg's current transcription. It retains the
+passage-to-division coordinates while excluding editorial footnotes from
+Leonardo's semantic field.
 
 Each ingestion writes:
 
@@ -272,6 +277,18 @@ after ingestion; file witnesses, bounded-content hashes, derived structures,
 scores, CWCS lineage, and sealed PNG/SVG portraits remain. Collection order
 witnesses machine → program → logic, while cross-work semantic and visual
 relations remain derived rather than asserted.
+
+Leonardo da Vinci's **The Notebooks of Leonardo da Vinci — Complete** enters
+as work `48` and opens `Renaissance Inquiry / Observation and invention`.
+The exact Project Gutenberg 5000 witness is Jean Paul Richter's 1888 English
+translation and arrangement: the most comprehensive English-language
+compilation of Leonardo's notebook writings, not a claim to reproduce every
+surviving manuscript leaf. Its two volumes preserve twenty-two major divisions
+and 1,538 recoverable numbered passages across painting, optics, the body,
+botany, sculpture, architecture, astronomy, water, geography, machines,
+philosophy, letters, and personal records. The public-domain source file is
+released after deterministic reading; its opaque witness, bounded-content
+hash, derived topology, score, CWCS lineage, and sealed PNG/SVG portrait remain.
 
 ## Spatial grammar
 

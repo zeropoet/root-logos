@@ -39,8 +39,8 @@ assert.ok(graph.edges.some(({ from, to }) => from === "root-logos" && to === "pu
 assert.equal(exports.at(-1).export_id, "RL-EXPORT-0021");
 assert.equal(exports.at(-1).revision_entry.version, "1.4.11");
 assert.ok(worksIndex.works.some(({ work_id, title }) => work_id === "mutual-aid-a-factor-of-evolution-84650682" && title === "Mutual Aid: A Factor of Evolution"));
-assert.equal(libraryComposition.measures.works, 47);
-assert.equal(libraryComposition.measures.relations, 137);
+assert.equal(libraryComposition.measures.works, 48);
+assert.equal(libraryComposition.measures.relations, 140);
 assert.equal(withdrawals.measures.withdrawals, 13);
 assert.equal(withdrawals.measures.active_coherent_works_after_withdrawal, 43);
 assert.ok(withdrawals.withdrawals.every(({ work_id: workId }) =>
@@ -50,7 +50,7 @@ assert.ok(withdrawals.withdrawals.every(({ work_id: workId }) =>
 assert.equal(frameManifest.schema, "root-logos-library-first-frames/v5");
 assert.deepEqual(
   frameManifest.frames.map(({ order }) => order),
-  Array.from({ length: 47 }, (_, index) => index + 1)
+  Array.from({ length: 48 }, (_, index) => index + 1)
 );
 assert.ok(frameManifest.frames.every(({ file, order, svg_file: svgFile }) => {
   const prefix = String(order).padStart(2, "0");
