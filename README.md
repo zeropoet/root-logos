@@ -232,6 +232,12 @@ authority boundaries.
   becomes visible in the Observatory. FoldForge also republishes its current
   twelve-term Language Composition hourly, so a holdings-driven lexical shift
   can propagate without requiring a source-code change.
+  Operational FoldPortrait mint-status changes may refresh witnessed evidence
+  and wake cultivation, but they do not recompose Library editions unless
+  FoldForge's normalized composition witness also changes. The workflow rebuilds
+  and commits the structural-depth ledger whenever such recomposition does
+  occur, retries bounded non-fast-forward push races, and opens one deduplicated
+  issue when connected-source propagation cannot converge.
 - `content/coherent-field.md` defines the constitutional standard for building
   one coherent account across distinct sources without possession or collapse,
   including the separate compositional, economic, material, and public-exchange
@@ -327,10 +333,10 @@ authority boundaries.
 
 Sovereign Standard now publishes
 `https://sovereignstandard.co/root-logos-witness-export.json` as a deterministic
-public evidence contract. The current Root Logos witness contains 53 canonical
-archived works: 13 minted works carried by 13 individually numbered Black Tin
-Vessels and 40
-prepared works awaiting later embodiment. Each relation preserves the work hash,
+public evidence contract. The current Root Logos witness contains 56 canonical
+archived works: 15 minted works, 41 prepared works awaiting later embodiment,
+and 15 explicit work-to-vessel relations spanning 14 individually numbered
+Black Tin Vessels. Each relation preserves the work hash,
 public manifest and metadata, vessel coordinate, preparation or mint state, and
 public ledger witness where one exists.
 
