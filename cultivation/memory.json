@@ -342,24 +342,24 @@
       ],
       "claim": "From Reference to Participation and The Coherent Field share coherence, corrigibility, source but have no explicit constitutional relation.",
       "proposed_question": null,
-      "evidence_hash": "1a8637ee620cf9b0db720ac2013a10488645a6004cbebd3cbef5846da58208af",
-      "policy_hash": "077f46170043519e0f4144e97b8ea8b8d7a664fbe5f35ddc8723d782a822a7b7",
+      "evidence_hash": "7c5ffb18729f0b3efe333e710945d5f75690e5b884e87e81d54da943bc44df03",
+      "policy_hash": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1",
       "first_cycle": "RL-CULTIVATE-0016",
-      "last_cycle": "RL-CULTIVATE-0086",
-      "last_cycle_index": 86,
-      "considerations": 16,
+      "last_cycle": "RL-CULTIVATE-0162",
+      "last_cycle_index": 162,
+      "considerations": 18,
       "status": "autonomously-rejected",
-      "last_novelty_reason": "incubation-elapsed",
+      "last_novelty_reason": "evidence-changed",
       "last_evaluation": {
         "dimensions": {
           "source_fidelity": 4,
-          "relational_gain": 3,
+          "relational_gain": 2,
           "compression": 2,
           "testability": 4,
           "corrigibility": 4,
-          "novelty_without_drift": 3
+          "novelty_without_drift": 1
         },
-        "total": 20
+        "total": 17
       }
     },
     "2f166802a1f94ac7b4fa65fb8787d31621ae1ce1003f3788014876204cd71684": {
@@ -1427,8 +1427,8 @@
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 3,
-    "last_score": 0,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 3,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -2500,13 +2500,20 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-13T03:35:05.564Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0162",
+        "score": 3,
+        "reason": "evidence-changed",
+        "status": "autonomously-rejected",
+        "at": "2026-08-13T03:35:36.569Z"
       }
     ]
   },
   "dormancy": {
-    "active": true,
-    "entered_at": "2026-08-13T03:35:05.590Z",
-    "reason": "3 consecutive low-yield cycles",
+    "active": false,
+    "entered_at": null,
+    "reason": null,
     "source_snapshot": {
       "combined": "19b35bdb8e7199e96d8d462652ffab2fb2daed3900d96b9d97f69cb3ebac75a5",
       "policy": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1"
@@ -2606,6 +2613,10 @@
       },
       {
         "at": "2026-08-11T20:26:27.176Z",
+        "reason": "canonical-source-changed"
+      },
+      {
+        "at": "2026-08-13T03:35:36.432Z",
         "reason": "canonical-source-changed"
       }
     ]
