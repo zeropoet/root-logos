@@ -107,6 +107,7 @@ jobs:
         run: |
           if [ "$FOLDFORGE_COMPOSITION_CHANGED" = "true" ]; then
             npm run works:recompose-foldforge
+            npm run works:depth-ledger
           fi
           npm run works:check-foldforge
           node scripts/cultivate.mjs cycle
@@ -119,14 +120,22 @@ jobs:
         run: |
           git config user.name "root-logos-integrator[bot]"
           git config user.email "root-logos-integrator[bot]@users.noreply.github.com"
-          git add sources/foldforge.snapshot.json sources/foldportrait.snapshot.json sources/sovereign-standard.snapshot.json cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json works/index.json works/corpora works/*/manifest.json works/*/editions
+          git add sources/foldforge.snapshot.json sources/foldportrait.snapshot.json sources/sovereign-standard.snapshot.json cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json works/index.json works/structural-depth-migration.json works/corpora works/*/manifest.json works/*/editions
           if git diff --cached --quiet; then
             echo "Connected source evidence is unchanged."
             exit 0
           fi
           witness=$(node -e 'const f=require("./sources/foldforge.snapshot.json"); const p=require("./sources/foldportrait.snapshot.json"); const s=require("./sources/sovereign-standard.snapshot.json"); process.stdout.write(`${f.witness.slice(7,13)}-${p.witness.slice(7,13)}-${s.witness.slice(7,13)}`)')
           git commit -m "Witness connected sources (${witness})"
-          git push origin HEAD:main
+          for attempt in 1 2 3 4; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Main advanced during integration; rebasing attempt ${attempt}/4."
+            git pull --rebase origin main
+          done
+          echo "Unable to converge Root Logos after four push attempts."
+          exit 1
 
       - name: Converge the always-awake runtime
         if: steps.source.outputs.changed == 'true'
