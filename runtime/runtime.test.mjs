@@ -31,7 +31,7 @@ const { server, runtime } = await startServer({
   commandRunner: async (args) => { calls.push(args); return { stdout: "test cycle complete", stderr: "" }; },
   sourceSyncRunner: async () => {
     sourceScans.push("sovereign-standard");
-    return { stdout: "Confirmed 53 Sovereign Standard works and 52 FoldPortrait render relations.", stderr: "" };
+    return { stdout: "Confirmed 56 Sovereign Standard works and 52 FoldPortrait render relations.", stderr: "" };
   },
   deployRunner: async (sha) => { deployments.push(sha); return { restart: false }; }
 });

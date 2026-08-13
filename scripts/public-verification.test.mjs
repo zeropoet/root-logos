@@ -64,7 +64,7 @@ assert.ok(frameManifest.frames.every(({ file, order, svg_file: svgFile }) => {
 assert.equal(frameManifest.archive.filter(({ work_id }) => work_id === ornamentManifest.work_id).length, 2);
 assert.equal(ornamentManifest.source_retained, false);
 assert.equal(ornamentManifest.source, null);
-assert.equal(ornamentManifest.current_edition, "ornament-of-abhidharma-e125ae67--v14-read-34d3c9-e321946a");
+assert.equal(ornamentManifest.current_edition, "ornament-of-abhidharma-e125ae67--v1.4-foldforge-171437ee52");
 assert.match(styles, /h1, h2, h3, h4,[\s\S]*?text-transform:\s*uppercase;/);
 assert.doesNotMatch(index, /Latest autonomous inquiry|id="latest-cycle"|id="cycle-drawer"/);
 assert.match(index, /A constitution <em>held in relation\.<\/em>/);

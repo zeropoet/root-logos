@@ -70,8 +70,8 @@ Production convergence is bidirectional:
   concurrent GitHub work, and pushes through a
   repository-scoped write deploy key.
 
-Before every serialized wake, the runtime scans Sovereign Standard's canonical
-public witness export and refreshes the FoldPortrait-to-material relations used
+Before every serialized wake, the runtime scans Sovereign Standard's public
+external-relation export and refreshes the FoldPortrait-to-vessel relations used
 by the Living Object. A missing identity, changed archived render hash, invalid
 witness, or prohibited private field fails the wake before cultivation.
 
