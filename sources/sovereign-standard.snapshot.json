@@ -1,7 +1,7 @@
 {
   "schema": "root-logos-material-witness-export/v1",
   "source_id": "sovereign-standard",
-  "source_revision": "2026-08-13T04:45:51.679Z",
+  "source_revision": "2026-08-13T04:58:17.843Z",
   "public_url": "https://sovereignstandard.co",
   "relation": "physically-witnesses",
   "statement": "Black Tin Vessels carry public, content-addressed witness works through preparation, minting, and archival lineage.",
@@ -18,8 +18,8 @@
     "witness_works": 56,
     "vessel_work_relations": 15,
     "vessels_with_witness_works": 14,
-    "prepared_works": 42,
-    "minted_works": 14
+    "prepared_works": 41,
+    "minted_works": 15
   },
   "works": [
     {
@@ -538,13 +538,13 @@
       "title": "FoldPortrait v2.2",
       "canonical_status": "canonical_work",
       "archive_status": "archived",
-      "mint_status": "prepared",
+      "mint_status": "minted",
       "file_sha256": "43c461c30253998ebf926ee9b8131b4970b211e4ad943d3d8bd904e148cfda08",
       "image": "https://zeropoet.github.io/FoldPortrait/Output/png/foldportrait-v2.2-zero-poet-2cfdfa64.png",
       "manifest_url": "https://zeropoet.github.io/FoldPortrait/Mint/catalog.json",
       "metadata_url": "https://zeropoet.github.io/FoldPortrait/Mint/metadata/foldportrait-v2.2-zero-poet-2cfdfa64.json",
       "archived_file_url": "https://zeropoet.github.io/FoldPortrait/Output/png/foldportrait-v2.2-zero-poet-2cfdfa64.png",
-      "updated_at": null,
+      "updated_at": "2026-08-13T04:58:17.843Z",
       "vessels": [
         {
           "vessel_number": "023",
@@ -560,9 +560,9 @@
       "ledger_witness": {
         "network": "MAINNET",
         "transaction_type": "NFTokenMint",
-        "transaction_hash": null,
-        "nftoken_id": null,
-        "validated": false
+        "transaction_hash": "92EEA7E2E78AD7C5610699F27CE026A2221FE72C42F0E1FCC34105056A2ABB1A",
+        "nftoken_id": "0000000047D6BDCD766717B67A937E83CFEF22B1760537E3AF9C50B50644143A",
+        "validated": true
       }
     },
     {
@@ -1402,5 +1402,5 @@
       }
     }
   ],
-  "witness": "sha256:0b7a192c512fe6570b610b343325e237275a4f93c3b2249f01ffd74e618128d1"
+  "witness": "sha256:1ea8c8b5d9618bccdf9f692a2891c2f38352d486ef1c6aad7b617464ed9f2f96"
 }
