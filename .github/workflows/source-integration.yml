@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: root-logos-source-integration
@@ -142,3 +143,15 @@ jobs:
             -H "X-GitHub-SHA: $commit_sha" \
             -H "Content-Type: application/json" \
             --data '{}'
+
+      - name: Report source propagation failure
+        if: failure()
+        working-directory: root-logos
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Connected-source propagation failure"
+          existing=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
+          if [ -z "$existing" ]; then
+            gh issue create --title "$title" --body "A FoldForge, FoldPortrait, or Sovereign Standard source integration failed. Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          fi
