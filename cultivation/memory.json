@@ -1455,6 +1455,35 @@
         },
         "total": 20
       }
+    },
+    "ca2f87190d5a369c31108f3b79b6502b843884136019a05709f61b1067d4e55d": {
+      "fingerprint": "ca2f87190d5a369c31108f3b79b6502b843884136019a05709f61b1067d4e55d",
+      "kind": "reflexive-test",
+      "nodes": [
+        "cultivation-chamber",
+        "coherent-field"
+      ],
+      "claim": "The Coherent Field is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
+      "proposed_question": "What observable failure would show that the Cultivation Chamber violates The Coherent Field?",
+      "evidence_hash": "51130858a16d2edf531537cc5c18616b6029628025287e7160b5e936cd74b8ac",
+      "policy_hash": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1",
+      "first_cycle": "RL-CULTIVATE-0165",
+      "last_cycle": "RL-CULTIVATE-0165",
+      "last_cycle_index": 165,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
     }
   },
   "novelty": {
@@ -2552,6 +2581,13 @@
         "reason": "new-hypothesis",
         "status": "autonomously-rejected",
         "at": "2026-08-13T04:21:27.058Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0165",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-08-13T04:27:30.820Z"
       }
     ]
   },
