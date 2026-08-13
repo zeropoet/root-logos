@@ -70,7 +70,7 @@
       },
       {
         "id": "foldforge",
-        "role": "evidence-to-composition grammar"
+        "role": "archive, audio, visual-time, and bounded XRPL evidence instruments"
       },
       {
         "id": "foldportrait",
@@ -97,6 +97,14 @@
       {
         "id": "x",
         "role": "bounded witness for Root Logos fragments"
+      },
+      {
+        "id": "xaman",
+        "role": "human signing boundary for Ledger Witness"
+      },
+      {
+        "id": "ledger-witness",
+        "role": "FoldForge local-snapshot mint-intent interface returning verified ledger evidence to SS"
       }
     ],
     "relations": [
@@ -104,6 +112,12 @@
       "human-principal -> fulfills -> Sovereign Standard orders",
       "Root Logos -> orients -> design flows",
       "FoldForge -> constrains -> composition",
+      "FoldForge Ledger Witness -> snapshots locally -> Sovereign Standard prepared mint documents and public vessel registry",
+      "human steward through Xaman -> authorizes -> FoldForge Ledger Witness XRPL mint submission",
+      "FoldForge Ledger Witness -> returns verified result -> Sovereign Standard archive boundary",
+      "FoldPortrait -> mints exclusively through -> FoldForge Ledger Witness",
+      "FoldPortrait sequence -> attaches in claim order -> Sovereign Standard claimed vessels",
+      "Sovereign Standard -> retains -> prepared mint documents, public metadata, vessel attachments, and committed XRPL records",
       "FoldPortrait -> witnesses -> material render lineage",
       "Telos -> acquires -> qualified prospective subscribers",
       "Telos -> routes -> Sovereign Standard monthly collection",
@@ -180,5 +194,5 @@
     "Which anonymous signals are sufficient to improve conversion without creating a customer-surveillance system?",
     "When has a campaign earned continuation, and when should insufficient evidence require silence or rollback?"
   ],
-  "witness": "sha256:fbd88a2a0fbb902125c3d1b6c189dd239017f0b4fcb54c2b2a6976011a69932e"
+  "witness": "sha256:c0c53e470f45bb8cedc14eef931f8d41d1a26e7c27156d3d18a05053116c473c"
 }
