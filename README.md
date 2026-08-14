@@ -201,7 +201,7 @@ authority boundaries.
 - `sources/telos.public-witness.json` publishes Telos as Sovereign Standard's
   customer-acquisition operator. It exposes the bounded acquisition loop,
   anonymous measurement posture, deployment state, public five-repository and
-  five-component system mapping, 200/400 subscriber ladder, system-wide change
+  eight-component system mapping, 200/400 subscriber ladder, system-wide change
   propagation policy, governing constraints, and unresolved questions. Its
   schema excludes personal data, payment records,
   credentials, unpublished campaign artifacts, outreach, advertising spend,
@@ -211,7 +211,12 @@ authority boundaries.
   public provenance model, and vessel field as material tests of continuity,
   stewardship, product, ritual, and potential community. Private customer,
   collector, order, payment, claim, address, receipt, and community records are
-  excluded.
+  excluded. It also identifies
+  [`@sovereignstandardtea`](https://www.instagram.com/sovereignstandardtea/) as
+  a bounded outward public channel. The Sovereign Standard site and archive
+  remain canonical; Instagram credentials, direct messages, audience identity,
+  private engagement data, unpublished content, and posting authority do not
+  enter Root Logos.
 - `sources/sovereign-standard.snapshot.json` is the sealed material-witness
   bridge generated from Sovereign Standard's public
   `root-logos-witness-export.json`. It preserves content hashes, public archive
