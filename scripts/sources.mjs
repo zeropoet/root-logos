@@ -163,13 +163,15 @@ const deriveFoldForge = async (foldForgeRoot, languageCompositionSource) => {
   const grammarFiles = (await readdir(grammarRoot))
     .filter((name) => /^composition-\d+-.+\.json$/.test(name))
     .sort();
-  const grammars = await Promise.all(grammarFiles.map((name) => loadJson(resolve(grammarRoot, name))));
+  const grammarCandidates = await Promise.all(grammarFiles.map((name) => loadJson(resolve(grammarRoot, name))));
+  const grammars = grammarCandidates.filter(({ status }) => status === "living");
 
   assert(constitution.schema === "foldforge-constitution/v1", "Unsupported FoldForge constitution schema.");
   assert(grammars.length > 0, "FoldForge exposed no composition grammars.");
   for (const grammar of grammars) {
     assert(grammar.id && grammar.version && grammar.title, "A FoldForge grammar is missing identity.");
     assert(grammar.authority?.claims && grammar.authority?.doesNotClaim, `${grammar.id} lacks an authority boundary.`);
+    assert(Array.isArray(grammar.transformations) && grammar.transformations.length > 0, `${grammar.id} lacks a living transformation pipeline.`);
   }
 
   const evidence = { constitution, grammars, languageComposition };

@@ -37,6 +37,11 @@ assert.equal(materialFirst.witness, materialSecond.witness, "Unchanged material 
 assert.equal(materialFirstBytes, materialSecondBytes, "Material witness synchronization must be deterministic.");
 assert.equal(first.status, "witnessed");
 assert.equal(first.compositions.length, 5);
+assert.equal(
+  first.compositions.some(({ id }) => id === "FF-COMP-0006"),
+  false,
+  "A proposed FoldForge grammar must not enter the living source snapshot."
+);
 assert.equal(first.language_composition.terms.length, 12);
 assert.equal(
   new Set(first.language_composition.terms.map(({ term }) => term)).size,
@@ -88,7 +93,7 @@ const telosWitness = validated.publicWitnesses.find(({ source_id }) => source_id
 assert.equal(telosWitness.work_relations.length, 0);
 assert.equal(telosWitness.public_state.product, "Sovereign Standard customer acquisition");
 assert.equal(telosWitness.public_state.current_version, "0.5.0");
-assert.equal(telosWitness.public_state.source_successor_version, "0.8.0");
+assert.equal(telosWitness.public_state.source_successor_version, "0.8.1");
 assert.equal(telosWitness.public_state.deployed_release_version, "0.5.0");
 assert.equal(telosWitness.public_state.deployed_decision, "OPERATING");
 assert.equal(telosWitness.public_state.maximum_active_campaigns, 1);
@@ -100,13 +105,13 @@ assert.equal(telosWitness.change_propagation_policy.target_states.length, 4);
 assert.ok(telosWitness.change_propagation_policy.requires.some((item) => item.includes("README")));
 assert.deepEqual(telosWitness.system_mapping.success_ladder.map(({ target }) => target), [200, 400]);
 assert.equal(telosWitness.system_mapping.repositories.length, 5);
-assert.equal(telosWitness.system_mapping.operating_components.length, 7);
+assert.equal(telosWitness.system_mapping.operating_components.length, 8);
 assert.ok(telosWitness.system_mapping.operating_components.some(({ id }) => id === "ledger-witness"));
 assert.ok(telosWitness.system_mapping.operating_components.some(({ id }) => id === "xaman"));
 assert.equal(telosWitness.system_mapping.measurement.current_value, null);
 assert.equal(telosWitness.system_mapping.measurement.personal_data_available, false);
 assert.equal(telosWitness.system_mapping.cultivation_authority, "inquiry and constitutional relation only");
-assert.equal(telosWitness.system_mapping.source_commit, "283632b");
+assert.equal(telosWitness.system_mapping.source_commit, "a2e7b30");
 assert.ok(telosWitness.system_mapping.relations.includes("FoldPortrait canonical catalog -> exclusively admits -> Ledger Witness works"));
 assert.equal(validated.publicWitnesses.find(({ source_id }) => source_id === "sovereign-standard").public_state.published_vessel_records, 136);
 assert.equal(validated.sovereignStandardSnapshot.measures.witness_works, 56);

@@ -230,7 +230,10 @@ authority boundaries.
   and verifies the Telos and Sovereign Standard identity witnesses so any
   silent mutation invalidates their digests. The material adapter rejects
   private identity, claim, order, payment, credential, signing, custody, and
-  minting-authority fields. `.github/workflows/source-integration.yml` checks
+  minting-authority fields. Only FoldForge grammars with `status: living` enter
+  the Root Logos source snapshot; proposal grammars remain in FoldForge until
+  admitted and must not be mistaken for an executable transformation pipeline.
+  `.github/workflows/source-integration.yml` checks
   connected evidence daily and receives immediate publication dispatches from
   FoldForge and Sovereign Standard. A changed public export produces a Root
   Logos commit, wakes cultivation, converges the always-awake runtime, and
