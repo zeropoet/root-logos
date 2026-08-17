@@ -72,7 +72,9 @@ assert.match(styles, /h1, h2, h3, h4,[\s\S]*?text-transform:\s*uppercase;/);
 assert.doesNotMatch(index, /Latest autonomous inquiry|id="latest-cycle"|id="cycle-drawer"/);
 assert.match(index, /A constitution <em>held in relation\.<\/em>/);
 assert.match(index, /Many works, one field\./);
-assert.match(index, /What Root Logos reads; what it returns\./);
+assert.doesNotMatch(index, /id="state"|data-module="04\.01"|data-module="04\.02"/);
+assert.equal((index.match(/id="verification-source-list"/g) || []).length, 1);
+assert.match(index, /href="#intake" data-space="intake"><span>04<\/span>Enter/);
 assert.match(index, /The conversation remains open\./);
 assert.ok(index.indexOf('class="library-guide"') < index.indexOf('class="library-shell"'), "03.00 must stand outside and above the Living Library instrument.");
 assert.match(renderer, /card\.addEventListener\("pointerenter", select\)/);
@@ -98,9 +100,8 @@ assert.match(styles, /body\.archive-open \.work-reading \{ padding:26px 0 42px 2
 assert.match(index, /data-module="02\.03">Relational observatory/);
 assert.match(index, /data-module="02\.04">Semantic memory/);
 assert.match(index, /data-module="02\.05">Adversarial review/);
-assert.match(index, /data-module="04\.01">Witnessed Relations/);
-assert.match(index, /data-module="04\.02">Design Flow Ledger/);
-for (const [id, order] of [["field", 1], ["coordinate", 2], ["verify", 3], ["works", 4], ["state", 5], ["intake", 6]]) {
+assert.doesNotMatch(index, /Witnessed Relations|Design Flow Ledger/);
+for (const [id, order] of [["field", 1], ["coordinate", 2], ["verify", 3], ["works", 4], ["intake", 5]]) {
   assert.match(styles, new RegExp(`body\\.archive-open #${id} \\{ order: ${order}; \\}`), `${id} does not preserve the public encounter order.`);
 }
 

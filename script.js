@@ -140,8 +140,6 @@ const renderPresence = () => {
 
   const sleeping = status === "sleeping";
   const running = status === "running";
-  const state = $(".state-space");
-  if (state) state.dataset.runtimeState = running ? "running" : sleeping ? "sleeping" : status;
 };
 
 const renderCoordinate = () => {
@@ -285,172 +283,6 @@ const renderVerification = () => {
   $$("[data-verification-source]").forEach((button) => button.addEventListener("click", () => selectVerificationSource(button.dataset.verificationSource)));
   if (sources[0]) selectVerificationSource(sources[0].id);
   renderPropagation();
-};
-
-const renderSources = () => {
-  const sources = (app.sources?.sources || []).filter(
-    ({ surface }) => surface !== "embedded-material-lineage"
-  );
-  if (!sources.length) return;
-  $("#source-count").textContent = `${sources.length} sources`;
-  const nodes = $("#source-nodes");
-  nodes.innerHTML = sources.map((source, index) => `
-    <button type="button" class="source-node source-node-${index + 1}${source.id === "foldforge" ? " is-active" : ""}" data-source-id="${escapeHtml(source.id)}">
-      <i aria-hidden="true"></i>
-      <span>${String(index + 1).padStart(2, "0")}</span>
-      <b>${escapeHtml(source.name)}</b>
-      <small>${escapeHtml(source.status)}</small>
-    </button>
-  `).join("");
-
-  const selectSource = (id) => {
-    const source = sources.find((candidate) => candidate.id === id) || sources[0];
-    const foldForgeLive = source.id === "foldforge" && app.foldforge?.status === "witnessed";
-    const foldPortraitLive = source.id === "foldportrait" && app.foldportrait?.status === "witnessed";
-    const publicWitness = app.sourceWitnesses[source.id];
-    const materialWitness = app.materialWitnesses[source.id];
-    const live = foldForgeLive || foldPortraitLive || publicWitness?.status === "witnessed" || Boolean(materialWitness);
-    $$("[data-source-id]").forEach((button) => button.classList.toggle("is-active", button.dataset.sourceId === source.id));
-    $("#source-coordinate").textContent = `${sentence(source.status)} source / ${source.visibility}`;
-    $("#source-title").textContent = source.name;
-    $("#source-role").textContent = source.role;
-    $("#source-discovery").textContent = foldForgeLive
-      ? app.foldforge.identity.maxim
-      : foldPortraitLive
-        ? app.foldportrait.statement
-      : publicWitness
-        ? publicWitness.identity.role_in_coherent_field
-        : source.connection_message || source.returns;
-    let measures = foldForgeLive
-      ? [["Revision", app.foldforge.source_revision], ["Compositions", app.foldforge.compositions.length], ["Relations", app.foldforge.relations.length], ["Primitives", app.foldforge.primitives.length]]
-      : [["Adapter", sentence(source.adapter)], ["Read paths", source.reads.length], ["State", sentence(source.status)], ["Authority", "Bounded"]];
-    if (source.id === "x") {
-      const packets = app.attractors?.packets || [];
-      measures = [
-        ["Published", packets.filter(({ publication }) => publication?.status === "published").length],
-        ["Scheduled corpus", packets.length],
-        ["Channel", "@rootlogos"],
-        ["Authority", "Bounded"]
-      ];
-    }
-    if (source.id === "telos" && publicWitness) {
-      const mapping = publicWitness.system_mapping || {};
-      const targets = (mapping.success_ladder || []).map(({ target }) => target).join(" → ") || "Unmapped";
-      measures = [["Mode", sentence(publicWitness.public_state.operational_mode)], ["Targets", targets], ["Mapped system", `${(mapping.repositories || []).length} repos / ${(mapping.operating_components || []).length} components`], ["Decision", publicWitness.public_state.deployed_decision]];
-    }
-    if (source.id === "sovereign-standard" && publicWitness) {
-      measures = materialWitness
-        ? [["Vessels", materialWitness.measures.public_vessel_records], ["Witness works", materialWitness.measures.witness_works], ["Embodied", materialWitness.measures.vessel_work_relations], ["Minted", materialWitness.measures.minted_works]]
-        : [["Public records", publicWitness.public_state.published_vessel_records], ["Physical form", "Black Tin Vessel"], ["Public channel", publicWitness.public_state.public_channels?.[0]?.handle || "Unmapped"], ["Private orders", "Excluded"]];
-    }
-    if (foldPortraitLive) {
-      const reflection = app.foldportrait.reflections.at(-1);
-      measures = [
-        ["Reflection cycles", app.foldportrait.measures.reflection_cycles],
-        ["Archive", `${app.foldportrait.measures.reflection_pngs} SVG + PNG`],
-        ["Chosen relations", reflection.correlations.length],
-        ["Visual rules", reflection.chosen_rules.length],
-        ["XRPL boundary", sentence(reflection.mint_status)]
-      ];
-    }
-    $("#source-measures").innerHTML = measures.map(([label, value]) => `<span><small>${escapeHtml(label)}</small><b>${escapeHtml(value)}</b></span>`).join("");
-    $("#source-boundary").textContent = source.boundary;
-    const materialPanel = $("#source-material-witness");
-    materialPanel.hidden = !materialWitness;
-    if (materialWitness) {
-      const portraitByArtifact = new Map((app.foldportrait?.renders || []).map((render) => [render.artifact_id, render]));
-      const linkedWorks = materialWitness.works
-        .filter(({ vessels }) => vessels.length)
-        .sort((left, right) => left.vessels[0].vessel_number.localeCompare(right.vessels[0].vessel_number));
-      $("#material-witness-summary").textContent = `${linkedWorks.length} works / ${materialWitness.measures.vessels_with_witness_works} vessels`;
-      $("#material-witness-works").innerHTML = linkedWorks.map((work) => {
-        const portrait = portraitByArtifact.get(work.artifact_id);
-        return `
-        <a class="${portrait ? "has-render" : ""}" href="${escapeHtml(work.vessels[0].public_url)}" target="_blank" rel="noreferrer">
-          <span>${escapeHtml(work.vessels.map(({ vessel_number }) => vessel_number).join(" · "))}</span>
-          ${portrait ? `<img src="${escapeHtml(portrait.png_url)}" alt="" loading="lazy">` : ""}
-          <b>${escapeHtml(work.title)}</b>
-          <small>${escapeHtml(sentence(work.mint_status))}</small>
-        </a>
-      `}).join("");
-    } else {
-      $("#material-witness-works").innerHTML = "";
-    }
-    const workRelation = publicWitness?.work_relations?.[0];
-    const relationLink = $("#source-work-relation");
-    relationLink.hidden = !workRelation;
-    relationLink.dataset.workId = workRelation?.work_id || "";
-    if (workRelation) {
-      $("#source-work-title").textContent = workRelation.title;
-      $("#source-work-relation-label").textContent = sentence(workRelation.relation);
-    }
-    $("#source-witness").textContent = foldForgeLive
-      ? app.foldforge.witness.replace("sha256:", "").slice(0, 16)
-      : materialWitness?.witness
-        ? materialWitness.witness.replace("sha256:", "").slice(0, 16)
-        : publicWitness?.witness
-        ? publicWitness.witness.replace("sha256:", "").slice(0, 16)
-        : "Channel witness";
-    const repository = $("#source-repository");
-    repository.hidden = !source.public_url;
-    if (source.public_url) repository.href = source.public_url;
-  };
-  $$("[data-source-id]").forEach((button) => button.addEventListener("click", () => selectSource(button.dataset.sourceId)));
-  $("#source-work-relation").addEventListener("click", (event) => {
-    event.preventDefault();
-    const workId = event.currentTarget.dataset.workId;
-    if (!workId) return;
-    location.hash = "works";
-    requestAnimationFrame(() => {
-      const entry = window.rootLogosWorks?.index?.works?.find(({ work_id }) => work_id === workId);
-      if (entry) window.rootLogosWorks.open(entry);
-    });
-  });
-  selectSource("foldforge");
-
-};
-
-const renderDesignFlow = () => {
-  const module = app.designFlow;
-  if (!module) return;
-  const packets = new Map((app.attractors?.packets || []).map((packet) => [packet.attractor_id, packet]));
-  const defaults = app.attractors?.defaults || {};
-  const mappings = module.founding_fragments.map((mapping) => {
-    const packet = packets.get(mapping.attractor_id);
-    const publication = { ...(defaults.publication || {}), ...(packet?.publication || {}) };
-    return { ...mapping, packet, publication };
-  });
-  const witnessed = mappings.filter(({ publication }) => publication.status === "published");
-  const sourceNodes = new Set(mappings.map(({ packet }) => packet?.node).filter(Boolean));
-  const relationNodes = new Set(mappings.flatMap(({ packet }) => packet?.relations || []));
-
-  $("#design-flow-status").textContent = `${sentence(module.status)} module / revision ${module.revision}`;
-  $("#design-flow-witness").textContent = `${witnessed.length} / ${mappings.length} X witnessed`;
-  $("#design-flow-purpose").textContent = module.purpose;
-  $("#design-flow-measures").innerHTML = [
-    ["Mapped fragments", mappings.length],
-    ["X witnessed", witnessed.length],
-    ["Canonical nodes", sourceNodes.size],
-    ["Relation nodes", relationNodes.size]
-  ].map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(String(value))}</dd></div>`).join("");
-  $("#design-flow-stages").innerHTML = module.flow.map((stage) => `
-    <li>
-      <span>${String(stage.sequence).padStart(2, "0")}</span>
-      <h4>${escapeHtml(stage.label)}</h4>
-      <p>${escapeHtml(stage.reads)} → ${escapeHtml(stage.produces)}</p>
-    </li>
-  `).join("");
-  $("#design-fragment-map").innerHTML = mappings.map(({ sequence, attractor_id: id, packet, publication }) => {
-    const witnessedOnX = publication.status === "published" && publication.external_url;
-    const href = witnessedOnX ? publication.external_url : `https://rootlogos.com/#${packet?.node || "root-logos"}`;
-    const aperture = Array.isArray(packet?.fragment) ? packet.fragment[3] : id;
-    return `<a class="design-fragment${witnessedOnX ? " is-witnessed" : ""}" href="${escapeHtml(href)}"${witnessedOnX ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>
-      <span>${String(sequence).padStart(2, "0")} / ${escapeHtml(witnessedOnX ? "X witnessed" : "scheduled")}</span>
-      <b>${escapeHtml(aperture)}</b>
-      <small>${escapeHtml(packet?.node || "Unresolved source")}</small>
-    </a>`;
-  }).join("");
-  $("#design-flow-boundary").textContent = module.x_witness_relation.authority;
 };
 
 const submitObservation = async (form) => {
@@ -1152,8 +984,6 @@ const initialize = async () => {
     renderPresence();
     renderCoordinate();
     renderVerification();
-    renderSources();
-    renderDesignFlow();
     renderLatestCycle();
     renderMemory();
     renderProposals();
