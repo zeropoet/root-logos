@@ -535,7 +535,7 @@ body.archive-open #intake { order: 5; }
 }
 .coordinate-declaration h1 span,
 .coordinate-declaration h1 em { display:block; }
-.coordinate-declaration h1 em { margin-left:clamp(24px,6vw,110px);color:rgba(255,255,255,.54); }
+.coordinate-declaration h1 em { margin-left:clamp(24px,6vw,110px);color:rgba(255,255,255,.54);font-weight:400; }
 .coordinate-copy { display:grid;gap:24px;padding-bottom:8px; }
 .coordinate-copy p { margin:0;color:rgba(255,255,255,.48);font-size:clamp(.9rem,1.05vw,1.06rem);line-height:1.7; }
 .coordinate-copy p:first-child { color:#fff;font-size:clamp(1.05rem,1.35vw,1.32rem);line-height:1.55; }
@@ -590,7 +590,7 @@ body.archive-open #intake { order: 5; }
   .coordinate-space { padding:104px 20px 90px; }
   .coordinate-heading { display:block; }
   .coordinate-status { margin-top:18px; }
-  .coordinate-declaration h1 { font-size:clamp(3.2rem,18vw,5.8rem); }
+  body.archive-open .coordinate-declaration h1 { font-size:clamp(3rem,16vw,5.8rem);letter-spacing:-.05em; }
   .coordinate-register,
   .coordinate-paths { grid-template-columns:1fr; }
   .coordinate-paths a { padding-left:0!important;border-right:0;border-bottom:1px solid rgba(255,255,255,.15); }
