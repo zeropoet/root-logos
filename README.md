@@ -357,10 +357,11 @@ Library merely because they occupy a vessel, and vessels do not become works.
 Token ownership witnesses stewardship but grants neither archive access,
 custody, minting power, nor constitutional authority.
 
-FoldPortrait synchronization reads this already sealed public material snapshot
-rather than checking out Sovereign Standard's source repository. That keeps the
-connected-source workflow reproducible while preserving the private repository
-and commerce boundary.
+Connected Source Integration checks out Sovereign Standard with a one-hour,
+read-only Telos Bridge GitHub App token and reads only its sealed public material
+export. FoldPortrait synchronization then consumes the validated local snapshot.
+The private repository and commerce boundary remain intact; no other SS files
+enter Root Logos evidence or commits.
 
 FoldPortrait's sealed first era is joined to that bridge through
 `sources/foldportrait.snapshot.json`. Root Logos verifies all 52 completed
@@ -389,8 +390,8 @@ The material render lineage remains expressed once, through
 Sovereign Standard; the autonomous reflection is witnessed once, through
 FoldPortrait.
 
-Every serialized wake begins by scanning Sovereign Standard's canonical public
-export. `scripts/sources.mjs refresh-material-lineage` validates the new sealed
+Every serialized wake begins by scanning Sovereign Standard's canonical,
+explicitly public export. `scripts/sources.mjs refresh-material-lineage` validates the new sealed
 material witness, refuses changed archived render bytes or missing FoldPortrait
 identities, and rebinds current vessel relations into the FoldPortrait witness.
 Only a changed witness rewrites the two local snapshots. The Living Object reads

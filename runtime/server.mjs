@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import http from "node:http";
-import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
+import { createHmac, createPublicKey, randomUUID, timingSafeEqual, verify as verifyRSA } from "node:crypto";
 import { appendFile, mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import { spawn } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -13,11 +13,58 @@ const defaultRoot = resolve(runtimeDir, "..");
 const iso = () => new Date().toISOString();
 const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const canonicalCultivationId = (id) => String(id || "").replace(/^RL-CULT-/, "RL-CULTIVATE-");
+const githubOidcIssuer = "https://token.actions.githubusercontent.com";
+const defaultGithubOidcWorkflows = [
+  "zeropoet/root-logos/.github/workflows/deploy-runtime.yml@refs/heads/main",
+  "zeropoet/root-logos/.github/workflows/source-integration.yml@refs/heads/main"
+];
 
 const safeEqual = (left, right) => {
   const a = Buffer.from(left);
   const b = Buffer.from(right);
   return a.length === b.length && timingSafeEqual(a, b);
+};
+
+const decodeJwtSegment = (value) => JSON.parse(Buffer.from(value, "base64url").toString("utf8"));
+
+export const verifyGitHubOIDCToken = async (token, policy, fetcher = fetch, now = Date.now()) => {
+  const parts = String(token || "").split(".");
+  if (parts.length !== 3) throw new Error("invalid GitHub OIDC token");
+  const [encodedHeader, encodedClaims, encodedSignature] = parts;
+  const header = decodeJwtSegment(encodedHeader);
+  const claims = decodeJwtSegment(encodedClaims);
+  if (header.alg !== "RS256" || typeof header.kid !== "string") throw new Error("unsupported GitHub OIDC signature");
+
+  const jwksResponse = await fetcher(`${githubOidcIssuer}/.well-known/jwks`, {
+    headers: { accept: "application/json", "user-agent": "root-logos-runtime" }
+  });
+  if (!jwksResponse.ok) throw new Error(`GitHub OIDC key lookup failed: ${jwksResponse.status}`);
+  const jwks = await jwksResponse.json();
+  const jwk = jwks.keys?.find(({ kid }) => kid === header.kid);
+  if (!jwk) throw new Error("GitHub OIDC signing key was not found");
+  const verified = verifyRSA(
+    "RSA-SHA256",
+    Buffer.from(`${encodedHeader}.${encodedClaims}`),
+    createPublicKey({ key: jwk, format: "jwk" }),
+    Buffer.from(encodedSignature, "base64url")
+  );
+  if (!verified) throw new Error("invalid GitHub OIDC signature");
+
+  const nowSeconds = Math.floor(now / 1000);
+  const audience = Array.isArray(claims.aud) ? claims.aud : [claims.aud];
+  const workflowRef = claims.job_workflow_ref || claims.workflow_ref;
+  if (claims.iss !== githubOidcIssuer) throw new Error("unexpected GitHub OIDC issuer");
+  if (!audience.includes(policy.audience)) throw new Error("unexpected GitHub OIDC audience");
+  if (!Number.isFinite(claims.exp) || claims.exp <= nowSeconds - 30) throw new Error("expired GitHub OIDC token");
+  if (!Number.isFinite(claims.iat) || claims.iat > nowSeconds + 60) throw new Error("invalid GitHub OIDC issue time");
+  if (claims.exp - claims.iat > 600) throw new Error("GitHub OIDC token lifetime is too long");
+  if (claims.nbf && claims.nbf > nowSeconds + 60) throw new Error("GitHub OIDC token is not active");
+  if (claims.repository !== policy.repository) throw new Error("unexpected GitHub OIDC repository");
+  if (String(claims.repository_id) !== String(policy.repositoryId)) throw new Error("unexpected GitHub OIDC repository identity");
+  if (claims.ref !== "refs/heads/main") throw new Error("GitHub OIDC deployment is not from main");
+  if (!policy.workflowRefs.includes(workflowRef)) throw new Error("unexpected GitHub OIDC workflow");
+  if (claims.sha !== policy.sha) throw new Error("GitHub OIDC commit does not match deployment request");
+  return claims;
 };
 
 const readJson = async (path, fallback = null) => {
@@ -83,6 +130,12 @@ export const createRuntime = async (options = {}) => {
   const intakeSecret = options.intakeSecret ?? process.env.ROOT_LOGOS_INTAKE_SECRET;
   const adminToken = options.adminToken ?? process.env.ROOT_LOGOS_ADMIN_TOKEN;
   const deployToken = options.deployToken ?? process.env.ROOT_LOGOS_DEPLOY_TOKEN;
+  const githubOidcAudience = options.githubOidcAudience ?? process.env.ROOT_LOGOS_GITHUB_OIDC_AUDIENCE;
+  const githubOidcRepository = options.githubOidcRepository ?? process.env.ROOT_LOGOS_GITHUB_REPOSITORY ?? "zeropoet/root-logos";
+  const githubOidcRepositoryId = options.githubOidcRepositoryId ?? process.env.ROOT_LOGOS_GITHUB_REPOSITORY_ID ?? "1285761653";
+  const githubOidcWorkflowRefs = options.githubOidcWorkflowRefs ?? String(process.env.ROOT_LOGOS_GITHUB_OIDC_WORKFLOWS || "").split(",").map((value) => value.trim()).filter(Boolean);
+  const acceptedGithubOidcWorkflows = githubOidcWorkflowRefs.length ? githubOidcWorkflowRefs : defaultGithubOidcWorkflows;
+  const githubOidcVerifier = options.githubOidcVerifier || verifyGitHubOIDCToken;
   const journalSecret = options.journalSecret ?? process.env.ROOT_LOGOS_JOURNAL_SECRET ?? (intakeSecret ? `journal-membrane:${intakeSecret}` : null);
   const journalDropDir = options.journalDropDir ?? process.env.ROOT_LOGOS_JOURNAL_DROP_DIR;
   const journalCollectionEnabled = options.journalCollectionEnabled ?? (process.env.ROOT_LOGOS_JOURNAL_ENABLED === "1" ? true : undefined);
@@ -93,7 +146,7 @@ export const createRuntime = async (options = {}) => {
     "scripts/sources.mjs",
     "refresh-material-lineage",
     process.env.SOVEREIGN_STANDARD_WITNESS_SOURCE
-      || "https://raw.githubusercontent.com/zeropoet/sovereign-standard-site/main/root-logos-witness-export.json"
+      || "https://sovereignstandard.co/root-logos-witness-export.json"
   ], root));
   const selfAuthorshipRunner = options.selfAuthorshipRunner || ((args) => run(process.execPath, ["scripts/self-author.mjs", ...args], root));
   const deployRunner = options.deployRunner || (async () => {
@@ -483,9 +536,26 @@ export const createRuntime = async (options = {}) => {
       }
 
       if (req.method === "POST" && url.pathname === "/v1/internal/deploy") {
-        if (!deployToken || req.headers.authorization !== `Bearer ${deployToken}`) return send(res, 401, { error: "unauthorized" }, cors);
         const sha = String(req.headers["x-github-sha"] || "").trim();
         if (!/^[a-f0-9]{40}$/.test(sha)) return send(res, 422, { error: "a full GitHub commit SHA is required" }, cors);
+        const suppliedToken = String(req.headers.authorization || "").replace(/^Bearer\s+/i, "");
+        let authorized = false;
+        if (githubOidcAudience && suppliedToken) {
+          try {
+            await githubOidcVerifier(suppliedToken, {
+              audience: githubOidcAudience,
+              repository: githubOidcRepository,
+              repositoryId: githubOidcRepositoryId,
+              workflowRefs: acceptedGithubOidcWorkflows,
+              sha
+            });
+            authorized = true;
+          } catch {}
+        }
+        if (!authorized && deployToken && suppliedToken) {
+          authorized = safeEqual(deployToken, suppliedToken);
+        }
+        if (!authorized) return send(res, 401, { error: "unauthorized" }, cors);
         const accepted = deploy(sha);
         return send(res, accepted ? 202 : 200, { accepted, sha, status: accepted ? "deployment-queued" : "deployment-already-running" }, cors);
       }

@@ -276,7 +276,7 @@ export const syncSovereignStandard = async (
 
 export const refreshMaterialLineage = async (
   source = process.env.SOVEREIGN_STANDARD_WITNESS_SOURCE
-    || "https://raw.githubusercontent.com/zeropoet/sovereign-standard-site/main/root-logos-witness-export.json"
+    || "https://sovereignstandard.co/root-logos-witness-export.json"
 ) => {
   const priorMaterial = await loadJson(sovereignStandardSnapshotPath);
   const priorPortrait = await loadJson(foldPortraitSnapshotPath);

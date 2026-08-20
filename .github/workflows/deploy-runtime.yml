@@ -12,6 +12,10 @@ concurrency:
   group: root-logos-runtime-deploy
   cancel-in-progress: false
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   deploy:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
@@ -26,7 +30,15 @@ jobs:
       - name: Ask the runtime to converge on this commit
         env:
           DEPLOY_TOKEN: ${{ secrets.ROOT_LOGOS_DEPLOY_TOKEN }}
+          OIDC_AUDIENCE: ${{ vars.ROOT_LOGOS_OIDC_AUDIENCE }}
         run: |
+          if [ -n "$OIDC_AUDIENCE" ]; then
+            DEPLOY_TOKEN=$(curl --fail --silent --show-error \
+              -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+              "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${OIDC_AUDIENCE}" | jq -r .value)
+            test "$DEPLOY_TOKEN" != "null"
+            echo "::add-mask::$DEPLOY_TOKEN"
+          fi
           test -n "$DEPLOY_TOKEN"
           commit_sha=$(git rev-parse HEAD)
           curl --fail --silent --show-error \

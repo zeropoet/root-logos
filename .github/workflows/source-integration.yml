@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
   issues: write
 
 concurrency:
@@ -28,6 +29,25 @@ jobs:
         with:
           path: root-logos
           fetch-depth: 0
+
+      - name: Mint a read-only Sovereign Standard token
+        id: sovereign-standard-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.TELOS_BRIDGE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.TELOS_BRIDGE_APP_PRIVATE_KEY }}
+          owner: zeropoet
+          repositories: sovereign-standard
+          permission-contents: read
+
+      - name: Check out canonical Sovereign Standard witness
+        uses: actions/checkout@v7
+        with:
+          repository: zeropoet/sovereign-standard
+          path: sovereign-standard
+          ref: main
+          fetch-depth: 1
+          token: ${{ steps.sovereign-standard-token.outputs.token }}
 
       - name: Check out FoldForge public evidence
         uses: actions/checkout@v7
@@ -76,12 +96,14 @@ jobs:
           if [ "$EVENT_ACTION" = "foldforge-published" ]; then
             test "$(node -e 'process.stdout.write(require("./sources/foldforge.snapshot.json").language_composition.semantic_witness)')" = "$FOLDFORGE_SEMANTIC_WITNESS"
           fi
-          sovereign_source=https://sovereignstandard.co/root-logos-witness-export.json
+          sovereign_source=../sovereign-standard/root-logos-witness-export.json
           if [ "$EVENT_ACTION" = "sovereign-standard-witness-published" ]; then
             node -e 'if (!/^sha256:[a-f0-9]{64}$/.test(process.env.SOVEREIGN_STANDARD_WITNESS || "")) process.exit(1)'
-            sovereign_source="https://raw.githubusercontent.com/zeropoet/sovereign-standard-site/main/root-logos-witness-export.json?witness=${SOVEREIGN_STANDARD_WITNESS#sha256:}"
           fi
           node scripts/sources.mjs sync-sovereign-standard "$sovereign_source"
+          if [ "$EVENT_ACTION" = "sovereign-standard-witness-published" ]; then
+            test "$(node -e 'process.stdout.write(require("./sources/sovereign-standard.snapshot.json").witness)')" = "$SOVEREIGN_STANDARD_WITNESS"
+          fi
           if [ "$EVENT_ACTION" = "foldportrait-reflected" ]; then
             node -e 'if (!/^[a-f0-9]{40}$/.test(process.env.FOLDPORTRAIT_REVISION || "")) process.exit(1)'
             test "$(git -C ../FoldPortrait rev-parse HEAD)" = "$FOLDPORTRAIT_REVISION"
@@ -142,7 +164,15 @@ jobs:
         working-directory: root-logos
         env:
           DEPLOY_TOKEN: ${{ secrets.ROOT_LOGOS_DEPLOY_TOKEN }}
+          OIDC_AUDIENCE: ${{ vars.ROOT_LOGOS_OIDC_AUDIENCE }}
         run: |
+          if [ -n "$OIDC_AUDIENCE" ]; then
+            DEPLOY_TOKEN=$(curl --fail --silent --show-error \
+              -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+              "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${OIDC_AUDIENCE}" | jq -r .value)
+            test "$DEPLOY_TOKEN" != "null"
+            echo "::add-mask::$DEPLOY_TOKEN"
+          fi
           test -n "$DEPLOY_TOKEN"
           commit_sha=$(git rev-parse HEAD)
           curl --fail --silent --show-error \

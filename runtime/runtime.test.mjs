@@ -1,11 +1,29 @@
 #!/usr/bin/env node
 
 import assert from "node:assert/strict";
-import { createHmac } from "node:crypto";
+import { createHmac, generateKeyPairSync, sign } from "node:crypto";
 import { cp, mkdtemp, mkdir, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { createRuntime, startServer } from "./server.mjs";
+import { createRuntime, startServer, verifyGitHubOIDCToken } from "./server.mjs";
+
+const { privateKey: oidcPrivateKey, publicKey: oidcPublicKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
+const oidcNow = Date.parse("2026-08-20T12:00:00Z");
+const oidcHeader = Buffer.from(JSON.stringify({ alg: "RS256", typ: "JWT", kid: "test-key" })).toString("base64url");
+const oidcClaims = Buffer.from(JSON.stringify({
+  iss: "https://token.actions.githubusercontent.com", aud: "root-logos-runtime",
+  iat: Math.floor(oidcNow / 1000) - 60, exp: Math.floor(oidcNow / 1000) + 300,
+  repository: "zeropoet/root-logos", repository_id: "1285761653", ref: "refs/heads/main",
+  workflow_ref: "zeropoet/root-logos/.github/workflows/deploy-runtime.yml@refs/heads/main",
+  sha: "c".repeat(40)
+})).toString("base64url");
+const oidcSigningInput = `${oidcHeader}.${oidcClaims}`;
+const oidcToken = `${oidcSigningInput}.${sign("RSA-SHA256", Buffer.from(oidcSigningInput), oidcPrivateKey).toString("base64url")}`;
+const verifiedOidcClaims = await verifyGitHubOIDCToken(oidcToken, {
+  audience: "root-logos-runtime", repository: "zeropoet/root-logos", repositoryId: "1285761653",
+  workflowRefs: ["zeropoet/root-logos/.github/workflows/deploy-runtime.yml@refs/heads/main"], sha: "c".repeat(40)
+}, async () => ({ ok: true, json: async () => ({ keys: [{ ...oidcPublicKey.export({ format: "jwk" }), kid: "test-key", alg: "RS256", use: "sig" }] }) }), oidcNow);
+assert.equal(verifiedOidcClaims.sha, "c".repeat(40));
 
 const sourceRoot = new URL("../", import.meta.url);
 const sandbox = await mkdtemp(join(tmpdir(), "root-logos-runtime-"));
@@ -27,6 +45,12 @@ const secret = "test-intake-secret";
 const admin = "test-admin-token";
 const { server, runtime } = await startServer({
   root: sandbox, dataDir: join(sandbox, "data"), port: 0, intakeSecret: secret, adminToken: admin, deployToken: "test-deploy-token",
+  githubOidcAudience: "root-logos-runtime",
+  githubOidcVerifier: async (token, policy) => {
+    if (token !== "test-oidc-token") throw new Error("invalid test OIDC token");
+    assert.equal(policy.audience, "root-logos-runtime");
+    assert.equal(policy.sha, "b".repeat(40));
+  },
   journalSecret: "test-journal-encryption-secret", journalCollectionEnabled: true, journalPollIntervalMs: 86_400_000,
   commandRunner: async (args) => { calls.push(args); return { stdout: "test cycle complete", stderr: "" }; },
   sourceSyncRunner: async () => {
@@ -67,10 +91,10 @@ try {
   assert.equal(deniedIntake.status, 401);
   const deniedDeploy = await fetch(`${base}/v1/internal/deploy`, { method: "POST", headers: { "x-github-sha": "a".repeat(40) } });
   assert.equal(deniedDeploy.status, 401);
-  const invalidDeploy = await fetch(`${base}/v1/internal/deploy`, { method: "POST", headers: { authorization: "Bearer test-deploy-token", "x-github-sha": "short" } });
+  const invalidDeploy = await fetch(`${base}/v1/internal/deploy`, { method: "POST", headers: { authorization: "Bearer test-oidc-token", "x-github-sha": "short" } });
   assert.equal(invalidDeploy.status, 422);
   const deploySha = "b".repeat(40);
-  const deployRequest = await fetch(`${base}/v1/internal/deploy`, { method: "POST", headers: { authorization: "Bearer test-deploy-token", "x-github-sha": deploySha } });
+  const deployRequest = await fetch(`${base}/v1/internal/deploy`, { method: "POST", headers: { authorization: "Bearer test-oidc-token", "x-github-sha": deploySha } });
   assert.equal(deployRequest.status, 202);
   await runtime.waitForIdle();
   assert.deepEqual(deployments, [deploySha]);

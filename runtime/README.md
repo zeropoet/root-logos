@@ -75,9 +75,15 @@ external-relation export and refreshes the FoldPortrait-to-vessel relations used
 by the Living Object. A missing identity, changed archived render hash, invalid
 witness, or prohibited private field fails the wake before cultivation.
 
-The GitHub Actions secret and server environment must share
-`ROOT_LOGOS_DEPLOY_TOKEN`. The runtime SSH key must be registered as a writable
-deploy key for this repository. No endpoint accepts arbitrary commands.
+GitHub Actions authenticates the deploy request with its per-job OIDC identity.
+Set `ROOT_LOGOS_GITHUB_OIDC_AUDIENCE=root-logos-runtime` in the server environment
+and set the matching `ROOT_LOGOS_OIDC_AUDIENCE` repository variable. The runtime
+verifies GitHub's signature, audience, immutable repository ID, `main` ref,
+workflow path, and commit SHA before convergence. `ROOT_LOGOS_DEPLOY_TOKEN`
+remains only as a zero-downtime cutover fallback while that environment value is
+present and should be deleted after the first verified OIDC deployment. The runtime SSH key remains a
+writable repository-scoped deploy key because the server itself publishes
+bounded cultivation commits. No endpoint accepts arbitrary commands.
 
 See `openapi.yaml` for the UI-facing contract.
 
