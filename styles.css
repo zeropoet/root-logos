@@ -2687,3 +2687,503 @@ body.archive-open .proposal-card:focus-visible {
   outline:1px solid #fff;
   outline-offset:-1px;
 }
+
+/* Revision 1.5 — Mineral Fortress.
+   Root Logos becomes a light-bearing civic enclosure: pale mineral planes,
+   load-bearing rules, guarded apertures, and one live red witness. */
+html { background:#e8e7df; }
+body.archive-open {
+  color-scheme:light;
+  --void:#e8e7df;
+  --void-2:#deddd4;
+  --abyss:#d4d3c9;
+  --deep-blue:#e2e1d8;
+  --surface:rgba(250,250,246,.9);
+  --surface-solid:#f7f6ef;
+  --ivory:#11120f;
+  --bone:#242520;
+  --dim:rgba(17,18,15,.62);
+  --ghost:rgba(17,18,15,.36);
+  --line:rgba(17,18,15,.2);
+  --line-strong:rgba(17,18,15,.58);
+  --gold:#11120f;
+  --gold-bright:#000;
+  --inquiry:#11120f;
+  --memory:#11120f;
+  --rust:#4d4d47;
+  --green:#11120f;
+  --accent:#c71920;
+  background:#e8e7df;
+  color:#11120f;
+}
+body.archive-open::after { background:#e8e7df; }
+body.archive-open main,
+body.archive-open main > .space,
+body.archive-open .site-footer {
+  background-color:#e8e7df;
+  color:#11120f;
+}
+body.archive-open main {
+  background-image:
+    linear-gradient(90deg,transparent calc(50% - .5px),rgba(17,18,15,.055) 50%,transparent calc(50% + .5px)),
+    repeating-linear-gradient(0deg,transparent 0 119px,rgba(17,18,15,.028) 119px 120px);
+}
+body.archive-open .site-header {
+  min-height:76px;
+  border-bottom:2px solid #11120f;
+  background:rgba(232,231,223,.94);
+  color:#11120f;
+  box-shadow:0 12px 40px rgba(17,18,15,.06);
+}
+body.archive-open .site-header::after {
+  right:var(--archive-edge);
+  left:var(--archive-edge);
+  background:#11120f;
+}
+body.archive-open .brand-mark {
+  width:34px;
+  height:34px;
+  border:1px solid #11120f;
+  background:#11120f;
+}
+body.archive-open .brand-mark img { filter:invert(1);transform:scale(.68); }
+body.archive-open .brand-word,
+body.archive-open .primary-nav a,
+body.archive-open .system-presence { color:#11120f; }
+body.archive-open .archive-register span {
+  border-color:rgba(17,18,15,.2);
+  color:rgba(17,18,15,.46);
+}
+body.archive-open .primary-nav a { opacity:.5; }
+body.archive-open .primary-nav a:hover,
+body.archive-open .primary-nav a.is-active { color:#11120f;opacity:1; }
+body.archive-open .primary-nav a::after { height:3px;background:#c71920; }
+body.archive-open .system-presence { border-color:rgba(17,18,15,.26); }
+body.archive-open .presence-orbit { border-radius:0;border-color:#11120f;transform:rotate(45deg); }
+body.archive-open .presence-orbit::before { border-radius:0;border-color:rgba(17,18,15,.28); }
+body.archive-open .presence-orbit i { transform:rotate(-45deg); }
+body.archive-open .nav-toggle span { height:2px;background:#11120f;transition:transform .2s,opacity .2s; }
+body.archive-open .nav-toggle[aria-expanded="true"] span:first-child { transform:translateY(7px) rotate(45deg); }
+body.archive-open .nav-toggle[aria-expanded="true"] span:last-child { transform:rotate(-45deg); }
+
+body.archive-open .space:not(.field-space):not(.works-space) {
+  border-top:2px solid #11120f;
+}
+body.archive-open .space:not(.field-space):not(.works-space)::after {
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:0;
+  right:var(--archive-edge);
+  width:clamp(42px,7vw,108px);
+  height:clamp(42px,7vw,108px);
+  border-right:2px solid #11120f;
+  border-bottom:2px solid #11120f;
+  pointer-events:none;
+}
+body.archive-open .coordinate,
+body.archive-open .micro-label { color:rgba(17,18,15,.62); }
+body.archive-open .coordinate[data-module],
+body.archive-open .micro-label[data-module] { color:rgba(17,18,15,.62); }
+body.archive-open .coordinate[data-module]::before,
+body.archive-open .micro-label[data-module]::before { color:#11120f; }
+body.archive-open .coordinate[data-module]::after,
+body.archive-open .micro-label[data-module]::after { background:rgba(17,18,15,.24); }
+body.archive-open .micro-label::before {
+  content:"";
+  display:inline-block;
+  width:7px;
+  height:7px;
+  margin-right:9px;
+  border:1px solid currentColor;
+  vertical-align:1px;
+}
+body.archive-open .field-space {
+  background:#e8e7df;
+  border-bottom:2px solid #11120f;
+}
+body.archive-open #field-canvas,
+body.archive-open #work-canvas,
+body.archive-open #observatory-canvas {
+  filter:invert(1) grayscale(1) contrast(1.08);
+}
+body.archive-open .field-vignette {
+  display:block;
+  background:linear-gradient(90deg,rgba(232,231,223,.98),transparent 42%,transparent 76%,rgba(232,231,223,.42));
+}
+body.archive-open .field-header h1,
+body.archive-open .coordinate-declaration h1,
+body.archive-open .space-heading h2,
+body.archive-open .library-guide h2,
+body.archive-open .observation-instrument h3 { color:#11120f; }
+body.archive-open .field-header h1 em,
+body.archive-open .coordinate-declaration h1 em { color:rgba(17,18,15,.45); }
+body.archive-open .field-intro,
+body.archive-open .space-heading > div > p,
+body.archive-open .library-guide > div > p,
+body.archive-open .coordinate-copy p,
+body.archive-open .citizenship-introduction > p,
+body.archive-open .citizenship-grid p { color:rgba(17,18,15,.64); }
+body.archive-open .coordinate-copy p:first-child { color:#11120f; }
+body.archive-open .citizenship-grid h3 { color:#11120f; }
+body.archive-open .field-controls button {
+  border:1px solid rgba(17,18,15,.34);
+  background:rgba(232,231,223,.84);
+  color:#11120f;
+}
+body.archive-open .field-controls button:hover,
+body.archive-open .field-controls button.is-active { border-color:#11120f;background:#11120f;color:#f7f6ef; }
+body.archive-open .field-inspector {
+  border:2px solid #11120f;
+  background:#f7f6ef;
+  color:#11120f;
+  box-shadow:-24px 24px 0 rgba(17,18,15,.12);
+}
+body.archive-open .field-inspector::before {
+  content:"SECURED APERTURE";
+  display:block;
+  padding:9px 0;
+  border-bottom:1px solid rgba(17,18,15,.22);
+  color:rgba(17,18,15,.46);
+  font:500 .46rem/1 var(--mono);
+  letter-spacing:.12em;
+}
+
+body.archive-open .coordinate-heading,
+body.archive-open .citizenship-introduction { border-color:#11120f; }
+body.archive-open .coordinate-status,
+body.archive-open .coordinate-boundary { color:rgba(17,18,15,.52); }
+body.archive-open .coordinate-status i { background:#11120f; }
+body.archive-open .coordinate-register,
+body.archive-open .citizenship-grid,
+body.archive-open .coordinate-paths { border-color:#11120f; }
+body.archive-open .coordinate-register div,
+body.archive-open .citizenship-grid article,
+body.archive-open .coordinate-paths a { border-color:rgba(17,18,15,.25); }
+body.archive-open .coordinate-register div,
+body.archive-open .citizenship-grid article {
+  background:rgba(247,246,239,.48);
+}
+body.archive-open .coordinate-register dt,
+body.archive-open .coordinate-register dd { color:#11120f; }
+body.archive-open .citizenship-grid span { color:#c71920; }
+body.archive-open .coordinate-paths a:hover { background:#11120f;color:#f7f6ef; }
+
+body.archive-open main > .observatory-space { background:#deddd4; }
+body.archive-open .verification-register,
+body.archive-open .verification-ledger,
+body.archive-open .propagation-ledger,
+body.archive-open .observatory-substrate {
+  background:rgba(247,246,239,.58);
+  box-shadow:inset 0 0 0 1px rgba(17,18,15,.18);
+}
+body.archive-open .verification-register > div,
+body.archive-open .verification-source-list,
+body.archive-open .verification-source-detail,
+body.archive-open .propagation-column-head,
+body.archive-open #propagation-events li,
+body.archive-open .observatory-modes,
+body.archive-open .observatory-stage,
+body.archive-open .memory-item,
+body.archive-open .proposal-card,
+body.archive-open .review-surface { border-color:rgba(17,18,15,.26); }
+body.archive-open .verification-source-list button,
+body.archive-open .observatory-modes button,
+body.archive-open .proposal-card,
+body.archive-open .review-surface,
+body.archive-open .observatory-reading,
+body.archive-open .observatory-selection {
+  background:#f7f6ef;
+  color:#11120f;
+}
+body.archive-open .verification-source-list button:hover,
+body.archive-open .verification-source-list button.is-active,
+body.archive-open .observatory-modes button:hover,
+body.archive-open .observatory-modes button.is-active,
+body.archive-open .proposal-card:hover,
+body.archive-open .proposal-card.is-active { background:#11120f;color:#f7f6ef; }
+
+body.archive-open main > .works-space { background:#11120f;color:#f7f6ef; }
+body.archive-open .works-space .library-guide h2,
+body.archive-open .works-space .library-guide p { color:#f7f6ef; }
+body.archive-open .works-space .coordinate[data-module],
+body.archive-open .works-space .micro-label[data-module],
+body.archive-open .works-space .coordinate[data-module]::before,
+body.archive-open .works-space .micro-label[data-module]::before { color:rgba(247,246,239,.68); }
+body.archive-open .works-space .coordinate[data-module]::after,
+body.archive-open .works-space .micro-label[data-module]::after { background:rgba(247,246,239,.24); }
+body.archive-open .library-shell { border:2px solid #f7f6ef; }
+body.archive-open .works-archive,
+body.archive-open .work-reading { background:#11120f;color:#f7f6ef; }
+body.archive-open .library-stage { background-color:#e8e7df; }
+body.archive-open .library-stage::before { border-color:rgba(17,18,15,.16); }
+body.archive-open .library-stage::after { border-color:#11120f; }
+
+body.archive-open main > .intake-space { background:#d4d3c9; }
+body.archive-open .observation-instrument {
+  border:2px solid #11120f;
+  background:#f7f6ef;
+  box-shadow:18px 18px 0 rgba(17,18,15,.14);
+}
+body.archive-open .observation-instrument > header { border-color:rgba(17,18,15,.28); }
+body.archive-open input,
+body.archive-open textarea,
+body.archive-open select {
+  border-color:rgba(17,18,15,.38);
+  background:#e8e7df;
+  color:#11120f;
+}
+body.archive-open input:focus,
+body.archive-open textarea:focus,
+body.archive-open select:focus { border-color:#11120f;background:#fff; }
+body.archive-open input::placeholder,
+body.archive-open textarea::placeholder { color:rgba(17,18,15,.56); }
+body.archive-open .consent-field > span,
+body.archive-open .form-submit > p {
+  color:rgba(17,18,15,.64);
+  font-size:.58rem;
+  line-height:1.65;
+}
+body.archive-open .consent-field input { accent-color:#c71920; }
+body.archive-open .consent-field:hover > span { color:#11120f; }
+body.archive-open .form-submit button { border:2px solid #11120f;background:#11120f;color:#f7f6ef; }
+body.archive-open .form-submit button:hover { background:#c71920;border-color:#c71920;color:#fff; }
+body.archive-open .site-footer { border-color:#11120f;background:#11120f;color:#f7f6ef; }
+body.archive-open .site-footer a,
+body.archive-open .site-footer p,
+body.archive-open .site-footer small { color:#f7f6ef; }
+body.archive-open :focus-visible { outline:2px solid #c71920;outline-offset:3px; }
+body.archive-open .verification-actions a,
+body.archive-open .reading-actions a {
+  border-color:rgba(17,18,15,.34);
+  color:#11120f;
+}
+body.archive-open .verification-actions a:hover,
+body.archive-open .reading-actions a:hover { border-color:#11120f;background:#11120f;color:#f7f6ef; }
+
+@media (max-width:1080px) {
+  body.archive-open .primary-nav { border-color:#11120f;background:#e8e7df;box-shadow:0 18px 36px rgba(17,18,15,.12); }
+  body.archive-open .primary-nav a,
+  body.archive-open .system-presence { border-color:rgba(17,18,15,.22); }
+}
+
+@media (max-width:760px) {
+  body.archive-open main {
+    background-image:repeating-linear-gradient(0deg,transparent 0 95px,rgba(17,18,15,.035) 95px 96px);
+  }
+  body.archive-open .site-header { min-height:64px; }
+  body.archive-open .brand-mark { width:30px;height:30px; }
+  body.archive-open .space:not(.field-space):not(.works-space)::after { right:20px;width:38px;height:38px; }
+  body.archive-open .field-vignette { background:linear-gradient(180deg,rgba(232,231,223,.94),transparent 44%,rgba(232,231,223,.26)); }
+  body.archive-open .field-inspector { box-shadow:none; }
+  body.archive-open .library-shell { border-width:1px; }
+  body.archive-open .observation-instrument { box-shadow:8px 8px 0 rgba(17,18,15,.14); }
+}
+
+/* Graphite chambers — dark areas retain depth without collapsing to black. */
+body.archive-open {
+  --fortress-graphite:#24251f;
+  --fortress-graphite-deep:#191a16;
+  --fortress-graphite-raised:#303129;
+  --fortress-light:#f7f6ef;
+}
+body.archive-open .brand-mark {
+  width:36px;
+  height:36px;
+  border:0;
+  background:transparent;
+}
+body.archive-open .brand-mark img {
+  width:30px;
+  height:30px;
+  filter:none;
+  opacity:.92;
+  transform:none;
+}
+body.archive-open .brand { gap:14px; }
+
+body.archive-open main > .works-space {
+  background:
+    linear-gradient(90deg,transparent calc(50% - .5px),rgba(247,246,239,.055) 50%,transparent calc(50% + .5px)),
+    repeating-linear-gradient(0deg,transparent 0 119px,rgba(247,246,239,.025) 119px 120px),
+    linear-gradient(145deg,#292a23 0%,#20211c 48%,#171814 100%);
+}
+body.archive-open .works-archive,
+body.archive-open .work-reading {
+  background:linear-gradient(150deg,var(--fortress-graphite),var(--fortress-graphite-deep));
+}
+body.archive-open .works-archive > header {
+  background:rgba(247,246,239,.035);
+  border-color:rgba(247,246,239,.22);
+}
+body.archive-open .library-entry,
+body.archive-open .corpus-entry,
+body.archive-open #work-list button {
+  background:transparent;
+  border-color:rgba(247,246,239,.15);
+  color:rgba(247,246,239,.68);
+}
+body.archive-open .library-entry:hover,
+body.archive-open .library-entry.is-active,
+body.archive-open .corpus-entry:hover,
+body.archive-open .corpus-entry.is-active,
+body.archive-open #work-list button:hover,
+body.archive-open #work-list button.is-active {
+  background:var(--fortress-light);
+  color:#20211c;
+}
+body.archive-open #work-list { scrollbar-color:#b8b7ae var(--fortress-graphite-deep); }
+body.archive-open #work-listen,
+body.archive-open .work-node-detail,
+body.archive-open .work-node-detail > button {
+  background:var(--fortress-graphite-raised);
+  color:var(--fortress-light);
+}
+body.archive-open .work-node-detail { box-shadow:14px 18px 0 rgba(0,0,0,.22); }
+body.archive-open #work-listen:hover,
+body.archive-open #work-listen[aria-pressed="true"] { background:var(--fortress-light);color:#20211c; }
+
+body.archive-open .field-controls button:hover,
+body.archive-open .field-controls button.is-active,
+body.archive-open .verification-source-list button:hover,
+body.archive-open .verification-source-list button.is-active,
+body.archive-open .observatory-modes button:hover,
+body.archive-open .observatory-modes button.is-active,
+body.archive-open .proposal-card:hover,
+body.archive-open .proposal-card.is-active,
+body.archive-open .coordinate-paths a:hover,
+body.archive-open .verification-actions a:hover,
+body.archive-open .reading-actions a:hover {
+  border-color:var(--fortress-graphite);
+  background:var(--fortress-graphite);
+  color:var(--fortress-light);
+}
+body.archive-open .form-submit button {
+  border-color:var(--fortress-graphite);
+  background:var(--fortress-graphite);
+}
+body.archive-open .site-footer {
+  border-color:#151611;
+  background:
+    linear-gradient(90deg,rgba(247,246,239,.035) 1px,transparent 1px),
+    linear-gradient(150deg,#2c2d26,#1d1e19);
+  background-size:120px 100%,100% 100%;
+}
+body.archive-open .footer-tea {
+  border:1px solid rgba(42,45,41,.42);
+  background:
+    linear-gradient(90deg,transparent calc(50% - .5px),rgba(42,45,41,.08) 50%,transparent calc(50% + .5px)),
+    #efede5;
+  color:#242621;
+  box-shadow:16px 16px 0 rgba(54,57,52,.16);
+}
+body.archive-open .footer-tea small { color:rgba(36,38,33,.62); }
+body.archive-open .footer-tea span { color:#242621; }
+body.archive-open .footer-tea em { color:#666963; }
+body.archive-open .footer-tea i { color:#c71920; }
+body.archive-open .footer-tea:hover { border-color:#242621; }
+
+@media (max-width:760px) {
+  body.archive-open .footer-tea { box-shadow:8px 8px 0 rgba(54,57,52,.16); }
+}
+
+/* Runtime orbital indicator — precise motion without the rotating square. */
+body.archive-open .presence-orbit {
+  width:30px;
+  height:30px;
+  border:0;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.7) 0 18%,transparent 20%);
+  transform:none;
+  animation:none !important;
+}
+body.archive-open .presence-orbit::before {
+  inset:1px;
+  border:1px solid rgba(36,38,33,.32);
+  border-top-color:#c71920;
+  border-radius:50%;
+}
+body.archive-open .presence-orbit::after {
+  content:"";
+  position:absolute;
+  inset:7px;
+  border:1px solid rgba(36,38,33,.28);
+  border-radius:50%;
+}
+body.archive-open .presence-orbit i {
+  position:relative;
+  z-index:1;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#c71920;
+  box-shadow:none;
+  transform:none;
+}
+body.archive-open .system-presence[data-pulsing="true"] .presence-orbit::before {
+  animation:orbit-pulse 7s linear infinite;
+}
+
+@media (max-width:760px) {
+  body.archive-open .brand-mark { width:32px;height:32px; }
+  body.archive-open .brand-mark img { width:28px;height:28px; }
+}
+
+/* Illuminated aerospace palette — aluminum, instrument gray, paper, signal red. */
+body.archive-open {
+  --fortress-graphite:#62655f;
+  --fortress-graphite-deep:#555852;
+  --fortress-graphite-raised:#747771;
+  --fortress-light:#fbfaf3;
+}
+body.archive-open main > .works-space {
+  background:
+    linear-gradient(90deg,transparent calc(50% - .5px),rgba(255,255,255,.13) 50%,transparent calc(50% + .5px)),
+    repeating-linear-gradient(0deg,transparent 0 119px,rgba(255,255,255,.055) 119px 120px),
+    linear-gradient(145deg,#7c7f79 0%,#6c6f69 48%,#5d605a 100%);
+}
+body.archive-open .works-archive,
+body.archive-open .work-reading {
+  background:linear-gradient(150deg,#686b65,#575a55);
+}
+body.archive-open .works-archive > header { background:rgba(255,255,255,.09); }
+body.archive-open .library-shell {
+  border-color:rgba(255,255,255,.82);
+  box-shadow:0 18px 50px rgba(44,47,43,.2);
+}
+body.archive-open .library-stage {
+  background-color:#f2f0e8;
+  box-shadow:inset 0 0 60px rgba(67,70,66,.07);
+}
+body.archive-open .library-entry:hover,
+body.archive-open .library-entry.is-active,
+body.archive-open .corpus-entry:hover,
+body.archive-open .corpus-entry.is-active,
+body.archive-open #work-list button:hover,
+body.archive-open #work-list button.is-active { background:#fbfaf3;color:#363934; }
+body.archive-open #work-list { scrollbar-color:#e5e3da #575a55; }
+body.archive-open .work-node-detail { box-shadow:10px 12px 0 rgba(74,77,72,.22); }
+
+body.archive-open .field-controls button:hover,
+body.archive-open .field-controls button.is-active,
+body.archive-open .verification-source-list button:hover,
+body.archive-open .verification-source-list button.is-active,
+body.archive-open .observatory-modes button:hover,
+body.archive-open .observatory-modes button.is-active,
+body.archive-open .proposal-card:hover,
+body.archive-open .proposal-card.is-active,
+body.archive-open .coordinate-paths a:hover,
+body.archive-open .verification-actions a:hover,
+body.archive-open .reading-actions a:hover,
+body.archive-open .form-submit button {
+  border-color:#5b5e58;
+  background:#5b5e58;
+  color:#fff;
+}
+body.archive-open .site-footer {
+  border-color:#555852;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.075) 1px,transparent 1px),
+    linear-gradient(150deg,#747771,#5d605a);
+  background-size:120px 100%,100% 100%;
+}

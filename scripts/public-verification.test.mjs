@@ -20,7 +20,7 @@ assert.ok(index.indexOf('id="coordinate"') < index.indexOf('id="verify"'));
 assert.ok(index.indexOf('id="verify"') < index.indexOf('id="works"'));
 for (const id of [
   "verification-source-list", "verify-source-witness", "propagation-events",
-  "observatory-canvas", "memory-ledger", "proposal-stack"
+  "proposal-stack"
 ]) assert.match(index, new RegExp(`id="${id}"`), `${id} is not exposed on the public surface.`);
 
 assert.doesNotMatch(index, /github\.com\/zeropoet\/root-logos\/blob\/main\/PARTICIPATION\.md/);
@@ -97,9 +97,8 @@ assert.match(styles, /body\.archive-open \.observation-instrument > header \{[\s
 assert.match(styles, /\.observation-instrument > header h3 \{[^}]*overflow-wrap: normal;[^}]*word-break: normal;/);
 assert.match(styles, /body\.archive-open \.observation-instrument > header > p:last-child \{[\s\S]*?padding-right:clamp/);
 assert.match(styles, /body\.archive-open \.work-reading \{ padding:26px 0 42px 26px; \}/);
-assert.match(index, /data-module="02\.03">Relational observatory/);
-assert.match(index, /data-module="02\.04">Semantic memory/);
-assert.match(index, /data-module="02\.05">Adversarial review/);
+assert.doesNotMatch(index, /Relational observatory|Semantic memory|id="observatory-canvas"|id="memory-ledger"/);
+assert.match(index, /data-module="02\.03">Adversarial review/);
 assert.doesNotMatch(index, /Witnessed Relations|Design Flow Ledger/);
 for (const [id, order] of [["field", 1], ["coordinate", 2], ["verify", 3], ["works", 4], ["intake", 5]]) {
   assert.match(styles, new RegExp(`body\\.archive-open #${id} \\{ order: ${order}; \\}`), `${id} does not preserve the public encounter order.`);
@@ -109,4 +108,4 @@ for (const source of registry.sources) {
   assert.match(renderer, new RegExp(`${source.id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`), `${source.id} has no public verification mapping.`);
 }
 
-console.log("PASS public input inspection, propagation lineage, relational observatory, semantic memory, and adversarial review are published without requiring repository navigation.");
+console.log("PASS public input inspection, propagation lineage, and adversarial review are published without requiring repository navigation.");

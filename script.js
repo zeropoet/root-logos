@@ -276,8 +276,6 @@ const renderVerification = () => {
   $("#verify-edge-count").textContent = app.graph.edges.length;
   $("#verify-cycle-count").textContent = app.localState?.history?.length || app.cycles.length;
   $("#verify-emission-count").textContent = published;
-  $("#observatory-substrate-count").textContent = `${app.graph.nodes.length} structures`;
-  $("#memory-total").textContent = `${Object.keys(app.memory?.hypotheses || {}).length || "bounded"} hypotheses`;
   $("#verification-freshness").innerHTML = `<i></i>Loaded directly from ${sources.length} published input records`;
   $("#verification-source-list").innerHTML = sources.map((source, index) => `<button type="button" data-verification-source="${escapeHtml(source.id)}" class="${index === 0 ? "is-active" : ""}"><span>${String(index + 1).padStart(2, "0")}</span><b>${escapeHtml(source.name)}</b><small>${escapeHtml(sentence(source.visibility))}</small><i>${sourceWitness(source.id) ? "Witnessed" : "Declared channel"}</i></button>`).join("");
   $$("[data-verification-source]").forEach((button) => button.addEventListener("click", () => selectVerificationSource(button.dataset.verificationSource)));
@@ -985,9 +983,7 @@ const initialize = async () => {
     renderCoordinate();
     renderVerification();
     renderLatestCycle();
-    renderMemory();
     renderProposals();
-    observatory = new LivingObservatory($("#observatory-canvas"));
     field = new ConstitutionalField($("#field-canvas"), app.graph);
     if (!resolveFieldDeepLink()) {
       const returningFragmentId = new URLSearchParams(location.search).get("from");

@@ -23,12 +23,12 @@
     <meta name="twitter:title" content="Root Logos">
     <meta name="twitter:description" content="A living constitutional coordinate for accountable human and machine participation.">
     <meta name="twitter:image" content="https://rootlogos.com/assets/root-logos-constitutional-archive.png">
-    <meta name="theme-color" content="#080908">
+    <meta name="theme-color" content="#e8e7df">
     <link rel="icon" href="assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="alternate" type="application/json" href="content/citizenship.json" title="Root Logos Constitutional Citizenship Protocol">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=2.56-library-scroll" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
+    <link rel="stylesheet" href="styles.css?v=2.60-mineral-fortress" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
     <script>setTimeout(() => document.documentElement.classList.remove("style-pending"), 4000);</script>
   </head>
   <body class="archive-open">
@@ -203,43 +203,8 @@
           <ol id="propagation-events"></ol>
         </section>
 
-        <section class="observatory-substrate" aria-labelledby="observatory-title">
-          <header>
-            <div><p class="micro-label" data-module="02.03">Relational observatory</p><h3 id="observatory-title">One architecture, six ways of seeing.</h3></div>
-            <p><span id="observatory-substrate-count">— structures</span><i></i><span>select any visible point</span></p>
-          </header>
-          <div class="observatory-instrument">
-            <nav class="observatory-modes" aria-label="Observatory modes">
-              <button type="button" class="is-active" data-observatory-mode="causality"><span>01</span><b>Causality</b><small>arrival → consequence</small></button>
-              <button type="button" data-observatory-mode="epistemic"><span>02</span><b>Knowing</b><small>canonical → uncertain</small></button>
-              <button type="button" data-observatory-mode="pressure"><span>03</span><b>Pressure</b><small>attention topology</small></button>
-              <button type="button" data-observatory-mode="absence"><span>04</span><b>Absence</b><small>missing relations</small></button>
-              <button type="button" data-observatory-mode="authority"><span>05</span><b>Authority</b><small>where action stops</small></button>
-              <button type="button" data-observatory-mode="respiration"><span>06</span><b>Exchange</b><small>meaning outward</small></button>
-            </nav>
-            <div class="observatory-stage" data-mode="causality">
-              <canvas id="observatory-canvas" aria-label="Interactive relational observatory. Choose a mode and select a point to inspect its evidence."></canvas>
-              <div class="observatory-grid" aria-hidden="true"></div>
-              <header class="observatory-stage-head"><div><p class="micro-label" id="observatory-coordinate">Consequence lineage</p><h3 id="observatory-mode-title">The Causal Thread</h3></div><p id="observatory-mode-copy">Trace an arrival through admission, wake, inquiry, judgment, and structural consequence.</p></header>
-              <div class="observatory-legend" id="observatory-legend"></div>
-              <button class="observatory-selection" id="observatory-selection" type="button" aria-expanded="false"><span id="selection-index">01</span><span><small id="selection-kind">Evidence</small><b id="selection-title">Select a point</b></span><i>Inspect record ↗</i></button>
-              <aside class="observatory-reading" id="observatory-reading" aria-live="polite">
-                <header><p class="micro-label" id="reading-coordinate">Evidence</p><button type="button" id="close-observatory-reading" aria-label="Close evidence detail">×</button></header>
-                <h3 id="reading-title">Record</h3><p id="reading-body"></p>
-                <div class="reading-measures" id="reading-measures"></div><div class="reading-trace" id="reading-trace"></div><div class="reading-actions" id="reading-actions"></div>
-              </aside>
-            </div>
-          </div>
-        </section>
-
-        <section class="observatory-substrate verification-memory" aria-labelledby="memory-title">
-          <header><div><p class="micro-label" data-module="02.04">Semantic memory</p><h3 id="memory-title">What remains; what did not become structure.</h3></div><p><span id="memory-total">bounded hypotheses</span><i></i><span>public disposition</span></p></header>
-          <div class="memory-ledger-head"><span>Claim / relation</span><span>Disposition</span><span>Evidence</span><span>Return condition</span></div>
-          <div class="memory-ledger" id="memory-ledger"></div>
-        </section>
-
         <section class="observatory-substrate verification-proposals" aria-labelledby="proposal-title">
-          <header><div><p class="micro-label" data-module="02.05">Adversarial review</p><h3 id="proposal-title">Proposal and resistance, held together.</h3></div><p><span>selection</span><i></i><span>judgment + reversibility</span></p></header>
+          <header><div><p class="micro-label" data-module="02.03">Adversarial review</p><h3 id="proposal-title">Proposal and resistance, held together.</h3></div><p><span>selection</span><i></i><span>judgment + reversibility</span></p></header>
           <div class="threshold-layout"><div class="proposal-stack" id="proposal-stack"></div><article class="review-surface"><header><div><p class="micro-label">Selected proposal</p><h3 id="review-title">No proposal selected</h3></div><span id="review-risk">—</span></header><p class="review-claim" id="review-claim"></p><div class="review-grid"><div><p class="micro-label">Judgment</p><p id="review-judgment"></p></div><div><p class="micro-label">Reversibility</p><p id="review-reversibility"></p></div><div><p class="micro-label">Affected structures</p><p id="review-nodes"></p></div><div><p class="micro-label">Authority</p><p id="review-authority"></p></div></div></article></div>
         </section>
       </section>
