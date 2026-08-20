@@ -84,6 +84,8 @@ remains only as a zero-downtime cutover fallback while that environment value is
 present and should be deleted after the first verified OIDC deployment. The runtime SSH key remains a
 writable repository-scoped deploy key because the server itself publishes
 bounded cultivation commits. No endpoint accepts arbitrary commands.
+Runtime convergence uses Git's autostash mode so tracked cultivation state is
+preserved across a fast-forward instead of blocking an authenticated deploy.
 
 See `openapi.yaml` for the UI-facing contract.
 
