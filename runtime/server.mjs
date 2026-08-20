@@ -550,7 +550,9 @@ export const createRuntime = async (options = {}) => {
               sha
             });
             authorized = true;
-          } catch {}
+          } catch (error) {
+            process.stderr.write(`GitHub OIDC deploy rejection: ${error.message}\n`);
+          }
         }
         if (!authorized && deployToken && suppliedToken) {
           authorized = safeEqual(deployToken, suppliedToken);
