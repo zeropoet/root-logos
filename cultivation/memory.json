@@ -1515,11 +1515,42 @@
         },
         "total": 22
       }
+    },
+    "90a9ef6b7541e377625be086286b282189daf7b24356b571cd07c91054950358": {
+      "fingerprint": "90a9ef6b7541e377625be086286b282189daf7b24356b571cd07c91054950358",
+      "kind": "generative-compression",
+      "nodes": [
+        "principle-higher-reference",
+        "logos-3",
+        "coherence",
+        "question-topology-wisdom"
+      ],
+      "claim": "coherence + truth recurs across 4 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can coherence and truth be composed as a primitive relation that regenerates these 4 appearances without collapsing their differences?",
+      "evidence_hash": "65a154a5e36c6cb477cddb8cfb359a5ad90b9b6370f55466883e7591728d6b31",
+      "policy_hash": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1",
+      "first_cycle": "RL-CULTIVATE-0171",
+      "last_cycle": "RL-CULTIVATE-0171",
+      "last_cycle_index": 171,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 3,
-    "last_score": 0,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -2654,13 +2685,20 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-21T14:41:14.816Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0171",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-08-21T14:54:37.448Z"
       }
     ]
   },
   "dormancy": {
-    "active": true,
-    "entered_at": "2026-08-21T14:41:14.844Z",
-    "reason": "3 consecutive low-yield cycles",
+    "active": false,
+    "entered_at": null,
+    "reason": null,
     "source_snapshot": {
       "combined": "0050fa7b64e5cab07cc186d8f97a107ef3e44f8f21a87ffbaf32d03da27e50bd",
       "policy": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1"
@@ -2765,6 +2803,10 @@
       {
         "at": "2026-08-13T03:35:36.432Z",
         "reason": "canonical-source-changed"
+      },
+      {
+        "at": "2026-08-21T14:54:37.318Z",
+        "reason": "manual-force"
       }
     ]
   },
