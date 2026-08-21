@@ -48,7 +48,7 @@ jobs:
       - name: Scan Sovereign Standard material lineage
         run: |
           node scripts/sources.mjs refresh-material-lineage \
-            https://raw.githubusercontent.com/zeropoet/sovereign-standard-site/main/root-logos-witness-export.json
+            https://sovereignstandard.co/root-logos-witness-export.json
           node scripts/sources.mjs validate
 
       - name: Run one bounded cultivation cycle
