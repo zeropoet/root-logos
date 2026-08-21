@@ -254,6 +254,9 @@ authority boundaries.
   Every Root Logos `main` change uses that same short-lived source identity to
   notify Telos and wake FoldPortrait directly. Telos therefore needs no second
   long-lived App private-key copy merely to relay the wake.
+  Because commits made with GitHub's built-in workflow token do not start new
+  workflows, the cultivation and source-integration jobs dispatch the same
+  bounded receipt explicitly after preserving an automated commit.
 - `content/coherent-field.md` defines the constitutional standard for building
   one coherent account across distinct sources without possession or collapse,
   including the separate compositional, economic, material, and public-exchange

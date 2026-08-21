@@ -69,14 +69,65 @@ jobs:
         run: node scripts/sources.mjs validate
 
       - name: Preserve cycle and authorized refactoring
+        id: preserve
         run: |
           git config user.name "root-logos-cultivator[bot]"
           git config user.email "root-logos-cultivator[bot]@users.noreply.github.com"
           git add cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json sources/sovereign-standard.snapshot.json sources/foldportrait.snapshot.json
           if git diff --cached --quiet; then
             echo "No cultivation state changed."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           cycle_id=$(node -e 'const s=require("./cultivation/state.json"); process.stdout.write(s.history.at(-1)?.cultivation_id || "unknown")')
           git commit -m "Cultivate Root Logos (${cycle_id})"
           git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Mint a connected-system propagation token
+        if: steps.preserve.outputs.changed == 'true'
+        id: connected-system-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.TELOS_BRIDGE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.TELOS_BRIDGE_APP_PRIVATE_KEY }}
+          owner: zeropoet
+          repositories: |
+            Telos
+            FoldPortrait
+          permission-contents: write
+
+      - name: Propagate the cultivated Root Logos commit
+        if: steps.preserve.outputs.changed == 'true'
+        env:
+          CONNECTED_SYSTEM_TOKEN: ${{ steps.connected-system-token.outputs.token }}
+          SOURCE_SHA: ${{ steps.preserve.outputs.revision }}
+        run: |
+          occurred_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          telos_payload=$(jq -n \
+            --arg source_repository "zeropoet/root-logos" \
+            --arg source_sha "$SOURCE_SHA" \
+            --arg change_class "relation" \
+            --arg summary "Root Logos preserved its current constitutional and connected-source relation map." \
+            --arg witness_url "https://rootlogos.com/" \
+            --arg occurred_at "$occurred_at" \
+            '{event_type:"telos-propagation",client_payload:{source_repository:$source_repository,source_sha:$source_sha,change_class:$change_class,summary:$summary,witness_url:$witness_url,occurred_at:$occurred_at}}')
+          curl --fail --silent --show-error --retry 4 --retry-all-errors --retry-delay 3 \
+            -X POST https://api.github.com/repos/zeropoet/Telos/dispatches \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $CONNECTED_SYSTEM_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Content-Type: application/json" \
+            --data "$telos_payload"
+          foldportrait_payload=$(jq -n \
+            --arg source_repository "zeropoet/root-logos" \
+            --arg source_sha "$SOURCE_SHA" \
+            '{event_type:"connected-system-changed",client_payload:{source_repository:$source_repository,source_sha:$source_sha}}')
+          curl --fail --silent --show-error --retry 4 --retry-all-errors --retry-delay 3 \
+            -X POST https://api.github.com/repos/zeropoet/FoldPortrait/dispatches \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $CONNECTED_SYSTEM_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Content-Type: application/json" \
+            --data "$foldportrait_payload"

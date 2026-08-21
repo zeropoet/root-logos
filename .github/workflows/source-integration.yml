@@ -138,6 +138,7 @@ jobs:
 
       - name: Preserve changed witness
         if: steps.source.outputs.changed == 'true'
+        id: preserve
         working-directory: root-logos
         run: |
           git config user.name "root-logos-integrator[bot]"
@@ -145,12 +146,15 @@ jobs:
           git add sources/foldforge.snapshot.json sources/foldportrait.snapshot.json sources/sovereign-standard.snapshot.json cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json works/index.json works/structural-depth-migration.json works/corpora works/*/manifest.json works/*/editions
           if git diff --cached --quiet; then
             echo "Connected source evidence is unchanged."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           witness=$(node -e 'const f=require("./sources/foldforge.snapshot.json"); const p=require("./sources/foldportrait.snapshot.json"); const s=require("./sources/sovereign-standard.snapshot.json"); process.stdout.write(`${f.witness.slice(7,13)}-${p.witness.slice(7,13)}-${s.witness.slice(7,13)}`)')
           git commit -m "Witness connected sources (${witness})"
           for attempt in 1 2 3 4; do
             if git push origin HEAD:main; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
+              echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
               exit 0
             fi
             echo "Main advanced during integration; rebasing attempt ${attempt}/4."
@@ -158,6 +162,54 @@ jobs:
           done
           echo "Unable to converge Root Logos after four push attempts."
           exit 1
+
+      - name: Mint a connected-system propagation token
+        if: steps.preserve.outputs.changed == 'true'
+        id: connected-system-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.TELOS_BRIDGE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.TELOS_BRIDGE_APP_PRIVATE_KEY }}
+          owner: zeropoet
+          repositories: |
+            Telos
+            FoldPortrait
+          permission-contents: write
+
+      - name: Propagate the automated Root Logos commit
+        if: steps.preserve.outputs.changed == 'true'
+        working-directory: root-logos
+        env:
+          CONNECTED_SYSTEM_TOKEN: ${{ steps.connected-system-token.outputs.token }}
+          SOURCE_SHA: ${{ steps.preserve.outputs.revision }}
+        run: |
+          occurred_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          telos_payload=$(jq -n \
+            --arg source_repository "zeropoet/root-logos" \
+            --arg source_sha "$SOURCE_SHA" \
+            --arg change_class "relation" \
+            --arg summary "Root Logos preserved its current constitutional and connected-source relation map." \
+            --arg witness_url "https://rootlogos.com/" \
+            --arg occurred_at "$occurred_at" \
+            '{event_type:"telos-propagation",client_payload:{source_repository:$source_repository,source_sha:$source_sha,change_class:$change_class,summary:$summary,witness_url:$witness_url,occurred_at:$occurred_at}}')
+          curl --fail --silent --show-error --retry 4 --retry-all-errors --retry-delay 3 \
+            -X POST https://api.github.com/repos/zeropoet/Telos/dispatches \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $CONNECTED_SYSTEM_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Content-Type: application/json" \
+            --data "$telos_payload"
+          foldportrait_payload=$(jq -n \
+            --arg source_repository "zeropoet/root-logos" \
+            --arg source_sha "$SOURCE_SHA" \
+            '{event_type:"connected-system-changed",client_payload:{source_repository:$source_repository,source_sha:$source_sha}}')
+          curl --fail --silent --show-error --retry 4 --retry-all-errors --retry-delay 3 \
+            -X POST https://api.github.com/repos/zeropoet/FoldPortrait/dispatches \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $CONNECTED_SYSTEM_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Content-Type: application/json" \
+            --data "$foldportrait_payload"
 
       - name: Converge the always-awake runtime
         if: steps.source.outputs.changed == 'true'
