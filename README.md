@@ -251,6 +251,9 @@ authority boundaries.
   `telos-propagation` receipt to Telos through a one-hour repository-scoped
   Telos Bridge GitHub App token. Receipt means pending semantic synchronization,
   not automatic adoption or governing authority.
+  Every Root Logos `main` change uses that same short-lived source identity to
+  notify Telos and wake FoldPortrait directly. Telos therefore needs no second
+  long-lived App private-key copy merely to relay the wake.
 - `content/coherent-field.md` defines the constitutional standard for building
   one coherent account across distinct sources without possession or collapse,
   including the separate compositional, economic, material, and public-exchange
