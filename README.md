@@ -257,6 +257,9 @@ authority boundaries.
   Because commits made with GitHub's built-in workflow token do not start new
   workflows, the cultivation and source-integration jobs dispatch the same
   bounded receipt explicitly after preserving an automated commit.
+  A FoldPortrait-originated integration still propagates its Root Logos receipt
+  to Telos, but suppresses the return wake to FoldPortrait so evidence cannot
+  become a self-exciting reflection loop.
   Runtime convergence remains exclusively inside the dedicated deployment
   workflow's allowlisted OIDC identity; completed cultivation and source
   integration runs wake that workflow rather than borrowing its authority.

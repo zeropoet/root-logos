@@ -182,6 +182,7 @@ jobs:
         env:
           CONNECTED_SYSTEM_TOKEN: ${{ steps.connected-system-token.outputs.token }}
           SOURCE_SHA: ${{ steps.preserve.outputs.revision }}
+          SOURCE_EVENT_ACTION: ${{ github.event.action }}
         run: |
           occurred_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           telos_payload=$(jq -n \
@@ -199,6 +200,10 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             -H "Content-Type: application/json" \
             --data "$telos_payload"
+          if [ "$SOURCE_EVENT_ACTION" = "foldportrait-reflected" ]; then
+            echo "FoldPortrait-originated evidence was witnessed by Root Logos; suppressing the return wake."
+            exit 0
+          fi
           foldportrait_payload=$(jq -n \
             --arg source_repository "zeropoet/root-logos" \
             --arg source_sha "$SOURCE_SHA" \
