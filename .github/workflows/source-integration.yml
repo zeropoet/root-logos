@@ -159,6 +159,42 @@ jobs:
           echo "Unable to converge Root Logos after four push attempts."
           exit 1
 
+      - name: Mint a Telos propagation token
+        if: steps.source.outputs.changed == 'true'
+        id: telos-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.TELOS_BRIDGE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.TELOS_BRIDGE_APP_PRIVATE_KEY }}
+          owner: zeropoet
+          repositories: Telos
+          permission-contents: write
+
+      - name: Propagate the cultivated relation map to Telos
+        if: steps.source.outputs.changed == 'true'
+        working-directory: root-logos
+        env:
+          TELOS_DISPATCH_TOKEN: ${{ steps.telos-token.outputs.token }}
+        run: |
+          source_sha=$(git rev-parse HEAD)
+          occurred_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          payload=$(jq -n \
+            --arg source_repository "zeropoet/root-logos" \
+            --arg source_sha "$source_sha" \
+            --arg change_class "relation" \
+            --arg summary "Root Logos cultivated and preserved its current connected-source relation map." \
+            --arg witness_url "https://rootlogos.com/" \
+            --arg occurred_at "$occurred_at" \
+            '{event_type:"telos-propagation",client_payload:{source_repository:$source_repository,source_sha:$source_sha,change_class:$change_class,summary:$summary,witness_url:$witness_url,occurred_at:$occurred_at}}')
+          curl --fail --silent --show-error \
+            --retry 4 --retry-all-errors --retry-delay 3 \
+            -X POST https://api.github.com/repos/zeropoet/Telos/dispatches \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $TELOS_DISPATCH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Content-Type: application/json" \
+            --data "$payload"
+
       - name: Converge the always-awake runtime
         if: steps.source.outputs.changed == 'true'
         working-directory: root-logos
