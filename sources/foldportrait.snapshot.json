@@ -2,7 +2,7 @@
   "schema": "root-logos-foldportrait-witness/v2",
   "source_id": "foldportrait",
   "status": "witnessed",
-  "source_revision": "sha256:204c82766310952787a6ae52053210c9d9bbd2c6bdd6955d9388b373e0fb315f",
+  "source_revision": "sha256:1ec7d20a25674be8580ebc3e1ec72036f04fdee8f2a63908ba4a51a243069b7c",
   "repository": "https://github.com/zeropoet/FoldPortrait",
   "public_url": "https://zeropoet.github.io/FoldPortrait/",
   "relation": "render-materializes-as-witness-work; system-witness-becomes-autonomous-visual-reflection",
@@ -13,9 +13,9 @@
     "material_matches": 52,
     "embodied_renders": 14,
     "prepared_renders": 38,
-    "reflection_cycles": 9,
-    "reflection_pngs": 9,
-    "prepared_unsigned_reflections": 9,
+    "reflection_cycles": 10,
+    "reflection_pngs": 10,
+    "prepared_unsigned_reflections": 10,
     "current_correlations": 7,
     "current_rules": 4
   },
@@ -1811,9 +1811,104 @@
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0009.notes.md",
       "boundary": "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior."
+    },
+    {
+      "cycle_id": "FP-REFLECT-0010",
+      "sequence": 10,
+      "witnessed_at": "2026-08-21T15:44:01.000Z",
+      "witness_digest": "f5c5758a55550406ae0b726cc3d121ab78510c01b85c3959c2a1418e26fa9b22",
+      "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+      "render_hash": "f8d214ae816ea6e5ab0fd1b68b26f2279760ede5c023ec2ff00ae50bf0de57e3",
+      "previous_cycle_id": "FP-REFLECT-0009",
+      "chosen_rules": [
+        "palimpsest",
+        "counterfield",
+        "veil",
+        "aperture"
+      ],
+      "correlations": [
+        {
+          "direction": "inverse",
+          "interpretation": "Observed across 10 preserved system states; noncausal.",
+          "left": "root-logos.coherent_works",
+          "method": "pearson",
+          "right": "sovereign-standard.embodied_foldportraits",
+          "sampleCount": 10,
+          "strength": 1,
+          "visualRule": "palimpsest"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 10 preserved system states; noncausal.",
+          "left": "foldforge.compositions",
+          "method": "pearson",
+          "right": "foldportrait.embodied_portraits",
+          "sampleCount": 10,
+          "strength": 1,
+          "visualRule": "counterfield"
+        },
+        {
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.connected_sources",
+          "method": "structural-resonance",
+          "right": "telos.mapped_repositories",
+          "sampleCount": 10,
+          "strength": 1,
+          "visualRule": "veil"
+        },
+        {
+          "direction": "inverse",
+          "interpretation": "Observed across 10 preserved system states; noncausal.",
+          "left": "foldportrait.embodied_portraits",
+          "method": "pearson",
+          "right": "root-logos.witnessed_relations",
+          "sampleCount": 10,
+          "strength": 1,
+          "visualRule": "veil"
+        },
+        {
+          "direction": "inverse",
+          "interpretation": "Observed across 10 preserved system states; noncausal.",
+          "left": "foldforge.witnessed_relations",
+          "method": "pearson",
+          "right": "root-logos.witnessed_relations",
+          "sampleCount": 10,
+          "strength": 1,
+          "visualRule": "aperture"
+        },
+        {
+          "direction": "inverse",
+          "interpretation": "Observed across 10 preserved system states; noncausal.",
+          "left": "foldforge.compositions",
+          "method": "pearson",
+          "right": "root-logos.witnessed_relations",
+          "sampleCount": 10,
+          "strength": 1,
+          "visualRule": "palimpsest"
+        },
+        {
+          "direction": "inverse",
+          "interpretation": "Observed across 10 preserved system states; noncausal.",
+          "left": "foldportrait.embodied_portraits",
+          "method": "pearson",
+          "right": "root-logos.coherent_works",
+          "sampleCount": 10,
+          "strength": 1,
+          "visualRule": "aperture"
+        }
+      ],
+      "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0010.svg",
+      "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0010.png",
+      "svg_sha256": "ba7f93915fa7c4813ec34477cba74e64448aa1b5fa1a4276eea9eb2072be2458",
+      "png_sha256": "a9fa191a384c4cc200b519b3c0be221207c5930dd83f6ace0fb6e44ecf795a3f",
+      "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0010.json",
+      "mint_status": "prepared_unsigned",
+      "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0010.notes.md",
+      "boundary": "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior."
     }
   ],
-  "current_reflection": "FP-REFLECT-0009",
+  "current_reflection": "FP-REFLECT-0010",
   "material_source_witness": "sha256:1ea8c8b5d9618bccdf9f692a2891c2f38352d486ef1c6aad7b617464ed9f2f96",
-  "witness": "sha256:727889ab91c00191d10c0ec27bab060e14c72c14dd205921e0464d35eee5076e"
+  "witness": "sha256:4b36f1cd85b7adff38e619f288b7b0c8a270e8b24dbf6c64d4a03a2b98bfe4f0"
 }
