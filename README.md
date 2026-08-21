@@ -257,6 +257,9 @@ authority boundaries.
   Because commits made with GitHub's built-in workflow token do not start new
   workflows, the cultivation and source-integration jobs dispatch the same
   bounded receipt explicitly after preserving an automated commit.
+  Runtime convergence remains exclusively inside the dedicated deployment
+  workflow's allowlisted OIDC identity; completed cultivation and source
+  integration runs wake that workflow rather than borrowing its authority.
 - `content/coherent-field.md` defines the constitutional standard for building
   one coherent account across distinct sources without possession or collapse,
   including the separate compositional, economic, material, and public-exchange

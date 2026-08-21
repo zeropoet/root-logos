@@ -211,30 +211,6 @@ jobs:
             -H "Content-Type: application/json" \
             --data "$foldportrait_payload"
 
-      - name: Converge the always-awake runtime
-        if: steps.source.outputs.changed == 'true'
-        working-directory: root-logos
-        env:
-          DEPLOY_TOKEN: ${{ secrets.ROOT_LOGOS_DEPLOY_TOKEN }}
-          OIDC_AUDIENCE: ${{ vars.ROOT_LOGOS_OIDC_AUDIENCE }}
-        run: |
-          if [ -n "$OIDC_AUDIENCE" ]; then
-            DEPLOY_TOKEN=$(curl --fail --silent --show-error \
-              -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-              "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${OIDC_AUDIENCE}" | jq -r .value)
-            test "$DEPLOY_TOKEN" != "null"
-            echo "::add-mask::$DEPLOY_TOKEN"
-          fi
-          test -n "$DEPLOY_TOKEN"
-          commit_sha=$(git rev-parse HEAD)
-          curl --fail --silent --show-error \
-            --retry 4 --retry-all-errors --retry-delay 3 \
-            -X POST https://runtime.rootlogos.com/v1/internal/deploy \
-            -H "Authorization: Bearer $DEPLOY_TOKEN" \
-            -H "X-GitHub-SHA: $commit_sha" \
-            -H "Content-Type: application/json" \
-            --data '{}'
-
       - name: Report source propagation failure
         if: failure()
         working-directory: root-logos
