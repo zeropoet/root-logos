@@ -1669,7 +1669,7 @@
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 2,
+    "consecutive_low_yield_cycles": 3,
     "last_score": 0,
     "history": [
       {
@@ -2896,15 +2896,22 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-23T14:32:30.675Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0184",
+        "score": 0,
+        "reason": "no-eligible-hypothesis",
+        "status": "completed-no-proposal",
+        "at": "2026-08-23T14:36:24.186Z"
       }
     ]
   },
   "dormancy": {
-    "active": false,
-    "entered_at": null,
-    "reason": null,
+    "active": true,
+    "entered_at": "2026-08-23T14:36:24.221Z",
+    "reason": "3 consecutive low-yield cycles",
     "source_snapshot": {
-      "combined": "0050fa7b64e5cab07cc186d8f97a107ef3e44f8f21a87ffbaf32d03da27e50bd",
+      "combined": "81b9594b351d4031b212c13fb5bd5d7b037782909253e8d5097c1cba561476da",
       "policy": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1"
     },
     "wake_history": [
@@ -3825,6 +3832,36 @@
           "reason": "no-eligible-hypothesis",
           "status": "completed-no-proposal",
           "at": "2026-08-21T15:46:58.166Z"
+        }
+      ],
+      "proposal": "The active inquiry methods have reached diminishing returns. Review candidate ranking, evidence extraction, and proposal grammar before increasing cadence or adding synthetic novelty."
+    },
+    {
+      "type": "meta-refactoring-proposal",
+      "cultivation_id": "RL-CULTIVATE-0184",
+      "at": "2026-08-23T14:36:24.221Z",
+      "status": "proposed-for-human-review",
+      "evidence": [
+        {
+          "cultivation_id": "RL-CULTIVATE-0182",
+          "score": 0,
+          "reason": "no-eligible-hypothesis",
+          "status": "completed-no-proposal",
+          "at": "2026-08-23T03:30:25.601Z"
+        },
+        {
+          "cultivation_id": "RL-CULTIVATE-0183",
+          "score": 0,
+          "reason": "no-eligible-hypothesis",
+          "status": "completed-no-proposal",
+          "at": "2026-08-23T14:32:30.675Z"
+        },
+        {
+          "cultivation_id": "RL-CULTIVATE-0184",
+          "score": 0,
+          "reason": "no-eligible-hypothesis",
+          "status": "completed-no-proposal",
+          "at": "2026-08-23T14:36:24.186Z"
         }
       ],
       "proposal": "The active inquiry methods have reached diminishing returns. Review candidate ranking, evidence extraction, and proposal grammar before increasing cadence or adding synthetic novelty."
