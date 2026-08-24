@@ -2,7 +2,7 @@
   "schema": "root-logos-foldportrait-witness/v2",
   "source_id": "foldportrait",
   "status": "witnessed",
-  "source_revision": "sha256:4c76bf4066103ab889fc7f917e1768a8be81565e88e03b355ffc879e923378ed",
+  "source_revision": "sha256:c172fdf1b047050b71c45cdec684573ac3e86f764abbc309796e686276c08c67",
   "repository": "https://github.com/zeropoet/FoldPortrait",
   "public_url": "https://zeropoet.github.io/FoldPortrait/",
   "relation": "render-materializes-as-witness-work; system-witness-becomes-autonomous-visual-reflection",
@@ -17,7 +17,7 @@
     "reflection_pngs": 20,
     "prepared_unsigned_reflections": 20,
     "current_correlations": 7,
-    "current_rules": 5
+    "current_rules": 4
   },
   "renders": [
     {
@@ -1530,91 +1530,59 @@
       "witnessed_at": "2026-08-21T15:15:07.000Z",
       "witness_digest": "c4370a6bd6c854514604e36b170d5838d0748e3e9089628169790faace900bfb",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "f314ca4a2a7253e16609b2f9b6554dc549e9f9b4cefa9bf0a16658db174c495d",
+      "render_hash": "c7da9c115a9db62db17205d5b4df83d4e2416dcb65a8cc413bc2b927fe2d09d2",
       "previous_cycle_id": "FP-REFLECT-0006",
       "chosen_rules": [
-        "palimpsest",
-        "strata",
-        "veil",
-        "aperture",
-        "counterfield"
+        "counterfield",
+        "sediment",
+        "aperture"
       ],
       "correlations": [
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 7 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "root-logos.coherent_works",
-          "sampleCount": 7,
-          "strength": 1,
-          "visualRule": "palimpsest"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 7 preserved system states; noncausal.",
-          "left": "foldforge.witnessed_relations",
-          "method": "pearson",
-          "right": "root-logos.witnessed_relations",
-          "sampleCount": 7,
-          "strength": 1,
-          "visualRule": "palimpsest"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 7 preserved system states; noncausal.",
-          "left": "root-logos.witnessed_relations",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
-          "sampleCount": 7,
-          "strength": 1,
-          "visualRule": "strata"
-        },
-        {
-          "direction": "counterposed",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.movement_phases",
-          "method": "structural-resonance",
-          "right": "foldkernel.symmetry_transforms",
-          "sampleCount": 7,
-          "strength": 1,
-          "visualRule": "veil"
-        },
-        {
-          "direction": "counterposed",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.primitives",
-          "method": "structural-resonance",
-          "right": "telos.operating_components",
-          "sampleCount": 7,
-          "strength": 1,
-          "visualRule": "palimpsest"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 7 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
-          "method": "pearson",
-          "right": "root-logos.witnessed_relations",
-          "sampleCount": 7,
-          "strength": 1,
-          "visualRule": "aperture"
-        },
         {
           "direction": "parallel",
           "interpretation": "Observed across 7 preserved system states; noncausal.",
           "left": "foldforge.witnessed_relations",
           "method": "pearson",
+          "right": "root-logos.cultivation_cycles",
+          "sampleCount": 7,
+          "strength": 0.994844,
+          "visualRule": "counterfield"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 7 preserved system states; noncausal.",
+          "left": "foldforge.compositions",
+          "method": "pearson",
+          "right": "root-logos.cultivation_cycles",
+          "sampleCount": 7,
+          "strength": 0.994844,
+          "visualRule": "sediment"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 7 preserved system states; noncausal.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "pearson",
           "right": "sovereign-standard.embodied_foldportraits",
           "sampleCount": 7,
-          "strength": 1,
+          "strength": 0.994844,
+          "visualRule": "aperture"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 7 preserved system states; noncausal.",
+          "left": "foldportrait.embodied_portraits",
+          "method": "pearson",
+          "right": "root-logos.cultivation_cycles",
+          "sampleCount": 7,
+          "strength": 0.994844,
           "visualRule": "counterfield"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0007.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0007.png",
-      "svg_sha256": "688448ee7027ccdc986f1d59367ecaf1e5c4eb2eff636bed08ef9b496af1d8df",
-      "png_sha256": "d6a538c26db07b0cb762c8dd91833dec7b300b0f5f92884bc9928014b17561fc",
+      "svg_sha256": "68cdc2da575d2a6aeea93acef17e5a47f81723c025c13e4ed1550e42cbcc8ab9",
+      "png_sha256": "e684d8ba2f16b6eb335aea12f47ce5cb913d8f540769f12fdfe26361dbe665e9",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0007.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0007.notes.md",
@@ -1626,92 +1594,80 @@
       "witnessed_at": "2026-08-21T15:17:52.000Z",
       "witness_digest": "650e9a7bc01f87ed022fe3cd888534d87e6eab2b6d0fb3895f877e38e6afbfbd",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "01e0edd3a92d81dcbfcac5f65ab6998136fe8c69d98b06c9e180703afa069d6f",
+      "render_hash": "868d5013be32b17b8dc887e9bbffd2e78b6e56d221b3fe6e0d1b2116d20b05a2",
       "previous_cycle_id": "FP-REFLECT-0007",
       "chosen_rules": [
-        "braid",
-        "counterfield",
+        "aperture",
         "sediment",
-        "strata",
-        "palimpsest",
-        "aperture"
+        "counterfield",
+        "strata"
       ],
       "correlations": [
         {
-          "direction": "inverse",
-          "interpretation": "Observed across 8 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
-          "method": "pearson",
-          "right": "root-logos.coherent_works",
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "structural-resonance",
+          "right": "telos.first_subscriber_threshold",
           "sampleCount": 8,
-          "strength": 1,
-          "visualRule": "braid"
+          "strength": 0.973881,
+          "visualRule": "aperture"
         },
         {
-          "direction": "inverse",
+          "direction": "parallel",
           "interpretation": "Observed across 8 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
+          "left": "root-logos.cultivation_cycles",
           "method": "pearson",
-          "right": "root-logos.coherent_works",
+          "right": "telos.operating_components",
           "sampleCount": 8,
-          "strength": 1,
-          "visualRule": "counterfield"
+          "strength": 0.965304,
+          "visualRule": "sediment"
         },
         {
           "direction": "counterposed",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.compositions",
+          "left": "foldkernel.convergence_hash_bits",
           "method": "structural-resonance",
-          "right": "root-logos.connected_sources",
+          "right": "root-logos.cultivation_cycles",
           "sampleCount": 8,
-          "strength": 1,
-          "visualRule": "sediment"
+          "strength": 0.930747,
+          "visualRule": "counterfield"
         },
         {
-          "direction": "inverse",
-          "interpretation": "Observed across 8 preserved system states; noncausal.",
-          "left": "root-logos.witnessed_relations",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "foldforge.displacement_steps",
+          "method": "structural-resonance",
+          "right": "root-logos.cultivation_cycles",
           "sampleCount": 8,
-          "strength": 1,
+          "strength": 0.80824,
           "visualRule": "strata"
         },
         {
           "direction": "convergent",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "root-logos.connected_sources",
+          "left": "foldportrait.sealed_first_era_portraits",
           "method": "structural-resonance",
-          "right": "telos.mapped_repositories",
+          "right": "root-logos.cultivation_cycles",
           "sampleCount": 8,
-          "strength": 1,
-          "visualRule": "palimpsest"
+          "strength": 0.768723,
+          "visualRule": "sediment"
         },
         {
           "direction": "parallel",
           "interpretation": "Observed across 8 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
+          "left": "root-logos.cultivation_cycles",
           "method": "pearson",
           "right": "sovereign-standard.embodied_foldportraits",
           "sampleCount": 8,
-          "strength": 1,
-          "visualRule": "aperture"
-        },
-        {
-          "direction": "parallel",
-          "interpretation": "Observed across 8 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
-          "sampleCount": 8,
-          "strength": 1,
-          "visualRule": "aperture"
+          "strength": 0.994008,
+          "visualRule": "strata"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0008.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0008.png",
-      "svg_sha256": "fa7a6b61dd567d4618afc88b30e12a9057462ea635ffab4174f509be9063cd18",
-      "png_sha256": "dc339bbd333f86453faac26766ee3157ad2564502ce6a224dceccc28bef2c7b6",
+      "svg_sha256": "a03bb2066930417caa58946933646f098c8f39f63c7cda3a92eb08c276095ae0",
+      "png_sha256": "7d0d6e6f68f81fd022ed523fe73f3e61dfc8a006a0ccf7ebcf89e2be4959c66a",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0008.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0008.notes.md",
@@ -1723,90 +1679,69 @@
       "witnessed_at": "2026-08-21T15:20:36.000Z",
       "witness_digest": "f21ec363ad816e3a42c1380cdba61bc31720298d7ca8ce3c54ff8f5bb9718e08",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "3851918ae68a983560ee287f61528b9b2365c339eba41e48111af87f4d544d73",
+      "render_hash": "28a9dce4a32f3842e658eb12dfa9f3f3252044abc903acec5330afbbc0a8e56f",
       "previous_cycle_id": "FP-REFLECT-0008",
       "chosen_rules": [
-        "counterfield",
-        "aperture",
-        "veil",
-        "braid"
+        "palimpsest",
+        "braid",
+        "sediment"
       ],
       "correlations": [
         {
           "direction": "counterposed",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.compositions",
+          "left": "root-logos.cultivation_cycles",
           "method": "structural-resonance",
-          "right": "root-logos.connected_sources",
+          "right": "sovereign-standard.published_vessel_records",
           "sampleCount": 9,
-          "strength": 1,
-          "visualRule": "counterfield"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 9 preserved system states; noncausal.",
-          "left": "foldforge.witnessed_relations",
-          "method": "pearson",
-          "right": "root-logos.coherent_works",
-          "sampleCount": 9,
-          "strength": 1,
-          "visualRule": "counterfield"
-        },
-        {
-          "direction": "parallel",
-          "interpretation": "Observed across 9 preserved system states; noncausal.",
-          "left": "foldforge.witnessed_relations",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
-          "sampleCount": 9,
-          "strength": 1,
-          "visualRule": "aperture"
-        },
-        {
-          "direction": "parallel",
-          "interpretation": "Observed across 9 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "foldportrait.embodied_portraits",
-          "sampleCount": 9,
-          "strength": 1,
-          "visualRule": "veil"
-        },
-        {
-          "direction": "parallel",
-          "interpretation": "Observed across 9 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
-          "sampleCount": 9,
-          "strength": 1,
-          "visualRule": "braid"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 9 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
-          "method": "pearson",
-          "right": "root-logos.coherent_works",
-          "sampleCount": 9,
-          "strength": 1,
-          "visualRule": "braid"
+          "strength": 0.951551,
+          "visualRule": "palimpsest"
         },
         {
           "direction": "counterposed",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.movement_phases",
+          "left": "root-logos.cultivation_cycles",
           "method": "structural-resonance",
-          "right": "foldkernel.symmetry_transforms",
+          "right": "telos.second_subscriber_threshold",
           "sampleCount": 9,
-          "strength": 1,
-          "visualRule": "veil"
+          "strength": 0.862615,
+          "visualRule": "braid"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 9 preserved system states; noncausal.",
+          "left": "foldforge.compositions",
+          "method": "pearson",
+          "right": "root-logos.cultivation_cycles",
+          "sampleCount": 9,
+          "strength": 0.992889,
+          "visualRule": "sediment"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 9 preserved system states; noncausal.",
+          "left": "foldforge.witnessed_relations",
+          "method": "pearson",
+          "right": "root-logos.cultivation_cycles",
+          "sampleCount": 9,
+          "strength": 0.992889,
+          "visualRule": "palimpsest"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 9 preserved system states; noncausal.",
+          "left": "foldportrait.embodied_portraits",
+          "method": "pearson",
+          "right": "root-logos.cultivation_cycles",
+          "sampleCount": 9,
+          "strength": 0.992889,
+          "visualRule": "braid"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0009.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0009.png",
-      "svg_sha256": "06f617beba9840888322294be191633c87feb9c57d40de1137278ee9054977f8",
-      "png_sha256": "4d8896b10d68fad8ec7708bdaa6d33ddc78df0a112aad227e59d00e60da2cdf5",
+      "svg_sha256": "380e2100a56dd3d96248ed99d585540a38126f94707ccc0f0f0c1627224617cb",
+      "png_sha256": "fefe6ef8a72daad5f41ddb1e003f559836b2d5c191038d6cdb30068258c54ecb",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0009.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0009.notes.md",
@@ -1818,33 +1753,24 @@
       "witnessed_at": "2026-08-21T15:44:01.000Z",
       "witness_digest": "f5c5758a55550406ae0b726cc3d121ab78510c01b85c3959c2a1418e26fa9b22",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "f8d214ae816ea6e5ab0fd1b68b26f2279760ede5c023ec2ff00ae50bf0de57e3",
+      "render_hash": "86db34e81d717bc18b76dc24716756628ca87bd202cd4c28d6a7f766a523e42f",
       "previous_cycle_id": "FP-REFLECT-0009",
       "chosen_rules": [
-        "palimpsest",
         "counterfield",
+        "strata",
         "veil",
-        "aperture"
+        "aperture",
+        "palimpsest"
       ],
       "correlations": [
         {
-          "direction": "inverse",
-          "interpretation": "Observed across 10 preserved system states; noncausal.",
-          "left": "root-logos.coherent_works",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "structural-resonance",
+          "right": "telos.first_subscriber_threshold",
           "sampleCount": 10,
-          "strength": 1,
-          "visualRule": "palimpsest"
-        },
-        {
-          "direction": "parallel",
-          "interpretation": "Observed across 10 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "foldportrait.embodied_portraits",
-          "sampleCount": 10,
-          "strength": 1,
+          "strength": 0.976023,
           "visualRule": "counterfield"
         },
         {
@@ -1855,17 +1781,7 @@
           "right": "telos.mapped_repositories",
           "sampleCount": 10,
           "strength": 1,
-          "visualRule": "veil"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 10 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
-          "method": "pearson",
-          "right": "root-logos.witnessed_relations",
-          "sampleCount": 10,
-          "strength": 1,
-          "visualRule": "veil"
+          "visualRule": "strata"
         },
         {
           "direction": "inverse",
@@ -1875,24 +1791,44 @@
           "right": "root-logos.witnessed_relations",
           "sampleCount": 10,
           "strength": 1,
+          "visualRule": "veil"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 10 preserved system states; noncausal.",
+          "left": "foldforge.witnessed_relations",
+          "method": "pearson",
+          "right": "foldportrait.embodied_portraits",
+          "sampleCount": 10,
+          "strength": 1,
           "visualRule": "aperture"
         },
         {
-          "direction": "inverse",
-          "interpretation": "Observed across 10 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "root-logos.witnessed_relations",
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "foldforge.primitives",
+          "method": "structural-resonance",
+          "right": "telos.operating_components",
           "sampleCount": 10,
           "strength": 1,
           "visualRule": "palimpsest"
         },
         {
-          "direction": "inverse",
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "foldforge.compositions",
+          "method": "structural-resonance",
+          "right": "root-logos.connected_sources",
+          "sampleCount": 10,
+          "strength": 1,
+          "visualRule": "strata"
+        },
+        {
+          "direction": "parallel",
           "interpretation": "Observed across 10 preserved system states; noncausal.",
           "left": "foldportrait.embodied_portraits",
           "method": "pearson",
-          "right": "root-logos.coherent_works",
+          "right": "sovereign-standard.embodied_foldportraits",
           "sampleCount": 10,
           "strength": 1,
           "visualRule": "aperture"
@@ -1900,8 +1836,8 @@
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0010.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0010.png",
-      "svg_sha256": "ba7f93915fa7c4813ec34477cba74e64448aa1b5fa1a4276eea9eb2072be2458",
-      "png_sha256": "a9fa191a384c4cc200b519b3c0be221207c5930dd83f6ace0fb6e44ecf795a3f",
+      "svg_sha256": "fc40c29e74b279878d86f951eda6c45e97da73894faef92067a0f5c4a8b1bae5",
+      "png_sha256": "3312f69f74dabcf7dee07eb8c782bdda1a15ff26a32f6cb8e9801fff5f05a383",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0010.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0010.notes.md",
@@ -1913,35 +1849,14 @@
       "witnessed_at": "2026-08-21T15:47:38.000Z",
       "witness_digest": "2fdabd7fa7993c77a8e42a7d819f56580390011f08591cfc9074f9329e3714e6",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "bb69706acbdf1268227d15f6844f5559f63fc44fadbc9beb47076b5d562dc548",
+      "render_hash": "2c6bbca4c9dbe99abe2537d1bf1c42bcc64342da446f4ce789441c4169fd0a11",
       "previous_cycle_id": "FP-REFLECT-0010",
       "chosen_rules": [
         "braid",
-        "aperture",
-        "strata",
-        "sediment"
+        "veil",
+        "aperture"
       ],
       "correlations": [
-        {
-          "direction": "parallel",
-          "interpretation": "Observed across 11 preserved system states; noncausal.",
-          "left": "foldforge.witnessed_relations",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
-          "sampleCount": 11,
-          "strength": 1,
-          "visualRule": "braid"
-        },
-        {
-          "direction": "counterposed",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.compositions",
-          "method": "structural-resonance",
-          "right": "telos.mapped_repositories",
-          "sampleCount": 11,
-          "strength": 1,
-          "visualRule": "aperture"
-        },
         {
           "direction": "inverse",
           "interpretation": "Observed across 11 preserved system states; noncausal.",
@@ -1960,7 +1875,7 @@
           "right": "sovereign-standard.embodied_foldportraits",
           "sampleCount": 11,
           "strength": 1,
-          "visualRule": "aperture"
+          "visualRule": "veil"
         },
         {
           "direction": "inverse",
@@ -1970,17 +1885,7 @@
           "right": "root-logos.coherent_works",
           "sampleCount": 11,
           "strength": 1,
-          "visualRule": "strata"
-        },
-        {
-          "direction": "convergent",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.primitives",
-          "method": "structural-resonance",
-          "right": "telos.operating_components",
-          "sampleCount": 11,
-          "strength": 1,
-          "visualRule": "sediment"
+          "visualRule": "veil"
         },
         {
           "direction": "inverse",
@@ -1990,13 +1895,23 @@
           "right": "root-logos.coherent_works",
           "sampleCount": 11,
           "strength": 1,
+          "visualRule": "veil"
+        },
+        {
+          "direction": "inverse",
+          "interpretation": "Observed across 11 preserved system states; noncausal.",
+          "left": "foldportrait.embodied_portraits",
+          "method": "pearson",
+          "right": "root-logos.witnessed_relations",
+          "sampleCount": 11,
+          "strength": 1,
           "visualRule": "aperture"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0011.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0011.png",
-      "svg_sha256": "e5781ceca3d168fd38b9fa7774e63133ea7e15a9a65517bcf1ab2e4ab2b8f585",
-      "png_sha256": "ed99bd4b48051fdaab61eae4c3266167f4ffc0d52ca824779e319e6c374d9e7c",
+      "svg_sha256": "ace5010082e5f6d6eac01d26f192a82e69a7e8e009e896de109b97a652ae4536",
+      "png_sha256": "6a24bc019aa7b87221ca4380fd412fb8b354358ea6770bc10f8ab71253735764",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0011.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0011.notes.md",
@@ -2008,34 +1923,14 @@
       "witnessed_at": "2026-08-21T16:52:58.000Z",
       "witness_digest": "4d2ccd6e9076f57e299dc60cdb2b1930aba4953f4379d081c9fd58267c8bfdc7",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "f03d43f0521d9b039199d395fa9c3aa5c9220dc1a468dd86178f85d83cedcda3",
+      "render_hash": "5eab12f69b578d2b1cafa1d18272f41310f8c9ad5021a53a928130b641c84805",
       "previous_cycle_id": "FP-REFLECT-0011",
       "chosen_rules": [
-        "palimpsest",
-        "braid",
-        "veil"
+        "counterfield",
+        "veil",
+        "strata"
       ],
       "correlations": [
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 12 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
-          "method": "pearson",
-          "right": "root-logos.coherent_works",
-          "sampleCount": 12,
-          "strength": 1,
-          "visualRule": "palimpsest"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 12 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "root-logos.coherent_works",
-          "sampleCount": 12,
-          "strength": 1,
-          "visualRule": "braid"
-        },
         {
           "direction": "counterposed",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
@@ -2044,17 +1939,7 @@
           "right": "foldkernel.symmetry_transforms",
           "sampleCount": 12,
           "strength": 1,
-          "visualRule": "palimpsest"
-        },
-        {
-          "direction": "parallel",
-          "interpretation": "Observed across 12 preserved system states; noncausal.",
-          "left": "foldforge.witnessed_relations",
-          "method": "pearson",
-          "right": "foldportrait.embodied_portraits",
-          "sampleCount": 12,
-          "strength": 1,
-          "visualRule": "braid"
+          "visualRule": "counterfield"
         },
         {
           "direction": "parallel",
@@ -2064,17 +1949,7 @@
           "right": "sovereign-standard.embodied_foldportraits",
           "sampleCount": 12,
           "strength": 1,
-          "visualRule": "braid"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 12 preserved system states; noncausal.",
-          "left": "root-logos.coherent_works",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
-          "sampleCount": 12,
-          "strength": 1,
-          "visualRule": "veil"
+          "visualRule": "counterfield"
         },
         {
           "direction": "counterposed",
@@ -2084,13 +1959,23 @@
           "right": "telos.mapped_repositories",
           "sampleCount": 12,
           "strength": 1,
-          "visualRule": "palimpsest"
+          "visualRule": "veil"
+        },
+        {
+          "direction": "inverse",
+          "interpretation": "Observed across 12 preserved system states; noncausal.",
+          "left": "foldforge.compositions",
+          "method": "pearson",
+          "right": "root-logos.witnessed_relations",
+          "sampleCount": 12,
+          "strength": 1,
+          "visualRule": "strata"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0012.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0012.png",
-      "svg_sha256": "8bba58e02bf61c11705e303356332bf2911db473cff5d5354dde34dcff5d078d",
-      "png_sha256": "e633195568ecc4d1099b5d5f0fadd18a371fe5f5fd40bb066a96845f6b9bb264",
+      "svg_sha256": "2597a64035af85b37a2c32b73211764c89be6493a181623dd88269403a15b2cb",
+      "png_sha256": "0a1c6bcfa5b10fd50c347d9ebdaadea16b66443b250a3c46b73b72a7c4239d8d",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0012.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0012.notes.md",
@@ -2102,90 +1987,80 @@
       "witnessed_at": "2026-08-21T16:57:59.000Z",
       "witness_digest": "3531e2858691c4b846f4a63c72e1e4d7c4b33215af274d444febca16780cc660",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "fbd1612228b86bba10f796ca77d8edd7b85e6823c232027ce069f179a29db131",
+      "render_hash": "b74cc0c86a6222d745877e3f629c7533dd0a895a0a505174a984f2189693f08b",
       "previous_cycle_id": "FP-REFLECT-0012",
       "chosen_rules": [
-        "veil",
-        "strata",
-        "braid",
-        "counterfield"
+        "sediment",
+        "aperture",
+        "counterfield",
+        "braid"
       ],
       "correlations": [
         {
+          "direction": "inverse",
+          "interpretation": "Observed across 13 preserved system states; noncausal.",
+          "left": "foldforge.witnessed_relations",
+          "method": "pearson",
+          "right": "root-logos.coherent_works",
+          "sampleCount": 13,
+          "strength": 1,
+          "visualRule": "sediment"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 13 preserved system states; noncausal.",
+          "left": "foldforge.compositions",
+          "method": "pearson",
+          "right": "foldportrait.embodied_portraits",
+          "sampleCount": 13,
+          "strength": 1,
+          "visualRule": "aperture"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 13 preserved system states; noncausal.",
+          "left": "foldforge.compositions",
+          "method": "pearson",
+          "right": "sovereign-standard.embodied_foldportraits",
+          "sampleCount": 13,
+          "strength": 1,
+          "visualRule": "sediment"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 13 preserved system states; noncausal.",
+          "left": "root-logos.x_witnessed_fragments",
+          "method": "pearson",
+          "right": "telos.operating_components",
+          "sampleCount": 13,
+          "strength": 0.994445,
+          "visualRule": "counterfield"
+        },
+        {
           "direction": "counterposed",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.compositions",
-          "method": "structural-resonance",
-          "right": "root-logos.connected_sources",
-          "sampleCount": 13,
-          "strength": 1,
-          "visualRule": "veil"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 13 preserved system states; noncausal.",
           "left": "root-logos.witnessed_relations",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
+          "method": "structural-resonance",
+          "right": "sovereign-standard.published_vessel_records",
           "sampleCount": 13,
-          "strength": 1,
-          "visualRule": "strata"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 13 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "root-logos.witnessed_relations",
-          "sampleCount": 13,
-          "strength": 1,
+          "strength": 0.988596,
           "visualRule": "braid"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 13 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
-          "method": "pearson",
-          "right": "root-logos.witnessed_relations",
-          "sampleCount": 13,
-          "strength": 1,
-          "visualRule": "braid"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 13 preserved system states; noncausal.",
-          "left": "root-logos.coherent_works",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
-          "sampleCount": 13,
-          "strength": 1,
-          "visualRule": "counterfield"
         },
         {
           "direction": "convergent",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "root-logos.connected_sources",
+          "left": "foldportrait.sealed_first_era_portraits",
           "method": "structural-resonance",
-          "right": "telos.mapped_repositories",
+          "right": "root-logos.coherent_works",
           "sampleCount": 13,
-          "strength": 1,
-          "visualRule": "veil"
-        },
-        {
-          "direction": "counterposed",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.primitives",
-          "method": "structural-resonance",
-          "right": "telos.operating_components",
-          "sampleCount": 13,
-          "strength": 1,
-          "visualRule": "counterfield"
+          "strength": 0.985324,
+          "visualRule": "sediment"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0013.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0013.png",
-      "svg_sha256": "def42d5412e24bbb17908864f5fbd8abe04c54e26662e307ee0721dd03ca04e4",
-      "png_sha256": "e2539b5b85fd12eec3dfbe139663d04a99a4d4f89095c9effd56efcde936cc80",
+      "svg_sha256": "59c57512ad7d6eb2b1f69b3f957e9426d61291b3515ec18a69a2152a4c4e9049",
+      "png_sha256": "10e57229fcc382de550b8e811be8952b985aed3a6a4750ebc4f96f2e943b4dff",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0013.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0013.notes.md",
@@ -2197,91 +2072,69 @@
       "witnessed_at": "2026-08-21T17:12:28.000Z",
       "witness_digest": "6abf6e6db09ffb104c6736622d6dff7ac8ec8064e9b0d7c4e768342b2529ed1a",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "b97df353ece794d627b10aef912dd4477e61f2db67984e930140ef77fc09ee31",
+      "render_hash": "ad4a17b8b5876b7a02c5ed8f8a10da6e1e22ffb414cf692a1a1fd866ae6e16f2",
       "previous_cycle_id": "FP-REFLECT-0013",
       "chosen_rules": [
-        "strata",
         "palimpsest",
-        "braid",
         "sediment",
-        "counterfield"
+        "braid"
       ],
       "correlations": [
         {
-          "direction": "inverse",
+          "direction": "parallel",
           "interpretation": "Observed across 14 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
-          "method": "pearson",
-          "right": "root-logos.coherent_works",
-          "sampleCount": 14,
-          "strength": 1,
-          "visualRule": "strata"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 14 preserved system states; noncausal.",
-          "left": "root-logos.witnessed_relations",
+          "left": "root-logos.cultivation_cycles",
           "method": "pearson",
           "right": "sovereign-standard.embodied_foldportraits",
           "sampleCount": 14,
-          "strength": 1,
+          "strength": 0.98718,
           "visualRule": "palimpsest"
         },
         {
-          "direction": "parallel",
-          "interpretation": "Observed across 14 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "foldportrait.embodied_portraits",
-          "sampleCount": 14,
-          "strength": 1,
-          "visualRule": "braid"
-        },
-        {
-          "direction": "convergent",
+          "direction": "counterposed",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "root-logos.connected_sources",
+          "left": "foldkernel.permutation_size",
           "method": "structural-resonance",
-          "right": "telos.mapped_repositories",
+          "right": "root-logos.x_witnessed_fragments",
           "sampleCount": 14,
-          "strength": 1,
-          "visualRule": "strata"
-        },
-        {
-          "direction": "parallel",
-          "interpretation": "Observed across 14 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
-          "sampleCount": 14,
-          "strength": 1,
-          "visualRule": "palimpsest"
-        },
-        {
-          "direction": "convergent",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.primitives",
-          "method": "structural-resonance",
-          "right": "telos.operating_components",
-          "sampleCount": 14,
-          "strength": 1,
+          "strength": 0.980225,
           "visualRule": "sediment"
         },
         {
-          "direction": "inverse",
+          "direction": "parallel",
+          "interpretation": "Observed across 14 preserved system states; noncausal.",
+          "left": "root-logos.x_witnessed_fragments",
+          "method": "pearson",
+          "right": "sovereign-standard.embodied_foldportraits",
+          "sampleCount": 14,
+          "strength": 0.977964,
+          "visualRule": "braid"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 14 preserved system states; noncausal.",
+          "left": "foldforge.witnessed_relations",
+          "method": "pearson",
+          "right": "root-logos.x_witnessed_fragments",
+          "sampleCount": 14,
+          "strength": 0.977964,
+          "visualRule": "palimpsest"
+        },
+        {
+          "direction": "parallel",
           "interpretation": "Observed across 14 preserved system states; noncausal.",
           "left": "foldforge.compositions",
           "method": "pearson",
-          "right": "root-logos.coherent_works",
+          "right": "root-logos.x_witnessed_fragments",
           "sampleCount": 14,
-          "strength": 1,
-          "visualRule": "counterfield"
+          "strength": 0.977964,
+          "visualRule": "sediment"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0014.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0014.png",
-      "svg_sha256": "88aa11c0537a34ceffa75161a4c9bf004660f992f2428bf0d7fb76117f1608bf",
-      "png_sha256": "779b28d472cc3ef9bbd4fc0d16f3fb23bd70380b0360884fe0501d30e5319a5b",
+      "svg_sha256": "1e2bd648b1904982da76d021bd0f3176cfc5017c65589044335dea190a0b7f9d",
+      "png_sha256": "70a95383b084a231ec7ec48157784386d4c154ffb2bf8786873efbdae06a7947",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0014.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0014.notes.md",
@@ -2293,14 +2146,14 @@
       "witnessed_at": "2026-08-21T19:58:15.000Z",
       "witness_digest": "e7b6d6ea4dcb9326a447253fa873010efb116a1e2e76b3ccc6ee0f8c5f3ae5d8",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "0d793735620b5a19fd3bffe6dc0dd4a3fcc8d70fe4567c9a90d11a656922d665",
+      "render_hash": "554697a1069d2850d1410092859a3e54af5d74510bd8c974501c96b16d4bd77a",
       "previous_cycle_id": "FP-REFLECT-0014",
       "chosen_rules": [
         "strata",
-        "counterfield",
-        "veil",
+        "braid",
         "aperture",
-        "braid"
+        "palimpsest",
+        "counterfield"
       ],
       "correlations": [
         {
@@ -2308,76 +2161,76 @@
           "interpretation": "Observed across 15 preserved system states; noncausal.",
           "left": "foldforge.witnessed_relations",
           "method": "pearson",
-          "right": "foldportrait.embodied_portraits",
+          "right": "root-logos.cultivation_cycles",
           "sampleCount": 15,
-          "strength": 1,
+          "strength": 0.986731,
           "visualRule": "strata"
         },
         {
-          "direction": "convergent",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "root-logos.connected_sources",
-          "method": "structural-resonance",
-          "right": "telos.mapped_repositories",
+          "direction": "parallel",
+          "interpretation": "Observed across 15 preserved system states; noncausal.",
+          "left": "foldforge.compositions",
+          "method": "pearson",
+          "right": "root-logos.cultivation_cycles",
           "sampleCount": 15,
-          "strength": 1,
-          "visualRule": "counterfield"
+          "strength": 0.986731,
+          "visualRule": "braid"
         },
         {
           "direction": "parallel",
           "interpretation": "Observed across 15 preserved system states; noncausal.",
           "left": "foldportrait.embodied_portraits",
           "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
+          "right": "root-logos.cultivation_cycles",
           "sampleCount": 15,
-          "strength": 1,
-          "visualRule": "counterfield"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 15 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
-          "method": "pearson",
-          "right": "root-logos.witnessed_relations",
-          "sampleCount": 15,
-          "strength": 1,
-          "visualRule": "veil"
+          "strength": 0.986731,
+          "visualRule": "aperture"
         },
         {
           "direction": "parallel",
           "interpretation": "Observed across 15 preserved system states; noncausal.",
-          "left": "foldforge.witnessed_relations",
+          "left": "foldportrait.embodied_portraits",
           "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
+          "right": "root-logos.x_witnessed_fragments",
           "sampleCount": 15,
-          "strength": 1,
-          "visualRule": "veil"
+          "strength": 0.97828,
+          "visualRule": "strata"
         },
         {
-          "direction": "convergent",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.primitives",
-          "method": "structural-resonance",
+          "direction": "parallel",
+          "interpretation": "Observed across 15 preserved system states; noncausal.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "pearson",
           "right": "telos.operating_components",
           "sampleCount": 15,
-          "strength": 1,
-          "visualRule": "aperture"
+          "strength": 0.974815,
+          "visualRule": "palimpsest"
         },
         {
           "direction": "counterposed",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.compositions",
+          "left": "foldforge.primitives",
           "method": "structural-resonance",
-          "right": "root-logos.connected_sources",
+          "right": "foldportrait.first_era_anchors",
           "sampleCount": 15,
-          "strength": 1,
-          "visualRule": "braid"
+          "strength": 0.968794,
+          "visualRule": "counterfield"
+        },
+        {
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "foldportrait.first_era_anchors",
+          "method": "structural-resonance",
+          "right": "telos.operating_components",
+          "sampleCount": 15,
+          "strength": 0.968794,
+          "visualRule": "strata"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0015.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0015.png",
-      "svg_sha256": "cadce90c2d849a492b520577bfadcd96ab16f4532d70128797c71bcd30e61d43",
-      "png_sha256": "2d7b456cf42128e4aad86c339e213209101d0cf4411e070f9ad5645a841bf419",
+      "svg_sha256": "c50c246d85cd3d0f80838bb6a43bad2673a7057cdc989af00460dbdbfadda820",
+      "png_sha256": "db1942810b24dbbec284bbdf91f824a74a2a5cee8aec54f26ab59d7d92c04d1f",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0015.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0015.notes.md",
@@ -2389,36 +2242,15 @@
       "witnessed_at": "2026-08-21T23:44:34.000Z",
       "witness_digest": "8d5adf7bf9ced44eb3b6363b940f905b6ebef8bd56292a494d902762a6f30df2",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "50ff129167ee064abf18be8e1df96df7e22be8397f4b6524972891839e7997d2",
+      "render_hash": "dacbdee06de88e0355ec3517d2dd32925390fdfb3418088408ffad17d218d038",
       "previous_cycle_id": "FP-REFLECT-0015",
       "chosen_rules": [
-        "strata",
-        "sediment",
         "veil",
-        "counterfield",
-        "braid"
+        "palimpsest",
+        "braid",
+        "aperture"
       ],
       "correlations": [
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 16 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "root-logos.witnessed_relations",
-          "sampleCount": 16,
-          "strength": 1,
-          "visualRule": "strata"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 16 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "root-logos.coherent_works",
-          "sampleCount": 16,
-          "strength": 1,
-          "visualRule": "strata"
-        },
         {
           "direction": "convergent",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
@@ -2427,12 +2259,12 @@
           "right": "telos.operating_components",
           "sampleCount": 16,
           "strength": 1,
-          "visualRule": "sediment"
+          "visualRule": "veil"
         },
         {
           "direction": "inverse",
           "interpretation": "Observed across 16 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
+          "left": "foldforge.witnessed_relations",
           "method": "pearson",
           "right": "root-logos.witnessed_relations",
           "sampleCount": 16,
@@ -2440,40 +2272,40 @@
           "visualRule": "veil"
         },
         {
-          "direction": "inverse",
-          "interpretation": "Observed across 16 preserved system states; noncausal.",
-          "left": "root-logos.coherent_works",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
-          "sampleCount": 16,
-          "strength": 1,
-          "visualRule": "sediment"
-        },
-        {
           "direction": "counterposed",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.movement_phases",
+          "left": "foldforge.compositions",
           "method": "structural-resonance",
-          "right": "foldkernel.symmetry_transforms",
+          "right": "root-logos.connected_sources",
           "sampleCount": 16,
           "strength": 1,
-          "visualRule": "counterfield"
+          "visualRule": "palimpsest"
+        },
+        {
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.connected_sources",
+          "method": "structural-resonance",
+          "right": "telos.mapped_repositories",
+          "sampleCount": 16,
+          "strength": 1,
+          "visualRule": "braid"
         },
         {
           "direction": "parallel",
           "interpretation": "Observed across 16 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
+          "left": "foldforge.witnessed_relations",
           "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
+          "right": "foldportrait.embodied_portraits",
           "sampleCount": 16,
           "strength": 1,
-          "visualRule": "braid"
+          "visualRule": "aperture"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0016.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0016.png",
-      "svg_sha256": "cb3b0773a704f86b3d8e2e2dabaedb2b1dcfb4ac43004c7d6b6cb568e214f470",
-      "png_sha256": "7393ea81e2f3bdca3ab3d593ad71e4b29ab60ee8990776af4e0e651ba70f1d8f",
+      "svg_sha256": "53db6f4e7a2b3d8d704840a1102c68b55e04265d8502292a508f36df2d935f52",
+      "png_sha256": "ca38bdb51b0d4e51196ed728b7671d18a7bf905e500eef2730fd6918a8ff80ac",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0016.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0016.notes.md",
@@ -2485,91 +2317,59 @@
       "witnessed_at": "2026-08-22T01:49:40.000Z",
       "witness_digest": "245445a968c9ad78c334b55bf264ecd366511b786dce64c9b30926d236443d5b",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "2bb18f8de2bfd227702c43b9be58b7eb88cf2d47680eaeb3f138dcbc45f5c41f",
+      "render_hash": "10e3db4767aed9f98b4f382dc7a751164ba9b8307f59e9dd4029cf97be261fe1",
       "previous_cycle_id": "FP-REFLECT-0016",
       "chosen_rules": [
-        "palimpsest",
         "aperture",
-        "braid",
         "veil",
         "counterfield"
       ],
       "correlations": [
         {
-          "direction": "counterposed",
+          "direction": "convergent",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.primitives",
+          "left": "root-logos.cultivation_cycles",
           "method": "structural-resonance",
-          "right": "telos.operating_components",
+          "right": "telos.first_subscriber_threshold",
           "sampleCount": 17,
-          "strength": 1,
-          "visualRule": "palimpsest"
+          "strength": 0.979193,
+          "visualRule": "aperture"
         },
         {
-          "direction": "inverse",
-          "interpretation": "Observed across 17 preserved system states; noncausal.",
-          "left": "root-logos.coherent_works",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "structural-resonance",
+          "right": "sovereign-standard.published_vessel_records",
           "sampleCount": 17,
-          "strength": 1,
-          "visualRule": "aperture"
+          "strength": 0.947433,
+          "visualRule": "veil"
         },
         {
           "direction": "convergent",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.movement_phases",
+          "left": "foldkernel.convergence_hash_bits",
           "method": "structural-resonance",
-          "right": "foldkernel.symmetry_transforms",
+          "right": "root-logos.cultivation_cycles",
           "sampleCount": 17,
-          "strength": 1,
-          "visualRule": "braid"
+          "strength": 0.935824,
+          "visualRule": "counterfield"
         },
         {
-          "direction": "inverse",
-          "interpretation": "Observed across 17 preserved system states; noncausal.",
-          "left": "root-logos.witnessed_relations",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "structural-resonance",
+          "right": "telos.second_subscriber_threshold",
           "sampleCount": 17,
-          "strength": 1,
-          "visualRule": "aperture"
-        },
-        {
-          "direction": "parallel",
-          "interpretation": "Observed across 17 preserved system states; noncausal.",
-          "left": "foldforge.compositions",
-          "method": "pearson",
-          "right": "foldportrait.embodied_portraits",
-          "sampleCount": 17,
-          "strength": 1,
-          "visualRule": "veil"
-        },
-        {
-          "direction": "parallel",
-          "interpretation": "Observed across 17 preserved system states; noncausal.",
-          "left": "foldforge.witnessed_relations",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
-          "sampleCount": 17,
-          "strength": 1,
-          "visualRule": "palimpsest"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 17 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
-          "method": "pearson",
-          "right": "root-logos.witnessed_relations",
-          "sampleCount": 17,
-          "strength": 1,
+          "strength": 0.866365,
           "visualRule": "counterfield"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0017.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0017.png",
-      "svg_sha256": "87de5771709b3f5b5455f4ada9383a8cbdcc28744ed73de9eaad693143428f35",
-      "png_sha256": "4cfa0b9c6f60e60505200a6dcdd9bff300228d536db97fb0c27f43c593fc2c22",
+      "svg_sha256": "1213d786be2fe97fec79e53ffe79a68e8993f9a40c822677058e8e12924e7701",
+      "png_sha256": "9005d46b59774d3092e12393b04d446da960afb2dac9758924546cb36a7d9daa",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0017.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0017.notes.md",
@@ -2581,91 +2381,80 @@
       "witnessed_at": "2026-08-23T03:27:10.000Z",
       "witness_digest": "d436fd675b3f1395b8bf38bbbf609618a0034cbcf1ff0bd2a51bb6b072f7680a",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "c909352cbdff207216708e7277b1d6d4301a1d97eba81c4b70d6083798598ee2",
+      "render_hash": "e4d102d8dfccb6f5170b8aa0c8956821b1df1aaf194828dd57c795dd780d7656",
       "previous_cycle_id": "FP-REFLECT-0017",
       "chosen_rules": [
-        "aperture",
-        "braid",
-        "counterfield",
         "sediment",
-        "veil"
+        "veil",
+        "palimpsest",
+        "aperture"
       ],
       "correlations": [
         {
-          "direction": "inverse",
-          "interpretation": "Observed across 18 preserved system states; noncausal.",
-          "left": "root-logos.witnessed_relations",
-          "method": "pearson",
-          "right": "sovereign-standard.embodied_foldportraits",
-          "sampleCount": 18,
-          "strength": 1,
-          "visualRule": "aperture"
-        },
-        {
-          "direction": "convergent",
+          "direction": "counterposed",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.compositions",
+          "left": "foldforge.displacement_steps",
           "method": "structural-resonance",
-          "right": "telos.mapped_repositories",
+          "right": "root-logos.cultivation_cycles",
           "sampleCount": 18,
-          "strength": 1,
-          "visualRule": "braid"
-        },
-        {
-          "direction": "convergent",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.movement_phases",
-          "method": "structural-resonance",
-          "right": "foldkernel.symmetry_transforms",
-          "sampleCount": 18,
-          "strength": 1,
-          "visualRule": "counterfield"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 18 preserved system states; noncausal.",
-          "left": "foldforge.witnessed_relations",
-          "method": "pearson",
-          "right": "root-logos.coherent_works",
-          "sampleCount": 18,
-          "strength": 1,
-          "visualRule": "aperture"
-        },
-        {
-          "direction": "convergent",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "root-logos.connected_sources",
-          "method": "structural-resonance",
-          "right": "telos.mapped_repositories",
-          "sampleCount": 18,
-          "strength": 1,
+          "strength": 0.802999,
           "visualRule": "sediment"
         },
         {
-          "direction": "inverse",
-          "interpretation": "Observed across 18 preserved system states; noncausal.",
-          "left": "foldportrait.embodied_portraits",
-          "method": "pearson",
-          "right": "root-logos.coherent_works",
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "foldportrait.sealed_first_era_portraits",
+          "method": "structural-resonance",
+          "right": "root-logos.cultivation_cycles",
           "sampleCount": 18,
-          "strength": 1,
-          "visualRule": "veil"
+          "strength": 0.763738,
+          "visualRule": "sediment"
         },
         {
-          "direction": "inverse",
+          "direction": "parallel",
           "interpretation": "Observed across 18 preserved system states; noncausal.",
           "left": "foldforge.compositions",
           "method": "pearson",
-          "right": "root-logos.witnessed_relations",
+          "right": "root-logos.cultivation_cycles",
           "sampleCount": 18,
-          "strength": 1,
-          "visualRule": "counterfield"
+          "strength": 0.982831,
+          "visualRule": "veil"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 18 preserved system states; noncausal.",
+          "left": "foldportrait.embodied_portraits",
+          "method": "pearson",
+          "right": "root-logos.cultivation_cycles",
+          "sampleCount": 18,
+          "strength": 0.982831,
+          "visualRule": "palimpsest"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 18 preserved system states; noncausal.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "pearson",
+          "right": "sovereign-standard.embodied_foldportraits",
+          "sampleCount": 18,
+          "strength": 0.982831,
+          "visualRule": "aperture"
+        },
+        {
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "structural-resonance",
+          "right": "telos.first_subscriber_threshold",
+          "sampleCount": 18,
+          "strength": 0.980237,
+          "visualRule": "aperture"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0018.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0018.png",
-      "svg_sha256": "dddcf912c7d1fc113a44a3400a474ade98ed7aecd653bff99aa6873312c47598",
-      "png_sha256": "feb14e5a773e7c441c2408340fe319e35b03e5263243de1c5113b2c23e84946b",
+      "svg_sha256": "e7f65f691c8a5ca4a4a25f55d589fb042d562106a5db28f9f14e635dc95f87d7",
+      "png_sha256": "1b596c0aeb76676f7252847fbdd2aa954e1bdc988a3f0f286fc19031fda0168c",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0018.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0018.notes.md",
@@ -2677,15 +2466,25 @@
       "witnessed_at": "2026-08-23T14:32:43.000Z",
       "witness_digest": "45c97c126f8829c7c21c2cc86399a0f98e652a268678235593d6a311e5a70203",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "b9e8c3165e590d4ac2557ec3b56d0391aaa32b22b752c411918ae108772c1cc9",
+      "render_hash": "b43acdb417c52dc229998c2ba7a96cf5856a90e80b1bc3353f47fd647ba051b0",
       "previous_cycle_id": "FP-REFLECT-0018",
       "chosen_rules": [
-        "counterfield",
         "braid",
-        "palimpsest",
-        "aperture"
+        "strata",
+        "counterfield",
+        "sediment"
       ],
       "correlations": [
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 19 preserved system states; noncausal.",
+          "left": "foldforge.witnessed_relations",
+          "method": "pearson",
+          "right": "root-logos.cultivation_cycles",
+          "sampleCount": 19,
+          "strength": 0.977903,
+          "visualRule": "braid"
+        },
         {
           "direction": "convergent",
           "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
@@ -2694,17 +2493,7 @@
           "right": "foldkernel.symmetry_transforms",
           "sampleCount": 19,
           "strength": 1,
-          "visualRule": "counterfield"
-        },
-        {
-          "direction": "counterposed",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.compositions",
-          "method": "structural-resonance",
-          "right": "root-logos.connected_sources",
-          "sampleCount": 19,
-          "strength": 1,
-          "visualRule": "braid"
+          "visualRule": "strata"
         },
         {
           "direction": "parallel",
@@ -2724,7 +2513,7 @@
           "right": "root-logos.coherent_works",
           "sampleCount": 19,
           "strength": 1,
-          "visualRule": "counterfield"
+          "visualRule": "sediment"
         },
         {
           "direction": "parallel",
@@ -2734,33 +2523,13 @@
           "right": "sovereign-standard.embodied_foldportraits",
           "sampleCount": 19,
           "strength": 1,
-          "visualRule": "palimpsest"
-        },
-        {
-          "direction": "convergent",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "root-logos.connected_sources",
-          "method": "structural-resonance",
-          "right": "telos.mapped_repositories",
-          "sampleCount": 19,
-          "strength": 1,
-          "visualRule": "aperture"
-        },
-        {
-          "direction": "inverse",
-          "interpretation": "Observed across 19 preserved system states; noncausal.",
-          "left": "foldforge.witnessed_relations",
-          "method": "pearson",
-          "right": "root-logos.coherent_works",
-          "sampleCount": 19,
-          "strength": 1,
-          "visualRule": "braid"
+          "visualRule": "counterfield"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0019.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0019.png",
-      "svg_sha256": "a34773596038067a0fa2011ab6dc863d1f391d9c8129c12d8b823124a92930b8",
-      "png_sha256": "874f084b87f39f2f86158ff0260821c6446f84e3d66272d9622271846df3eefe",
+      "svg_sha256": "a180347b5f6a530989e600ff6bff00c700aadaec33c079a9a6ef11589a1e6362",
+      "png_sha256": "d6d3b2c1d568756a18fb70da014d573e9a627345cb8d03366b3c963570f36d11",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0019.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0019.notes.md",
@@ -2772,14 +2541,13 @@
       "witnessed_at": "2026-08-23T14:59:03.000Z",
       "witness_digest": "eded277bcdeb9737f3c8e12bd63372032026dcba11f4bbc4fb6b660f826c67b7",
       "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-      "render_hash": "301e3ef8ffb0e01981171454c08defd55ab8f23d8804bc1b88d39f0d42d31a3d",
+      "render_hash": "5da7f3b40f53d53b54edbe3d99c16780487d0874dbb408e2108d8bb96315041c",
       "previous_cycle_id": "FP-REFLECT-0019",
       "chosen_rules": [
         "palimpsest",
         "strata",
-        "aperture",
-        "veil",
-        "sediment"
+        "sediment",
+        "braid"
       ],
       "correlations": [
         {
@@ -2803,16 +2571,6 @@
           "visualRule": "strata"
         },
         {
-          "direction": "parallel",
-          "interpretation": "Observed across 20 preserved system states; noncausal.",
-          "left": "foldforge.witnessed_relations",
-          "method": "pearson",
-          "right": "foldportrait.embodied_portraits",
-          "sampleCount": 20,
-          "strength": 1,
-          "visualRule": "aperture"
-        },
-        {
           "direction": "inverse",
           "interpretation": "Observed across 20 preserved system states; noncausal.",
           "left": "root-logos.coherent_works",
@@ -2820,7 +2578,7 @@
           "right": "sovereign-standard.embodied_foldportraits",
           "sampleCount": 20,
           "strength": 1,
-          "visualRule": "veil"
+          "visualRule": "strata"
         },
         {
           "direction": "convergent",
@@ -2830,7 +2588,7 @@
           "right": "telos.mapped_repositories",
           "sampleCount": 20,
           "strength": 1,
-          "visualRule": "veil"
+          "visualRule": "strata"
         },
         {
           "direction": "inverse",
@@ -2840,23 +2598,33 @@
           "right": "sovereign-standard.embodied_foldportraits",
           "sampleCount": 20,
           "strength": 1,
-          "visualRule": "aperture"
+          "visualRule": "sediment"
         },
         {
-          "direction": "convergent",
-          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
-          "left": "foldforge.movement_phases",
-          "method": "structural-resonance",
-          "right": "foldkernel.symmetry_transforms",
+          "direction": "inverse",
+          "interpretation": "Observed across 20 preserved system states; noncausal.",
+          "left": "foldportrait.embodied_portraits",
+          "method": "pearson",
+          "right": "root-logos.witnessed_relations",
           "sampleCount": 20,
           "strength": 1,
-          "visualRule": "sediment"
+          "visualRule": "braid"
+        },
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 20 preserved system states; noncausal.",
+          "left": "foldforge.witnessed_relations",
+          "method": "pearson",
+          "right": "sovereign-standard.embodied_foldportraits",
+          "sampleCount": 20,
+          "strength": 1,
+          "visualRule": "braid"
         }
       ],
       "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0020.svg",
       "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0020.png",
-      "svg_sha256": "686ab0afac415f65eb92d5aa6d40f10a2f7c6f52d12e8584afc842ea41001500",
-      "png_sha256": "c8abe91098e448bda59292a54c1137864f380f03e7b4c0586032ce850faf6f4a",
+      "svg_sha256": "a5cf72a5dae099dde171701d1edee1e7eb26d6bc56edca4aa513b0d60ba3fa89",
+      "png_sha256": "dc529d73db0b2cb8cd803f083a8f0c63ee0981bf53577e6d65e2b4bf7f487a3a",
       "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0020.json",
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0020.notes.md",
@@ -2865,5 +2633,5 @@
   ],
   "current_reflection": "FP-REFLECT-0020",
   "material_source_witness": "sha256:1ea8c8b5d9618bccdf9f692a2891c2f38352d486ef1c6aad7b617464ed9f2f96",
-  "witness": "sha256:2be762d903889452cbb7046524c3c24b461848cba2f4c0a190611449cb823fc1"
+  "witness": "sha256:0e8e9290555bbe06a126170f78f3e6b8b2062636e26271e59bc10d8c6ef53c63"
 }
