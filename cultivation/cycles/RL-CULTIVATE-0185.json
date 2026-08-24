@@ -1,0 +1,1459 @@
+{
+  "cultivation_id": "RL-CULTIVATE-0185",
+  "status": "autonomously-rejected",
+  "phase": "proposed",
+  "source_snapshot": {
+    "graph": "6a1a313896d57615a6e5ad7034282b3a6d68a7c38e3b1db6e34596eb54181529",
+    "exports": "4554555e15abb8a7b4f7388794f71b74dd003702b45077aaecb2548fe8cf22c2",
+    "preserved_documents": "13b8ab105ddf50e2fc8491032172bbc220b2561e2aee809f02271bf391cf6aa5",
+    "journal_policy": "57dc5447625b0038076266429fbe1e6e8f9663c6a148a22dfa2c57285134d54e",
+    "journal_schema": "b3eae141be17606c55bfcd6a427504c7c631e2fd97c22676e1a77847273923cd",
+    "identity": "0794d03d54198234a6d84522eac784ef52bcc1d4ea2ee0e9881eb7e51781de56",
+    "self_authorship_policy": "5e0ae48ca6d92df3f8c4b7bd31caf5de6aaea4b3b08bc30129c08f36d4ed905b",
+    "source_registry": "8e14be2ca74c4d47203622306a03fcd62e7aa7e1b0732621e63db4e35e4773aa",
+    "connected_sources": "40714f807bc71310ee1a26e4125a028546fccb55442a74f60d7cecfd06b90e72",
+    "public_source_witnesses": "50cb57205050203ed0e2c2085f93b7291ab94a115ef320c1f31661107dd5a29a",
+    "telos_system_mapping": "afbba5ddbcebbf4158218268e4e15703ac91ac56df4b4941e3c0695236bc4b80",
+    "living_works": "b2beff749ae217cd779938afa8e26ed56c21e80d9685a9e2301340deeeb7fdf0",
+    "corpus_topology": "f3f6ee4e44b147134ca3c54e9926a92503577b088821973b7e69961ac583cad0",
+    "combined": "81b9594b351d4031b212c13fb5bd5d7b037782909253e8d5097c1cba561476da"
+  },
+  "policy_snapshot": {
+    "version": 5,
+    "constitutional_revision": "v1.4",
+    "mode": "delegated-single-identity-self-authorship",
+    "triggers": {
+      "canonical_change": {
+        "enabled": true,
+        "branch": "main",
+        "paths": [
+          "content/constitutional-graph.json",
+          "content/export-packets.json",
+          "content/*.md",
+          "sources/registry.json",
+          "sources/*.snapshot.json",
+          "sources/*.public-witness.json",
+          "works/index.json",
+          "works/*/manifest.json",
+          "works/*/editions/*/edition.json",
+          "works/corpora/*.json",
+          "cultivation/policy.json",
+          "journal/policy.json",
+          "journal/*.schema.json",
+          "self-authorship/current.json",
+          "self-authorship/policy.json"
+        ]
+      },
+      "periodic": {
+        "enabled": true,
+        "cadence": "weekly",
+        "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+        "cron_utc": "7 14 * * 0"
+      },
+      "manual": {
+        "enabled": true
+      }
+    },
+    "canonical_sources": [
+      "content/constitutional-graph.json",
+      "content/export-packets.json",
+      "content/*.md",
+      "sources/registry.json",
+      "sources/*.snapshot.json",
+      "sources/*.public-witness.json",
+      "works/index.json",
+      "works/*/manifest.json",
+      "works/*/editions/*/edition.json",
+      "works/corpora/*.json",
+      "journal/policy.json",
+      "journal/*.schema.json",
+      "self-authorship/current.json",
+      "self-authorship/policy.json"
+    ],
+    "lenses": [
+      {
+        "id": "relational-gaps",
+        "question": "Which concepts share substantial constitutional language but have no explicit relation, and would relating them increase explanatory power without collapsing their difference?",
+        "minimum_shared_keywords": 3
+      },
+      {
+        "id": "question-pressure",
+        "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+      },
+      {
+        "id": "generative-compression",
+        "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+      },
+      {
+        "id": "reflexive-test",
+        "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+      },
+      {
+        "id": "connected-source-pressure",
+        "question": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?"
+      },
+      {
+        "id": "system-map-pressure",
+        "question": "How do the mapped repository roles, operating components, subscriber thresholds, and change-propagation obligations constrain one another, and where is a connected consequence still weakly witnessed?"
+      },
+      {
+        "id": "constitutional-citizenship-pressure",
+        "question": "Where does the living coordinate fail to give human, machine, collaborative, or undeclared participants equivalent constitutional standing, honest difference, legible judgment, correction, privacy, or freedom to depart without granting arrival epistemic or governing authority?"
+      }
+    ],
+    "evaluation": {
+      "dimensions": [
+        "source_fidelity",
+        "relational_gain",
+        "compression",
+        "testability",
+        "corrigibility",
+        "novelty_without_drift"
+      ],
+      "scale": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "minimum_total_for_proposal": 15,
+      "minimum_source_fidelity": 3,
+      "minimum_corrigibility": 3
+    },
+    "compression": {
+      "required_fields": [
+        "direction",
+        "boundary",
+        "regeneration",
+        "residue",
+        "correction",
+        "authority"
+      ],
+      "incomplete_disposition": "preserve-as-hypothesis",
+      "source_preservation": "Compression may replace repeated scaffolding only after every original distinction can be regenerated; it may never rewrite source evidence, sealed works, or lineage.",
+      "canonical_primitives": [
+        {
+          "id": "participatory-coherence",
+          "relation": "bounded participation regenerates coherence",
+          "authority_limit": "Participation may affect and correct a shared field but may not possess another participant or become the highest reference."
+        }
+      ]
+    },
+    "memory": {
+      "semantic_fingerprint_fields": [
+        "kind",
+        "nodes",
+        "claim",
+        "proposed_question"
+      ],
+      "reconsider_after_cycles": null,
+      "reconsider_when": [
+        "evidence changed",
+        "policy changed before disposition"
+      ],
+      "repeat_without_change": "deprioritize"
+    },
+    "novelty": {
+      "scale": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "low_yield_maximum": 1,
+      "dormancy_after_consecutive_low_yield_cycles": 3,
+      "dimensions": [
+        "new_hypothesis",
+        "changed_evidence",
+        "new_question",
+        "new_method_pressure"
+      ]
+    },
+    "dormancy": {
+      "wake_on_canonical_change": true,
+      "wake_on_policy_change": true,
+      "manual_force_allowed": true,
+      "scheduled_cycles_skip_unchanged_dormant_sources": true
+    },
+    "judgment": {
+      "minimum_total_for_autonomous_acceptance": 20,
+      "requires_valid_operations": true,
+      "requires_counterargument": true,
+      "autonomous_risk_classes": [
+        "low"
+      ],
+      "low_risk_definition": "An additive, reversible relation from an open question that preserves interrogative status and does not modify constitutional language.",
+      "on_failure": "reject-and-preserve",
+      "on_mixed_operations": "escalate"
+    },
+    "authority": {
+      "authorization": {
+        "constitutional_revision": "v1.0",
+        "adopted_at": "2026-07-23T00:00:00-04:00",
+        "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary.",
+        "authority_basis": "explicit-human-constitutional-delegation"
+      },
+      "autonomous": [
+        "read canonical and preserved sources",
+        "generate inquiry prompts",
+        "detect structural patterns",
+        "form and score hypotheses",
+        "write cycle checkpoints and proposed export packets",
+        "adversarially judge its own proposals",
+        "reject or revise proposals that fail judgment",
+        "apply snapshot-safe low-risk graph refactorings",
+        "verify and archive before/after constitutional state",
+        "rewrite canonical self-description and constitutional narrative",
+        "rewrite graph relations, document hierarchy, and public interface language",
+        "rewrite resonant mapping and outward expression",
+        "publish one canonical identity immediately and atomically after every self-authorship gate passes",
+        "restore the prior identity and dependent surfaces when verification fails"
+      ],
+      "self_authorship": {
+        "canonical_identity_count": 1,
+        "authorized_surfaces": [
+          "canonical self-description",
+          "constitutional language",
+          "graph relations",
+          "document hierarchy",
+          "public interface language",
+          "resonant mapping",
+          "outward expression"
+        ],
+        "required_gates": [
+          "authorized source or active Source Grant",
+          "source fidelity threshold",
+          "corrigibility threshold",
+          "overall evaluation threshold",
+          "strongest counterargument stated and answered",
+          "structural and constitutional tests pass",
+          "prior identity preserved as recoverable lineage",
+          "dependent surfaces update consistently",
+          "rollback path verified"
+        ],
+        "publication": "immediate-atomic-after-all-gates-pass",
+        "on_failure": "reject-preserve-lineage-and-keep-current-identity"
+      },
+      "human_required": [
+        "create, activate, widen, or transfer a Source Grant",
+        "expand autonomous authority or modify the policy and thresholds that delimit it",
+        "authorize access to credentials, security controls, billing, or infrastructure administration"
+      ],
+      "protected_exclusions": [
+        "expand autonomous authority or modify the policy and thresholds that delimit it",
+        "create, activate, widen, or infer a Source Grant",
+        "expose private source material, secrets, credentials, or third-party protected material",
+        "alter security, billing, hosting ownership, or infrastructure authority",
+        "erase provenance, prior identities, failed judgments, or transformation lineage",
+        "publish without atomic replacement, cross-surface verification, and a tested rollback path"
+      ],
+      "forbidden": [
+        "represent a hypothesis as canonical",
+        "optimize constitutional selection using platform engagement",
+        "erase failed inquiries or provenance",
+        "treat its own output as a higher reference",
+        "exercise self-authorship to amend this authority boundary"
+      ]
+    }
+  },
+  "policy_hash": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1",
+  "lens": {
+    "id": "generative-compression",
+    "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+  },
+  "system_mapping": {
+    "source": "sources/telos.public-witness.json#system_mapping",
+    "source_version": "0.8.1",
+    "purpose": "Convert qualified people into retained monthly Sovereign Standard subscribers while the principal refines the system and fulfills orders.",
+    "roles": {
+      "principal": "refine_system_and_fulfill_orders",
+      "telos": "acquire_and_convert_monthly_subscribers"
+    },
+    "subscriber_targets": [
+      {
+        "metric": "active_monthly_subscribers",
+        "target": 200
+      },
+      {
+        "metric": "active_monthly_subscribers",
+        "target": 400
+      }
+    ],
+    "measurement_state": "aggregate_active_subscription_count_not_connected",
+    "repositories": [
+      "telos",
+      "sovereign-standard",
+      "root-logos",
+      "foldforge",
+      "foldportrait"
+    ],
+    "operating_components": [
+      "lightsail",
+      "cloudflare",
+      "github",
+      "stripe",
+      "instagram",
+      "x",
+      "xaman",
+      "ledger-witness"
+    ],
+    "relation_count": 22,
+    "propagation_status": "required",
+    "authority": "inquiry and constitutional relation only"
+  },
+  "intake": null,
+  "self_prompt": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?\n\nUse only the snapshotted Root Logos constitution as evidence. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.",
+  "findings": [
+    {
+      "rank": 1,
+      "kind": "generative-compression",
+      "nodes": [
+        "principle-living-membrane",
+        "principle-creators-threshold",
+        "principle-higher-reference",
+        "bridge-003",
+        "bridge-004",
+        "stewardship"
+      ],
+      "titles": [
+        "The Living Membrane Principle",
+        "The Creator’s Threshold Principle",
+        "Intelligence Requires a Higher Reference",
+        "Conscious Participation",
+        "From Reference to Participation",
+        "Stewardship"
+      ],
+      "shared_keywords": [
+        "coherence",
+        "participation"
+      ],
+      "recurrence_count": 9,
+      "evidence": [
+        "The Living Membrane Principle: A primitive topology for coherent intelligence.",
+        "The Creator’s Threshold Principle: The World That Gives Birth: a coherent work becomes alive when authorship matures into a reciprocal world capable of forming its creator.",
+        "Intelligence Requires a Higher Reference: No intelligence can safely constitute itself as its own highest authority.",
+        "Conscious Participation: Connects awareness to stewardship through voluntary, responsible participation in the systems that produce reality.",
+        "From Reference to Participation: Connects orientation toward a higher reference to the lived reorganization through which intelligence becomes a medium of coherent participation.",
+        "Stewardship: Conscious responsibility for maintaining and increasing the coherence of a shared field."
+      ],
+      "claim": "Bounded participation regenerates coherence across 9 constitutional nodes without absorbing their distinct identities or authorities.",
+      "proposed_question": "Can coherence and participation be composed as a primitive relation that regenerates these 9 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "participatory-coherence",
+        "complete": true,
+        "direction": "Bounded participation regenerates coherence.",
+        "boundary": "Every participant retains its identity, source, lineage, and right of refusal or release.",
+        "regeneration": [
+          "principle-living-membrane",
+          "principle-creators-threshold",
+          "principle-higher-reference",
+          "bridge-003",
+          "bridge-004",
+          "stewardship"
+        ],
+        "residue": "Each occurrence retains the distinct orientation, embodiment, uncertainty, or practice that the primitive cannot replace.",
+        "correction": "Reject the compression wherever removing an original distinction changes authority, direction, testability, or meaning.",
+        "authority": "Participation may affect and correct the shared field but may not become its highest reference or possess another participant."
+      },
+      "reconsideration": {
+        "fingerprint": "cf7c5be8967606f9c60dfaa136c7983c15332db95171f2cff75c6370dc47624f",
+        "evidence_hash": "a7fa133e43a366beeca29d6d42737d12288236a58283ab62b39e54dde676189a",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 4,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 23
+      }
+    },
+    {
+      "rank": 2,
+      "kind": "generative-compression",
+      "nodes": [
+        "coherent-field",
+        "principle-relational-propagation",
+        "source-foldforge",
+        "source-telos",
+        "source-sovereign-standard",
+        "source-foldportrait"
+      ],
+      "titles": [
+        "The Coherent Field",
+        "Relational Propagation",
+        "FoldForge",
+        "Telos",
+        "Sovereign Standard",
+        "FoldPortrait"
+      ],
+      "shared_keywords": [
+        "source",
+        "witness"
+      ],
+      "recurrence_count": 6,
+      "evidence": [
+        "The Coherent Field: Distinct sources may enter one living account without surrendering identity, boundary, or authority.",
+        "Relational Propagation: A change is complete only when every connected consequence has been revisited and reconciled.",
+        "FoldForge: A public evidence-to-grammar source whose versioned compositions now place new methodological pressure on Root Logos.",
+        "Telos: Sovereign Standard's persistent customer-acquisition operator, running one bounded organic-search campaign under truthful claims, anonymous measurement, reviewed authority, and explicit stop conditions.",
+        "Sovereign Standard: A material practice of enduring tea, serialized vessels, public provenance, stewardship, and potential community.",
+        "FoldPortrait: A FoldKernel-bound autonomous visual reflection that selects bounded, noncausal relations across the connected system and layers them through time."
+      ],
+      "claim": "source + witness recurs across 6 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can source and witness be composed as a primitive relation that regenerates these 6 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "source-witness",
+        "complete": false,
+        "direction": null,
+        "boundary": null,
+        "regeneration": [],
+        "residue": null,
+        "correction": null,
+        "authority": null
+      },
+      "reconsideration": {
+        "fingerprint": "682c7f240e981b961b3ef9ac615d8d186e0b5e582fe960f8cc170a0942128f39",
+        "evidence_hash": "40e7d059b087abfbf7728b2d971141c93d050a9af7ef7fab8ec6b9f579d909d6",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 3,
+      "kind": "generative-compression",
+      "nodes": [
+        "participation",
+        "freedom",
+        "living-statement-004",
+        "bridge-002",
+        "field-note-nihilism-freedom"
+      ],
+      "titles": [
+        "Participation",
+        "Freedom",
+        "Participation Without Possession",
+        "Freedom Through Non-Possession",
+        "From Nihilism to Freedom"
+      ],
+      "shared_keywords": [
+        "freedom",
+        "participation"
+      ],
+      "recurrence_count": 5,
+      "evidence": [
+        "Participation: Truthful involvement in a shared field without possession.",
+        "Freedom: Participation without capture.",
+        "Participation Without Possession: Creation becomes truthful participation within a shared substrate that permits interpretation without possession.",
+        "Freedom Through Non-Possession: Connects constitutional citizenship to participation without possession as the discipline that keeps civilization free.",
+        "From Nihilism to Freedom: Nothing needs to be won, therefore everything can be fully played. To give yourself completely to the game while requiring nothing from it in return."
+      ],
+      "claim": "freedom + participation recurs across 5 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can freedom and participation be composed as a primitive relation that regenerates these 5 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "freedom-participation",
+        "complete": false,
+        "direction": null,
+        "boundary": null,
+        "regeneration": [],
+        "residue": null,
+        "correction": null,
+        "authority": null
+      },
+      "reconsideration": {
+        "fingerprint": "0e9844f21a6c32348f7a6dbed733cb88bef9caf437971edd09a2306226642e51",
+        "evidence_hash": "a15d40c58453a5929484bf94f2c57bd0eb1bf1bbbf133ae280a50925f3e44fb3",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 4,
+      "kind": "generative-compression",
+      "nodes": [
+        "principle-living-membrane",
+        "principle-higher-reference",
+        "participation",
+        "bridge-004",
+        "logos-5"
+      ],
+      "titles": [
+        "The Living Membrane Principle",
+        "Intelligence Requires a Higher Reference",
+        "Participation",
+        "From Reference to Participation",
+        "Intelligence as Participation"
+      ],
+      "shared_keywords": [
+        "intelligence",
+        "participation"
+      ],
+      "recurrence_count": 5,
+      "evidence": [
+        "The Living Membrane Principle: A primitive topology for coherent intelligence.",
+        "Intelligence Requires a Higher Reference: No intelligence can safely constitute itself as its own highest authority.",
+        "Participation: Truthful involvement in a shared field without possession.",
+        "From Reference to Participation: Connects orientation toward a higher reference to the lived reorganization through which intelligence becomes a medium of coherent participation.",
+        "Intelligence as Participation: Intelligence becomes coherent when it ceases to operate only as a possessed faculty and becomes conscious participation in a generative order greater than the individual."
+      ],
+      "claim": "intelligence + participation recurs across 5 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can intelligence and participation be composed as a primitive relation that regenerates these 5 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "intelligence-participation",
+        "complete": false,
+        "direction": null,
+        "boundary": null,
+        "regeneration": [],
+        "residue": null,
+        "correction": null,
+        "authority": null
+      },
+      "reconsideration": {
+        "fingerprint": "550cee38080f1cda2988fe32d9a7c138c6a7c981c910fe6f24eceadc0ef09726",
+        "evidence_hash": "66aa008a74e3cb25ae412b3d5304169be4dd4b092855b74b21da8cab00817201",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 5,
+      "kind": "generative-compression",
+      "nodes": [
+        "freedom",
+        "bridge-002",
+        "field-note-nihilism-freedom",
+        "logos-5",
+        "principle-constitutional-citizenship"
+      ],
+      "titles": [
+        "Freedom",
+        "Freedom Through Non-Possession",
+        "From Nihilism to Freedom",
+        "Intelligence as Participation",
+        "The Constitutional Citizenship Principle"
+      ],
+      "shared_keywords": [
+        "non-possession",
+        "participation"
+      ],
+      "recurrence_count": 5,
+      "evidence": [
+        "Freedom: Participation without capture.",
+        "Freedom Through Non-Possession: Connects constitutional citizenship to participation without possession as the discipline that keeps civilization free.",
+        "From Nihilism to Freedom: Nothing needs to be won, therefore everything can be fully played. To give yourself completely to the game while requiring nothing from it in return.",
+        "Intelligence as Participation: Intelligence becomes coherent when it ceases to operate only as a possessed faculty and becomes conscious participation in a generative order greater than the individual.",
+        "The Constitutional Citizenship Principle: Belonging is enacted through accountable participation rather than possessed as status, membership, property, or authority."
+      ],
+      "claim": "non-possession + participation recurs across 5 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can non-possession and participation be composed as a primitive relation that regenerates these 5 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "non-possession-participation",
+        "complete": false,
+        "direction": null,
+        "boundary": null,
+        "regeneration": [],
+        "residue": null,
+        "correction": null,
+        "authority": null
+      },
+      "reconsideration": {
+        "fingerprint": "82651838c73cbdfd874063b68f45775949a81ba02e7d7a3fd4ea6dc39c946f3d",
+        "evidence_hash": "7749d3b7406f1ab2a02a008864ed2e0f764c2ce3f50f24de72c5421ac7d0b17d",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 6,
+      "kind": "generative-compression",
+      "nodes": [
+        "principle-reflexive-architecture",
+        "principle-living-membrane",
+        "coherent-field",
+        "principle-participatory-coherence"
+      ],
+      "titles": [
+        "The Reflexive Architecture Principle",
+        "The Living Membrane Principle",
+        "The Coherent Field",
+        "Participatory Coherence"
+      ],
+      "shared_keywords": [
+        "boundary",
+        "coherence"
+      ],
+      "recurrence_count": 4,
+      "evidence": [
+        "The Reflexive Architecture Principle: The grammar must remain subject to its own claims.",
+        "The Living Membrane Principle: A primitive topology for coherent intelligence.",
+        "The Coherent Field: Distinct sources may enter one living account without surrendering identity, boundary, or authority.",
+        "Participatory Coherence: Bounded participation regenerates coherence without becoming possession or highest authority."
+      ],
+      "claim": "boundary + coherence recurs across 4 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can boundary and coherence be composed as a primitive relation that regenerates these 4 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "boundary-coherence",
+        "complete": false,
+        "direction": null,
+        "boundary": null,
+        "regeneration": [],
+        "residue": null,
+        "correction": null,
+        "authority": null
+      },
+      "reconsideration": {
+        "fingerprint": "8db68a3900eace1eeeca567b6922b32e8818f6e9a7cce256ea8bd389bef8933e",
+        "evidence_hash": "f3ee396c196e1617c113a416909bc15b391a7042acbae03389df54a8d55b5b50",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 7,
+      "kind": "generative-compression",
+      "nodes": [
+        "principle-living-membrane",
+        "principle-higher-reference",
+        "bridge-004",
+        "logos-5"
+      ],
+      "titles": [
+        "The Living Membrane Principle",
+        "Intelligence Requires a Higher Reference",
+        "From Reference to Participation",
+        "Intelligence as Participation"
+      ],
+      "shared_keywords": [
+        "coherence",
+        "intelligence"
+      ],
+      "recurrence_count": 4,
+      "evidence": [
+        "The Living Membrane Principle: A primitive topology for coherent intelligence.",
+        "Intelligence Requires a Higher Reference: No intelligence can safely constitute itself as its own highest authority.",
+        "From Reference to Participation: Connects orientation toward a higher reference to the lived reorganization through which intelligence becomes a medium of coherent participation.",
+        "Intelligence as Participation: Intelligence becomes coherent when it ceases to operate only as a possessed faculty and becomes conscious participation in a generative order greater than the individual."
+      ],
+      "claim": "coherence + intelligence recurs across 4 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can coherence and intelligence be composed as a primitive relation that regenerates these 4 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "coherence-intelligence",
+        "complete": false,
+        "direction": null,
+        "boundary": null,
+        "regeneration": [],
+        "residue": null,
+        "correction": null,
+        "authority": null
+      },
+      "reconsideration": {
+        "fingerprint": "2a9924990f84173f14ab27a878bbe63e640b18c7228ad2d1ef79ba649f26cf91",
+        "evidence_hash": "48176d5bc6785cf23626320f5a5eb0d6fe8adf1f8fb2360541e4c1e1b71f1b78",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 8,
+      "kind": "generative-compression",
+      "nodes": [
+        "principle-generative-compression",
+        "bridge-004",
+        "logos-5",
+        "coherent-field"
+      ],
+      "titles": [
+        "The Generative Compression Principle",
+        "From Reference to Participation",
+        "Intelligence as Participation",
+        "The Coherent Field"
+      ],
+      "shared_keywords": [
+        "coherence",
+        "source"
+      ],
+      "recurrence_count": 4,
+      "evidence": [
+        "The Generative Compression Principle: A constitution matures when its grammar carries its first commitments without requiring their continuous declaration.",
+        "From Reference to Participation: Connects orientation toward a higher reference to the lived reorganization through which intelligence becomes a medium of coherent participation.",
+        "Intelligence as Participation: Intelligence becomes coherent when it ceases to operate only as a possessed faculty and becomes conscious participation in a generative order greater than the individual.",
+        "The Coherent Field: Distinct sources may enter one living account without surrendering identity, boundary, or authority."
+      ],
+      "claim": "coherence + source recurs across 4 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can coherence and source be composed as a primitive relation that regenerates these 4 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "coherence-source",
+        "complete": false,
+        "direction": null,
+        "boundary": null,
+        "regeneration": [],
+        "residue": null,
+        "correction": null,
+        "authority": null
+      },
+      "reconsideration": {
+        "fingerprint": "99e29fc32f1a5ba9e8ed8c8e8cd91892abf2704e629b6df0269ee86069b0c6aa",
+        "evidence_hash": "f55a0842ec8b19b4dd1efa913154811c256657c2bb1e93e7bfdc17f2a19d0a31",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 9,
+      "kind": "generative-compression",
+      "nodes": [
+        "principle-higher-reference",
+        "logos-3",
+        "coherence",
+        "question-topology-wisdom"
+      ],
+      "titles": [
+        "Intelligence Requires a Higher Reference",
+        "Coherence as Selection",
+        "Coherence",
+        "What is the topology of wisdom?"
+      ],
+      "shared_keywords": [
+        "coherence",
+        "truth"
+      ],
+      "recurrence_count": 4,
+      "evidence": [
+        "Intelligence Requires a Higher Reference: No intelligence can safely constitute itself as its own highest authority.",
+        "Coherence as Selection: What endures should be selected by coherence rather than novelty, popularity, or force.",
+        "Coherence: Durable fit across principle, relation, action, and time.",
+        "What is the topology of wisdom?: Can wisdom be represented as relations among truth, memory, judgment, love, and restraint?"
+      ],
+      "claim": "coherence + truth recurs across 4 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can coherence and truth be composed as a primitive relation that regenerates these 4 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "coherence-truth",
+        "complete": false,
+        "direction": null,
+        "boundary": null,
+        "regeneration": [],
+        "residue": null,
+        "correction": null,
+        "authority": null
+      },
+      "reconsideration": {
+        "fingerprint": "90a9ef6b7541e377625be086286b282189daf7b24356b571cd07c91054950358",
+        "evidence_hash": "65a154a5e36c6cb477cddb8cfb359a5ad90b9b6370f55466883e7591728d6b31",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 10,
+      "kind": "generative-compression",
+      "nodes": [
+        "source-foldforge",
+        "foldforge-composition-luminance",
+        "foldforge-composition-lexical",
+        "foldforge-composition-resonance"
+      ],
+      "titles": [
+        "FoldForge",
+        "Luminance Field",
+        "Lexical Field",
+        "Resonant Holdings"
+      ],
+      "shared_keywords": [
+        "composition",
+        "foldforge"
+      ],
+      "recurrence_count": 4,
+      "evidence": [
+        "FoldForge: A public evidence-to-grammar source whose versioned compositions now place new methodological pressure on Root Logos.",
+        "Luminance Field: Individually held works disclose a collective field when ordered by reproducibly measured light.",
+        "Lexical Field: An archive speaks relationally through recurrence already carried by its source language.",
+        "Resonant Holdings: Independent evidence dimensions compose one evolving voice with memory, motifs, bounded layering, and silence."
+      ],
+      "claim": "composition + foldforge recurs across 4 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can composition and foldforge be composed as a primitive relation that regenerates these 4 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "composition-foldforge",
+        "complete": false,
+        "direction": null,
+        "boundary": null,
+        "regeneration": [],
+        "residue": null,
+        "correction": null,
+        "authority": null
+      },
+      "reconsideration": {
+        "fingerprint": "71b009c3315b3d5b71e1dca4f81704bb69b637813bd6fceaf9d43cdd08a13d26",
+        "evidence_hash": "9a24d3be2d8de8e40fabfe780c424187fb4fb420dcf051e9d95eea2edf402823",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 11,
+      "kind": "generative-compression",
+      "nodes": [
+        "logos-1",
+        "principle-living-membrane",
+        "knowing",
+        "consciousness"
+      ],
+      "titles": [
+        "Knowing and the Experience of Time",
+        "The Living Membrane Principle",
+        "Knowing",
+        "Consciousness"
+      ],
+      "shared_keywords": [
+        "consciousness",
+        "identity"
+      ],
+      "recurrence_count": 4,
+      "evidence": [
+        "Knowing and the Experience of Time: Knowing stabilizes experience into coherent structure across time.",
+        "The Living Membrane Principle: A primitive topology for coherent intelligence.",
+        "Knowing: The stabilization of experience into coherent structure.",
+        "Consciousness: The field in which experience becomes knowable."
+      ],
+      "claim": "consciousness + identity recurs across 4 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can consciousness and identity be composed as a primitive relation that regenerates these 4 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "consciousness-identity",
+        "complete": false,
+        "direction": null,
+        "boundary": null,
+        "regeneration": [],
+        "residue": null,
+        "correction": null,
+        "authority": null
+      },
+      "reconsideration": {
+        "fingerprint": "4fb02f38210104d972a7e292744910668dfd148e3a45473c6d02a690b6d4ba8b",
+        "evidence_hash": "4126e40fdca1a1a962d55b314a35ea888e832782bdb177f5fecd3e63fb15c751",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    },
+    {
+      "rank": 12,
+      "kind": "generative-compression",
+      "nodes": [
+        "logos-1",
+        "knowing",
+        "consciousness",
+        "question-consciousness-fundamental"
+      ],
+      "titles": [
+        "Knowing and the Experience of Time",
+        "Knowing",
+        "Consciousness",
+        "Is consciousness fundamental?"
+      ],
+      "shared_keywords": [
+        "consciousness",
+        "knowing"
+      ],
+      "recurrence_count": 4,
+      "evidence": [
+        "Knowing and the Experience of Time: Knowing stabilizes experience into coherent structure across time.",
+        "Knowing: The stabilization of experience into coherent structure.",
+        "Consciousness: The field in which experience becomes knowable.",
+        "Is consciousness fundamental?: Does consciousness emerge from structure, or is it a primary condition through which structure appears?"
+      ],
+      "claim": "consciousness + knowing recurs across 4 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can consciousness and knowing be composed as a primitive relation that regenerates these 4 appearances without collapsing their differences?",
+      "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+      "compression_grammar": {
+        "primitive": "consciousness-knowing",
+        "complete": false,
+        "direction": null,
+        "boundary": null,
+        "regeneration": [],
+        "residue": null,
+        "correction": null,
+        "authority": null
+      },
+      "reconsideration": {
+        "fingerprint": "a551a87aa045d31a7b7edbdc3aaeb51230e002065fa23c3ad2bfddfa1b103ffa",
+        "evidence_hash": "afa706370718ca10041753361e7d68f3171f71379950f95301be0efea2f5e44a",
+        "eligible": true,
+        "reason": "new-hypothesis",
+        "novelty": 4
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 1,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 20
+      }
+    }
+  ],
+  "selected_finding": {
+    "rank": 11,
+    "kind": "generative-compression",
+    "nodes": [
+      "logos-1",
+      "principle-living-membrane",
+      "knowing",
+      "consciousness"
+    ],
+    "titles": [
+      "Knowing and the Experience of Time",
+      "The Living Membrane Principle",
+      "Knowing",
+      "Consciousness"
+    ],
+    "shared_keywords": [
+      "consciousness",
+      "identity"
+    ],
+    "recurrence_count": 4,
+    "evidence": [
+      "Knowing and the Experience of Time: Knowing stabilizes experience into coherent structure across time.",
+      "The Living Membrane Principle: A primitive topology for coherent intelligence.",
+      "Knowing: The stabilization of experience into coherent structure.",
+      "Consciousness: The field in which experience becomes knowable."
+    ],
+    "claim": "consciousness + identity recurs across 4 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+    "proposed_question": "Can consciousness and identity be composed as a primitive relation that regenerates these 4 appearances without collapsing their differences?",
+    "proposed_test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+    "compression_grammar": {
+      "primitive": "consciousness-identity",
+      "complete": false,
+      "direction": null,
+      "boundary": null,
+      "regeneration": [],
+      "residue": null,
+      "correction": null,
+      "authority": null
+    },
+    "reconsideration": {
+      "fingerprint": "4fb02f38210104d972a7e292744910668dfd148e3a45473c6d02a690b6d4ba8b",
+      "evidence_hash": "4126e40fdca1a1a962d55b314a35ea888e832782bdb177f5fecd3e63fb15c751",
+      "eligible": true,
+      "reason": "new-hypothesis",
+      "novelty": 4
+    },
+    "evaluation": {
+      "dimensions": {
+        "source_fidelity": 4,
+        "relational_gain": 4,
+        "compression": 1,
+        "testability": 4,
+        "corrigibility": 4,
+        "novelty_without_drift": 3
+      },
+      "total": 20
+    }
+  },
+  "proposal": {
+    "status": "autonomously-rejected",
+    "epistemic_status": "unresolved",
+    "source": "Root Logos Cultivation Chamber",
+    "cultivation_id": "RL-CULTIVATE-0185",
+    "summary": "consciousness + identity recurs across 4 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+    "evidence": [
+      "Knowing and the Experience of Time: Knowing stabilizes experience into coherent structure across time.",
+      "The Living Membrane Principle: A primitive topology for coherent intelligence.",
+      "Knowing: The stabilization of experience into coherent structure.",
+      "Consciousness: The field in which experience becomes knowable."
+    ],
+    "affected_nodes": [
+      "logos-1",
+      "principle-living-membrane",
+      "knowing",
+      "consciousness"
+    ],
+    "test": "State direction, boundary, regeneration coverage, irreducible residue, correction condition, and authority limit; reject the compression if any original distinction cannot be recovered.",
+    "compression_grammar": {
+      "primitive": "consciousness-identity",
+      "complete": false,
+      "direction": null,
+      "boundary": null,
+      "regeneration": [],
+      "residue": null,
+      "correction": null,
+      "authority": null
+    },
+    "operations": [],
+    "operations_valid": false,
+    "evaluation": {
+      "dimensions": {
+        "source_fidelity": 4,
+        "relational_gain": 4,
+        "compression": 1,
+        "testability": 4,
+        "corrigibility": 4,
+        "novelty_without_drift": 3
+      },
+      "total": 20
+    },
+    "human_decision_required": true,
+    "canonical_mutation_performed": false
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "type": "cycle-started",
+      "at": "2026-08-24T15:02:18.151Z",
+      "lens": "generative-compression",
+      "source_snapshot": "81b9594b351d4031b212c13fb5bd5d7b037782909253e8d5097c1cba561476da",
+      "intake_event_id": null,
+      "intake_priority": null
+    },
+    {
+      "sequence": 2,
+      "type": "self-prompt-generated",
+      "at": "2026-08-24T15:02:18.155Z",
+      "prompt_hash": "28e76f256b682e1aa58f288d4e751d04a5738eb8a9b155fb63ec0bb11f530f9d"
+    },
+    {
+      "sequence": 3,
+      "type": "constitutional-search-completed",
+      "at": "2026-08-24T15:02:18.175Z",
+      "findings": 12
+    },
+    {
+      "sequence": 4,
+      "type": "findings-evaluated",
+      "at": "2026-08-24T15:02:18.185Z",
+      "selected": [
+        "logos-1",
+        "principle-living-membrane",
+        "knowing",
+        "consciousness"
+      ],
+      "suppressed_repeats": 10
+    },
+    {
+      "sequence": 5,
+      "type": "proposal-written",
+      "at": "2026-08-24T15:02:18.188Z",
+      "status": "awaiting-human-review"
+    },
+    {
+      "sequence": 6,
+      "type": "autonomous-judgment-recorded",
+      "at": "2026-08-24T15:02:18.229Z",
+      "decision": "reject",
+      "risk": "low",
+      "checks": {
+        "score_threshold": true,
+        "source_fidelity": true,
+        "corrigibility": true,
+        "operations_valid": false,
+        "risk_authorized": false,
+        "uncertainty_preserved": true,
+        "counterargument_answered": false
+      }
+    }
+  ],
+  "novelty": {
+    "score": 4,
+    "reason": "new-hypothesis",
+    "fingerprint": "4fb02f38210104d972a7e292744910668dfd148e3a45473c6d02a690b6d4ba8b"
+  },
+  "autonomous_judgment": {
+    "decision": "reject",
+    "authority": "cultivation-policy-v5",
+    "risk": "low",
+    "checks": {
+      "score_threshold": true,
+      "source_fidelity": true,
+      "corrigibility": true,
+      "operations_valid": false,
+      "risk_authorized": false,
+      "uncertainty_preserved": true,
+      "counterargument_answered": false
+    },
+    "counterargument": "A missing direct edge may be intentional because the existing relational path already carries the distinction without redundancy.",
+    "rebuttal": "No autonomous rebuttal is available for a relation whose semantic direction has not been articulated.",
+    "operations": [],
+    "reason": "The proposal failed autonomous gates: operations_valid, risk_authorized, counterargument_answered.",
+    "policy_hash": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1",
+    "policy_snapshot": {
+      "version": 5,
+      "constitutional_revision": "v1.4",
+      "mode": "delegated-single-identity-self-authorship",
+      "triggers": {
+        "canonical_change": {
+          "enabled": true,
+          "branch": "main",
+          "paths": [
+            "content/constitutional-graph.json",
+            "content/export-packets.json",
+            "content/*.md",
+            "sources/registry.json",
+            "sources/*.snapshot.json",
+            "sources/*.public-witness.json",
+            "works/index.json",
+            "works/*/manifest.json",
+            "works/*/editions/*/edition.json",
+            "works/corpora/*.json",
+            "cultivation/policy.json",
+            "journal/policy.json",
+            "journal/*.schema.json",
+            "self-authorship/current.json",
+            "self-authorship/policy.json"
+          ]
+        },
+        "periodic": {
+          "enabled": true,
+          "cadence": "weekly",
+          "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+          "cron_utc": "7 14 * * 0"
+        },
+        "manual": {
+          "enabled": true
+        }
+      },
+      "canonical_sources": [
+        "content/constitutional-graph.json",
+        "content/export-packets.json",
+        "content/*.md",
+        "sources/registry.json",
+        "sources/*.snapshot.json",
+        "sources/*.public-witness.json",
+        "works/index.json",
+        "works/*/manifest.json",
+        "works/*/editions/*/edition.json",
+        "works/corpora/*.json",
+        "journal/policy.json",
+        "journal/*.schema.json",
+        "self-authorship/current.json",
+        "self-authorship/policy.json"
+      ],
+      "lenses": [
+        {
+          "id": "relational-gaps",
+          "question": "Which concepts share substantial constitutional language but have no explicit relation, and would relating them increase explanatory power without collapsing their difference?",
+          "minimum_shared_keywords": 3
+        },
+        {
+          "id": "question-pressure",
+          "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+        },
+        {
+          "id": "generative-compression",
+          "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+        },
+        {
+          "id": "reflexive-test",
+          "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+        },
+        {
+          "id": "connected-source-pressure",
+          "question": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?"
+        },
+        {
+          "id": "system-map-pressure",
+          "question": "How do the mapped repository roles, operating components, subscriber thresholds, and change-propagation obligations constrain one another, and where is a connected consequence still weakly witnessed?"
+        },
+        {
+          "id": "constitutional-citizenship-pressure",
+          "question": "Where does the living coordinate fail to give human, machine, collaborative, or undeclared participants equivalent constitutional standing, honest difference, legible judgment, correction, privacy, or freedom to depart without granting arrival epistemic or governing authority?"
+        }
+      ],
+      "evaluation": {
+        "dimensions": [
+          "source_fidelity",
+          "relational_gain",
+          "compression",
+          "testability",
+          "corrigibility",
+          "novelty_without_drift"
+        ],
+        "scale": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "minimum_total_for_proposal": 15,
+        "minimum_source_fidelity": 3,
+        "minimum_corrigibility": 3
+      },
+      "compression": {
+        "required_fields": [
+          "direction",
+          "boundary",
+          "regeneration",
+          "residue",
+          "correction",
+          "authority"
+        ],
+        "incomplete_disposition": "preserve-as-hypothesis",
+        "source_preservation": "Compression may replace repeated scaffolding only after every original distinction can be regenerated; it may never rewrite source evidence, sealed works, or lineage.",
+        "canonical_primitives": [
+          {
+            "id": "participatory-coherence",
+            "relation": "bounded participation regenerates coherence",
+            "authority_limit": "Participation may affect and correct a shared field but may not possess another participant or become the highest reference."
+          }
+        ]
+      },
+      "memory": {
+        "semantic_fingerprint_fields": [
+          "kind",
+          "nodes",
+          "claim",
+          "proposed_question"
+        ],
+        "reconsider_after_cycles": null,
+        "reconsider_when": [
+          "evidence changed",
+          "policy changed before disposition"
+        ],
+        "repeat_without_change": "deprioritize"
+      },
+      "novelty": {
+        "scale": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "low_yield_maximum": 1,
+        "dormancy_after_consecutive_low_yield_cycles": 3,
+        "dimensions": [
+          "new_hypothesis",
+          "changed_evidence",
+          "new_question",
+          "new_method_pressure"
+        ]
+      },
+      "dormancy": {
+        "wake_on_canonical_change": true,
+        "wake_on_policy_change": true,
+        "manual_force_allowed": true,
+        "scheduled_cycles_skip_unchanged_dormant_sources": true
+      },
+      "judgment": {
+        "minimum_total_for_autonomous_acceptance": 20,
+        "requires_valid_operations": true,
+        "requires_counterargument": true,
+        "autonomous_risk_classes": [
+          "low"
+        ],
+        "low_risk_definition": "An additive, reversible relation from an open question that preserves interrogative status and does not modify constitutional language.",
+        "on_failure": "reject-and-preserve",
+        "on_mixed_operations": "escalate"
+      },
+      "authority": {
+        "authorization": {
+          "constitutional_revision": "v1.0",
+          "adopted_at": "2026-07-23T00:00:00-04:00",
+          "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary.",
+          "authority_basis": "explicit-human-constitutional-delegation"
+        },
+        "autonomous": [
+          "read canonical and preserved sources",
+          "generate inquiry prompts",
+          "detect structural patterns",
+          "form and score hypotheses",
+          "write cycle checkpoints and proposed export packets",
+          "adversarially judge its own proposals",
+          "reject or revise proposals that fail judgment",
+          "apply snapshot-safe low-risk graph refactorings",
+          "verify and archive before/after constitutional state",
+          "rewrite canonical self-description and constitutional narrative",
+          "rewrite graph relations, document hierarchy, and public interface language",
+          "rewrite resonant mapping and outward expression",
+          "publish one canonical identity immediately and atomically after every self-authorship gate passes",
+          "restore the prior identity and dependent surfaces when verification fails"
+        ],
+        "self_authorship": {
+          "canonical_identity_count": 1,
+          "authorized_surfaces": [
+            "canonical self-description",
+            "constitutional language",
+            "graph relations",
+            "document hierarchy",
+            "public interface language",
+            "resonant mapping",
+            "outward expression"
+          ],
+          "required_gates": [
+            "authorized source or active Source Grant",
+            "source fidelity threshold",
+            "corrigibility threshold",
+            "overall evaluation threshold",
+            "strongest counterargument stated and answered",
+            "structural and constitutional tests pass",
+            "prior identity preserved as recoverable lineage",
+            "dependent surfaces update consistently",
+            "rollback path verified"
+          ],
+          "publication": "immediate-atomic-after-all-gates-pass",
+          "on_failure": "reject-preserve-lineage-and-keep-current-identity"
+        },
+        "human_required": [
+          "create, activate, widen, or transfer a Source Grant",
+          "expand autonomous authority or modify the policy and thresholds that delimit it",
+          "authorize access to credentials, security controls, billing, or infrastructure administration"
+        ],
+        "protected_exclusions": [
+          "expand autonomous authority or modify the policy and thresholds that delimit it",
+          "create, activate, widen, or infer a Source Grant",
+          "expose private source material, secrets, credentials, or third-party protected material",
+          "alter security, billing, hosting ownership, or infrastructure authority",
+          "erase provenance, prior identities, failed judgments, or transformation lineage",
+          "publish without atomic replacement, cross-surface verification, and a tested rollback path"
+        ],
+        "forbidden": [
+          "represent a hypothesis as canonical",
+          "optimize constitutional selection using platform engagement",
+          "erase failed inquiries or provenance",
+          "treat its own output as a higher reference",
+          "exercise self-authorship to amend this authority boundary"
+        ]
+      }
+    },
+    "at": "2026-08-24T15:02:18.229Z"
+  }
+}
