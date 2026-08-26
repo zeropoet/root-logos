@@ -1731,7 +1731,7 @@
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 3,
+    "consecutive_low_yield_cycles": 1,
     "last_score": 0,
     "history": [
       {
@@ -3042,13 +3042,20 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-26T01:37:58.203Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0196",
+        "score": 0,
+        "reason": "no-eligible-hypothesis",
+        "status": "completed-no-proposal",
+        "at": "2026-08-26T15:54:37.498Z"
       }
     ]
   },
   "dormancy": {
-    "active": true,
-    "entered_at": "2026-08-26T01:37:58.236Z",
-    "reason": "3 consecutive low-yield cycles",
+    "active": false,
+    "entered_at": null,
+    "reason": null,
     "source_snapshot": {
       "combined": "1c086a65e5cf5cbc47b2463f3f285cb34807defb379abb2aa50c0587adb4662e",
       "policy": "a1b23423f4dd7ebae365ca4d65517befe5d990587cf2189107edb9bd9f404e0c"
@@ -3173,6 +3180,10 @@
       {
         "at": "2026-08-26T01:30:10.841Z",
         "reason": "canonical-source-changed"
+      },
+      {
+        "at": "2026-08-26T15:54:37.304Z",
+        "reason": "manual-force"
       }
     ]
   },
