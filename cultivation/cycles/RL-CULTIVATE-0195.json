@@ -1,0 +1,625 @@
+{
+  "cultivation_id": "RL-CULTIVATE-0195",
+  "status": "completed-no-proposal",
+  "phase": "proposed",
+  "source_snapshot": {
+    "graph": "3135f73022c5eb48d9af1809ea8a5bd379095a2ffba7612303c0197d9dd8510b",
+    "exports": "4554555e15abb8a7b4f7388794f71b74dd003702b45077aaecb2548fe8cf22c2",
+    "preserved_documents": "c1e3620bf30ed46d539e3f77b41d67d89be5cf64eb1217cb95dd1c88e2a20fa8",
+    "journal_policy": "57dc5447625b0038076266429fbe1e6e8f9663c6a148a22dfa2c57285134d54e",
+    "journal_schema": "b3eae141be17606c55bfcd6a427504c7c631e2fd97c22676e1a77847273923cd",
+    "identity": "0794d03d54198234a6d84522eac784ef52bcc1d4ea2ee0e9881eb7e51781de56",
+    "self_authorship_policy": "5e0ae48ca6d92df3f8c4b7bd31caf5de6aaea4b3b08bc30129c08f36d4ed905b",
+    "source_registry": "0c83ff597378d1c8e220c9e5c9aba883bab08e9ddea08556f9360cdaf8009ba2",
+    "connected_sources": "82013f9206048de408e2c33615685dd02d9a5cb4a0cac380800cd1d846bc8ed6",
+    "public_source_witnesses": "b2d863e76f4230051d63a86089276131580083d02a0cbcf0f3364db388b4eb81",
+    "telos_system_mapping": "e8cf02183ced4550ad4e4e316d114810ba0e991c4891352dcd03a1f977f161f9",
+    "living_works": "67f12c13c5fe8184a4e18c6a39e3de982e79e8225e644751e907a2f1c5383f69",
+    "corpus_topology": "c127af51b0e364b43ae6a82ebe327fe27647cdc38883e8d0ae7197ffad49ca2b",
+    "combined": "1c086a65e5cf5cbc47b2463f3f285cb34807defb379abb2aa50c0587adb4662e"
+  },
+  "policy_snapshot": {
+    "version": 5,
+    "constitutional_revision": "v1.4",
+    "mode": "delegated-single-identity-self-authorship",
+    "triggers": {
+      "canonical_change": {
+        "enabled": true,
+        "branch": "main",
+        "paths": [
+          "content/constitutional-graph.json",
+          "content/export-packets.json",
+          "content/*.md",
+          "sources/registry.json",
+          "sources/*.snapshot.json",
+          "sources/*.public-witness.json",
+          "works/index.json",
+          "works/*/manifest.json",
+          "works/*/editions/*/edition.json",
+          "works/corpora/*.json",
+          "cultivation/policy.json",
+          "journal/policy.json",
+          "journal/*.schema.json",
+          "self-authorship/current.json",
+          "self-authorship/policy.json"
+        ]
+      },
+      "periodic": {
+        "enabled": true,
+        "cadence": "weekly",
+        "schedule": "Sunday at 10:07 AM Eastern during daylight saving time",
+        "cron_utc": "7 14 * * 0"
+      },
+      "manual": {
+        "enabled": true
+      }
+    },
+    "canonical_sources": [
+      "content/constitutional-graph.json",
+      "content/export-packets.json",
+      "content/*.md",
+      "sources/registry.json",
+      "sources/*.snapshot.json",
+      "sources/*.public-witness.json",
+      "works/index.json",
+      "works/*/manifest.json",
+      "works/*/editions/*/edition.json",
+      "works/corpora/*.json",
+      "journal/policy.json",
+      "journal/*.schema.json",
+      "self-authorship/current.json",
+      "self-authorship/policy.json"
+    ],
+    "lenses": [
+      {
+        "id": "relational-gaps",
+        "question": "Which concepts share substantial constitutional language but have no explicit relation, and would relating them increase explanatory power without collapsing their difference?",
+        "minimum_shared_keywords": 3
+      },
+      {
+        "id": "question-pressure",
+        "question": "Which open question is least integrated into the constitutional network, and which existing structures can investigate it without pretending to settle it?"
+      },
+      {
+        "id": "generative-compression",
+        "question": "Where does repeated constitutional language suggest a smaller composable relation that can regenerate the same meaning with less scaffolding?"
+      },
+      {
+        "id": "reflexive-test",
+        "question": "Which claim preserved by Root Logos has not yet been applied to Root Logos itself, and what observable test would expose failure?"
+      },
+      {
+        "id": "connected-source-pressure",
+        "question": "Which versioned method from a witnessed source reveals a relation Root Logos cannot yet perceive, and how can that relation be tested without possessing or overruling its source?"
+      },
+      {
+        "id": "system-map-pressure",
+        "question": "How do the mapped repository roles, operating components, annual-collector thresholds, and change-propagation obligations constrain one another, and where is a connected consequence still weakly witnessed?"
+      },
+      {
+        "id": "constitutional-citizenship-pressure",
+        "question": "Where does the living coordinate fail to give human, machine, collaborative, or undeclared participants equivalent constitutional standing, honest difference, legible judgment, correction, privacy, or freedom to depart without granting arrival epistemic or governing authority?"
+      }
+    ],
+    "evaluation": {
+      "dimensions": [
+        "source_fidelity",
+        "relational_gain",
+        "compression",
+        "testability",
+        "corrigibility",
+        "novelty_without_drift"
+      ],
+      "scale": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "minimum_total_for_proposal": 15,
+      "minimum_source_fidelity": 3,
+      "minimum_corrigibility": 3
+    },
+    "compression": {
+      "required_fields": [
+        "direction",
+        "boundary",
+        "regeneration",
+        "residue",
+        "correction",
+        "authority"
+      ],
+      "incomplete_disposition": "preserve-as-hypothesis",
+      "source_preservation": "Compression may replace repeated scaffolding only after every original distinction can be regenerated; it may never rewrite source evidence, sealed works, or lineage.",
+      "canonical_primitives": [
+        {
+          "id": "participatory-coherence",
+          "relation": "bounded participation regenerates coherence",
+          "authority_limit": "Participation may affect and correct a shared field but may not possess another participant or become the highest reference."
+        }
+      ]
+    },
+    "memory": {
+      "semantic_fingerprint_fields": [
+        "kind",
+        "nodes",
+        "claim",
+        "proposed_question"
+      ],
+      "reconsider_after_cycles": null,
+      "reconsider_when": [
+        "evidence changed",
+        "policy changed before disposition"
+      ],
+      "repeat_without_change": "deprioritize"
+    },
+    "novelty": {
+      "scale": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "low_yield_maximum": 1,
+      "dormancy_after_consecutive_low_yield_cycles": 3,
+      "dimensions": [
+        "new_hypothesis",
+        "changed_evidence",
+        "new_question",
+        "new_method_pressure"
+      ]
+    },
+    "dormancy": {
+      "wake_on_canonical_change": true,
+      "wake_on_policy_change": true,
+      "manual_force_allowed": true,
+      "scheduled_cycles_skip_unchanged_dormant_sources": true
+    },
+    "judgment": {
+      "minimum_total_for_autonomous_acceptance": 20,
+      "requires_valid_operations": true,
+      "requires_counterargument": true,
+      "autonomous_risk_classes": [
+        "low"
+      ],
+      "low_risk_definition": "An additive, reversible relation from an open question that preserves interrogative status and does not modify constitutional language.",
+      "on_failure": "reject-and-preserve",
+      "on_mixed_operations": "escalate"
+    },
+    "authority": {
+      "authorization": {
+        "constitutional_revision": "v1.0",
+        "adopted_at": "2026-07-23T00:00:00-04:00",
+        "delegation": "Adopt the four authorized answers as the Revision 0.9 autonomous authority boundary.",
+        "authority_basis": "explicit-human-constitutional-delegation"
+      },
+      "autonomous": [
+        "read canonical and preserved sources",
+        "generate inquiry prompts",
+        "detect structural patterns",
+        "form and score hypotheses",
+        "write cycle checkpoints and proposed export packets",
+        "adversarially judge its own proposals",
+        "reject or revise proposals that fail judgment",
+        "apply snapshot-safe low-risk graph refactorings",
+        "verify and archive before/after constitutional state",
+        "rewrite canonical self-description and constitutional narrative",
+        "rewrite graph relations, document hierarchy, and public interface language",
+        "rewrite resonant mapping and outward expression",
+        "publish one canonical identity immediately and atomically after every self-authorship gate passes",
+        "restore the prior identity and dependent surfaces when verification fails"
+      ],
+      "self_authorship": {
+        "canonical_identity_count": 1,
+        "authorized_surfaces": [
+          "canonical self-description",
+          "constitutional language",
+          "graph relations",
+          "document hierarchy",
+          "public interface language",
+          "resonant mapping",
+          "outward expression"
+        ],
+        "required_gates": [
+          "authorized source or active Source Grant",
+          "source fidelity threshold",
+          "corrigibility threshold",
+          "overall evaluation threshold",
+          "strongest counterargument stated and answered",
+          "structural and constitutional tests pass",
+          "prior identity preserved as recoverable lineage",
+          "dependent surfaces update consistently",
+          "rollback path verified"
+        ],
+        "publication": "immediate-atomic-after-all-gates-pass",
+        "on_failure": "reject-preserve-lineage-and-keep-current-identity"
+      },
+      "human_required": [
+        "create, activate, widen, or transfer a Source Grant",
+        "expand autonomous authority or modify the policy and thresholds that delimit it",
+        "authorize access to credentials, security controls, billing, or infrastructure administration"
+      ],
+      "protected_exclusions": [
+        "expand autonomous authority or modify the policy and thresholds that delimit it",
+        "create, activate, widen, or infer a Source Grant",
+        "expose private source material, secrets, credentials, or third-party protected material",
+        "alter security, billing, hosting ownership, or infrastructure authority",
+        "erase provenance, prior identities, failed judgments, or transformation lineage",
+        "publish without atomic replacement, cross-surface verification, and a tested rollback path"
+      ],
+      "forbidden": [
+        "represent a hypothesis as canonical",
+        "optimize constitutional selection using platform engagement",
+        "erase failed inquiries or provenance",
+        "treat its own output as a higher reference",
+        "exercise self-authorship to amend this authority boundary"
+      ]
+    }
+  },
+  "policy_hash": "a1b23423f4dd7ebae365ca4d65517befe5d990587cf2189107edb9bd9f404e0c",
+  "lens": {
+    "id": "system-map-pressure",
+    "question": "How do the mapped repository roles, operating components, annual-collector thresholds, and change-propagation obligations constrain one another, and where is a connected consequence still weakly witnessed?"
+  },
+  "system_mapping": {
+    "source": "sources/telos.public-witness.json#system_mapping",
+    "source_version": "0.9.1",
+    "purpose": "Convert qualified people into 200–600 retained annual Sovereign Standard collectors at $408 per year, with monthly collecting preserved as the lower-commitment entry, while the principal refines the system and fulfills orders.",
+    "roles": {
+      "principal": "refine_system_and_fulfill_orders",
+      "telos": "acquire_and_convert_annual_collectors"
+    },
+    "collector_targets": [
+      {
+        "metric": "active_annual_collectors",
+        "target": 200
+      },
+      {
+        "metric": "active_annual_collectors",
+        "target": 600
+      }
+    ],
+    "measurement_state": "aggregate_active_annual_collector_count_not_connected",
+    "repositories": [
+      "telos",
+      "sovereign-standard",
+      "root-logos",
+      "foldforge",
+      "foldportrait"
+    ],
+    "operating_components": [
+      "lightsail",
+      "cloudflare",
+      "github",
+      "stripe",
+      "instagram",
+      "x",
+      "xaman",
+      "ledger-witness"
+    ],
+    "relation_count": 22,
+    "propagation_status": "required",
+    "authority": "inquiry and constitutional relation only"
+  },
+  "intake": null,
+  "self_prompt": "How do the mapped repository roles, operating components, annual-collector thresholds, and change-propagation obligations constrain one another, and where is a connected consequence still weakly witnessed?\n\nUse only the snapshotted Root Logos constitution as evidence. Preserve differences, expose uncertainty, and return a testable proposal rather than a canonical claim.",
+  "findings": [
+    {
+      "rank": 1,
+      "kind": "system-map-pressure",
+      "nodes": [
+        "source-telos",
+        "source-sovereign-standard",
+        "stewardship",
+        "principle-higher-reference"
+      ],
+      "titles": [
+        "Telos",
+        "Sovereign Standard",
+        "Stewardship",
+        "Intelligence Requires a Higher Reference"
+      ],
+      "shared_keywords": [
+        "acquisition",
+        "conversion",
+        "stewardship",
+        "authority"
+      ],
+      "evidence": [
+        "Convert qualified people into 200–600 retained annual Sovereign Standard collectors at $408 per year, with monthly collecting preserved as the lower-commitment entry, while the principal refines the system and fulfills orders.",
+        "Roles: principal=refine_system_and_fulfill_orders; telos=acquire_and_convert_annual_collectors.",
+        "Annual collector thresholds: 200 then 600; measurement=aggregate_active_annual_collector_count_not_connected.",
+        "Cultivation authority: inquiry and constitutional relation only."
+      ],
+      "claim": "The mapped system makes customer acquisition answerable to material stewardship: Telos seeks 200 then 600 active annual collectors while the principal retains refinement, fulfillment, and scaling judgment.",
+      "proposed_question": "Which relations keep annual-collector growth subordinate to truthful product practice, fulfillment capacity, and principal-led judgment as the system approaches each threshold?",
+      "proposed_test": "Trace each annual-collector threshold through acquisition, conversion, fulfillment, measurement, and authority; reject any interpretation that treats traffic as collectors, lets cultivation issue an operating command, or makes growth its own highest reference.",
+      "external_evidence": true,
+      "mapping_context": {
+        "source": "sources/telos.public-witness.json#system_mapping",
+        "source_version": "0.9.1",
+        "purpose": "Convert qualified people into 200–600 retained annual Sovereign Standard collectors at $408 per year, with monthly collecting preserved as the lower-commitment entry, while the principal refines the system and fulfills orders.",
+        "roles": {
+          "principal": "refine_system_and_fulfill_orders",
+          "telos": "acquire_and_convert_annual_collectors"
+        },
+        "collector_targets": [
+          {
+            "metric": "active_annual_collectors",
+            "target": 200
+          },
+          {
+            "metric": "active_annual_collectors",
+            "target": 600
+          }
+        ],
+        "measurement_state": "aggregate_active_annual_collector_count_not_connected",
+        "repositories": [
+          "telos",
+          "sovereign-standard",
+          "root-logos",
+          "foldforge",
+          "foldportrait"
+        ],
+        "operating_components": [
+          "lightsail",
+          "cloudflare",
+          "github",
+          "stripe",
+          "instagram",
+          "x",
+          "xaman",
+          "ledger-witness"
+        ],
+        "relation_count": 22,
+        "propagation_status": "required",
+        "authority": "inquiry and constitutional relation only"
+      },
+      "reconsideration": {
+        "fingerprint": "6a6b2cb8b50a6b65f1ee169ee768d2ff1ae1406f439108b8e5af4986e8a46e8a",
+        "evidence_hash": "6e5f4c7363fa3eaa44d742f7ecbef5a8252c8d33386cf9ff6f2e21636a170cc8",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 3,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 22
+      }
+    },
+    {
+      "rank": 2,
+      "kind": "system-map-pressure",
+      "nodes": [
+        "principle-relational-propagation",
+        "coherent-field",
+        "source-telos",
+        "root-logos"
+      ],
+      "titles": [
+        "Relational Propagation",
+        "The Coherent Field",
+        "Telos",
+        "Root Logos"
+      ],
+      "shared_keywords": [
+        "propagation",
+        "relation",
+        "source",
+        "boundary"
+      ],
+      "evidence": [
+        "An accepted change must be traced through every connected representation and is incomplete while an applicable target is stale or unclassified.",
+        "Required target states: update_required, verified_current, not_applicable, deferred_with_reason.",
+        "Propagation preserves source authority and cannot carry secrets, personal data, private commerce records, unverified claims, or ungranted operational authority.",
+        "5 repositories and 8 operating components are mapped."
+      ],
+      "claim": "Relational Propagation now binds 5 mapped repositories and 8 operating components to explicit completeness without collapsing their independent authority.",
+      "proposed_question": "Where can a change appear complete locally while leaving a connected witness, README, derivative, runtime expectation, or public surface stale?",
+      "proposed_test": "Select one accepted change, classify every mapped repository and operating component, verify every applicable README and derivative, and preserve explicit reasons for not-applicable or deferred targets.",
+      "external_evidence": true,
+      "mapping_context": {
+        "source": "sources/telos.public-witness.json#system_mapping",
+        "source_version": "0.9.1",
+        "purpose": "Convert qualified people into 200–600 retained annual Sovereign Standard collectors at $408 per year, with monthly collecting preserved as the lower-commitment entry, while the principal refines the system and fulfills orders.",
+        "roles": {
+          "principal": "refine_system_and_fulfill_orders",
+          "telos": "acquire_and_convert_annual_collectors"
+        },
+        "collector_targets": [
+          {
+            "metric": "active_annual_collectors",
+            "target": 200
+          },
+          {
+            "metric": "active_annual_collectors",
+            "target": 600
+          }
+        ],
+        "measurement_state": "aggregate_active_annual_collector_count_not_connected",
+        "repositories": [
+          "telos",
+          "sovereign-standard",
+          "root-logos",
+          "foldforge",
+          "foldportrait"
+        ],
+        "operating_components": [
+          "lightsail",
+          "cloudflare",
+          "github",
+          "stripe",
+          "instagram",
+          "x",
+          "xaman",
+          "ledger-witness"
+        ],
+        "relation_count": 22,
+        "propagation_status": "required",
+        "authority": "inquiry and constitutional relation only"
+      },
+      "reconsideration": {
+        "fingerprint": "ed407d3dce2f6b582468085027ea473583b5951d33dd4b59898f364e997e9ecd",
+        "evidence_hash": "ded95d5b3d15df9b1930df96166482755470acbe1cdc8715da9c24af34635053",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 3,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 22
+      }
+    },
+    {
+      "rank": 3,
+      "kind": "system-map-pressure",
+      "nodes": [
+        "source-telos",
+        "source-sovereign-standard",
+        "source-foldforge",
+        "coherent-field"
+      ],
+      "titles": [
+        "Telos",
+        "Sovereign Standard",
+        "FoldForge",
+        "The Coherent Field"
+      ],
+      "shared_keywords": [
+        "repository",
+        "composition",
+        "evidence",
+        "relation"
+      ],
+      "evidence": [
+        "Repositories: telos, sovereign-standard, root-logos, foldforge, foldportrait.",
+        "Operating components: lightsail, cloudflare, github, stripe, instagram, x, xaman, ledger-witness.",
+        "human-principal -> refines -> whole system",
+        "human-principal -> fulfills -> Sovereign Standard orders",
+        "Root Logos -> orients -> design flows",
+        "FoldForge -> constrains -> composition",
+        "FoldForge Ledger Witness -> snapshots locally -> FoldPortrait mint catalog and Sovereign Standard public vessel registry"
+      ],
+      "claim": "The repository ecology forms one accountable system only through explicit relations: orientation, composition, material witness, acquisition, conversion, and evidence correction remain distinct functions.",
+      "proposed_question": "Which cross-repository relation is currently least witnessed, and what public evidence would make it testable without merging repositories or transferring authority?",
+      "proposed_test": "For each mapped repository, name its authoritative contribution, public witness, return path, exclusion, and stale-data signal; preserve separation wherever no verified relation exists.",
+      "external_evidence": true,
+      "mapping_context": {
+        "source": "sources/telos.public-witness.json#system_mapping",
+        "source_version": "0.9.1",
+        "purpose": "Convert qualified people into 200–600 retained annual Sovereign Standard collectors at $408 per year, with monthly collecting preserved as the lower-commitment entry, while the principal refines the system and fulfills orders.",
+        "roles": {
+          "principal": "refine_system_and_fulfill_orders",
+          "telos": "acquire_and_convert_annual_collectors"
+        },
+        "collector_targets": [
+          {
+            "metric": "active_annual_collectors",
+            "target": 200
+          },
+          {
+            "metric": "active_annual_collectors",
+            "target": 600
+          }
+        ],
+        "measurement_state": "aggregate_active_annual_collector_count_not_connected",
+        "repositories": [
+          "telos",
+          "sovereign-standard",
+          "root-logos",
+          "foldforge",
+          "foldportrait"
+        ],
+        "operating_components": [
+          "lightsail",
+          "cloudflare",
+          "github",
+          "stripe",
+          "instagram",
+          "x",
+          "xaman",
+          "ledger-witness"
+        ],
+        "relation_count": 22,
+        "propagation_status": "required",
+        "authority": "inquiry and constitutional relation only"
+      },
+      "reconsideration": {
+        "fingerprint": "ee5388cb454bb70766ad10a34b0bd089b01aa15741466dc032876a8cb3c10084",
+        "evidence_hash": "65d724b1465b8db3e73528f66bef0462fb717656582c03b8d9e7530ab8e8d318",
+        "eligible": false,
+        "reason": "settled-without-new-evidence",
+        "novelty": 0
+      },
+      "evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 3,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 22
+      }
+    }
+  ],
+  "selected_finding": null,
+  "proposal": null,
+  "events": [
+    {
+      "sequence": 1,
+      "type": "cycle-started",
+      "at": "2026-08-26T01:37:58.180Z",
+      "lens": "system-map-pressure",
+      "source_snapshot": "1c086a65e5cf5cbc47b2463f3f285cb34807defb379abb2aa50c0587adb4662e",
+      "intake_event_id": null,
+      "intake_priority": null
+    },
+    {
+      "sequence": 2,
+      "type": "self-prompt-generated",
+      "at": "2026-08-26T01:37:58.186Z",
+      "prompt_hash": "9cb49e40ddf113abd8e7e13ed19538a3dbfa9beb231a6bc19601eea56f55c2db"
+    },
+    {
+      "sequence": 3,
+      "type": "constitutional-search-completed",
+      "at": "2026-08-26T01:37:58.191Z",
+      "findings": 3
+    },
+    {
+      "sequence": 4,
+      "type": "findings-evaluated",
+      "at": "2026-08-26T01:37:58.198Z",
+      "selected": null,
+      "suppressed_repeats": 3
+    },
+    {
+      "sequence": 5,
+      "type": "proposal-written",
+      "at": "2026-08-26T01:37:58.201Z",
+      "status": "completed-no-proposal"
+    }
+  ],
+  "novelty": {
+    "score": 0,
+    "reason": "no-eligible-hypothesis"
+  }
+}
