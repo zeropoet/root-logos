@@ -1,24 +1,24 @@
 {
   "schema": "root-logos-public-source-witness/v1",
   "source_id": "telos",
-  "revision": "5.1.0",
-  "effective_date": "2026-08-14",
+  "revision": "6.0.0",
+  "effective_date": "2026-08-26",
   "status": "witnessed",
   "identity": {
     "name": "Telos",
-    "definition": "The customer-acquisition operator for Sovereign Standard: a bounded system for discovering qualified prospective customers, bringing them to sovereignstandard.co through legitimate channels, and improving conversion into paid subscribers.",
+    "definition": "The customer-acquisition operator for Sovereign Standard: a bounded, zero-spend system for finding qualified prospective collectors, bringing them to sovereignstandard.co through legitimate channels, and improving conversion into annual collectors or monthly-entry collectors.",
     "role_in_coherent_field": "Telos gives Root Logos a living example of persistent, evidence-led customer acquisition whose purpose, permissions, measurements, and stop conditions remain explicit."
   },
   "public_state": {
     "product": "Sovereign Standard customer acquisition",
-    "current_version": "0.5.0",
-    "source_successor_version": "0.8.1",
-    "operational_mode": "deployed bounded organic customer acquisition",
-    "deployed_release_version": "0.5.0",
+    "current_version": "0.9.1",
+    "source_successor_version": "0.9.1",
+    "operational_mode": "deployed bounded zero-spend annual-collector acquisition",
+    "deployed_release_version": "0.9.1",
     "deployed_decision": "OPERATING",
     "owned_search_publisher": "active and catalog-bound to /guides/",
-    "active_campaign": "ritual-seekers-shizuoka-fukamushi-sencha-v1",
-    "active_guide": "https://sovereignstandard.co/guides/ritual-seekers-shizuoka-fukamushi-sencha-v1.html",
+    "active_campaign": "design-object-collectors-numbered-vessel-collection-v1",
+    "active_guide": "https://sovereignstandard.co/guides/design-object-collectors-numbered-vessel-collection-v1.html",
     "active_guide_status": "verified HTTP 200",
     "growth_observation_interval": "15 minutes",
     "acquisition_planning_interval": "6 hours",
@@ -32,26 +32,26 @@
     "private_repository_connected": false
   },
   "system_mapping": {
-    "purpose": "Convert qualified people into retained monthly Sovereign Standard subscribers while the principal refines the system and fulfills orders.",
+    "purpose": "Convert qualified people into 200–600 retained annual Sovereign Standard collectors at $408 per year, with monthly collecting preserved as the lower-commitment entry, while the principal refines the system and fulfills orders.",
     "roles": {
       "principal": "refine_system_and_fulfill_orders",
-      "telos": "acquire_and_convert_monthly_subscribers"
+      "telos": "acquire_and_convert_annual_collectors"
     },
     "success_ladder": [
       {
-        "metric": "active_monthly_subscribers",
+        "metric": "active_annual_collectors",
         "target": 200,
         "meaning": "first proof threshold"
       },
       {
-        "metric": "active_monthly_subscribers",
-        "target": 400,
-        "meaning": "begin principal-led physical-operations scaling review"
+        "metric": "active_annual_collectors",
+        "target": 600,
+        "meaning": "upper intended range and principal-led physical-operations scaling review"
       }
     ],
     "measurement": {
       "source": "privacy-safe aggregate derived inside Sovereign Standard's private subscription boundary",
-      "state": "aggregate_active_subscription_count_not_connected",
+      "state": "aggregate_active_annual_collector_count_not_connected",
       "current_value": null,
       "personal_data_available": false
     },
@@ -62,7 +62,7 @@
       },
       {
         "id": "sovereign-standard",
-        "role": "monthly tea collection, commerce boundary, public product truth, and fulfillment source"
+        "role": "annual-primary and monthly-entry tea collection, commerce boundary, public product truth, and fulfillment source"
       },
       {
         "id": "root-logos",
@@ -125,18 +125,18 @@
       "FoldPortrait -> retains -> artwork, public metadata, prepared mint documents, and canonical XRPL records",
       "Sovereign Standard -> retains -> external vessel attachments and committed relation records",
       "FoldPortrait -> witnesses -> material render lineage",
-      "Telos -> acquires -> qualified prospective subscribers",
-      "Telos -> routes -> Sovereign Standard monthly collection",
+      "Telos -> acquires -> qualified prospective annual collectors",
+      "Telos -> routes -> Sovereign Standard annual collection as primary and monthly collection as entry",
       "Sovereign Standard -> publishes bounded public communication through -> Instagram @sovereignstandardtea",
       "Instagram -> routes public attention to -> sovereignstandard.co",
-      "Sovereign Standard -> converts -> monthly subscribers",
+      "Sovereign Standard -> converts -> annual collectors and monthly-entry collectors",
       "anonymous evidence -> corrects -> Telos campaigns",
       "Telos public system map -> informs -> Root Logos Cultivation Chamber",
-      "200 active monthly subscribers -> establishes -> first success threshold",
-      "400 active monthly subscribers -> triggers -> physical operations scaling review"
+      "200 active annual collectors -> establishes -> first success threshold",
+      "600 active annual collectors -> marks -> upper intended range and physical operations scaling review"
     ],
     "cultivation_authority": "inquiry and constitutional relation only",
-    "source_commit": "a2e7b30"
+    "source_commit": "860d81244182b0031dfd786acc21562ed5735f69"
   },
   "change_propagation_policy": {
     "status": "required",
@@ -164,7 +164,7 @@
     "Rank a bounded campaign hypothesis.",
     "Create truthful, trackable content grounded in approved Sovereign Standard product facts.",
     "Publish only catalog-approved guides beneath /guides/ with an exact rollback path.",
-    "Measure anonymous landing, Collection, checkout, and paid events.",
+    "Measure anonymous landing, Collection, checkout, annual_collection_paid, and monthly_collection_paid events.",
     "Continue, revise, or stop the campaign from evidence."
   ],
   "governing_commitments": [
@@ -182,12 +182,13 @@
     "Telos has no exchange connector or crypto-trading authority.",
     "Any BTC purchase is a separate owner-directed use of realized business surplus.",
     "The production observer reads only anonymous event identifiers, types, timestamps, channels, and campaigns.",
-    "Release 0.5.0 is operating independently on Lightsail through a fifteen-minute observer and six-hour acquisition planner.",
-    "The first catalog-bound campaign is live, included in the Sovereign Standard sitemap, and verified before duplicate publication is refused.",
+    "Release 0.9.1 is operating independently on Lightsail through a fifteen-minute observer and six-hour acquisition planner.",
+    "Twelve deterministic annual-collector campaign candidates span four audiences and three truthful themes; only one may be active at a time.",
+    "The first annual-collector guide is live, included in the Sovereign Standard sitemap, and verified before duplicate publication is refused.",
     "@sovereignstandardtea is mapped as Sovereign Standard's bounded public Instagram channel; the site remains the canonical product and archive record.",
     "Organic discovery is treated as a progression from operational proof to indexing, qualified traffic, conversion, and repeatability—not as a promise of customers or profit.",
     "The catalog-bound gate cannot accept arbitrary copy, HTML, URLs, repository paths, homepage changes, outreach, or spend.",
-    "Source version 0.8.1 projects the public system map into bounded Root Logos cultivation while the deployed acquisition release remains 0.5.0."
+    "Source and deployed version 0.9.1 project the annual-primary, monthly-entry acquisition map into bounded Root Logos cultivation."
   ],
   "work_relations": [],
   "exclusions": [
@@ -203,7 +204,8 @@
   "questions": [
     "Can customer acquisition remain truthful and useful when its authority is narrower than its ability to generate ideas?",
     "Which anonymous signals are sufficient to improve conversion without creating a customer-surveillance system?",
-    "When has a campaign earned continuation, and when should insufficient evidence require silence or rollback?"
+    "When has a campaign earned continuation, and when should insufficient evidence require silence or rollback?",
+    "Which truthful annual-commitment framing attracts collectors without reducing the numbered vessel and tea practice to price alone?"
   ],
-  "witness": "sha256:3adf4c0a2ad64a1b5e54c5c79479b5694454d23dc898da8606c0953fb4903b20"
+  "witness": "sha256:e8024ccce0387b7776fc0336d4220568e2f9e1b92a32cfccc2e352dc7075b1d1"
 }

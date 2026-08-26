@@ -65,12 +65,14 @@ customer needs and channel opportunities, ranks bounded campaign hypotheses,
 creates truthful trackable artifacts, measures anonymous conversion events,
 and decides whether to continue, revise, pause, or stop within reviewed
 authority. Its purpose is to bring qualified people to Sovereign Standard and
-convert them into paid subscribers; measurement is the feedback loop that lets
+convert them into annual collectors, with monthly collecting retained as an
+entry; measurement is the feedback loop that lets
 it learn without becoming a surveillance system.
 
-Release 0.5.0 operates independently on Lightsail. A fifteen-minute observer
-records permitted anonymous events and a six-hour planner evaluates one active,
-catalog-bound organic-search campaign. Its first guide is live beneath
+Release 0.9.1 operates independently on Lightsail. A fifteen-minute observer
+records permitted anonymous events and a six-hour planner evaluates one active
+campaign from twelve deterministic annual-collector candidates. Its first
+annual-collector guide is live beneath
 `/guides/`; further expansion must be earned through indexing, qualified
 traffic, conversion, and repeatable evidence.
 
@@ -81,11 +83,11 @@ spend. Root Logos can learn from Telos's evidence-bound action without becoming
 part of Sovereign Standard's acquisition or customer-data control plane.
 
 Telos also releases a bounded system mapping into the Cultivation Chamber. It
-names the principal and operator roles, the 200 and 400 active-subscriber
+names the principal and operator roles, the 200 and 600 active-annual-collector
 thresholds, mapped repositories and operating components, anonymous
 measurement gap, public relations, and propagation obligations. Cultivation
 may test those relations and expose a stale or weakly witnessed consequence;
-it may not infer a subscriber count, command an operating component, or acquire
+it may not infer a collector count, command an operating component, or acquire
 customer, commerce, credential, publication, deployment, outreach, spending,
 fulfillment, or scaling authority.
 

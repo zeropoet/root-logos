@@ -300,7 +300,7 @@ const systemMappingContext = (witness) => {
     source_version: witness?.public_state?.source_successor_version || witness?.public_state?.current_version || null,
     purpose: mapping.purpose || null,
     roles: mapping.roles || {},
-    subscriber_targets: (mapping.success_ladder || []).map(({ metric, target }) => ({ metric, target })),
+    collector_targets: (mapping.success_ladder || []).map(({ metric, target }) => ({ metric, target })),
     measurement_state: mapping.measurement?.state || null,
     repositories: (mapping.repositories || []).map(({ id }) => id),
     operating_components: (mapping.operating_components || []).map(({ id }) => id),
@@ -325,12 +325,12 @@ const searchSystemMapPressure = (graph, witness) => {
     evidence: [
       mapping.purpose,
       `Roles: principal=${mapping.roles?.principal}; telos=${mapping.roles?.telos}.`,
-      `Subscriber thresholds: ${targets.join(" then ")}; measurement=${mapping.measurement?.state}.`,
+      `Annual collector thresholds: ${targets.join(" then ")}; measurement=${mapping.measurement?.state}.`,
       `Cultivation authority: ${mapping.cultivation_authority}.`
     ],
-    claim: `The mapped system makes customer acquisition answerable to material stewardship: Telos seeks ${targets.join(" then ")} active monthly subscribers while the principal retains refinement, fulfillment, and scaling judgment.`,
-    proposed_question: "Which relations keep subscriber growth subordinate to truthful product practice, fulfillment capacity, and principal-led judgment as the system approaches each threshold?",
-    proposed_test: "Trace each subscriber threshold through acquisition, conversion, fulfillment, measurement, and authority; reject any interpretation that treats traffic as subscribers, lets cultivation issue an operating command, or makes growth its own highest reference.",
+    claim: `The mapped system makes customer acquisition answerable to material stewardship: Telos seeks ${targets.join(" then ")} active annual collectors while the principal retains refinement, fulfillment, and scaling judgment.`,
+    proposed_question: "Which relations keep annual-collector growth subordinate to truthful product practice, fulfillment capacity, and principal-led judgment as the system approaches each threshold?",
+    proposed_test: "Trace each annual-collector threshold through acquisition, conversion, fulfillment, measurement, and authority; reject any interpretation that treats traffic as collectors, lets cultivation issue an operating command, or makes growth its own highest reference.",
     external_evidence: true,
     mapping_context: systemMappingContext(witness)
   }, {
