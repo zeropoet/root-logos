@@ -16,8 +16,8 @@
   "measures": {
     "public_vessel_records": 136,
     "witness_works": 56,
-    "vessel_work_relations": 15,
-    "vessels_with_witness_works": 14,
+    "vessel_work_relations": 16,
+    "vessels_with_witness_works": 15,
     "prepared_works": 41,
     "minted_works": 15
   },
@@ -677,7 +677,18 @@
       "metadata_url": "https://zeropoet.github.io/FoldPortrait/Mint/metadata/foldportrait-v3.2-zero-poet-2cfdfa64.json",
       "archived_file_url": "https://zeropoet.github.io/FoldPortrait/Output/png/foldportrait-v3.2-zero-poet-2cfdfa64.png",
       "updated_at": null,
-      "vessels": [],
+      "vessels": [
+        {
+          "vessel_number": "013",
+          "public_url": "https://sovereignstandard.co/unit.html?id=13",
+          "state": "claimed",
+          "display_state": "CLAIMED",
+          "created_at": "2026-04-10T16:31:37Z",
+          "convergence_hash": "5a371917db18a2e1ee310133dacbf5cd03d16ded039215db5eacd23bd20e0c11",
+          "attested_event_count": 6,
+          "attested_event_hash": "41f43307ec413a6fe5a51038fc328cad6ee5977f726ba1a0301ae26f17955f55"
+        }
+      ],
       "ledger_witness": {
         "network": "MAINNET",
         "transaction_type": "NFTokenMint",
@@ -1402,5 +1413,5 @@
       }
     }
   ],
-  "witness": "sha256:1ea8c8b5d9618bccdf9f692a2891c2f38352d486ef1c6aad7b617464ed9f2f96"
+  "witness": "sha256:bb72bf09cc24be3caedf8351e67dd98cce3397605f2344e9b68e60451fac821d"
 }
