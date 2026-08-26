@@ -1697,10 +1697,41 @@
         },
         "total": 20
       }
+    },
+    "6a6b2cb8b50a6b65f1ee169ee768d2ff1ae1406f439108b8e5af4986e8a46e8a": {
+      "fingerprint": "6a6b2cb8b50a6b65f1ee169ee768d2ff1ae1406f439108b8e5af4986e8a46e8a",
+      "kind": "system-map-pressure",
+      "nodes": [
+        "source-telos",
+        "source-sovereign-standard",
+        "stewardship",
+        "principle-higher-reference"
+      ],
+      "claim": "The mapped system makes customer acquisition answerable to material stewardship: Telos seeks 200 then 600 active annual collectors while the principal retains refinement, fulfillment, and scaling judgment.",
+      "proposed_question": "Which relations keep annual-collector growth subordinate to truthful product practice, fulfillment capacity, and principal-led judgment as the system approaches each threshold?",
+      "evidence_hash": "6e5f4c7363fa3eaa44d742f7ecbef5a8252c8d33386cf9ff6f2e21636a170cc8",
+      "policy_hash": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1",
+      "first_cycle": "RL-CULTIVATE-0192",
+      "last_cycle": "RL-CULTIVATE-0192",
+      "last_cycle_index": 192,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 3,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 22
+      }
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 3,
+    "consecutive_low_yield_cycles": 1,
     "last_score": 0,
     "history": [
       {
@@ -2983,13 +3014,27 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-25T17:53:18.079Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0192",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-08-26T01:30:10.889Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0193",
+        "score": 0,
+        "reason": "no-eligible-hypothesis",
+        "status": "completed-no-proposal",
+        "at": "2026-08-26T01:31:32.849Z"
       }
     ]
   },
   "dormancy": {
-    "active": true,
-    "entered_at": "2026-08-25T17:53:18.113Z",
-    "reason": "3 consecutive low-yield cycles",
+    "active": false,
+    "entered_at": null,
+    "reason": null,
     "source_snapshot": {
       "combined": "d4aa2a945a9d9211c77ee8e768f3cb913082ab77013966607dbc7dc20ee1f064",
       "policy": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1"
@@ -3109,6 +3154,10 @@
       },
       {
         "at": "2026-08-25T17:03:04.061Z",
+        "reason": "canonical-source-changed"
+      },
+      {
+        "at": "2026-08-26T01:30:10.841Z",
         "reason": "canonical-source-changed"
       }
     ]

@@ -194,14 +194,14 @@ const mappedState = JSON.parse(await readFile(join(sandbox, "cultivation", "stat
 const mappedId = mappedState.history.at(-1).cultivation_id;
 const mappedCycle = JSON.parse(await readFile(join(sandbox, "cultivation", "cycles", `${mappedId}.json`), "utf8"));
 assert.equal(mappedCycle.lens.id, "system-map-pressure");
-assert.deepEqual(mappedCycle.system_mapping.subscriber_targets.map(({ target }) => target), [200, 400]);
+assert.deepEqual(mappedCycle.system_mapping.collector_targets.map(({ target }) => target), [200, 600]);
 assert.deepEqual(mappedCycle.system_mapping.repositories, ["telos", "sovereign-standard", "root-logos", "foldforge", "foldportrait"]);
-assert.equal(mappedCycle.system_mapping.measurement_state, "aggregate_active_subscription_count_not_connected");
+assert.equal(mappedCycle.system_mapping.measurement_state, "aggregate_active_annual_collector_count_not_connected");
 assert.equal(mappedCycle.system_mapping.propagation_status, "required");
 assert.equal(mappedCycle.system_mapping.authority, "inquiry and constitutional relation only");
 assert.ok(mappedCycle.findings.length >= 3);
 assert.ok(mappedCycle.findings.every(({ kind }) => kind === "system-map-pressure"));
-assert.ok(mappedCycle.findings.some(({ claim }) => claim.includes("200 then 400")));
+assert.ok(mappedCycle.findings.some(({ claim }) => claim.includes("200 then 600")));
 
 const exhaustionMemory = JSON.parse(await readFile(join(sandbox, "cultivation", "memory.json"), "utf8"));
 for (const finding of repeatedCycle.findings) {

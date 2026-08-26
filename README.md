@@ -202,7 +202,7 @@ authority boundaries.
 - `sources/telos.public-witness.json` publishes Telos as Sovereign Standard's
   customer-acquisition operator. It exposes the bounded acquisition loop,
   anonymous measurement posture, deployment state, public five-repository and
-  eight-component system mapping, 200/400 subscriber ladder, system-wide change
+  eight-component system mapping, 200–600 annual-collector ladder, system-wide change
   propagation policy, governing constraints, and unresolved questions. Its
   schema excludes personal data, payment records,
   credentials, unpublished campaign artifacts, outreach, advertising spend,
@@ -301,7 +301,7 @@ authority boundaries.
   emitted as new canonical identifiers.
 - `scripts/cultivate.mjs` lets Root Logos generate its own constitutional
   question, search through seven distinct methods—including explicit pressure
-  from mapped repository roles, operating components, subscriber thresholds,
+  from mapped repository roles, operating components, annual-collector thresholds,
   and propagation obligations, plus constitutional-citizenship pressure across
   human and machine standing—remember and suppress unchanged hypotheses,
   evaluate findings, enter dormancy at diminishing returns, and apply only
