@@ -3187,3 +3187,228 @@ body.archive-open .site-footer {
     linear-gradient(150deg,#747771,#5d605a);
   background-size:120px 100%,100% 100%;
 }
+
+/* Constitutional Observatory — Root Logos' lasting position between
+   Sovereign Standard's material ritual and FoldPortrait's living field. */
+body.archive-open {
+  --rl-paper:#f1eee6;
+  --rl-paper-high:#fbf9f3;
+  --rl-paper-low:#e5e2d9;
+  --rl-ink:#17212b;
+  --rl-muted:#68706b;
+  --rl-line:rgba(23,33,43,.18);
+  --rl-line-strong:rgba(23,33,43,.38);
+  --rl-sage:#748071;
+  --rl-sage-deep:#626c61;
+  --rl-signal:#943f4e;
+  --display:"Iowan Old Style","Baskerville",Georgia,"Times New Roman",serif;
+  --body:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --ui:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  --mono:var(--ui);
+  --void:var(--rl-paper);
+  --ivory:var(--rl-ink);
+  --bone:#535e62;
+  --dim:#68716d;
+  --ghost:#8b918c;
+  --line:var(--rl-line);
+  --line-strong:var(--rl-line-strong);
+  --gold:var(--rl-signal);
+  --gold-bright:var(--rl-signal);
+  --accent:var(--rl-signal);
+  background:var(--rl-paper);
+  color:var(--rl-ink);
+}
+body.archive-open::before {
+  opacity:.65;
+  background:linear-gradient(90deg,transparent calc(50% - .5px),rgba(23,33,43,.045) 50%,transparent calc(50% + .5px));
+}
+body.archive-open::after { background:var(--rl-paper); }
+body.archive-open main {
+  background-color:var(--rl-paper);
+  background-image:
+    linear-gradient(90deg,transparent calc(var(--edge) - 1px),rgba(23,33,43,.045) var(--edge),transparent calc(var(--edge) + 1px)),
+    linear-gradient(90deg,transparent calc(100% - var(--edge) - 1px),rgba(23,33,43,.045) calc(100% - var(--edge)),transparent calc(100% - var(--edge) + 1px));
+}
+body.archive-open .site-header {
+  min-height:76px;
+  border-bottom:1px solid var(--rl-line-strong);
+  background:rgba(241,238,230,.9);
+  box-shadow:0 8px 32px rgba(23,33,43,.035);
+  backdrop-filter:blur(18px) saturate(.85);
+}
+body.archive-open .brand-word {
+  color:var(--rl-ink);
+  font-family:var(--display);
+  font-size:.88rem;
+  letter-spacing:.16em;
+}
+body.archive-open .primary-nav a { color:rgba(23,33,43,.56); }
+body.archive-open .primary-nav a:hover,
+body.archive-open .primary-nav a.is-active { color:var(--rl-ink); }
+body.archive-open .primary-nav a::after { background:var(--rl-signal); }
+body.archive-open .system-presence {
+  border-color:var(--rl-line);
+  color:var(--rl-ink);
+}
+body.archive-open .presence-orbit { background:radial-gradient(circle,var(--rl-paper-high) 0 18%,transparent 20%); }
+body.archive-open .presence-orbit::before { border-color:rgba(23,33,43,.28);border-top-color:var(--rl-signal); }
+body.archive-open .presence-orbit::after { border-color:rgba(23,33,43,.22); }
+body.archive-open .presence-orbit i { background:var(--rl-signal); }
+
+body.archive-open .space {
+  border-color:var(--rl-line);
+  background-color:var(--rl-paper);
+}
+body.archive-open .field-space {
+  background:
+    radial-gradient(circle at 52% 48%,rgba(255,255,255,.72),transparent 42%),
+    linear-gradient(180deg,var(--rl-paper-high),var(--rl-paper));
+}
+body.archive-open .field-vignette {
+  background:linear-gradient(90deg,rgba(241,238,230,.9),transparent 38%,transparent 69%,rgba(241,238,230,.42));
+}
+body.archive-open .field-header h1,
+body.archive-open .coordinate-declaration h1,
+body.archive-open .space-heading h2,
+body.archive-open .library-guide h2,
+body.archive-open .observation-instrument h3,
+body.archive-open .citizenship-introduction h2 {
+  color:var(--rl-ink);
+  font-family:var(--display);
+  font-weight:400;
+  letter-spacing:-.035em;
+  text-transform:none;
+}
+body.archive-open .field-header h1 { max-width:12ch;font-size:clamp(2.7rem,5vw,5.8rem);line-height:.92; }
+body.archive-open .field-header h1 em,
+body.archive-open .coordinate-declaration h1 em,
+body.archive-open .space-heading h2 em { color:var(--rl-sage-deep); }
+body.archive-open .field-intro,
+body.archive-open .space-heading > div > p { color:#596266; }
+body.archive-open .coordinate,
+body.archive-open .micro-label { color:var(--rl-muted); }
+body.archive-open .coordinate[data-module]::before,
+body.archive-open .micro-label[data-module]::before { color:var(--rl-signal); }
+body.archive-open .coordinate[data-module]::after,
+body.archive-open .micro-label[data-module]::after { background:var(--rl-line); }
+body.archive-open .field-controls button {
+  border-color:var(--rl-line-strong);
+  background:rgba(251,249,243,.76);
+  color:var(--rl-ink);
+}
+
+body.archive-open main > .coordinate-space { background:var(--rl-paper-low); }
+body.archive-open .coordinate-register div,
+body.archive-open .citizenship-grid article {
+  border-color:var(--rl-line);
+  background:rgba(251,249,243,.58);
+}
+body.archive-open .coordinate-register div:first-child { border-top-color:var(--rl-signal); }
+body.archive-open .coordinate-register dt,
+body.archive-open .coordinate-register dd { color:var(--rl-ink); }
+body.archive-open .citizenship-grid span { color:var(--rl-signal); }
+body.archive-open .coordinate-boundary { border-color:var(--rl-line);color:var(--rl-muted); }
+
+body.archive-open main > .observatory-space { background:#ebe8df; }
+body.archive-open .verification-register,
+body.archive-open .verification-ledger,
+body.archive-open .propagation-ledger,
+body.archive-open .observatory-substrate {
+  background:rgba(251,249,243,.64);
+  box-shadow:inset 0 0 0 1px var(--rl-line);
+}
+body.archive-open .verification-source-list button,
+body.archive-open .observatory-modes button,
+body.archive-open .proposal-card,
+body.archive-open .review-surface,
+body.archive-open .observatory-reading,
+body.archive-open .observatory-selection {
+  background:rgba(251,249,243,.8);
+  color:var(--rl-ink);
+}
+
+body.archive-open main > .works-space {
+  background:
+    linear-gradient(90deg,transparent calc(50% - .5px),rgba(255,255,255,.15) 50%,transparent calc(50% + .5px)),
+    repeating-linear-gradient(0deg,transparent 0 119px,rgba(255,255,255,.055) 119px 120px),
+    linear-gradient(145deg,#879087 0%,#788178 48%,#697269 100%);
+}
+body.archive-open .works-archive,
+body.archive-open .work-reading { background:linear-gradient(150deg,#747e74,#626c62); }
+body.archive-open .works-space .library-guide h2,
+body.archive-open .works-space .library-guide p { color:var(--rl-paper-high); }
+body.archive-open .library-shell {
+  border:1px solid rgba(251,249,243,.84);
+  box-shadow:0 24px 64px rgba(40,49,43,.16);
+}
+body.archive-open .library-stage { background-color:#f4f1e9; }
+
+body.archive-open main > .intake-space { background:#dddcd3; }
+body.archive-open .observation-instrument {
+  border:1px solid var(--rl-line-strong);
+  background:rgba(251,249,243,.86);
+  box-shadow:14px 14px 0 rgba(116,128,113,.22);
+}
+body.archive-open input,
+body.archive-open textarea,
+body.archive-open select {
+  border-color:var(--rl-line-strong);
+  background:rgba(241,238,230,.76);
+  color:var(--rl-ink);
+}
+body.archive-open input:focus,
+body.archive-open textarea:focus,
+body.archive-open select:focus { border-color:var(--rl-signal);background:var(--rl-paper-high); }
+body.archive-open .field-controls button:hover,
+body.archive-open .field-controls button.is-active,
+body.archive-open .verification-source-list button:hover,
+body.archive-open .verification-source-list button.is-active,
+body.archive-open .observatory-modes button:hover,
+body.archive-open .observatory-modes button.is-active,
+body.archive-open .proposal-card:hover,
+body.archive-open .proposal-card.is-active,
+body.archive-open .coordinate-paths a:hover,
+body.archive-open .verification-actions a:hover,
+body.archive-open .reading-actions a:hover,
+body.archive-open .form-submit button {
+  border-color:var(--rl-ink);
+  background:var(--rl-ink);
+  color:var(--rl-paper-high);
+}
+body.archive-open .form-submit button:hover { border-color:var(--rl-signal);background:var(--rl-signal); }
+body.archive-open :focus-visible { outline-color:var(--rl-signal); }
+
+body.archive-open .site-footer {
+  border-color:var(--rl-line-strong);
+  background:
+    linear-gradient(90deg,rgba(23,33,43,.04) 1px,transparent 1px),
+    var(--rl-paper-low);
+  background-size:120px 100%,100% 100%;
+  color:var(--rl-ink);
+}
+body.archive-open .site-footer a,
+body.archive-open .site-footer p,
+body.archive-open .site-footer small { color:var(--rl-ink); }
+body.archive-open .footer-tea {
+  border-color:var(--rl-line);
+  background:rgba(251,249,243,.7);
+  box-shadow:12px 12px 0 rgba(116,128,113,.16);
+}
+body.archive-open .footer-tea i { color:var(--rl-signal); }
+
+@media (max-width:1080px) {
+  body.archive-open .primary-nav {
+    border-color:var(--rl-line-strong);
+    background:rgba(241,238,230,.97);
+    box-shadow:0 20px 48px rgba(23,33,43,.1);
+  }
+  body.archive-open .primary-nav a,
+  body.archive-open .system-presence { border-color:var(--rl-line); }
+}
+
+@media (max-width:760px) {
+  body.archive-open .site-header { min-height:64px; }
+  body.archive-open .field-header h1 { font-size:clamp(2.55rem,12vw,3.65rem);line-height:.94; }
+  body.archive-open .field-vignette { background:linear-gradient(180deg,rgba(241,238,230,.94),transparent 43%,rgba(241,238,230,.18)); }
+  body.archive-open .observation-instrument { box-shadow:8px 8px 0 rgba(116,128,113,.2); }
+}
