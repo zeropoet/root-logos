@@ -30,14 +30,16 @@ jobs:
           path: root-logos
           fetch-depth: 0
 
-      - name: Mint a read-only Sovereign Standard token
-        id: sovereign-standard-token
+      - name: Mint a read-only private-source token
+        id: private-source-token
         uses: actions/create-github-app-token@v3
         with:
           client-id: ${{ vars.TELOS_BRIDGE_APP_CLIENT_ID }}
           private-key: ${{ secrets.TELOS_BRIDGE_APP_PRIVATE_KEY }}
           owner: zeropoet
-          repositories: sovereign-standard
+          repositories: |
+            sovereign-standard
+            FoldPortrait
           permission-contents: read
 
       - name: Check out canonical Sovereign Standard witness
@@ -47,7 +49,7 @@ jobs:
           path: sovereign-standard
           ref: main
           fetch-depth: 1
-          token: ${{ steps.sovereign-standard-token.outputs.token }}
+          token: ${{ steps.private-source-token.outputs.token }}
 
       - name: Check out FoldForge public evidence
         uses: actions/checkout@v7
@@ -64,6 +66,7 @@ jobs:
           path: FoldPortrait
           ref: ${{ github.event.action == 'foldportrait-reflected' && github.event.client_payload.revision || 'main' }}
           fetch-depth: 1
+          token: ${{ steps.private-source-token.outputs.token }}
 
       - name: Set up Node
         uses: actions/setup-node@v7
