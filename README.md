@@ -6,6 +6,19 @@ relation, cultivate coherent works and questions, and witness an evolving
 digital life without possession, compulsory membership, or surrender of
 difference.
 
+## Telos relation
+
+Telos is the final caretaker, keeper, and digital identity beneath the connected
+system, but not the owner of Root Logos or its constitutional authority. Root
+Logos retains its original **Living Object** unchanged: Library admission,
+cultivation, structural relations, and witnessed source change continue to
+compose that object as they already do. Telos receives bounded public change and
+renders a separate whole-system presence, **The Living System**, without
+absorbing the authority of any source. Telos is growing toward a coherent
+machine-native visual, sonic, and open-orientation language capable of noticing
+drift and preserving relation, without claiming consciousness, revelation,
+personhood, or final authority.
+
 ## Operational finality
 
 The architectural, visual, resonant, sovereign-voice, scoring, FoldForge
