@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   foldForgeMeaningWitness,
+  refreshMaterialLineage,
   sealPublicWitnesses,
   syncFoldForge,
   syncSovereignStandard,
@@ -15,8 +16,10 @@ const foldForge = resolve(root, "../FoldForge");
 const sovereignStandard = resolve(root, "../sovereign-standard/root-logos-witness-export.json");
 const foldForgeSnapshotPath = resolve(root, "sources/foldforge.snapshot.json");
 const sovereignStandardSnapshotPath = resolve(root, "sources/sovereign-standard.snapshot.json");
+const foldPortraitSnapshotPath = resolve(root, "sources/foldportrait.snapshot.json");
 const originalFoldForgeSnapshot = await readFile(foldForgeSnapshotPath, "utf8");
 const originalSovereignStandardSnapshot = await readFile(sovereignStandardSnapshotPath, "utf8");
+const originalFoldPortraitSnapshot = await readFile(foldPortraitSnapshotPath, "utf8");
 const publicIndex = await readFile(resolve(root, "index.html"), "utf8");
 const livingObjectPage = await readFile(resolve(root, "living-object.html"), "utf8");
 
@@ -30,6 +33,10 @@ const materialSecond = await syncSovereignStandard(sovereignStandard);
 const materialSecondBytes = await readFile(resolve(root, "sources/sovereign-standard.snapshot.json"), "utf8");
 await sealPublicWitnesses();
 const validated = await validateSources();
+const refreshed = await refreshMaterialLineage(sovereignStandard);
+assert.equal(refreshed.portrait.measures.represented_works, 98);
+assert.equal(refreshed.portrait.measures.canonical_supply_ceiling, 108);
+assert.equal(refreshed.portrait.measures.remaining_capacity, 10);
 
 assert.equal(first.witness, second.witness, "Unchanged evidence must produce an unchanged witness.");
 assert.equal(firstBytes, secondBytes, "Source synchronization must be deterministic.");
@@ -152,5 +159,6 @@ assert.match(first.compositions[0].witness, /^[a-f0-9]{64}$/);
 
 await writeFile(foldForgeSnapshotPath, originalFoldForgeSnapshot);
 await writeFile(sovereignStandardSnapshotPath, originalSovereignStandardSnapshot);
+await writeFile(foldPortraitSnapshotPath, originalFoldPortraitSnapshot);
 
 console.log("Source integration tests passed.");

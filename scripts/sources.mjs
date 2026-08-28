@@ -80,6 +80,12 @@ const validateFoldPortraitWitness = (snapshot, material) => {
   assert(snapshot.witness === `sha256:${digest(witnessedPayload(snapshot))}`, "FoldPortrait witness digest is invalid.");
   assert(snapshot.measures?.renders === snapshot.renders?.length, "FoldPortrait render count is inconsistent.");
   assert(snapshot.measures?.material_matches === snapshot.renders.length, "Every FoldPortrait render must resolve to material evidence.");
+  assert(snapshot.collection?.canonical_supply_ceiling === 108, "FoldPortrait canonical supply ceiling must remain 108.");
+  assert(snapshot.collection?.first_era_supply === snapshot.renders.length, "FoldPortrait first-era supply is inconsistent.");
+  assert(snapshot.collection?.reflection_supply_ceiling === 56, "FoldPortrait reflection supply ceiling must remain 56.");
+  assert(snapshot.measures?.represented_works === snapshot.renders.length + snapshot.reflections.length, "FoldPortrait represented work count is inconsistent.");
+  assert(snapshot.measures?.canonical_supply_ceiling === snapshot.collection.canonical_supply_ceiling, "FoldPortrait measure ceiling diverged from its collection policy.");
+  assert(snapshot.measures?.remaining_capacity === snapshot.collection.canonical_supply_ceiling - snapshot.measures.represented_works, "FoldPortrait remaining capacity is inconsistent.");
   const materialWorks = new Map(material.works.map((work) => [work.artifact_id, work]));
   for (const render of snapshot.renders) {
     const work = materialWorks.get(render.artifact_id);
@@ -302,6 +308,10 @@ export const refreshMaterialLineage = async (
     ...witnessedPayload(priorPortrait),
     material_source_witness: material.witness,
     measures: {
+      ...priorPortrait.measures,
+      represented_works: renders.length + priorPortrait.reflections.length,
+      canonical_supply_ceiling: priorPortrait.collection.canonical_supply_ceiling,
+      remaining_capacity: priorPortrait.collection.canonical_supply_ceiling - renders.length - priorPortrait.reflections.length,
       renders: renders.length,
       material_matches: renders.length,
       embodied_renders: renders.filter(({ material_witness }) => material_witness.vessels.length).length,
