@@ -5,6 +5,7 @@
   "account": "rootlogos",
   "timezone": "America/New_York",
   "schedule": "Monday, Wednesday, and Friday at 10:17 AM",
+  "recovery_schedule": "Monday, Wednesday, and Friday at 1:47 PM",
   "max_emissions_per_run": 1,
   "selection": "oldest eligible not-before date, then attractor id",
   "refinement_transition": {
@@ -24,5 +25,5 @@
     "source_revision_present": true
   },
   "platform_metrics_are_selection_authority": false,
-  "notes": "Activated after OAuth 1.0a identity verification confirmed @rootlogos on 2026-07-14. No per-fragment human approval is required."
+  "notes": "Activated after OAuth 1.0a identity verification confirmed @rootlogos on 2026-07-14. No per-fragment human approval is required. The recovery schedule converges on the current main branch before checking eligibility, so it becomes a no-op when the primary release receipt is already present and cannot advance a future packet early."
 }

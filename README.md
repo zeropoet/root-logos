@@ -701,10 +701,14 @@ node scripts/attractors.mjs transition-status
 ```
 
 The scheduled workflow executes that same release command every Monday,
-Wednesday, and Friday at 10:17 AM Eastern. It selects the oldest due packet that
-has earned `eligible` status, passed all six upstream scrutiny checks, and
-passed all four Gravitational Integrity checks. No
-per-fragment personal approval occurs downstream.
+Wednesday, and Friday at 10:17 AM Eastern. A recovery pass follows at 1:47 PM
+Eastern in case GitHub drops or substantially delays the primary schedule. Both
+passes first converge on the current `main` branch, then select only the oldest
+due packet that has earned `eligible` status, passed all six upstream scrutiny
+checks, and passed all four Gravitational Integrity checks. When the primary
+receipt is already present, the recovery pass is a no-op; it cannot advance a
+future packet before its eligibility date. No per-fragment personal approval
+occurs downstream.
 
 Manual publication remains available only as a diagnostic fallback:
 

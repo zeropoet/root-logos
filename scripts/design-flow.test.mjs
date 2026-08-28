@@ -2,11 +2,12 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 const readJson = async (path) => JSON.parse(await readFile(new URL(`../${path}`, import.meta.url), "utf8"));
-const [module, archive, registry, graph] = await Promise.all([
+const [module, archive, registry, graph, policy] = await Promise.all([
   readJson("content/design-flow-ledger.json"),
   readJson("content/attractor-packets.json"),
   readJson("sources/registry.json"),
-  readJson("content/constitutional-graph.json")
+  readJson("content/constitutional-graph.json"),
+  readJson("content/attractor-policy.json")
 ]);
 const [publicRenderer, releaseWorkflow] = await Promise.all([
   readFile(new URL("../script.js", import.meta.url), "utf8"),
@@ -53,10 +54,15 @@ assert.match(
   "Public witness data must bypass the browser cache so publication counts advance without a hard refresh."
 );
 assert.match(releaseWorkflow, /actions:\s*write/, "Attractor release requires bounded workflow-dispatch authority.");
+assert.match(releaseWorkflow, /cron:\s*["']17 10 \* \* 1,3,5["']/, "The primary release schedule must remain explicit.");
+assert.match(releaseWorkflow, /cron:\s*["']47 13 \* \* 1,3,5["']/, "A delayed recovery schedule must recheck missed releases.");
+assert.match(releaseWorkflow, /git checkout -B main origin\/main/, "Every release attempt must converge on current main before selecting a packet.");
 assert.match(releaseWorkflow, /id:\s*preserve/, "Publication provenance must expose whether an emission was committed.");
 assert.match(releaseWorkflow, /emitted=true/, "A preserved publication must open the ripple gate.");
 assert.match(releaseWorkflow, /gh workflow run \"\$workflow\" --ref main/, "The release workflow must explicitly dispatch downstream ripples after its bot-authored commit.");
 assert.match(releaseWorkflow, /pages\.yml cultivation-cycle\.yml/, "Every publication ripple must refresh the public archive and wake bounded cultivation.");
+assert.equal(policy.schedule, "Monday, Wednesday, and Friday at 10:17 AM");
+assert.equal(policy.recovery_schedule, "Monday, Wednesday, and Friday at 1:47 PM");
 
 assert.ok(graph.nodes.some(({ id, type }) => id === module.constitutional_node_id && type === "tracked-module"));
 assert.ok(graph.nodes.some(({ id, type }) => id === "principle-relational-propagation" && type === "architectural-principle"));
