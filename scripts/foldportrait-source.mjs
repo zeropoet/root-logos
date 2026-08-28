@@ -26,6 +26,7 @@ const ledger = await readJson(resolve(foldPortraitRoot, "Output/iterations/evolu
 const reflectionLedger = await readJson(resolve(foldPortraitRoot, "Output/reflections/reflection-ledger.json"));
 const currentReflection = await readJson(resolve(foldPortraitRoot, "Output/reflections/current.json"));
 const reflectionArchive = await readJson(resolve(foldPortraitRoot, "Output/reflections/archive.json"));
+const collectionPolicy = await readJson(resolve(foldPortraitRoot, "Mint/collection-policy.json"));
 const material = await readJson(materialPath);
 const materialWorks = new Map(material.works.map((work) => [work.artifact_id, work]));
 const renders = [];
@@ -107,18 +108,27 @@ const reflections = await Promise.all(reflectionLedger.map(async (cycle) => {
 }));
 assert(reflections.at(-1)?.cycle_id === currentReflection.cycleID, "The FoldPortrait current reflection does not match its lineage head.");
 assert(reflections.at(-1)?.render_hash === currentReflection.renderHash, "The FoldPortrait current reflection hash diverged.");
+const supply = collectionPolicy.declaration;
+assert(supply.canonical_supply_ceiling === 108, "FoldPortrait canonical supply ceiling must remain 108.");
+assert(supply.first_era_supply === renders.length, "FoldPortrait first-era supply does not match the sealed render ledger.");
+assert(supply.reflection_supply_ceiling === supply.canonical_supply_ceiling - supply.first_era_supply, "FoldPortrait era ceilings do not resolve to the canonical supply.");
+assert(reflections.length <= supply.reflection_supply_ceiling, "FoldPortrait reflections exceed the signed collection ceiling.");
+const representedWorks = renders.length + reflections.length;
 
 const payload = {
   schema: "root-logos-foldportrait-witness/v2",
   source_id: "foldportrait",
   status: "witnessed",
-  source_revision: `sha256:${digest({ ledger, reflectionLedger, currentReflection, reflectionArchive })}`,
+  source_revision: `sha256:${digest({ ledger, reflectionLedger, currentReflection, reflectionArchive, collectionPolicy })}`,
   repository: "https://github.com/zeropoet/FoldPortrait",
   public_url: "https://zeropoet.github.io/FoldPortrait/",
   relation: "render-materializes-as-witness-work; system-witness-becomes-autonomous-visual-reflection",
-  statement: "FoldPortrait preserves its sealed material render lineage while autonomously choosing bounded, noncausal visual relations from aggregate public system witnesses. Each reflection remains FoldKernel-bound, additive, independently witnessed, and archived as canonical SVG plus flattened PNG.",
+  statement: "FoldPortrait is a finite body of 108 or fewer canonical works: 52 sealed first-era portraits and up to 56 selectively admitted autonomous reflections. Every admitted work is individually represented in this Input Ledger while remaining FoldKernel-bound and independently governed by FoldPortrait.",
   boundary: "Root Logos receives public render identity, material lineage, reflection choices, and epistemic limits—not FoldPortrait generation authority, source authority, minting authority, custody, collector identity, private order data, or causal truth.",
   measures: {
+    represented_works: representedWorks,
+    canonical_supply_ceiling: supply.canonical_supply_ceiling,
+    remaining_capacity: supply.canonical_supply_ceiling - representedWorks,
     renders: renders.length,
     material_matches: renders.length,
     embodied_renders: renders.filter(({ material_witness }) => material_witness.vessels.length).length,
@@ -128,6 +138,18 @@ const payload = {
     prepared_unsigned_reflections: reflections.filter(({ mint_status }) => mint_status === "prepared_unsigned").length,
     current_correlations: reflections.at(-1)?.correlations.length || 0,
     current_rules: reflections.at(-1)?.chosen_rules.length || 0
+  },
+  collection: {
+    title: supply.title,
+    status: supply.status,
+    admission_model: supply.admission_model,
+    canonical_supply_ceiling: supply.canonical_supply_ceiling,
+    first_era_supply: supply.first_era_supply,
+    reflection_supply_ceiling: supply.reflection_supply_ceiling,
+    terminal_reflection: supply.terminal_reflection,
+    represented_works: representedWorks,
+    remaining_capacity: supply.canonical_supply_ceiling - representedWorks,
+    closure: supply.closure
   },
   renders,
   reflections,

@@ -124,6 +124,18 @@ assert.equal(validated.sovereignStandardSnapshot.authority.root_logos_has_mintin
 assert.equal(validated.foldPortraitSnapshot.measures.renders, 52);
 assert.equal(validated.foldPortraitSnapshot.measures.material_matches, 52);
 assert.equal(validated.foldPortraitSnapshot.measures.embodied_renders, 15);
+assert.equal(validated.foldPortraitSnapshot.measures.canonical_supply_ceiling, 108);
+assert.equal(
+  validated.foldPortraitSnapshot.measures.represented_works,
+  validated.foldPortraitSnapshot.renders.length + validated.foldPortraitSnapshot.reflections.length
+);
+assert.equal(
+  validated.foldPortraitSnapshot.measures.remaining_capacity,
+  108 - validated.foldPortraitSnapshot.measures.represented_works
+);
+assert.equal(validated.foldPortraitSnapshot.collection.first_era_supply, 52);
+assert.equal(validated.foldPortraitSnapshot.collection.reflection_supply_ceiling, 56);
+assert.equal(validated.foldPortraitSnapshot.collection.terminal_reflection, "FP-REFLECT-0056");
 assert.equal(validated.foldPortraitSnapshot.schema, "root-logos-foldportrait-witness/v2");
 assert.equal(validated.foldPortraitSnapshot.measures.reflection_cycles, validated.foldPortraitSnapshot.reflections.length);
 assert.equal(validated.foldPortraitSnapshot.measures.reflection_pngs, validated.foldPortraitSnapshot.reflections.length);

@@ -395,17 +395,20 @@ renders against both the FoldPortrait evolution ledger and their corresponding
 Sovereign Standard archive manifests: artifact identity, convergence hash,
 render hash, and archived PNG SHA-256 must all agree. The Observatory shows the
 render on its material-witness object, while the Living Object carries the same
-52 relations as a hash-derived lineage; the 12 renders currently embodied by
+52 relations as a hash-derived lineage; the 15 renders currently embodied by
 numbered vessels bind more strongly to its trunk. This connection is visual and
 evidentiary only. Root Logos receives no FoldPortrait generation authority and
 no Sovereign Standard minting, custody, collector, or private-order authority.
 
-FoldPortrait's second era does appear as a distinct node in the public
-**Witnessed Relations** surface because it is not another material claim. The
-current `root-logos-foldportrait-witness/v2` snapshot preserves three additive
-reflection cycles; each is archived as a canonical SVG and a flattened 2400 ×
+FoldPortrait appears as one distinct source in the public **Input Ledger**. Its
+signed collection policy closes the canonical body at 108 or fewer works: 52
+sealed first-era portraits and no more than 56 selectively admitted autonomous
+reflections. The current `root-logos-foldportrait-witness/v2` snapshot
+individually references all 98 works admitted so far—52 first-era works and 46
+reflection cycles—and reserves the remaining 10 positions without fabricating
+works that have not been admitted. Each reflection is archived as a canonical SVG and a flattened 2400 ×
 3200 PNG with independent SHA-256 hashes and an unsigned XRPL mint candidate.
-The current cycle selects seven cross-system relations and five visual rules
+The current cycle selects five cross-system relations and four visual rules
 alongside the 52 sealed renders. Root Logos may receive those declared,
 noncausal visual choices as pressure for cultivation and composition, but it
 cannot choose FoldPortrait's rules, generate or rewrite its paintings, alter

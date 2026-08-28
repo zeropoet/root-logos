@@ -211,7 +211,11 @@ const selectVerificationSource = (id) => {
     ["Visibility", sentence(source.visibility)]
   ];
   if (id === "foldforge") measures.splice(2, 0, ["Compositions", payload?.compositions?.length || 0]);
-  if (id === "foldportrait") measures.splice(2, 0, ["Reflections", payload?.reflections?.length || 0]);
+  if (id === "foldportrait") measures.splice(2, 0,
+    ["Works", `${payload?.measures?.represented_works || 0} / ${payload?.measures?.canonical_supply_ceiling || 108}`],
+    ["First era", payload?.renders?.length || 0],
+    ["Reflections", payload?.reflections?.length || 0]
+  );
   if (id === "x") measures.splice(2, 0, ["Published", (payload?.packets || []).filter(({ publication }) => publication?.status === "published").length]);
   $("#verify-source-measures").innerHTML = measures.map(([name, value]) => `<div><dt>${escapeHtml(name)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("");
   $("#verify-source-witness").textContent = witness || "No cryptographic digest declared for this channel";
