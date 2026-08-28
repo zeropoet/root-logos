@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/root-logos-mark-open.svg" alt="Root Logos" width="240">
-</p>
-
 # Root Logos
 
 Root Logos is a post-institutional living constitutional coordinate: a public,
@@ -2049,7 +2045,7 @@ node structure. SVG is the source of truth; PNG fallbacks are generated for
 favicon, touch icon, and raster usage. `assets/root-logos-mark-open.svg` preserves
 the node structure without the enclosing constitutional frame for contexts that
 need a more open or network-native expression;
-`assets/root-logos-mark-open-1024.png` is its transparent high-resolution raster
+`assets/root-logos-mark-open.png` is its transparent high-resolution raster
 counterpart. The original framed mark remains canonical and unchanged.
 
 ## Local Preview
