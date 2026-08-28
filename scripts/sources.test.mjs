@@ -72,7 +72,7 @@ assert.equal(
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").status, "active");
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").public_url, "https://foldforge.xyz");
 assert.equal(validated.registry.sources.find(({ id }) => id === "x").public_url, "https://x.com/rootlogos");
-assert.equal(validated.registry.sources.find(({ id }) => id === "telos").public_url, "https://github.com/zeropoet/Telos");
+assert.equal(validated.registry.sources.find(({ id }) => id === "telos").public_url, "https://telos.zeropoet.xyz/");
 assert.equal(validated.registry.sources.find(({ id }) => id === "sovereign-standard").public_url, "https://sovereignstandard.co");
 assert.match(publicIndex, /class="footer-tea" href="https:\/\/sovereignstandard\.co"/);
 assert.doesNotMatch(publicIndex, /class="footer-tea" href="https:\/\/sovereignstandard\.co\/purchase\.html/);
@@ -84,7 +84,7 @@ assert.ok(
 assert.doesNotMatch(publicIndex, /id="living-object-canvas"/);
 assert.doesNotMatch(publicIndex, /src="living-object\.js/);
 assert.match(publicIndex, /class="footer-object-link" href="living-object\.html"/);
-assert.match(publicIndex, /class="footer-system-link" href="http:\/\/44\.223\.219\.162\/"/);
+assert.doesNotMatch(publicIndex, /class="footer-system-link"/);
 assert.match(livingObjectPage, /data-living-object-standalone/);
 assert.match(livingObjectPage, /id="living-object-canvas"/);
 assert.match(livingObjectPage, /src="living-object\.js/);
