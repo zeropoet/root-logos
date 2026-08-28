@@ -1075,14 +1075,14 @@
       ],
       "claim": "source + witness recurs across 6 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
       "proposed_question": "Can source and witness be composed as a primitive relation that regenerates these 6 appearances without collapsing their differences?",
-      "evidence_hash": "40e7d059b087abfbf7728b2d971141c93d050a9af7ef7fab8ec6b9f579d909d6",
-      "policy_hash": "cefeac1f682a9895e1b29799c2a1adfcc70f2c5ae3d391d88a7c4f93dd475180",
+      "evidence_hash": "9a4f7158e32a92e8ca5899474dc25dc323bb2479a613b5b0f756d149357f0408",
+      "policy_hash": "a1b23423f4dd7ebae365ca4d65517befe5d990587cf2189107edb9bd9f404e0c",
       "first_cycle": "RL-CULTIVATE-0135",
-      "last_cycle": "RL-CULTIVATE-0135",
-      "last_cycle_index": 135,
-      "considerations": 2,
+      "last_cycle": "RL-CULTIVATE-0199",
+      "last_cycle_index": 199,
+      "considerations": 4,
       "status": "autonomously-rejected",
-      "last_novelty_reason": "new-hypothesis",
+      "last_novelty_reason": "evidence-changed",
       "last_evaluation": {
         "dimensions": {
           "source_fidelity": 4,
@@ -1731,8 +1731,8 @@
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 3,
-    "last_score": 0,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 3,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -3063,13 +3063,20 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-26T16:43:18.251Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0199",
+        "score": 3,
+        "reason": "evidence-changed",
+        "status": "autonomously-rejected",
+        "at": "2026-08-28T16:23:26.330Z"
       }
     ]
   },
   "dormancy": {
-    "active": true,
-    "entered_at": "2026-08-26T16:43:18.285Z",
-    "reason": "3 consecutive low-yield cycles",
+    "active": false,
+    "entered_at": null,
+    "reason": null,
     "source_snapshot": {
       "combined": "1c086a65e5cf5cbc47b2463f3f285cb34807defb379abb2aa50c0587adb4662e",
       "policy": "a1b23423f4dd7ebae365ca4d65517befe5d990587cf2189107edb9bd9f404e0c"
@@ -3198,6 +3205,10 @@
       {
         "at": "2026-08-26T15:54:37.304Z",
         "reason": "manual-force"
+      },
+      {
+        "at": "2026-08-28T16:23:26.233Z",
+        "reason": "canonical-source-changed"
       }
     ]
   },
