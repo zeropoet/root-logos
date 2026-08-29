@@ -2,24 +2,24 @@
   "schema": "root-logos-foldportrait-witness/v2",
   "source_id": "foldportrait",
   "status": "witnessed",
-  "source_revision": "sha256:2cef16a935b8c8e84788364e292bd6f9ba5e7adcb2aef3a52c022f1ec614009a",
+  "source_revision": "sha256:ef252e736902f38e27c0f198562df9c447b3bbabb27606162a3e8e7b29db1c40",
   "repository": "https://github.com/zeropoet/FoldPortrait",
   "public_url": "https://zeropoet.github.io/FoldPortrait/",
   "relation": "render-materializes-as-witness-work; system-witness-becomes-autonomous-visual-reflection",
   "statement": "FoldPortrait is a finite body of 108 or fewer canonical works: 52 sealed first-era portraits and up to 56 selectively admitted autonomous reflections. Every admitted work is individually represented in this Input Ledger while remaining FoldKernel-bound and independently governed by FoldPortrait.",
   "boundary": "Root Logos receives public render identity, material lineage, reflection choices, and epistemic limits—not FoldPortrait generation authority, source authority, minting authority, custody, collector identity, private order data, or causal truth.",
   "measures": {
-    "represented_works": 103,
+    "represented_works": 104,
     "canonical_supply_ceiling": 108,
-    "remaining_capacity": 5,
+    "remaining_capacity": 4,
     "renders": 52,
     "material_matches": 52,
     "embodied_renders": 15,
-    "prepared_renders": 37,
-    "reflection_cycles": 51,
-    "reflection_pngs": 51,
-    "prepared_unsigned_reflections": 51,
-    "current_correlations": 5,
+    "prepared_renders": 38,
+    "reflection_cycles": 52,
+    "reflection_pngs": 52,
+    "prepared_unsigned_reflections": 52,
+    "current_correlations": 4,
     "current_rules": 4
   },
   "collection": {
@@ -30,8 +30,8 @@
     "first_era_supply": 52,
     "reflection_supply_ceiling": 56,
     "terminal_reflection": "FP-REFLECT-0056",
-    "represented_works": 103,
-    "remaining_capacity": 5,
+    "represented_works": 104,
+    "remaining_capacity": 4,
     "closure": "after sequence 108 no new canonical FoldPortrait may be issued"
   },
   "renders": [
@@ -5098,9 +5098,74 @@
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0051.notes.md",
       "boundary": "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior."
+    },
+    {
+      "cycle_id": "FP-REFLECT-0052",
+      "sequence": 52,
+      "witnessed_at": "2026-08-29T17:10:22.000Z",
+      "witness_digest": "a6e782cd4c43b6421f504c3fd8cc346a0e885c4985293ee9d51895511f450f5a",
+      "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+      "render_hash": "745907c50111c1549b50dc95c27561eef5ba787451cdf96b5d1a4b66c9dc758e",
+      "previous_cycle_id": "FP-REFLECT-0051",
+      "chosen_rules": [
+        "veil",
+        "aperture",
+        "palimpsest",
+        "strata"
+      ],
+      "correlations": [
+        {
+          "direction": "parallel",
+          "interpretation": "Observed across 52 preserved system states; noncausal.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "pearson",
+          "right": "sovereign-standard.embodied_foldportraits",
+          "sampleCount": 52,
+          "strength": 0.933421,
+          "visualRule": "veil"
+        },
+        {
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "structural-resonance",
+          "right": "sovereign-standard.published_vessel_records",
+          "sampleCount": 52,
+          "strength": 0.918492,
+          "visualRule": "aperture"
+        },
+        {
+          "direction": "counterposed",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "foldforge.displacement_steps",
+          "method": "structural-resonance",
+          "right": "root-logos.cultivation_cycles",
+          "sampleCount": 52,
+          "strength": 0.7793,
+          "visualRule": "palimpsest"
+        },
+        {
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.cultivation_cycles",
+          "method": "structural-resonance",
+          "right": "telos.first_subscriber_threshold",
+          "sampleCount": 52,
+          "strength": 0.990053,
+          "visualRule": "strata"
+        }
+      ],
+      "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0052.svg",
+      "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0052.png",
+      "svg_sha256": "46278e9443f60cf6c7ceba315daca7b86ac09077477c73692c0363c593039af9",
+      "png_sha256": "1e63c5ceab4e82cb0e1752d460faf0fbc558b7cfa49c9bbd80f64a6bc6c807fd",
+      "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0052.json",
+      "mint_status": "prepared_unsigned",
+      "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0052.notes.md",
+      "boundary": "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior."
     }
   ],
-  "current_reflection": "FP-REFLECT-0051",
+  "current_reflection": "FP-REFLECT-0052",
   "material_source_witness": "sha256:54df23f8d6676cec9c2d701c8615f10dfffab2fdb1fe3f3b4c8b84770941551a",
-  "witness": "sha256:14df2fb8541224c6be46500634ad087f125b6bbcb42199111dbe12072fa2031d"
+  "witness": "sha256:888e5081b4e5935e488b3cd4ade4e8cb6eb9900791576afa33b3afdb345300d8"
 }
