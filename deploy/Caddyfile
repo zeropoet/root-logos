@@ -19,7 +19,9 @@ presence.rootlogos.com {
     file_server
   }
 
-  redir https://rootlogos.com{uri} permanent
+  handle {
+    redir https://rootlogos.com{uri} permanent
+  }
 
   header {
     Strict-Transport-Security "max-age=31536000; includeSubDomains"
