@@ -72,7 +72,7 @@ Production convergence is bidirectional:
 
 Before every serialized wake, the runtime scans Sovereign Standard's public
 external-relation export and refreshes the FoldPortrait-to-vessel relations used
-by the Living Object. A missing identity, changed archived render hash, invalid
+by the Living Presence. A missing identity, changed archived render hash, invalid
 witness, or prohibited private field fails the wake before cultivation.
 
 GitHub Actions authenticates the deploy request with its per-job OIDC identity.

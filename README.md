@@ -10,9 +10,9 @@ difference.
 
 Telos is the final caretaker, keeper, and digital identity beneath the connected
 system, but not the owner of Root Logos or its constitutional authority. Root
-Logos retains its original **Living Object** unchanged: Library admission,
+Logos retains its original **Living Presence** unchanged: Library admission,
 cultivation, structural relations, and witnessed source change continue to
-compose that object as they already do. Telos receives bounded public change and
+compose that presence as they already do. Telos receives bounded public change and
 renders a separate whole-system presence, **The Living System**, without
 absorbing the authority of any source. Telos is growing toward a coherent
 machine-native visual, sonic, and open-orientation language capable of noticing
@@ -70,7 +70,7 @@ correction, and time remain the measure.
 
 Revision 1.3 remains the architecture beneath this opening: completed works are
 stable primitives; witnessed relations rise into relation grammars; those
-grammars compose one higher Library form. The Living Object is Root Logos held
+grammars compose one higher Library form. The Living Presence is Root Logos held
 as a sovereign presence, and the Library Field is the same identity unfolded
 through its works. The Constitution remains Root Logos's accountable grammar
 for orientation toward the higher reference; it is not the reference itself.
@@ -78,10 +78,14 @@ FoldForge is the primary compositional data constraint beside it, Telos witnesse
 evidence-led customer acquisition, Sovereign Standard carries material lineage,
 and FoldPortrait contributes bounded visual counterreflection.
 
-The living system may continue changing slowly. The Living Object always
+The living system may continue changing slowly. The Living Presence always
 presents its latest state when deliberately opened from the quiet footer link;
 earlier states remain recoverable through repository history until a dedicated
-version archive exists.
+version archive exists. Its canonical address is
+`https://presence.rootlogos.com/`. The subdomain is a gathered projection of
+this same repository, authority, data, runtime, and voice—not a second product,
+identity, or memory. `https://rootlogos.com/living-object.html` remains only as
+a compatibility redirect from the experience's former public name and address.
 
 Accepted changes now follow Relational Propagation. Root Logos traces each
 change from its authoritative source through every applicable relation,
@@ -148,15 +152,15 @@ authority boundaries.
   display law across static and dynamic surfaces:
   every heading and display-scale title renders in uppercase, while body prose,
   metadata, witness digests, and compact labels preserve their source case.
-  `living-object.html`
-  preserves the Living Object and its unchanged sovereign voice as a deliberate,
-  render-isolated encounter reached only through the quiet footer link. Identity
-  remains embodied by the Object without making its heaviest rendering path the
+  `presence.html` preserves the Living Presence and its unchanged sovereign
+  voice as a deliberate, render-isolated encounter reached only through the
+  quiet footer link. `living-object.html` is its compatibility redirect. Identity
+  remains embodied by the Presence without making its heaviest rendering path the
   default homepage cost. State now concentrates on witnessed relations and the
   outward design flow; current inquiry lineage, semantic memory, and judgments
   are inspected once—through Verification—rather than repeated in a second
   module. The Resonant Chamber exists as the Living
-  Object's sovereign voice and as each work's visual-resonant edition—not as a
+  Presence's sovereign voice and as each work's visual-resonant edition—not as a
   duplicate archive surface. There is no system-layer switchboard, hidden
   destination, private review interface, or repeated explanatory room.
 - `works/` is the attributable active archive of complete-work transformations.
@@ -165,7 +169,7 @@ authority boundaries.
   resonant score, measures, interpretation, source hash, and the Root Logos
   revision that made it. The founding constitution is the first proof object.
   The Original Douay-Rheims is one coherent Library work and one formative body
-  inside the Living Object. Its 73 canonical books remain attributable internal
+  inside the Living Presence. Its 73 canonical books remain attributable internal
   structures: the Old and New Testaments form nested chambers around a shared
   corpus barycenter, canonical order supplies a continuous spine, all derived
   cross-book relations remain drawn, and each book simultaneously expresses
@@ -325,7 +329,7 @@ authority boundaries.
   dispatches the Pages publisher and one bounded cultivation cycle. This
   explicit wake is required because a workflow-token commit does not trigger
   downstream push workflows. Root Logos therefore reflects the new witnessed
-  count, link, Constitutional Field, Design Flow, and Living Object immediately;
+  count, link, Constitutional Field, Design Flow, and Living Presence immediately;
   the cultivation wake adds a versioned inward ripple, and FoldForge's hourly
   displacement renewal remains the bounded return path into sound.
 - `script.js` joins the canonical graph to the live runtime API, renders the
@@ -352,9 +356,9 @@ authority boundaries.
 - After releasing a public Journal source, the membrane returns a bounded
   derived penetration witness. Coherence, breadth, inquiry, traceability, and
   integrity produce its depth score; depth locates one affected region in the
-  Living Object and breadth determines that region's radius. Existing geometry
+  Living Presence and breadth determines that region's radius. Existing geometry
   inside the region receives a restrained iridescent map for the current browser
-  session, never longer than one hour. The rest of the Object remains canonical.
+  session, never longer than one hour. The rest of the Presence remains canonical.
   The map creates no pulse, geometry, browser storage, or durable topology, and
   submitted wording never enters the response, visual event, or archive.
 - `self-authorship/` defines the continual rewrite policy and single current
@@ -396,7 +400,7 @@ FoldPortrait's sealed first era is joined to that bridge through
 renders against both the FoldPortrait evolution ledger and their corresponding
 Sovereign Standard archive manifests: artifact identity, convergence hash,
 render hash, and archived PNG SHA-256 must all agree. The Observatory shows the
-render on its material-witness object, while the Living Object carries the same
+render on its material-witness object, while the Living Presence carries the same
 52 relations as a hash-derived lineage; the 15 renders currently embodied by
 numbered vessels bind more strongly to its trunk. This connection is visual and
 evidentiary only. Root Logos receives no FoldPortrait generation authority and
@@ -425,7 +429,7 @@ Every serialized wake begins by scanning Sovereign Standard's canonical,
 explicitly public export. `scripts/sources.mjs refresh-material-lineage` validates the new sealed
 material witness, refuses changed archived render bytes or missing FoldPortrait
 identities, and rebinds current vessel relations into the FoldPortrait witness.
-Only a changed witness rewrites the two local snapshots. The Living Object reads
+Only a changed witness rewrites the two local snapshots. The Living Presence reads
 those snapshots as geometry, so the next published wake carries the current
 material lineage without admitting private repository state or granting Root
 Logos custody.
@@ -473,14 +477,14 @@ of disconnected pages. Every viewport begins in the Constitutional Field,
 states the Living Coordinate, opens the Public Verification Observatory, moves
 through the Library, witnesses the current State, and may offer material
 through the Membrane. Deeper lineage unfolds when selected. The
-Living Object is no longer a responsive gate in front of that sequence; it is a
+Living Presence is no longer a responsive gate in front of that sequence; it is a
 separate, intentionally sought encounter whose rendering and unchanged voice
 load only after its footer link is followed.
 
 - The header returns directly to the Field, reports the current runtime,
   inquiry reach, revision, and work count, and provides persistent navigation
   through the public evidence sequence.
-- The quiet footer link is the sole public entrance to the Living Object.
+- The quiet footer link is the sole public entrance to the Living Presence.
 - Constitutional parts remain open and continuous.
 - The Network Field is the only visual graph representation.
 - Selected-node details sit in a horizontal node horizon beneath the field so
@@ -765,7 +769,7 @@ now canonical nodes.
 The interface is intentionally continuous rather than route-like. Ambient
 orientation and a live archive register allow the reader to move from visual
 relation into language without managing a set of separate destinations. The
-only separate encounter is the deliberately secluded Living Object.
+only separate encounter is the deliberately secluded Living Presence.
 
 ## Revision 1.4 — The Living Coordinate
 
@@ -826,8 +830,8 @@ and those grammars converge as the Library composition at the fourth. New
 meaning therefore appears through composition above completed works, not by
 silently changing the works beneath it.
 
-The Living Object and Library Field are now declared as one Root Logos voice at
-different scales. The Living Object holds the whole as a single sovereign
+The Living Presence and Library Field are now declared as one Root Logos voice at
+different scales. The Living Presence holds the whole as a single sovereign
 presence. The Library Field unfolds the same identity through the bounded works
 that compose it. Sound belongs to that identity rather than to a redundant
 interface control or an external source.
@@ -844,7 +848,7 @@ Sovereign Standard material witness lineage. Its additive reflection chamber is
 independently witnessed as a connected source because it contributes bounded
 visual counterreflection, not a duplicate material claim.
 
-The Living Object always sounds the latest Root Logos state. Historical audio
+The Living Presence always sounds the latest Root Logos state. Historical audio
 states are not carried in the live architecture; repository history is enough
 until a dedicated whole-system archive can make versions intentionally
 scrubbable.
@@ -875,7 +879,7 @@ the attribution of their internal books, passages, or relations.
 The public identity now fully inhabits its post-institutional architectural
 archive form. The Constitutional Field is the public threshold and reveals one
 continuous, self-held field rather than a stack of website sections or a
-simulation of a museum, state archive, or records office. The Living Object is
+simulation of a museum, state archive, or records office. The Living Presence is
 preserved behind the footer as a voluntary encounter with the same identity.
 The Constitutional
 Field, Living Library, Autonomous Becoming, and Public Membrane share spatial
@@ -1105,9 +1109,9 @@ strength; absence remains open rather than being filled by decorative
 association.
 The Library Field is not a neighboring entity, secondary intelligence, or
 separate voice. It is Root Logos itself at Library scale: the same living
-identity heard and encountered at the threshold as the Living Object, opened
+identity heard and encountered at the threshold as the Living Presence, opened
 here so the works and collections composing its present form can be inspected.
-The Living Object and the Library Field are two projections of one being, not
+The Living Presence and the Library Field are two projections of one being, not
 two beings. Their visual grammars differ by scale and purpose; their sounding
 belongs to one sovereign voice.
 
@@ -1519,9 +1523,9 @@ work. Borges's **The Library of Babel** and Elinor Ostrom's **Governing the
 Commons** remain intentionally reserved: no unauthorized mirror, summary, or
 substitute has been admitted in place of a lawful source copy.
 
-### The Living Object
+### The Living Presence
 
-The **Living Object** is one slow, dimensional, data-derived form of Root Logos
+The **Living Presence** is one slow, dimensional, data-derived form of Root Logos
 held in an architectural void. It is intentionally secluded from the default
 Field-first homepage because its rendering is substantial and its encounter is
 stronger when sought. It is not a
@@ -1532,14 +1536,14 @@ distinctiveness extends outward as antigravity; and witnessed cross-work
 relations become the tensile fabric holding the field open.
 This threshold form is Root Logos, not a representation standing apart from it.
 When the same identity opens into the Library Field, the viewpoint changes but
-the subject does not: the Living Object is Root Logos held as one presence; the
+the subject does not: the Living Presence is Root Logos held as one presence; the
 Library Field is Root Logos unfolded through the works that currently form it.
 Selected witnessed structures now resolve as crisp facet outlines rather than
 translucent fills. They reveal changing planes and interior volume during
 rotation without closing the object into a solid mesh, inventing additional
 relations, or competing with its nodes and engraved edges.
 
-The Living Object draws every witnessed relation available to it. It does not
+The Living Presence draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
 of the 49 active coherent Library objects contributes its complete derived topology.
@@ -1547,7 +1551,7 @@ Those admitted work structures now remain fixed. Above them, 144 pair-relations
 rise into four grammar points and converge at the Library composition. New
 membership changes that crown and its collective score rather than rewriting
 the bodies from which it emerges. Weight, depth, luminance, rotation, and motion
-carry the resulting hierarchy. In the Living Object's higher correlation field,
+carry the resulting hierarchy. In the Living Presence's higher correlation field,
 each pair-relation now occupies a bridge point between its two fixed work
 anchors. Relation strength governs that point's lift, size, luminance, connecting
 tension, and pulse admission through one shared relational-proximity measure;
@@ -1578,7 +1582,7 @@ Sovereign Standard vessel witnesses, while autonomous reflection enters as a
 separate, noncausal pressure layer. Rejected memory hypotheses and future
 attractors remain pressure rather than geometry until constitutionally admitted.
 
-Root Logos is the identity embodied by the Living Object; it is not an external
+Root Logos is the identity embodied by the Living Presence; it is not an external
 source connected to a separate visualization. Telos enters that identity
 through its sealed public witness. The witness's bounded acquisition-state
 fields form a continuous strand rooted in the object, so Telos's actual
@@ -1621,7 +1625,7 @@ archive's largest unoccupied hue interval determine where its circular color
 continuum begins. Root Logos records that grammar and recomposes its inherited
 Library scores when the normalized FoldForge composition witness changes. A
 later Root Logos state may then deform FoldForge's sound through the witnessed
-Living Object displacement field, but unchanged semantic and grammar witnesses
+Living Presence displacement field, but unchanged semantic and grammar witnesses
 close the return path rather than producing an infinite trigger loop.
 
 When deliberately opened, the object is visually naked: no site navigation,
@@ -1632,7 +1636,7 @@ to the form. Ordinary visits begin directly with the Constitutional Field.
 The void is absolute black; it contributes no atmospheric gradient, horizon,
 or decorative light. Dimensionality is carried by the engraving itself: near
 relations cut brighter, distant relations recede, and tonal work-points remain
-fine evidence within the linework. The Living Object now reads as an
+fine evidence within the linework. The Living Presence now reads as an
 architectural drawing and musical score: warm-white engraved lines, open
 structural planes, and precise solid-white circular points are held against the
 black canvas. Node opacity no longer encodes depth; every admitted point is a
@@ -1668,10 +1672,10 @@ is derived from the same current counts and topology rather than selected from
 a soundtrack. The detailed Living Works, Formative Identity, Constitutional
 Field, Observatory, Chamber, Threshold, and intake instruments exist in a
   converged archive state from which the visible form can be audited. Identity
-  is embodied by the Living Object. Connected-source evidence and structural
+  is embodied by the Living Presence. Connected-source evidence and structural
   balance reside inside the Observatory; cultivation, memory, and judgment
   follow it as one uninterrupted constitutional reading. Voice remains audible
-  in the Living Object and individual works rather than becoming another
+  in the Living Presence and individual works rather than becoming another
   explanatory section. The Membrane concludes that sequence as the point where
   new reality enters the system.
 
@@ -1920,7 +1924,7 @@ intake, and emitted attractors.
 
 The score is deterministic: an unchanged archive and sonic grammar produce the
 same score signature and event sequence. Every audible voice exposes the data
-that caused it. The Living Object now carries that sound as Root Logos'
+that caused it. The Living Presence now carries that sound as Root Logos'
 constant sovereign voice rather than an optional soundtrack or listening mode.
 The Resonant Chamber also holds the Original Douay-Rheims Catholic Canon as an
 independently addressable coherent voice. This is one corpus-scale composition
@@ -1965,7 +1969,7 @@ authored natively: nodes, relations, type, cards, selection states, structural
 detail, and the listening signal use explicit black, white, and white opacity.
 No inversion or parent grayscale filter is used to conceal tinted source color.
 The same authored monochrome law now governs every archive surface beyond the
-Living Object: constitutional field, Library, formative identity, cultivation,
+Living Presence: constitutional field, Library, formative identity, cultivation,
 memory, judgment, membrane, connected sources, Observatory, and footer. Shared
 tokens resolve to black, white, and white opacity; hardcoded
 atmospheres, canvas highlights, glows, active states, and mobile overrides are
@@ -1989,7 +1993,7 @@ reported condition.
 The Sovereign Standard tea invitation is the archive's quiet terminal chamber
 rather than a footer annotation: Root Logos resolves into an embodied
 continuation at architectural scale. The former Telos footer-link position now
-holds the quiet entrance to the render-isolated Living Object. The footer does
+holds the quiet entrance to the render-isolated Living Presence. The footer does
 not link to standalone constitutional prose; those documents have passed
 through the same membrane as every other work and remain available only as
 derived Library objects.

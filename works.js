@@ -272,7 +272,7 @@
         visual: { palette: collectionColors, motion: { drift: .65 }, topology: { nodes, edges } },
         sound: { schema: "root-logos-library-score/v2", tempo: 53, signature: seed.toString(16).padStart(12, "0"), composition_inheritance: compositionInheritance, events },
         reading: {
-          statement: `This is Root Logos itself, viewed through the Library: the same living identity encountered in the Living Object, now opened into ${works.length} living works across ${collectionNames.length} independently bounded fields. The sovereign voice already sounding belongs to this field too, so no second playback is needed here. Collection is witnessed as containment; relation between fields remains open until derived.`
+          statement: `This is Root Logos itself, viewed through the Library: the same living identity encountered in the Living Presence, now opened into ${works.length} living works across ${collectionNames.length} independently bounded fields. The sovereign voice already sounding belongs to this field too, so no second playback is needed here. Collection is witnessed as containment; relation between fields remains open until derived.`
         }
       };
       this.nodes = nodes.map((node, index) => ({ ...node, angle: node.angle ?? index / nodes.length * Math.PI * 2, screenX: 0, screenY: 0 }));

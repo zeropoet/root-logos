@@ -13,7 +13,7 @@ topology; Root Logos then derives the corresponding score, inherits the current
 FoldForge composition witness, recomposes its sovereign voice, archives the
 immutable edition, and publishes the attributable lineage automatically.
 
-The Living Object carries the continuous sovereign hum. A selected Library
+The Living Presence carries the continuous sovereign hum. A selected Library
 work sounds as its own pure derived recording against that continuing voice.
 The two contexts hand off without overlap or loss of lineage. The interface
 may expose listening state, but it does not expose compositional authority.
@@ -37,7 +37,7 @@ adjustment.
 - emitted attractors and admitted intake become breath and pulse;
 - dormancy and unresolved authority increase silence.
 
-The sovereign voice begins with the Living Object and remains a whispered,
+The sovereign voice begins with the Living Presence and remains a whispered,
 continuous presence across the desktop archive. Browser audio policy may delay
 audibility until the first permitted interaction, but that technical delay is
 not a compositional state. Library selection replaces only the foreground work

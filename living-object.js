@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  // The Living Object belongs to the lifetime of this document. In-page
+  // The Living Presence belongs to the lifetime of this document. In-page
   // navigation, restored visibility, or an accidental second evaluation of
   // this script must not regrow the form or construct another voice. A real
   // page refresh creates a new window and therefore a new lifetime.
@@ -94,7 +94,7 @@
     activeRenderer?.setRelease(detail);
     const depth = Math.round(Number(detail.depth || 0) * 100);
     const structures = detail.activated_structures?.length || 0;
-    $("#object-state").textContent = `${detail.event_id} passed through the Living Object at ${depth}% depth across ${structures} derived structures. The source has been released; its disposition is ${String(detail.disposition || "held")}.`;
+    $("#object-state").textContent = `${detail.event_id} passed through the Living Presence at ${depth}% depth across ${structures} derived structures. The source has been released; its disposition is ${String(detail.disposition || "held")}.`;
   });
   const gl = canvas.getContext("webgl", {
     alpha: true,
@@ -200,7 +200,8 @@
     return (h >>> 0) / 4294967295;
   };
 
-  const fetchJson = (url) => fetch(url, { cache: "no-store" }).then((response) => {
+  const sourceBase = document.body.dataset.sourceBase || document.baseURI;
+  const fetchJson = (url) => fetch(new URL(url, sourceBase), { cache: "no-store" }).then((response) => {
     if (!response.ok) throw new Error(`${url}: ${response.status}`);
     return response.json();
   });
@@ -275,8 +276,8 @@
     const telosEventCount = telosWitnessStrand.events?.length || 0;
     const portraitCount = foldportrait.measures?.renders || 0;
     const embodiedPortraitCount = foldportrait.measures?.embodied_renders || 0;
-    $("#object-state").textContent = `Root Logos holds ${coherentWorkCount} coherent works and ${crossRelations.toLocaleString()} witnessed tensions. The Living Object carries ${portraitCount} FoldPortrait render witnesses, ${embodiedPortraitCount} embodied in the Sovereign Standard material lineage. Telos enters through ${telosEventCount} bounded public-state witnesses.`;
-    document.title = `${identity.name || "Root Logos"} — The Living Object`;
+    $("#object-state").textContent = `Root Logos holds ${coherentWorkCount} coherent works and ${crossRelations.toLocaleString()} witnessed tensions. The Living Presence carries ${portraitCount} FoldPortrait render witnesses, ${embodiedPortraitCount} embodied in the Sovereign Standard material lineage. Telos enters through ${telosEventCount} bounded public-state witnesses.`;
+    document.title = `${identity.name || "Root Logos"} — Living Presence`;
 
     if (!gl) {
       canvas.hidden = true;
@@ -384,7 +385,7 @@
         source: "foldportrait",
         witness: foldportrait.witness,
         role: "verified material-render lineage",
-        relation: "render identity enters the Living Object through its corresponding Sovereign Standard witness",
+        relation: "render identity enters the Living Presence through its corresponding Sovereign Standard witness",
         terms: []
       }, {
         source: "telos-public-witness",
@@ -395,7 +396,7 @@
       }]
     });
   }).catch((error) => {
-    console.error("The Living Object could not resolve.", error);
+    console.error("The Living Presence could not resolve.", error);
     $("#object-state").textContent = "The current form is temporarily beyond view. Its archive remains intact.";
   });
 
@@ -825,7 +826,7 @@
 
     // Telos enters through its sealed public witness, not through Root Logos's
     // custody or execution plane. Its bounded acquisition state forms a quiet
-    // strand rooted in the Living Object.
+    // strand rooted in the Living Presence.
     const telosEvents = (telosWitnessStrand?.events || []).slice(0, 144);
     const telosRoot = trunk[Math.min(trunk.length - 1, Math.round(cycles * 0.38))];
     let previousTelos = telosRoot;
@@ -869,7 +870,7 @@
     };
   }
 
-  // The Living Object is laid out locally by the provenance of each work and
+  // The Living Presence is laid out locally by the provenance of each work and
   // relation above, then composed here through one shared physical field. The
   // field is deterministic: the same witnessed state always yields the same
   // body. It does not simulate arbitrary motion or assign semantic weight that

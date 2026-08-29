@@ -8,3 +8,23 @@ runtime.rootlogos.com {
     Referrer-Policy "no-referrer"
   }
 }
+
+presence.rootlogos.com {
+  encode zstd gzip
+
+  @presence path /
+  handle @presence {
+    root * /opt/root-logos
+    rewrite * /presence.html
+    file_server
+  }
+
+  redir https://rootlogos.com{uri} permanent
+
+  header {
+    Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options "nosniff"
+    X-Frame-Options "DENY"
+    Referrer-Policy "no-referrer"
+  }
+}

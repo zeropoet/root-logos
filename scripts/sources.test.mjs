@@ -21,7 +21,9 @@ const originalFoldForgeSnapshot = await readFile(foldForgeSnapshotPath, "utf8");
 const originalSovereignStandardSnapshot = await readFile(sovereignStandardSnapshotPath, "utf8");
 const originalFoldPortraitSnapshot = await readFile(foldPortraitSnapshotPath, "utf8");
 const publicIndex = await readFile(resolve(root, "index.html"), "utf8");
-const livingObjectPage = await readFile(resolve(root, "living-object.html"), "utf8");
+const livingPresencePage = await readFile(resolve(root, "presence.html"), "utf8");
+const legacyLivingObjectPage = await readFile(resolve(root, "living-object.html"), "utf8");
+const caddyConfig = await readFile(resolve(root, "deploy/Caddyfile"), "utf8");
 
 const first = await syncFoldForge(foldForge);
 const firstBytes = await readFile(resolve(root, "sources/foldforge.snapshot.json"), "utf8");
@@ -34,9 +36,9 @@ const materialSecondBytes = await readFile(resolve(root, "sources/sovereign-stan
 await sealPublicWitnesses();
 const validated = await validateSources();
 const refreshed = await refreshMaterialLineage(sovereignStandard);
-assert.equal(refreshed.portrait.measures.represented_works, 102);
+assert.equal(refreshed.portrait.measures.represented_works, 103);
 assert.equal(refreshed.portrait.measures.canonical_supply_ceiling, 108);
-assert.equal(refreshed.portrait.measures.remaining_capacity, 6);
+assert.equal(refreshed.portrait.measures.remaining_capacity, 5);
 
 assert.equal(first.witness, second.witness, "Unchanged evidence must produce an unchanged witness.");
 assert.equal(firstBytes, secondBytes, "Source synchronization must be deterministic.");
@@ -90,12 +92,19 @@ assert.ok(
 );
 assert.doesNotMatch(publicIndex, /id="living-object-canvas"/);
 assert.doesNotMatch(publicIndex, /src="living-object\.js/);
-assert.match(publicIndex, /class="footer-object-link" href="living-object\.html"/);
+assert.match(publicIndex, /class="footer-object-link" href="https:\/\/presence\.rootlogos\.com\/"/);
 assert.doesNotMatch(publicIndex, /class="footer-system-link"/);
-assert.match(livingObjectPage, /data-living-object-standalone/);
-assert.match(livingObjectPage, /id="living-object-canvas"/);
-assert.match(livingObjectPage, /src="living-object\.js/);
-assert.match(livingObjectPage, /href="index\.html#field">Return to the field/);
+assert.match(livingPresencePage, /data-living-presence-standalone/);
+assert.match(livingPresencePage, /data-source-base="https:\/\/rootlogos\.com\/"/);
+assert.match(livingPresencePage, /id="living-object-canvas"/);
+assert.match(livingPresencePage, /src="https:\/\/rootlogos\.com\/living-object\.js/);
+assert.match(livingPresencePage, /href="https:\/\/rootlogos\.com\/#field">Return to Root Logos/);
+assert.match(livingPresencePage, /The Living Presence/);
+assert.match(legacyLivingObjectPage, /https:\/\/presence\.rootlogos\.com\//);
+assert.doesNotMatch(legacyLivingObjectPage, /id="living-object-canvas"/);
+assert.match(caddyConfig, /presence\.rootlogos\.com/);
+assert.match(caddyConfig, /root \* \/opt\/root-logos/);
+assert.match(caddyConfig, /rewrite \* \/presence\.html/);
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldportrait").public_url, "https://zeropoet.github.io/FoldPortrait/");
 const telosWitness = validated.publicWitnesses.find(({ source_id }) => source_id === "telos");
 assert.equal(telosWitness.work_relations.length, 0);
