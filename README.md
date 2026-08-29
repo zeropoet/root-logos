@@ -223,10 +223,12 @@ authority boundaries.
   collector, order, payment, claim, address, receipt, and community records are
   excluded. It also identifies
   [`@sovereignstandardtea`](https://www.instagram.com/sovereignstandardtea/) as
-  a bounded outward public channel. The Sovereign Standard site and archive
-  remain canonical; Instagram credentials, direct messages, audience identity,
-  private engagement data, unpublished content, and posting authority do not
-  enter Root Logos.
+  a bounded outward public channel. Root Logos receives only the aggregate fact
+  that eight posts are human-published and Telos-reviewed; exact photographs,
+  captions, alt text, permalinks, credentials, direct messages, audience
+  identity, private engagement data, unpublished content, and posting authority
+  do not enter Root Logos. The Sovereign Standard site and archive remain
+  canonical.
 - `sources/sovereign-standard.snapshot.json` is the sealed material-witness
   bridge generated from Sovereign Standard's public
   `root-logos-witness-export.json`. It preserves content hashes, public archive

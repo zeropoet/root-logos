@@ -34,9 +34,9 @@ const materialSecondBytes = await readFile(resolve(root, "sources/sovereign-stan
 await sealPublicWitnesses();
 const validated = await validateSources();
 const refreshed = await refreshMaterialLineage(sovereignStandard);
-assert.equal(refreshed.portrait.measures.represented_works, 98);
+assert.equal(refreshed.portrait.measures.represented_works, 102);
 assert.equal(refreshed.portrait.measures.canonical_supply_ceiling, 108);
-assert.equal(refreshed.portrait.measures.remaining_capacity, 10);
+assert.equal(refreshed.portrait.measures.remaining_capacity, 6);
 
 assert.equal(first.witness, second.witness, "Unchanged evidence must produce an unchanged witness.");
 assert.equal(firstBytes, secondBytes, "Source synchronization must be deterministic.");
@@ -122,7 +122,11 @@ assert.equal(telosWitness.system_mapping.measurement.personal_data_available, fa
 assert.equal(telosWitness.system_mapping.cultivation_authority, "inquiry and constitutional relation only");
 assert.equal(telosWitness.system_mapping.source_commit, "860d81244182b0031dfd786acc21562ed5735f69");
 assert.ok(telosWitness.system_mapping.relations.includes("FoldPortrait canonical catalog -> exclusively admits -> Ledger Witness works"));
-assert.equal(validated.publicWitnesses.find(({ source_id }) => source_id === "sovereign-standard").public_state.published_vessel_records, 136);
+const sovereignStandardWitness = validated.publicWitnesses.find(({ source_id }) => source_id === "sovereign-standard");
+assert.equal(sovereignStandardWitness.public_state.published_vessel_records, 136);
+const sovereignStandardInstagram = sovereignStandardWitness.public_state.public_channels.find(({ id }) => id === "instagram");
+assert.equal(sovereignStandardInstagram.human_published_posts, 8);
+assert.equal(sovereignStandardInstagram.telos_reviewed_posts, 8);
 assert.equal(validated.sovereignStandardSnapshot.measures.witness_works, 56);
 assert.equal(validated.sovereignStandardSnapshot.measures.vessel_work_relations, 16);
 assert.equal(validated.sovereignStandardSnapshot.works.some(({ artifact_id }) => artifact_id === "witness-genesis-test"), false);

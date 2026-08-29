@@ -217,6 +217,10 @@ const selectVerificationSource = (id) => {
     ["Reflections", payload?.reflections?.length || 0]
   );
   if (id === "x") measures.splice(2, 0, ["Published", (payload?.packets || []).filter(({ publication }) => publication?.status === "published").length]);
+  if (id === "sovereign-standard") {
+    const instagram = (payload?.public_state?.public_channels || []).find(({ id: channelId }) => channelId === "instagram");
+    if (instagram) measures.splice(2, 0, ["Instagram", `${instagram.telos_reviewed_posts || 0} human-published / Telos-reviewed`]);
+  }
   $("#verify-source-measures").innerHTML = measures.map(([name, value]) => `<div><dt>${escapeHtml(name)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("");
   $("#verify-source-witness").textContent = witness || "No cryptographic digest declared for this channel";
   $("#copy-source-witness").disabled = !witness;
