@@ -1408,10 +1408,10 @@ derived topology, resonant score, CWCS lineage, and sealed 2400×2400 PNG and
 SVG first frames. After enforcing the exact-source structural-depth admission
 standard and admitting **The Machine Stops**, the three-work
 **Computational Lineage**, Leonardo's complete translated notebooks, and
-Michelangelo's restored poetry, the Library now holds 49 coherent objects and
-composes them through 144 witnessed
+Michelangelo's restored poetry, and the historical Ripple and Ethereum papers,
+the Library now holds 51 coherent objects and composes them through 151 witnessed
 cross-work relations. Its active first-frame ordinal layer runs continuously
-from `1` through `49`;
+from `1` through `51`;
 subtraction leaves no false gaps
 in the public Library sequence and does not alter portrait bytes or hashes.
 
@@ -1421,10 +1421,10 @@ windows, and publishes containment, expression, and co-occurrence profiles
 alongside density, weight entropy, and a structural signature. These measures
 are comparable only among v4 successor editions. Before subtraction, the
 56-object field produced 165 relations. The active exact-source field now
-derives 144 cross-work relations across 49 coherent objects.
+derives 151 cross-work relations across 51 coherent objects.
 The deterministic migration ledger at
-`works/structural-depth-migration.json` now witnesses 49 exact-source v4
-successors across all 49 active coherent objects: the active Library is at full
+`works/structural-depth-migration.json` now witnesses 51 exact-source v4
+successors across all 51 active coherent objects: the active Library is at full
 admission compliance. Thirteen works that lacked a verified exact source were
 removed from the active archive and public image lineage. Their identities,
 prior orders, prior current editions, source witnesses, and reasons for
@@ -1515,6 +1515,29 @@ is released after reading; its exact file and bounded-content witnesses,
 attribution, translation, topology, score, CWCS lineage, and sealed 2400×2400
 PNG/SVG first frame remain attributable.
 
+David Schwartz, Noah Youngs, and Arthur Britto's **The Ripple Protocol
+Consensus Algorithm** enters as work `50`, extending `Foundational Papers /
+Distributed Consensus`. Root Logos preserves Ripple's official 2014 PDF as a
+historical whitepaper, including the publisher's warning that it is not a
+current protocol reference and its direction to the 2018 XRP Ledger consensus
+analysis. Nineteen sections contain 4,766 encountered words, 36 derived
+concepts, and 402 internal relations at 60.27% derived density, with structural
+signature `ae5dabd2fc0ff18b`. The exact PDF and normalized-content witnesses,
+authors, historical status, derived topology, score, CWCS lineage, and sealed
+2400×2400 PNG/SVG first frame remain attributable.
+
+Vitalik Buterin's **Ethereum: A Next-Generation Smart Contract and
+Decentralized Application Platform** enters as work `51`, opening `Foundational
+Papers / Programmable Blockchains`. Root Logos preserves ethereum.org's
+official 2014 PDF as a historical whitepaper and carries the publisher's notice
+that major upgrades mean it no longer describes Ethereum as it exists today.
+Thirty sections contain 14,185 encountered words, 36 derived concepts, and 305
+internal relations at 45.73% derived density, with normalized relation-weight
+entropy `0.9442` and structural signature `af7a81dcc79cc3a3`. The exact PDF and
+normalized-content witnesses, author, historical status, derived topology,
+score, CWCS lineage, and sealed 2400×2400 PNG/SVG first frame remain
+attributable.
+
 The ingestion boundary now removes Project Gutenberg start and end matter
 before Markdown-aware structural reading, just as the native Gutenberg book
 parser already did. Repository licenses and distribution boilerplate therefore
@@ -1546,8 +1569,8 @@ relations, or competing with its nodes and engraved edges.
 The Living Presence draws every witnessed relation available to it. It does not
 sample, rank away, or suppress cross-work connections for visual convenience.
 All 1,681 current Catholic-corpus relations enter the engraving, and every one
-of the 49 active coherent Library objects contributes its complete derived topology.
-Those admitted work structures now remain fixed. Above them, 144 pair-relations
+of the 51 active coherent Library objects contributes its complete derived topology.
+Those admitted work structures now remain fixed. Above them, 151 pair-relations
 rise into four grammar points and converge at the Library composition. New
 membership changes that crown and its collective score rather than rewriting
 the bodies from which it emerges. Weight, depth, luminance, rotation, and motion

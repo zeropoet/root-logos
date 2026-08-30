@@ -43,8 +43,16 @@ assert.ok(worksIndex.works.some(({ work_id, title, library_order: order }) =>
   work_id === "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b"
   && title === "Sonnets and Madrigals of Michelangelo Buonarroti"
   && order === 49));
-assert.equal(libraryComposition.measures.works, 49);
-assert.equal(libraryComposition.measures.relations, 144);
+assert.ok(worksIndex.works.some(({ work_id, title, library_order: order }) =>
+  work_id === "the-ripple-protocol-consensus-algorithm-e523dc58"
+  && title === "The Ripple Protocol Consensus Algorithm"
+  && order === 50));
+assert.ok(worksIndex.works.some(({ work_id, title, library_order: order }) =>
+  work_id === "ethereum-a-next-generation-smart-contract-and-decentralized-application-platform-ac9d4017"
+  && title === "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform"
+  && order === 51));
+assert.equal(libraryComposition.measures.works, 51);
+assert.equal(libraryComposition.measures.relations, 151);
 assert.equal(withdrawals.measures.withdrawals, 13);
 assert.equal(withdrawals.measures.active_coherent_works_after_withdrawal, 43);
 assert.ok(withdrawals.withdrawals.every(({ work_id: workId }) =>
@@ -54,7 +62,7 @@ assert.ok(withdrawals.withdrawals.every(({ work_id: workId }) =>
 assert.equal(frameManifest.schema, "root-logos-library-first-frames/v5");
 assert.deepEqual(
   frameManifest.frames.map(({ order }) => order),
-  Array.from({ length: 49 }, (_, index) => index + 1)
+  Array.from({ length: 51 }, (_, index) => index + 1)
 );
 assert.ok(frameManifest.frames.every(({ file, order, svg_file: svgFile }) => {
   const prefix = String(order).padStart(2, "0");

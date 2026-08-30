@@ -36,9 +36,9 @@ const materialSecondBytes = await readFile(resolve(root, "sources/sovereign-stan
 await sealPublicWitnesses();
 const validated = await validateSources();
 const refreshed = await refreshMaterialLineage(sovereignStandard);
-assert.equal(refreshed.portrait.measures.represented_works, 103);
+assert.equal(refreshed.portrait.measures.represented_works, 105);
 assert.equal(refreshed.portrait.measures.canonical_supply_ceiling, 108);
-assert.equal(refreshed.portrait.measures.remaining_capacity, 5);
+assert.equal(refreshed.portrait.measures.remaining_capacity, 3);
 
 assert.equal(first.witness, second.witness, "Unchanged evidence must produce an unchanged witness.");
 assert.equal(firstBytes, secondBytes, "Source synchronization must be deterministic.");
