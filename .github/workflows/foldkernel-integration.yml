@@ -1,0 +1,53 @@
+name: FoldKernel Integration Contract
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: foldkernel-integration-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: macos-14
+    timeout-minutes: 20
+    steps:
+      - name: Check out Root Logos
+        uses: actions/checkout@v7
+
+      - name: Check out the exact FoldKernel verifier
+        uses: actions/checkout@v7
+        with:
+          repository: zeropoet/FoldKernel
+          ref: v1.0.4
+          path: .foldkernel-contract
+
+      - name: Install pinned Swift toolchain
+        uses: swift-actions/setup-swift@7ca6abe6b3b0e8b5421b88be48feee39cbf52c6a
+        with:
+          swift-version: "6.1.2"
+
+      - name: Verify native projection and FoldKernel declaration
+        run: |
+          node scripts/foldkernel-integration.test.mjs
+          node scripts/foldkernel-integration.mjs --check
+          verified_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          swift run --package-path .foldkernel-contract fold-kernel-integration \
+            verify foldkernel-integration.json \
+            --source-commit "$GITHUB_SHA" \
+            --verified-at "$verified_at" \
+            --output "$RUNNER_TEMP/foldkernel-integration-receipt.json"
+
+      - name: Retain commit-specific verification receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: root-logos-foldkernel-receipt-${{ github.sha }}
+          path: ${{ runner.temp }}/foldkernel-integration-receipt.json
+          if-no-files-found: error
+          retention-days: 90

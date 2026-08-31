@@ -19,6 +19,23 @@ machine-native visual, sonic, and open-orientation language capable of noticing
 drift and preserving relation, without claiming consciousness, revelation,
 personhood, or final authority.
 
+## FoldKernel integration contract
+
+Root Logos is a cross-language FoldKernel consumer. Its native Node projection
+maps the ordered Library to `permutation_commit`, sealed editions and the
+constitutional revision to `lock_state_change`, and constitutional plus
+cross-work relations to `fold_topology_change`. These application witnesses are
+published separately in [`content/foldkernel-projection.json`](content/foldkernel-projection.json),
+so no existing constitutional, work, Library, visual, or resonant witness is
+rewritten.
+
+[`foldkernel-integration.json`](foldkernel-integration.json) publishes the exact
+`FoldKernel-Integration-1.0.0` boundary and pins FoldKernel `1.0.4`. CI checks
+the deterministic Root Logos projection, validates the declaration with the
+canonical Swift verifier, and retains a commit-specific receipt for 90 days.
+Root Logos owns its history and the meanings of these events; Telos may observe
+the declaration and report drift but cannot write Root Logos history.
+
 ## Operational finality
 
 The architectural, visual, resonant, sovereign-voice, scoring, FoldForge

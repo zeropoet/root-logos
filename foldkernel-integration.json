@@ -1,0 +1,58 @@
+{
+  "contractVersion": "FoldKernel-Integration-1.0.0",
+  "consumer": {
+    "name": "Root Logos",
+    "repository": "https://github.com/zeropoet/root-logos",
+    "publicManifestURL": "https://rootlogos.com/foldkernel-integration.json"
+  },
+  "foldKernel": {
+    "protocolVersion": "FoldKernel-1.0.0",
+    "packageRequirement": {
+      "kind": "exact",
+      "version": "1.0.4"
+    },
+    "conformanceVectors": {
+      "algorithm": "keccak-256",
+      "digest": "6f499505db8d966631993780c32960965fad039d11aa3606caad58e70845fb38"
+    }
+  },
+  "authority": {
+    "applicationOwns": [
+      "application_history",
+      "artifact_interpretation",
+      "event_meaning"
+    ],
+    "foldKernelOwns": [
+      "canonical_encoding",
+      "conformance_contract",
+      "convergence_identity"
+    ],
+    "telosMay": [
+      "observe_declared_versions",
+      "report_drift",
+      "verify_public_conformance"
+    ],
+    "telosMustNot": [
+      "absorb_application_authority",
+      "alter_foldkernel_output",
+      "write_application_history"
+    ]
+  },
+  "eventMeanings": [
+    {
+      "event": "permutation_commit",
+      "owner": "Root Logos",
+      "meaning": "A committed ordering of the active Library's sealed work primitives."
+    },
+    {
+      "event": "lock_state_change",
+      "owner": "Root Logos",
+      "meaning": "A change to a sealed work edition or the constitutional revision governing its admission."
+    },
+    {
+      "event": "fold_topology_change",
+      "owner": "Root Logos",
+      "meaning": "A witnessed change to constitutional or cross-work relation topology."
+    }
+  ]
+}

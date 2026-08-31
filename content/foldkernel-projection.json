@@ -1,0 +1,27 @@
+{
+  "schema": "root-logos-foldkernel-projection/v1",
+  "contract_version": "FoldKernel-Integration-1.0.0",
+  "protocol_version": "FoldKernel-1.0.0",
+  "package_version": "1.0.4",
+  "authority": "Root Logos",
+  "source": {
+    "constitutional_revision": "v1.4",
+    "library_witness": "sha256:df1332d6b86ab0a228ef7add2e89e3da5f6e5eaa8c1d46aa7bab1c38df155b5c"
+  },
+  "events": [
+    {
+      "event": "permutation_commit",
+      "application_witness": "sha256:75941a2d09053fa482e37bc5674b723fc5ad23a0aca196f912cee88d62a152e4"
+    },
+    {
+      "event": "lock_state_change",
+      "application_witness": "sha256:912dc4f8483fbfb73631447e8e22514270acd9370cb55fca270d3f79f5c2c7ca"
+    },
+    {
+      "event": "fold_topology_change",
+      "application_witness": "sha256:504bd5fd7a0f89430e97549ba2925cd1a1b9d0eefd09f6c23c76c7c19635f871"
+    }
+  ],
+  "boundary": "Application witnesses interpret Root Logos state and are not FoldKernel convergence hashes.",
+  "projection_witness": "sha256:08325c39b2bab68aec1c78082b19783ad3ca5bb95d0c190932abd4ced8e4fd24"
+}
