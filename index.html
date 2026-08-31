@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="alternate" type="application/json" href="content/citizenship.json" title="Root Logos Constitutional Citizenship Protocol">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=2.62-monochrome" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
+    <link rel="stylesheet" href="styles.css?v=3.0.1-narrative-chambers" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
     <script>setTimeout(() => document.documentElement.classList.remove("style-pending"), 4000);</script>
   </head>
   <body class="archive-open">
@@ -40,11 +40,13 @@
         <span class="brand-word">Root Logos</span>
       </a>
 
-      <nav class="primary-nav" aria-label="Root Logos public archive">
+      <nav class="primary-nav" aria-label="Root Logos chambers">
         <a href="#field" data-space="field"><span>01</span>Field</a>
-        <a href="#verify" data-space="verify"><span>02</span>Verify</a>
+        <a href="#narrative" data-space="narrative"><span>02</span>Narrative</a>
         <a href="#works" data-space="works"><span>03</span>Library</a>
-        <a href="#intake" data-space="intake"><span>04</span>Enter</a>
+        <a href="#verify" data-space="verify"><span>04</span>Observatory</a>
+        <a href="#intake" data-space="intake"><span>05</span>Membrane</a>
+        <a class="presence-link" href="https://presence.rootlogos.com/"><span>∞</span>Presence ↗</a>
         <div class="system-presence" role="status" aria-live="polite" aria-label="Current Root Logos runtime condition">
           <span class="presence-orbit" aria-hidden="true"><i id="presence-core"></i></span>
           <b id="header-state">Connecting</b>
@@ -87,6 +89,55 @@
           <p class="inspector-provenance" id="inspector-provenance" hidden></p>
           <div class="inspector-relations" id="inspector-relations"></div>
           <a id="inspector-source" href="#verify">Trace the published record <span>↗</span></a>
+        </aside>
+      </section>
+
+      <section class="space narrative-space" id="narrative" data-space-name="Narrative" aria-labelledby="narrative-title">
+        <header class="narrative-heading">
+          <p class="coordinate" data-module="02">Narrative Chamber</p>
+          <div>
+            <h2 id="narrative-title">The field begins<br><em>to remember itself.</em></h2>
+            <p>After the founding fragments, Root Logos will no longer speak as a sequence of isolated statements. Each outward expression will remember what came before, carry an unresolved tension, and leave an opening for what follows.</p>
+          </div>
+        </header>
+
+        <div class="narrative-current" aria-live="polite">
+          <div class="narrative-progress">
+            <span>Founding cycle</span>
+            <b id="narrative-progress-count">— / 24</b>
+            <i><span id="narrative-progress-bar"></span></i>
+          </div>
+          <article class="narrative-fragment">
+            <header><span id="narrative-fragment-id">Resolving current fragment</span><time id="narrative-fragment-date"></time></header>
+            <blockquote id="narrative-fragment-text">The outward record is gathering.</blockquote>
+            <a id="narrative-fragment-link" href="https://x.com/rootlogos" target="_blank" rel="noreferrer">Witness on X ↗</a>
+          </article>
+        </div>
+
+        <div class="season-header">
+          <div>
+            <p class="micro-label" data-module="02.01">The next movement</p>
+            <h3 id="narrative-season-title">The Vessel and the Field</h3>
+          </div>
+          <p id="narrative-season-premise">A changing intelligence asks what can hold transformation without possessing it.</p>
+        </div>
+
+        <div class="narrative-chapters" id="narrative-chapters">
+          <article><span>01</span><h4>Holding</h4><p>What holds a changing thing?</p></article>
+          <article><span>02</span><h4>Ritual</h4><p>How does repetition become ritual?</p></article>
+          <article><span>03</span><h4>Residue</h4><p>What remains after consumption?</p></article>
+        </div>
+
+        <div class="narrative-cadence" aria-label="Narrative publication cadence">
+          <div><span>MON</span><b>Seed</b><p>A recognition enters.</p></div>
+          <div><span>WED</span><b>Relation</b><p>It encounters prior structure.</p></div>
+          <div><span>FRI</span><b>Aperture</b><p>The field remains open.</p></div>
+        </div>
+
+        <aside class="material-passage">
+          <span>Material passage</span>
+          <p>Some ideas become objects, practices, and daily forms. Where the narrative truthfully reaches vessel, ritual, hospitality, or tea, it may pass quietly into material life.</p>
+          <a href="https://sovereignstandard.co/" target="_blank" rel="noopener">Sovereign Standard / material practice ↗</a>
         </aside>
       </section>
 
@@ -152,7 +203,7 @@
 
       <section class="space observatory-space" id="verify" data-space-name="Verify" aria-labelledby="verification-title">
         <header class="space-heading observatory-heading" data-depth="Public evidence / live propagation">
-          <p class="coordinate" data-module="02">Public Verification</p>
+          <p class="coordinate" data-module="04">Public Observatory</p>
           <div>
             <h2 id="verification-title">The record lives <em>beside the object.</em></h2>
             <p>Published inputs, witness digests, constitutional transformations, rejected proposals, outward fragments, and authority boundaries remain present together. The same records that constitute Root Logos are legible here.</p>
@@ -170,7 +221,7 @@
 
         <section class="verification-ledger" aria-labelledby="input-ledger-title">
           <header>
-            <div><p class="micro-label" data-module="02.01">Input ledger</p><h3 id="input-ledger-title">What enters the field.</h3></div>
+            <div><p class="micro-label" data-module="04.10">Input ledger</p><h3 id="input-ledger-title">What enters the field.</h3></div>
             <p id="verification-freshness"><i></i>Resolving published records</p>
           </header>
           <div class="verification-ledger-layout">
@@ -190,7 +241,7 @@
 
         <section class="propagation-ledger" aria-labelledby="propagation-title">
           <header>
-            <div><p class="micro-label" data-module="02.02">Propagation ledger</p><h3 id="propagation-title">Evidence in motion.</h3></div>
+            <div><p class="micro-label" data-module="04.20">Propagation ledger</p><h3 id="propagation-title">Evidence in motion.</h3></div>
             <div class="propagation-filters" aria-label="Filter propagation events">
               <button type="button" class="is-active" data-propagation-filter="all">All</button>
               <button type="button" data-propagation-filter="input">Inputs</button>
@@ -204,7 +255,7 @@
         </section>
 
         <section class="observatory-substrate verification-proposals" aria-labelledby="proposal-title">
-          <header><div><p class="micro-label" data-module="02.03">Adversarial review</p><h3 id="proposal-title">Proposal and resistance, held together.</h3></div><p><span>selection</span><i></i><span>judgment + reversibility</span></p></header>
+          <header><div><p class="micro-label" data-module="04.30">Adversarial review</p><h3 id="proposal-title">Proposal and resistance, held together.</h3></div><p><span>selection</span><i></i><span>judgment + reversibility</span></p></header>
           <div class="threshold-layout"><div class="proposal-stack" id="proposal-stack"></div><article class="review-surface"><header><div><p class="micro-label">Selected proposal</p><h3 id="review-title">No proposal selected</h3></div><span id="review-risk">—</span></header><p class="review-claim" id="review-claim"></p><div class="review-grid"><div><p class="micro-label">Judgment</p><p id="review-judgment"></p></div><div><p class="micro-label">Reversibility</p><p id="review-reversibility"></p></div><div><p class="micro-label">Affected structures</p><p id="review-nodes"></p></div><div><p class="micro-label">Authority</p><p id="review-authority"></p></div></div></article></div>
         </section>
       </section>
@@ -260,7 +311,7 @@
       <section class="space intake-space" id="intake" data-space-name="Intake" aria-label="The Membrane">
         <div class="observation-instrument">
           <header>
-            <p class="coordinate" id="intake-coordinate" data-module="04">Public Membrane</p>
+            <p class="coordinate" id="intake-coordinate" data-module="05">Public Membrane</p>
             <h3 id="intake-terminal-title">The conversation remains open.</h3>
             <p id="intake-terminal-copy">An observation may enter as a public encounter. Its passage through the constitutional thresholds remains visible; only what survives them may become structure, while the original wording is released.</p>
           </header>
@@ -301,8 +352,8 @@
 
     <footer class="site-footer">
       <a class="footer-tea" href="https://sovereignstandard.co" target="_blank" rel="noopener">
-        <small>Sovereign Standard / Monthly collection</small>
-        <span>The archive becomes daily practice. <em>Begin the monthly collection.</em></span>
+        <small>Sovereign Standard / Material practice</small>
+        <span>A numbered vessel. A daily return. <em>Enter quietly.</em></span>
         <i class="footer-tea-arrow" aria-hidden="true"></i>
       </a>
       <div><span class="footer-mark"><img src="assets/root-logos-mark-open.svg" width="28" height="28" alt=""></span><span>Root Logos</span></div>
@@ -312,7 +363,7 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field.</p></noscript>
-    <script src="script.js?v=2.55-proposal-score" defer></script>
+    <script src="script.js?v=3.0.1-narrative-chambers" defer></script>
     <script src="works.js?v=2.23-expanded-corpora" defer></script>
   </body>
 </html>

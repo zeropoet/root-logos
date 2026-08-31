@@ -82,7 +82,8 @@ assert.match(index, /A constitution <em>held in relation\.<\/em>/);
 assert.match(index, /Many works, one field\./);
 assert.doesNotMatch(index, /id="state"|data-module="04\.01"|data-module="04\.02"/);
 assert.equal((index.match(/id="verification-source-list"/g) || []).length, 1);
-assert.match(index, /href="#intake" data-space="intake"><span>04<\/span>Enter/);
+assert.match(index, /href="#narrative" data-space="narrative"><span>02<\/span>Narrative/);
+assert.match(index, /href="#intake" data-space="intake"><span>05<\/span>Membrane/);
 assert.match(index, /The conversation remains open\./);
 assert.ok(index.indexOf('class="library-guide"') < index.indexOf('class="library-shell"'), "03.00 must stand outside and above the Living Library instrument.");
 assert.match(renderer, /card\.addEventListener\("pointerenter", select\)/);
@@ -106,7 +107,7 @@ assert.match(styles, /\.observation-instrument > header h3 \{[^}]*overflow-wrap:
 assert.match(styles, /body\.archive-open \.observation-instrument > header > p:last-child \{[\s\S]*?padding-right:clamp/);
 assert.match(styles, /body\.archive-open \.work-reading \{ padding:26px 0 42px 26px; \}/);
 assert.doesNotMatch(index, /Relational observatory|Semantic memory|id="observatory-canvas"|id="memory-ledger"/);
-assert.match(index, /data-module="02\.03">Adversarial review/);
+assert.match(index, /data-module="04\.30">Adversarial review/);
 assert.doesNotMatch(index, /Witnessed Relations|Design Flow Ledger/);
 for (const [id, order] of [["field", 1], ["coordinate", 2], ["verify", 3], ["works", 4], ["intake", 5]]) {
   assert.match(styles, new RegExp(`body\\.archive-open #${id} \\{ order: ${order}; \\}`), `${id} does not preserve the public encounter order.`);

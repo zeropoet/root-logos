@@ -32,6 +32,8 @@ const app = {
   selectedNode: null,
   selectedProposal: null,
   attractors: null,
+  narrativePolicy: null,
+  narrativeSeasons: null,
   designFlow: null,
   filter: "all",
   observatoryMode: "causality",
@@ -58,13 +60,15 @@ const fetchJson = async (url) => {
 };
 
 const loadData = async () => {
-  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, designFlowResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult, sovereignMaterialResult, foldPortraitResult, citizenshipResult, exportsResult] = await Promise.allSettled([
+  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, narrativePolicyResult, narrativeSeasonsResult, designFlowResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult, sovereignMaterialResult, foldPortraitResult, citizenshipResult, exportsResult] = await Promise.allSettled([
     fetchJson("content/constitutional-graph.json"),
     fetchJson(`${RUNTIME}/v1/status`),
     fetchJson(`${RUNTIME}/v1/cycles`),
     fetchJson("cultivation/memory.json"),
     fetchJson("cultivation/state.json"),
     fetchJson("content/attractor-packets.json"),
+    fetchJson("content/narrative-policy.json"),
+    fetchJson("content/narrative-seasons.json"),
     fetchJson("content/design-flow-ledger.json"),
     fetchJson("self-authorship/current.json"),
     fetchJson("sources/registry.json"),
@@ -81,6 +85,8 @@ const loadData = async () => {
   app.graph = graphResult.value;
   app.memory = memoryResult.status === "fulfilled" ? memoryResult.value : null;
   app.attractors = attractorResult.status === "fulfilled" ? attractorResult.value : { packets: [] };
+  app.narrativePolicy = narrativePolicyResult.status === "fulfilled" ? narrativePolicyResult.value : null;
+  app.narrativeSeasons = narrativeSeasonsResult.status === "fulfilled" ? narrativeSeasonsResult.value : null;
   app.designFlow = designFlowResult.status === "fulfilled" ? designFlowResult.value : null;
   app.identity = identityResult.status === "fulfilled" ? identityResult.value : null;
   app.sources = sourcesResult.status === "fulfilled" ? sourcesResult.value : { sources: [] };
@@ -122,6 +128,33 @@ const loadData = async () => {
     app.cycles = loaded.filter(({ status }) => status === "fulfilled").map(({ value }) => canonicalCycle(value));
   }
   app.latest = app.cycles[0] || null;
+};
+
+const renderNarrative = () => {
+  const packets = app.attractors?.packets || [];
+  const founding = packets.filter((packet) => (packet.release?.cadence_class || app.attractors?.defaults?.release?.cadence_class) === "founding-cycle");
+  const emitted = founding.filter(({ publication }) => publication?.status === "published");
+  const latest = [...emitted].sort((left, right) => new Date(right.publication.published_at) - new Date(left.publication.published_at))[0];
+  const season = (app.narrativeSeasons?.seasons || []).find(({ season_id }) => season_id === app.narrativeSeasons?.current_season)
+    || app.narrativeSeasons?.seasons?.[0];
+
+  $("#narrative-progress-count").textContent = `${emitted.length} / ${founding.length || 24}`;
+  $("#narrative-progress-bar").style.width = `${Math.min(100, emitted.length / Math.max(1, founding.length || 24) * 100)}%`;
+  if (latest) {
+    $("#narrative-fragment-id").textContent = `${latest.attractor_id} / ${latest.fragment?.at(-1) || "Current fragment"}`;
+    $("#narrative-fragment-date").textContent = shortDate(latest.publication.published_at);
+    $("#narrative-fragment-text").innerHTML = (latest.fragment || []).slice(0, 3).map((line) => `<span>${escapeHtml(line)}</span>`).join("");
+    $("#narrative-fragment-link").href = latest.publication.external_url || "https://x.com/rootlogos";
+  }
+  if (season) {
+    $("#narrative-season-title").textContent = season.title;
+    $("#narrative-season-premise").textContent = season.premise;
+    $("#narrative-chapters").innerHTML = (season.chapters || []).map((chapter) => `<article>
+      <span>${String(chapter.chapter).padStart(2, "0")}</span>
+      <h4>${escapeHtml(chapter.title)}</h4>
+      <p>${escapeHtml(chapter.questions?.[0] || "The question remains open.")}</p>
+    </article>`).join("");
+  }
 };
 
 const renderPresence = () => {
@@ -892,6 +925,7 @@ const resolveFieldDeepLink = ({ scroll = false } = {}) => {
 const bindInterface = () => {
   const navLinks = $$(".primary-nav a");
   const navTargets = navLinks
+    .filter((link) => link.getAttribute("href")?.startsWith("#"))
     .map((link) => ({ link, target: document.querySelector(link.getAttribute("href")) }))
     .filter(({ target }) => target);
   const updateNavigationState = () => {
@@ -989,6 +1023,7 @@ const initialize = async () => {
     await loadData();
     renderPresence();
     renderCoordinate();
+    renderNarrative();
     renderVerification();
     renderLatestCycle();
     renderProposals();
@@ -1006,7 +1041,7 @@ const initialize = async () => {
       requestAnimationFrame(() => $("#field").scrollIntoView({ behavior: "auto" }));
     }
     window.dispatchEvent(new CustomEvent("rootlogos:ready", { detail: {
-      graph: app.graph, runtime: app.runtime, cycles: app.cycles, memory: app.memory, attractors: app.attractors, designFlow: app.designFlow, identity: app.identity, sources: app.sources, foldforge: app.foldforge, sourceWitnesses: app.sourceWitnesses
+      graph: app.graph, runtime: app.runtime, cycles: app.cycles, memory: app.memory, attractors: app.attractors, narrativePolicy: app.narrativePolicy, narrativeSeasons: app.narrativeSeasons, designFlow: app.designFlow, identity: app.identity, sources: app.sources, foldforge: app.foldforge, sourceWitnesses: app.sourceWitnesses
     } }));
   } catch (error) {
     console.error(error);

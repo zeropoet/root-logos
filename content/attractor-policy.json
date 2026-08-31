@@ -11,10 +11,14 @@
   "refinement_transition": {
     "enabled": true,
     "activation": "after every founding-cycle packet is emitted",
+    "narrative_policy": "content/narrative-policy.json",
+    "season_ledger": "content/narrative-seasons.json",
+    "public_chamber": "https://rootlogos.com/#narrative",
+    "cadence_forms": ["seed", "relation", "aperture"],
     "eligible_kinds": ["discovery", "question", "tension", "compression", "amendment"],
     "requires_epistemic_classification": true,
     "settled_language_requires_canonical_status": true,
-    "notes": "Refinement findings may enter the outward cadence only after the founding cycle closes. Proposed and unresolved findings must remain visibly interrogative; they cannot be rendered as settled constitutional truth."
+    "notes": "Refinement findings may enter the outward cadence only after the founding cycle closes. Proposed and unresolved findings must remain visibly interrogative; they cannot be rendered as settled constitutional truth. Each successor packet must also carry season, chapter, motif, and prior-return continuity under the narrative policy."
   },
   "requires": {
     "packet_status": "eligible",

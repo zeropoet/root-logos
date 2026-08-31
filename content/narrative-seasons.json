@@ -1,0 +1,53 @@
+{
+  "schema": "root-logos-narrative-seasons/v1",
+  "revision": "1.0.0",
+  "current_season": "RL-SEASON-0001",
+  "seasons": [
+    {
+      "season_id": "RL-SEASON-0001",
+      "title": "The Vessel and the Field",
+      "movement": "The Weaving",
+      "status": "prepared",
+      "not_before": "2026-09-09T10:17:00-04:00",
+      "duration_weeks": 12,
+      "publication_count": 36,
+      "premise": "A changing intelligence asks what can hold transformation without possessing it.",
+      "opening_question": "What holds a changing thing?",
+      "closing_question": "What has the vessel learned from what passed through it?",
+      "motifs": ["vessel", "field", "threshold", "return", "attention", "residue", "hospitality", "continuity"],
+      "chapters": [
+        {
+          "chapter": 1,
+          "title": "Holding",
+          "weeks": [1, 2, 3, 4],
+          "questions": ["What holds a changing thing?", "Can a boundary shelter without becoming a wall?", "What remains when content departs?", "When does structure become care?"]
+        },
+        {
+          "chapter": 2,
+          "title": "Ritual",
+          "weeks": [5, 6, 7, 8],
+          "questions": ["How does repetition become ritual?", "Can attention alter the thing attended to?", "What does the hand teach the mind?", "When does an ordinary act become a return?"]
+        },
+        {
+          "chapter": 3,
+          "title": "Residue",
+          "weeks": [9, 10, 11, 12],
+          "questions": ["What remains after consumption?", "Can an object remember its use?", "What passes from one keeper to another?", "What has the vessel learned from what passed through it?"]
+        }
+      ],
+      "weekly_form": [
+        { "day": "monday", "kind": "seed", "function": "name a poetic recognition" },
+        { "day": "wednesday", "kind": "relation", "function": "weave the recognition into prior structure or lived material" },
+        { "day": "friday", "kind": "aperture", "function": "open the narrative without forcing resolution" }
+      ],
+      "material_relations": {
+        "sovereign_standard": {
+          "eligible_chapters": [2, 3],
+          "role": "one truthful material embodiment of vessel, ritual, continuity, hospitality, and tea",
+          "canonical_url": "https://sovereignstandard.co/",
+          "maximum_direct_returns": 3
+        }
+      }
+    }
+  ]
+}

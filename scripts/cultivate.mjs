@@ -10,6 +10,8 @@ const memoryUrl = new URL("cultivation/memory.json", root);
 const policyUrl = new URL("cultivation/policy.json", root);
 const graphUrl = new URL("content/constitutional-graph.json", root);
 const exportsUrl = new URL("content/export-packets.json", root);
+const narrativePolicyUrl = new URL("content/narrative-policy.json", root);
+const narrativeSeasonsUrl = new URL("content/narrative-seasons.json", root);
 const journalPolicyUrl = new URL("journal/policy.json", root);
 const journalSchemaUrl = new URL("journal/entry.schema.json", root);
 const identityUrl = new URL("self-authorship/current.json", root);
@@ -38,6 +40,8 @@ const save = (url, value) => writeFile(url, `${JSON.stringify(value, null, 2)}\n
 const sourceSnapshot = async () => {
   const graphText = await readFile(graphUrl, "utf8");
   const exportsText = await readFile(exportsUrl, "utf8");
+  const narrativePolicyText = await readFile(narrativePolicyUrl, "utf8");
+  const narrativeSeasonsText = await readFile(narrativeSeasonsUrl, "utf8");
   const journalPolicyText = await readFile(journalPolicyUrl, "utf8");
   const journalSchemaText = await readFile(journalSchemaUrl, "utf8");
   const identityText = await readFile(identityUrl, "utf8");
@@ -56,6 +60,8 @@ const sourceSnapshot = async () => {
   return {
     graph: digest(graphText),
     exports: digest(exportsText),
+    narrative_policy: digest(narrativePolicyText),
+    narrative_seasons: digest(narrativeSeasonsText),
     preserved_documents: digest(documents),
     journal_policy: digest(journalPolicyText),
     journal_schema: digest(journalSchemaText),
@@ -70,6 +76,8 @@ const sourceSnapshot = async () => {
     combined: digest([
       graphText,
       exportsText,
+      narrativePolicyText,
+      narrativeSeasonsText,
       documents,
       journalPolicyText,
       journalSchemaText,
