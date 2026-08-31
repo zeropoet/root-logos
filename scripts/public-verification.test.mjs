@@ -80,12 +80,13 @@ assert.match(styles, /h1, h2, h3, h4,[\s\S]*?text-transform:\s*uppercase;/);
 assert.doesNotMatch(index, /Latest autonomous inquiry|id="latest-cycle"|id="cycle-drawer"/);
 assert.match(index, /A constitution <em>held in relation\.<\/em>/);
 assert.match(index, /Many works, one field\./);
-assert.doesNotMatch(index, /id="state"|data-module="04\.01"|data-module="04\.02"/);
+assert.doesNotMatch(index, /id="state"|id="latest-cycle"|id="cycle-drawer"/);
 assert.equal((index.match(/id="verification-source-list"/g) || []).length, 1);
 assert.match(index, /href="#narrative" data-space="narrative"><span>02<\/span>Narrative/);
-assert.match(index, /href="#intake" data-space="intake"><span>05<\/span>Membrane/);
+assert.match(index, /href="#coordinate" data-space="coordinate"><span>03<\/span>Coordinate/);
+assert.match(index, /href="#intake" data-space="intake"><span>06<\/span>Membrane/);
 assert.match(index, /The conversation remains open\./);
-assert.ok(index.indexOf('class="library-guide"') < index.indexOf('class="library-shell"'), "03.00 must stand outside and above the Living Library instrument.");
+assert.ok(index.indexOf('class="library-guide"') < index.indexOf('class="library-shell"'), "05.00 must stand outside and above the Living Library instrument.");
 assert.match(renderer, /card\.addEventListener\("pointerenter", select\)/);
 assert.match(renderer, /card\.addEventListener\("click", select\)/);
 assert.match(renderer, /card\.setAttribute\("aria-pressed", String\(selected\)\)/);
@@ -109,7 +110,7 @@ assert.match(styles, /body\.archive-open \.work-reading \{ padding:26px 0 42px 2
 assert.doesNotMatch(index, /Relational observatory|Semantic memory|id="observatory-canvas"|id="memory-ledger"/);
 assert.match(index, /data-module="04\.30">Adversarial review/);
 assert.doesNotMatch(index, /Witnessed Relations|Design Flow Ledger/);
-for (const [id, order] of [["field", 1], ["coordinate", 2], ["verify", 3], ["works", 4], ["intake", 5]]) {
+for (const [id, order] of [["field", 1], ["narrative", 2], ["coordinate", 3], ["verify", 4], ["works", 5], ["intake", 6]]) {
   assert.match(styles, new RegExp(`body\\.archive-open #${id} \\{ order: ${order}; \\}`), `${id} does not preserve the public encounter order.`);
 }
 

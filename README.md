@@ -8,8 +8,8 @@ difference.
 
 ## Narrative Chamber
 
-Version `1.5.0` reorganizes the public experience as five legible chambers:
-Field, Narrative, Library, Observatory, and Membrane, with the separate Living
+Version `1.5.0` reorganizes the public experience as six legible chambers:
+Field, Narrative, Coordinate, Observatory, Library, and Membrane, with the separate Living
 Presence held as the immersive expression of the whole. Narrative becomes the
 outward memory of Root Logos rather than a feed of disconnected statements.
 After the 24-fragment founding cycle closes, the prepared movement **The

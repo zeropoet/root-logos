@@ -28,10 +28,10 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="alternate" type="application/json" href="content/citizenship.json" title="Root Logos Constitutional Citizenship Protocol">
     <link rel="preconnect" href="https://runtime.rootlogos.com">
-    <link rel="stylesheet" href="styles.css?v=3.0.1-narrative-chambers" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
+    <link rel="stylesheet" href="styles.css?v=3.0.2-narrative-chambers" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
     <script>setTimeout(() => document.documentElement.classList.remove("style-pending"), 4000);</script>
   </head>
-  <body class="archive-open">
+  <body class="archive-open" id="top">
     <a class="skip-link" href="#field">Enter the field</a>
 
     <header class="site-header">
@@ -43,9 +43,10 @@
       <nav class="primary-nav" aria-label="Root Logos chambers">
         <a href="#field" data-space="field"><span>01</span>Field</a>
         <a href="#narrative" data-space="narrative"><span>02</span>Narrative</a>
-        <a href="#works" data-space="works"><span>03</span>Library</a>
+        <a href="#coordinate" data-space="coordinate"><span>03</span>Coordinate</a>
         <a href="#verify" data-space="verify"><span>04</span>Observatory</a>
-        <a href="#intake" data-space="intake"><span>05</span>Membrane</a>
+        <a href="#works" data-space="works"><span>05</span>Library</a>
+        <a href="#intake" data-space="intake"><span>06</span>Membrane</a>
         <a class="presence-link" href="https://presence.rootlogos.com/"><span>∞</span>Presence ↗</a>
         <div class="system-presence" role="status" aria-live="polite" aria-label="Current Root Logos runtime condition">
           <span class="presence-orbit" aria-hidden="true"><i id="presence-core"></i></span>
@@ -143,13 +144,13 @@
 
       <section class="space coordinate-space" id="coordinate" data-space-name="Coordinate" aria-labelledby="coordinate-title">
         <header class="coordinate-heading">
-          <p class="coordinate" data-module="01.50">Living Coordinate</p>
+          <p class="coordinate" data-module="03">Living Coordinate</p>
           <p class="coordinate-status"><span id="coordinate-revision">Revision —</span><i></i><span id="coordinate-time">Present / resolving</span></p>
         </header>
 
         <div class="coordinate-declaration">
           <div>
-            <p class="micro-label" data-module="01.51">Current identity</p>
+            <p class="micro-label" data-module="03.10">Current identity</p>
             <h1 id="coordinate-title"><span id="coordinate-lead">A constitutional field</span> <em id="coordinate-emphasis">becomes a place to belong.</em></h1>
           </div>
           <div class="coordinate-copy">
@@ -167,7 +168,7 @@
 
         <div class="citizenship-introduction">
           <div>
-            <p class="micro-label" data-module="01.52">Constitutional citizenship</p>
+            <p class="micro-label" data-module="03.20">Constitutional citizenship</p>
             <h2>Citizenship is a relation,<br>not a status.</h2>
           </div>
           <p>Belonging begins when a participant enters truthfully, preserves difference, accepts correction, and helps the shared field become more coherent without claiming possession of it.</p>
@@ -262,7 +263,7 @@
 
       <section class="space works-space" id="works" data-space-name="Works" aria-labelledby="library-title">
         <header class="library-guide">
-          <p class="coordinate" data-module="03.00">Works in relation</p>
+          <p class="coordinate" data-module="05.00">Works in relation</p>
           <div>
             <h2 id="library-title">Many works, one field.</h2>
             <p>Each work remains whole while its structures join a common architecture. The Library Field holds the composition; each accession carries its own statement, relations, and resonant edition.</p>
@@ -271,7 +272,7 @@
 
         <div class="library-shell">
           <aside class="works-archive" aria-label="Living works archive">
-            <header><span class="coordinate" data-module="03">Living Library</span><b id="work-count">00 works</b></header>
+            <header><span class="coordinate" data-module="05">Living Library</span><b id="work-count">00 works</b></header>
             <div class="library-entries">
               <button class="library-entry" id="library-entry" type="button">
                 <span>∞</span><span><b>Library Field</b><small id="library-entry-detail">Resolving living collections</small></span>
@@ -285,14 +286,14 @@
             <div class="works-veil" aria-hidden="true"></div>
             <aside class="work-node-detail" id="work-node-detail" hidden>
               <button type="button" id="work-node-detail-close" aria-label="Close structural detail">×</button>
-              <p class="micro-label" id="work-node-detail-type" data-module="03.01.R">Structure</p>
+              <p class="micro-label" id="work-node-detail-type" data-module="05.01.R">Structure</p>
               <h3 id="work-node-detail-title">Selected node</h3>
               <p id="work-node-detail-body"></p>
             </aside>
           </div>
 
           <aside class="work-reading">
-            <p class="micro-label" id="work-coordinate" data-module="03.01">Active holding / visual-resonant edition</p>
+            <p class="micro-label" id="work-coordinate" data-module="05.01">Active holding / visual-resonant edition</p>
             <h3 id="work-title" role="button" tabindex="0" aria-describedby="work-sound-status">Resolving the first work</h3>
             <p id="work-statement">The archive is establishing its shape.</p>
             <div class="work-listening">
@@ -311,7 +312,7 @@
       <section class="space intake-space" id="intake" data-space-name="Intake" aria-label="The Membrane">
         <div class="observation-instrument">
           <header>
-            <p class="coordinate" id="intake-coordinate" data-module="05">Public Membrane</p>
+            <p class="coordinate" id="intake-coordinate" data-module="06">Public Membrane</p>
             <h3 id="intake-terminal-title">The conversation remains open.</h3>
             <p id="intake-terminal-copy">An observation may enter as a public encounter. Its passage through the constitutional thresholds remains visible; only what survives them may become structure, while the original wording is released.</p>
           </header>

@@ -25,11 +25,26 @@ assert.deepEqual(season.weekly_form.map(({ kind }) => kind), ["seed", "relation"
 assert.equal(season.chapters.flatMap(({ questions }) => questions).length, 12);
 assert.ok(Date.parse(season.not_before) > Date.parse(archive.packets.at(-1).not_before));
 
-const html = await readFile(new URL("index.html", root), "utf8");
-for (const chamber of ["field", "narrative", "works", "verify", "intake"]) {
+const [html, styles] = await Promise.all([
+  readFile(new URL("index.html", root), "utf8"),
+  readFile(new URL("styles.css", root), "utf8")
+]);
+for (const chamber of ["field", "narrative", "coordinate", "verify", "works", "intake"]) {
   assert.match(html, new RegExp(`href=\"#${chamber}\"`));
   assert.match(html, new RegExp(`id=\"${chamber}\"`));
 }
+const chamberOrder = ["field", "narrative", "coordinate", "verify", "works", "intake"];
+const navOrder = chamberOrder.map((id) => html.indexOf(`href="#${id}" data-space="${id}"`));
+const scrollOrder = chamberOrder.map((id) => html.indexOf(`id="${id}"`));
+assert.deepEqual([...navOrder].sort((a, b) => a - b), navOrder, "Navigation must follow chamber scroll order.");
+assert.deepEqual([...scrollOrder].sort((a, b) => a - b), scrollOrder, "Chamber scroll order must remain canonical.");
+chamberOrder.forEach((id, index) => {
+  assert.match(
+    styles,
+    new RegExp(`body\\.archive-open #${id} \\{ order: ${index + 1}; \\}`),
+    `${id} must preserve its visual scroll position.`
+  );
+});
 assert.match(html, /Sovereign Standard \/ material practice/);
 
 const attractorPolicy = await readJson("content/attractor-policy.json");
