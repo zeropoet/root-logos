@@ -30,11 +30,16 @@ so no existing constitutional, work, Library, visual, or resonant witness is
 rewritten.
 
 [`foldkernel-integration.json`](foldkernel-integration.json) publishes the exact
-`FoldKernel-Integration-1.0.0` boundary and pins FoldKernel `1.0.4`. CI checks
+`FoldKernel-Integration-1.0.0` boundary and pins FoldKernel `1.0.5`. CI checks
 the deterministic Root Logos projection, validates the declaration with the
 canonical Swift verifier, and retains a commit-specific receipt for 90 days.
 Root Logos owns its history and the meanings of these events; Telos may observe
 the declaration and report drift but cannot write Root Logos history.
+
+The same projection emits a deterministic public `evidenced` FoldKernel Value
+Receipt 1.0. It proves that the constitutional projection exists without
+assigning a price; monetary advancement requires distinct external valuation
+and settlement evidence.
 
 ## Operational finality
 

@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           repository: zeropoet/FoldKernel
-          ref: v1.0.4
+          ref: v1.0.5
           path: .foldkernel-contract
 
       - name: Install pinned Swift toolchain

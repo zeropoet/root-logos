@@ -3,11 +3,12 @@
 import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { issueRootLogosValueReceipt } from "./foldkernel-value-receipt.mjs";
 
 const root = new URL("../", import.meta.url);
 export const contractVersion = "FoldKernel-Integration-1.0.0";
 export const protocolVersion = "FoldKernel-1.0.0";
-export const packageVersion = "1.0.4";
+export const packageVersion = "1.0.5";
 
 function compare(left, right) {
   return JSON.stringify(left).localeCompare(JSON.stringify(right));
@@ -63,16 +64,42 @@ export function serializeProjection(value) {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
 
+function valuePeriod(updated) {
+  const names = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const match = new RegExp(`^(${names.join("|")}) ([0-9]{4})$`).exec(updated);
+  if (!match) throw new Error("constitutional update period is invalid");
+  const month = names.indexOf(match[1]) + 1;
+  const year = Number(match[2]);
+  const finalDay = new Date(Date.UTC(year, month, 0)).getUTCDate();
+  return {
+    periodStart: `${year}-${String(month).padStart(2, "0")}-01`,
+    periodEnd: `${year}-${String(month).padStart(2, "0")}-${finalDay}`,
+  };
+}
+
 async function main() {
   const target = new URL("content/foldkernel-projection.json", root);
-  const serialized = serializeProjection(await buildFoldKernelProjection());
+  const projection = await buildFoldKernelProjection();
+  const serialized = serializeProjection(projection);
+  const graph = await readJson("content/constitutional-graph.json");
+  const valueReceipt = issueRootLogosValueReceipt({
+    eventID: `root-logos-${graph.meta.revision}`,
+    artifactDigest: projection.projection_witness.replace("sha256:", ""),
+    outputKind: "constitutional_projection",
+    ...valuePeriod(graph.meta.updated),
+  });
+  const valueTarget = new URL("content/foldkernel-value-receipt.json", root);
+  const valueSerialized = serializeProjection(valueReceipt);
   if (process.argv.includes("--check")) {
     const current = await readFile(target, "utf8").catch(() => "");
     if (current !== serialized) throw new Error("FoldKernel projection drifted; run npm run foldkernel:project");
+    const currentValue = await readFile(valueTarget, "utf8").catch(() => "");
+    if (currentValue !== valueSerialized) throw new Error("FoldKernel value receipt drifted; run npm run foldkernel:project");
     process.stdout.write("PASS Root Logos FoldKernel projection is current.\n");
     return;
   }
   await writeFile(target, serialized);
+  await writeFile(valueTarget, valueSerialized);
   process.stdout.write(`${fileURLToPath(target)}\n`);
 }
 
