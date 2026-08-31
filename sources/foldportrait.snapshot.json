@@ -2,24 +2,24 @@
   "schema": "root-logos-foldportrait-witness/v2",
   "source_id": "foldportrait",
   "status": "witnessed",
-  "source_revision": "sha256:db0764aebece6047198a83f9a1f6a64f380f001ef7cd1bc92b617340a1e12cc5",
+  "source_revision": "sha256:16c02e280dffc5ac62cedc367b3420b9316a56b9aba07cd36f24de516c9e7f9d",
   "repository": "https://github.com/zeropoet/FoldPortrait",
   "public_url": "https://zeropoet.github.io/FoldPortrait/",
   "relation": "render-materializes-as-witness-work; system-witness-becomes-autonomous-visual-reflection",
   "statement": "FoldPortrait is a finite body of 108 or fewer canonical works: 52 sealed first-era portraits and up to 56 selectively admitted autonomous reflections. Every admitted work is individually represented in this Input Ledger while remaining FoldKernel-bound and independently governed by FoldPortrait.",
   "boundary": "Root Logos receives public render identity, material lineage, reflection choices, and epistemic limits—not FoldPortrait generation authority, source authority, minting authority, custody, collector identity, private order data, or causal truth.",
   "measures": {
-    "represented_works": 105,
+    "represented_works": 106,
     "canonical_supply_ceiling": 108,
-    "remaining_capacity": 3,
+    "remaining_capacity": 2,
     "renders": 52,
     "material_matches": 52,
     "embodied_renders": 15,
     "prepared_renders": 38,
-    "reflection_cycles": 53,
-    "reflection_pngs": 53,
-    "prepared_unsigned_reflections": 53,
-    "current_correlations": 6,
+    "reflection_cycles": 54,
+    "reflection_pngs": 54,
+    "prepared_unsigned_reflections": 54,
+    "current_correlations": 5,
     "current_rules": 5
   },
   "collection": {
@@ -30,8 +30,8 @@
     "first_era_supply": 52,
     "reflection_supply_ceiling": 56,
     "terminal_reflection": "FP-REFLECT-0056",
-    "represented_works": 105,
-    "remaining_capacity": 3,
+    "represented_works": 106,
+    "remaining_capacity": 2,
     "closure": "after sequence 108 no new canonical FoldPortrait may be issued"
   },
   "renders": [
@@ -5249,9 +5249,85 @@
       "mint_status": "prepared_unsigned",
       "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0053.notes.md",
       "boundary": "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior."
+    },
+    {
+      "cycle_id": "FP-REFLECT-0054",
+      "sequence": 54,
+      "witnessed_at": "2026-08-31T00:00:53.000Z",
+      "witness_digest": "58e82380e60af06c2203de868a16845cd847f74768c842cb5849b25c4deeffd8",
+      "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+      "render_hash": "31f87bd150be2720320aaa40fba0e84a116800a256e5a0066dccc9f62da9b989",
+      "previous_cycle_id": "FP-REFLECT-0053",
+      "chosen_rules": [
+        "strata",
+        "palimpsest",
+        "braid",
+        "counterfield",
+        "aperture"
+      ],
+      "correlations": [
+        {
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "foldportrait.sealed_first_era_portraits",
+          "method": "structural-resonance",
+          "right": "root-logos.coherent_works",
+          "sampleCount": 54,
+          "strength": 0.995202,
+          "visualRule": "strata"
+        },
+        {
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.witnessed_relations",
+          "method": "structural-resonance",
+          "right": "sovereign-standard.published_vessel_records",
+          "sampleCount": 54,
+          "strength": 0.979319,
+          "visualRule": "palimpsest"
+        },
+        {
+          "direction": "inverse",
+          "interpretation": "Observed across 54 preserved system states; noncausal.",
+          "left": "foldforge.witnessed_relations",
+          "method": "pearson",
+          "right": "root-logos.witnessed_relations",
+          "sampleCount": 54,
+          "strength": 0.976993,
+          "visualRule": "braid"
+        },
+        {
+          "direction": "inverse",
+          "interpretation": "Observed across 54 preserved system states; noncausal.",
+          "left": "foldforge.compositions",
+          "method": "pearson",
+          "right": "root-logos.coherent_works",
+          "sampleCount": 54,
+          "strength": 0.973012,
+          "visualRule": "counterfield"
+        },
+        {
+          "direction": "convergent",
+          "interpretation": "Chosen from one or two states as compositional resonance, not statistical correlation.",
+          "left": "root-logos.witnessed_relations",
+          "method": "structural-resonance",
+          "right": "telos.first_subscriber_threshold",
+          "sampleCount": 54,
+          "strength": 0.947311,
+          "visualRule": "aperture"
+        }
+      ],
+      "svg_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0054.svg",
+      "png_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0054.png",
+      "svg_sha256": "ecfbe85f3fe6ef78fb2255bc3c16740053c2310feef643b0ac02663da71e8123",
+      "png_sha256": "570c4632cfc0bb4515e36df88a09a36bd0ac934837e4115f8def87f80e1fa4a7",
+      "mint_candidate_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/mint/foldportrait-reflection-0054.json",
+      "mint_status": "prepared_unsigned",
+      "notes_url": "https://zeropoet.github.io/FoldPortrait/Output/reflections/foldportrait-reflection-0054.notes.md",
+      "boundary": "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior."
     }
   ],
-  "current_reflection": "FP-REFLECT-0053",
+  "current_reflection": "FP-REFLECT-0054",
   "material_source_witness": "sha256:54df23f8d6676cec9c2d701c8615f10dfffab2fdb1fe3f3b4c8b84770941551a",
-  "witness": "sha256:47805da2baf1790e1c9d5ebfa9b8af0453a6138b49b9dec841a2011213a51788"
+  "witness": "sha256:d1ec4e410ae81d9d3b2b1c930a89c90e6cbe3f2b20efee38affa8650a055efca"
 }
