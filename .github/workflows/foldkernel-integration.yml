@@ -21,6 +21,9 @@ jobs:
       - name: Check out Root Logos
         uses: actions/checkout@v7
 
+      - name: Install Node dependencies
+        run: npm ci
+
       - name: Check out the exact FoldKernel verifier
         uses: actions/checkout@v7
         with:
