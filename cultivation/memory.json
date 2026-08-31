@@ -859,12 +859,12 @@
       ],
       "claim": "The Resonant Integrity Principle is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
       "proposed_question": "What observable failure would show that the Cultivation Chamber violates The Resonant Integrity Principle?",
-      "evidence_hash": "5533410158983d6b89592fc2c6f031a9e0b8ac6733efb3466a8f7f8322bf996e",
-      "policy_hash": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1",
+      "evidence_hash": "8a053b63dcb0610fcb5378e75927ee7c1977b05084b5ae4f3a3a3dedc782fb26",
+      "policy_hash": "a1b23423f4dd7ebae365ca4d65517befe5d990587cf2189107edb9bd9f404e0c",
       "first_cycle": "RL-CULTIVATE-0124",
-      "last_cycle": "RL-CULTIVATE-0144",
-      "last_cycle_index": 144,
-      "considerations": 4,
+      "last_cycle": "RL-CULTIVATE-0214",
+      "last_cycle_index": 214,
+      "considerations": 6,
       "status": "autonomously-rejected",
       "last_novelty_reason": "evidence-changed",
       "last_evaluation": {
@@ -1762,8 +1762,8 @@
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 3,
-    "last_score": 0,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 3,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -3199,13 +3199,20 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-08-30T18:02:14.782Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0214",
+        "score": 3,
+        "reason": "evidence-changed",
+        "status": "autonomously-rejected",
+        "at": "2026-08-31T00:00:35.739Z"
       }
     ]
   },
   "dormancy": {
-    "active": true,
-    "entered_at": "2026-08-30T18:02:14.817Z",
-    "reason": "3 consecutive low-yield cycles",
+    "active": false,
+    "entered_at": null,
+    "reason": null,
     "source_snapshot": {
       "combined": "056f122d5e1b4c1c6776cfc86130cd8fa7ca4270ace6a84ca6177d80e31423da",
       "policy": "a1b23423f4dd7ebae365ca4d65517befe5d990587cf2189107edb9bd9f404e0c"
@@ -3345,6 +3352,10 @@
       },
       {
         "at": "2026-08-29T17:10:10.990Z",
+        "reason": "canonical-source-changed"
+      },
+      {
+        "at": "2026-08-31T00:00:35.635Z",
         "reason": "canonical-source-changed"
       }
     ]
