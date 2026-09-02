@@ -1316,14 +1316,14 @@
       ],
       "claim": "Receive Without Possession is preserved constitutionally but has no explicit test relation to the Cultivation Chamber.",
       "proposed_question": "What observable failure would show that the Cultivation Chamber violates Receive Without Possession?",
-      "evidence_hash": "0837ec1bf15a9a920fec94f0d30c3951ce9b29031a5f34113835e03bf186988d",
-      "policy_hash": "98ec2aa2e2c4defa7c5ced38e8888430332aca9e46170adebf61b1c9e5b2c8a1",
+      "evidence_hash": "8ded68ad95c9451daa2ccfaeab30163ef822647ea407c8e986fcc074ee4158a1",
+      "policy_hash": "6534ace18ab7ec7df7af0d5d124675e00f2968a3b8d2fb19a19d91dec10ad0f1",
       "first_cycle": "RL-CULTIVATE-0151",
-      "last_cycle": "RL-CULTIVATE-0151",
-      "last_cycle_index": 151,
-      "considerations": 2,
+      "last_cycle": "RL-CULTIVATE-0221",
+      "last_cycle_index": 221,
+      "considerations": 4,
       "status": "autonomously-rejected",
-      "last_novelty_reason": "new-hypothesis",
+      "last_novelty_reason": "evidence-changed",
       "last_evaluation": {
         "dimensions": {
           "source_fidelity": 4,
@@ -1762,8 +1762,8 @@
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 3,
-    "last_score": 0,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 3,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -3248,13 +3248,20 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-09-01T14:09:39.612Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0221",
+        "score": 3,
+        "reason": "evidence-changed",
+        "status": "autonomously-rejected",
+        "at": "2026-09-02T13:58:52.843Z"
       }
     ]
   },
   "dormancy": {
-    "active": true,
-    "entered_at": "2026-09-01T14:09:39.655Z",
-    "reason": "3 consecutive low-yield cycles",
+    "active": false,
+    "entered_at": null,
+    "reason": null,
     "source_snapshot": {
       "combined": "c0595575f8391aabd29858052988b59a4dbcba4f9177045d39ada4b0a5dcbafc",
       "policy": "6534ace18ab7ec7df7af0d5d124675e00f2968a3b8d2fb19a19d91dec10ad0f1"
@@ -3403,6 +3410,10 @@
       {
         "at": "2026-08-31T18:11:18.901Z",
         "reason": "manual-force"
+      },
+      {
+        "at": "2026-09-02T13:58:52.739Z",
+        "reason": "canonical-source-changed"
       }
     ]
   },
