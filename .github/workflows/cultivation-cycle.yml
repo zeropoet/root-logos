@@ -1,28 +1,6 @@
 name: Cultivation Chamber
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - content/constitutional-graph.json
-      - content/export-packets.json
-      - content/narrative-policy.json
-      - content/narrative-seasons.json
-      - content/*.md
-      - sources/registry.json
-      - sources/*.snapshot.json
-      - sources/*.public-witness.json
-      - works/index.json
-      - works/*/manifest.json
-      - works/*/editions/*/edition.json
-      - works/corpora/*.json
-      - cultivation/policy.json
-      - journal/policy.json
-      - journal/*.schema.json
-      - self-authorship/current.json
-      - self-authorship/policy.json
-  schedule:
-    - cron: "7 14 * * 0"
   workflow_dispatch:
 
 permissions:

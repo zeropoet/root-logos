@@ -9,9 +9,10 @@ const [module, archive, registry, graph, policy] = await Promise.all([
   readJson("content/constitutional-graph.json"),
   readJson("content/attractor-policy.json")
 ]);
-const [publicRenderer, releaseWorkflow] = await Promise.all([
+const [publicRenderer, releaseTimer, releaseService] = await Promise.all([
   readFile(new URL("../script.js", import.meta.url), "utf8"),
-  readFile(new URL("../.github/workflows/attractor-release.yml", import.meta.url), "utf8")
+  readFile(new URL("../deploy/root-logos-attractor.timer", import.meta.url), "utf8"),
+  readFile(new URL("../deploy/root-logos-attractor.service", import.meta.url), "utf8")
 ]);
 
 assert.equal(module.schema, "root-logos-design-flow-ledger/v1");
@@ -53,14 +54,10 @@ assert.match(
   /fetch\(url,\s*\{[\s\S]*cache:\s*["']no-store["']/,
   "Public witness data must bypass the browser cache so publication counts advance without a hard refresh."
 );
-assert.match(releaseWorkflow, /actions:\s*write/, "Attractor release requires bounded workflow-dispatch authority.");
-assert.match(releaseWorkflow, /cron:\s*["']17 10 \* \* 1,3,5["']/, "The primary release schedule must remain explicit.");
-assert.match(releaseWorkflow, /cron:\s*["']47 13 \* \* 1,3,5["']/, "A delayed recovery schedule must recheck missed releases.");
-assert.match(releaseWorkflow, /git checkout -B main origin\/main/, "Every release attempt must converge on current main before selecting a packet.");
-assert.match(releaseWorkflow, /id:\s*preserve/, "Publication provenance must expose whether an emission was committed.");
-assert.match(releaseWorkflow, /emitted=true/, "A preserved publication must open the ripple gate.");
-assert.match(releaseWorkflow, /gh workflow run \"\$workflow\" --ref main/, "The release workflow must explicitly dispatch downstream ripples after its bot-authored commit.");
-assert.match(releaseWorkflow, /pages\.yml cultivation-cycle\.yml/, "Every publication ripple must refresh the public archive and wake bounded cultivation.");
+assert.match(releaseTimer, /OnCalendar=Mon,Wed,Fri \*-\*-\* 10:17:00 America\/New_York/, "The Lightsail primary release schedule must remain explicit.");
+assert.match(releaseTimer, /OnCalendar=Mon,Wed,Fri \*-\*-\* 13:47:00 America\/New_York/, "The Lightsail recovery schedule must recheck missed releases.");
+assert.match(releaseTimer, /Persistent=true/, "The release clock must catch a missed wake after restart.");
+assert.match(releaseService, /release-attractor-lightsail\.sh/, "The timer must execute the bounded Lightsail publisher.");
 assert.equal(policy.schedule, "Monday, Wednesday, and Friday at 10:17 AM");
 assert.equal(policy.recovery_schedule, "Monday, Wednesday, and Friday at 1:47 PM");
 

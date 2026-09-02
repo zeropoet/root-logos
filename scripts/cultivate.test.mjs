@@ -42,10 +42,14 @@ assert.deepEqual(activePolicy.compression.required_fields, ["direction", "bounda
 assert.equal(activePolicy.authority.authorization.constitutional_revision, "v1.0");
 assert.equal(activePolicy.authority.self_authorship.publication, "immediate-atomic-after-all-gates-pass");
 assert.ok(activePolicy.authority.protected_exclusions.includes("expand autonomous authority or modify the policy and thresholds that delimit it"));
-const workflow = await readFile(new URL(".github/workflows/cultivation-cycle.yml", sourceRoot), "utf8");
-for (const path of ["journal/policy.json", "journal/*.schema.json", "self-authorship/current.json", "self-authorship/policy.json", "sources/registry.json", "sources/*.snapshot.json", "sources/*.public-witness.json", "works/index.json", "works/corpora/*.json"]) {
-  assert.match(workflow, new RegExp(path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-}
+const [cultivationTimer, cultivationService] = await Promise.all([
+  readFile(new URL("deploy/root-logos-cultivation.timer", sourceRoot), "utf8"),
+  readFile(new URL("deploy/root-logos-cultivation.service", sourceRoot), "utf8")
+]);
+assert.match(cultivationTimer, /OnCalendar=Sun \*-\*-\* 10:07:00 America\/New_York/);
+assert.match(cultivationTimer, /Persistent=true/);
+assert.match(cultivationService, /cultivate-lightsail\.sh/);
+assert.match(cultivationService, /ReadWritePaths=\/opt\/root-logos \/var\/lib\/root-logos \/var\/www\/root-logos/);
 
 await writeFile(join(sandbox, "cultivation", "state.json"), `${JSON.stringify({
   version: 1,

@@ -1,14 +1,7 @@
 name: Connected Source Integration
 
 on:
-  schedule:
-    - cron: "17 9 * * *"
   workflow_dispatch:
-  repository_dispatch:
-    types:
-      - foldforge-published
-      - foldportrait-reflected
-      - sovereign-standard-witness-published
 
 permissions:
   contents: write

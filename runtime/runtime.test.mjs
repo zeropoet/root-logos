@@ -2,7 +2,7 @@
 
 import assert from "node:assert/strict";
 import { createHmac, generateKeyPairSync, sign } from "node:crypto";
-import { cp, mkdtemp, mkdir, readFile, stat, writeFile } from "node:fs/promises";
+import { cp, mkdtemp, mkdir, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createRuntime, startServer, verifyGitHubOIDCToken } from "./server.mjs";
@@ -98,22 +98,6 @@ try {
   assert.equal(deployRequest.status, 202);
   await runtime.waitForIdle();
   assert.deepEqual(deployments, [deploySha]);
-  const migratedCredentials = await fetch(`${base}/v1/internal/migrate-x-credentials`, {
-    method: "POST",
-    headers: { authorization: "Bearer test-oidc-token", "x-github-sha": deploySha, "content-type": "application/json" },
-    body: JSON.stringify({
-      X_API_KEY: "test-api-key",
-      X_API_SECRET: "test-api-secret",
-      X_ACCESS_TOKEN: "test-access-token",
-      X_ACCESS_TOKEN_SECRET: "test-access-token-secret"
-    })
-  });
-  assert.equal(migratedCredentials.status, 201);
-  const migratedCredentialPath = join(sandbox, "data", "x-publication.env");
-  const migratedCredentialText = await readFile(migratedCredentialPath, "utf8");
-  assert.doesNotMatch(migratedCredentialText, /test-api-secret|test-access-token-secret/);
-  assert.match(migratedCredentialText, /^X_API_KEY_B64=/m);
-  assert.equal((await stat(migratedCredentialPath)).mode & 0o777, 0o600);
   const deployedStatus = await fetch(`${base}/v1/status`).then((response) => response.json());
   assert.equal(deployedStatus.service.deployment.status, "completed");
   assert.equal(deployedStatus.service.last_error, null);

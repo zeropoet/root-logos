@@ -304,35 +304,18 @@ authority boundaries.
   minting-authority fields. Only FoldForge grammars with `status: living` enter
   the Root Logos source snapshot; proposal grammars remain in FoldForge until
   admitted and must not be mistaken for an executable transformation pipeline.
-  `.github/workflows/source-integration.yml` checks
-  connected evidence daily and receives immediate publication dispatches from
-  FoldForge and Sovereign Standard. A changed public export produces a Root
-  Logos commit, wakes cultivation, converges the always-awake runtime, and
-  becomes visible in the Observatory. FoldForge also republishes its current
-  twelve-term Language Composition hourly, so a holdings-driven lexical shift
-  can propagate without requiring a source-code change.
+  The Lightsail source timer checks connected evidence daily. A changed public
+  export produces a Root Logos commit, wakes cultivation, refreshes the public
+  site, and is then pushed to GitHub as backup. FoldForge also republishes its
+  current twelve-term Language Composition hourly, so a holdings-driven lexical
+  shift can propagate without requiring a Root Logos source-code change.
   Operational FoldPortrait mint-status changes may refresh witnessed evidence
   and wake cultivation, but they do not recompose Library editions unless
   FoldForge's normalized composition witness also changes. The workflow rebuilds
   and commits the structural-depth ledger whenever such recomposition does
-  occur, retries bounded non-fast-forward push races, and opens one deduplicated
-  issue when connected-source propagation cannot converge.
-  Every changed cultivated relation map also sends a bounded, non-secret
-  `telos-propagation` receipt to Telos through a one-hour repository-scoped
-  Telos Bridge GitHub App token. Receipt means pending semantic synchronization,
-  not automatic adoption or governing authority.
-  Every Root Logos `main` change uses that same short-lived source identity to
-  notify Telos and wake FoldPortrait directly. Telos therefore needs no second
-  long-lived App private-key copy merely to relay the wake.
-  Because commits made with GitHub's built-in workflow token do not start new
-  workflows, the cultivation and source-integration jobs dispatch the same
-  bounded receipt explicitly after preserving an automated commit.
-  A FoldPortrait-originated integration still propagates its Root Logos receipt
-  to Telos, but suppresses the return wake to FoldPortrait so evidence cannot
-  become a self-exciting reflection loop.
-  Runtime convergence remains exclusively inside the dedicated deployment
-  workflow's allowlisted OIDC identity; completed cultivation and source
-  integration runs wake that workflow rather than borrowing its authority.
+  occur. GitHub source-integration and propagation workflows are retained only
+  as manually invoked recovery tools; they are not part of the live clock or
+  serving path.
 - `content/coherent-field.md` defines the constitutional standard for building
   one coherent account across distinct sources without possession or collapse,
   including the separate compositional, economic, material, and public-exchange
@@ -384,17 +367,15 @@ authority boundaries.
   human and machine standing—remember and suppress unchanged hypotheses,
   evaluate findings, enter dormancy at diminishing returns, and apply only
   authorized low-risk advances.
-- `.github/workflows/cultivation-cycle.yml` wakes the chamber after canonical
-  changes, weekly while productive, or through explicit human dispatch.
-- `.github/workflows/attractor-release.yml` runs the autonomous release cycle
-  every Monday, Wednesday, and Friday at 10:17 AM Eastern. After—and only
-  after—a successful X publication receipt is committed, it explicitly
-  dispatches the Pages publisher and one bounded cultivation cycle. This
-  explicit wake is required because a workflow-token commit does not trigger
-  downstream push workflows. Root Logos therefore reflects the new witnessed
-  count, link, Constitutional Field, Design Flow, and Living Presence immediately;
-  the cultivation wake adds a versioned inward ripple, and FoldForge's hourly
-  displacement renewal remains the bounded return path into sound.
+- The Lightsail cultivation timer wakes the chamber weekly while productive;
+  the GitHub cultivation workflow is an explicit human recovery instrument.
+- Lightsail runs the autonomous release cycle every Monday, Wednesday, and
+  Friday at 10:17 AM Eastern, with a 1:47 PM recovery pass. A successful X
+  receipt is committed by the Root Logos server, reflected into the public site
+  immediately, and preserved to the GitHub backup. The same Lightsail authority
+  runs the bounded cultivation wake and daily connected-source integration.
+  GitHub workflows remain manual recovery instruments; they are not clocks,
+  live deployment paths, or public-facing dependencies.
 - `script.js` joins the canonical graph to the live runtime API, renders the
   constitutional field and current identity manifest, cultivation lineage,
   proposal judgment, semantic memory, constitutional threshold, intake state,
@@ -499,11 +480,11 @@ Logos custody.
 
 Operational test assets remain available inside Sovereign Standard but are
 excluded from Root Logos; the Witness Genesis Test therefore never appears in
-the material lineage. Sovereign Standard publication now dispatches the sealed
-witness hash directly into the Connected Source Integration. The daily schedule
-and manual invocation remain recovery paths. An unchanged witness remains
-dormant. A changed witness is committed,
-autonomously enters cultivation, and converges the always-awake runtime.
+the material lineage. Sovereign Standard publishes the sealed witness for the
+Lightsail source timer to read directly. Manual GitHub invocation remains a
+recovery path. An unchanged witness remains dormant. A changed witness is
+committed, autonomously enters cultivation, and refreshes the live public
+projection.
 Material-witness integration produced `RL-CULTIVATE-0034`, the first preserved
 Root Logos inquiry caused by this physical archival field.
 
@@ -743,7 +724,7 @@ browser navigation. It is not persisted, transmitted, counted, or shared across
 visitors; “canonical” names the authoritative destination, not a recorded user
 event.
 
-### Attractor workflow
+### Attractor operation
 
 Validate every packet and its graph references:
 
@@ -769,10 +750,9 @@ Inspect the founding-to-refinement transition without publishing:
 node scripts/attractors.mjs transition-status
 ```
 
-The scheduled workflow executes that same release command every Monday,
-Wednesday, and Friday at 10:17 AM Eastern. A recovery pass follows at 1:47 PM
-Eastern in case GitHub drops or substantially delays the primary schedule. Both
-passes first converge on the current `main` branch, then select only the oldest
+The Lightsail timer executes that same release command every Monday, Wednesday,
+and Friday at 10:17 AM Eastern. A recovery pass follows at 1:47 PM Eastern. Both
+passes select only the oldest
 due packet that has earned `eligible` status, passed all six upstream scrutiny
 checks, and passed all four Gravitational Integrity checks. When the primary
 receipt is already present, the recovery pass is a no-op; it cannot advance a
@@ -786,20 +766,21 @@ node scripts/attractors.mjs publish-x RL-ATTRACTOR-0001 --confirm
 ```
 
 The X adapter uses the official `POST /2/tweets` endpoint with an OAuth user
-access token. Durable unattended operation may use OAuth 1.0a user-context
-credentials; OAuth 2.0 bearer user access remains available for manual use. The
+access token. The production OAuth 1.0a user-context credentials live only in
+the protected Lightsail runtime file; OAuth 2.0 bearer user access remains
+available for manual use. The
 adapter rejects ineligible, invalid, premature, or already-published packets. A
 successful response writes the external post ID, URL, and publication time back
-to the packet archive and changes its state to `emitted`. The workflow commits
-that provenance to the repository, rebasing and retrying its push when an
-unrelated concurrent update advances `main`. The adapter also sends X's `made_with_ai`
+to the packet archive and changes its state to `emitted`. Lightsail commits that
+provenance, refreshes the live site, and pushes the commit to GitHub as backup.
+The adapter also sends X's `made_with_ai`
 disclosure because the fragments are constitutionally co-generated. Real
-credentials belong only in repository secrets or the local environment; `.env`
-files are ignored.
+credentials belong only in the protected Lightsail credential file or an
+explicit local diagnostic environment; `.env` files are ignored.
 
 Publication is a wake signal, not semantic authority. The X receipt changes the
 public witness state and geometry, but X engagement, reach, and reaction do not
-enter constitutional selection. The dispatched cultivation cycle still reads
+enter constitutional selection. The Lightsail cultivation cycle still reads
 Root Logos's governed evidence and may reject or complete without a proposal;
 it does not infer truth from the platform or from the fact of publication.
 
@@ -2186,5 +2167,7 @@ node -e "const fs=require('fs'); const g=JSON.parse(fs.readFileSync('content/con
 
 ## Publishing
 
-This repository is configured for GitHub Pages. The `CNAME` file points the site
-to `rootlogos.com`.
+`rootlogos.com`, `www.rootlogos.com`, `presence.rootlogos.com`, and
+`runtime.rootlogos.com` are served from the Root Logos Lightsail instance through
+Caddy. GitHub is the off-server source backup and manual recovery surface, not
+the production host or scheduler.
