@@ -24,7 +24,6 @@ jobs:
           owner: zeropoet
           repositories: |
             Telos
-            FoldPortrait
           permission-contents: write
 
       - name: Propagate Root Logos to Telos
@@ -44,24 +43,6 @@ jobs:
           curl --fail --silent --show-error \
             --retry 4 --retry-all-errors --retry-delay 3 \
             -X POST https://api.github.com/repos/zeropoet/Telos/dispatches \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer $CONNECTED_SYSTEM_TOKEN" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            -H "Content-Type: application/json" \
-            --data "$payload"
-
-      - name: Wake FoldPortrait from the Root Logos change
-        env:
-          CONNECTED_SYSTEM_TOKEN: ${{ steps.connected-system-token.outputs.token }}
-          SOURCE_SHA: ${{ github.sha }}
-        run: |
-          payload=$(jq -n \
-            --arg source_repository "zeropoet/root-logos" \
-            --arg source_sha "$SOURCE_SHA" \
-            '{event_type:"connected-system-changed",client_payload:{source_repository:$source_repository,source_sha:$source_sha}}')
-          curl --fail --silent --show-error \
-            --retry 4 --retry-all-errors --retry-delay 3 \
-            -X POST https://api.github.com/repos/zeropoet/FoldPortrait/dispatches \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer $CONNECTED_SYSTEM_TOKEN" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
