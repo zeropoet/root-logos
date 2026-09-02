@@ -16,7 +16,7 @@ node scripts/attractors.mjs validate
 if rl_commit_if_changed "Cultivate Root Logos from Lightsail" \
   cultivation/state.json cultivation/memory.json cultivation/cycles \
   content/constitutional-graph.json sources/sovereign-standard.snapshot.json \
-  sources/foldportrait.snapshot.json self-authorship/current.json self-authorship/archive; then
+  sources/foldportrait.snapshot.json self-authorship/current.json self-authorship/lineage; then
   rl_publish_site
   rl_push_backup
 else

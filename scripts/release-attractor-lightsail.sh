@@ -36,7 +36,7 @@ node scripts/attractors.mjs validate
 if rl_commit_if_changed "Archive attractor emission" \
   content/attractor-packets.json \
   cultivation/state.json cultivation/memory.json cultivation/cycles \
-  content/constitutional-graph.json self-authorship/current.json self-authorship/archive; then
+  content/constitutional-graph.json self-authorship/current.json self-authorship/lineage; then
   rl_publish_site
   rl_push_backup
 fi

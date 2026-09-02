@@ -50,7 +50,7 @@ if rl_commit_if_changed "Witness connected sources from Lightsail" \
   sources/sovereign-standard.snapshot.json cultivation/state.json \
   cultivation/memory.json cultivation/cycles content/constitutional-graph.json \
   works/index.json works/structural-depth-migration.json works/corpora \
-  self-authorship/current.json self-authorship/archive; then
+  self-authorship/current.json self-authorship/lineage; then
   rl_publish_site
   rl_push_backup
 fi

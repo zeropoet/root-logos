@@ -47,7 +47,10 @@ rl_push_backup() {
 rl_commit_if_changed() {
   local message="$1"
   shift
-  git -C "$ROOT_LOGOS_ROOT" add "$@"
+  git -C "$ROOT_LOGOS_ROOT" add "$@" || {
+    echo "Unable to stage the bounded Root Logos operation state." >&2
+    exit 1
+  }
   if git -C "$ROOT_LOGOS_ROOT" diff --cached --quiet; then
     return 1
   fi
