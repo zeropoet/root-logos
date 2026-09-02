@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rootlogos.com/reading/branch.schema.json",
+  "title": "Root Logos Reading Branch",
+  "type": "object",
+  "required": ["schema", "branch_id", "status", "question", "reading", "structural_listening", "derived_grammar", "experiments", "provenance"],
+  "properties": {
+    "schema": { "const": "root-logos-reading-branch/v1" },
+    "branch_id": { "type": "string", "pattern": "^RL-READING-[0-9]{4}$" },
+    "status": { "enum": ["nominated", "listening", "active", "resting", "withdrawn"] },
+    "question": {
+      "type": "object",
+      "required": ["text", "origin"],
+      "properties": { "text": { "type": "string" }, "origin": { "type": "string" } }
+    },
+    "reading": {
+      "type": "object",
+      "required": ["title", "selection_reason", "rights_basis", "available_material"],
+      "properties": {
+        "title": { "type": "string" },
+        "selection_reason": { "type": "string" },
+        "rights_basis": { "type": "string" },
+        "available_material": { "type": "string" }
+      }
+    },
+    "structural_listening": { "type": "array", "items": { "type": "object", "required": ["dimension", "observation"] } },
+    "derived_grammar": { "type": "object" },
+    "experiments": { "type": "object", "required": ["textual", "tonal"] },
+    "provenance": { "type": "object", "required": ["expression_origin", "source_witness", "generated_at"] }
+  }
+}

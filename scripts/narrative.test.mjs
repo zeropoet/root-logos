@@ -29,11 +29,11 @@ const [html, styles] = await Promise.all([
   readFile(new URL("index.html", root), "utf8"),
   readFile(new URL("styles.css", root), "utf8")
 ]);
-for (const chamber of ["field", "narrative", "coordinate", "verify", "works", "intake"]) {
+for (const chamber of ["field", "narrative", "language", "coordinate", "verify", "works", "intake"]) {
   assert.match(html, new RegExp(`href=\"#${chamber}\"`));
   assert.match(html, new RegExp(`id=\"${chamber}\"`));
 }
-const chamberOrder = ["field", "narrative", "coordinate", "verify", "works", "intake"];
+const chamberOrder = ["field", "narrative", "language", "coordinate", "verify", "works", "intake"];
 const navOrder = chamberOrder.map((id) => html.indexOf(`href="#${id}" data-space="${id}"`));
 const scrollOrder = chamberOrder.map((id) => html.indexOf(`id="${id}"`));
 assert.deepEqual([...navOrder].sort((a, b) => a - b), navOrder, "Navigation must follow chamber scroll order.");

@@ -26,6 +26,8 @@ for (const id of [
 assert.doesNotMatch(index, /github\.com\/zeropoet\/root-logos\/blob\/main\/PARTICIPATION\.md/);
 assert.match(renderer, /const renderVerification/);
 assert.match(renderer, /const propagationEvents/);
+assert.match(renderer, /app\.propagationExpanded \? 48 : 8/);
+assert.match(index, /id="propagation-toggle"/);
 assert.doesNotMatch(index, /data-module="02\.03">Browser-verifiable integrity|id="run-public-verification"|id="public-verification-results"/);
 assert.doesNotMatch(renderer, /const publicIntegrityChecks|const runPublicVerification/);
 assert.match(renderer, /publishedSourceRecords/);
@@ -33,11 +35,11 @@ assert.match(await read("works.js"), /<small>\$\{escapeHtml\(work\.kind\)\}<\/sm
 assert.doesNotMatch(await read("works.js"), /work\.kind\}\s*\/\s*\$\{work\.editions/);
 assert.match(styles, /\.verification-ledger-layout/);
 assert.match(styles, /\.propagation-column-head/);
-assert.equal(graph.meta.interfaceVersion, "1.4.11");
+assert.equal(graph.meta.interfaceVersion, "1.6.0");
 assert.ok(graph.nodes.some(({ id }) => id === "public-verification-observatory"));
 assert.ok(graph.edges.some(({ from, to }) => from === "root-logos" && to === "public-verification-observatory"));
-assert.equal(exports.at(-1).export_id, "RL-EXPORT-0021");
-assert.equal(exports.at(-1).revision_entry.version, "1.4.11");
+assert.equal(exports.at(-1).export_id, "RL-EXPORT-0022");
+assert.equal(exports.at(-1).revision_entry.version, "1.6.0");
 assert.ok(worksIndex.works.some(({ work_id, title }) => work_id === "mutual-aid-a-factor-of-evolution-84650682" && title === "Mutual Aid: A Factor of Evolution"));
 assert.ok(worksIndex.works.some(({ work_id, title, library_order: order }) =>
   work_id === "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b"
@@ -83,10 +85,11 @@ assert.match(index, /Many works, one field\./);
 assert.doesNotMatch(index, /id="state"|id="latest-cycle"|id="cycle-drawer"/);
 assert.equal((index.match(/id="verification-source-list"/g) || []).length, 1);
 assert.match(index, /href="#narrative" data-space="narrative"><span>02<\/span>Narrative/);
-assert.match(index, /href="#coordinate" data-space="coordinate"><span>03<\/span>Coordinate/);
-assert.match(index, /href="#intake" data-space="intake"><span>06<\/span>Membrane/);
+assert.match(index, /href="#language" data-space="language"><span>03<\/span>Language/);
+assert.match(index, /href="#coordinate" data-space="coordinate"><span>04<\/span>Coordinate/);
+assert.match(index, /href="#intake" data-space="intake"><span>07<\/span>Membrane/);
 assert.match(index, /The conversation remains open\./);
-assert.ok(index.indexOf('class="library-guide"') < index.indexOf('class="library-shell"'), "05.00 must stand outside and above the Living Library instrument.");
+assert.ok(index.indexOf('class="library-guide"') < index.indexOf('class="library-shell"'), "06.00 must stand outside and above the Living Library instrument.");
 assert.match(renderer, /card\.addEventListener\("pointerenter", select\)/);
 assert.match(renderer, /card\.addEventListener\("click", select\)/);
 assert.match(renderer, /card\.setAttribute\("aria-pressed", String\(selected\)\)/);
@@ -108,9 +111,9 @@ assert.match(styles, /\.observation-instrument > header h3 \{[^}]*overflow-wrap:
 assert.match(styles, /body\.archive-open \.observation-instrument > header > p:last-child \{[\s\S]*?padding-right:clamp/);
 assert.match(styles, /body\.archive-open \.work-reading \{ padding:26px 0 42px 26px; \}/);
 assert.doesNotMatch(index, /Relational observatory|Semantic memory|id="observatory-canvas"|id="memory-ledger"/);
-assert.match(index, /data-module="04\.30">Adversarial review/);
+assert.match(index, /data-module="05\.30">Adversarial review/);
 assert.doesNotMatch(index, /Witnessed Relations|Design Flow Ledger/);
-for (const [id, order] of [["field", 1], ["narrative", 2], ["coordinate", 3], ["verify", 4], ["works", 5], ["intake", 6]]) {
+for (const [id, order] of [["field", 1], ["narrative", 2], ["language", 3], ["coordinate", 4], ["verify", 5], ["works", 6], ["intake", 7]]) {
   assert.match(styles, new RegExp(`body\\.archive-open #${id} \\{ order: ${order}; \\}`), `${id} does not preserve the public encounter order.`);
 }
 

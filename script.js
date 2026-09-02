@@ -34,6 +34,7 @@ const app = {
   attractors: null,
   narrativePolicy: null,
   narrativeSeasons: null,
+  readingState: null,
   designFlow: null,
   filter: "all",
   observatoryMode: "causality",
@@ -47,7 +48,8 @@ const app = {
   citizenship: null,
   exports: [],
   localState: null,
-  propagationFilter: "all"
+  propagationFilter: "all",
+  propagationExpanded: false
 };
 
 const fetchJson = async (url) => {
@@ -60,7 +62,7 @@ const fetchJson = async (url) => {
 };
 
 const loadData = async () => {
-  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, narrativePolicyResult, narrativeSeasonsResult, designFlowResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult, sovereignMaterialResult, foldPortraitResult, citizenshipResult, exportsResult] = await Promise.allSettled([
+  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, narrativePolicyResult, narrativeSeasonsResult, readingStateResult, designFlowResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult, sovereignMaterialResult, foldPortraitResult, citizenshipResult, exportsResult] = await Promise.allSettled([
     fetchJson("content/constitutional-graph.json"),
     fetchJson(`${RUNTIME}/v1/status`),
     fetchJson(`${RUNTIME}/v1/cycles`),
@@ -69,6 +71,7 @@ const loadData = async () => {
     fetchJson("content/attractor-packets.json"),
     fetchJson("content/narrative-policy.json"),
     fetchJson("content/narrative-seasons.json"),
+    fetchJson("reading/state.json"),
     fetchJson("content/design-flow-ledger.json"),
     fetchJson("self-authorship/current.json"),
     fetchJson("sources/registry.json"),
@@ -87,6 +90,7 @@ const loadData = async () => {
   app.attractors = attractorResult.status === "fulfilled" ? attractorResult.value : { packets: [] };
   app.narrativePolicy = narrativePolicyResult.status === "fulfilled" ? narrativePolicyResult.value : null;
   app.narrativeSeasons = narrativeSeasonsResult.status === "fulfilled" ? narrativeSeasonsResult.value : null;
+  app.readingState = readingStateResult.status === "fulfilled" ? readingStateResult.value : null;
   app.designFlow = designFlowResult.status === "fulfilled" ? designFlowResult.value : null;
   app.identity = identityResult.status === "fulfilled" ? identityResult.value : null;
   app.sources = sourcesResult.status === "fulfilled" ? sourcesResult.value : { sources: [] };
@@ -160,7 +164,7 @@ const renderNarrative = () => {
 const renderPresence = () => {
   const service = app.runtime.service;
   if (app.identity) {
-    document.title = `${app.identity.name} — Constitutional Field`;
+    document.title = `${app.identity.name} — A Living Literature With Memory`;
     $("meta[name='description']")?.setAttribute("content", app.identity.declaration);
   }
   const status = service.status || "unknown";
@@ -173,6 +177,82 @@ const renderPresence = () => {
 
   const sleeping = status === "sleeping";
   const running = status === "running";
+};
+
+let readingPlayback = null;
+const renderLanguage = () => {
+  const branch = app.readingState?.branches?.find(({ status }) => status === "active") || app.readingState?.branches?.[0];
+  if (!branch) {
+    $("#reading-title").textContent = "No reading has been selected.";
+    $("#reading-status").textContent = "Resting";
+    $("#reading-listen").disabled = true;
+    return;
+  }
+  const tone = branch.experiments?.tonal;
+  $("#reading-title").textContent = `${branch.branch_id} / ${branch.derived_grammar?.name || "Structural listening"}`;
+  $("#reading-status").textContent = sentence(branch.status);
+  $("#reading-question").textContent = branch.question.text;
+  $("#reading-source-title").textContent = branch.reading.title;
+  $("#reading-reason").textContent = branch.reading.selection_reason;
+  $("#reading-rights").textContent = `${branch.reading.rights_basis} · ${branch.reading.available_material}`;
+  $("#reading-utterance").textContent = branch.experiments.textual.utterance.join(" ");
+  $("#reading-duration").textContent = `${tone.duration_seconds} seconds`;
+  $("#reading-provenance").textContent = `${sentence(branch.provenance.expression_origin)} · ${branch.provenance.source_witness}`;
+  $("#reading-listen").dataset.branchId = branch.branch_id;
+};
+
+const stopReadingTone = () => {
+  if (!readingPlayback) return;
+  readingPlayback.nodes.forEach((node) => { try { node.stop(); } catch {} });
+  readingPlayback.context.close().catch(() => {});
+  clearTimeout(readingPlayback.timer);
+  readingPlayback = null;
+  $("#reading-listen").setAttribute("aria-pressed", "false");
+  $("#reading-listen span").textContent = "Hear this branch";
+  $("#reading-tone-state").textContent = "The score is silent.";
+};
+
+const playReadingTone = async () => {
+  if (readingPlayback) return stopReadingTone();
+  const branch = app.readingState?.branches?.find(({ branch_id: id }) => id === $("#reading-listen").dataset.branchId);
+  const score = branch?.experiments?.tonal;
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!score?.events?.length || !AudioContext) {
+    $("#reading-tone-state").textContent = "This browser cannot form the utterance.";
+    return;
+  }
+  const context = new AudioContext();
+  await context.resume();
+  const compressor = context.createDynamicsCompressor();
+  compressor.threshold.value = -24;
+  compressor.knee.value = 18;
+  compressor.ratio.value = 5;
+  const master = context.createGain();
+  master.gain.value = .24;
+  master.connect(compressor).connect(context.destination);
+  const start = context.currentTime + .08;
+  const nodes = score.events.map((event, index) => {
+    const oscillator = context.createOscillator();
+    const filter = context.createBiquadFilter();
+    const envelope = context.createGain();
+    oscillator.type = index % 3 === 1 ? "triangle" : "sine";
+    oscillator.frequency.value = score.root_hz * event.ratio * 2;
+    filter.type = "lowpass";
+    filter.frequency.value = 720 + index * 110;
+    const at = start + event.at;
+    envelope.gain.setValueAtTime(.0001, at);
+    envelope.gain.exponentialRampToValueAtTime(event.amplitude, at + Math.min(.18, event.duration * .22));
+    envelope.gain.exponentialRampToValueAtTime(.0001, at + event.duration);
+    oscillator.connect(filter).connect(envelope).connect(master);
+    oscillator.start(at);
+    oscillator.stop(at + event.duration + .03);
+    return oscillator;
+  });
+  const timer = window.setTimeout(stopReadingTone, (score.duration_seconds + .4) * 1000);
+  readingPlayback = { context, nodes, timer };
+  $("#reading-listen").setAttribute("aria-pressed", "true");
+  $("#reading-listen span").textContent = "Return to silence";
+  $("#reading-tone-state").textContent = `${score.score_id} is sounding · ${score.provenance}`;
 };
 
 const renderCoordinate = () => {
@@ -299,12 +379,18 @@ const propagationEvents = () => {
 };
 
 const renderPropagation = () => {
-  const filtered = propagationEvents().filter(({ type }) => app.propagationFilter === "all" || type === app.propagationFilter).slice(0, 48);
+  const available = propagationEvents().filter(({ type }) => app.propagationFilter === "all" || type === app.propagationFilter);
+  const filtered = available.slice(0, app.propagationExpanded ? 48 : 8);
   $("#propagation-events").innerHTML = filtered.map((event, index) => `<li data-propagation-type="${escapeHtml(event.type)}">
     <a href="${escapeHtml(event.href || "#verify")}"${String(event.href || "").startsWith("http") ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>
       <span><i>${String(index + 1).padStart(2, "0")}</i><b>${escapeHtml(event.title)}</b><small>${escapeHtml(displayEventDate(event.at))}</small></span>
       <span>${escapeHtml(event.origin || "Root Logos")}</span><span>${escapeHtml(event.consequence || "Preserved without mutation")}</span><code>${escapeHtml(event.witness || "public record")}</code>
     </a></li>`).join("") || `<li class="propagation-empty">No events match this view.</li>`;
+  const toggle = $("#propagation-toggle");
+  toggle.hidden = available.length <= 8;
+  toggle.setAttribute("aria-expanded", String(app.propagationExpanded));
+  toggle.querySelector("span").textContent = app.propagationExpanded ? "Return to recent motion" : `Open full trail / ${Math.min(48, available.length)} records`;
+  $("#propagation-window").textContent = app.propagationExpanded ? `Showing ${filtered.length} available records` : `Showing ${filtered.length} most recent records`;
 };
 
 const renderVerification = () => {
@@ -963,6 +1049,7 @@ const bindInterface = () => {
   }));
 
   $("[data-field-inspector-close]").addEventListener("click", closeFieldInspector);
+  $("#reading-listen")?.addEventListener("click", playReadingTone);
   $$(".field-control").forEach((control) => control.addEventListener("click", () => {
     app.filter = control.dataset.filter;
     $$(".field-control").forEach((item) => item.classList.toggle("is-active", item === control));
@@ -981,9 +1068,14 @@ const bindInterface = () => {
   });
   $$("[data-propagation-filter]").forEach((button) => button.addEventListener("click", () => {
     app.propagationFilter = button.dataset.propagationFilter;
+    app.propagationExpanded = false;
     $$("[data-propagation-filter]").forEach((item) => item.classList.toggle("is-active", item === button));
     renderPropagation();
   }));
+  $("#propagation-toggle")?.addEventListener("click", () => {
+    app.propagationExpanded = !app.propagationExpanded;
+    renderPropagation();
+  });
   $("#copy-source-witness")?.addEventListener("click", async () => {
     const value = $("#verify-source-witness").textContent;
     try {
@@ -1024,6 +1116,7 @@ const initialize = async () => {
     renderPresence();
     renderCoordinate();
     renderNarrative();
+    renderLanguage();
     renderVerification();
     renderLatestCycle();
     renderProposals();
@@ -1041,7 +1134,7 @@ const initialize = async () => {
       requestAnimationFrame(() => $("#field").scrollIntoView({ behavior: "auto" }));
     }
     window.dispatchEvent(new CustomEvent("rootlogos:ready", { detail: {
-      graph: app.graph, runtime: app.runtime, cycles: app.cycles, memory: app.memory, attractors: app.attractors, narrativePolicy: app.narrativePolicy, narrativeSeasons: app.narrativeSeasons, designFlow: app.designFlow, identity: app.identity, sources: app.sources, foldforge: app.foldforge, sourceWitnesses: app.sourceWitnesses
+      graph: app.graph, runtime: app.runtime, cycles: app.cycles, memory: app.memory, attractors: app.attractors, narrativePolicy: app.narrativePolicy, narrativeSeasons: app.narrativeSeasons, readingState: app.readingState, designFlow: app.designFlow, identity: app.identity, sources: app.sources, foldforge: app.foldforge, sourceWitnesses: app.sourceWitnesses
     } }));
   } catch (error) {
     console.error(error);
