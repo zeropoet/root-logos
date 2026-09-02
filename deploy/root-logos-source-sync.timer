@@ -1,0 +1,12 @@
+[Unit]
+Description=Root Logos daily connected-source integration
+
+[Timer]
+OnCalendar=*-*-* 05:17:00 America/New_York
+Persistent=true
+AccuracySec=1s
+RandomizedDelaySec=0
+Unit=root-logos-source-sync.service
+
+[Install]
+WantedBy=timers.target

@@ -2,7 +2,7 @@
 
 import http from "node:http";
 import { createHmac, createPublicKey, randomUUID, timingSafeEqual, verify as verifyRSA } from "node:crypto";
-import { appendFile, mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
+import { appendFile, chmod, mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import { spawn } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join, resolve } from "node:path";
@@ -16,7 +16,8 @@ const canonicalCultivationId = (id) => String(id || "").replace(/^RL-CULT-/, "RL
 const githubOidcIssuer = "https://token.actions.githubusercontent.com";
 const defaultGithubOidcWorkflows = [
   "zeropoet/root-logos/.github/workflows/deploy-runtime.yml@refs/heads/main",
-  "zeropoet/root-logos/.github/workflows/source-integration.yml@refs/heads/main"
+  "zeropoet/root-logos/.github/workflows/source-integration.yml@refs/heads/main",
+  "zeropoet/root-logos/.github/workflows/migrate-runtime-secrets.yml@refs/heads/main"
 ];
 
 const safeEqual = (left, right) => {
@@ -136,6 +137,7 @@ export const createRuntime = async (options = {}) => {
   const githubOidcWorkflowRefs = options.githubOidcWorkflowRefs ?? String(process.env.ROOT_LOGOS_GITHUB_OIDC_WORKFLOWS || "").split(",").map((value) => value.trim()).filter(Boolean);
   const acceptedGithubOidcWorkflows = githubOidcWorkflowRefs.length ? githubOidcWorkflowRefs : defaultGithubOidcWorkflows;
   const githubOidcVerifier = options.githubOidcVerifier || verifyGitHubOIDCToken;
+  const xCredentialPath = resolve(options.xCredentialPath || process.env.ROOT_LOGOS_X_CREDENTIAL_FILE || join(dataDir, "x-publication.env"));
   const journalSecret = options.journalSecret ?? process.env.ROOT_LOGOS_JOURNAL_SECRET ?? (intakeSecret ? `journal-membrane:${intakeSecret}` : null);
   const journalDropDir = options.journalDropDir ?? process.env.ROOT_LOGOS_JOURNAL_DROP_DIR;
   const journalCollectionEnabled = options.journalCollectionEnabled ?? (process.env.ROOT_LOGOS_JOURNAL_ENABLED === "1" ? true : undefined);
@@ -560,6 +562,47 @@ export const createRuntime = async (options = {}) => {
         if (!authorized) return send(res, 401, { error: "unauthorized" }, cors);
         const accepted = deploy(sha);
         return send(res, accepted ? 202 : 200, { accepted, sha, status: accepted ? "deployment-queued" : "deployment-already-running" }, cors);
+      }
+
+      if (req.method === "POST" && url.pathname === "/v1/internal/migrate-x-credentials") {
+        const sha = String(req.headers["x-github-sha"] || "").trim();
+        if (!/^[a-f0-9]{40}$/.test(sha)) return send(res, 422, { error: "a full GitHub commit SHA is required" }, cors);
+        const suppliedToken = String(req.headers.authorization || "").replace(/^Bearer\s+/i, "");
+        let authorized = false;
+        if (githubOidcAudience && suppliedToken) {
+          try {
+            await githubOidcVerifier(suppliedToken, {
+              audience: githubOidcAudience,
+              repository: githubOidcRepository,
+              repositoryId: githubOidcRepositoryId,
+              workflowRefs: acceptedGithubOidcWorkflows,
+              sha
+            });
+            authorized = true;
+          } catch (error) {
+            process.stderr.write(`GitHub OIDC credential migration rejection: ${error.message}\n`);
+          }
+        }
+        if (!authorized) return send(res, 401, { error: "unauthorized" }, cors);
+
+        let credentialRaw = "";
+        for await (const chunk of req) {
+          credentialRaw += chunk;
+          if (Buffer.byteLength(credentialRaw) > 32_768) {
+            return send(res, 413, { error: "credential payload exceeds 32 KB" }, cors);
+          }
+        }
+        const credentials = JSON.parse(credentialRaw);
+        const fields = ["X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_TOKEN_SECRET"];
+        if (fields.some((field) => typeof credentials?.[field] !== "string" || credentials[field].length < 8 || credentials[field].length > 4096)) {
+          return send(res, 422, { error: "all four X OAuth credentials are required" }, cors);
+        }
+        const encoded = fields
+          .map((field) => `${field}_B64=${Buffer.from(credentials[field], "utf8").toString("base64")}`)
+          .join("\n");
+        await writeFile(xCredentialPath, `${encoded}\n`, { mode: 0o600 });
+        await chmod(xCredentialPath, 0o600);
+        return send(res, 201, { accepted: true, credentials_installed: true }, cors);
       }
 
       let raw = "";

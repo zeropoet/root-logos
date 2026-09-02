@@ -1,0 +1,12 @@
+[Unit]
+Description=Root Logos weekly bounded cultivation
+
+[Timer]
+OnCalendar=Sun *-*-* 10:07:00 America/New_York
+Persistent=true
+AccuracySec=1s
+RandomizedDelaySec=0
+Unit=root-logos-cultivation.service
+
+[Install]
+WantedBy=timers.target

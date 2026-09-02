@@ -9,6 +9,19 @@ runtime.rootlogos.com {
   }
 }
 
+rootlogos.com, www.rootlogos.com {
+  encode zstd gzip
+  root * /var/www/root-logos
+  file_server
+
+  header {
+    Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options "nosniff"
+    X-Frame-Options "DENY"
+    Referrer-Policy "no-referrer"
+  }
+}
+
 presence.rootlogos.com {
   encode zstd gzip
 

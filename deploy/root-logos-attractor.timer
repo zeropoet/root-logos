@@ -1,0 +1,13 @@
+[Unit]
+Description=Root Logos M/W/F fragment release and recovery
+
+[Timer]
+OnCalendar=Mon,Wed,Fri *-*-* 10:17:00 America/New_York
+OnCalendar=Mon,Wed,Fri *-*-* 13:47:00 America/New_York
+Persistent=true
+AccuracySec=1s
+RandomizedDelaySec=0
+Unit=root-logos-attractor.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,18 @@
+[Unit]
+Description=Root Logos bounded cultivation cycle
+After=network-online.target root-logos-runtime.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=rootlogos
+Group=rootlogos
+WorkingDirectory=/opt/root-logos
+Environment=ROOT_LOGOS_ROOT=/opt/root-logos
+Environment=ROOT_LOGOS_PUBLIC_ROOT=/var/www/root-logos
+ExecStart=/opt/root-logos/scripts/cultivate-lightsail.sh
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/root-logos /var/lib/root-logos /var/www/root-logos
