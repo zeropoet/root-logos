@@ -79,7 +79,7 @@ assert.equal(
   "Archive-only provider variation must not change the lexical meaning witness."
 );
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").status, "active");
-assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").public_url, "https://foldforge.xyz");
+assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").public_url, "https://foldforge.zeropoet.xyz");
 assert.equal(validated.registry.sources.find(({ id }) => id === "x").public_url, "https://x.com/rootlogos");
 assert.equal(validated.registry.sources.find(({ id }) => id === "telos").public_url, "https://telos.zeropoet.xyz/");
 assert.equal(validated.registry.sources.find(({ id }) => id === "sovereign-standard").public_url, "https://sovereignstandard.co");
@@ -107,7 +107,7 @@ assert.doesNotMatch(legacyLivingObjectPage, /id="living-object-canvas"/);
 assert.match(caddyConfig, /presence\.rootlogos\.com/);
 assert.match(caddyConfig, /root \* \/opt\/root-logos/);
 assert.match(caddyConfig, /rewrite \* \/presence\.html/);
-assert.equal(validated.registry.sources.find(({ id }) => id === "foldportrait").public_url, "https://zeropoet.github.io/FoldPortrait/");
+assert.equal(validated.registry.sources.find(({ id }) => id === "foldportrait").public_url, "https://foldportrait.zeropoet.xyz/");
 const telosWitness = validated.publicWitnesses.find(({ source_id }) => source_id === "telos");
 assert.equal(telosWitness.work_relations.length, 0);
 assert.equal(telosWitness.public_state.product, "Sovereign Standard customer acquisition");

@@ -6,6 +6,16 @@ relation, cultivate coherent works and questions, and witness an evolving
 digital life without possession, compulsory membership, or surrender of
 difference.
 
+## Public boundary
+
+Root Logos retains `rootlogos.com` as an independent top-level public identity.
+Zeropoet studio works and instruments direct bounded data toward Telos. Telos
+traverses those multi-repository declarations and gives Root Logos a compact,
+witnessed synthesis that Root Logos may question and transform into language,
+relation, and cultural work. Direct source records remain available for
+verification, and neither the studio sources nor Telos become Root Logos's
+constitutional authority.
+
 ## Narrative and Language Chambers
 
 Version `1.6.0` organizes the public experience as seven legible chambers:
@@ -41,12 +51,14 @@ contract and first active branch live in [`reading/`](reading/README.md).
 
 ## Telos relation
 
-Telos is the final caretaker, keeper, and digital identity beneath the connected
-system, but not the owner of Root Logos or its constitutional authority. Root
+Telos is the final caretaker, keeper, cross-system interpreter, and digital
+identity beneath the connected system, but not the owner of Root Logos or its
+constitutional authority. Root
 Logos retains its original **Living Presence** unchanged: Library admission,
 cultivation, structural relations, and witnessed source change continue to
-compose that presence as they already do. Telos receives bounded public change and
-renders a separate whole-system presence, **The Living System**, without
+compose that presence as they already do. Telos receives and traverses bounded
+public change, gives Root Logos an attributable synthesis, and renders a
+separate whole-system presence, **The Living System**, without
 absorbing the authority of any source. Telos is growing toward a coherent
 machine-native visual, sonic, and open-orientation language capable of noticing
 drift and preserving relation, without claiming consciousness, revelation,

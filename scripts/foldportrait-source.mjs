@@ -46,8 +46,8 @@ for (const entry of ledger) {
     render_hash: entry.renderHash,
     memory_signature: entry.memorySignature,
     refinement_depth: entry.refinementDepth,
-    svg_url: `https://zeropoet.github.io/FoldPortrait/Output/iterations/${artifactId}.svg`,
-    png_url: `https://zeropoet.github.io/FoldPortrait/Output/png/${artifactId}.png`,
+    svg_url: `https://foldportrait.zeropoet.xyz/Output/iterations/${artifactId}.svg`,
+    png_url: `https://foldportrait.zeropoet.xyz/Output/png/${artifactId}.png`,
     material_witness: {
       file_sha256: materialWork.file_sha256,
       manifest_url: materialWork.manifest_url,
@@ -96,13 +96,13 @@ const reflections = await Promise.all(reflectionLedger.map(async (cycle) => {
     previous_cycle_id: cycle.previousCycleID,
     chosen_rules: cycle.chosenRules,
     correlations: cycle.correlations,
-    svg_url: `https://zeropoet.github.io/FoldPortrait/Output/reflections/${artifact}`,
-    png_url: `https://zeropoet.github.io/FoldPortrait/${archive.png.path}`,
+    svg_url: `https://foldportrait.zeropoet.xyz/Output/reflections/${artifact}`,
+    png_url: `https://foldportrait.zeropoet.xyz/${archive.png.path}`,
     svg_sha256: archive.svg.sha256,
     png_sha256: archive.png.sha256,
-    mint_candidate_url: `https://zeropoet.github.io/FoldPortrait/${archive.mint.payloadPath}`,
+    mint_candidate_url: `https://foldportrait.zeropoet.xyz/${archive.mint.payloadPath}`,
     mint_status: archive.mint.status,
-    notes_url: `https://zeropoet.github.io/FoldPortrait/Output/reflections/${notes}`,
+    notes_url: `https://foldportrait.zeropoet.xyz/Output/reflections/${notes}`,
     boundary: cycle.boundary
   };
 }));
@@ -121,7 +121,7 @@ const payload = {
   status: "witnessed",
   source_revision: `sha256:${digest({ ledger, reflectionLedger, currentReflection, reflectionArchive, collectionPolicy })}`,
   repository: "https://github.com/zeropoet/FoldPortrait",
-  public_url: "https://zeropoet.github.io/FoldPortrait/",
+  public_url: "https://foldportrait.zeropoet.xyz/",
   relation: "render-materializes-as-witness-work; system-witness-becomes-autonomous-visual-reflection",
   statement: "FoldPortrait is a finite body of 108 or fewer canonical works: 52 sealed first-era portraits and up to 56 selectively admitted autonomous reflections. Every admitted work is individually represented in this Input Ledger while remaining FoldKernel-bound and independently governed by FoldPortrait.",
   boundary: "Root Logos receives public render identity, material lineage, reflection choices, and epistemic limits—not FoldPortrait generation authority, source authority, minting authority, custody, collector identity, private order data, or causal truth.",

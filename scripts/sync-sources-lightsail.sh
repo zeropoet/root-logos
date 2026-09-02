@@ -25,7 +25,7 @@ sync_public_repo https://github.com/zeropoet/FoldPortrait.git "$foldportrait_roo
 cd "$ROOT_LOGOS_ROOT"
 rl_git_identity
 node scripts/sources.mjs sync "$foldforge_root" \
-  https://foldforge.xyz/root-logos-language-composition.json
+  https://foldforge.zeropoet.xyz/root-logos-language-composition.json
 node scripts/sources.mjs sync-sovereign-standard \
   https://sovereignstandard.co/root-logos-witness-export.json
 FOLDPORTRAIT_PATH="$foldportrait_root" node scripts/foldportrait-source.mjs

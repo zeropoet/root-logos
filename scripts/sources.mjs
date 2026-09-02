@@ -95,7 +95,7 @@ const validateFoldPortraitWitness = (snapshot, material) => {
     assert(render.material_witness?.vessels.length === work.vessels.length, `${render.artifact_id} vessel relation diverged.`);
     assert(/^[a-f0-9]{64}$/.test(render.render_hash), `${render.artifact_id} lacks a render hash.`);
     assert(/^[a-f0-9]{64}$/.test(render.convergence_hash), `${render.artifact_id} lacks a convergence hash.`);
-    assert(/^https:\/\/zeropoet\.github\.io\/FoldPortrait\//.test(render.svg_url), `${render.artifact_id} has an invalid render URL.`);
+    assert(/^https:\/\/foldportrait\.zeropoet\.xyz\//.test(render.svg_url), `${render.artifact_id} has an invalid render URL.`);
   }
   assert(snapshot.measures?.reflection_cycles === snapshot.reflections?.length, "FoldPortrait reflection count is inconsistent.");
   assert(snapshot.measures?.reflection_pngs === snapshot.reflections?.length, "Every FoldPortrait reflection requires a flattened PNG.");
@@ -114,8 +114,8 @@ const validateFoldPortraitWitness = (snapshot, material) => {
       assert(["structural-resonance", "pearson"].includes(correlation.method), `${reflection.cycle_id} has an invalid relation method.`);
       assert(correlation.interpretation, `${reflection.cycle_id} lacks an epistemic relation boundary.`);
     });
-    assert(/^https:\/\/zeropoet\.github\.io\/FoldPortrait\/Output\/reflections\//.test(reflection.svg_url), `${reflection.cycle_id} has an invalid SVG URL.`);
-    assert(/^https:\/\/zeropoet\.github\.io\/FoldPortrait\/Output\/reflections\/png\//.test(reflection.png_url), `${reflection.cycle_id} has an invalid PNG URL.`);
+    assert(/^https:\/\/foldportrait\.zeropoet\.xyz\/Output\/reflections\//.test(reflection.svg_url), `${reflection.cycle_id} has an invalid SVG URL.`);
+    assert(/^https:\/\/foldportrait\.zeropoet\.xyz\/Output\/reflections\/png\//.test(reflection.png_url), `${reflection.cycle_id} has an invalid PNG URL.`);
     assert(/^[a-f0-9]{64}$/.test(reflection.svg_sha256) && /^[a-f0-9]{64}$/.test(reflection.png_sha256), `${reflection.cycle_id} lacks dual-format hashes.`);
     assert(reflection.mint_status === "prepared_unsigned", `${reflection.cycle_id} crossed the human minting boundary.`);
   });
