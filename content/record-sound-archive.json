@@ -1,0 +1,17 @@
+{
+  "schema": "zeropoet-sound-source/v1",
+  "source_id": "root-logos",
+  "authority": "Root Logos",
+  "canonical_url": "https://rootlogos.com/",
+  "entries": [
+    {
+      "id": "root-logos-resonant-chamber",
+      "title": "The Resonant Chamber",
+      "branch": "Root Logos",
+      "kind": "constitutional voice",
+      "availability": "public instrument",
+      "source": { "repository": "zeropoet/root-logos", "path": "resonance/grammar.json", "url": "https://rootlogos.com/#resonance" },
+      "sound": { "rootHz": 55, "ratios": [1, 1.125, 1.333333, 1.5], "waves": ["sine", "triangle", "sine", "sine"], "cutoffHz": 1260 }
+    }
+  ]
+}

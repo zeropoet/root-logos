@@ -64,6 +64,15 @@ machine-native visual, sonic, and open-orientation language capable of noticing
 drift and preserving relation, without claiming consciousness, revelation,
 personhood, or final authority.
 
+## The Record relation
+
+Root Logos publishes the Resonant Chamber's bounded sound structure at
+[`content/record-sound-archive.json`](content/record-sound-archive.json).
+[The Record](https://record.zeropoet.xyz/) may index and compose a related
+browser voice from that public declaration. Root Logos retains the actual
+constitutional score, source topology, lineage, and authority; no sound media,
+private source, or compositional judgment crosses that boundary.
+
 ## FoldKernel integration contract
 
 Root Logos is a cross-language FoldKernel consumer. Its native Node projection

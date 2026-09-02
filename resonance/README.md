@@ -63,6 +63,11 @@ from that same manifest rather than developing a divergent sonic
 self-description. Raw journal prose is never a resonant source; only admitted
 derived structure may affect topology and therefore sound.
 
+Root Logos publishes the Resonant Chamber's bounded structural declaration at
+`content/record-sound-archive.json`. The Record may compose a related browser
+voice from that declaration, but the constitutional score, lineage, and
+authority remain here in Root Logos.
+
 ## FoldForge Sonic Constitution layer
 
 The Founding Constitution may enter FoldForge's Sonic Forge only through the
