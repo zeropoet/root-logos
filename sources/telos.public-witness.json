@@ -1,8 +1,8 @@
 {
   "schema": "root-logos-public-source-witness/v1",
   "source_id": "telos",
-  "revision": "6.0.0",
-  "effective_date": "2026-08-26",
+  "revision": "6.1.0",
+  "effective_date": "2026-09-03",
   "status": "witnessed",
   "identity": {
     "name": "Telos",
@@ -11,16 +11,19 @@
   },
   "public_state": {
     "product": "Sovereign Standard customer acquisition",
-    "current_version": "0.9.1",
-    "source_successor_version": "0.9.1",
-    "operational_mode": "deployed bounded zero-spend annual-collector acquisition",
-    "deployed_release_version": "0.9.1",
+    "current_version": "1.14.1",
+    "source_successor_version": "1.14.1",
+    "operational_mode": "deployed bounded zero-spend annual-collector acquisition with read-only studio surface and release-drift observation",
+    "deployed_release_version": "1.14.1",
     "deployed_decision": "OPERATING",
     "owned_search_publisher": "active and catalog-bound to /guides/",
     "active_campaign": "design-object-collectors-numbered-vessel-collection-v1",
     "active_guide": "https://sovereignstandard.co/guides/design-object-collectors-numbered-vessel-collection-v1.html",
     "active_guide_status": "verified HTTP 200",
     "growth_observation_interval": "15 minutes",
+    "studio_surface_observation_interval": "15 minutes",
+    "studio_surfaces_live": 8,
+    "telos_managed_deployments_aligned": 5,
     "acquisition_planning_interval": "6 hours",
     "maximum_active_campaigns": 1,
     "outreach_enabled": false,
@@ -75,6 +78,18 @@
       {
         "id": "foldportrait",
         "role": "deterministic render and material lineage"
+      },
+      {
+        "id": "foldkernel",
+        "role": "shared deterministic protocol, integration declarations, and value-receipt grammar"
+      },
+      {
+        "id": "the-record",
+        "role": "reconciled public sound archive across independently governed source works"
+      },
+      {
+        "id": "ovel",
+        "role": "Lightsail-hosted generative spectral field and bounded sound source"
       }
     ],
     "operating_components": [
@@ -132,11 +147,16 @@
       "Sovereign Standard -> converts -> annual collectors and monthly-entry collectors",
       "anonymous evidence -> corrects -> Telos campaigns",
       "Telos public system map -> informs -> Root Logos Cultivation Chamber",
+      "Telos surface observer -> verifies without altering -> eight canonical studio surfaces",
+      "Telos release observer -> reports drift across -> five Telos-managed Lightsail deployments",
+      "FoldForge, Root Logos, Telos, and ØVEL -> publish bounded sound manifests to -> The Record",
+      "The Record -> reconciles public sound structure from -> independently governed source surfaces",
+      "ØVEL -> remains an independent generative artwork while contributing -> public topology and sound relation",
       "200 active annual collectors -> establishes -> first success threshold",
       "600 active annual collectors -> marks -> upper intended range and physical operations scaling review"
     ],
     "cultivation_authority": "inquiry and constitutional relation only",
-    "source_commit": "860d81244182b0031dfd786acc21562ed5735f69"
+    "source_commit": "9a78438f729653eb90c27fd8a42be6d2802295b6"
   },
   "change_propagation_policy": {
     "status": "required",
@@ -182,13 +202,15 @@
     "Telos has no exchange connector or crypto-trading authority.",
     "Any BTC purchase is a separate owner-directed use of realized business surplus.",
     "The production observer reads only anonymous event identifiers, types, timestamps, channels, and campaigns.",
-    "Release 0.9.1 is operating independently on Lightsail through a fifteen-minute observer and six-hour acquisition planner.",
+    "Release 1.14.1 is operating independently on Lightsail through a fifteen-minute growth observer, six-hour acquisition planner, and fifteen-minute read-only studio surface observer.",
+    "All eight declared public studio surfaces were live and all five Telos-managed Lightsail deployments were aligned when this witness was prepared.",
+    "Telos records canonical URLs, pinned source commits, public reachability, and active release alignment without acquiring authorship or runtime authority from connected projects.",
     "Twelve deterministic annual-collector campaign candidates span four audiences and three truthful themes; only one may be active at a time.",
     "The first annual-collector guide is live, included in the Sovereign Standard sitemap, and verified before duplicate publication is refused.",
     "@sovereignstandardtea is mapped as Sovereign Standard's bounded public Instagram channel; the site remains the canonical product and archive record.",
     "Organic discovery is treated as a progression from operational proof to indexing, qualified traffic, conversion, and repeatability—not as a promise of customers or profit.",
     "The catalog-bound gate cannot accept arbitrary copy, HTML, URLs, repository paths, homepage changes, outreach, or spend.",
-    "Source and deployed version 0.9.1 project the annual-primary, monthly-entry acquisition map into bounded Root Logos cultivation."
+    "Source and deployed version 1.14.1 project the annual-primary, monthly-entry acquisition map and bounded studio topology into Root Logos cultivation."
   ],
   "work_relations": [],
   "exclusions": [
@@ -207,5 +229,5 @@
     "When has a campaign earned continuation, and when should insufficient evidence require silence or rollback?",
     "Which truthful annual-commitment framing attracts collectors without reducing the numbered vessel and tea practice to price alone?"
   ],
-  "witness": "sha256:e8024ccce0387b7776fc0336d4220568e2f9e1b92a32cfccc2e352dc7075b1d1"
+  "witness": "sha256:26ab7a518a30602f2e4560a0551320dd90bcbdbcaf3b8e3a52bb1d2d7828a0c6"
 }

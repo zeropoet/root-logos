@@ -199,7 +199,7 @@ const mappedId = mappedState.history.at(-1).cultivation_id;
 const mappedCycle = JSON.parse(await readFile(join(sandbox, "cultivation", "cycles", `${mappedId}.json`), "utf8"));
 assert.equal(mappedCycle.lens.id, "system-map-pressure");
 assert.deepEqual(mappedCycle.system_mapping.collector_targets.map(({ target }) => target), [200, 600]);
-assert.deepEqual(mappedCycle.system_mapping.repositories, ["telos", "sovereign-standard", "root-logos", "foldforge", "foldportrait"]);
+assert.deepEqual(mappedCycle.system_mapping.repositories, ["telos", "sovereign-standard", "root-logos", "foldforge", "foldportrait", "foldkernel", "the-record", "ovel"]);
 assert.equal(mappedCycle.system_mapping.measurement_state, "aggregate_active_annual_collector_count_not_connected");
 assert.equal(mappedCycle.system_mapping.propagation_status, "required");
 assert.equal(mappedCycle.system_mapping.authority, "inquiry and constitutional relation only");
