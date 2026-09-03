@@ -1759,10 +1759,40 @@
         },
         "total": 20
       }
+    },
+    "21f30a3d78ec6b0368139b8457ae226296d8cbea783880a26b40ab0f95f54c35": {
+      "fingerprint": "21f30a3d78ec6b0368139b8457ae226296d8cbea783880a26b40ab0f95f54c35",
+      "kind": "admitted-observation",
+      "nodes": [
+        "attractor-membrane",
+        "journal-membrane",
+        "design-flow-ledger"
+      ],
+      "claim": "RL-JOURNAL-F0AC5B92E746 creates new inquiry pressure around The Attractor Membrane, The Journal Membrane, Root Logos Design Flow Ledger.",
+      "proposed_question": "Autonomously derived through the private Journal Membrane; raw source prose was released.",
+      "evidence_hash": "6a235047b1234f6151907e70cca58cf6aba971ccfb4b2dfdd7af7522b830d6c9",
+      "policy_hash": "6534ace18ab7ec7df7af0d5d124675e00f2968a3b8d2fb19a19d91dec10ad0f1",
+      "first_cycle": "RL-CULTIVATE-0224",
+      "last_cycle": "RL-CULTIVATE-0224",
+      "last_cycle_index": 224,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 4,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 23
+      }
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 2,
+    "consecutive_low_yield_cycles": 1,
     "last_score": 0,
     "history": [
       {
@@ -3269,6 +3299,20 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-09-02T15:45:50.053Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0224",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-09-02T16:45:23.379Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0225",
+        "score": 0,
+        "reason": "no-eligible-hypothesis",
+        "status": "completed-no-proposal",
+        "at": "2026-09-03T09:17:06.010Z"
       }
     ]
   },
