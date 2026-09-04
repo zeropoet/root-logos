@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node scripts/citizenship.test.mjs && node scripts/public-verification.test.mjs && node scripts/sources.test.mjs && node scripts/design-flow.test.mjs && node scripts/narrative.test.mjs && node scripts/reading.test.mjs && node scripts/foldforge-sonic-constitution.test.mjs && node scripts/foldkernel-integration.test.mjs && node scripts/works.test.mjs && node scripts/work-coordinates.mjs --check && node scripts/work-first-frame.mjs --check && node scripts/library-composition.mjs --check && node scripts/structural-depth-migration.mjs --check && node scripts/recompose-foldforge.mjs --check && node scripts/cultivate.test.mjs && node scripts/self-author.test.mjs && node runtime/journal.test.mjs && node runtime/runtime.test.mjs",
+    "test": "node scripts/citizenship.test.mjs && node scripts/public-verification.test.mjs && node scripts/sources.test.mjs && node scripts/design-flow.test.mjs && node scripts/narrative.test.mjs && node scripts/reading.test.mjs && node scripts/foldforge-sonic-constitution.test.mjs && node scripts/foldkernel-integration.test.mjs && node scripts/works.test.mjs && node scripts/work-coordinates.mjs --check && node scripts/work-first-frame.mjs --check && node scripts/library-composition.mjs --check && node scripts/record-sound-archive.mjs --check && node scripts/structural-depth-migration.mjs --check && node scripts/recompose-foldforge.mjs --check && node scripts/cultivate.test.mjs && node scripts/self-author.test.mjs && node runtime/journal.test.mjs && node runtime/runtime.test.mjs",
     "foldkernel:project": "node scripts/foldkernel-integration.mjs",
     "foldkernel:check": "node scripts/foldkernel-integration.mjs --check",
     "works:ingest": "node scripts/works.mjs ingest",
@@ -12,6 +12,7 @@
     "works:protestant-corpus": "node scripts/works-protestant-corpus.mjs",
     "works:first-frames": "node scripts/work-first-frame.mjs",
     "works:compose-library": "node scripts/library-composition.mjs",
+    "works:sound-archive": "node scripts/record-sound-archive.mjs",
     "works:depth-ledger": "node scripts/structural-depth-migration.mjs",
     "works:reindex-library": "node scripts/reindex-library.mjs",
     "works:withdraw-noncompliant": "node scripts/withdraw-works.mjs --all-noncompliant && node scripts/reindex-library.mjs && node scripts/library-composition.mjs && node scripts/structural-depth-migration.mjs",
