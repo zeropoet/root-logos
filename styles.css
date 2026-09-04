@@ -1145,7 +1145,8 @@ html[data-library-capture="true"] .library-shell {
 }
 
 .site-footer { display:grid;grid-template-columns:1fr auto;gap:clamp(34px,5vw,72px);align-items:end;padding:80px var(--edge);background:#060705; }
-.site-footer > div { display: flex; align-items: center; gap: 14px; font: .7rem/1 var(--mono); letter-spacing: .15em; text-transform: uppercase; }
+.site-footer > div,
+.site-footer > .footer-home { display: flex; align-items: center; gap: 14px; color:inherit; font: .7rem/1 var(--mono); letter-spacing: .15em; text-decoration:none; text-transform: uppercase; }
 .footer-mark { display:grid;place-items:center;width:28px;height:28px;border:0;background:transparent; }
 .footer-mark img { filter: invert(1); opacity: 1; }
 .footer-tea { position:relative;grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:28px;min-height:clamp(240px,34vh,380px);padding:clamp(30px,4vw,56px);align-content:space-between;border-top:1px solid rgba(255,255,255,.32);border-bottom:1px solid rgba(255,255,255,.14);background:#000;overflow:hidden;transition:border-color .3s; }
