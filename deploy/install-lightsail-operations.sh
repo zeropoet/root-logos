@@ -6,11 +6,13 @@ install -d -o rootlogos -g rootlogos -m 0755 /var/www/root-logos
 install -d -o rootlogos -g rootlogos -m 0750 /var/lib/root-logos
 chmod 0755 \
   "$root/scripts/lightsail-common.sh" \
+  "$root/scripts/publish-site-lightsail.sh" \
   "$root/scripts/release-attractor-lightsail.sh" \
   "$root/scripts/cultivate-lightsail.sh" \
   "$root/scripts/sync-sources-lightsail.sh"
 
 for unit in \
+  root-logos-runtime.service \
   root-logos-attractor.service root-logos-attractor.timer \
   root-logos-cultivation.service root-logos-cultivation.timer \
   root-logos-source-sync.service root-logos-source-sync.timer; do

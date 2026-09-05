@@ -151,6 +151,8 @@ export const createRuntime = async (options = {}) => {
   const selfAuthorshipRunner = options.selfAuthorshipRunner || ((args) => run(process.execPath, ["scripts/self-author.mjs", ...args], root));
   const deployRunner = options.deployRunner || (async () => {
     await run("git", ["pull", "--rebase", "--autostash", "origin", "main"], root);
+    await run(process.execPath, ["scripts/weave.test.mjs"], root);
+    await run("bash", ["scripts/publish-site-lightsail.sh"], root);
     return { restart: true };
   });
   const journalPath = join(dataDir, "intake.jsonl");

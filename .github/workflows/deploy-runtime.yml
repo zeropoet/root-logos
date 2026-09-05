@@ -35,10 +35,29 @@ jobs:
           fi
           test -n "$DEPLOY_TOKEN"
           commit_sha=$(git rev-parse HEAD)
-          curl --fail --silent --show-error \
+          response=$(curl --fail --silent --show-error \
             --retry 4 --retry-all-errors --retry-delay 3 \
             -X POST https://runtime.rootlogos.com/v1/internal/deploy \
             -H "Authorization: Bearer $DEPLOY_TOKEN" \
             -H "X-GitHub-SHA: $commit_sha" \
             -H "Content-Type: application/json" \
-            --data '{}'
+            --data '{}')
+          test "$(jq -r .sha <<<"$response")" = "$commit_sha"
+
+          for attempt in $(seq 1 40); do
+            state=$(curl --fail --silent --show-error \
+              --retry 3 --retry-all-errors --retry-delay 2 \
+              https://runtime.rootlogos.com/v1/status)
+            deployed_sha=$(jq -r '.service.deployment.sha // empty' <<<"$state")
+            deployed_status=$(jq -r '.service.deployment.status // empty' <<<"$state")
+            if [ "$deployed_sha" = "$commit_sha" ] && [ "$deployed_status" = "completed" ]; then
+              exit 0
+            fi
+            if [ "$deployed_sha" = "$commit_sha" ] && [ "$deployed_status" = "failed" ]; then
+              jq '.service.deployment' <<<"$state"
+              exit 1
+            fi
+            sleep 3
+          done
+          echo "Runtime did not confirm public convergence for $commit_sha" >&2
+          exit 1

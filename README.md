@@ -2200,3 +2200,9 @@ node -e "const fs=require('fs'); const g=JSON.parse(fs.readFileSync('content/con
 `runtime.rootlogos.com` are served from the Root Logos Lightsail instance through
 Caddy. GitHub is the off-server source backup and manual recovery surface, not
 the production host or scheduler.
+
+The runtime deployment contract is end-to-end: it pulls the requested `main`
+commit into `/opt/root-logos`, validates the Weave, publishes that same tree to
+the Caddy document root at `/var/www/root-logos`, restarts, and exposes the
+completed SHA through `/v1/status`. The GitHub workflow polls that state and
+fails unless the requested commit reaches completed public convergence.

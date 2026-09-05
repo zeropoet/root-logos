@@ -5,6 +5,9 @@ const system = JSON.parse(await readFile("weave/system.json", "utf8"));
 const fieldNotation = JSON.parse(await readFile("weave/sources/field-notation.json", "utf8"));
 const drift = JSON.parse(await readFile("weave/drift.json", "utf8"));
 const agentEntry = JSON.parse(await readFile("agent.json", "utf8"));
+const runtimeSource = await readFile("runtime/server.mjs", "utf8");
+const runtimeUnit = await readFile("deploy/root-logos-runtime.service", "utf8");
+const deployWorkflow = await readFile(".github/workflows/deploy-runtime.yml", "utf8");
 
 if (constitution.schema !== "root-logos-weaving-constitution/v1") throw new Error("Unsupported Weaving constitution");
 if (constitution.invariants.length !== 10) throw new Error("The Weaving constitution must expose ten founding invariants");
@@ -24,6 +27,9 @@ for (const required of ["participates-through", "perceives-through", "remembers-
   if (!projectionKinds.has(required)) throw new Error(`Living Object projection missing: ${required}`);
 }
 if (agentEntry.identity !== "root-logos" || agentEntry.read.system !== "weave/system.json") throw new Error("Agent entry does not resolve the Weave");
+if (!runtimeSource.includes('run("bash", ["scripts/publish-site-lightsail.sh"]')) throw new Error("Runtime deployment must publish the public site");
+if (!runtimeUnit.includes("/var/www/root-logos")) throw new Error("Runtime unit cannot write the bounded Caddy document root");
+if (!deployWorkflow.includes("deployment.status") || !deployWorkflow.includes("deployed_status")) throw new Error("Deployment workflow must verify completed runtime convergence");
 for (const item of drift.items) {
   for (const field of constitution.revisionProtocol.required) {
     if (!item[field]) throw new Error(`Drift ${item.id} lacks constitutional field ${field}`);
