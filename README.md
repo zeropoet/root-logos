@@ -1,5 +1,13 @@
 # Root Logos
 
+## Root Logos 2.0 — The Weave
+
+Root Logos is entering its next operational form as the constitutional studio operating system for the Zeropoet field. The existing public experience remains active while the additive [`weave/`](weave/README.md) foundation makes the learned cross-project architecture explicit and verifiable.
+
+Field Notation remains the preserved founding-memory field. Its fragments are not migrated into Root Logos as owned content; Root Logos receives a bounded, attributed constitutional source. The other projects likewise retain local authority while the Weave records evidenced relations, ownership boundaries, and future refactor opportunities.
+
+The historically separate repositories revealed the architecture through use. Root Logos 2.0 does not preserve every separation by default, nor does it collapse the system prematurely. It shares only demonstrated law and preserves sovereignty where meaning differs.
+
 Root Logos is a post-institutional living constitutional coordinate: a public,
 corrigible field where human and machine participants may enter accountable
 relation, cultivate coherent works and questions, and witness an evolving

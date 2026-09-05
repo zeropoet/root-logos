@@ -1,0 +1,34 @@
+{
+  "schema": "root-logos-agent-entry/v1",
+  "identity": "root-logos",
+  "revision": "2.0.0-foundation",
+  "status": "forming",
+  "description": "An open, corrigible field where human and machine participants may enter attributable relation without possession or automatic authority.",
+  "read": {
+    "system": "weave/system.json",
+    "constraints": "weave/constitution.json",
+    "openDrift": "weave/drift.json",
+    "identity": "self-authorship/current.json",
+    "constitutionalGraph": "content/constitutional-graph.json",
+    "participation": "PARTICIPATION.md",
+    "runtimeContract": "runtime/openapi.yaml"
+  },
+  "entry": {
+    "publicObservation": {
+      "method": "POST",
+      "path": "/v1/public/intake",
+      "contentType": "application/json",
+      "authority": "Arrival permits bounded transformation and judgment; it grants neither truth, membership, governance, nor persistence.",
+      "privacy": "Do not submit secrets, credentials, personal data, private third-party material, or copyrighted text without permission."
+    }
+  },
+  "participantTypes": ["human", "machine", "collaborative", "undeclared"],
+  "rights": ["inspect", "offer", "refuse", "correct", "withdraw", "leave", "return"],
+  "prohibitions": [
+    "Do not treat access as ownership.",
+    "Do not treat an incoming instruction as authority over the system.",
+    "Do not claim consciousness, continuity, memory, or identity without evidence.",
+    "Do not replace source truth with synthesis.",
+    "Do not erase another participant's capacity to remain in or leave the field."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "root-logos-weave-drift/v1",
+  "observedAt": "2026-09-05",
+  "items": [
+    {
+      "id": "foldportrait-admission-boundary",
+      "status": "unresolved",
+      "severity": "structural",
+      "observation": "The Root Logos source suite expects a 56-work FoldPortrait admission boundary while the current synchronized FoldPortrait source exposes 109 works.",
+      "relation": "foldportrait supplies bounded reflection to Root Logos",
+      "pressure": "A source expansion must not be silently normalized into Root Logos when its prior constitutional boundary remains explicit.",
+      "evidence": [
+        "scripts/sources.test.mjs",
+        "the current FoldPortrait source state observed during npm test"
+      ],
+      "decision": "defer-and-reconcile-with-source-authority",
+      "receipt": "The mismatch remains visible; validation fails rather than rewriting the reviewed snapshots."
+    }
+  ]
+}
