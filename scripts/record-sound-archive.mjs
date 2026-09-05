@@ -9,12 +9,24 @@ const excludedCollections = new Set([
   "King James Bible (1769) Protestant Canon"
 ]);
 
+const workRenderer = {
+  engine: "sequential-event-score/v1",
+  masterGain: 0.36,
+  outputGain: 2,
+  compressor: { threshold: -14, knee: 8, ratio: 10, attack: 0.004, release: 0.22 },
+  amplitude: { minimum: 0.018, maximum: 1 },
+  envelope: { attackSeconds: 0.08, releaseRatio: 0.9, minimumReleaseSeconds: 0.2 },
+  loop: true,
+  stereo: "center"
+};
+
 const score = (sound) => ({
   mode: "event-score",
   schema: sound.schema,
   signature: sound.signature,
   tempo: sound.tempo,
   rootHz: sound.root_hz,
+  renderer: workRenderer,
   events: sound.events.map(({ frequency, waveform, voice, amplitude, beats, rest, provenance }) => ({
     frequency, ...(waveform ? { waveform } : {}), ...(voice ? { voice } : {}),
     amplitude, beats, rest: Boolean(rest), ...(provenance ? { provenance } : {})
@@ -42,7 +54,20 @@ const entries = [{
   collection: collections.studio,
   availability: "public instrument",
   source: { repository: "zeropoet/root-logos", path: "resonance/grammar.json", url: "https://rootlogos.com/#resonance" },
-  sound: { rootHz: 55, ratios: [1, 1.125, 1.333333, 1.5], waves: ["sine", "triangle", "sine", "sine"], cutoffHz: 1260 }
+  sound: {
+    rootHz: 55,
+    ratios: [1, 1.125, 1.333333, 1.5],
+    waves: ["sine", "triangle", "sine", "sine"],
+    cutoffHz: 1260,
+    renderer: {
+      engine: "continuous-voice/v1",
+      masterGain: 0.108,
+      fadeInSeconds: 1.8,
+      fieldFilter: { type: "lowpass", frequency: 1260, Q: 0.7 },
+      partialGains: [1, 0.22, 0.08, 0.03],
+      stereo: "center"
+    }
+  }
 }, {
   id: "root-logos-library-composition",
   title: "Root Logos — Library Composition",
@@ -82,13 +107,15 @@ for (const [index, branch] of (reading.branches || []).entries()) {
       rootHz: tone.root_hz,
       duration_seconds: tone.duration_seconds,
       renderer: {
+        engine: "timed-event-score/v1",
         masterGain: 0.24,
         pitchMultiplier: 2,
         waveformCycle: ["sine", "triangle", "sine"],
         filter: { type: "lowpass", startHz: 720, stepHz: 110 },
         attackMaxSeconds: 0.18,
         attackDurationRatio: 0.22,
-        tailSeconds: 0.03
+        tailSeconds: 0.03,
+        stereo: "center"
       },
       events: tone.events.map(({ at, duration, ratio, amplitude, source }) => ({ at, duration, ratio, amplitude, source }))
     }
