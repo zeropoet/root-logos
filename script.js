@@ -581,6 +581,7 @@ class LivingObservatory {
     this.points = [];
     this.hovered = null;
     this.pointer = { x: -1000, y: -1000 };
+    this.hitRadius = 14;
     this.time = 0;
     this.resize = this.resize.bind(this);
     this.draw = this.draw.bind(this);
@@ -856,9 +857,52 @@ class ConstitutionalField {
     node.scale = perspective;
   }
 
+  arrangeVisibleNodes(nodes) {
+    const minimumGap = this.width < 700 ? 24 : 18;
+    for (let pass = 0; pass < 4; pass += 1) {
+      for (let i = 0; i < nodes.length; i += 1) for (let j = i + 1; j < nodes.length; j += 1) {
+        const left = nodes[i]; const right = nodes[j];
+        const dx = right.px - left.px; const dy = right.py - left.py;
+        const distance = Math.hypot(dx, dy) || .001;
+        const required = minimumGap + Math.min(8, (left.radius + right.radius) * .45);
+        if (distance >= required) continue;
+        const pressure = (required - distance) * .5;
+        const nx = dx / distance; const ny = dy / distance;
+        if (left.type !== "root") { left.px -= nx * pressure; left.py -= ny * pressure; }
+        if (right.type !== "root") { right.px += nx * pressure; right.py += ny * pressure; }
+      }
+    }
+    const margin = this.width < 700 ? 16 : 24;
+    nodes.forEach((node) => {
+      node.px = Math.max(margin, Math.min(this.width - margin, node.px));
+      node.py = Math.max(margin, Math.min(this.height - margin, node.py));
+    });
+  }
+
+  moveFocus(dx, dy) {
+    const nodes = this.nodes.filter((node) => this.visible(node));
+    if (!nodes.length) return;
+    this.nodes.forEach((node) => this.project(node));
+    this.arrangeVisibleNodes(nodes);
+    const current = this.hovered && this.visible(this.hovered)
+      ? this.hovered
+      : app.selectedNode && this.visible(app.selectedNode) ? app.selectedNode : nodes[0];
+    const next = nodes
+      .filter((node) => node !== current && (node.px - current.px) * dx + (node.py - current.py) * dy > 0)
+      .sort((a, b) => {
+        const score = (node) => Math.hypot(node.px - current.px, node.py - current.py)
+          + Math.abs((node.px - current.px) * dy - (node.py - current.py) * dx) * 2;
+        return score(a) - score(b);
+      })[0];
+    this.hovered = next || current;
+    this.pointer = { x: this.hovered.px, y: this.hovered.py };
+  }
+
   bind() {
     window.addEventListener("resize", this.resize, { passive: true });
     this.canvas.addEventListener("pointerdown", (event) => {
+      this.canvas.focus({ preventScroll: true });
+      this.hitRadius = event.pointerType === "touch" ? 24 : 14;
       this.dragging = true;
       this.dragDistance = 0;
       this.pointerOrigin = { x: event.clientX, y: event.clientY, rotationX: this.targetRotation.x, rotationY: this.targetRotation.y };
@@ -876,7 +920,7 @@ class ConstitutionalField {
         this.targetRotation.x = Math.max(-1.25, Math.min(1.25, this.pointerOrigin.rotationX + dy * .005));
       }
       this.hovered = [...this.nodes].filter((node) => this.visible(node)).sort((a, b) => b.pz - a.pz)
-        .find((node) => Math.hypot(node.px - this.pointer.x, node.py - this.pointer.y) < Math.max(11, node.radius * node.scale + 6)) || null;
+        .find((node) => Math.hypot(node.px - this.pointer.x, node.py - this.pointer.y) < Math.max(this.hitRadius, node.radius * node.scale + 8)) || null;
       this.canvas.style.cursor = this.dragging ? "grabbing" : this.hovered ? "pointer" : "grab";
     });
     const release = (event) => {
@@ -897,6 +941,16 @@ class ConstitutionalField {
       event.preventDefault();
       this.targetZoom = Math.max(.62, Math.min(1.65, this.targetZoom - event.deltaY * .0008));
     }, { passive: false });
+    this.canvas.addEventListener("keydown", (event) => {
+      const directions = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] };
+      if (directions[event.key]) {
+        event.preventDefault();
+        this.moveFocus(...directions[event.key]);
+      } else if ((event.key === "Enter" || event.key === " ") && this.hovered) {
+        event.preventDefault();
+        selectNode(this.hovered);
+      }
+    });
   }
 
   draw(timestamp) {
@@ -913,6 +967,7 @@ class ConstitutionalField {
 
     this.nodes.forEach((node) => this.project(node));
     const visibleNodes = this.nodes.filter((node) => this.visible(node)).sort((a, b) => a.pz - b.pz);
+    this.arrangeVisibleNodes(visibleNodes);
     const centerX = this.width * .5; const centerY = this.height * .51;
     const objectRadius = Math.min(this.width, this.height) * .43 * this.zoom * this.expansion;
 
