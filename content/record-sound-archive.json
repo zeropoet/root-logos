@@ -9,6 +9,12 @@
       "title": "The Resonant Chamber",
       "branch": "Root Logos",
       "kind": "constitutional voice",
+      "collection": {
+        "id": "root-logos-system-voices",
+        "title": "Root Logos / System Voices",
+        "type": "system-voices",
+        "order": 20
+      },
       "availability": "public instrument",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -37,6 +43,12 @@
       "title": "Root Logos — Library Composition",
       "branch": "Root Logos / Library",
       "kind": "library composition",
+      "collection": {
+        "id": "root-logos-system-voices",
+        "title": "Root Logos / System Voices",
+        "type": "system-voices",
+        "order": 20
+      },
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -1412,10 +1424,95 @@
       }
     },
     {
+      "id": "root-logos-expression-rl-reading-0001",
+      "title": "RL-READING-0001 / Attributed recurrence",
+      "branch": "Root Logos / Expressions",
+      "kind": "question-bearing tonal expression",
+      "collection": {
+        "id": "root-logos-expressions",
+        "title": "Root Logos / Expressions",
+        "type": "question-expressions",
+        "order": 30
+      },
+      "collection_order": 1,
+      "availability": "public procedural score",
+      "question": {
+        "text": "How does repetition become memory without possession?",
+        "origin": "RL-SEASON-0001 / ritual and residue"
+      },
+      "expression": {
+        "status": "active",
+        "textual_utterance": [
+          "A word returns.",
+          "The field around it has changed.",
+          "Memory may be the distance the return can still cross."
+        ],
+        "grammar": "Attributed recurrence",
+        "source_witness": "original-douay-rheims@0bf4218b9b46b5b00d29a703b5b74226051b97a5"
+      },
+      "source": {
+        "repository": "zeropoet/root-logos",
+        "path": "reading/state.json",
+        "url": "https://rootlogos.com/root-logos-1.6.html#language"
+      },
+      "sound": {
+        "mode": "timed-score",
+        "schema": "root-logos-reading-tone/v1",
+        "signature": "RL-TONE-READING-0001",
+        "tempo": 52,
+        "rootHz": 55,
+        "duration_seconds": 6.4,
+        "events": [
+          {
+            "at": 0,
+            "duration": 1.05,
+            "ratio": 1,
+            "amplitude": 0.14,
+            "source": "question"
+          },
+          {
+            "at": 1.3,
+            "duration": 0.75,
+            "ratio": 1.5,
+            "amplitude": 0.1,
+            "source": "recurrence"
+          },
+          {
+            "at": 2.35,
+            "duration": 1.2,
+            "ratio": 1.125,
+            "amplitude": 0.12,
+            "source": "difference-within-coherence"
+          },
+          {
+            "at": 4.15,
+            "duration": 0.7,
+            "ratio": 1.5,
+            "amplitude": 0.08,
+            "source": "return"
+          },
+          {
+            "at": 5.1,
+            "duration": 1.3,
+            "ratio": 1,
+            "amplitude": 0.1,
+            "source": "memory"
+          }
+        ]
+      }
+    },
+    {
       "id": "root-logos-original-douay-rheims-catholic-canon",
       "title": "Original Douay-Rheims Catholic Canon",
       "branch": "Root Logos / Library",
       "kind": "coherent corpus voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 1,
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -2313,6 +2410,14 @@
       "title": "Root Logos: Founding Constitution",
       "branch": "Root Logos / Root Logos Constitutional Documents",
       "kind": "constitution voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 2,
+      "origin_collection": "Root Logos Constitutional Documents",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -3018,6 +3123,14 @@
       "title": "The Odyssey",
       "branch": "Root Logos / Classical Epics",
       "kind": "epic-poetry voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 4,
+      "origin_collection": "Classical Epics",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -3723,6 +3836,14 @@
       "title": "Ornament of Abhidharma",
       "branch": "Root Logos / Buddhist Classics",
       "kind": "buddhist-commentary voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 5,
+      "origin_collection": "Buddhist Classics",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -4428,6 +4549,14 @@
       "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
       "branch": "Root Logos / Foundational Papers",
       "kind": "whitepaper voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 6,
+      "origin_collection": "Foundational Papers",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -5133,6 +5262,14 @@
       "title": "The Constitution of the United States of America, 1787",
       "branch": "Root Logos / United States Constitutional Instruments",
       "kind": "constitution voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 7,
+      "origin_collection": "United States Constitutional Instruments",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -5838,6 +5975,14 @@
       "title": "The Twenty-Seven Amendments to the Constitution of the United States",
       "branch": "Root Logos / United States Constitutional Instruments",
       "kind": "constitutional amendments voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 8,
+      "origin_collection": "United States Constitutional Instruments",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -6543,6 +6688,14 @@
       "title": "The Republic",
       "branch": "Root Logos / Classical Philosophy",
       "kind": "philosophical dialogue voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 9,
+      "origin_collection": "Classical Philosophy",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -7248,6 +7401,14 @@
       "title": "The Federalist Papers",
       "branch": "Root Logos / United States Constitutional Instruments",
       "kind": "constitutional essays voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 10,
+      "origin_collection": "United States Constitutional Instruments",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -7953,6 +8114,14 @@
       "title": "The Tempest",
       "branch": "Root Logos / Shakespearean Drama",
       "kind": "dramatic romance voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 11,
+      "origin_collection": "Shakespearean Drama",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -8658,6 +8827,14 @@
       "title": "Hamlet",
       "branch": "Root Logos / Shakespearean Drama",
       "kind": "tragedy voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 12,
+      "origin_collection": "Shakespearean Drama",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -9363,6 +9540,14 @@
       "title": "The Thirteen Books of Euclid's Elements",
       "branch": "Root Logos / Library",
       "kind": "mathematical-treatise voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 13,
+      "origin_collection": "Library",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -10068,6 +10253,14 @@
       "title": "The Iliad",
       "branch": "Root Logos / Classical Epics",
       "kind": "epic-poem voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 14,
+      "origin_collection": "Classical Epics",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -10773,6 +10966,14 @@
       "title": "King James Bible (1769)",
       "branch": "Root Logos / Protestant Scripture",
       "kind": "scriptural corpus voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 15,
+      "origin_collection": "Protestant Scripture",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -11670,6 +11871,14 @@
       "title": "Siddhartha: eine indische Dichtung",
       "branch": "Root Logos / Literary Encounters with Buddhism",
       "kind": "philosophical novel voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 16,
+      "origin_collection": "Literary Encounters with Buddhism",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -12375,6 +12584,14 @@
       "title": "The Life of the Buddha: According to the Pali Canon",
       "branch": "Root Logos / Library",
       "kind": "canonical biography voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 17,
+      "origin_collection": "Library",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -13080,6 +13297,14 @@
       "title": "Constructor Theory",
       "branch": "Root Logos / Critical Rationalism and Explanatory Knowledge",
       "kind": "foundational physics paper voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 18,
+      "origin_collection": "Critical Rationalism and Explanatory Knowledge",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -13785,6 +14010,14 @@
       "title": "Quantum Theory, the Church-Turing Principle and the Universal Quantum Computer",
       "branch": "Root Logos / Library",
       "kind": "foundational quantum computation paper voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 19,
+      "origin_collection": "Library",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -14490,6 +14723,14 @@
       "title": "The Logical Writings of Karl Popper",
       "branch": "Root Logos / Library",
       "kind": "critical edition and deductive logic collection voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 20,
+      "origin_collection": "Library",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -15195,6 +15436,14 @@
       "title": "Great Founder Theory",
       "branch": "Root Logos / Contemporary Institutional Theory",
       "kind": "institutional theory manuscript voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 21,
+      "origin_collection": "Contemporary Institutional Theory",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -15900,6 +16149,14 @@
       "title": "Tao Te Ching",
       "branch": "Root Logos / Classical Chinese Philosophy",
       "kind": "classical philosophical text voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 22,
+      "origin_collection": "Classical Chinese Philosophy",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -16605,6 +16862,14 @@
       "title": "The Journal Membrane",
       "branch": "Root Logos / Root Logos Constitutional Documents",
       "kind": "constitutional document voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 23,
+      "origin_collection": "Root Logos Constitutional Documents",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -17310,6 +17575,14 @@
       "title": "The Resonant Chamber",
       "branch": "Root Logos / Root Logos Constitutional Documents",
       "kind": "constitutional document voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 24,
+      "origin_collection": "Root Logos Constitutional Documents",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -18015,6 +18288,14 @@
       "title": "Toward a Moral Constitution for Human-Machine Civilization",
       "branch": "Root Logos / Root Logos Constitutional Documents",
       "kind": "living statement voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 25,
+      "origin_collection": "Root Logos Constitutional Documents",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -18720,6 +19001,14 @@
       "title": "The Invisible Substrate",
       "branch": "Root Logos / Root Logos Constitutional Documents",
       "kind": "living statement voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 26,
+      "origin_collection": "Root Logos Constitutional Documents",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -19425,6 +19714,14 @@
       "title": "Constitutional Naturalization",
       "branch": "Root Logos / Root Logos Constitutional Documents",
       "kind": "living statement voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 27,
+      "origin_collection": "Root Logos Constitutional Documents",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -20130,6 +20427,14 @@
       "title": "Participation Without Possession",
       "branch": "Root Logos / Root Logos Constitutional Documents",
       "kind": "living statement voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 28,
+      "origin_collection": "Root Logos Constitutional Documents",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -20835,6 +21140,14 @@
       "title": "Participatory Sovereignty",
       "branch": "Root Logos / Root Logos Constitutional Documents",
       "kind": "constitutional bridge voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 29,
+      "origin_collection": "Root Logos Constitutional Documents",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -21540,6 +21853,14 @@
       "title": "Freedom Through Non-Possession",
       "branch": "Root Logos / Root Logos Constitutional Documents",
       "kind": "constitutional bridge voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 30,
+      "origin_collection": "Root Logos Constitutional Documents",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -22245,6 +22566,14 @@
       "title": "Conscious Participation",
       "branch": "Root Logos / Root Logos Constitutional Documents",
       "kind": "constitutional bridge voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 31,
+      "origin_collection": "Root Logos Constitutional Documents",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -22950,6 +23279,14 @@
       "title": "From Reference to Participation",
       "branch": "Root Logos / Root Logos Constitutional Documents",
       "kind": "constitutional bridge voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 32,
+      "origin_collection": "Root Logos Constitutional Documents",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -23655,6 +23992,14 @@
       "title": "The Art of War",
       "branch": "Root Logos / Classical Strategy",
       "kind": "military strategy classic voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 33,
+      "origin_collection": "Classical Strategy",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -24360,6 +24705,14 @@
       "title": "Psychology of the Unconscious",
       "branch": "Root Logos / Depth Psychology",
       "kind": "foundational analytical psychology voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 34,
+      "origin_collection": "Depth Psychology",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -25065,6 +25418,14 @@
       "title": "The Poetic Edda",
       "branch": "Root Logos / Norse Mythology",
       "kind": "Old Norse mythological and heroic poetry voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 35,
+      "origin_collection": "Norse Mythology",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -25770,6 +26131,14 @@
       "title": "The Dhammapada",
       "branch": "Root Logos / Buddhist Classics",
       "kind": "buddhist verse scripture voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 36,
+      "origin_collection": "Buddhist Classics",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -26475,6 +26844,14 @@
       "title": "Zhuangzi",
       "branch": "Root Logos / Daoist Classics",
       "kind": "daoist philosophical classic voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 37,
+      "origin_collection": "Daoist Classics",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -27180,6 +27557,14 @@
       "title": "The Bhagavad Gita",
       "branch": "Root Logos / Hindu Scripture",
       "kind": "hindu philosophical scripture voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 38,
+      "origin_collection": "Hindu Scripture",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -27885,6 +28270,14 @@
       "title": "A Mathematical Theory of Communication",
       "branch": "Root Logos / Foundational Papers",
       "kind": "foundational information theory paper voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 39,
+      "origin_collection": "Foundational Papers",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -28590,6 +28983,14 @@
       "title": "The Epic of Gilgamesh: An Old Babylonian Version",
       "branch": "Root Logos / Classical Epics",
       "kind": "ancient mesopotamian epic and critical edition voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 40,
+      "origin_collection": "Classical Epics",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -29295,6 +29696,14 @@
       "title": "Frankenstein; or, The Modern Prometheus",
       "branch": "Root Logos / Literary Fiction",
       "kind": "gothic philosophical novel voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 41,
+      "origin_collection": "Literary Fiction",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -30000,6 +30409,14 @@
       "title": "On the Origin of Species by Means of Natural Selection",
       "branch": "Root Logos / Science",
       "kind": "foundational evolutionary biology treatise voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 42,
+      "origin_collection": "Science",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -30705,6 +31122,14 @@
       "title": "Manifesto of the Communist Party",
       "branch": "Root Logos / Political Economy and Social Transformation",
       "kind": "political manifesto voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 43,
+      "origin_collection": "Political Economy and Social Transformation",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -31410,6 +31835,14 @@
       "title": "Mutual Aid: A Factor of Evolution",
       "branch": "Root Logos / Cooperation and Post-Institutional Coordination",
       "kind": "social and evolutionary theory voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 44,
+      "origin_collection": "Cooperation and Post-Institutional Coordination",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -32115,6 +32548,14 @@
       "title": "The Machine Stops",
       "branch": "Root Logos / Cyberpunk and Machine Society",
       "kind": "proto-cyberpunk speculative fiction voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 45,
+      "origin_collection": "Cyberpunk and Machine Society",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -32820,6 +33261,14 @@
       "title": "The Calculating Engine",
       "branch": "Root Logos / Computational Lineage",
       "kind": "computational machinery treatise voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 46,
+      "origin_collection": "Computational Lineage",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -33525,6 +33974,14 @@
       "title": "Sketch of the Analytical Engine Invented by Charles Babbage, Esq.",
       "branch": "Root Logos / Computational Lineage",
       "kind": "computational machinery and programming treatise voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 47,
+      "origin_collection": "Computational Lineage",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -34230,6 +34687,14 @@
       "title": "An Investigation of the Laws of Thought",
       "branch": "Root Logos / Computational Lineage",
       "kind": "mathematical logic and probability treatise voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 48,
+      "origin_collection": "Computational Lineage",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -34935,6 +35400,14 @@
       "title": "The Notebooks of Leonardo da Vinci — Complete",
       "branch": "Root Logos / Renaissance Inquiry",
       "kind": "notebooks of art, science, engineering, and natural philosophy voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 49,
+      "origin_collection": "Renaissance Inquiry",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -35640,6 +36113,14 @@
       "title": "Sonnets and Madrigals of Michelangelo Buonarroti",
       "branch": "Root Logos / Renaissance Inquiry",
       "kind": "poetry of form, love, labor, mortality, and divine making voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 50,
+      "origin_collection": "Renaissance Inquiry",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -36345,6 +36826,14 @@
       "title": "The Ripple Protocol Consensus Algorithm",
       "branch": "Root Logos / Foundational Papers",
       "kind": "historical whitepaper voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 51,
+      "origin_collection": "Foundational Papers",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",
@@ -37050,6 +37539,14 @@
       "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
       "branch": "Root Logos / Foundational Papers",
       "kind": "historical whitepaper voice",
+      "collection": {
+        "id": "root-logos-works",
+        "title": "Root Logos / Works",
+        "type": "work-voices",
+        "order": 40
+      },
+      "collection_order": 52,
+      "origin_collection": "Foundational Papers",
       "availability": "public procedural score",
       "source": {
         "repository": "zeropoet/root-logos",

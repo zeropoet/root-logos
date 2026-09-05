@@ -24,6 +24,12 @@ const score = (sound) => ({
 const index = await readJson("works/index.json");
 const library = await readJson("works/library-composition.json");
 const corpus = await readJson("works/corpora/original-douay-rheims.json");
+const reading = await readJson("reading/state.json");
+const collections = {
+  system: { id: "root-logos-system-voices", title: "Root Logos / System Voices", type: "system-voices", order: 20 },
+  expressions: { id: "root-logos-expressions", title: "Root Logos / Expressions", type: "question-expressions", order: 30 },
+  works: { id: "root-logos-works", title: "Root Logos / Works", type: "work-voices", order: 40 }
+};
 const works = index.works
   .filter(({ collection, edition }) => edition && !excludedCollections.has(collection))
   .sort((a, b) => Number(a.library_order ?? 9999) - Number(b.library_order ?? 9999));
@@ -33,6 +39,7 @@ const entries = [{
   title: "The Resonant Chamber",
   branch: "Root Logos",
   kind: "constitutional voice",
+  collection: collections.system,
   availability: "public instrument",
   source: { repository: "zeropoet/root-logos", path: "resonance/grammar.json", url: "https://rootlogos.com/#resonance" },
   sound: { rootHz: 55, ratios: [1, 1.125, 1.333333, 1.5], waves: ["sine", "triangle", "sine", "sine"], cutoffHz: 1260 }
@@ -41,18 +48,54 @@ const entries = [{
   title: "Root Logos — Library Composition",
   branch: "Root Logos / Library",
   kind: "library composition",
+  collection: collections.system,
   availability: "public procedural score",
   source: { repository: "zeropoet/root-logos", path: "works/library-composition.json", url: "https://rootlogos.com/#works" },
   sound: score(library.sound)
-}, {
+}];
+
+for (const [index, branch] of (reading.branches || []).entries()) {
+  const tone = branch.experiments?.tonal;
+  if (!tone?.events?.length) continue;
+  entries.push({
+    id: `root-logos-expression-${branch.branch_id.toLowerCase()}`,
+    title: `${branch.branch_id} / ${branch.derived_grammar?.name || "Tonal expression"}`,
+    branch: "Root Logos / Expressions",
+    kind: "question-bearing tonal expression",
+    collection: collections.expressions,
+    collection_order: index + 1,
+    availability: "public procedural score",
+    question: branch.question,
+    expression: {
+      status: branch.status,
+      textual_utterance: branch.experiments?.textual?.utterance || [],
+      grammar: branch.derived_grammar?.name,
+      source_witness: branch.provenance?.source_witness
+    },
+    source: { repository: "zeropoet/root-logos", path: "reading/state.json", url: "https://rootlogos.com/root-logos-1.6.html#language" },
+    sound: {
+      mode: "timed-score",
+      schema: "root-logos-reading-tone/v1",
+      signature: tone.score_id,
+      tempo: tone.tempo,
+      rootHz: tone.root_hz,
+      duration_seconds: tone.duration_seconds,
+      events: tone.events.map(({ at, duration, ratio, amplitude, source }) => ({ at, duration, ratio, amplitude, source }))
+    }
+  });
+}
+
+entries.push({
   id: `root-logos-${corpus.corpus_id}`,
   title: corpus.title,
   branch: "Root Logos / Library",
   kind: "coherent corpus voice",
+  collection: collections.works,
+  collection_order: 1,
   availability: "public procedural score",
   source: { repository: "zeropoet/root-logos", path: "works/corpora/original-douay-rheims.json", url: "https://rootlogos.com/#works" },
   sound: score(corpus.sound)
-}];
+});
 
 for (const work of works) {
   const edition = await readJson(work.edition);
@@ -62,6 +105,9 @@ for (const work of works) {
     title: work.title,
     branch: `Root Logos / ${work.collection || "Library"}`,
     kind: `${work.kind} voice`,
+    collection: collections.works,
+    collection_order: Number(work.library_order ?? 9999) + 1,
+    origin_collection: work.collection || "Library",
     availability: "public procedural score",
     source: { repository: "zeropoet/root-logos", path: work.edition, url: "https://rootlogos.com/#works" },
     sound: score(edition.sound)
