@@ -108,13 +108,15 @@ for (const [index, branch] of (reading.branches || []).entries()) {
       duration_seconds: tone.duration_seconds,
       renderer: {
         engine: "timed-event-score/v1",
-        masterGain: 0.24,
+        masterGain: 0.72,
         pitchMultiplier: 2,
         waveformCycle: ["sine", "triangle", "sine"],
         filter: { type: "lowpass", startHz: 720, stepHz: 110 },
         attackMaxSeconds: 0.18,
         attackDurationRatio: 0.22,
         tailSeconds: 0.03,
+        loop: true,
+        loopGapSeconds: 0.4,
         stereo: "center"
       },
       events: tone.events.map(({ at, duration, ratio, amplitude, source }) => ({ at, duration, ratio, amplitude, source }))

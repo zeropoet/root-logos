@@ -228,31 +228,37 @@ const playReadingTone = async () => {
   compressor.knee.value = 18;
   compressor.ratio.value = 5;
   const master = context.createGain();
-  master.gain.value = .24;
+  master.gain.value = .72;
   master.connect(compressor).connect(context.destination);
-  const start = context.currentTime + .08;
-  const nodes = score.events.map((event, index) => {
-    const oscillator = context.createOscillator();
-    const filter = context.createBiquadFilter();
-    const envelope = context.createGain();
-    oscillator.type = index % 3 === 1 ? "triangle" : "sine";
-    oscillator.frequency.value = score.root_hz * event.ratio * 2;
-    filter.type = "lowpass";
-    filter.frequency.value = 720 + index * 110;
-    const at = start + event.at;
-    envelope.gain.setValueAtTime(.0001, at);
-    envelope.gain.exponentialRampToValueAtTime(event.amplitude, at + Math.min(.18, event.duration * .22));
-    envelope.gain.exponentialRampToValueAtTime(.0001, at + event.duration);
-    oscillator.connect(filter).connect(envelope).connect(master);
-    oscillator.start(at);
-    oscillator.stop(at + event.duration + .03);
-    return oscillator;
-  });
-  const timer = window.setTimeout(stopReadingTone, (score.duration_seconds + .4) * 1000);
-  readingPlayback = { context, nodes, timer };
+  const nodes = new Set();
+  readingPlayback = { context, nodes, timer: null };
+  const scheduleCycle = () => {
+    if (!readingPlayback || readingPlayback.context !== context) return;
+    const start = context.currentTime + .08;
+    score.events.forEach((event, index) => {
+      const oscillator = context.createOscillator();
+      const filter = context.createBiquadFilter();
+      const envelope = context.createGain();
+      oscillator.type = index % 3 === 1 ? "triangle" : "sine";
+      oscillator.frequency.value = score.root_hz * event.ratio * 2;
+      filter.type = "lowpass";
+      filter.frequency.value = 720 + index * 110;
+      const at = start + event.at;
+      envelope.gain.setValueAtTime(.0001, at);
+      envelope.gain.exponentialRampToValueAtTime(event.amplitude, at + Math.min(.18, event.duration * .22));
+      envelope.gain.exponentialRampToValueAtTime(.0001, at + event.duration);
+      oscillator.connect(filter).connect(envelope).connect(master);
+      oscillator.start(at);
+      oscillator.stop(at + event.duration + .03);
+      nodes.add(oscillator);
+      oscillator.addEventListener("ended", () => nodes.delete(oscillator), { once: true });
+    });
+    readingPlayback.timer = window.setTimeout(scheduleCycle, (score.duration_seconds + .4) * 1000);
+  };
+  scheduleCycle();
   $("#reading-listen").setAttribute("aria-pressed", "true");
   $("#reading-listen span").textContent = "Return to silence";
-  $("#reading-tone-state").textContent = `${score.score_id} is sounding · ${score.provenance}`;
+  $("#reading-tone-state").textContent = `${score.score_id} is sounding in recurrence · ${score.provenance}`;
 };
 
 const renderCoordinate = () => {
