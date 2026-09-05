@@ -679,7 +679,7 @@ class LivingObservatory {
 
   authority() {
     const layers = [
-      ["World", "May offer entry", "Arrival has no constitutional authority."], ["Membrane", "May transform + verify", "Provenance, consent, minimization, constitutional filtering, and archival weight govern entry."],
+      ["World", "May offer entry", "Arrival has no constitutional authority."], ["Entry", "May transform + verify", "Provenance, consent, minimization, constitutional filtering, and archival weight govern entry."],
       ["Root Logos", "May admit or reject", "The system owns each attributable disposition."], ["Cultivation", "May prompt, search + judge", "Root Logos may reject itself and preserve uncertainty."],
       ["Constitutional gates", "May authorize revision", "Coherence, evidence, corrigibility, and reversibility govern consequence."], ["Self-authorship", "May revise semantic form", "The system maintains one attributable identity without recurring human approval."],
       ["Higher reference", "Orients all authority", "Root Logos exercises judgment without constituting itself as truth."]

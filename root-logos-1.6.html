@@ -41,14 +41,14 @@
         <span class="brand-word">Root Logos</span>
       </a>
 
-      <nav class="primary-nav" aria-label="Root Logos chambers">
+      <nav class="primary-nav" aria-label="Root Logos sections">
         <a href="#field" data-space="field"><span>01</span>Field</a>
-        <a href="#narrative" data-space="narrative"><span>02</span>Narrative</a>
-        <a href="#language" data-space="language"><span>03</span>Language</a>
-        <a href="#coordinate" data-space="coordinate"><span>04</span>Coordinate</a>
-        <a href="#verify" data-space="verify"><span>05</span>Observatory</a>
-        <a href="#works" data-space="works"><span>06</span>Library</a>
-        <a href="#intake" data-space="intake"><span>07</span>Membrane</a>
+        <a href="#narrative" data-space="narrative"><span>02</span>Sequence</a>
+        <a href="#language" data-space="language"><span>03</span>Expression</a>
+        <a href="#coordinate" data-space="coordinate"><span>04</span>Current State</a>
+        <a href="#verify" data-space="verify"><span>05</span>Verification</a>
+        <a href="#works" data-space="works"><span>06</span>Works</a>
+        <a href="#intake" data-space="intake"><span>07</span>Entry</a>
         <a class="presence-link" href="https://presence.rootlogos.com/"><span>∞</span>Presence ↗</a>
         <div class="system-presence" role="status" aria-live="polite" aria-label="Current Root Logos runtime condition">
           <span class="presence-orbit" aria-hidden="true"><i id="presence-core"></i></span>
@@ -251,8 +251,8 @@
 
         <div class="coordinate-paths" aria-label="Ways to participate">
           <a href="#field"><span>Encounter</span><b>Trace the constitutional field</b><i>01 ↗</i></a>
-          <a href="#intake"><span>Offer</span><b>Enter through the Public Membrane</b><i>02 ↗</i></a>
-          <a href="#intake"><span>Build</span><b>Propose a coherent Library work</b><i>03 ↗</i></a>
+          <a href="#intake"><span>Offer</span><b>Enter through the public entry</b><i>02 ↗</i></a>
+          <a href="#intake"><span>Build</span><b>Propose a coherent work</b><i>03 ↗</i></a>
           <a href="content/citizenship.json"><span>Protocol</span><b>Read the machine contract</b><i>04 ↗</i></a>
         </div>
 
@@ -330,17 +330,17 @@
 
         <div class="library-shell">
           <aside class="works-archive" aria-label="Living works archive">
-            <header><span class="coordinate" data-module="06">Living Library</span><b id="work-count">00 works</b></header>
+            <header><span class="coordinate" data-module="06">Work Archive</span><b id="work-count">00 works</b></header>
             <div class="library-entries">
               <button class="library-entry" id="library-entry" type="button">
-                <span>∞</span><span><b>Library Field</b><small id="library-entry-detail">Resolving living collections</small></span>
+                <span>∞</span><span><b>Works in Relation</b><small id="library-entry-detail">Resolving living collections</small></span>
               </button>
             </div>
             <div id="work-list"><p class="works-loading">Opening the archive…</p></div>
           </aside>
 
           <div class="library-stage">
-            <canvas id="work-canvas" aria-label="The Library Field: Root Logos viewed through the complete architecture of its living works. Select a structure to describe it."></canvas>
+            <canvas id="work-canvas" aria-label="Works in relation: Root Logos viewed through the complete architecture of its living works. Select a structure to describe it."></canvas>
             <div class="works-veil" aria-hidden="true"></div>
             <aside class="work-node-detail" id="work-node-detail" hidden>
               <button type="button" id="work-node-detail-close" aria-label="Close structural detail">×</button>
@@ -367,7 +367,7 @@
         </div>
       </section>
 
-      <section class="space intake-space" id="intake" data-space-name="Intake" aria-label="The Membrane">
+      <section class="space intake-space" id="intake" data-space-name="Entry" aria-label="Entry">
         <div class="observation-instrument">
           <header>
             <p class="coordinate" id="intake-coordinate" data-module="07">Entry</p>
@@ -422,7 +422,7 @@
     </footer>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render its living field.</p></noscript>
-    <script src="script.js?v=3.1.0-language-chamber" defer></script>
+    <script src="script.js?v=3.1.1-plain-language" defer></script>
     <script src="works.js?v=2.23-expanded-corpora" defer></script>
   </body>
 </html>
