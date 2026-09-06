@@ -273,9 +273,11 @@ const renderCoordinate = () => {
     : new Intl.DateTimeFormat("en", { year: "numeric", month: "long", day: "numeric" }).format(effective);
   $("#coordinate-revision").textContent = `Revision ${app.identity.revision}`;
   $("#coordinate-time").textContent = `Present / ${present}`;
-  $("#coordinate-lead").textContent = app.identity.headline.lead;
-  $("#coordinate-emphasis").textContent = app.identity.headline.emphasis;
-  $("#coordinate-declaration").textContent = app.identity.declaration;
+  if (!document.body.classList.contains("archive-open")) {
+    $("#coordinate-lead").textContent = app.identity.headline.lead;
+    $("#coordinate-emphasis").textContent = app.identity.headline.emphasis;
+    $("#coordinate-declaration").textContent = app.identity.declaration;
+  }
   $("#coordinate-present").textContent = `${app.identity.revision} / ${present}`;
   $("#coordinate-field").textContent = `${app.graph.nodes.length} structures / ${app.graph.edges.length} relations`;
 };
