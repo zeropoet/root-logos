@@ -164,8 +164,12 @@ const renderNarrative = () => {
 const renderPresence = () => {
   const service = app.runtime.service;
   if (app.identity) {
-    document.title = `${app.identity.name} — A Living Literature With Memory`;
-    $("meta[name='description']")?.setAttribute("content", app.identity.declaration);
+    document.title = document.body.classList.contains("archive-open")
+      ? `${app.identity.name} — The Field Before the Weave`
+      : `${app.identity.name} — A Living Literature With Memory`;
+    if (!document.body.classList.contains("archive-open")) {
+      $("meta[name='description']")?.setAttribute("content", app.identity.declaration);
+    }
   }
   const status = service.status || "unknown";
   const header = $(".system-presence");
