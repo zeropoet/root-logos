@@ -161,20 +161,51 @@ body.archive-open .site-footer a { color:var(--ivory); }
   html { scroll-padding-top:58px; }
   body.archive-open { font-size:15px; }
   body.archive-open .site-header { min-height:58px;padding:0 20px; }
-  body.archive-open .primary-nav { top:58px;max-height:calc(100svh - 58px);overflow:auto; }
-  body.archive-open .primary-nav.is-open { grid-template-columns:1fr 1fr; }
-  body.archive-open .primary-nav a,body.archive-open .primary-nav .presence-link { min-width:0;height:54px;padding:0 14px; }
+  body.archive-open.nav-open { overflow:hidden; }
+  body.archive-open .primary-nav { z-index:90;top:58px;right:0;bottom:auto;left:0;width:100vw;height:calc(100svh - 58px);max-width:none;max-height:none;margin:0;overflow:auto;overscroll-behavior:contain;background:#030303;transform:none; }
+  body.archive-open .primary-nav.is-open { display:flex;grid-template-columns:none;flex-direction:column;align-items:stretch;padding:14px 20px calc(24px + env(safe-area-inset-bottom)); }
+  body.archive-open .primary-nav a,body.archive-open .primary-nav .presence-link { grid-template-columns:34px 1fr;flex:0 0 auto;min-width:0;width:100%;height:56px;padding:0 14px;border:0;border-bottom:1px solid var(--line); }
+  body.archive-open .primary-nav a,body.archive-open .primary-nav .presence-link { color:#aaa9a2; }
+  body.archive-open .primary-nav a::after { top:0;right:auto;bottom:0;left:0;width:1px;height:auto;transform:scaleY(0); }
+  body.archive-open .primary-nav a.is-active::after { transform:scaleY(1); }
+  body.archive-open .primary-nav a span { color:#66665f;font-size:.5rem; }
   body.archive-open main > .space,body.archive-open main > .space:not(.field-space):not(.works-space),body.archive-open main > .coordinate-space,body.archive-open main > .observatory-space,body.archive-open main > .works-space,body.archive-open main > .intake-space { padding:92px 20px; }
   body.archive-open main > .field-space { min-height:760px;padding:0; }
   body.archive-open #field-canvas,body.archive-open #work-canvas { opacity:1; }
-  body.archive-open .field-controls { right:20px;bottom:22px;left:20px;justify-content:flex-start;overflow-x:auto; }
-  body.archive-open .field-control { flex:0 0 auto; }
+  body.archive-open .field-controls { right:20px;bottom:calc(20px + env(safe-area-inset-bottom));left:20px;display:grid;grid-template-columns:1fr 1fr;gap:0;justify-items:stretch;overflow:visible;border-top:1px solid var(--line);border-left:1px solid var(--line); }
+  body.archive-open .field-controls button { display:flex;align-items:center;min-height:48px;padding:0 12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-align:left; }
+  body.archive-open .field-control { flex:0 0 auto;font-size:.48rem; }
+  body.archive-open .field-control::before { flex:0 0 auto; }
   body.archive-open .space-heading,body.archive-open .narrative-heading,body.archive-open .language-heading,body.archive-open .library-guide { grid-template-columns:1fr;gap:32px;margin-bottom:62px; }
   body.archive-open .space-heading h2,body.archive-open .narrative-heading h2,body.archive-open .language-heading h2,body.archive-open .library-guide h2 { font-size:clamp(3rem,14vw,5rem); }
   body.archive-open main > .space:not(.field-space)::before { top:24px;right:20px; }
   body.archive-open .narrative-chapters,body.archive-open .narrative-cadence,body.archive-open .language-modes { grid-template-columns:1fr; }
   body.archive-open .reading-body,body.archive-open .reading-expression { grid-template-columns:1fr; }
   body.archive-open .reading-body > div + div,body.archive-open .reading-expression > div + div { border-top:1px solid var(--line);border-left:0; }
+  body.archive-open .proposal-stack { display:grid;grid-template-columns:1fr;gap:8px;width:100%;overflow:visible; }
+  body.archive-open .proposal-card { min-width:0;width:100%; }
+  body.archive-open .threshold-layout,body.archive-open .verification-proposals .threshold-layout { width:100%;grid-template-columns:minmax(0,1fr);gap:24px; }
+  body.archive-open .review-surface { width:100%;min-width:0;padding:24px 18px; }
+  body.archive-open .review-grid { grid-template-columns:1fr; }
+  body.archive-open .propagation-filters { width:100%;justify-content:flex-start;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity; }
+  body.archive-open .propagation-filters button { flex:0 0 auto;min-height:44px;scroll-snap-align:start; }
+  body.archive-open .verification-actions { display:grid;grid-template-columns:1fr; }
+  body.archive-open .verification-actions a,body.archive-open .verification-digest button { display:flex;align-items:center;min-height:44px; }
+  body.archive-open #inspector-source { display:flex;align-items:center;min-height:44px; }
+  body.archive-open #work-list { grid-auto-flow:row;grid-auto-columns:auto;max-height:360px;overflow-x:hidden;overflow-y:auto;scroll-snap-type:y proximity; }
+  body.archive-open #work-list button { min-height:58px;border-right:0;scroll-snap-align:start; }
+  body.archive-open .library-entry,body.archive-open .corpus-entry { min-height:58px; }
+  body.archive-open #work-listen { min-height:44px; }
+  body.archive-open .observation-instrument { width:100%;padding:28px 18px; }
+  body.archive-open .observation-instrument > header > p:last-child { color:#aaa9a2; }
+  body.archive-open .form-field > span { color:#aaa9a2; }
+  body.archive-open .form-field input::placeholder,body.archive-open .form-field textarea::placeholder { color:#77776f;opacity:1; }
+  body.archive-open .consent-field { grid-template-columns:24px 1fr;gap:14px;min-height:44px; }
+  body.archive-open .consent-field input { width:22px;height:22px; }
+  body.archive-open .consent-field > span { color:#8e8e87;font-size:.56rem;line-height:1.7; }
+  body.archive-open .form-submit button { min-height:58px; }
+  body.archive-open .form-submit > p { color:#77776f; }
+  body.archive-open .narrative-fragment a,body.archive-open .material-passage a,body.archive-open .reading-branch > footer a,body.archive-open .site-footer a { display:flex;align-items:center;min-height:44px; }
   body.archive-open .site-footer { padding:42px 20px; }
 }
 

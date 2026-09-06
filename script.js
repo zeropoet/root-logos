@@ -968,7 +968,6 @@ class ConstitutionalField {
     this.rotation.y += (this.targetRotation.y - this.rotation.y) * .08;
     this.zoom += (this.targetZoom - this.zoom) * .09;
     this.expansion += (this.targetExpansion - this.expansion) * .055;
-    if (!this.dragging && !this.reducedMotion && this.targetExpansion > .3) this.targetRotation.y += .00038;
     const selected = app.selectedNode;
 
     this.nodes.forEach((node) => this.project(node));
@@ -1107,13 +1106,24 @@ const bindInterface = () => {
     const navigation = $(".primary-nav");
     const open = !navigation.classList.contains("is-open");
     navigation.classList.toggle("is-open", open);
+    document.body.classList.toggle("nav-open", open);
     $(".nav-toggle").setAttribute("aria-expanded", String(open));
     $(".nav-toggle").setAttribute("aria-label", open ? "Close archive navigation" : "Open archive navigation");
   });
   navLinks.forEach((link) => link.addEventListener("click", () => {
     $(".primary-nav").classList.remove("is-open");
+    document.body.classList.remove("nav-open");
     $(".nav-toggle")?.setAttribute("aria-expanded", "false");
+    $(".nav-toggle")?.setAttribute("aria-label", "Open archive navigation");
   }));
+  window.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !$(".primary-nav")?.classList.contains("is-open")) return;
+    $(".primary-nav").classList.remove("is-open");
+    document.body.classList.remove("nav-open");
+    $(".nav-toggle")?.setAttribute("aria-expanded", "false");
+    $(".nav-toggle")?.setAttribute("aria-label", "Open archive navigation");
+    $(".nav-toggle")?.focus();
+  });
 
   $("[data-field-inspector-close]").addEventListener("click", closeFieldInspector);
   $("#reading-listen")?.addEventListener("click", playReadingTone);
