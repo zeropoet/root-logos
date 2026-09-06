@@ -100,6 +100,22 @@ body.archive-open .verification-ledger h3,
 body.archive-open .propagation-ledger h3,
 body.archive-open .observatory-substrate h3,
 body.archive-open .observation-instrument h3 { color:var(--ivory); }
+body.archive-open .coordinate-space .coordinate-heading { border-color:var(--line-strong); }
+body.archive-open .coordinate-space .coordinate-heading .coordinate,
+body.archive-open .coordinate-space .coordinate-status,
+body.archive-open .coordinate-space .micro-label { color:#85857e; }
+body.archive-open .coordinate-space .coordinate-status i { background:var(--line-strong); }
+body.archive-open .coordinate-declaration h1 em { color:#8e8e87; }
+body.archive-open .coordinate-copy p:first-child { color:var(--ivory); }
+body.archive-open .coordinate-copy p:last-child,
+body.archive-open .citizenship-introduction > p { color:#aaa9a2; }
+body.archive-open .citizenship-grid span { color:#d34a43; }
+body.archive-open .citizenship-grid h3 { color:var(--ivory); }
+body.archive-open .citizenship-grid p { color:#989891; }
+body.archive-open .coordinate-paths span { color:currentColor; }
+body.archive-open .coordinate-paths b,
+body.archive-open .coordinate-paths i { color:inherit; }
+body.archive-open .coordinate-boundary { color:#77776f; }
 body.archive-open .coordinate-register div,body.archive-open .verification-register div { border-color:var(--line);background:transparent; }
 body.archive-open .coordinate-register dt,body.archive-open .verification-register dt,body.archive-open .verification-register small { color:var(--dim); }
 body.archive-open .coordinate-register dd,body.archive-open .verification-register dd { color:var(--ivory); }
