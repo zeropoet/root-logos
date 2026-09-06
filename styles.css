@@ -3664,14 +3664,14 @@ body.archive-open main > .language-space .micro-label[data-module]::before { col
 .reading-boundary p { max-width:850px;margin:0;color:rgba(244,244,241,.65);font-size:clamp(1rem,1.3vw,1.24rem);line-height:1.62; }
 
 /* Keep the enlarged archive identity comfortably contained by the navigation bar. */
-body.archive-open .brand { align-self:center;gap:14px; }
+body.archive-open .brand { align-self:center;gap:26px; }
 body.archive-open .brand-mark { width:44px;height:44px;overflow:visible; }
-body.archive-open .brand-mark img { width:67px;height:67px;max-width:none; }
+body.archive-open .brand-mark img { display:block;width:67px;height:67px;max-width:none;transform:translateY(-18px); }
 body.archive-open .brand-word { font-size:.8rem;letter-spacing:.16em; }
 @media (max-width:760px) {
-  body.archive-open .brand { gap:12px; }
+  body.archive-open .brand { gap:23px; }
   body.archive-open .brand-mark { width:40px;height:40px; }
-  body.archive-open .brand-mark img { width:61px;height:61px; }
+  body.archive-open .brand-mark img { width:61px;height:61px;transform:translateY(-16px); }
   body.archive-open .brand-word { font-size:.72rem; }
 }
 .propagation-window-control { display:flex;align-items:center;justify-content:space-between;gap:30px;padding:18px;border-top:1px solid var(--line); }
