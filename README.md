@@ -84,6 +84,9 @@ Root Logos publishes the Resonant Chamber's bounded sound structure at
 browser voice from that public declaration. Root Logos retains the actual
 constitutional score, source topology, lineage, and authority; no sound media,
 private source, or compositional judgment crosses that boundary.
+The public entrance names The Record's gate **Resonance**, alongside Machine,
+Presence, Archive, and Ritual: a role-based vocabulary for entering the system
+rather than a row of project calls to action.
 
 ## FoldKernel integration contract
 
