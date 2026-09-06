@@ -21,6 +21,9 @@ jobs:
         with:
           ref: main
 
+      - name: Verify current system map
+        run: node scripts/weave.test.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v6
 

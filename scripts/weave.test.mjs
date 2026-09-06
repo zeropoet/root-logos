@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 
 const constitution = JSON.parse(await readFile("weave/constitution.json", "utf8"));
 const system = JSON.parse(await readFile("weave/system.json", "utf8"));
+const telosWitness = JSON.parse(await readFile("sources/telos.public-witness.json", "utf8"));
 const fieldNotation = JSON.parse(await readFile("weave/sources/field-notation.json", "utf8"));
 const drift = JSON.parse(await readFile("weave/drift.json", "utf8"));
 const agentEntry = JSON.parse(await readFile("agent.json", "utf8"));
@@ -27,6 +28,10 @@ for (const required of ["participates-through", "perceives-through", "remembers-
   if (!projectionKinds.has(required)) throw new Error(`Living Object projection missing: ${required}`);
 }
 if (agentEntry.identity !== "root-logos" || agentEntry.read.system !== "weave/system.json") throw new Error("Agent entry does not resolve the Weave");
+const mappedNodeIds = new Set(system.nodes.map(({ id }) => id));
+for (const repository of telosWitness.system_mapping.repositories) {
+  if (!mappedNodeIds.has(repository.id)) throw new Error(`Public field is missing mapped Telos repository: ${repository.id}`);
+}
 if (!runtimeSource.includes('run("bash", ["scripts/publish-site-lightsail.sh"]')) throw new Error("Runtime deployment must publish the public site");
 if (!runtimeUnit.includes("/var/www/root-logos")) throw new Error("Runtime unit cannot write the bounded Caddy document root");
 if (!deployWorkflow.includes("deployment.status") || !deployWorkflow.includes("deployed_status")) throw new Error("Deployment workflow must verify completed runtime convergence");

@@ -30,6 +30,7 @@ node scripts/sources.mjs sync-sovereign-standard \
   https://sovereignstandard.co/root-logos-witness-export.json
 FOLDPORTRAIT_PATH="$foldportrait_root" node scripts/foldportrait-source.mjs
 node scripts/sources.mjs validate
+node scripts/weave.test.mjs
 
 if git diff --quiet -- \
   sources/foldforge.snapshot.json \
