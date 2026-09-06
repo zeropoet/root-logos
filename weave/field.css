@@ -11,7 +11,7 @@ body { font-family:"IBM Plex Mono","SFMono-Regular",monospace; }
 .field-position { display:flex; align-items:center; gap:7px; }
 .field-position i { width:3px; height:3px; border-radius:50%; background:#4c4c47; }
 .field-position .current { background:var(--signal); }
-.system-gates { position:fixed; z-index:3; right:auto; bottom:clamp(18px,3vw,36px); left:50%; display:grid; grid-template-columns:repeat(3,minmax(88px,112px)); align-items:stretch; border-top:1px solid #34342f; border-bottom:1px solid #242420; transform:translateX(-50%); }
+.system-gates { position:fixed; z-index:3; right:auto; bottom:clamp(18px,3vw,36px); left:50%; display:grid; grid-template-columns:repeat(4,minmax(78px,104px)); align-items:stretch; border-top:1px solid #34342f; border-bottom:1px solid #242420; transform:translateX(-50%); }
 .system-gates > p { position:absolute; bottom:calc(100% + 11px); left:50%; width:max-content; margin:0; color:#77776f; font:8px/1 monospace; letter-spacing:.2em; text-transform:uppercase; transform:translateX(-50%); }
 .system-gates a { display:grid; grid-template-rows:34px auto; place-items:center; min-height:70px; padding:9px 12px 8px; border-right:1px solid #242420; color:#77776f; text-decoration:none; }
 .system-gates a:first-of-type { border-left:1px solid #242420; }
@@ -31,7 +31,7 @@ dd { margin:0; color:#aaa; }
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 @media(prefers-reduced-motion:reduce) { #root-field { cursor:default; } }
 @media(max-width:520px) {
-  .system-gates { bottom:18px; grid-template-columns:repeat(3,minmax(76px,29vw)); }
+  .system-gates { bottom:18px; grid-template-columns:repeat(4,minmax(64px,23vw)); }
   .system-gates a { min-height:64px; padding-inline:8px; }
   #field-reading { top:72px; max-height:calc(100vh - 190px); }
 }
