@@ -17,10 +17,11 @@ a:focus { outline:none; }
 .system-gates a { display:grid; grid-template-rows:34px auto; place-items:center; min-height:70px; padding:9px 12px 8px; border-right:1px solid #242420; color:#77776f; text-decoration:none; }
 .system-gates a:first-of-type { border-left:1px solid #242420; }
 .system-gates a span { color:#aaa; font:18px/1 serif; transition:color .2s,transform .2s; }
-.system-gates .record-gate-icon { width:18px; height:18px; background:currentColor; -webkit-mask:url('../assets/record-gate-mark.svg') center/contain no-repeat; mask:url('../assets/record-gate-mark.svg') center/contain no-repeat; }
+.system-gates .record-gate-icon { width:18px; height:18px; background:currentColor; transform:rotate(90deg); -webkit-mask:url('../assets/record-gate-mark.svg') center/contain no-repeat; mask:url('../assets/record-gate-mark.svg') center/contain no-repeat; }
 .system-gates a small { font:8px/1 monospace; letter-spacing:.13em; text-transform:uppercase; }
 .system-gates a:hover, .system-gates a:focus-visible { color:var(--ink); background:rgba(233,233,228,.035); }
 .system-gates a:hover span, .system-gates a:focus-visible span { color:var(--ink); transform:translateY(-2px); }
+.system-gates a:hover .record-gate-icon, .system-gates a:focus-visible .record-gate-icon { transform:translateY(-2px) rotate(90deg); }
 #field-reading { position:fixed; z-index:4; top:clamp(78px,12vh,116px); left:clamp(18px,4vw,58px); width:min(390px,calc(100vw - 36px)); max-height:calc(100vh - 230px); overflow:auto; padding:24px; border:1px solid #292925; background:rgba(3,3,3,.91); backdrop-filter:blur(12px); color:var(--ink); }
 #field-reading[hidden] { display:none; }
 #close-reading { position:absolute; right:5px; top:1px; display:grid; place-items:center; width:44px; height:44px; padding:0; border:0; background:transparent; color:#777; font:20px monospace; cursor:pointer; }
