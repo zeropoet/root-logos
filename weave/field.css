@@ -4,7 +4,7 @@ html, body, main { margin:0; width:100%; height:100%; overflow:hidden; backgroun
 body { font-family:"IBM Plex Mono","SFMono-Regular",monospace; }
 a:focus { outline:none; }
 #root-field { position:fixed; inset:0; width:100%; height:100%; touch-action:none; cursor:crosshair; }
-#mark { position:fixed; left:clamp(10px,3vw,34px); top:clamp(10px,3vw,34px); z-index:2; display:grid; place-items:center; width:48px; height:48px; padding:0; border:0; background:transparent; color:#555; font:28px/1 serif; cursor:pointer; }
+#mark { position:fixed; left:clamp(10px,3vw,34px); top:clamp(10px,3vw,34px); z-index:2; display:grid; place-items:center; width:48px; height:48px; padding:0; border:0; background:transparent; color:var(--ink); font:28px/1 serif; cursor:pointer; }
 #mark:hover, #mark:focus-visible { color:var(--ink); }
 #field-state { position:fixed; z-index:5; top:clamp(18px,3vw,38px); right:clamp(14px,3vw,36px); display:flex; align-items:center; gap:10px; }
 .field-arrow { display:grid; place-items:center; width:32px; height:32px; color:#55554f; font:20px/1 serif; text-decoration:none; transition:color .2s,transform .2s; }
