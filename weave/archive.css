@@ -61,12 +61,6 @@ body.archive-open .space > :not(canvas) { max-width:1440px;margin-right:auto;mar
 body.archive-open main > .field-space { height:max(100svh,720px);min-height:720px;padding:0;background:#030303; }
 body.archive-open #field-canvas,body.archive-open #work-canvas { z-index:0;opacity:1;filter:none; }
 body.archive-open .field-vignette,body.archive-open .works-veil { display:none; }
-body.archive-open .field-header { z-index:10;isolation:isolate;top:clamp(108px,15vh,154px);right:auto;left:var(--edge);width:min(590px,calc(100% - (var(--edge) * 2)));max-width:none;margin:0; }
-body.archive-open .field-header::before { content:"";position:absolute;z-index:0;inset:-24px -36px -28px -24px;background:linear-gradient(90deg,rgba(3,3,3,.99) 0 68%,rgba(3,3,3,0));pointer-events:none; }
-body.archive-open .field-header > * { position:relative;z-index:1; }
-body.archive-open .field-header h1 { max-width:8.5ch;margin:22px 0 25px;color:var(--ivory);font-size:clamp(3.4rem,7.2vw,7.8rem);line-height:.86;letter-spacing:-.072em; }
-body.archive-open .field-header h1 em { display:block;color:#77776f;font-weight:300; }
-body.archive-open .field-intro { max-width:48ch;color:#96968f;font-size:clamp(.84rem,1vw,.98rem);line-height:1.65; }
 body.archive-open .field-controls { right:var(--edge);bottom:clamp(28px,5vh,52px);left:auto;gap:20px; }
 body.archive-open .field-control { color:#66665f;font-size:.5rem;letter-spacing:.12em; }
 body.archive-open .field-controls button { border:0;background:transparent;color:#66665f;box-shadow:none; }
@@ -156,9 +150,6 @@ body.archive-open .site-footer a { color:var(--ivory); }
   body.archive-open .primary-nav a,body.archive-open .primary-nav .presence-link { min-width:0;height:54px;padding:0 14px; }
   body.archive-open main > .space,body.archive-open main > .space:not(.field-space):not(.works-space),body.archive-open main > .coordinate-space,body.archive-open main > .observatory-space,body.archive-open main > .works-space,body.archive-open main > .intake-space { padding:92px 20px; }
   body.archive-open main > .field-space { min-height:760px;padding:0; }
-  body.archive-open .field-header { top:94px;right:20px;left:20px;width:auto; }
-  body.archive-open .field-header h1 { max-width:8ch;font-size:clamp(3.4rem,17vw,5.8rem); }
-  body.archive-open .field-intro { display:block;max-width:34ch;margin-top:24px;font-size:.78rem;line-height:1.62; }
   body.archive-open #field-canvas,body.archive-open #work-canvas { opacity:1; }
   body.archive-open .field-controls { right:20px;bottom:22px;left:20px;justify-content:flex-start;overflow-x:auto; }
   body.archive-open .field-control { flex:0 0 auto; }
