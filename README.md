@@ -1,8 +1,12 @@
 # Root Logos
 
+## Place in the studio architecture
+
+The studio's repositories remain independently governed modules, projects, instruments, and archives. [`zeropoet.xyz`](https://zeropoet.xyz/) is their studio index: it reveals the body of work and its relations without becoming their authority. [`rootlogos.com`](https://rootlogos.com/) is the public surface where their bounded elements can be synthesized, questioned, and built into a coherent whole. Root Logos does not own those sources; it makes their demonstrated relations inhabitable. This separation fulfills the working law the system set out to create and is the structural foundation of the Weave era.
+
 ## Root Logos 2.0 — The Weave
 
-Root Logos is entering its next operational form as the constitutional studio operating system for the Zeropoet field. The existing public experience remains active while the additive [`weave/`](weave/README.md) foundation makes the learned cross-project architecture explicit and verifiable.
+Root Logos is entering its next operational form as the constitutional studio operating system for the Zeropoet field. The [`weave/`](weave/README.md) foundation refactors the public experience around the learned cross-project architecture, making that architecture explicit and verifiable rather than attaching a separate layer to the prior structure.
 
 Field Notation remains the preserved founding-memory field. Its fragments are not migrated into Root Logos as owned content; Root Logos receives a bounded, attributed constitutional source. The other projects likewise retain local authority while the Weave records evidenced relations, ownership boundaries, and future refactor opportunities.
 
