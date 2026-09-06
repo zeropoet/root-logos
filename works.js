@@ -561,7 +561,7 @@
           const shells = clamp(Math.round(2 + Math.sqrt(morphology.chambers)), 3, 8);
           for (let shell = 1; shell <= shells; shell += 1) {
             const scale = shell / shells;
-            context.strokeStyle = `rgba(255,255,255,${.014 + morphology.density * .045 - shell * .001})`;
+            context.strokeStyle = `rgba(255,255,255,${.055 + morphology.density * .08 - shell * .002})`;
             context.beginPath();
             context.ellipse(
               0,
@@ -577,21 +577,21 @@
         } else {
           for (let horizon = 1; horizon <= 5; horizon += 1) {
             const scale = horizon / 5;
-            context.strokeStyle = `rgba(174,174,174,${.055 - horizon * .006})`;
+            context.strokeStyle = `rgba(255,255,255,${.11 - horizon * .01})`;
             context.beginPath();
             context.ellipse(0, 0, radius * scale, radius * scale * .54, 0, 0, Math.PI * 2);
             context.stroke();
           }
           for (let bearing = 0; bearing < 12; bearing += 1) {
             const angle = bearing / 12 * Math.PI * 2 + this.rotation * .18;
-            context.strokeStyle = "rgba(226,220,197,.027)";
+            context.strokeStyle = "rgba(255,255,255,.065)";
             context.beginPath();
             context.moveTo(Math.cos(angle) * radius * .09, Math.sin(angle) * radius * .09 * .54);
             context.lineTo(Math.cos(angle) * radius * 1.18, Math.sin(angle) * radius * 1.18 * .54);
             context.stroke();
           }
         }
-        context.strokeStyle = "rgba(198,198,198,.12)";
+        context.strokeStyle = "rgba(255,255,255,.2)";
         context.beginPath();
         context.moveTo(-radius * 1.24, 0);
         context.lineTo(radius * 1.24, 0);
@@ -601,7 +601,7 @@
           context.save();
           context.translate(centerX, centerY);
           for (let ring = 1; ring <= 4; ring += 1) {
-            context.strokeStyle = `rgba(198,198,198,${.11 - ring * .018})`;
+            context.strokeStyle = `rgba(255,255,255,${.2 - ring * .028})`;
             context.lineWidth = ring === 1 ? 1 : .55;
             context.beginPath();
             context.arc(0, 0, radius * (.08 + ring * .055), 0, Math.PI * 2);
@@ -659,8 +659,8 @@
           const corpusRelation = this.isCorpus && edge.relation === "shared-derived-language";
           const edgeEmphasis = edge.morphWeight ?? clamp(Math.log1p(Number(edge.weight) || 0) / Math.log(13), 0, 1);
           context.strokeStyle = corpusRelation
-            ? `rgba(174,174,174,${clamp(.012 + edge.weight * .006, .018, .075)})`
-            : `rgba(198,198,198,${this.isCorpus ? .055 : clamp(.025 + edgeEmphasis * .2, .03, .225)})`;
+            ? `rgba(255,255,255,${clamp(.04 + edge.weight * .008, .05, .14)})`
+            : `rgba(255,255,255,${this.isCorpus ? .11 : clamp(.07 + edgeEmphasis * .28, .08, .35)})`;
           context.lineWidth = this.isCorpus ? .65 : .35 + edgeEmphasis * 1.55;
           context.beginPath();
           context.moveTo(from.screenX, from.screenY);

@@ -980,7 +980,7 @@ class ConstitutionalField {
     [1, .72, .43].forEach((ring, index) => {
       ctx.beginPath();
       ctx.ellipse(0, 0, objectRadius * ring, objectRadius * ring * (.34 + index * .08), this.rotation.y * .22 + index * .9, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(${index === 1 ? "174,174,174" : "198,198,198"},${.045 + index * .022})`;
+      ctx.strokeStyle = `rgba(255,255,255,${.09 + index * .035})`;
       ctx.lineWidth = .7;
       ctx.stroke();
     });
@@ -993,7 +993,7 @@ class ConstitutionalField {
       ctx.beginPath();
       ctx.moveTo(source.px, source.py);
       ctx.lineTo(target.px, target.py);
-      ctx.strokeStyle = active ? "rgba(220,220,220,.58)" : type === "questions" ? `rgba(174,174,174,${.05 + depth * .1})` : `rgba(218,218,218,${.025 + depth * .06})`;
+      ctx.strokeStyle = active ? "rgba(255,255,255,.72)" : type === "questions" ? `rgba(255,255,255,${.12 + depth * .16})` : `rgba(255,255,255,${.08 + depth * .11})`;
       ctx.lineWidth = active ? 1 : .35 + depth * .25;
       ctx.stroke();
     });
@@ -1011,14 +1011,14 @@ class ConstitutionalField {
       if (node.type === "root") {
         const glowRadius = (52 + rootPulse * 2) * this.zoom;
         const glow = ctx.createRadialGradient(node.px, node.py, 0, node.px, node.py, glowRadius);
-        glow.addColorStop(0, `rgba(${rootColor},.18)`); glow.addColorStop(1, `rgba(${rootColor},0)`);
+        glow.addColorStop(0, `rgba(${rootColor},.24)`); glow.addColorStop(1, `rgba(${rootColor},0)`);
         ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(node.px, node.py, glowRadius, 0, Math.PI * 2); ctx.fill();
       }
       if (active || hover || node.type === "root") {
         ctx.beginPath();
         const selectionPulse = (active || hover) && !this.reducedMotion ? Math.sin(this.time * 1.7) * 1.5 : 0;
         ctx.arc(node.px, node.py, radius + (active ? 12 : 7) + (node.type === "root" ? rootPulse : selectionPulse), 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${node.type === "root" ? rootColor : "255,255,255"},${active ? .48 : .2})`;
+        ctx.strokeStyle = `rgba(255,255,255,${active ? .72 : .34})`;
         ctx.lineWidth = .7;
         ctx.stroke();
       }
