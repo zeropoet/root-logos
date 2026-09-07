@@ -1315,27 +1315,63 @@
         vec3 normal = normalize(vSurfaceNormal);
         if (!gl_FrontFacing) normal *= -1.0;
         vec3 view = normalize(vec3(0.0, 0.0, -4.8) - vFieldPosition);
-        vec3 reflected = reflect(-view, normal);
-        float fresnel = pow(1.0 - abs(dot(normal, view)), 2.4);
+        float facing = abs(dot(normal, view));
+        float fresnel = pow(1.0 - facing, 2.7);
         vec3 barycentric = vec3(vFacetCoordinate, 1.0 - vFacetCoordinate.x - vFacetCoordinate.y);
         float nearestNode = max(max(barycentric.x, barycentric.y), barycentric.z);
         float nodeLight = smoothstep(.38, .98, nearestNode);
-        float nodeHalo = smoothstep(.34, .82, nearestNode);
+        float nodeHalo = smoothstep(.34, .86, nearestNode);
+        float scratch = step(.72, fract(sin(dot(floor(vFieldPosition * vec3(19.0, 27.0, 23.0)), vec3(12.9898, 78.233, 41.73))) * 43758.5453));
+        vec3 textureWarp = vec3(
+          sin(vFieldPosition.y * 91.0 + vFieldPosition.z * 17.0),
+          sin(vFieldPosition.z * 83.0 - vFieldPosition.x * 13.0),
+          sin(vFieldPosition.x * 89.0 + vFieldPosition.y * 19.0)
+        );
+        vec3 opticalNormal = normalize(normal + textureWarp * scratch * .026);
+        vec3 reflected = reflect(-view, opticalNormal);
+        vec3 core = normalize(-vFieldPosition + vec3(.001));
+        float coreDistance = 1.0 / (.12 + dot(vFieldPosition, vFieldPosition));
+        float opticalDepth = (1.0 / max(facing, .07)) * .48;
+        vec3 transmission = vec3(.72, .79, .84) * exp(-vec3(.16, .72, 1.28) * opticalDepth);
+        vec3 spectralWarp = textureWarp * scratch * .024;
+        vec3 bendR = normalize(refract(-view, normalize(opticalNormal + spectralWarp), 1.0 / 2.36));
+        vec3 bendG = normalize(refract(-view, opticalNormal, 1.0 / 2.42));
+        vec3 bendB = normalize(refract(-view, normalize(opticalNormal - spectralWarp), 1.0 / 2.48));
+        vec3 bentCore = vec3(
+          pow(max(0.0, dot(bendR, core)), 5.0),
+          pow(max(0.0, dot(bendG, core)), 6.0) * .12,
+          pow(max(0.0, dot(bendB, core)), 7.0) * .025
+        ) * coreDistance * .28;
+        float internalReflection = pow(max(0.0, dot(reflect(-core, opticalNormal), view)), 10.0);
+        vec3 key = normalize(vec3(-.48, .72, -.82));
+        vec3 rim = normalize(vec3(.76, -.2, -.62));
+        float keySpecular = pow(max(0.0, dot(reflected, key)), 42.0);
+        float rimSpecular = pow(max(0.0, dot(reflected, rim)), 24.0);
         vec3 field = telosField(vFieldPosition, uTime);
         float energy = clamp(max(max(field.r, field.g), field.b), 0.0, 1.0);
-        vec3 spectralReflection = telosField(vFieldPosition + reflected * .32, uTime * .72);
-        float luminance = dot(field, vec3(.2126, .7152, .0722));
-        vec3 temperedField = mix(vec3(luminance), field, .42);
-        vec3 glass = mix(vec3(.12, .13, .15), temperedField * .72 + vec3(.055), .18 + energy * .15);
-        glass += spectralReflection * (fresnel * .2 + nodeHalo * .12);
-        glass += mix(vec3(1.0, .965, .9), field * 1.18, .34) * nodeLight * (.42 + fresnel * .58);
-        glass += vec3(.54, .6, .7) * fresnel * .13;
+        vec3 reflectionWarm = telosField(vFieldPosition + reflected * .44 + spectralWarp, uTime * .16);
+        vec3 reflectionCool = telosField(vFieldPosition + reflected * .44 - spectralWarp, uTime * .16);
+        vec3 spectralReflection = vec3(reflectionWarm.r, mix(reflectionWarm.g, reflectionCool.g, .5), reflectionCool.b);
+        vec3 surfaceWarm = telosField(vFieldPosition * .72 + opticalNormal * .16 + spectralWarp, uTime * .1);
+        vec3 surfaceCool = telosField(vFieldPosition * .72 + opticalNormal * .16 - spectralWarp, uTime * .1);
+        vec3 surfaceField = vec3(surfaceWarm.r, mix(surfaceWarm.g, surfaceCool.g, .5), surfaceCool.b);
+        vec3 glass = vec3(.19, .22, .24) * .11 + transmission * .32 + bentCore * 1.2;
+        glass += vec3(.9, .94, 1.0) * (internalReflection * .4 + fresnel * .16);
+        glass += field * .14 + spectralReflection * (.42 + fresnel * .46) + surfaceField * .27;
+        vec3 prism = max(spectralReflection + surfaceField * .72, vec3(.055));
+        glass += mix(vec3(1.0, .985, .94), prism * 1.7, .68) * keySpecular * .92;
+        glass += mix(vec3(.54, .72, 1.0), prism * 1.45, .58) * rimSpecular * .6;
+        glass += mix(vec3(.96), field * 1.18, .34) * nodeLight * .18;
+        float edgeDistance = min(min(barycentric.x, barycentric.y), barycentric.z);
+        float thickness = 1.0 - smoothstep(.018, .13, edgeDistance);
+        glass += mix(vec3(.32, .36, .4), prism, .58) * thickness * (.1 + fresnel * .14);
         float facetInterior = 1.0 - smoothstep(.34, .64, nearestNode);
         float buriedPlane = smoothstep(-1.8, 1.45, vFieldPosition.z);
         float ambientOcclusion = 1.0 - facetInterior * (.11 + buriedPlane * .12);
-        glass *= ambientOcclusion;
-        float alpha = (.25 + energy * .04 + fresnel * .18 + nodeHalo * .13 + nodeLight * .18) * vVisible;
-        gl_FragColor = vec4(glass, min(alpha, .68));
+        glass *= ambientOcclusion * mix(.76, 1.0, smoothstep(.05, .42, facing));
+        float reflectedLight = max(max(surfaceField.r, surfaceField.g), surfaceField.b);
+        float alpha = (.28 + energy * .08 + fresnel * .18 + thickness * .22 + reflectedLight * .18 + keySpecular * .22 + rimSpecular * .11 + nodeHalo * .04) * vVisible;
+        gl_FragColor = vec4(glass, min(alpha, .9));
       }
     `;
     const pointFragment = `
