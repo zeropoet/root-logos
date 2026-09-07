@@ -679,10 +679,10 @@
         );
         [...this.nodes].sort((a, b) => a.depth - b.depth).forEach((node, index) => {
           const size = node.type === "work"
-            ? 11
+            ? 7
             : node.type === "document"
-              ? 3.6 + (node.visualMass ?? .3) * 3.8
-              : 1.7 + (node.visualMass ?? clamp(Math.log1p(Number(node.weight) || 0) / Math.log(13), 0, 1)) * 5.3;
+              ? 2.5 + (node.visualMass ?? .3) * 2.4
+              : 1.2 + (node.visualMass ?? clamp(Math.log1p(Number(node.weight) || 0) / Math.log(13), 0, 1)) * 3.2;
           context.fillStyle = "#ffffff";
           context.globalAlpha = clamp(.2 + node.depth * .65, .25, .95);
           context.beginPath();
