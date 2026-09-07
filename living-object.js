@@ -862,7 +862,7 @@
     const globalProject = topologyProjection(field);
     const project = (position) => globalProject(localProject(position));
     return {
-      facets: projectPackedGeometry(facetOutlineGeometry(facets), project),
+      facets: facetSurfaceGeometry(projectPackedGeometry(facets, project)),
       lines: projectPackedGeometry(lines, project),
       points: projectPackedGeometry(points, project),
       pulsePaths: pulsePaths.map((path) => path.map(project)),
@@ -1161,23 +1161,38 @@
     return projected;
   }
 
-  function facetOutlineGeometry(facets) {
-    const outlines = [];
-    const vertex = (offset) => facets.slice(offset, offset + 10);
-    for (let index = 0; index < facets.length; index += 30) {
-      const a = vertex(index);
-      const b = vertex(index + 10);
-      const c = vertex(index + 20);
-      outlines.push(...a, ...b, ...b, ...c, ...c, ...a);
+  function facetSurfaceGeometry(facets) {
+    const surfaced = new Float32Array(facets);
+    for (let index = 0; index < surfaced.length; index += 30) {
+      const a = [...surfaced.slice(index, index + 3)];
+      const b = [...surfaced.slice(index + 10, index + 13)];
+      const c = [...surfaced.slice(index + 20, index + 23)];
+      const edgeAB = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+      const edgeAC = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+      const rawNormal = [
+        edgeAB[1] * edgeAC[2] - edgeAB[2] * edgeAC[1],
+        edgeAB[2] * edgeAC[0] - edgeAB[0] * edgeAC[2],
+        edgeAB[0] * edgeAC[1] - edgeAB[1] * edgeAC[0]
+      ];
+      const magnitude = Math.hypot(...rawNormal) || 1;
+      const normal = rawNormal.map((value) => value / magnitude);
+      const barycentric = [[1, 0], [0, 1], [0, 0]];
+      for (let vertex = 0; vertex < 3; vertex += 1) {
+        const offset = index + vertex * 10 + 3;
+        surfaced[offset] = normal[0] * .5 + .5;
+        surfaced[offset + 1] = normal[1] * .5 + .5;
+        surfaced[offset + 2] = normal[2] * .5 + .5;
+        surfaced[offset + 3] = barycentric[vertex][1];
+        surfaced[offset + 4] = barycentric[vertex][0];
+      }
     }
-    return outlines;
+    return surfaced;
   }
 
   function createRenderer(context, geometry) {
-    // Telos material pressure is carried by the existing architecture rather
-    // than painted across a containing surface. The slow, viscous field makes
-    // relation paths and nodes feel internally lit while leaving the object's
-    // perimeter unresolved.
+    // Telos material pressure is carried by the existing architecture. Sparse
+    // data-derived planes receive optical thickness while relation paths and
+    // nodes remain legible above them; there is still no enclosing shell.
     const telosMaterial = `
       float telosHash(vec3 p) {
         p = fract(p * .1031);
@@ -1231,6 +1246,8 @@
       uniform float uReleaseRadius;
       varying vec4 vColor;
       varying vec3 vFieldPosition;
+      varying vec3 vSurfaceNormal;
+      varying vec2 vFacetCoordinate;
       varying float vVisible;
       varying float vSignal;
       void main() {
@@ -1238,6 +1255,10 @@
         float cx = cos(uPitch), sx = sin(uPitch);
         vec3 p = vec3(aPosition.x * cy - aPosition.z * sy, aPosition.y, aPosition.x * sy + aPosition.z * cy);
         p = vec3(p.x, p.y * cx - p.z * sx, p.y * sx + p.z * cx);
+        vec3 surfaceNormal = normalize(aColor.rgb * 2.0 - 1.0);
+        surfaceNormal = vec3(surfaceNormal.x * cy - surfaceNormal.z * sy, surfaceNormal.y, surfaceNormal.x * sy + surfaceNormal.z * cy);
+        vSurfaceNormal = normalize(vec3(surfaceNormal.x, surfaceNormal.y * cx - surfaceNormal.z * sx, surfaceNormal.y * sx + surfaceNormal.z * cx));
+        vFacetCoordinate = vec2(aSize, aColor.a);
         vFieldPosition = p;
         float depth = 5.8 - p.z;
         float safeAspect = max(0.62, uAspect);
@@ -1275,24 +1296,46 @@
         vec3 red = vec3(0.941, 0.094, 0.094);
         vec3 field = telosField(vFieldPosition, uTime);
         float energy = clamp(max(max(field.r, field.g), field.b), 0.0, 1.0);
-        vec3 notation = mix(vColor.rgb * .78, field, .48 + energy * .32);
+        vec3 notation = mix(vColor.rgb * .88, field, .18 + energy * .2);
         notation = mix(notation, red, vSignal * .28);
-        gl_FragColor = vec4(notation, vColor.a * (.78 + energy * .34));
+        gl_FragColor = vec4(notation, vColor.a * (.7 + energy * .22));
       }
     `;
     const facetFragment = `
       precision highp float;
       varying vec4 vColor;
       varying vec3 vFieldPosition;
+      varying vec3 vSurfaceNormal;
+      varying vec2 vFacetCoordinate;
       varying float vVisible;
       uniform float uTime;
       ${telosMaterial}
       void main() {
         if (vVisible < .01) discard;
+        vec3 normal = normalize(vSurfaceNormal);
+        if (!gl_FrontFacing) normal *= -1.0;
+        vec3 view = normalize(vec3(0.0, 0.0, -4.8) - vFieldPosition);
+        vec3 reflected = reflect(-view, normal);
+        float fresnel = pow(1.0 - abs(dot(normal, view)), 2.4);
+        vec3 barycentric = vec3(vFacetCoordinate, 1.0 - vFacetCoordinate.x - vFacetCoordinate.y);
+        float nearestNode = max(max(barycentric.x, barycentric.y), barycentric.z);
+        float nodeLight = smoothstep(.38, .98, nearestNode);
+        float nodeHalo = smoothstep(.34, .82, nearestNode);
         vec3 field = telosField(vFieldPosition, uTime);
         float energy = clamp(max(max(field.r, field.g), field.b), 0.0, 1.0);
-        vec3 presence = mix(vColor.rgb * .34, field * .48, .22 + energy * .2);
-        gl_FragColor = vec4(presence, vColor.a * (.12 + energy * .08));
+        vec3 spectralReflection = telosField(vFieldPosition + reflected * .32, uTime * .72);
+        float luminance = dot(field, vec3(.2126, .7152, .0722));
+        vec3 temperedField = mix(vec3(luminance), field, .42);
+        vec3 glass = mix(vec3(.12, .13, .15), temperedField * .72 + vec3(.055), .18 + energy * .15);
+        glass += spectralReflection * (fresnel * .2 + nodeHalo * .12);
+        glass += mix(vec3(1.0, .965, .9), field * 1.18, .34) * nodeLight * (.42 + fresnel * .58);
+        glass += vec3(.54, .6, .7) * fresnel * .13;
+        float facetInterior = 1.0 - smoothstep(.34, .64, nearestNode);
+        float buriedPlane = smoothstep(-1.8, 1.45, vFieldPosition.z);
+        float ambientOcclusion = 1.0 - facetInterior * (.11 + buriedPlane * .12);
+        glass *= ambientOcclusion;
+        float alpha = (.25 + energy * .04 + fresnel * .18 + nodeHalo * .13 + nodeLight * .18) * vVisible;
+        gl_FragColor = vec4(glass, min(alpha, .68));
       }
     `;
     const pointFragment = `
@@ -1421,7 +1464,7 @@
         context.clearColor(0, 0, 0, 1);
         context.clear(context.COLOR_BUFFER_BIT);
         uniforms(facetProgram, renderedState);
-        drawBuffer(facetProgram, facetBuffer, geometry.facets.length / 10, context.LINES, 10);
+        drawBuffer(facetProgram, facetBuffer, geometry.facets.length / 10, context.TRIANGLES, 10);
         uniforms(lineProgram, renderedState);
         drawBuffer(lineProgram, lineBuffer, geometry.lines.length / 10, context.LINES, 10);
         uniforms(pointProgram, renderedState);
