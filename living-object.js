@@ -458,9 +458,7 @@
           ring.push([Math.cos(a) * ringRadius, position[1], Math.sin(a) * ringRadius]);
           if (r) {
             addLine(ring[r - 1], ring[r], palette.structure, t * 0.45);
-            if (r % 4 === 0) {
-              addFacet(position, ring[r - 1], ring[r], [...palette.structure.slice(0, 3), 0.022], t * 0.45, 0);
-            }
+            addFacet(position, ring[r - 1], ring[r], [...palette.structure.slice(0, 3), 0.022], t * 0.45, 0);
           }
         }
       }
@@ -484,7 +482,7 @@
       .filter(({ id }) => id !== "root-logos")
       .map(({ id }) => graphPosition.get(id))
       .filter(Boolean);
-    for (let index = 2; index < graphFacetNodes.length; index += 5) {
+    for (let index = 2; index < graphFacetNodes.length; index += 1) {
       addFacet(
         graphFacetNodes[index - 2],
         graphFacetNodes[index - 1],
@@ -542,7 +540,7 @@
         const birth = .52 + compositionIndex * .025 + t * .09;
         addLine(previous, position, [...palette.structure.slice(0, 3), .18 + t * .18], birth);
         addPoint(position, [...palette.structure.slice(0, 3), .42 + t * .22], 2.2 + t * 1.5, birth + .01);
-        if (relationIndex > 0 && relationIndex % 2 === 0) {
+        if (relationIndex > 0) {
           addFacet(grammar, previous, position, [...palette.structure.slice(0, 3), .014], birth);
         }
         if (relationIndex === relations.length - 1 || relationIndex % 5 === 0) pulsePaths.push([grammar, position]);
@@ -624,16 +622,14 @@
       const crossesTestament = corpusNodes[index - 1].division !== node.division;
       addLine(previous, current, [...palette.canon.slice(0, 3), crossesTestament ? 0.78 : 0.31], 0.6 + index / corpusNodes.length * 0.18, 1);
       if (crossesTestament || index % 7 === 0) pulsePaths.push([previous, current]);
-      if (index % 2 === 0) {
-        addFacet(
-          corpusCenter,
-          previous,
-          current,
-          [...palette.canon.slice(0, 3), crossesTestament ? 0.035 : 0.018],
-          0.6 + index / corpusNodes.length * 0.18,
-          1
-        );
-      }
+      addFacet(
+        corpusCenter,
+        previous,
+        current,
+        [...palette.canon.slice(0, 3), crossesTestament ? 0.035 : 0.018],
+        0.6 + index / corpusNodes.length * 0.18,
+        1
+      );
     });
 
     const witnessedTensions = (corpus.edges || [])
@@ -722,7 +718,7 @@
             if (edgeIndex % 29 === 0) pulsePaths.push([from, to]);
           });
           const internalFacetNodes = [...internalPositions.values()].slice(1);
-          for (let nodeIndex = 1; nodeIndex < internalFacetNodes.length; nodeIndex += 6) {
+          for (let nodeIndex = 1; nodeIndex < internalFacetNodes.length; nodeIndex += 1) {
             addFacet(
               leaf,
               internalFacetNodes[nodeIndex - 1],
@@ -770,6 +766,16 @@
       const alpha = node.level === 1 ? .1 + relationStrength * .78 : node.level === 2 ? .58 : .94;
       const size = node.level === 1 ? 1.8 + relationStrength * 6.4 : node.level === 2 ? 6.4 : 13.8;
       addPoint(position, [...palette.lineage.slice(0, 3), alpha], size, .88 + node.level * .025);
+      if (node.level === 1 && from && to) {
+        addFacet(
+          from,
+          to,
+          position,
+          [...palette.lineage.slice(0, 3), .018 + relationStrength * .026],
+          .89,
+          0
+        );
+      }
     });
     (libraryComposition?.visual?.topology?.edges || []).forEach((edge, index, edges) => {
       const from = compositionPositions.get(edge.from);
@@ -816,9 +822,11 @@
       const birth = 0.73 + t * 0.19;
       addPoint(position, color, embodied ? 5.3 : 2.7 + refinement * 1.2, birth);
       addLine(previousPortrait, position, [...color.slice(0, 3), embodied ? 0.36 : 0.13], birth);
+      if (index > 0) {
+        addFacet(portraitAnchor, previousPortrait, position, [...palette.lineage.slice(0, 3), embodied ? 0.028 : 0.014], birth);
+      }
       if (embodied) {
         addLine(portraitAnchor, position, [...palette.lineage.slice(0, 3), 0.58], birth);
-        addFacet(portraitAnchor, previousPortrait, position, [...palette.lineage.slice(0, 3), 0.022], birth);
         pulsePaths.push([portraitRoot, portraitAnchor, position]);
       }
       previousPortrait = position;
@@ -843,6 +851,9 @@
       const alpha = event.kind === "revision" ? 0.38 : 0.22;
       addPoint(position, [...palette.lineage.slice(0, 3), alpha], event.kind === "revision" ? 3.1 : 2.3, 0.78 + t * 0.16);
       addLine(previousTelos, position, [...palette.lineage.slice(0, 3), alpha * 0.72], 0.78 + t * 0.16);
+      if (index > 0) {
+        addFacet(telosRoot, previousTelos, position, [...palette.lineage.slice(0, 3), .016 + alpha * .03], .78 + t * .16);
+      }
       if (index % 11 === 0) pulsePaths.push([telosRoot, position]);
       previousTelos = position;
     });
@@ -1370,8 +1381,8 @@
         float ambientOcclusion = 1.0 - facetInterior * (.11 + buriedPlane * .12);
         glass *= ambientOcclusion * mix(.76, 1.0, smoothstep(.05, .42, facing));
         float reflectedLight = max(max(surfaceField.r, surfaceField.g), surfaceField.b);
-        float alpha = (.28 + energy * .08 + fresnel * .18 + thickness * .22 + reflectedLight * .18 + keySpecular * .22 + rimSpecular * .11 + nodeHalo * .04) * vVisible;
-        gl_FragColor = vec4(glass, min(alpha, .9));
+        float alpha = (.36 + energy * .1 + fresnel * .2 + thickness * .24 + reflectedLight * .22 + keySpecular * .22 + rimSpecular * .12 + nodeHalo * .04) * vVisible;
+        gl_FragColor = vec4(glass, min(alpha, .94));
       }
     `;
     const pointFragment = `
