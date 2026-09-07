@@ -873,7 +873,7 @@
     const globalProject = topologyProjection(field);
     const project = (position) => globalProject(localProject(position));
     return {
-      facets: facetSurfaceGeometry(projectPackedGeometry(facets, project)),
+      facets: facetSurfaceGeometry(projectPackedGeometry(bezierFacetGeometry(facets, points), project)),
       lines: projectPackedGeometry(bezierLineGeometry(lines, points), project),
       points: projectPackedGeometry(points, project),
       pulsePaths: pulsePaths.map((path) => path.map(project)),
@@ -1227,6 +1227,88 @@
         const toT = (segment + 1) / segments;
         curved.push(...packed(fromT, sample(fromT)), ...packed(toT, sample(toT)));
       }
+    }
+    return curved;
+  }
+
+  function bezierFacetGeometry(facets, points) {
+    const positionKey = (values, offset = 0) => [0, 1, 2]
+      .map((axis) => Number(values[offset + axis]).toFixed(5))
+      .join(":");
+    const nodeMass = new Map();
+    for (let index = 0; index < points.length; index += 10) {
+      const key = positionKey(points, index);
+      nodeMass.set(key, Math.max(nodeMass.get(key) || 0, Number(points[index + 7]) || 1));
+    }
+    const interpolate = (a, b, t, position) => {
+      const vertex = position.slice();
+      for (let field = 3; field < 10; field += 1) vertex.push(a[field] + (b[field] - a[field]) * t);
+      return vertex;
+    };
+    const edgeMidpoint = (a, b) => {
+      const direction = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+      const length = Math.hypot(...direction) || 1;
+      const radial = [(a[0] + b[0]) * .5, (a[1] + b[1]) * .5, (a[2] + b[2]) * .5];
+      let normal = [
+        direction[1] * radial[2] - direction[2] * radial[1],
+        direction[2] * radial[0] - direction[0] * radial[2],
+        direction[0] * radial[1] - direction[1] * radial[0]
+      ];
+      let normalLength = Math.hypot(...normal);
+      if (normalLength < .0001) {
+        normal = [-direction[1], direction[0], direction[2] * .24];
+        normalLength = Math.hypot(...normal) || 1;
+      }
+      const mass = Math.sqrt((nodeMass.get(positionKey(a)) || 1) * (nodeMass.get(positionKey(b)) || 1));
+      const pressure = Math.min(1, Math.log1p(mass) / Math.log(15));
+      const keys = [positionKey(a), positionKey(b)].sort();
+      const polarity = hash(keys.join("<>")) > .5 ? 1 : -1;
+      const bend = Math.min(length * (.045 + pressure * .12), .018 + pressure * .115);
+      const control = radial.map((value, axis) => value + normal[axis] / normalLength * bend * polarity);
+      const position = [0, 1, 2].map((axis) => a[axis] * .25 + control[axis] * .5 + b[axis] * .25);
+      return interpolate(a, b, .5, position);
+    };
+    const curved = [];
+    const addTriangle = (a, b, c) => curved.push(...a, ...b, ...c);
+    for (let index = 0; index < facets.length; index += 30) {
+      const a = [...facets.slice(index, index + 10)];
+      const b = [...facets.slice(index + 10, index + 20)];
+      const c = [...facets.slice(index + 20, index + 30)];
+      const ab = edgeMidpoint(a, b);
+      const bc = edgeMidpoint(b, c);
+      const ca = edgeMidpoint(c, a);
+      const edgeAB = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+      const edgeAC = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+      let normal = [
+        edgeAB[1] * edgeAC[2] - edgeAB[2] * edgeAC[1],
+        edgeAB[2] * edgeAC[0] - edgeAB[0] * edgeAC[2],
+        edgeAB[0] * edgeAC[1] - edgeAB[1] * edgeAC[0]
+      ];
+      let normalLength = Math.hypot(...normal) || 1;
+      const centroid = [0, 1, 2].map((axis) => (a[axis] + b[axis] + c[axis]) / 3);
+      if (normal[0] * centroid[0] + normal[1] * centroid[1] + normal[2] * centroid[2] < 0) {
+        normal = normal.map((value) => -value);
+      }
+      normalLength = Math.hypot(...normal) || 1;
+      const combinedMass = Math.cbrt(
+        (nodeMass.get(positionKey(a)) || 1)
+        * (nodeMass.get(positionKey(b)) || 1)
+        * (nodeMass.get(positionKey(c)) || 1)
+      );
+      const pressure = Math.min(1, Math.log1p(combinedMass) / Math.log(15));
+      const averageEdge = (Math.hypot(...edgeAB) + Math.hypot(...edgeAC) + Math.hypot(c[0] - b[0], c[1] - b[1], c[2] - b[2])) / 3;
+      const bow = Math.min(averageEdge * (.025 + pressure * .09), .014 + pressure * .085);
+      const centerPosition = [0, 1, 2].map((axis) =>
+        (ab[axis] + bc[axis] + ca[axis]) / 3 + normal[axis] / normalLength * bow
+      );
+      const center = centerPosition.slice();
+      for (let field = 3; field < 10; field += 1) center.push((a[field] + b[field] + c[field]) / 3);
+      addTriangle(a, ab, center);
+      addTriangle(ab, b, center);
+      addTriangle(b, bc, center);
+      addTriangle(bc, c, center);
+      addTriangle(c, ca, center);
+      addTriangle(ca, a, center);
     }
     return curved;
   }
