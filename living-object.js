@@ -308,7 +308,19 @@
     let pointerY = 0;
     let targetX = 0;
     let targetY = 0;
+    let viewMode = "default";
+    let viewPitch = -0.08;
+    let currentPitch = -0.08;
     let visible = !document.hidden;
+    const viewControls = [...document.querySelectorAll("[data-object-view]")];
+    const pitchForView = { top: -Math.PI * .5, default: -.08, bottom: Math.PI * .5 };
+    viewControls.forEach((control) => {
+      control.addEventListener("click", () => {
+        viewMode = control.dataset.objectView || "default";
+        viewPitch = pitchForView[viewMode] ?? pitchForView.default;
+        viewControls.forEach((candidate) => candidate.setAttribute("aria-pressed", String(candidate === control)));
+      });
+    });
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       const dpr = Math.min(devicePixelRatio || 1, 2.75);
@@ -329,12 +341,14 @@
       const elapsed = Math.max(0, (now - lifetime.growthStartedAt) / 1000);
       const growth = reducedMotion ? 1 : Math.min(1, elapsed / 14);
       const rotation = reducedMotion ? 0.35 : elapsed * 0.022 + targetX * 0.11;
+      const desiredPitch = viewMode === "default" ? pitchForView.default + targetY * .055 : viewPitch;
+      currentPitch += (desiredPitch - currentPitch) * (reducedMotion ? 1 : .065);
       const pulse = cadenceState();
       renderer.draw({
         time: reducedMotion ? 0 : elapsed,
         growth,
         rotation,
-        pitch: -0.08 + targetY * 0.055,
+        pitch: currentPitch,
         aspect: canvas.width / canvas.height,
         cadence: pulse.beatPhase,
         cadenceAccent: pulse.cycleBeat === 0 ? 1 : 0
@@ -872,11 +886,15 @@
     const localProject = relationalTopologyProjection(relationalSolution.anchors);
     const globalProject = topologyProjection(field);
     const project = (position) => globalProject(localProject(position));
+    const projectedPoints = projectPackedGeometry(points, project);
+    const projectedLines = projectPackedGeometry(bezierLineGeometry(lines, points), project);
+    const projectedFacets = facetSurfaceGeometry(projectPackedGeometry(bezierFacetGeometry(facets, points), project));
+    const center = packedGeometryCenter(projectedPoints);
     return {
-      facets: facetSurfaceGeometry(projectPackedGeometry(bezierFacetGeometry(facets, points), project)),
-      lines: projectPackedGeometry(bezierLineGeometry(lines, points), project),
-      points: projectPackedGeometry(points, project),
-      pulsePaths: pulsePaths.map((path) => path.map(project)),
+      facets: centerPackedGeometry(projectedFacets, center),
+      lines: centerPackedGeometry(projectedLines, center),
+      points: centerPackedGeometry(projectedPoints, center),
+      pulsePaths: pulsePaths.map((path) => path.map(project).map((position) => position.map((value, axis) => value - center[axis]))),
       field
     };
   }
@@ -1172,6 +1190,26 @@
     return projected;
   }
 
+  function packedGeometryCenter(values) {
+    const minimum = [Infinity, Infinity, Infinity];
+    const maximum = [-Infinity, -Infinity, -Infinity];
+    for (let index = 0; index < values.length; index += 10) {
+      for (let axis = 0; axis < 3; axis += 1) {
+        minimum[axis] = Math.min(minimum[axis], values[index + axis]);
+        maximum[axis] = Math.max(maximum[axis], values[index + axis]);
+      }
+    }
+    return minimum.map((value, axis) => Number.isFinite(value) ? (value + maximum[axis]) * .5 : 0);
+  }
+
+  function centerPackedGeometry(values, center) {
+    const centered = new Float32Array(values);
+    for (let index = 0; index < centered.length; index += 10) {
+      for (let axis = 0; axis < 3; axis += 1) centered[index + axis] -= center[axis];
+    }
+    return centered;
+  }
+
   function bezierLineGeometry(lines, points) {
     const positionKey = (values, offset = 0) => [0, 1, 2]
       .map((axis) => Number(values[offset + axis]).toFixed(5))
@@ -1390,6 +1428,8 @@
       uniform float uYaw;
       uniform float uPitch;
       uniform float uAspect;
+      uniform float uViewOffsetX;
+      uniform float uViewOffsetY;
       uniform float uCadence;
       uniform float uCadenceAccent;
       uniform float uRelease;
@@ -1425,6 +1465,7 @@
         float viewportFit = mix(0.42, 1.0, smoothstep(0.45, 1.0, uAspect));
         vec2 projected = vec2(p.x / safeAspect, p.y) * 2.15 / depth * viewportFit;
         projected.y -= portrait * 0.05;
+        projected += vec2(uViewOffsetX, uViewOffsetY);
         gl_Position = vec4(projected, 0.0, 1.0);
         float arrival = smoothstep(aBirth - 0.025, aBirth + 0.055, uGrowth);
         float cadencePulse = pow(max(0.0, cos(uCadence * 6.283185)), 10.0);
@@ -1604,6 +1645,8 @@
         ["uYaw", state.rotation],
         ["uPitch", state.pitch],
         ["uAspect", state.aspect],
+        ["uViewOffsetX", state.viewOffsetX ?? 0],
+        ["uViewOffsetY", state.viewOffsetY ?? 0],
         ["uCadence", state.cadence],
         ["uCadenceAccent", state.cadenceAccent],
         ["uRelease", state.release ?? 0],
@@ -1616,6 +1659,36 @@
       ].forEach(([name, value]) => {
         context.uniform1f(context.getUniformLocation(shader, name), value);
       });
+    };
+
+    const projectedViewOffset = (state) => {
+      const cy = Math.cos(state.rotation);
+      const sy = Math.sin(state.rotation);
+      const cx = Math.cos(state.pitch);
+      const sx = Math.sin(state.pitch);
+      const safeAspect = Math.max(.62, state.aspect);
+      const viewportFit = .42 + .58 * Math.max(0, Math.min(1, (state.aspect - .45) / .55));
+      const minimum = [Infinity, Infinity];
+      const maximum = [-Infinity, -Infinity];
+      for (let index = 0; index < geometry.points.length; index += 10) {
+        const x = geometry.points[index];
+        const y = geometry.points[index + 1];
+        const z = geometry.points[index + 2];
+        const yawX = x * cy - z * sy;
+        const yawZ = x * sy + z * cy;
+        const pitchY = y * cx - yawZ * sx;
+        const pitchZ = y * sx + yawZ * cx;
+        const depth = 5.8 - pitchZ;
+        const projected = [yawX / safeAspect * 2.15 / depth * viewportFit, pitchY * 2.15 / depth * viewportFit];
+        for (let axis = 0; axis < 2; axis += 1) {
+          minimum[axis] = Math.min(minimum[axis], projected[axis]);
+          maximum[axis] = Math.max(maximum[axis], projected[axis]);
+        }
+      }
+      return {
+        viewOffsetX: -(minimum[0] + maximum[0]) * .5,
+        viewOffsetY: -(minimum[1] + maximum[1]) * .5
+      };
     };
 
     return {
@@ -1667,7 +1740,7 @@
             };
           }
         }
-        const renderedState = { ...state, ...releaseState };
+        const renderedState = { ...state, ...releaseState, ...projectedViewOffset(state) };
         context.clearColor(0, 0, 0, 1);
         context.clear(context.COLOR_BUFFER_BIT);
         uniforms(facetProgram, renderedState);

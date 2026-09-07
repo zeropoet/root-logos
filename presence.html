@@ -14,7 +14,7 @@
     <link rel="canonical" href="https://presence.rootlogos.com/">
     <link rel="icon" href="https://rootlogos.com/assets/root-logos-mark-open.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="https://rootlogos.com/assets/apple-touch-icon.png">
-    <link rel="stylesheet" href="https://rootlogos.com/styles.css?v=2.40-living-presence" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
+    <link rel="stylesheet" href="https://rootlogos.com/styles.css?v=2.41-presence-views" onload="document.documentElement.classList.remove('style-pending')" onerror="document.documentElement.classList.remove('style-pending')">
     <script>setTimeout(() => document.documentElement.classList.remove("style-pending"), 4000);</script>
   </head>
   <body class="object-open" data-living-presence-standalone data-source-base="https://rootlogos.com/" data-archive-url="https://rootlogos.com/#top">
@@ -24,6 +24,11 @@
       <section class="object-space" id="object" data-space-name="Presence" aria-labelledby="presence-title">
         <canvas id="living-object-canvas" aria-label="The Living Presence: Root Logos gathered as a three-dimensional, data-derived form growing through constitutional lineage and completed works."></canvas>
         <div class="object-void" aria-hidden="true"></div>
+        <div class="object-view-controls" role="group" aria-label="Object view">
+          <button type="button" data-object-view="top" aria-label="View from top" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15 12 8l7 7"/></svg></button>
+          <button type="button" data-object-view="default" aria-label="Return to default view" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1" class="fill"/></svg></button>
+          <button type="button" data-object-view="bottom" aria-label="View from bottom" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></button>
+        </div>
         <header class="object-identity">
           <p class="coordinate" data-module="∞">The Living Presence</p>
           <h1 id="presence-title">Root<br>Logos</h1>
@@ -39,6 +44,6 @@
     </main>
 
     <noscript><p class="noscript">Root Logos requires JavaScript to render the Living Presence and its voice.</p></noscript>
-    <script src="https://rootlogos.com/living-object.js?v=2.63-telos-optical-stack" defer></script>
+    <script src="https://rootlogos.com/living-object.js?v=2.64-presence-views" defer></script>
   </body>
 </html>
