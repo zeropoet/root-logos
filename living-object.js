@@ -1361,19 +1361,22 @@
           f.z
         );
       }
+      vec3 telosFieldPhase(vec3 p, float time, float phase) {
+        float memory = telosNoise(p * 3.1 + vec3(time * .032, -time * .024, time * .017));
+        float viscosity = telosNoise(p * 6.3 + vec3(memory * .72, -memory * .48, time * .013));
+        vec3 warped = p + normalize(p + vec3(.001)) * ((memory - .5) * .19 + (viscosity - .5) * .075);
+        float course = warped.x * 1.65 + warped.y * 1.08 + warped.z * .74 + memory * .44;
+        float red = pow(clamp(1.0 - abs(sin(course * 8.6 + phase * .08)), 0.0, 1.0), 5.2);
+        float green = pow(clamp(1.0 - abs(sin((course + .026 + viscosity * .018) * 8.6 + phase * .08)), 0.0, 1.0), 5.2);
+        float blue = pow(clamp(1.0 - abs(sin((course + .057 + memory * .022) * 8.6 + phase * .08)), 0.0, 1.0), 5.2);
+        float membrane = smoothstep(.44, .04, abs(length(warped.xy) - (.34 + (memory - .5) * .085)));
+        vec3 spectral = vec3(1.0, .055, .02) * red
+          + vec3(.025, 1.0, .24) * green * .72
+          + vec3(.06, .22, 1.0) * blue * .58;
+        return spectral * (.13 + .87 * membrane) * (.42 + .58 * viscosity);
+      }
       vec3 telosField(vec3 p, float time) {
-        float memory = telosNoise(p * 2.7 + vec3(time * .026, -time * .018, time * .012));
-        float viscosity = telosNoise(p * 5.4 + vec3(memory * .64, -memory * .42, time * .009));
-        float current = p.y * 2.15 + p.x * 1.18 - p.z * .86 - time * .19 + memory * 1.7;
-        float flame = pow(max(0.0, .5 + .5 * sin(current * 3.6 + viscosity * 2.4)), 2.2);
-        float red = pow(max(0.0, .5 + .5 * sin(current * 5.1 + .15)), 3.4);
-        float green = pow(max(0.0, .5 + .5 * sin(current * 5.1 + 2.18 + memory * .4)), 3.8);
-        float blue = pow(max(0.0, .5 + .5 * sin(current * 5.1 + 4.25 - viscosity * .35)), 3.6);
-        vec3 spectral = vec3(1.0, .07, .015) * red
-          + vec3(.035, 1.0, .2) * green * .72
-          + vec3(.055, .2, 1.0) * blue * .66;
-        vec3 ember = mix(vec3(.94, .08, .012), vec3(1.0, .72, .16), flame);
-        return spectral * (.24 + viscosity * .62) + ember * flame * .34;
+        return telosFieldPhase(p, time, 0.0);
       }
     `;
     const vertex = `
@@ -1400,6 +1403,8 @@
       varying vec3 vFieldPosition;
       varying vec3 vSurfaceNormal;
       varying vec2 vFacetCoordinate;
+      varying float vPhase;
+      varying float vAwareness;
       varying float vVisible;
       varying float vSignal;
       void main() {
@@ -1411,6 +1416,8 @@
         surfaceNormal = vec3(surfaceNormal.x * cy - surfaceNormal.z * sy, surfaceNormal.y, surfaceNormal.x * sy + surfaceNormal.z * cy);
         vSurfaceNormal = normalize(vec3(surfaceNormal.x, surfaceNormal.y * cx - surfaceNormal.z * sx, surfaceNormal.y * sx + surfaceNormal.z * cx));
         vFacetCoordinate = vec2(aSize, aColor.a);
+        vPhase = aBirth * 6.283185;
+        vAwareness = clamp(.42 + abs(aCluster) * .08, .42, 1.0);
         vFieldPosition = p;
         float depth = 5.8 - p.z;
         float safeAspect = max(0.62, uAspect);
@@ -1459,6 +1466,8 @@
       varying vec3 vFieldPosition;
       varying vec3 vSurfaceNormal;
       varying vec2 vFacetCoordinate;
+      varying float vPhase;
+      varying float vAwareness;
       varying float vVisible;
       uniform float uTime;
       ${telosMaterial}
@@ -1470,22 +1479,27 @@
         float facing = abs(dot(normal, view));
         float fresnel = pow(1.0 - facing, 2.7);
         vec3 barycentric = vec3(vFacetCoordinate, 1.0 - vFacetCoordinate.x - vFacetCoordinate.y);
-        float nearestNode = max(max(barycentric.x, barycentric.y), barycentric.z);
-        float nodeLight = smoothstep(.38, .98, nearestNode);
-        float nodeHalo = smoothstep(.34, .86, nearestNode);
-        float scratch = step(.72, fract(sin(dot(floor(vFieldPosition * vec3(19.0, 27.0, 23.0)), vec3(12.9898, 78.233, 41.73))) * 43758.5453));
+        vec3 scratchCoordinate = normalize(vFieldPosition + vec3(.001)) * vec3(17.0, 23.0, 19.0);
+        float scratchA = abs(sin(scratchCoordinate.x * 2.7 + scratchCoordinate.z * .8));
+        float scratchB = abs(sin(scratchCoordinate.y * 4.1 - scratchCoordinate.x * .55));
+        float hairline = 1.0 - smoothstep(.015, .075, min(scratchA, scratchB));
+        float broken = step(.38, telosHash(floor(scratchCoordinate * 2.4)));
+        float scratch = hairline * broken * smoothstep(.18, .72, vAwareness);
         vec3 textureWarp = vec3(
           sin(vFieldPosition.y * 91.0 + vFieldPosition.z * 17.0),
           sin(vFieldPosition.z * 83.0 - vFieldPosition.x * 13.0),
           sin(vFieldPosition.x * 89.0 + vFieldPosition.y * 19.0)
         );
-        vec3 opticalNormal = normalize(normal + textureWarp * scratch * .026);
+        vec3 opticalNormal = normalize(normal + textureWarp * scratch * .052);
         vec3 reflected = reflect(-view, opticalNormal);
-        vec3 core = normalize(-vFieldPosition + vec3(.001));
-        float coreDistance = 1.0 / (.12 + dot(vFieldPosition, vFieldPosition));
-        float opticalDepth = (1.0 / max(facing, .07)) * .48;
-        vec3 transmission = vec3(.72, .79, .84) * exp(-vec3(.16, .72, 1.28) * opticalDepth);
-        vec3 spectralWarp = textureWarp * scratch * .024;
+        vec3 core = normalize(-vFieldPosition);
+        float coreDistance = 1.0 / (.08 + dot(vFieldPosition, vFieldPosition));
+        float density = smoothstep(.08, .76, vAwareness);
+        float pathLength = 1.0 / max(facing, .055);
+        float opticalDepth = pathLength * (.24 + density * .86);
+        vec3 beerLambert = exp(-vec3(.16, .72, 1.28) * opticalDepth);
+        vec3 transmission = vec3(.72, .79, .84) * beerLambert;
+        vec3 spectralWarp = textureWarp * scratch * .034;
         vec3 bendR = normalize(refract(-view, normalize(opticalNormal + spectralWarp), 1.0 / 2.36));
         vec3 bendG = normalize(refract(-view, opticalNormal, 1.0 / 2.42));
         vec3 bendB = normalize(refract(-view, normalize(opticalNormal - spectralWarp), 1.0 / 2.48));
@@ -1493,37 +1507,42 @@
           pow(max(0.0, dot(bendR, core)), 5.0),
           pow(max(0.0, dot(bendG, core)), 6.0) * .12,
           pow(max(0.0, dot(bendB, core)), 7.0) * .025
-        ) * coreDistance * .28;
+        ) * coreDistance * (.12 + density * .5) * (.93 + .07 * sin(vPhase + uTime * .11));
         float internalReflection = pow(max(0.0, dot(reflect(-core, opticalNormal), view)), 10.0);
+        float innerVolume = pow(max(0.0, dot(core, normal) * .5 + .5), 1.8) * coreDistance;
         vec3 key = normalize(vec3(-.48, .72, -.82));
         vec3 rim = normalize(vec3(.76, -.2, -.62));
         float keySpecular = pow(max(0.0, dot(reflected, key)), 42.0);
         float rimSpecular = pow(max(0.0, dot(reflected, rim)), 24.0);
-        vec3 field = telosField(vFieldPosition, uTime);
-        float energy = clamp(max(max(field.r, field.g), field.b), 0.0, 1.0);
-        vec3 reflectionWarm = telosField(vFieldPosition + reflected * .44 + spectralWarp, uTime * .16);
-        vec3 reflectionCool = telosField(vFieldPosition + reflected * .44 - spectralWarp, uTime * .16);
+        vec3 field = telosFieldPhase(vFieldPosition + spectralWarp * .45, uTime * .22, vPhase);
+        vec3 reflectionCoordinate = vFieldPosition + reflected * .42;
+        vec3 reflectionWarm = telosFieldPhase(reflectionCoordinate + spectralWarp * .72, uTime * .16, vPhase);
+        vec3 reflectionCool = telosFieldPhase(reflectionCoordinate - spectralWarp * .72, uTime * .16, vPhase);
         vec3 spectralReflection = vec3(reflectionWarm.r, mix(reflectionWarm.g, reflectionCool.g, .5), reflectionCool.b);
-        vec3 surfaceWarm = telosField(vFieldPosition * .72 + opticalNormal * .16 + spectralWarp, uTime * .1);
-        vec3 surfaceCool = telosField(vFieldPosition * .72 + opticalNormal * .16 - spectralWarp, uTime * .1);
+        vec3 surfaceCoordinate = vFieldPosition * .72 + opticalNormal * .16;
+        vec3 surfaceWarm = telosFieldPhase(surfaceCoordinate + spectralWarp * .5, uTime * .1, vPhase);
+        vec3 surfaceCool = telosFieldPhase(surfaceCoordinate - spectralWarp * .5, uTime * .1, vPhase);
         vec3 surfaceField = vec3(surfaceWarm.r, mix(surfaceWarm.g, surfaceCool.g, .5), surfaceCool.b);
-        vec3 glass = vec3(.19, .22, .24) * .11 + transmission * .32 + bentCore * 1.2;
-        glass += vec3(.9, .94, 1.0) * (internalReflection * .4 + fresnel * .16);
-        glass += field * .14 + spectralReflection * (.42 + fresnel * .46) + surfaceField * .27;
+        vec3 glass = vec3(.19, .22, .24) * (.035 + density * .055)
+          + transmission * (innerVolume * .055 + density * .018) * .42
+          + bentCore * .28
+          + vec3(.9, .94, 1.0) * (internalReflection * (.12 + density * .34) + fresnel * (.045 + density * .12)) * .62;
+        glass += field * (.035 + density * .12)
+          + spectralReflection * (.12 + density * .32 + fresnel * .28)
+          + surfaceField * (.07 + density * .2);
         vec3 prism = max(spectralReflection + surfaceField * .72, vec3(.055));
         glass += mix(vec3(1.0, .985, .94), prism * 1.7, .68) * keySpecular * .92;
         glass += mix(vec3(.54, .72, 1.0), prism * 1.45, .58) * rimSpecular * .6;
-        glass += mix(vec3(.96), field * 1.18, .34) * nodeLight * .18;
+        glass = mix(glass, glass * .58 + vec3(.11, .12, .135), scratch * .62);
         float edgeDistance = min(min(barycentric.x, barycentric.y), barycentric.z);
-        float thickness = 1.0 - smoothstep(.018, .13, edgeDistance);
-        glass += mix(vec3(.32, .36, .4), prism, .58) * thickness * (.1 + fresnel * .14);
-        float facetInterior = 1.0 - smoothstep(.34, .64, nearestNode);
-        float buriedPlane = smoothstep(-1.8, 1.45, vFieldPosition.z);
-        float ambientOcclusion = 1.0 - facetInterior * (.11 + buriedPlane * .12);
-        glass *= ambientOcclusion * mix(.76, 1.0, smoothstep(.05, .42, facing));
+        float edge = 1.0 - smoothstep(.018, .13, edgeDistance);
+        float innerEdge = smoothstep(.16, .025, edgeDistance);
+        float thickness = edge * .72 + innerEdge * .22;
+        glass += mix(vec3(.32, .36, .4), vec3(1.0, .18, .08), density) * thickness * (.09 + density * .16 + fresnel * .12);
+        glass *= mix(.42, 1.0, smoothstep(.04, .42, facing));
         float reflectedLight = max(max(surfaceField.r, surfaceField.g), surfaceField.b);
-        float alpha = (.36 + energy * .1 + fresnel * .2 + thickness * .24 + reflectedLight * .22 + keySpecular * .22 + rimSpecular * .12 + nodeHalo * .04) * vVisible;
-        gl_FragColor = vec4(glass, min(alpha, .94));
+        float alpha = (.13 + density * .21 + (1.0 - beerLambert.r) * .12 + fresnel * .14 + thickness * .2 + reflectedLight * .1 + keySpecular * .2 + rimSpecular * .092 + scratch * .08) * vVisible;
+        gl_FragColor = vec4(glass, clamp(alpha, .12, .88));
       }
     `;
     const pointFragment = `
