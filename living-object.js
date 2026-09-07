@@ -308,19 +308,7 @@
     let pointerY = 0;
     let targetX = 0;
     let targetY = 0;
-    let viewMode = "default";
-    let viewPitch = -0.08;
-    let currentPitch = -0.08;
     let visible = !document.hidden;
-    const viewControls = [...document.querySelectorAll("[data-object-view]")];
-    const pitchForView = { top: -Math.PI * .5, default: -.08, bottom: Math.PI * .5 };
-    viewControls.forEach((control) => {
-      control.addEventListener("click", () => {
-        viewMode = control.dataset.objectView || "default";
-        viewPitch = pitchForView[viewMode] ?? pitchForView.default;
-        viewControls.forEach((candidate) => candidate.setAttribute("aria-pressed", String(candidate === control)));
-      });
-    });
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       const dpr = Math.min(devicePixelRatio || 1, 2.75);
@@ -341,14 +329,12 @@
       const elapsed = Math.max(0, (now - lifetime.growthStartedAt) / 1000);
       const growth = reducedMotion ? 1 : Math.min(1, elapsed / 14);
       const rotation = reducedMotion ? 0.35 : elapsed * 0.022 + targetX * 0.11;
-      const desiredPitch = viewMode === "default" ? pitchForView.default + targetY * .055 : viewPitch;
-      currentPitch += (desiredPitch - currentPitch) * (reducedMotion ? 1 : .065);
       const pulse = cadenceState();
       renderer.draw({
         time: reducedMotion ? 0 : elapsed,
         growth,
         rotation,
-        pitch: currentPitch,
+        pitch: -0.08 + targetY * 0.055,
         aspect: canvas.width / canvas.height,
         cadence: pulse.beatPhase,
         cadenceAccent: pulse.cycleBeat === 0 ? 1 : 0
