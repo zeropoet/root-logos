@@ -1399,7 +1399,8 @@
         vec2 projected = vec2(p.x / safeAspect, p.y) * .925 / depth * viewportFit;
         projected.y -= .06 + portrait * .05;
         gl_Position = vec4(projected, 0.0, 1.0);
-        float arrival = smoothstep(aBirth - 0.025, aBirth + 0.055, uGrowth);
+        float revealBirth = aBirth - 0.20;
+        float arrival = smoothstep(revealBirth - 0.025, revealBirth + 0.055, uGrowth);
         gl_PointSize = 1.0;
         float engravingDepth = clamp((p.z + 2.4) / 4.8, 0.0, 1.0);
         vec3 affectedCenter = vec3(uReleaseCenterX, uReleaseCenterY, uReleaseCenterZ);
