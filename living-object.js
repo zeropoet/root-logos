@@ -1174,6 +1174,41 @@
   }
 
   function createRenderer(context, geometry) {
+    // Telos material pressure is carried by the existing architecture rather
+    // than painted across a containing surface. The slow, viscous field makes
+    // relation paths and nodes feel internally lit while leaving the object's
+    // perimeter unresolved.
+    const telosMaterial = `
+      float telosHash(vec3 p) {
+        p = fract(p * .1031);
+        p += dot(p, p.yzx + 33.33);
+        return fract((p.x + p.y) * p.z);
+      }
+      float telosNoise(vec3 p) {
+        vec3 i = floor(p);
+        vec3 f = fract(p);
+        f = f * f * (3.0 - 2.0 * f);
+        return mix(
+          mix(mix(telosHash(i), telosHash(i + vec3(1,0,0)), f.x), mix(telosHash(i + vec3(0,1,0)), telosHash(i + vec3(1,1,0)), f.x), f.y),
+          mix(mix(telosHash(i + vec3(0,0,1)), telosHash(i + vec3(1,0,1)), f.x), mix(telosHash(i + vec3(0,1,1)), telosHash(i + vec3(1,1,1)), f.x), f.y),
+          f.z
+        );
+      }
+      vec3 telosField(vec3 p, float time) {
+        float memory = telosNoise(p * 2.7 + vec3(time * .026, -time * .018, time * .012));
+        float viscosity = telosNoise(p * 5.4 + vec3(memory * .64, -memory * .42, time * .009));
+        float current = p.y * 2.15 + p.x * 1.18 - p.z * .86 - time * .19 + memory * 1.7;
+        float flame = pow(max(0.0, .5 + .5 * sin(current * 3.6 + viscosity * 2.4)), 2.2);
+        float red = pow(max(0.0, .5 + .5 * sin(current * 5.1 + .15)), 3.4);
+        float green = pow(max(0.0, .5 + .5 * sin(current * 5.1 + 2.18 + memory * .4)), 3.8);
+        float blue = pow(max(0.0, .5 + .5 * sin(current * 5.1 + 4.25 - viscosity * .35)), 3.6);
+        vec3 spectral = vec3(1.0, .07, .015) * red
+          + vec3(.035, 1.0, .2) * green * .72
+          + vec3(.055, .2, 1.0) * blue * .66;
+        vec3 ember = mix(vec3(.94, .08, .012), vec3(1.0, .72, .16), flame);
+        return spectral * (.24 + viscosity * .62) + ember * flame * .34;
+      }
+    `;
     const vertex = `
       attribute vec3 aPosition;
       attribute vec4 aColor;
@@ -1195,6 +1230,7 @@
       uniform float uReleaseCenterZ;
       uniform float uReleaseRadius;
       varying vec4 vColor;
+      varying vec3 vFieldPosition;
       varying float vVisible;
       varying float vSignal;
       void main() {
@@ -1202,6 +1238,7 @@
         float cx = cos(uPitch), sx = sin(uPitch);
         vec3 p = vec3(aPosition.x * cy - aPosition.z * sy, aPosition.y, aPosition.x * sy + aPosition.z * cy);
         p = vec3(p.x, p.y * cx - p.z * sx, p.y * sx + p.z * cx);
+        vFieldPosition = p;
         float depth = 5.8 - p.z;
         float safeAspect = max(0.62, uAspect);
         float portrait = 1.0 - smoothstep(0.62, 0.82, uAspect);
@@ -1228,35 +1265,56 @@
       }
     `;
     const lineFragment = `
-      precision mediump float;
+      precision highp float;
       varying vec4 vColor;
+      varying vec3 vFieldPosition;
       varying float vSignal;
+      uniform float uTime;
+      ${telosMaterial}
       void main() {
         vec3 red = vec3(0.941, 0.094, 0.094);
-        gl_FragColor = vec4(mix(vColor.rgb, red, vSignal * .34), vColor.a);
+        vec3 field = telosField(vFieldPosition, uTime);
+        float energy = clamp(max(max(field.r, field.g), field.b), 0.0, 1.0);
+        vec3 notation = mix(vColor.rgb * .78, field, .48 + energy * .32);
+        notation = mix(notation, red, vSignal * .28);
+        gl_FragColor = vec4(notation, vColor.a * (.78 + energy * .34));
       }
     `;
     const facetFragment = `
-      precision mediump float;
+      precision highp float;
       varying vec4 vColor;
+      varying vec3 vFieldPosition;
       varying float vVisible;
+      uniform float uTime;
+      ${telosMaterial}
       void main() {
         if (vVisible < .01) discard;
-        gl_FragColor = vec4(vColor.rgb * .72, vColor.a * .42);
+        vec3 field = telosField(vFieldPosition, uTime);
+        float energy = clamp(max(max(field.r, field.g), field.b), 0.0, 1.0);
+        vec3 presence = mix(vColor.rgb * .34, field * .48, .22 + energy * .2);
+        gl_FragColor = vec4(presence, vColor.a * (.12 + energy * .08));
       }
     `;
     const pointFragment = `
-      precision mediump float;
+      precision highp float;
       varying vec4 vColor;
+      varying vec3 vFieldPosition;
       varying float vVisible;
       varying float vSignal;
+      uniform float uTime;
+      ${telosMaterial}
       void main() {
         vec2 c = gl_PointCoord - vec2(.5);
         float d = length(c);
         if (d > .5 || vVisible < .01) discard;
         float point = 1.0 - smoothstep(.46, .5, d);
+        float core = 1.0 - smoothstep(.0, .34, d);
         vec3 red = vec3(0.941, 0.094, 0.094);
-        gl_FragColor = vec4(mix(vec3(1.0), red, vSignal), vColor.a * point);
+        vec3 field = telosField(vFieldPosition + vec3(c * .16, 0.0), uTime);
+        float energy = clamp(max(max(field.r, field.g), field.b), 0.0, 1.0);
+        vec3 livingLight = mix(field * (1.05 + energy * .48), vec3(1.0), core * .72);
+        livingLight = mix(livingLight, red, vSignal * .84);
+        gl_FragColor = vec4(livingLight, vColor.a * point * (.86 + energy * .28));
       }
     `;
     const facetProgram = program(context, vertex, facetFragment);

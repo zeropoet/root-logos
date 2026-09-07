@@ -107,6 +107,7 @@ assert.doesNotMatch(legacyLivingObjectPage, /id="living-object-canvas"/);
 assert.match(caddyConfig, /presence\.rootlogos\.com/);
 assert.match(caddyConfig, /root \* \/opt\/root-logos/);
 assert.match(caddyConfig, /rewrite \* \/presence\.html/);
+assert.match(caddyConfig, /Access-Control-Allow-Origin "https:\/\/presence\.rootlogos\.com"/);
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldportrait").public_url, "https://foldportrait.zeropoet.xyz/");
 const telosWitness = validated.publicWitnesses.find(({ source_id }) => source_id === "telos");
 assert.equal(telosWitness.work_relations.length, 0);

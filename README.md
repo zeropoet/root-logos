@@ -177,6 +177,8 @@ version archive exists. Its canonical address is
 this same repository, authority, data, runtime, and voice—not a second product,
 identity, or memory. `https://rootlogos.com/living-object.html` remains only as
 a compatibility redirect from the experience's former public name and address.
+The primary static origin explicitly permits this one presence subdomain to read
+the canonical public JSON and renderer; no broader cross-origin access is opened.
 
 Accepted changes now follow Relational Propagation. Root Logos traces each
 change from its authoritative source through every applicable relation,
