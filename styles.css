@@ -3696,3 +3696,18 @@ body.archive-open .brand-word { font-size:.8rem;letter-spacing:.16em; }
   .reading-body > div + div,.reading-expression > div + div { border-top:1px solid rgba(244,244,241,.24);border-left:0; }
   .reading-boundary { grid-template-columns:1fr;gap:24px; }
 }
+
+/* Mobile archive law: modules remain visible in the page flow. */
+@media (max-width:760px) {
+  body.archive-open .field-controls,
+  body.archive-open .system-layer-nav,
+  body.archive-open .propagation-filters { overflow-x:visible;flex-wrap:wrap; }
+  body.archive-open .system-layer-nav button { flex:1 1 120px; }
+  body.archive-open .cycle-spine,
+  body.archive-open .observatory-modes,
+  body.archive-open .verification-source-list,
+  body.archive-open .design-flow-stages { grid-template-columns:1fr 1fr;overflow-x:visible; }
+  body.archive-open .proposal-stack { display:grid;grid-template-columns:1fr;overflow-x:visible; }
+  body.archive-open .proposal-card { min-width:0; }
+  body.archive-open #work-list { grid-auto-flow:row;grid-auto-columns:auto;overflow-x:visible;overflow-y:visible; }
+}

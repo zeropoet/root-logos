@@ -854,7 +854,7 @@ class ConstitutionalField {
     const y1 = y * cosX - z1 * sinX; const z2 = y * sinX + z1 * cosX;
     const camera = 3.2;
     const perspective = camera / (camera - z2);
-    const radius = Math.min(this.width, this.height) * .43 * this.zoom;
+    const radius = Math.min(this.width, this.height) * (this.width < 700 ? .31 : .43) * this.zoom;
     const centerX = this.width * .5;
     const centerY = this.height * .51;
     node.px = centerX + x1 * radius * perspective;
@@ -864,20 +864,6 @@ class ConstitutionalField {
   }
 
   arrangeVisibleNodes(nodes) {
-    const minimumGap = this.width < 700 ? 24 : 18;
-    for (let pass = 0; pass < 4; pass += 1) {
-      for (let i = 0; i < nodes.length; i += 1) for (let j = i + 1; j < nodes.length; j += 1) {
-        const left = nodes[i]; const right = nodes[j];
-        const dx = right.px - left.px; const dy = right.py - left.py;
-        const distance = Math.hypot(dx, dy) || .001;
-        const required = minimumGap + Math.min(8, (left.radius + right.radius) * .45);
-        if (distance >= required) continue;
-        const pressure = (required - distance) * .5;
-        const nx = dx / distance; const ny = dy / distance;
-        if (left.type !== "root") { left.px -= nx * pressure; left.py -= ny * pressure; }
-        if (right.type !== "root") { right.px += nx * pressure; right.py += ny * pressure; }
-      }
-    }
     const margin = this.width < 700 ? 16 : 24;
     nodes.forEach((node) => {
       node.px = Math.max(margin, Math.min(this.width - margin, node.px));
@@ -964,6 +950,7 @@ class ConstitutionalField {
     const ctx = this.context;
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     ctx.clearRect(0, 0, this.width, this.height);
+    if (!this.reducedMotion && !this.dragging) this.targetRotation.y += .00032;
     this.rotation.x += (this.targetRotation.x - this.rotation.x) * .08;
     this.rotation.y += (this.targetRotation.y - this.rotation.y) * .08;
     this.zoom += (this.targetZoom - this.zoom) * .09;
