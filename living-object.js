@@ -872,15 +872,11 @@
     const localProject = relationalTopologyProjection(relationalSolution.anchors);
     const globalProject = topologyProjection(field);
     const project = (position) => globalProject(localProject(position));
-    const projectedPoints = projectPackedGeometry(points, project);
-    const projectedLines = projectPackedGeometry(bezierLineGeometry(lines, points), project);
-    const projectedFacets = facetSurfaceGeometry(projectPackedGeometry(bezierFacetGeometry(facets, points), project));
-    const center = packedGeometryCenter(projectedPoints);
     return {
-      facets: centerPackedGeometry(projectedFacets, center),
-      lines: centerPackedGeometry(projectedLines, center),
-      points: centerPackedGeometry(projectedPoints, center),
-      pulsePaths: pulsePaths.map((path) => path.map(project).map((position) => position.map((value, axis) => value - center[axis]))),
+      facets: facetSurfaceGeometry(projectPackedGeometry(bezierFacetGeometry(facets, points), project)),
+      lines: projectPackedGeometry(bezierLineGeometry(lines, points), project),
+      points: projectPackedGeometry(points, project),
+      pulsePaths: pulsePaths.map((path) => path.map(project)),
       field
     };
   }
@@ -1176,26 +1172,6 @@
     return projected;
   }
 
-  function packedGeometryCenter(values) {
-    const minimum = [Infinity, Infinity, Infinity];
-    const maximum = [-Infinity, -Infinity, -Infinity];
-    for (let index = 0; index < values.length; index += 10) {
-      for (let axis = 0; axis < 3; axis += 1) {
-        minimum[axis] = Math.min(minimum[axis], values[index + axis]);
-        maximum[axis] = Math.max(maximum[axis], values[index + axis]);
-      }
-    }
-    return minimum.map((value, axis) => Number.isFinite(value) ? (value + maximum[axis]) * .5 : 0);
-  }
-
-  function centerPackedGeometry(values, center) {
-    const centered = new Float32Array(values);
-    for (let index = 0; index < centered.length; index += 10) {
-      for (let axis = 0; axis < 3; axis += 1) centered[index + axis] -= center[axis];
-    }
-    return centered;
-  }
-
   function bezierLineGeometry(lines, points) {
     const positionKey = (values, offset = 0) => [0, 1, 2]
       .map((axis) => Number(values[offset + axis]).toFixed(5))
@@ -1394,9 +1370,9 @@
         float green = pow(clamp(1.0 - abs(sin((course + .026 + viscosity * .018) * 8.6 + phase * .08)), 0.0, 1.0), 5.2);
         float blue = pow(clamp(1.0 - abs(sin((course + .057 + memory * .022) * 8.6 + phase * .08)), 0.0, 1.0), 5.2);
         float membrane = smoothstep(.44, .04, abs(length(warped.xy) - (.34 + (memory - .5) * .085)));
-        vec3 spectral = vec3(1.0, .055, .02) * red
-          + vec3(.025, 1.0, .24) * green * .72
-          + vec3(.06, .22, 1.0) * blue * .58;
+        vec3 spectral = vec3(1.0, .035, .018) * red
+          + vec3(.018, 1.0, .11) * green * .94
+          + vec3(.028, .09, 1.0) * blue * .9;
         return spectral * (.13 + .87 * membrane) * (.42 + .58 * viscosity);
       }
       vec3 telosField(vec3 p, float time) {
@@ -1414,8 +1390,6 @@
       uniform float uYaw;
       uniform float uPitch;
       uniform float uAspect;
-      uniform float uViewOffsetX;
-      uniform float uViewOffsetY;
       uniform float uCadence;
       uniform float uCadenceAccent;
       uniform float uRelease;
@@ -1448,10 +1422,9 @@
         float depth = 5.8 - p.z;
         float safeAspect = max(0.62, uAspect);
         float portrait = 1.0 - smoothstep(0.62, 0.82, uAspect);
-        float viewportFit = mix(0.42, 1.0, smoothstep(0.45, 1.0, uAspect));
-        vec2 projected = vec2(p.x / safeAspect, p.y) * 2.15 / depth * viewportFit;
+        float viewportFit = mix(0.82, 1.0, smoothstep(0.45, 1.0, uAspect));
+        vec2 projected = vec2(p.x / safeAspect, p.y) * .74 / depth * viewportFit;
         projected.y -= portrait * 0.05;
-        projected += vec2(uViewOffsetX, uViewOffsetY);
         gl_Position = vec4(projected, 0.0, 1.0);
         float arrival = smoothstep(aBirth - 0.025, aBirth + 0.055, uGrowth);
         float cadencePulse = pow(max(0.0, cos(uCadence * 6.283185)), 10.0);
@@ -1479,11 +1452,10 @@
       uniform float uTime;
       ${telosMaterial}
       void main() {
-        vec3 red = vec3(0.941, 0.094, 0.094);
         vec3 field = telosField(vFieldPosition, uTime);
         float energy = clamp(max(max(field.r, field.g), field.b), 0.0, 1.0);
         vec3 notation = mix(vColor.rgb * .88, field, .18 + energy * .2);
-        notation = mix(notation, red, vSignal * .28);
+        notation += mix(vec3(.92, .96, 1.0), field * 1.3, .72) * vSignal * .18;
         gl_FragColor = vec4(notation, vColor.a * (.7 + energy * .22));
       }
     `;
@@ -1524,16 +1496,16 @@
         float density = smoothstep(.08, .76, vAwareness);
         float pathLength = 1.0 / max(facing, .055);
         float opticalDepth = pathLength * (.24 + density * .86);
-        vec3 beerLambert = exp(-vec3(.16, .72, 1.28) * opticalDepth);
-        vec3 transmission = vec3(.72, .79, .84) * beerLambert;
+        vec3 beerLambert = exp(-vec3(.12, .15, .2) * opticalDepth);
+        vec3 transmission = vec3(.9, .94, 1.0) * beerLambert;
         vec3 spectralWarp = textureWarp * scratch * .034;
         vec3 bendR = normalize(refract(-view, normalize(opticalNormal + spectralWarp), 1.0 / 2.36));
         vec3 bendG = normalize(refract(-view, opticalNormal, 1.0 / 2.42));
         vec3 bendB = normalize(refract(-view, normalize(opticalNormal - spectralWarp), 1.0 / 2.48));
         vec3 bentCore = vec3(
           pow(max(0.0, dot(bendR, core)), 5.0),
-          pow(max(0.0, dot(bendG, core)), 6.0) * .12,
-          pow(max(0.0, dot(bendB, core)), 7.0) * .025
+          pow(max(0.0, dot(bendG, core)), 6.0) * .92,
+          pow(max(0.0, dot(bendB, core)), 7.0) * .86
         ) * coreDistance * (.12 + density * .5) * (.93 + .07 * sin(vPhase + uTime * .11));
         float internalReflection = pow(max(0.0, dot(reflect(-core, opticalNormal), view)), 10.0);
         float innerVolume = pow(max(0.0, dot(core, normal) * .5 + .5), 1.8) * coreDistance;
@@ -1550,7 +1522,7 @@
         vec3 surfaceWarm = telosFieldPhase(surfaceCoordinate + spectralWarp * .5, uTime * .1, vPhase);
         vec3 surfaceCool = telosFieldPhase(surfaceCoordinate - spectralWarp * .5, uTime * .1, vPhase);
         vec3 surfaceField = vec3(surfaceWarm.r, mix(surfaceWarm.g, surfaceCool.g, .5), surfaceCool.b);
-        vec3 glass = vec3(.19, .22, .24) * (.035 + density * .055)
+        vec3 glass = vec3(.72, .79, .88) * (.026 + density * .042)
           + transmission * (innerVolume * .055 + density * .018) * .42
           + bentCore * .28
           + vec3(.9, .94, 1.0) * (internalReflection * (.12 + density * .34) + fresnel * (.045 + density * .12)) * .62;
@@ -1565,7 +1537,7 @@
         float edge = 1.0 - smoothstep(.018, .13, edgeDistance);
         float innerEdge = smoothstep(.16, .025, edgeDistance);
         float thickness = edge * .72 + innerEdge * .22;
-        glass += mix(vec3(.32, .36, .4), vec3(1.0, .18, .08), density) * thickness * (.09 + density * .16 + fresnel * .12);
+        glass += mix(vec3(.48, .56, .66), prism * 1.34, .72) * thickness * (.09 + density * .16 + fresnel * .12);
         glass *= mix(.42, 1.0, smoothstep(.04, .42, facing));
         float reflectedLight = max(max(surfaceField.r, surfaceField.g), surfaceField.b);
         float alpha = (.13 + density * .21 + (1.0 - beerLambert.r) * .12 + fresnel * .14 + thickness * .2 + reflectedLight * .1 + keySpecular * .2 + rimSpecular * .092 + scratch * .08) * vVisible;
@@ -1586,11 +1558,10 @@
         if (d > .5 || vVisible < .01) discard;
         float point = 1.0 - smoothstep(.46, .5, d);
         float core = 1.0 - smoothstep(.0, .34, d);
-        vec3 red = vec3(0.941, 0.094, 0.094);
         vec3 field = telosField(vFieldPosition + vec3(c * .16, 0.0), uTime);
         float energy = clamp(max(max(field.r, field.g), field.b), 0.0, 1.0);
         vec3 livingLight = mix(field * (1.05 + energy * .48), vec3(1.0), core * .72);
-        livingLight = mix(livingLight, red, vSignal * .84);
+        livingLight += mix(vec3(.92, .96, 1.0), field * 1.35, .7) * vSignal * .42;
         gl_FragColor = vec4(livingLight, vColor.a * point * (.86 + energy * .28));
       }
     `;
@@ -1631,8 +1602,6 @@
         ["uYaw", state.rotation],
         ["uPitch", state.pitch],
         ["uAspect", state.aspect],
-        ["uViewOffsetX", state.viewOffsetX ?? 0],
-        ["uViewOffsetY", state.viewOffsetY ?? 0],
         ["uCadence", state.cadence],
         ["uCadenceAccent", state.cadenceAccent],
         ["uRelease", state.release ?? 0],
@@ -1647,35 +1616,6 @@
       });
     };
 
-    const projectedViewOffset = (state) => {
-      const cy = Math.cos(state.rotation);
-      const sy = Math.sin(state.rotation);
-      const cx = Math.cos(state.pitch);
-      const sx = Math.sin(state.pitch);
-      const safeAspect = Math.max(.62, state.aspect);
-      const viewportFit = .42 + .58 * Math.max(0, Math.min(1, (state.aspect - .45) / .55));
-      const minimum = [Infinity, Infinity];
-      const maximum = [-Infinity, -Infinity];
-      for (let index = 0; index < geometry.points.length; index += 10) {
-        const x = geometry.points[index];
-        const y = geometry.points[index + 1];
-        const z = geometry.points[index + 2];
-        const yawX = x * cy - z * sy;
-        const yawZ = x * sy + z * cy;
-        const pitchY = y * cx - yawZ * sx;
-        const pitchZ = y * sx + yawZ * cx;
-        const depth = 5.8 - pitchZ;
-        const projected = [yawX / safeAspect * 2.15 / depth * viewportFit, pitchY * 2.15 / depth * viewportFit];
-        for (let axis = 0; axis < 2; axis += 1) {
-          minimum[axis] = Math.min(minimum[axis], projected[axis]);
-          maximum[axis] = Math.max(maximum[axis], projected[axis]);
-        }
-      }
-      return {
-        viewOffsetX: -(minimum[0] + maximum[0]) * .5,
-        viewOffsetY: -(minimum[1] + maximum[1]) * .5
-      };
-    };
 
     return {
       setRelease(detail) {
@@ -1726,7 +1666,7 @@
             };
           }
         }
-        const renderedState = { ...state, ...releaseState, ...projectedViewOffset(state) };
+        const renderedState = { ...state, ...releaseState };
         context.clearColor(0, 0, 0, 1);
         context.clear(context.COLOR_BUFFER_BIT);
         uniforms(facetProgram, renderedState);
