@@ -311,6 +311,10 @@
         cadence: pulse.beatPhase,
         cadenceAccent: pulse.cycleBeat === 0 ? 1 : 0
       });
+      if (canvas.dataset.renderReady !== "true") {
+        canvas.dataset.renderReady = "true";
+        document.body.classList.add("object-render-ready");
+      }
       if (visible) lifetime.frameRequest = requestAnimationFrame(frame);
     };
 
