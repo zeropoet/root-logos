@@ -21,6 +21,7 @@ unset X_API_KEY_B64 X_API_SECRET_B64 X_ACCESS_TOKEN_B64 X_ACCESS_TOKEN_SECRET_B6
 
 cd "$ROOT_LOGOS_ROOT"
 rl_git_identity
+node scripts/narrative-season.mjs materialize
 node scripts/attractors.mjs validate
 node scripts/attractors.mjs release-x
 

@@ -20,13 +20,25 @@ const season = seasons.seasons.find(({ season_id }) => season_id === seasons.cur
 assert.ok(season, "The current narrative season must exist.");
 assert.equal(season.duration_weeks, 12);
 assert.equal(season.publication_count, 36);
+assert.equal(season.status, "active");
 assert.equal(season.chapters.length, 3);
 assert.deepEqual(season.weekly_form.map(({ kind }) => kind), ["seed", "relation", "aperture"]);
 assert.equal(season.chapters.flatMap(({ questions }) => questions).length, 12);
-assert.ok(Date.parse(season.not_before) > Date.parse(archive.packets.at(-1).not_before));
+const foundingPackets = archive.packets.filter((packet) =>
+  (packet.release?.cadence_class || archive.defaults.release.cadence_class) === "founding-cycle"
+);
+assert.ok(Date.parse(season.not_before) > Date.parse(foundingPackets.at(-1).not_before));
+const weavingPackets = archive.packets.filter((packet) => packet.release?.cadence_class?.startsWith("weaving-"));
+assert.equal(weavingPackets.length, season.publication_count + 1, "The threshold and complete season must be inspectable before publication.");
+assert.equal(weavingPackets[0].release.cadence_class, "weaving-threshold");
+assert.equal(weavingPackets[0].release.not_before, season.not_before);
+assert.deepEqual(
+  weavingPackets.slice(1, 4).map(({ narrative }) => narrative.form),
+  ["seed", "relation", "aperture"]
+);
 
 const [html, styles] = await Promise.all([
-  readFile(new URL("index.html", root), "utf8"),
+  readFile(new URL("root-logos-1.6.html", root), "utf8"),
   readFile(new URL("styles.css", root), "utf8")
 ]);
 for (const chamber of ["field", "narrative", "language", "coordinate", "verify", "works", "intake"]) {
