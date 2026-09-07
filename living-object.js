@@ -1427,9 +1427,7 @@
         projected.y -= .06 + portrait * .05;
         gl_Position = vec4(projected, 0.0, 1.0);
         float arrival = smoothstep(aBirth - 0.025, aBirth + 0.055, uGrowth);
-        float cadencePulse = pow(max(0.0, cos(uCadence * 6.283185)), 10.0);
-        float breath = 1.0 + sin(uTime * 0.62 + aBirth * 16.0) * 0.055 + cadencePulse * (0.16 + uCadenceAccent * 0.12);
-        gl_PointSize = aSize * arrival * breath * (5.3 / depth);
+        gl_PointSize = 1.0;
         float engravingDepth = clamp((p.z + 2.4) / 4.8, 0.0, 1.0);
         vec3 affectedCenter = vec3(uReleaseCenterX, uReleaseCenterY, uReleaseCenterZ);
         float affectedDistance = length(aPosition - affectedCenter);
