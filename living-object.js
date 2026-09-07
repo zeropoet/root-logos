@@ -300,12 +300,11 @@
       targetX += (pointerX - targetX) * 0.025;
       targetY += (pointerY - targetY) * 0.025;
       const elapsed = Math.max(0, (now - lifetime.growthStartedAt) / 1000);
-      const growth = reducedMotion ? 1 : Math.min(1, elapsed / 14);
       const rotation = reducedMotion ? 0.35 : elapsed * 0.022 + targetX * 0.11;
       const pulse = cadenceState();
       renderer.draw({
         time: reducedMotion ? 0 : elapsed,
-        growth,
+        growth: 1,
         rotation,
         pitch: -0.08 + targetY * 0.055,
         aspect: canvas.width / canvas.height,
@@ -1399,8 +1398,7 @@
         vec2 projected = vec2(p.x / safeAspect, p.y) * .925 / depth * viewportFit;
         projected.y -= .06 + portrait * .05;
         gl_Position = vec4(projected, 0.0, 1.0);
-        float revealBirth = aBirth - 0.20;
-        float arrival = smoothstep(revealBirth - 0.025, revealBirth + 0.055, uGrowth);
+        float arrival = 1.0;
         gl_PointSize = 1.0;
         float engravingDepth = clamp((p.z + 2.4) / 4.8, 0.0, 1.0);
         vec3 affectedCenter = vec3(uReleaseCenterX, uReleaseCenterY, uReleaseCenterZ);
