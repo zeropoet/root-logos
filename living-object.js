@@ -874,7 +874,7 @@
     const project = (position) => globalProject(localProject(position));
     return {
       facets: facetSurfaceGeometry(projectPackedGeometry(facets, project)),
-      lines: projectPackedGeometry(lines, project),
+      lines: projectPackedGeometry(bezierLineGeometry(lines, points), project),
       points: projectPackedGeometry(points, project),
       pulsePaths: pulsePaths.map((path) => path.map(project)),
       field
@@ -1170,6 +1170,65 @@
       for (let field = 3; field < 10; field += 1) projected[index + field] = values[index + field];
     }
     return projected;
+  }
+
+  function bezierLineGeometry(lines, points) {
+    const positionKey = (values, offset = 0) => [0, 1, 2]
+      .map((axis) => Number(values[offset + axis]).toFixed(5))
+      .join(":");
+    const nodeMass = new Map();
+    for (let index = 0; index < points.length; index += 10) {
+      const key = positionKey(points, index);
+      nodeMass.set(key, Math.max(nodeMass.get(key) || 0, Number(points[index + 7]) || 1));
+    }
+    const curved = [];
+    for (let index = 0; index < lines.length; index += 20) {
+      const a = [...lines.slice(index, index + 10)];
+      const b = [...lines.slice(index + 10, index + 20)];
+      const direction = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+      const length = Math.hypot(...direction);
+      if (length < .0001) continue;
+      const massA = nodeMass.get(positionKey(a)) || 1;
+      const massB = nodeMass.get(positionKey(b)) || 1;
+      const weightedMass = Math.sqrt(massA * massB);
+      const massPressure = Math.min(1, Math.log1p(weightedMass) / Math.log(15));
+      const segments = 3 + Math.round(massPressure * 4);
+      const radial = [
+        (a[0] + b[0]) * .5,
+        (a[1] + b[1]) * .5,
+        (a[2] + b[2]) * .5
+      ];
+      let normal = [
+        direction[1] * radial[2] - direction[2] * radial[1],
+        direction[2] * radial[0] - direction[0] * radial[2],
+        direction[0] * radial[1] - direction[1] * radial[0]
+      ];
+      let normalLength = Math.hypot(...normal);
+      if (normalLength < .0001) {
+        normal = [-direction[1], direction[0], direction[2] * .24];
+        normalLength = Math.hypot(...normal) || 1;
+      }
+      const polarity = hash(`${positionKey(a)}>${positionKey(b)}`) > .5 ? 1 : -1;
+      const bend = Math.min(length * (.045 + massPressure * .12), .018 + massPressure * .115);
+      const control = radial.map((value, axis) => value + normal[axis] / normalLength * bend * polarity);
+      const sample = (t) => {
+        const inverse = 1 - t;
+        return [0, 1, 2].map((axis) =>
+          inverse * inverse * a[axis] + 2 * inverse * t * control[axis] + t * t * b[axis]
+        );
+      };
+      const packed = (t, position) => {
+        const vertex = position.slice();
+        for (let field = 3; field < 10; field += 1) vertex.push(a[field] + (b[field] - a[field]) * t);
+        return vertex;
+      };
+      for (let segment = 0; segment < segments; segment += 1) {
+        const fromT = segment / segments;
+        const toT = (segment + 1) / segments;
+        curved.push(...packed(fromT, sample(fromT)), ...packed(toT, sample(toT)));
+      }
+    }
+    return curved;
   }
 
   function facetSurfaceGeometry(facets) {
