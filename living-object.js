@@ -1423,8 +1423,8 @@
         float safeAspect = max(0.62, uAspect);
         float portrait = 1.0 - smoothstep(0.62, 0.82, uAspect);
         float viewportFit = mix(0.82, 1.0, smoothstep(0.45, 1.0, uAspect));
-        vec2 projected = vec2(p.x / safeAspect, p.y) * .74 / depth * viewportFit;
-        projected.y -= portrait * 0.05;
+        vec2 projected = vec2(p.x / safeAspect, p.y) * .925 / depth * viewportFit;
+        projected.y -= .06 + portrait * .05;
         gl_Position = vec4(projected, 0.0, 1.0);
         float arrival = smoothstep(aBirth - 0.025, aBirth + 0.055, uGrowth);
         float cadencePulse = pow(max(0.0, cos(uCadence * 6.283185)), 10.0);
