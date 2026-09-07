@@ -1547,22 +1547,13 @@
     const pointFragment = `
       precision highp float;
       varying vec4 vColor;
-      varying vec3 vFieldPosition;
       varying float vVisible;
-      varying float vSignal;
-      uniform float uTime;
-      ${telosMaterial}
       void main() {
         vec2 c = gl_PointCoord - vec2(.5);
         float d = length(c);
         if (d > .5 || vVisible < .01) discard;
         float point = 1.0 - smoothstep(.46, .5, d);
-        float core = 1.0 - smoothstep(.0, .34, d);
-        vec3 field = telosField(vFieldPosition + vec3(c * .16, 0.0), uTime);
-        float energy = clamp(max(max(field.r, field.g), field.b), 0.0, 1.0);
-        vec3 livingLight = mix(field * (1.05 + energy * .48), vec3(1.0), core * .72);
-        livingLight += mix(vec3(.92, .96, 1.0), field * 1.35, .7) * vSignal * .42;
-        gl_FragColor = vec4(livingLight, vColor.a * point * (.86 + energy * .28));
+        gl_FragColor = vec4(vec3(.965), vColor.a * point);
       }
     `;
     const facetProgram = program(context, vertex, facetFragment);
