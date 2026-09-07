@@ -45,42 +45,6 @@
   syncExperienceMode();
   addEventListener("hashchange", syncExperienceMode);
 
-  let thresholdPressure = 0;
-  let thresholdTimer;
-  let touchOrigin = null;
-  const enterArchive = () => {
-    if (!document.body.classList.contains("object-open")) return;
-    const archiveUrl = document.body.dataset.archiveUrl;
-    if (archiveUrl) location.assign(archiveUrl);
-    else location.hash = "field";
-  };
-  addEventListener("wheel", (event) => {
-    if (!document.body.classList.contains("object-open") || event.deltaY <= 0) return;
-    thresholdPressure += Math.min(event.deltaY, 48);
-    clearTimeout(thresholdTimer);
-    thresholdTimer = setTimeout(() => { thresholdPressure = 0; }, 260);
-    if (thresholdPressure >= 72) {
-      thresholdPressure = 0;
-      enterArchive();
-    }
-  }, { passive: true });
-  addEventListener("keydown", (event) => {
-    if (!document.body.classList.contains("object-open")) return;
-    if (["ArrowDown", "PageDown"].includes(event.key) || (event.key === " " && !event.shiftKey)) {
-      event.preventDefault();
-      enterArchive();
-    }
-  });
-  addEventListener("touchstart", (event) => {
-    if (document.body.classList.contains("object-open")) touchOrigin = event.touches[0]?.clientY ?? null;
-  }, { passive: true });
-  addEventListener("touchend", (event) => {
-    if (touchOrigin === null || !document.body.classList.contains("object-open")) return;
-    const destination = event.changedTouches[0]?.clientY ?? touchOrigin;
-    if (touchOrigin - destination > 48) enterArchive();
-    touchOrigin = null;
-  }, { passive: true });
-
   const canvas = document.querySelector("#living-object-canvas");
   if (!canvas) return;
   let activeRenderer = null;
@@ -309,7 +273,10 @@
     let targetX = 0;
     let targetY = 0;
     let visible = !document.hidden;
+    let viewportDirty = true;
     const resize = () => {
+      if (!viewportDirty) return;
+      viewportDirty = false;
       const rect = canvas.getBoundingClientRect();
       const dpr = Math.min(devicePixelRatio || 1, 2.75);
       const width = Math.max(1, Math.round(rect.width * dpr));
@@ -320,6 +287,12 @@
       }
       gl.viewport(0, 0, width, height);
     };
+    const markViewportDirty = () => { viewportDirty = true; };
+    addEventListener("resize", markViewportDirty, { passive: true });
+    const resizeObserver = typeof ResizeObserver === "function"
+      ? new ResizeObserver(markViewportDirty)
+      : null;
+    resizeObserver?.observe(canvas);
 
     const frame = (now) => {
       lifetime.frameRequest = 0;
@@ -327,7 +300,7 @@
       targetX += (pointerX - targetX) * 0.025;
       targetY += (pointerY - targetY) * 0.025;
       const elapsed = Math.max(0, (now - lifetime.growthStartedAt) / 1000);
-      const growth = reducedMotion ? 1 : Math.min(1, elapsed / 14);
+      const growth = reducedMotion ? 1 : Math.min(1, 0.08 + elapsed / 14);
       const rotation = reducedMotion ? 0.35 : elapsed * 0.022 + targetX * 0.11;
       const pulse = cadenceState();
       renderer.draw({
@@ -1564,6 +1537,17 @@
     context.enable(context.BLEND);
     context.blendFunc(context.SRC_ALPHA, context.ONE_MINUS_SRC_ALPHA);
 
+    const shaderState = new Map([facetProgram, lineProgram, pointProgram].map((shader) => [shader, {
+      attributes: new Map([
+        "aPosition", "aColor", "aSize", "aBirth", "aCluster"
+      ].map((name) => [name, context.getAttribLocation(shader, name)])),
+      uniforms: new Map([
+        "uTime", "uGrowth", "uYaw", "uPitch", "uAspect", "uCadence", "uCadenceAccent",
+        "uRelease", "uReleasePhase", "uReleaseSeed", "uReleaseCenterX", "uReleaseCenterY",
+        "uReleaseCenterZ", "uReleaseRadius"
+      ].map((name) => [name, context.getUniformLocation(shader, name)]))
+    }]));
+
     const drawBuffer = (shader, dataBuffer, count, mode, stride) => {
       context.useProgram(shader);
       context.bindBuffer(context.ARRAY_BUFFER, dataBuffer);
@@ -1575,7 +1559,7 @@
         ["aCluster", 1, 9]
       ];
       fields.forEach(([name, size, offset]) => {
-        const location = context.getAttribLocation(shader, name);
+        const location = shaderState.get(shader).attributes.get(name);
         if (location < 0) return;
         context.enableVertexAttribArray(location);
         context.vertexAttribPointer(location, size, context.FLOAT, false, stride * 4, offset * 4);
@@ -1601,7 +1585,8 @@
         ["uReleaseCenterZ", state.releaseCenterZ ?? 0],
         ["uReleaseRadius", state.releaseRadius ?? 0]
       ].forEach(([name, value]) => {
-        context.uniform1f(context.getUniformLocation(shader, name), value);
+        const location = shaderState.get(shader).uniforms.get(name);
+        if (location !== null) context.uniform1f(location, value);
       });
     };
 
