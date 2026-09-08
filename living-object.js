@@ -272,6 +272,11 @@
     let pointerY = 0;
     let targetX = 0;
     let targetY = 0;
+    let heldYaw = 0;
+    let heldPitch = 0;
+    let dragPointer = null;
+    let dragX = 0;
+    let dragY = 0;
     let visible = !document.hidden;
     let viewportDirty = true;
     const resize = () => {
@@ -300,14 +305,15 @@
       targetX += (pointerX - targetX) * 0.025;
       targetY += (pointerY - targetY) * 0.025;
       const elapsed = Math.max(0, (now - lifetime.growthStartedAt) / 1000);
-      const rotation = reducedMotion ? 0.35 : elapsed * 0.022 + targetX * 0.11;
+      const rotation = (reducedMotion ? 0.35 : elapsed * 0.022 + targetX * 0.11) + heldYaw;
       const pulse = cadenceState();
       renderer.draw({
         time: reducedMotion ? 0 : elapsed,
         growth: 1,
         rotation,
-        pitch: -0.08 + targetY * 0.055,
+        pitch: -0.08 + targetY * 0.055 + heldPitch,
         aspect: canvas.width / canvas.height,
+        scale: canvas.width / canvas.height < .7 ? 3.0 : 3.65,
         cadence: pulse.beatPhase,
         cadenceAccent: pulse.cycleBeat === 0 ? 1 : 0
       });
@@ -318,10 +324,40 @@
       if (visible) lifetime.frameRequest = requestAnimationFrame(frame);
     };
 
-    addEventListener("pointermove", (event) => {
+    canvas.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0) return;
+      dragPointer = event.pointerId;
+      dragX = event.clientX;
+      dragY = event.clientY;
+      canvas.setPointerCapture(event.pointerId);
+      canvas.classList.add("is-rotating");
+    });
+    canvas.addEventListener("pointermove", (event) => {
+      if (dragPointer === event.pointerId) {
+        heldYaw += (event.clientX - dragX) * .006;
+        heldPitch = Math.max(-.82, Math.min(.82, heldPitch + (event.clientY - dragY) * .0045));
+        dragX = event.clientX;
+        dragY = event.clientY;
+        return;
+      }
       pointerX = (event.clientX / innerWidth - 0.5) * 2;
       pointerY = (event.clientY / innerHeight - 0.5) * 2;
     }, { passive: true });
+    const releasePointer = (event) => {
+      if (dragPointer !== event.pointerId) return;
+      dragPointer = null;
+      canvas.classList.remove("is-rotating");
+    };
+    canvas.addEventListener("pointerup", releasePointer);
+    canvas.addEventListener("pointercancel", releasePointer);
+    canvas.addEventListener("keydown", (event) => {
+      if (!event.key.startsWith("Arrow")) return;
+      event.preventDefault();
+      if (event.key === "ArrowLeft") heldYaw -= .12;
+      if (event.key === "ArrowRight") heldYaw += .12;
+      if (event.key === "ArrowUp") heldPitch = Math.max(-.82, heldPitch - .08);
+      if (event.key === "ArrowDown") heldPitch = Math.min(.82, heldPitch + .08);
+    });
     document.addEventListener("visibilitychange", () => {
       visible = !document.hidden;
       if (visible) {
@@ -1366,6 +1402,7 @@
       uniform float uYaw;
       uniform float uPitch;
       uniform float uAspect;
+      uniform float uScale;
       uniform float uCadence;
       uniform float uCadenceAccent;
       uniform float uRelease;
@@ -1399,7 +1436,7 @@
         float safeAspect = max(0.62, uAspect);
         float portrait = 1.0 - smoothstep(0.62, 0.82, uAspect);
         float viewportFit = mix(0.82, 1.0, smoothstep(0.45, 1.0, uAspect));
-        vec2 projected = vec2(p.x / safeAspect, p.y) * .925 / depth * viewportFit;
+        vec2 projected = vec2(p.x / safeAspect, p.y) * .925 * uScale / depth * viewportFit;
         projected.y -= .06 + portrait * .05;
         gl_Position = vec4(projected, 0.0, 1.0);
         float arrival = 1.0;
@@ -1545,7 +1582,7 @@
         "aPosition", "aColor", "aSize", "aBirth", "aCluster"
       ].map((name) => [name, context.getAttribLocation(shader, name)])),
       uniforms: new Map([
-        "uTime", "uGrowth", "uYaw", "uPitch", "uAspect", "uCadence", "uCadenceAccent",
+        "uTime", "uGrowth", "uYaw", "uPitch", "uAspect", "uScale", "uCadence", "uCadenceAccent",
         "uRelease", "uReleasePhase", "uReleaseSeed", "uReleaseCenterX", "uReleaseCenterY",
         "uReleaseCenterZ", "uReleaseRadius"
       ].map((name) => [name, context.getUniformLocation(shader, name)]))
@@ -1578,6 +1615,7 @@
         ["uYaw", state.rotation],
         ["uPitch", state.pitch],
         ["uAspect", state.aspect],
+        ["uScale", state.scale ?? 1],
         ["uCadence", state.cadence],
         ["uCadenceAccent", state.cadenceAccent],
         ["uRelease", state.release ?? 0],
