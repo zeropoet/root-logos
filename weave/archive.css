@@ -140,7 +140,14 @@ body.archive-open #work-listen:hover,body.archive-open #work-listen[aria-pressed
 
 /* Entry is a terminal boundary, not a promotional finish. */
 body.archive-open .observation-instrument { padding:clamp(28px,5vw,72px); }
+body.archive-open .observation-instrument .coordinate { color:#aaa9a2; }
+body.archive-open .observation-instrument > header > p:last-child,
+body.archive-open .observation-instrument .form-field > span { color:#aaa9a2; }
+body.archive-open .observation-instrument .consent-field > span { color:#aaa9a2;background:transparent; }
+body.archive-open .observation-instrument .form-submit > p { color:#92928b;background:transparent; }
 body.archive-open .form-field input,body.archive-open .form-field textarea,body.archive-open .form-field select { border-color:var(--line-strong);background:#030303;color:var(--ivory); }
+body.archive-open .observation-instrument input::placeholder,
+body.archive-open .observation-instrument textarea::placeholder { color:#77776f;opacity:1; }
 body.archive-open .form-field input:focus,body.archive-open .form-field textarea:focus,body.archive-open .form-field select:focus { border-color:var(--ivory);background:#050505; }
 body.archive-open .form-submit button { border-color:var(--line-strong);background:#030303;color:var(--ivory); }
 body.archive-open .form-submit button:hover { background:var(--ivory);color:#030303; }
