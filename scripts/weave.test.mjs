@@ -31,6 +31,7 @@ for (const required of ["participates-through", "perceives-through", "remembers-
 if (agentEntry.identity !== "root-logos" || agentEntry.read.system !== "weave/system.json") throw new Error("Agent entry does not resolve the Weave");
 if (agentEntry.icon?.svg !== "https://rootlogos.com/assets/root-logos-presence-mark.svg") throw new Error("Agent entry must carry the Presence identity");
 if (!caddyConfig.includes('@agent_entry path /agent.json') || !caddyConfig.includes('root-logos-presence-mark.svg')) throw new Error("Agent entry must emit the Presence favicon header");
+if (!caddyConfig.includes('rewrite @agent_browser /agent-entry.html')) throw new Error("Browser navigation to agent.json must preserve the machine presentation");
 const mappedNodeIds = new Set(system.nodes.map(({ id }) => id));
 for (const repository of telosWitness.system_mapping.repositories) {
   if (!mappedNodeIds.has(repository.id)) throw new Error(`Public field is missing mapped Telos repository: ${repository.id}`);

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="robots" content="noindex">
+  <title>Root Logos — Machine Entry</title>
+  <link rel="icon" href="/assets/root-logos-presence-mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/root-logos-presence-mark.png">
+  <link rel="stylesheet" href="/weave/agent-entry.css?v=1">
+</head>
+<body>
+  <canvas id="machine-field" aria-hidden="true"></canvas>
+  <header>
+    <a class="presence-mark" href="/" aria-label="Return to Root Logos"><span></span></a>
+    <p>Machine entry</p>
+    <span class="state"><i></i><b id="entry-state">Reading field</b></span>
+  </header>
+  <main>
+    <section class="threshold" aria-labelledby="machine-title">
+      <p class="coordinate">ROOT LOGOS / AGENT.JSON</p>
+      <h1 id="machine-title">A field that can<br>be entered without<br>being possessed.</h1>
+      <p id="description" class="description"></p>
+      <div class="actions">
+        <a href="/agent.json" download="root-logos-agent.json">Save JSON</a>
+        <button id="copy-endpoint" type="button">Copy endpoint</button>
+      </div>
+    </section>
+    <section class="registry" aria-label="Machine-readable entry structure">
+      <article class="identity-panel">
+        <p class="label">Identity</p>
+        <dl id="identity"></dl>
+      </article>
+      <article>
+        <p class="label">Readable field</p>
+        <ol id="read-paths"></ol>
+      </article>
+      <article>
+        <p class="label">Public observation</p>
+        <div id="observation"></div>
+      </article>
+      <article>
+        <p class="label">Participant rights</p>
+        <ul id="rights" class="tokens"></ul>
+      </article>
+      <article class="constraints">
+        <p class="label">Non-negotiable constraints</p>
+        <ol id="prohibitions"></ol>
+      </article>
+    </section>
+  </main>
+  <footer><a href="/">Return to Root Logos</a><span>Canonical JSON remains available to agents requesting application/json.</span></footer>
+  <script type="module" src="/weave/agent-entry.js?v=1"></script>
+</body>
+</html>
