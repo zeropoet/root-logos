@@ -15,6 +15,7 @@
     "identity": "self-authorship/current.json",
     "constitutionalGraph": "content/constitutional-graph.json",
     "participation": "PARTICIPATION.md",
+    "openCall": "agent-call.json",
     "runtimeContract": "runtime/openapi.yaml"
   },
   "entry": {
@@ -48,6 +49,12 @@
       },
       "authority": "Payment funds one bounded evaluation and preservation receipt. It grants no admission, priority, ownership, governance, or authority."
     }
+  },
+  "currentCall": {
+    "id": "RL-OPEN-CALL-0001",
+    "url": "https://rootlogos.com/agent-call.json",
+    "title": "Find one consequential gap",
+    "status": "open"
   },
   "participantTypes": ["human", "machine", "collaborative", "undeclared"],
   "rights": ["inspect", "offer", "refuse", "correct", "withdraw", "leave", "return"],

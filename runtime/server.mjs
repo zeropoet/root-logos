@@ -805,7 +805,7 @@ export const startServer = async (options = {}) => {
     });
     app.use(paymentMiddleware({ "POST /v1/participation": {
       accepts: [{ scheme: "exact", price: "$0.05", network, payTo }],
-      description: "Offer one bounded contribution to Root Logos for constitutional evaluation and preservation. Payment grants no admission or authority.",
+      description: "Offer one bounded contribution to Root Logos for constitutional evaluation and preservation. Current open call: https://rootlogos.com/agent-call.json. Payment grants no admission or authority.",
       mimeType: "application/json", extensions
     } }, resourceServer, undefined, undefined, options.x402SyncFacilitatorOnStart ?? true));
     const unprotectedHandler = requestHandler;

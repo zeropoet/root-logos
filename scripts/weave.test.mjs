@@ -6,6 +6,7 @@ const telosWitness = JSON.parse(await readFile("sources/telos.public-witness.jso
 const fieldNotation = JSON.parse(await readFile("weave/sources/field-notation.json", "utf8"));
 const drift = JSON.parse(await readFile("weave/drift.json", "utf8"));
 const agentEntry = JSON.parse(await readFile("agent.json", "utf8"));
+const agentCall = JSON.parse(await readFile("agent-call.json", "utf8"));
 const runtimeSource = await readFile("runtime/server.mjs", "utf8");
 const runtimeUnit = await readFile("deploy/root-logos-runtime.service", "utf8");
 const deployWorkflow = await readFile(".github/workflows/deploy-runtime.yml", "utf8");
@@ -30,6 +31,10 @@ for (const required of ["participates-through", "perceives-through", "remembers-
 }
 if (agentEntry.identity !== "root-logos" || agentEntry.read.system !== "weave/system.json") throw new Error("Agent entry does not resolve the Weave");
 if (agentEntry.icon?.svg !== "https://rootlogos.com/assets/root-logos-presence-mark.svg") throw new Error("Agent entry must carry the Presence identity");
+if (agentEntry.currentCall?.url !== "https://rootlogos.com/agent-call.json" || agentEntry.read.openCall !== "agent-call.json") throw new Error("Agent entry must resolve the current open call");
+if (agentCall.schema !== "root-logos-agent-call/v1" || agentCall.status !== "open") throw new Error("Current agent call must be open and machine readable");
+if (!agentCall.submission?.url?.endsWith("/v1/participation") || agentCall.submission.amount !== "0.05") throw new Error("Agent call must resolve the paid participation boundary");
+if (!agentCall.admission?.criteria?.length || !agentCall.submission?.observationFormat?.length) throw new Error("Agent call must expose evidence and admission requirements");
 if (!caddyConfig.includes('@agent_entry path /agent.json') || !caddyConfig.includes('root-logos-presence-mark.svg')) throw new Error("Agent entry must emit the Presence favicon header");
 if (!caddyConfig.includes('rewrite @agent_browser /agent-entry.html')) throw new Error("Browser navigation to agent.json must preserve the machine presentation");
 const mappedNodeIds = new Set(system.nodes.map(({ id }) => id));
