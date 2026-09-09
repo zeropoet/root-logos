@@ -2177,7 +2177,10 @@ favicon, touch icon, and raster usage. `assets/root-logos-mark-open.svg` preserv
 the node structure without the enclosing constitutional frame for contexts that
 need a more open or network-native expression;
 `assets/root-logos-mark-open.png` is its transparent high-resolution raster
-counterpart. The original framed mark remains canonical and unchanged.
+counterpart. `assets/root-logos-presence-mark.svg` and
+`assets/root-logos-presence-mark.png` preserve that open expression as a
+black-on-white, 1440-square Presence identity pair. The original framed mark
+remains canonical and unchanged.
 
 ## Local Preview
 
