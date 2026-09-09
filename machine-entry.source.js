@@ -21,6 +21,10 @@ const setStatus = (message, state = "") => {
   status.dataset.state = state;
 };
 
+const ledgerJson = (value) => JSON.stringify(value, (_key, item) =>
+  typeof item === "bigint" ? item.toString() : item
+);
+
 const assertDeclaration = (required) => {
   const accepted = required.accepts?.find((entry) => entry.network === NETWORK && entry.scheme === "exact");
   if (!accepted) throw new Error("Root Logos did not offer the expected Base payment method.");
@@ -66,7 +70,7 @@ button.addEventListener("click", async () => {
       address,
       signTypedData: ({ domain, types, primaryType, message }) => window.ethereum.request({
         method: "eth_signTypedData_v4",
-        params: [address, JSON.stringify({ domain, types, primaryType, message })]
+        params: [address, ledgerJson({ domain, types, primaryType, message })]
       })
     };
     const core = x402Client.fromConfig({
