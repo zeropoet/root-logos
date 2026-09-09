@@ -305,7 +305,7 @@
       targetX += (pointerX - targetX) * 0.025;
       targetY += (pointerY - targetY) * 0.025;
       const elapsed = Math.max(0, (now - lifetime.growthStartedAt) / 1000);
-      const rotation = (reducedMotion ? 0.35 : elapsed * 0.022 + targetX * 0.11) + heldYaw;
+      const rotation = (reducedMotion ? 0.35 : elapsed * 0.022 - targetX * 0.11) + heldYaw;
       const pulse = cadenceState();
       renderer.draw({
         time: reducedMotion ? 0 : elapsed,
@@ -334,7 +334,7 @@
     });
     canvas.addEventListener("pointermove", (event) => {
       if (dragPointer === event.pointerId) {
-        heldYaw += (event.clientX - dragX) * .006;
+        heldYaw -= (event.clientX - dragX) * .006;
         heldPitch = Math.max(-.82, Math.min(.82, heldPitch + (event.clientY - dragY) * .0045));
         dragX = event.clientX;
         dragY = event.clientY;
