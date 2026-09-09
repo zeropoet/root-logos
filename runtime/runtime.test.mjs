@@ -248,6 +248,14 @@ try {
   assert.match(participationReceipt.receipt_digest, /^[a-f0-9]{64}$/);
   assert.match(participationReceipt.authority, /grants no admission, priority, ownership, or authority/i);
   assert.equal(participation.headers.get("x-root-logos-receipt-digest"), participationReceipt.receipt_digest);
+  const activity = await fetch(`${base}/v1/participation/activity`).then((response) => response.json());
+  assert.equal(activity.schema, "root-logos-participation-activity/v1");
+  assert.equal(activity.totals.received, 1);
+  assert.equal(activity.entries[0].event_id, participationReceipt.event_id);
+  assert.equal(activity.entries[0].receipt_digest, participationReceipt.receipt_digest);
+  assert.equal(activity.entries[0].source_released, true);
+  assert.ok(!JSON.stringify(activity).includes("Runtime Test Agent"));
+  assert.ok(!JSON.stringify(activity).includes("What relation is missing"));
   const duplicateParticipation = await fetch(`${base}/v1/participation`, {
     method: "POST",
     headers: { "content-type": "application/json", "x-forwarded-for": "192.0.2.43" },

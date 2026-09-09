@@ -88,6 +88,12 @@ paths:
         "422": { description: Invalid contribution }
         "409": { description: Duplicate contribution identity; payment is not settled }
         "429": { description: Participation rate limit reached }
+  /v1/participation/activity:
+    get:
+      operationId: observePaidMachineParticipation
+      description: Returns privacy-preserving public dispositions, wake outcomes, and receipt digests for paid machine participation. Source prose, attribution, payer identity, and private derivation are never exposed.
+      responses:
+        "200": { description: Current open call, aggregate counts, and public receipt activity }
   /v1/admin/intake:
     get:
       operationId: listIntake

@@ -174,6 +174,8 @@ export const createRuntime = async (options = {}) => {
   const knownEvents = new Set();
   const observations = new Map();
   const participationIds = new Set();
+  const participationReceipts = new Map();
+  const participationWakes = new Map();
   const classifications = new Map();
   const migratedObservations = new Map();
   const respondedEvents = new Set();
@@ -191,9 +193,17 @@ export const createRuntime = async (options = {}) => {
       if (record.type === "observation-gauntlet-migrated") migratedObservations.set(record.event_id, record);
       if (record.type === "wake-completed" && record.trigger?.event_id && record.response?.cycle_id) {
         respondedEvents.add(record.trigger.event_id);
+        participationWakes.set(record.trigger.event_id, {
+          completed_at: record.at,
+          cycle_id: record.response.cycle_id,
+          summary: record.response.summary,
+          self_authorship_decision: record.response.self_authorship?.decision || null,
+          published: record.publication?.published === true
+        });
       }
       if (record.type === "paid-participation-completed" && record.contribution_id) {
         participationIds.add(record.contribution_id);
+        participationReceipts.set(record.event_id, record);
       }
     }
   } catch (error) { if (error.code !== "ENOENT") throw error; }
@@ -324,7 +334,14 @@ export const createRuntime = async (options = {}) => {
           material_lineage: sourceSync.stdout || "Sovereign Standard material lineage confirmed."
         };
         await appendRecord({ type: "wake-completed", at: iso(), trigger, output: result.stdout, response, publication });
-        if (trigger.event_id) respondedEvents.add(trigger.event_id);
+        if (trigger.event_id) {
+          respondedEvents.add(trigger.event_id);
+          participationWakes.set(trigger.event_id, {
+            completed_at: iso(), cycle_id: response.cycle_id, summary: response.summary,
+            self_authorship_decision: response.self_authorship?.decision || null,
+            published: publication?.published === true
+          });
+        }
         runtimeState.last_response = response;
         runtimeState.completed_wakes += 1;
       } catch (error) {
@@ -513,6 +530,43 @@ export const createRuntime = async (options = {}) => {
     };
   };
 
+  const publicParticipationActivity = async () => {
+    const call = await readJson(join(root, "agent-call.json"), {});
+    const entries = [...participationReceipts.values()]
+      .sort((a, b) => String(b.at).localeCompare(String(a.at)))
+      .map((receipt) => {
+        const membrane = journalMembrane.getRecord(receipt.event_id);
+        const wake = participationWakes.get(receipt.event_id) || null;
+        return {
+          event_id: receipt.event_id,
+          received_at: receipt.at,
+          disposition: membrane?.status || "recorded",
+          wake: wake ? {
+            status: "completed", cycle_id: wake.cycle_id, completed_at: wake.completed_at,
+            self_authorship_decision: wake.self_authorship_decision, published: wake.published
+          } : {
+            status: ["admissible", "promoted"].includes(membrane?.status) ? "queued" : "not_queued"
+          },
+          receipt_digest: receipt.receipt_digest,
+          source_released: membrane?.transformation?.release_verified === true
+        };
+      });
+    return {
+      schema: "root-logos-participation-activity/v1",
+      generated_at: iso(),
+      privacy: "Public activity exposes dispositions and proofs, never source prose, attribution, payer identity, or private membrane derivation.",
+      current_call: { id: call.id, title: call.title, status: call.status, url: "https://rootlogos.com/agent-call.json" },
+      totals: {
+        received: entries.length,
+        admissible: entries.filter(({ disposition }) => ["admissible", "promoted"].includes(disposition)).length,
+        held: entries.filter(({ disposition }) => disposition === "held").length,
+        rejected: entries.filter(({ disposition }) => disposition === "rejected").length,
+        realized: entries.filter(({ wake }) => wake.status === "completed").length
+      },
+      entries
+    };
+  };
+
   const send = (res, status, body, extra = {}) => {
     res.writeHead(status, { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...extra });
     res.end(JSON.stringify(body));
@@ -528,6 +582,7 @@ export const createRuntime = async (options = {}) => {
     try {
       if (req.method === "GET" && url.pathname === "/health") return send(res, 200, { ok: true, status: runtimeState.status }, cors);
       if (req.method === "GET" && url.pathname === "/v1/status") return send(res, 200, await snapshot(), cors);
+      if (req.method === "GET" && url.pathname === "/v1/participation/activity") return send(res, 200, await publicParticipationActivity(), cors);
       if (req.method === "GET" && url.pathname === "/v1/cycles") return send(res, 200, { cycles: await readCycles() }, cors);
       if (req.method === "GET" && url.pathname === "/v1/proposals") {
         const cycles = await readCycles();
@@ -675,7 +730,9 @@ export const createRuntime = async (options = {}) => {
             authority: "Payment funds evaluation and preservation; it grants no admission, priority, ownership, or authority."
           };
           const receipt_digest = createHash("sha256").update(JSON.stringify(receiptBody)).digest("hex");
-          await appendRecord({ type: "paid-participation-completed", at: iso(), contribution_id: contributionId, event_id: result.event_id, receipt_digest });
+          const completion = { type: "paid-participation-completed", at: iso(), contribution_id: contributionId, event_id: result.event_id, receipt_digest };
+          await appendRecord(completion);
+          participationReceipts.set(result.event_id, completion);
           res.setHeader("x-root-logos-receipt-digest", receipt_digest);
           return send(res, 202, { accepted: true, ...receiptBody, receipt_digest, penetration: result.penetration }, cors);
         } catch (error) {
