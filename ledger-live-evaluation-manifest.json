@@ -1,0 +1,25 @@
+{
+  "$schema": "https://live-app-catalog.ledger.com/schema.json",
+  "id": "root-logos-constitutional-evaluation",
+  "name": "Root Logos Evaluation",
+  "url": "https://rootlogos.com/machine-evaluation.html",
+  "homepageUrl": "https://rootlogos.com/",
+  "icon": "https://rootlogos.com/assets/root-logos-presence-mark.png",
+  "platform": "all",
+  "apiVersion": "^2.0.0",
+  "manifestVersion": "2",
+  "branch": "experimental",
+  "categories": ["defi", "tools"],
+  "currencies": ["base"],
+  "content": {
+    "shortDescription": { "en": "Activate the paid Root Logos evaluation service." },
+    "description": { "en": "Authorize one $0.05 Base USDC evaluation to prove the customer path and activate Bazaar discovery." }
+  },
+  "permissions": [],
+  "domains": ["https://rootlogos.com", "https://runtime.rootlogos.com"],
+  "dapp": {
+    "nanoApp": "Ethereum",
+    "networks": [{ "currency": "base", "chainID": 8453, "nodeURL": "https://mainnet.base.org" }]
+  },
+  "visibility": "complete"
+}
