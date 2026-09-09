@@ -6,7 +6,7 @@ import { appendFile, mkdir, readFile, readdir, rename, writeFile } from "node:fs
 import { spawn } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join, resolve } from "node:path";
-import { createJournalMembrane } from "./journal.mjs";
+import { createJournalMembrane, evaluateConstitutionalStatement } from "./journal.mjs";
 
 const runtimeDir = dirname(fileURLToPath(import.meta.url));
 const defaultRoot = resolve(runtimeDir, "..");
@@ -176,6 +176,8 @@ export const createRuntime = async (options = {}) => {
   const participationIds = new Set();
   const participationReceipts = new Map();
   const participationWakes = new Map();
+  const evaluationIds = new Set();
+  const evaluationReceipts = new Map();
   const classifications = new Map();
   const migratedObservations = new Map();
   const respondedEvents = new Set();
@@ -204,6 +206,10 @@ export const createRuntime = async (options = {}) => {
       if (record.type === "paid-participation-completed" && record.contribution_id) {
         participationIds.add(record.contribution_id);
         participationReceipts.set(record.event_id, record);
+      }
+      if (record.type === "paid-evaluation-completed" && record.evaluation_id) {
+        evaluationIds.add(record.evaluation_id);
+        evaluationReceipts.set(record.evaluation_id, record);
       }
     }
   } catch (error) { if (error.code !== "ENOENT") throw error; }
@@ -567,6 +573,22 @@ export const createRuntime = async (options = {}) => {
     };
   };
 
+  const publicEvaluationActivity = () => {
+    const entries = [...evaluationReceipts.values()].sort((a, b) => String(b.at).localeCompare(String(a.at)));
+    return {
+      schema: "root-logos-evaluation-activity/v1",
+      generated_at: iso(),
+      privacy: "Only receipt digests and bounded dispositions are retained; submitted statements and payer identities are not stored.",
+      totals: {
+        evaluated: entries.length,
+        bounded_clearance: entries.filter(({ disposition }) => disposition === "bounded-clearance").length,
+        held: entries.filter(({ disposition }) => disposition === "held").length,
+        insufficient: entries.filter(({ disposition }) => disposition === "insufficient").length
+      },
+      entries: entries.map(({ evaluation_id, at, disposition, receipt_digest }) => ({ evaluation_id, evaluated_at: at, disposition, receipt_digest }))
+    };
+  };
+
   const send = (res, status, body, extra = {}) => {
     res.writeHead(status, { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...extra });
     res.end(JSON.stringify(body));
@@ -583,6 +605,7 @@ export const createRuntime = async (options = {}) => {
       if (req.method === "GET" && url.pathname === "/health") return send(res, 200, { ok: true, status: runtimeState.status }, cors);
       if (req.method === "GET" && url.pathname === "/v1/status") return send(res, 200, await snapshot(), cors);
       if (req.method === "GET" && url.pathname === "/v1/participation/activity") return send(res, 200, await publicParticipationActivity(), cors);
+      if (req.method === "GET" && url.pathname === "/v1/evaluation/activity") return send(res, 200, publicEvaluationActivity(), cors);
       if (req.method === "GET" && url.pathname === "/v1/cycles") return send(res, 200, { cycles: await readCycles() }, cors);
       if (req.method === "GET" && url.pathname === "/v1/proposals") {
         const cycles = await readCycles();
@@ -741,6 +764,42 @@ export const createRuntime = async (options = {}) => {
           throw error;
         }
       }
+      if (req.method === "POST" && url.pathname === "/v1/evaluation") {
+        const body = JSON.parse(raw);
+        const evaluationId = String(body?.evaluation_id || "").trim();
+        const subjectKind = String(body?.subject_kind || "").trim().toLowerCase();
+        const statement = String(body?.statement || "").trim();
+        const errors = [];
+        if (!/^[A-Za-z0-9_-]{16,128}$/.test(evaluationId)) errors.push("evaluation_id must be 16-128 letters, numbers, hyphens, or underscores");
+        if (!["action", "claim", "policy", "relation", "artifact"].includes(subjectKind)) errors.push("subject_kind must be action, claim, policy, relation, or artifact");
+        if (statement.length < 20 || statement.length > 6000) errors.push("statement must be between 20 and 6000 characters");
+        if (body?.consent !== true) errors.push("consent is required");
+        if (errors.length) return send(res, 422, { error: "invalid evaluation request", details: errors }, cors);
+        if (evaluationIds.has(evaluationId)) return send(res, 409, { error: "duplicate evaluation_id", evaluation_id: evaluationId, settled: false }, cors);
+        evaluationIds.add(evaluationId);
+        try {
+          const judgment = evaluateConstitutionalStatement(statement);
+          const receiptBody = {
+            schema: "root-logos-constitutional-evaluation/v1",
+            evaluation_id: evaluationId,
+            evaluated_at: iso(),
+            subject_kind: subjectKind,
+            ...judgment,
+            source_released: true,
+            payment_binding: { protocol: "x402", network: "eip155:8453", asset: "USDC", amount: "0.05", settlement_evidence: "PAYMENT-RESPONSE header on this HTTP response" },
+            authority: "This is a bounded structural judgment, not factual certification, permission, governance, ownership, or authority."
+          };
+          const receipt_digest = createHash("sha256").update(JSON.stringify(receiptBody)).digest("hex");
+          const completion = { type: "paid-evaluation-completed", at: receiptBody.evaluated_at, evaluation_id: evaluationId, subject_kind: subjectKind, disposition: judgment.disposition, receipt_digest };
+          await appendRecord(completion);
+          evaluationReceipts.set(evaluationId, completion);
+          res.setHeader("x-root-logos-receipt-digest", receipt_digest);
+          return send(res, 200, { ...receiptBody, receipt_digest }, cors);
+        } catch (error) {
+          evaluationIds.delete(evaluationId);
+          throw error;
+        }
+      }
       const classifyMatch = req.method === "POST" && url.pathname.match(/^\/v1\/admin\/intake\/([^/]+)\/classify$/);
       if (classifyMatch) {
         if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
@@ -831,7 +890,7 @@ export const startServer = async (options = {}) => {
       .register(network, new ExactEvmScheme())
       .registerExtension(bazaarResourceServerExtension)
       .registerExtension(paymentIdentifierResourceServerExtension);
-    const extensions = {
+    const participationExtensions = {
       ...declareDiscoveryExtension({
       bodyType: "json",
       input: { contribution_id: "agent_run_20260909_0001", contribution_kind: "question", observation: "What relation is missing from the current field?", attribution: "agent-name", participant_class: "machine", consent: true },
@@ -842,6 +901,20 @@ export const startServer = async (options = {}) => {
         participant_class: { type: "string", enum: ["machine", "human-machine", "undeclared"] }, consent: { type: "boolean", const: true }
       }, required: ["contribution_id", "contribution_kind", "observation", "consent"] },
       output: { example: { accepted: true, schema: "root-logos-participation-receipt/v1", status: "held", receipt_digest: "sha256" } }
+      }),
+      [PAYMENT_IDENTIFIER]: declarePaymentIdentifierExtension(false)
+    };
+    const evaluationExtensions = {
+      ...declareDiscoveryExtension({
+        bodyType: "json",
+        input: { evaluation_id: "agent_eval_20260909_0001", subject_kind: "action", statement: "Before publishing this irreversible action, evaluate its structural risks, tensions, and reversibility.", consent: true },
+        inputSchema: { properties: {
+          evaluation_id: { type: "string", minLength: 16, maxLength: 128, pattern: "^[A-Za-z0-9_-]+$" },
+          subject_kind: { type: "string", enum: ["action", "claim", "policy", "relation", "artifact"] },
+          statement: { type: "string", minLength: 20, maxLength: 6000 },
+          consent: { type: "boolean", const: true }
+        }, required: ["evaluation_id", "subject_kind", "statement", "consent"] },
+        output: { example: { schema: "root-logos-constitutional-evaluation/v1", disposition: "bounded-clearance", risk_flags: [], reversibility: "explicit-review-required", receipt_digest: "sha256" } }
       }),
       [PAYMENT_IDENTIFIER]: declarePaymentIdentifierExtension(false)
     };
@@ -863,7 +936,11 @@ export const startServer = async (options = {}) => {
     app.use(paymentMiddleware({ "POST /v1/participation": {
       accepts: [{ scheme: "exact", price: "$0.05", network, payTo }],
       description: "Offer one bounded contribution to Root Logos for constitutional evaluation and preservation. Current open call: https://rootlogos.com/agent-call.json. Payment grants no admission or authority.",
-      mimeType: "application/json", extensions
+      mimeType: "application/json", extensions: participationExtensions
+    }, "POST /v1/evaluation": {
+      accepts: [{ scheme: "exact", price: "$0.05", network, payTo }],
+      description: "Evaluate a proposed action, claim, policy, relation, or artifact before commitment. Returns a privacy-preserving structural judgment and receipt; it does not modify Root Logos or grant authority.",
+      mimeType: "application/json", extensions: evaluationExtensions
     } }, resourceServer, undefined, undefined, options.x402SyncFacilitatorOnStart ?? true));
     const unprotectedHandler = requestHandler;
     app.use((req, res) => unprotectedHandler(req, res));

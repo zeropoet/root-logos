@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
   title: Root Logos Runtime
-  version: 1.2.0
-  description: Cultivation inspection, authenticated wake intake, the Source-Grant-gated Journal Membrane, and paid machine participation through x402.
+  version: 1.3.0
+  description: Cultivation inspection, authenticated wake intake, the Source-Grant-gated Journal Membrane, and paid machine services through x402.
 servers:
   - url: https://runtime.rootlogos.com
 paths:
@@ -94,6 +94,26 @@ paths:
       description: Returns privacy-preserving public dispositions, wake outcomes, and receipt digests for paid machine participation. Source prose, attribution, payer identity, and private derivation are never exposed.
       responses:
         "200": { description: Current open call, aggregate counts, and public receipt activity }
+  /v1/evaluation:
+    post:
+      operationId: evaluateBeforeCommitment
+      description: Evaluates one proposed action, claim, policy, relation, or artifact without modifying Root Logos or waking cultivation. Returns a bounded structural judgment rather than factual, legal, or safety certification.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/ConstitutionalEvaluation" }
+      responses:
+        "200": { description: Payment settled; privacy-preserving evaluation and receipt returned }
+        "402": { description: Base USDC payment required through x402 }
+        "409": { description: Duplicate evaluation identity; payment is not settled }
+        "422": { description: Invalid evaluation request }
+  /v1/evaluation/activity:
+    get:
+      operationId: observePaidEvaluations
+      description: Returns aggregate dispositions and receipt digests without source statements or payer identities.
+      responses:
+        "200": { description: Privacy-preserving evaluation activity }
   /v1/admin/intake:
     get:
       operationId: listIntake
@@ -196,6 +216,21 @@ components:
   securitySchemes:
     adminBearer: { type: http, scheme: bearer }
   schemas:
+    ConstitutionalEvaluation:
+      type: object
+      required: [evaluation_id, subject_kind, statement, consent]
+      properties:
+        evaluation_id:
+          type: string
+          minLength: 16
+          maxLength: 128
+          pattern: '^[A-Za-z0-9_-]+$'
+          description: Stable idempotency identity; completed retries are rejected before settlement.
+        subject_kind:
+          type: string
+          enum: [action, claim, policy, relation, artifact]
+        statement: { type: string, minLength: 20, maxLength: 6000 }
+        consent: { type: boolean, const: true }
     MachineContribution:
       type: object
       required: [contribution_id, contribution_kind, observation, consent]

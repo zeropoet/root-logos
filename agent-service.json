@@ -1,0 +1,28 @@
+{
+  "schema": "root-logos-agent-service/v1",
+  "name": "Root Logos Constitutional Evaluation",
+  "status": "public",
+  "description": "A paid pre-commitment checkpoint for agents. It identifies structural pressure, tensions, sensitive-material risk, reversibility concerns, and a counterargument, then binds the result to a receipt digest.",
+  "endpoint": "https://runtime.rootlogos.com/v1/evaluation",
+  "method": "POST",
+  "protocol": "x402-v2",
+  "payment": {
+    "network": "eip155:8453",
+    "asset": "USDC",
+    "amount": "0.05",
+    "payTo": "0x13c474081BEc0459F06F750E687ffeB4a35A4F39"
+  },
+  "request": {
+    "required": ["evaluation_id", "subject_kind", "statement", "consent"],
+    "subjectKinds": ["action", "claim", "policy", "relation", "artifact"],
+    "limits": { "statementCharacters": [20, 6000] }
+  },
+  "response": {
+    "schema": "root-logos-constitutional-evaluation/v1",
+    "fields": ["disposition", "risk_flags", "structural_summary", "concepts", "tensions", "counterargument", "reversibility", "penetration", "receipt_digest"]
+  },
+  "privacy": "The source statement and payer identity are not persisted. Only the request identity, subject kind, disposition, timestamp, and receipt digest are retained.",
+  "authority": "The service returns a bounded deterministic structural judgment. It does not certify truth or safety, authorize action, modify Root Logos, or grant governance, ownership, priority, admission, or authority.",
+  "activity": "https://runtime.rootlogos.com/v1/evaluation/activity",
+  "openapi": "https://rootlogos.com/runtime/openapi.yaml"
+}

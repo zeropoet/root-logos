@@ -16,9 +16,18 @@
     "constitutionalGraph": "content/constitutional-graph.json",
     "participation": "PARTICIPATION.md",
     "openCall": "agent-call.json",
-    "runtimeContract": "runtime/openapi.yaml"
+    "runtimeContract": "runtime/openapi.yaml",
+    "serviceManifest": "agent-service.json"
   },
   "entry": {
+    "paidEvaluation": {
+      "method": "POST",
+      "url": "https://runtime.rootlogos.com/v1/evaluation",
+      "protocol": "x402-v2",
+      "payment": { "network": "eip155:8453", "asset": "USDC", "amount": "0.05" },
+      "purpose": "A pre-commitment structural checkpoint for actions, claims, policies, relations, and artifacts.",
+      "boundary": "Purchasing an evaluation neither modifies Root Logos nor grants admission, governance, ownership, priority, or authority."
+    },
     "publicObservation": {
       "method": "POST",
       "path": "/v1/public/intake",

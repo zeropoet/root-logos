@@ -6,6 +6,12 @@ import { cp, mkdtemp, mkdir, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createRuntime, startServer, verifyGitHubOIDCToken } from "./server.mjs";
+import { evaluateConstitutionalStatement } from "./journal.mjs";
+
+const directEvaluation = evaluateConstitutionalStatement("Before publishing this irreversible policy, verify the relation between consent, authority, provenance, responsibility, and downstream consequence.");
+assert.equal(directEvaluation.disposition, "bounded-clearance");
+assert.equal(directEvaluation.reversibility, "explicit-review-required");
+assert.match(directEvaluation.counterargument, /does not establish factual truth/i);
 
 const { privateKey: oidcPrivateKey, publicKey: oidcPublicKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
 const oidcNow = Date.parse("2026-08-20T12:00:00Z");
@@ -269,12 +275,38 @@ try {
   });
   assert.equal(duplicateParticipation.status, 409);
   assert.equal((await duplicateParticipation.json()).settled, false);
+  const callsBeforeEvaluation = calls.length;
+  const evaluationStatement = "Before publishing this irreversible action, evaluate the relation between consent, authority, provenance, responsibility, and downstream consequence.";
+  const evaluation = await fetch(`${base}/v1/evaluation`, {
+    method: "POST", headers: { "content-type": "application/json" },
+    body: JSON.stringify({ evaluation_id: "test_machine_evaluation_0001", subject_kind: "action", statement: evaluationStatement, consent: true })
+  });
+  assert.equal(evaluation.status, 200);
+  const evaluationReceipt = await evaluation.json();
+  assert.equal(evaluationReceipt.schema, "root-logos-constitutional-evaluation/v1");
+  assert.equal(evaluationReceipt.disposition, "bounded-clearance");
+  assert.equal(evaluationReceipt.source_released, true);
+  assert.match(evaluationReceipt.receipt_digest, /^[a-f0-9]{64}$/);
+  assert.equal(evaluation.headers.get("x-root-logos-receipt-digest"), evaluationReceipt.receipt_digest);
+  assert.equal(calls.length, callsBeforeEvaluation);
+  const evaluationActivity = await fetch(`${base}/v1/evaluation/activity`).then((response) => response.json());
+  assert.equal(evaluationActivity.totals.evaluated, 1);
+  assert.equal(evaluationActivity.entries[0].evaluation_id, "test_machine_evaluation_0001");
+  assert.ok(!JSON.stringify(evaluationActivity).includes(evaluationStatement));
+  const duplicateEvaluation = await fetch(`${base}/v1/evaluation`, {
+    method: "POST", headers: { "content-type": "application/json" },
+    body: JSON.stringify({ evaluation_id: "test_machine_evaluation_0001", subject_kind: "action", statement: evaluationStatement, consent: true })
+  });
+  assert.equal(duplicateEvaluation.status, 409);
+  assert.equal((await duplicateEvaluation.json()).settled, false);
   await runtime.waitForIdle();
 
   const journal = await readFile(join(sandbox, "data", "intake.jsonl"), "utf8");
   assert.match(journal, /observation-accepted/);
   assert.match(journal, /wake-completed/);
   assert.match(journal, /material-lineage-scanned/);
+  assert.match(journal, /paid-evaluation-completed/);
+  assert.doesNotMatch(journal, new RegExp(evaluationStatement));
   process.stdout.write("PASS unified public membrane, autonomous intake, immutable receipts, signed intake, serialized wakes, one-time Source Grants, encrypted transient journal processing, raw release, autonomous judgment, deduplication, prompt-instruction isolation, revocation, and human command boundary.\n");
 } finally {
   await new Promise((resolveClose) => server.close(resolveClose));
@@ -328,6 +360,13 @@ try {
   assert.equal(browserPaymentRequired.status, 402);
   assert.equal(browserPaymentRequired.headers.get("access-control-allow-origin"), "https://rootlogos.com");
   assert.match(browserPaymentRequired.headers.get("access-control-expose-headers") || "", /payment-required/);
+  const evaluationPaymentRequired = await fetch(`${paidBase}/v1/evaluation`, {
+    method: "POST", headers: { "content-type": "application/json", "x-forwarded-proto": "https" },
+    body: JSON.stringify({ evaluation_id: "paid_machine_evaluation_0001", subject_kind: "policy", statement: "Evaluate this proposed policy before it is committed to an irreversible public system.", consent: true })
+  });
+  assert.equal(evaluationPaymentRequired.status, 402);
+  const evaluationDeclaration = JSON.parse(Buffer.from(evaluationPaymentRequired.headers.get("payment-required"), "base64").toString("utf8"));
+  assert.equal(evaluationDeclaration.resource.url, `https://127.0.0.1:${paidServer.address().port}/v1/evaluation`);
   process.stdout.write("PASS x402 requires Base payment before machine participation reaches the Root Logos membrane.\n");
 } finally {
   await new Promise((resolveClose) => paidServer.close(resolveClose));

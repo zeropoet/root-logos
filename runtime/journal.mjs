@@ -97,6 +97,35 @@ const penetrationWitness = (derived, flags, status) => {
   };
 };
 
+export const evaluateConstitutionalStatement = (statement) => {
+  const source = String(statement || "").trim();
+  const flags = riskFlags(source);
+  const derived = derive(source);
+  const disposition = flags.length
+    ? "held"
+    : derived.word_count < 8 || derived.concepts.length < 3
+      ? "insufficient"
+      : "bounded-clearance";
+  const penetration = penetrationWitness(derived, flags, disposition === "bounded-clearance" ? "admissible" : disposition === "held" ? "held" : "rejected");
+  return {
+    disposition,
+    risk_flags: flags,
+    structural_summary: derived.structural_summary,
+    concepts: derived.concepts,
+    tensions: derived.tensions,
+    question_count: derived.question_count,
+    counterargument: disposition === "bounded-clearance"
+      ? "Structural coherence does not establish factual truth, authorization, or freedom from downstream harm."
+      : disposition === "held"
+        ? "Removal of sensitive material may permit a safe resubmission without changing the underlying proposal."
+        : "A concise statement may still be valuable, but it has not supplied enough structure for this evaluation.",
+    reversibility: /\b(?:delete|destroy|irreversible|permanent|publish|deploy|transfer|send|execute|revoke)\b/i.test(source)
+      ? "explicit-review-required"
+      : "not-established",
+    penetration
+  };
+};
+
 const encrypt = (plaintext, key) => {
   const iv = randomBytes(12);
   const cipher = createCipheriv("aes-256-gcm", key, iv);
