@@ -956,7 +956,8 @@ html[data-library-capture="true"] .library-shell {
 .observation-instrument > header { grid-row:1; }
 .observation-instrument > header h3 { margin: 24px 0; font: 400 clamp(1.7rem, 2.7vw, 2.9rem)/1.06 var(--display); letter-spacing: -.04em; overflow-wrap: normal; word-break: normal; text-wrap: balance; }
 .observation-instrument > header h3 em { color: var(--green); font-weight: 400; }
-.observation-instrument > header > p:last-child { max-width: 440px; margin: 0; color: var(--bone); font-size: 1rem; line-height: 1.65; }
+.observation-instrument > header > #intake-terminal-copy { max-width: 440px; margin: 0; color: var(--bone); font-size: 1rem; line-height: 1.65; }
+.machine-participation{margin-top:42px;padding-top:24px;border-top:1px solid var(--line)}.machine-participation>a{display:grid;gap:7px;margin:17px 0 24px;text-decoration:none}.machine-participation>a strong{font:400 clamp(1.1rem,1.6vw,1.45rem)/1.15 var(--display);letter-spacing:-.025em}.machine-participation>a span{color:var(--dim);font:500 .5rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}.machine-participation>a:hover span{color:var(--ivory)}.machine-participation dl{display:grid;grid-template-columns:repeat(3,1fr);margin:0;border-top:1px solid var(--line)}.machine-participation dl div{padding:14px 10px 12px 0;border-right:1px solid var(--line)}.machine-participation dl div:last-child{border-right:0;padding-left:10px}.machine-participation dt{color:var(--dim);font:500 .46rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}.machine-participation dd{margin:8px 0 0;color:var(--ivory);font:300 1.5rem/1 var(--display)}.machine-participation>p:last-child{margin:20px 0 0!important;color:var(--dim)!important;font:500 .5rem/1.6 var(--mono)!important;letter-spacing:.04em}
 #observation-form { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 30px; }
 .intake-mode-fields { display:grid;grid-template-columns:1fr 1fr;gap:26px 30px; }
 .intake-mode-fields[hidden] { display:none; }
@@ -2558,7 +2559,7 @@ body.archive-open .observation-instrument > header {
   padding-left:0;
   border-right:1px solid rgba(255,255,255,.16);
 }
-body.archive-open .observation-instrument > header > p:last-child {
+body.archive-open .observation-instrument > header > #intake-terminal-copy {
   padding-right:clamp(22px,4vw,58px);
 }
 body.archive-open .observation-instrument form {
@@ -2713,7 +2714,7 @@ body.archive-open .space-heading > div > p,
 body.archive-open .library-guide > div > p,
 body.archive-open .state-module-heading > p:last-child,
 body.archive-open .design-flow-introduction p,
-body.archive-open .observation-instrument > header > p:last-child {
+body.archive-open .observation-instrument > header > #intake-terminal-copy {
   line-height:1.68;
   text-wrap:pretty;
 }
@@ -3612,6 +3613,16 @@ body.archive-open main > .coordinate-space { background:#fff; }
 body.archive-open main > .observatory-space { background:var(--chamber-paper-low); }
 body.archive-open main > .works-space { background:#080808;color:#fff; }
 body.archive-open main > .intake-space { background:#fff; }
+body.archive-open .machine-participation{border-color:rgba(17,17,17,.22)}
+body.archive-open .machine-participation .micro-label,
+body.archive-open .machine-participation>a span,
+body.archive-open .machine-participation dt,
+body.archive-open .machine-participation>p:last-child{color:rgba(17,17,17,.58)!important}
+body.archive-open .machine-participation>a strong,
+body.archive-open .machine-participation dd{color:#111}
+body.archive-open .machine-participation dl,
+body.archive-open .machine-participation dl div{border-color:rgba(17,17,17,.18)}
+body.archive-open .machine-participation>a:hover span{color:#c71920!important}
 body.archive-open .site-footer { border-top:1px solid rgba(255,255,255,.25);background:#050505;color:#fff; }
 body.archive-open .site-footer a,body.archive-open .site-footer p,body.archive-open .site-footer small { color:#fff; }
 

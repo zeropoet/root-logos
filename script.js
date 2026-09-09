@@ -48,6 +48,7 @@ const app = {
   citizenship: null,
   exports: [],
   localState: null,
+  participation: null,
   propagationFilter: "all",
   propagationExpanded: false
 };
@@ -62,7 +63,7 @@ const fetchJson = async (url) => {
 };
 
 const loadData = async () => {
-  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, narrativePolicyResult, narrativeSeasonsResult, readingStateResult, designFlowResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult, sovereignMaterialResult, foldPortraitResult, citizenshipResult, exportsResult] = await Promise.allSettled([
+  const [graphResult, runtimeResult, cyclesResult, memoryResult, localStateResult, attractorResult, narrativePolicyResult, narrativeSeasonsResult, readingStateResult, designFlowResult, identityResult, sourcesResult, foldForgeResult, telosResult, sovereignStandardResult, sovereignMaterialResult, foldPortraitResult, citizenshipResult, exportsResult, participationResult] = await Promise.allSettled([
     fetchJson("content/constitutional-graph.json"),
     fetchJson(`${RUNTIME}/v1/status`),
     fetchJson(`${RUNTIME}/v1/cycles`),
@@ -81,7 +82,8 @@ const loadData = async () => {
     fetchJson("sources/sovereign-standard.snapshot.json"),
     fetchJson("sources/foldportrait.snapshot.json"),
     fetchJson("content/citizenship.json"),
-    fetchJson("content/export-packets.json")
+    fetchJson("content/export-packets.json"),
+    fetchJson(`${RUNTIME}/v1/participation/activity`)
   ]);
 
   if (graphResult.status !== "fulfilled") throw graphResult.reason;
@@ -99,6 +101,7 @@ const loadData = async () => {
   app.citizenship = citizenshipResult.status === "fulfilled" ? citizenshipResult.value : null;
   app.exports = exportsResult.status === "fulfilled" ? exportsResult.value : [];
   app.localState = localStateResult.status === "fulfilled" ? localStateResult.value : null;
+  app.participation = participationResult.status === "fulfilled" ? participationResult.value : null;
   app.sourceWitnesses = Object.fromEntries([
     telosResult.status === "fulfilled" ? [telosResult.value.source_id, telosResult.value] : null,
     sovereignStandardResult.status === "fulfilled" ? [sovereignStandardResult.value.source_id, sovereignStandardResult.value] : null
@@ -357,6 +360,16 @@ const selectVerificationSource = (id) => {
 
 const propagationEvents = () => {
   const events = [];
+  (app.participation?.entries || []).forEach((entry) => events.push({
+    type: "input", at: entry.received_at,
+    title: `${entry.event_id} / ${sentence(entry.disposition)}`,
+    origin: "Paid machine entry / x402",
+    consequence: entry.wake?.cycle_id
+      ? `${entry.wake.cycle_id} completed with self-authorship decision ${entry.wake.self_authorship_decision || "recorded"}.`
+      : `The membrane returned ${sentence(entry.disposition)}; cultivation was ${entry.wake?.status === "queued" ? "queued" : "not awakened"}.`,
+    witness: entry.receipt_digest,
+    href: "open-call.html"
+  }));
   (app.sources?.sources || []).forEach((source) => {
     const payload = sourcePayload(source.id);
     const witness = sourceWitness(source.id);
@@ -388,6 +401,21 @@ const propagationEvents = () => {
     href: packet.publication.external_url
   }));
   return events.sort((left, right) => new Date(right.at || 0) - new Date(left.at || 0));
+};
+
+const renderMachineParticipation = () => {
+  const activity = app.participation;
+  if (!activity) {
+    $("#machine-activity-state").textContent = "The paid machine boundary is temporarily unreadable; the free membrane remains available.";
+    return;
+  }
+  $("#machine-call-title").textContent = activity.current_call?.title || "Current agent call";
+  $("#machine-received").textContent = activity.totals?.received ?? 0;
+  $("#machine-admitted").textContent = activity.totals?.admissible ?? 0;
+  $("#machine-realized").textContent = activity.totals?.realized ?? 0;
+  $("#machine-activity-state").textContent = activity.totals?.received
+    ? `${activity.totals.received} paid entr${activity.totals.received === 1 ? "y" : "ies"} witnessed; ${activity.totals.realized || 0} realized through cultivation.`
+    : "The paid machine boundary is open and listening.";
 };
 
 const renderPropagation = () => {
@@ -1181,6 +1209,7 @@ const initialize = async () => {
     renderCoordinate();
     renderNarrative();
     renderLanguage();
+    renderMachineParticipation();
     renderVerification();
     renderLatestCycle();
     renderProposals();
