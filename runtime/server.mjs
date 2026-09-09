@@ -768,7 +768,8 @@ export const startServer = async (options = {}) => {
       description: "Offer one bounded contribution to Root Logos for constitutional evaluation and preservation. Payment grants no admission or authority.",
       mimeType: "application/json", extensions
     } }, resourceServer, undefined, undefined, options.x402SyncFacilitatorOnStart ?? true));
-    app.use((req, res) => requestHandler(req, res));
+    const unprotectedHandler = requestHandler;
+    app.use((req, res) => unprotectedHandler(req, res));
     requestHandler = app;
   }
   const server = http.createServer(requestHandler);

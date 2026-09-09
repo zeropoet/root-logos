@@ -279,6 +279,9 @@ const { server: paidServer } = await startServer({
 });
 try {
   const paidBase = `http://127.0.0.1:${paidServer.address().port}`;
+  const paidHealth = await fetch(`${paidBase}/health`);
+  assert.equal(paidHealth.status, 200);
+  assert.equal((await paidHealth.json()).ok, true);
   const paymentRequired = await fetch(`${paidBase}/v1/participation`, {
     method: "POST",
     headers: { "content-type": "application/json" },
