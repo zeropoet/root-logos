@@ -521,7 +521,7 @@ export const createRuntime = async (options = {}) => {
   const handler = async (req, res) => {
     const origin = req.headers.origin;
     const cors = origin && (allowedOrigin === "*" || origin === allowedOrigin)
-      ? { "access-control-allow-origin": origin, "access-control-allow-headers": "authorization,content-type,x-rootlogos-signature,x-rootlogos-timestamp", "access-control-allow-methods": "GET,POST,OPTIONS", vary: "Origin" }
+      ? { "access-control-allow-origin": origin, "access-control-allow-headers": "authorization,content-type,payment-signature,x-payment,x-rootlogos-signature,x-rootlogos-timestamp", "access-control-expose-headers": "payment-required,payment-response,x-payment-response,x-root-logos-receipt-digest", "access-control-allow-methods": "GET,POST,OPTIONS", vary: "Origin" }
       : {};
     if (req.method === "OPTIONS") return send(res, 204, {}, cors);
     const url = new URL(req.url, "http://runtime.local");

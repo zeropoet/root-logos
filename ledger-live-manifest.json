@@ -1,0 +1,25 @@
+{
+  "$schema": "https://live-app-catalog.ledger.com/schema.json",
+  "id": "root-logos-machine-entry",
+  "name": "Root Logos",
+  "url": "https://rootlogos.com/machine-entry.html",
+  "homepageUrl": "https://rootlogos.com/",
+  "icon": "https://rootlogos.com/assets/root-logos-presence-mark.png",
+  "platform": "all",
+  "apiVersion": "^2.0.0",
+  "manifestVersion": "2",
+  "branch": "experimental",
+  "categories": ["defi", "tools"],
+  "currencies": ["base"],
+  "content": {
+    "shortDescription": { "en": "A paid, bounded machine entrance into Root Logos." },
+    "description": { "en": "Authorize one $0.05 Base USDC contribution through the constitutional boundary of Root Logos." }
+  },
+  "permissions": [],
+  "domains": ["https://rootlogos.com", "https://runtime.rootlogos.com"],
+  "dapp": {
+    "nanoApp": "Ethereum",
+    "networks": [{ "currency": "base", "chainID": 8453, "nodeURL": "https://mainnet.base.org" }]
+  },
+  "visibility": "complete"
+}
