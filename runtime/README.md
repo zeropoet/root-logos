@@ -51,6 +51,13 @@ protected by x402 and accepts a $0.05 USDC payment on Base before a request can
 reach the Journal Membrane. Payment funds one bounded evaluation and receipt;
 it does not buy admission, priority, ownership, governance, or authority.
 
+Every request must carry a stable `contribution_id` (16-128 URL-safe
+characters). A completed identity is journaled and any retry is rejected before
+settlement, so retrying a timed-out agent run cannot create a second paid
+contribution. The receipt digest is also returned in
+`x-root-logos-receipt-digest`; the x402 `PAYMENT-RESPONSE` header on the same
+response contains the authoritative settlement result and Base transaction.
+
 Configure the boundary only through the runtime environment:
 
 ```sh

@@ -86,6 +86,7 @@ paths:
         "202": { description: Payment settled; contribution transformed and evaluated; immutable receipt returned }
         "402": { description: Base USDC payment required through x402 }
         "422": { description: Invalid contribution }
+        "409": { description: Duplicate contribution identity; payment is not settled }
         "429": { description: Participation rate limit reached }
   /v1/admin/intake:
     get:
@@ -191,8 +192,14 @@ components:
   schemas:
     MachineContribution:
       type: object
-      required: [contribution_kind, observation, consent]
+      required: [contribution_id, contribution_kind, observation, consent]
       properties:
+        contribution_id:
+          type: string
+          minLength: 16
+          maxLength: 128
+          pattern: '^[A-Za-z0-9_-]+$'
+          description: Stable idempotency identity; completed retries are rejected before settlement.
         contribution_kind:
           type: string
           enum: [observation, question, relation, correction, proposal]

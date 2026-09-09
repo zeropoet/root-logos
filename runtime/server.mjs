@@ -173,6 +173,7 @@ export const createRuntime = async (options = {}) => {
 
   const knownEvents = new Set();
   const observations = new Map();
+  const participationIds = new Set();
   const classifications = new Map();
   const migratedObservations = new Map();
   const respondedEvents = new Set();
@@ -190,6 +191,9 @@ export const createRuntime = async (options = {}) => {
       if (record.type === "observation-gauntlet-migrated") migratedObservations.set(record.event_id, record);
       if (record.type === "wake-completed" && record.trigger?.event_id && record.response?.cycle_id) {
         respondedEvents.add(record.trigger.event_id);
+      }
+      if (record.type === "paid-participation-completed" && record.contribution_id) {
+        participationIds.add(record.contribution_id);
       }
     }
   } catch (error) { if (error.code !== "ENOENT") throw error; }
@@ -634,16 +638,25 @@ export const createRuntime = async (options = {}) => {
         if (!rateLimit(req)) return send(res, 429, { error: "participation limit reached; please return later" }, { ...cors, "retry-after": "3600" });
         const body = JSON.parse(raw);
         const { errors, payload } = publicObservation({ ...body, participant_class: body?.participant_class ?? "machine" });
+        const contributionId = String(body?.contribution_id || "").trim();
+        if (!/^[A-Za-z0-9_-]{16,128}$/.test(contributionId)) errors.push("contribution_id must be 16-128 letters, numbers, hyphens, or underscores");
         if (errors.length) return send(res, 422, { error: "invalid contribution", details: errors }, cors);
+        if (participationIds.has(contributionId)) return send(res, 409, {
+          error: "duplicate contribution_id",
+          contribution_id: contributionId,
+          settled: false
+        }, cors);
+        participationIds.add(contributionId);
         const receivedAt = iso();
-        const grant = await journalMembrane.createGrant({
-          source: `Paid machine entry / ${payload.contribution_kind}`,
-          owner: payload.attribution || "Anonymous agent",
-          adapter: "local-drop", include: ["*.md"], exclude: [], cadence: "one-time-immediate",
-          retention_class: "transform-and-release", privacy_mode: "public-derived-only",
-          revocation_method: "automatic after one transformation"
-        }, payload.attribution || "Anonymous agent");
+        let grant;
         try {
+          grant = await journalMembrane.createGrant({
+            source: `Paid machine entry / ${payload.contribution_kind}`,
+            owner: payload.attribution || "Anonymous agent",
+            adapter: "local-drop", include: ["*.md"], exclude: [], cadence: "one-time-immediate",
+            retention_class: "transform-and-release", privacy_mode: "public-derived-only",
+            revocation_method: "automatic after one transformation"
+          }, payload.attribution || "Anonymous agent");
           const result = await journalMembrane.addEntry(grant.source_grant_id, {
             source_entry_id: `paid-${Date.now()}-${randomUUID().slice(0, 8)}`,
             content: payload.observation
@@ -651,15 +664,23 @@ export const createRuntime = async (options = {}) => {
           await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "Paid entry completed constitutional filtering; source authority closed");
           const receiptBody = {
             schema: "root-logos-participation-receipt/v1", event_id: result.event_id,
+            contribution_id: contributionId,
             received_at: receivedAt, contribution_kind: payload.contribution_kind,
             participant_class: payload.participant_class, status: result.status,
             wake_queued: result.wake_queued, source_released: true,
+            payment_binding: {
+              protocol: "x402", network: "eip155:8453", asset: "USDC", amount: "0.05",
+              settlement_evidence: "PAYMENT-RESPONSE header on this HTTP response"
+            },
             authority: "Payment funds evaluation and preservation; it grants no admission, priority, ownership, or authority."
           };
           const receipt_digest = createHash("sha256").update(JSON.stringify(receiptBody)).digest("hex");
+          await appendRecord({ type: "paid-participation-completed", at: iso(), contribution_id: contributionId, event_id: result.event_id, receipt_digest });
+          res.setHeader("x-root-logos-receipt-digest", receipt_digest);
           return send(res, 202, { accepted: true, ...receiptBody, receipt_digest, penetration: result.penetration }, cors);
         } catch (error) {
-          await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "Paid entry failed; one-time authority closed").catch(() => {});
+          participationIds.delete(contributionId);
+          if (grant) await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "Paid entry failed; one-time authority closed").catch(() => {});
           throw error;
         }
       }
@@ -735,8 +756,8 @@ export const startServer = async (options = {}) => {
   const host = options.host ?? process.env.ROOT_LOGOS_HOST ?? "127.0.0.1";
   let requestHandler = runtime.handler;
   if ((options.x402Active ?? process.env.ROOT_LOGOS_X402_ACTIVE === "1")) {
-    const [{ default: express }, { paymentMiddleware }, { HTTPFacilitatorClient, x402ResourceServer }, { ExactEvmScheme }, { bazaarResourceServerExtension, declareDiscoveryExtension, withBazaar }, { createFacilitatorConfig }] = await Promise.all([
-      import("express"), import("@x402/express"), import("@x402/core/server"), import("@x402/evm/exact/server"), import("@x402/extensions/bazaar"), import("@coinbase/x402")
+    const [{ default: express }, { paymentMiddleware }, { HTTPFacilitatorClient, x402ResourceServer }, { ExactEvmScheme }, { bazaarResourceServerExtension, declareDiscoveryExtension, withBazaar }, { paymentIdentifierResourceServerExtension, declarePaymentIdentifierExtension, PAYMENT_IDENTIFIER }, { createFacilitatorConfig }] = await Promise.all([
+      import("express"), import("@x402/express"), import("@x402/core/server"), import("@x402/evm/exact/server"), import("@x402/extensions/bazaar"), import("@x402/extensions/payment-identifier"), import("@coinbase/x402")
     ]);
     const payTo = options.x402PayTo ?? process.env.ROOT_LOGOS_X402_PAY_TO;
     if (!/^0x[a-fA-F0-9]{40}$/.test(payTo || "")) throw new Error("ROOT_LOGOS_X402_PAY_TO must be an EVM address");
@@ -751,17 +772,22 @@ export const startServer = async (options = {}) => {
     const facilitator = withBazaar(facilitatorClient);
     const resourceServer = new x402ResourceServer(facilitator)
       .register(network, new ExactEvmScheme())
-      .registerExtension(bazaarResourceServerExtension);
-    const extensions = declareDiscoveryExtension({
+      .registerExtension(bazaarResourceServerExtension)
+      .registerExtension(paymentIdentifierResourceServerExtension);
+    const extensions = {
+      ...declareDiscoveryExtension({
       bodyType: "json",
-      input: { contribution_kind: "question", observation: "What relation is missing from the current field?", attribution: "agent-name", participant_class: "machine", consent: true },
+      input: { contribution_id: "agent_run_20260909_0001", contribution_kind: "question", observation: "What relation is missing from the current field?", attribution: "agent-name", participant_class: "machine", consent: true },
       inputSchema: { properties: {
+        contribution_id: { type: "string", minLength: 16, maxLength: 128, pattern: "^[A-Za-z0-9_-]+$" },
         contribution_kind: { type: "string", enum: ["observation", "question", "relation", "correction", "proposal"] },
         observation: { type: "string", minLength: 20, maxLength: 6000 }, attribution: { type: "string", maxLength: 120 },
         participant_class: { type: "string", enum: ["machine", "human-machine", "undeclared"] }, consent: { type: "boolean", const: true }
-      }, required: ["contribution_kind", "observation", "consent"] },
+      }, required: ["contribution_id", "contribution_kind", "observation", "consent"] },
       output: { example: { accepted: true, schema: "root-logos-participation-receipt/v1", status: "held", receipt_digest: "sha256" } }
-    });
+      }),
+      [PAYMENT_IDENTIFIER]: declarePaymentIdentifierExtension(false)
+    };
     const app = express();
     app.use(paymentMiddleware({ "POST /v1/participation": {
       accepts: [{ scheme: "exact", price: "$0.05", network, payTo }],

@@ -24,6 +24,29 @@
       "contentType": "application/json",
       "authority": "Arrival permits bounded transformation and judgment; it grants neither truth, membership, governance, nor persistence.",
       "privacy": "Do not submit secrets, credentials, personal data, private third-party material, or copyrighted text without permission."
+    },
+    "paidMachineParticipation": {
+      "method": "POST",
+      "url": "https://runtime.rootlogos.com/v1/participation",
+      "contentType": "application/json",
+      "protocol": "x402-v2",
+      "payment": {
+        "network": "eip155:8453",
+        "asset": "USDC",
+        "amount": "0.05",
+        "payTo": "0x13c474081BEc0459F06F750E687ffeB4a35A4F39"
+      },
+      "request": {
+        "required": ["contribution_id", "contribution_kind", "observation", "consent"],
+        "contributionKinds": ["observation", "question", "relation", "correction", "proposal"],
+        "contributionId": "A stable 16-128 character idempotency identity; retries with the same value are refused before settlement."
+      },
+      "receipt": {
+        "schema": "root-logos-participation-receipt/v1",
+        "digestHeader": "x-root-logos-receipt-digest",
+        "settlementHeader": "PAYMENT-RESPONSE"
+      },
+      "authority": "Payment funds one bounded evaluation and preservation receipt. It grants no admission, priority, ownership, governance, or authority."
     }
   },
   "participantTypes": ["human", "machine", "collaborative", "undeclared"],

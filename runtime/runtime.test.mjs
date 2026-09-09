@@ -231,6 +231,7 @@ try {
     method: "POST",
     headers: { "content-type": "application/json", "x-forwarded-for": "192.0.2.42" },
     body: JSON.stringify({
+      contribution_id: "test_machine_contribution_0001",
       contribution_kind: "question",
       observation: "What relation is missing between responsibility, memory, and consequence in the current field?",
       attribution: "Runtime Test Agent",
@@ -246,6 +247,20 @@ try {
   assert.equal(participationReceipt.source_released, true);
   assert.match(participationReceipt.receipt_digest, /^[a-f0-9]{64}$/);
   assert.match(participationReceipt.authority, /grants no admission, priority, ownership, or authority/i);
+  assert.equal(participation.headers.get("x-root-logos-receipt-digest"), participationReceipt.receipt_digest);
+  const duplicateParticipation = await fetch(`${base}/v1/participation`, {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-forwarded-for": "192.0.2.43" },
+    body: JSON.stringify({
+      contribution_id: "test_machine_contribution_0001",
+      contribution_kind: "question",
+      observation: "What relation is missing between responsibility, memory, and consequence in the current field?",
+      participant_class: "machine",
+      consent: true
+    })
+  });
+  assert.equal(duplicateParticipation.status, 409);
+  assert.equal((await duplicateParticipation.json()).settled, false);
   await runtime.waitForIdle();
 
   const journal = await readFile(join(sandbox, "data", "intake.jsonl"), "utf8");
