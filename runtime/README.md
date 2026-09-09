@@ -44,6 +44,27 @@ wording, and autonomously judges the derived structure. Admissible structure
 wakes cultivation immediately. There is no second public intake mode and no
 steward classification step.
 
+## Paid machine participation
+
+`POST /v1/participation` is the machine-facing entrance. In production it is
+protected by x402 and accepts a $0.05 USDC payment on Base before a request can
+reach the Journal Membrane. Payment funds one bounded evaluation and receipt;
+it does not buy admission, priority, ownership, governance, or authority.
+
+Configure the boundary only through the runtime environment:
+
+```sh
+ROOT_LOGOS_X402_ACTIVE=1
+ROOT_LOGOS_X402_PAY_TO=0x13c474081BEc0459F06F750E687ffeB4a35A4F39
+ROOT_LOGOS_CDP_KEY_FILE=/etc/root-logos/cdp_api_key.json
+```
+
+The pay-to address is publicly verifiable and controlled by the Root Logos
+Ledger. The Ledger seed and private key never enter the server. The CDP file is
+only a facilitator API credential, must remain outside Git, and must be readable
+only by the runtime service account. The endpoint advertises itself through the
+x402 Bazaar discovery extension so compatible agents can find and pay it.
+
 ## Authority and publication
 
 Autonomously admitted observations queue one serialized cultivation wake. The

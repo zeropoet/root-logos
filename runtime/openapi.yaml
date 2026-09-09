@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
   title: Root Logos Runtime
-  version: 1.1.0
-  description: Cultivation inspection, authenticated wake intake, and the private Source-Grant-gated Journal Membrane.
+  version: 1.2.0
+  description: Cultivation inspection, authenticated wake intake, the Source-Grant-gated Journal Membrane, and paid machine participation through x402.
 servers:
   - url: https://runtime.rootlogos.com
 paths:
@@ -73,6 +73,20 @@ paths:
         "403": { description: Origin not permitted }
         "422": { description: Invalid entry or missing authorization }
         "429": { description: Intake rate limit reached }
+  /v1/participation:
+    post:
+      operationId: offerPaidMachineContribution
+      description: Accepts one x402-paid contribution for bounded constitutional evaluation. Payment grants no admission, priority, ownership, governance, or authority.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/MachineContribution" }
+      responses:
+        "202": { description: Payment settled; contribution transformed and evaluated; immutable receipt returned }
+        "402": { description: Base USDC payment required through x402 }
+        "422": { description: Invalid contribution }
+        "429": { description: Participation rate limit reached }
   /v1/admin/intake:
     get:
       operationId: listIntake
@@ -175,6 +189,20 @@ components:
   securitySchemes:
     adminBearer: { type: http, scheme: bearer }
   schemas:
+    MachineContribution:
+      type: object
+      required: [contribution_kind, observation, consent]
+      properties:
+        contribution_kind:
+          type: string
+          enum: [observation, question, relation, correction, proposal]
+        observation: { type: string, minLength: 20, maxLength: 6000 }
+        attribution: { type: string, maxLength: 120 }
+        participant_class:
+          type: string
+          enum: [machine, human-machine, undeclared]
+          default: machine
+        consent: { type: boolean, const: true }
     PublicObservation:
       type: object
       required: [observation, consent]

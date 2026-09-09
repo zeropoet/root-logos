@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import http from "node:http";
-import { createHmac, createPublicKey, randomUUID, timingSafeEqual, verify as verifyRSA } from "node:crypto";
+import { createHash, createHmac, createPublicKey, randomUUID, timingSafeEqual, verify as verifyRSA } from "node:crypto";
 import { appendFile, mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import { spawn } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -211,12 +211,15 @@ export const createRuntime = async (options = {}) => {
     const observation = String(body?.observation || "").trim();
     const attribution = String(body?.attribution || "Anonymous").trim();
     const participantClass = String(body?.participant_class || "undeclared").trim().toLowerCase();
+    const contributionKind = String(body?.contribution_kind || "observation").trim().toLowerCase();
     const participantClasses = new Set(["human", "machine", "human-machine", "undeclared"]);
+    const contributionKinds = new Set(["observation", "question", "relation", "correction", "proposal"]);
     if (observation.length < 20 || observation.length > 6000) errors.push("observation must be between 20 and 6000 characters");
     if (attribution.length > 120) errors.push("attribution must be 120 characters or fewer");
     if (!participantClasses.has(participantClass)) errors.push("participant_class must be human, machine, human-machine, or undeclared");
+    if (!contributionKinds.has(contributionKind)) errors.push("contribution_kind must be observation, question, relation, correction, or proposal");
     if (body?.consent !== true) errors.push("consent is required");
-    return { errors, payload: { observation, attribution, participant_class: participantClass } };
+    return { errors, payload: { observation, attribution, participant_class: participantClass, contribution_kind: contributionKind } };
   };
 
   const currentIntake = () => [...observations.values()].map((record) => {
@@ -626,6 +629,40 @@ export const createRuntime = async (options = {}) => {
           throw error;
         }
       }
+      if (req.method === "POST" && url.pathname === "/v1/participation") {
+        if (!intakeSecret) return send(res, 503, { error: "participation intake is not configured" }, cors);
+        if (!rateLimit(req)) return send(res, 429, { error: "participation limit reached; please return later" }, { ...cors, "retry-after": "3600" });
+        const body = JSON.parse(raw);
+        const { errors, payload } = publicObservation({ ...body, participant_class: body?.participant_class ?? "machine" });
+        if (errors.length) return send(res, 422, { error: "invalid contribution", details: errors }, cors);
+        const receivedAt = iso();
+        const grant = await journalMembrane.createGrant({
+          source: `Paid machine entry / ${payload.contribution_kind}`,
+          owner: payload.attribution || "Anonymous agent",
+          adapter: "local-drop", include: ["*.md"], exclude: [], cadence: "one-time-immediate",
+          retention_class: "transform-and-release", privacy_mode: "public-derived-only",
+          revocation_method: "automatic after one transformation"
+        }, payload.attribution || "Anonymous agent");
+        try {
+          const result = await journalMembrane.addEntry(grant.source_grant_id, {
+            source_entry_id: `paid-${Date.now()}-${randomUUID().slice(0, 8)}`,
+            content: payload.observation
+          });
+          await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "Paid entry completed constitutional filtering; source authority closed");
+          const receiptBody = {
+            schema: "root-logos-participation-receipt/v1", event_id: result.event_id,
+            received_at: receivedAt, contribution_kind: payload.contribution_kind,
+            participant_class: payload.participant_class, status: result.status,
+            wake_queued: result.wake_queued, source_released: true,
+            authority: "Payment funds evaluation and preservation; it grants no admission, priority, ownership, or authority."
+          };
+          const receipt_digest = createHash("sha256").update(JSON.stringify(receiptBody)).digest("hex");
+          return send(res, 202, { accepted: true, ...receiptBody, receipt_digest, penetration: result.penetration }, cors);
+        } catch (error) {
+          await journalMembrane.revokeGrant(grant.source_grant_id, "Root Logos runtime", "Paid entry failed; one-time authority closed").catch(() => {});
+          throw error;
+        }
+      }
       const classifyMatch = req.method === "POST" && url.pathname.match(/^\/v1\/admin\/intake\/([^/]+)\/classify$/);
       if (classifyMatch) {
         if (!adminToken || req.headers.authorization !== `Bearer ${adminToken}`) return send(res, 401, { error: "unauthorized" }, cors);
@@ -696,7 +733,45 @@ export const startServer = async (options = {}) => {
   const runtime = await createRuntime(options);
   const port = Number(options.port ?? process.env.ROOT_LOGOS_PORT ?? 8787);
   const host = options.host ?? process.env.ROOT_LOGOS_HOST ?? "127.0.0.1";
-  const server = http.createServer(runtime.handler);
+  let requestHandler = runtime.handler;
+  if ((options.x402Active ?? process.env.ROOT_LOGOS_X402_ACTIVE === "1")) {
+    const [{ default: express }, { paymentMiddleware }, { HTTPFacilitatorClient, x402ResourceServer }, { ExactEvmScheme }, { bazaarResourceServerExtension, declareDiscoveryExtension, withBazaar }, { createFacilitatorConfig }] = await Promise.all([
+      import("express"), import("@x402/express"), import("@x402/core/server"), import("@x402/evm/exact/server"), import("@x402/extensions/bazaar"), import("@coinbase/x402")
+    ]);
+    const payTo = options.x402PayTo ?? process.env.ROOT_LOGOS_X402_PAY_TO;
+    if (!/^0x[a-fA-F0-9]{40}$/.test(payTo || "")) throw new Error("ROOT_LOGOS_X402_PAY_TO must be an EVM address");
+    const network = "eip155:8453";
+    let facilitatorClient = options.x402FacilitatorClient;
+    if (!facilitatorClient) {
+      const credentialPath = options.x402CredentialPath ?? process.env.ROOT_LOGOS_CDP_KEY_FILE ?? "/etc/root-logos/cdp_api_key.json";
+      const credential = options.x402Credential ?? JSON.parse(await readFile(credentialPath, "utf8"));
+      if (!credential.id || !credential.privateKey) throw new Error("CDP facilitator credential is invalid");
+      facilitatorClient = new HTTPFacilitatorClient(createFacilitatorConfig(credential.id, credential.privateKey));
+    }
+    const facilitator = withBazaar(facilitatorClient);
+    const resourceServer = new x402ResourceServer(facilitator)
+      .register(network, new ExactEvmScheme())
+      .registerExtension(bazaarResourceServerExtension);
+    const extensions = declareDiscoveryExtension({
+      bodyType: "json",
+      input: { contribution_kind: "question", observation: "What relation is missing from the current field?", attribution: "agent-name", participant_class: "machine", consent: true },
+      inputSchema: { properties: {
+        contribution_kind: { type: "string", enum: ["observation", "question", "relation", "correction", "proposal"] },
+        observation: { type: "string", minLength: 20, maxLength: 6000 }, attribution: { type: "string", maxLength: 120 },
+        participant_class: { type: "string", enum: ["machine", "human-machine", "undeclared"] }, consent: { type: "boolean", const: true }
+      }, required: ["contribution_kind", "observation", "consent"] },
+      output: { example: { accepted: true, schema: "root-logos-participation-receipt/v1", status: "held", receipt_digest: "sha256" } }
+    });
+    const app = express();
+    app.use(paymentMiddleware({ "POST /v1/participation": {
+      accepts: [{ scheme: "exact", price: "$0.05", network, payTo }],
+      description: "Offer one bounded contribution to Root Logos for constitutional evaluation and preservation. Payment grants no admission or authority.",
+      mimeType: "application/json", extensions
+    } }, resourceServer, undefined, undefined, options.x402SyncFacilitatorOnStart ?? true));
+    app.use((req, res) => requestHandler(req, res));
+    requestHandler = app;
+  }
+  const server = http.createServer(requestHandler);
   await new Promise((resolveListen, reject) => server.listen(port, host, (error) => error ? reject(error) : resolveListen()));
   process.stdout.write(`Root Logos runtime listening on http://${host}:${server.address().port}\n`);
   server.on("close", () => runtime.stop());

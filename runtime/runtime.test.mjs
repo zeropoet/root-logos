@@ -221,6 +221,33 @@ try {
   assert.ok(directState.journal.total_grants >= 2);
   assert.doesNotMatch(await readFile(join(sandbox, "data", "journal-records.json"), "utf8"), /A public entry should encounter memory/);
 
+  const invalidParticipation = await fetch(`${base}/v1/participation`, {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-forwarded-for": "192.0.2.41" },
+    body: JSON.stringify({ contribution_kind: "command", observation: "This contribution kind must not cross the paid boundary.", consent: true })
+  });
+  assert.equal(invalidParticipation.status, 422);
+  const participation = await fetch(`${base}/v1/participation`, {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-forwarded-for": "192.0.2.42" },
+    body: JSON.stringify({
+      contribution_kind: "question",
+      observation: "What relation is missing between responsibility, memory, and consequence in the current field?",
+      attribution: "Runtime Test Agent",
+      participant_class: "machine",
+      consent: true
+    })
+  });
+  assert.equal(participation.status, 202);
+  const participationReceipt = await participation.json();
+  assert.equal(participationReceipt.schema, "root-logos-participation-receipt/v1");
+  assert.equal(participationReceipt.contribution_kind, "question");
+  assert.equal(participationReceipt.participant_class, "machine");
+  assert.equal(participationReceipt.source_released, true);
+  assert.match(participationReceipt.receipt_digest, /^[a-f0-9]{64}$/);
+  assert.match(participationReceipt.authority, /grants no admission, priority, ownership, or authority/i);
+  await runtime.waitForIdle();
+
   const journal = await readFile(join(sandbox, "data", "intake.jsonl"), "utf8");
   assert.match(journal, /observation-accepted/);
   assert.match(journal, /wake-completed/);
@@ -228,4 +255,43 @@ try {
   process.stdout.write("PASS unified public membrane, autonomous intake, immutable receipts, signed intake, serialized wakes, one-time Source Grants, encrypted transient journal processing, raw release, autonomous judgment, deduplication, prompt-instruction isolation, revocation, and human command boundary.\n");
 } finally {
   await new Promise((resolveClose) => server.close(resolveClose));
+}
+
+const { server: paidServer } = await startServer({
+  root: sandbox,
+  dataDir: join(sandbox, "paid-data"),
+  port: 0,
+  intakeSecret: secret,
+  journalSecret: "test-paid-journal-encryption-secret",
+  journalCollectionEnabled: false,
+  x402Active: true,
+  x402PayTo: "0x13c474081BEc0459F06F750E687ffeB4a35A4F39",
+  x402FacilitatorClient: {
+    extensions: {},
+    createAuthHeaders: async () => ({ headers: {} }),
+    getSupported: async () => ({
+      kinds: [{ x402Version: 2, scheme: "exact", network: "eip155:8453", extra: {} }],
+      extensions: []
+    })
+  },
+  commandRunner: async () => ({ stdout: "test cycle complete", stderr: "" }),
+  sourceSyncRunner: async () => ({ stdout: "test source scan complete", stderr: "" })
+});
+try {
+  const paidBase = `http://127.0.0.1:${paidServer.address().port}`;
+  const paymentRequired = await fetch(`${paidBase}/v1/participation`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      contribution_kind: "question",
+      observation: "What relation is missing between responsibility, memory, and consequence in the current field?",
+      participant_class: "machine",
+      consent: true
+    })
+  });
+  assert.equal(paymentRequired.status, 402);
+  assert.ok(paymentRequired.headers.get("payment-required"));
+  process.stdout.write("PASS x402 requires Base payment before machine participation reaches the Root Logos membrane.\n");
+} finally {
+  await new Promise((resolveClose) => paidServer.close(resolveClose));
 }
