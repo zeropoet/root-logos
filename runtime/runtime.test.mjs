@@ -312,6 +312,14 @@ try {
   const paymentDeclaration = JSON.parse(Buffer.from(paymentRequired.headers.get("payment-required"), "base64").toString("utf8"));
   assert.equal(paymentDeclaration.resource.url, `https://127.0.0.1:${paidServer.address().port}/v1/participation`);
   assert.equal(paymentDeclaration.extensions["payment-identifier"].info.required, false);
+  const browserPaymentRequired = await fetch(`${paidBase}/v1/participation`, {
+    method: "POST",
+    headers: { "content-type": "application/json", origin: "https://rootlogos.com" },
+    body: "{}"
+  });
+  assert.equal(browserPaymentRequired.status, 402);
+  assert.equal(browserPaymentRequired.headers.get("access-control-allow-origin"), "https://rootlogos.com");
+  assert.match(browserPaymentRequired.headers.get("access-control-expose-headers") || "", /payment-required/);
   process.stdout.write("PASS x402 requires Base payment before machine participation reaches the Root Logos membrane.\n");
 } finally {
   await new Promise((resolveClose) => paidServer.close(resolveClose));

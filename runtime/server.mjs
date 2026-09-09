@@ -790,6 +790,19 @@ export const startServer = async (options = {}) => {
     };
     const app = express();
     app.set("trust proxy", "loopback");
+    const browserOrigin = options.allowedOrigin ?? process.env.ROOT_LOGOS_ALLOWED_ORIGIN ?? "https://rootlogos.com";
+    app.use((req, res, next) => {
+      const origin = req.headers.origin;
+      if (origin && (browserOrigin === "*" || origin === browserOrigin)) {
+        res.setHeader("access-control-allow-origin", origin);
+        res.setHeader("access-control-allow-headers", "authorization,content-type,payment-signature,x-payment,x-rootlogos-signature,x-rootlogos-timestamp");
+        res.setHeader("access-control-expose-headers", "payment-required,payment-response,x-payment-response,x-root-logos-receipt-digest");
+        res.setHeader("access-control-allow-methods", "GET,POST,OPTIONS");
+        res.setHeader("vary", "Origin");
+      }
+      if (req.method === "OPTIONS") return res.status(204).end();
+      next();
+    });
     app.use(paymentMiddleware({ "POST /v1/participation": {
       accepts: [{ scheme: "exact", price: "$0.05", network, payTo }],
       description: "Offer one bounded contribution to Root Logos for constitutional evaluation and preservation. Payment grants no admission or authority.",
