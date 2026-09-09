@@ -1789,11 +1789,41 @@
         },
         "total": 23
       }
+    },
+    "033deeeba791b4ffbe8bf56dc25985a1275e2098b69fcd27fcab90ebf32a7cd1": {
+      "fingerprint": "033deeeba791b4ffbe8bf56dc25985a1275e2098b69fcd27fcab90ebf32a7cd1",
+      "kind": "admitted-observation",
+      "nodes": [
+        "attractor-membrane",
+        "journal-membrane",
+        "design-flow-ledger"
+      ],
+      "claim": "RL-JOURNAL-AD133EA4C1F5 creates new inquiry pressure around The Attractor Membrane, The Journal Membrane, Root Logos Design Flow Ledger.",
+      "proposed_question": "Autonomously derived through the private Journal Membrane; raw source prose was released.",
+      "evidence_hash": "b9d81299dab94a8e8d8485de0d957ee8a2c70a2b9bed935e0e21bb481cc86919",
+      "policy_hash": "6534ace18ab7ec7df7af0d5d124675e00f2968a3b8d2fb19a19d91dec10ad0f1",
+      "first_cycle": "RL-CULTIVATE-0228",
+      "last_cycle": "RL-CULTIVATE-0228",
+      "last_cycle_index": 228,
+      "considerations": 2,
+      "status": "autonomously-rejected",
+      "last_novelty_reason": "new-hypothesis",
+      "last_evaluation": {
+        "dimensions": {
+          "source_fidelity": 4,
+          "relational_gain": 4,
+          "compression": 4,
+          "testability": 4,
+          "corrigibility": 4,
+          "novelty_without_drift": 3
+        },
+        "total": 23
+      }
     }
   },
   "novelty": {
-    "consecutive_low_yield_cycles": 3,
-    "last_score": 0,
+    "consecutive_low_yield_cycles": 0,
+    "last_score": 4,
     "history": [
       {
         "cultivation_id": "RL-CULTIVATE-0009",
@@ -3327,13 +3357,20 @@
         "reason": "no-eligible-hypothesis",
         "status": "completed-no-proposal",
         "at": "2026-09-06T14:07:01.016Z"
+      },
+      {
+        "cultivation_id": "RL-CULTIVATE-0228",
+        "score": 4,
+        "reason": "new-hypothesis",
+        "status": "autonomously-rejected",
+        "at": "2026-09-08T16:40:48.309Z"
       }
     ]
   },
   "dormancy": {
-    "active": true,
-    "entered_at": "2026-09-06T14:07:01.083Z",
-    "reason": "3 consecutive low-yield cycles",
+    "active": false,
+    "entered_at": null,
+    "reason": null,
     "source_snapshot": {
       "combined": "a1d154c717d608349162027ae319b109567e49882b7ee037458749aa035cac3a",
       "policy": "6534ace18ab7ec7df7af0d5d124675e00f2968a3b8d2fb19a19d91dec10ad0f1"
@@ -3486,6 +3523,10 @@
       {
         "at": "2026-09-02T13:58:52.739Z",
         "reason": "canonical-source-changed"
+      },
+      {
+        "at": "2026-09-08T16:40:48.077Z",
+        "reason": "admitted-observation:RL-JOURNAL-AD133EA4C1F5"
       }
     ]
   },
