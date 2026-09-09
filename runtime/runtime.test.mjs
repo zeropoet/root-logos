@@ -299,7 +299,7 @@ try {
   assert.equal((await paidHealth.json()).ok, true);
   const paymentRequired = await fetch(`${paidBase}/v1/participation`, {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: { "content-type": "application/json", "x-forwarded-proto": "https" },
     body: JSON.stringify({
       contribution_kind: "question",
       observation: "What relation is missing between responsibility, memory, and consequence in the current field?",
@@ -309,6 +309,9 @@ try {
   });
   assert.equal(paymentRequired.status, 402);
   assert.ok(paymentRequired.headers.get("payment-required"));
+  const paymentDeclaration = JSON.parse(Buffer.from(paymentRequired.headers.get("payment-required"), "base64").toString("utf8"));
+  assert.equal(paymentDeclaration.resource.url, `https://127.0.0.1:${paidServer.address().port}/v1/participation`);
+  assert.equal(paymentDeclaration.extensions["payment-identifier"].info.required, false);
   process.stdout.write("PASS x402 requires Base payment before machine participation reaches the Root Logos membrane.\n");
 } finally {
   await new Promise((resolveClose) => paidServer.close(resolveClose));

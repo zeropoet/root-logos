@@ -789,6 +789,7 @@ export const startServer = async (options = {}) => {
       [PAYMENT_IDENTIFIER]: declarePaymentIdentifierExtension(false)
     };
     const app = express();
+    app.set("trust proxy", "loopback");
     app.use(paymentMiddleware({ "POST /v1/participation": {
       accepts: [{ scheme: "exact", price: "$0.05", network, payTo }],
       description: "Offer one bounded contribution to Root Logos for constitutional evaluation and preservation. Payment grants no admission or authority.",
