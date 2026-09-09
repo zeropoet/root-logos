@@ -28,7 +28,8 @@
     "sources:seal-public": "node scripts/sources.mjs seal-public",
     "sources:validate": "node scripts/sources.mjs validate",
     "runtime": "node runtime/server.mjs"
-    ,"build:machine-entry": "esbuild machine-entry.source.js --bundle --format=esm --platform=browser --minify --outfile=machine-entry.js"
+    ,"build:machine-entry": "esbuild machine-entry.source.js --bundle --format=esm --platform=browser --minify --outfile=machine-entry.js",
+    "build:machine-evaluation": "esbuild machine-evaluation.source.js --bundle --format=esm --platform=browser --minify --outfile=machine-evaluation.js"
   },
   "engines": {
     "node": ">=22"

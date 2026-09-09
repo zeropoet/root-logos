@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Activate the Root Logos paid evaluation service through a bounded Ledger authorization.">
+  <title>Evaluation Proof · Root Logos</title>
+  <link rel="icon" href="assets/root-logos-presence-mark.svg" type="image/svg+xml">
+  <style>
+    :root{color-scheme:dark;font-family:Inter,Helvetica,Arial,sans-serif;background:#050505;color:#eee}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 50% 38%,#151515 0,#080808 32rem,#020202 75%)}
+    main{width:min(42rem,calc(100vw - 2rem));padding:clamp(1.5rem,5vw,4rem);border:1px solid #292929;background:rgba(4,4,4,.86)}
+    header{display:flex;align-items:center;gap:1rem;margin-bottom:3.5rem}.mark{width:2.2rem;height:2.2rem}small,label{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#888}
+    h1{font-size:clamp(1.75rem,5vw,3.25rem);font-weight:300;letter-spacing:-.045em;margin:0 0 1rem}.lead{color:#aaa;line-height:1.6;margin:0 0 2.5rem}
+    dl{display:grid;grid-template-columns:7rem 1fr;gap:.65rem;margin:0 0 2rem;font-size:.78rem}dt{color:#777}dd{margin:0;overflow-wrap:anywhere}
+    textarea{width:100%;min-height:8rem;margin:.65rem 0 1rem;padding:1rem;background:#090909;color:#eee;border:1px solid #333;resize:vertical;font:inherit;line-height:1.5}
+    button{width:100%;padding:1rem;border:1px solid #eee;background:#eee;color:#050505;font:inherit;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}button:disabled{opacity:.4;cursor:wait}
+    #status{min-height:2.5rem;margin:1.25rem 0 0;color:#999;font-size:.78rem;line-height:1.5}#status[data-state=error]{color:#e9a4a4}#status[data-state=complete]{color:#fff}
+    pre{max-height:18rem;overflow:auto;padding:1rem;border:1px solid #222;background:#000;color:#aaa;font-size:.65rem;white-space:pre-wrap}
+  </style>
+</head>
+<body><main>
+  <header><img class="mark" src="assets/root-logos-presence-mark.svg" alt=""><small>Root Logos · service proof</small></header>
+  <h1>Activate evaluation.</h1>
+  <p class="lead">This first purchase proves the customer path and makes the service eligible for Bazaar indexing. It changes no Root Logos structure and grants no authority.</p>
+  <dl><dt>NETWORK</dt><dd>Base mainnet</dd><dt>ASSET</dt><dd>USDC</dd><dt>MAXIMUM</dt><dd>0.05 USDC</dd><dt>RECIPIENT</dt><dd>rootlogos.eth · 0x13c474…A4F39</dd><dt>PAYER</dt><dd>0xDCb1f1…870bf8</dd></dl>
+  <label for="statement">Evaluation subject</label>
+  <textarea id="statement">Before an autonomous agent publishes an irreversible change, evaluate how consent, authority, provenance, responsibility, and downstream consequence remain bounded.</textarea>
+  <button id="authorize" type="button">Authorize 0.05 USDC</button>
+  <p id="status" role="status">Open inside Ledger Live. The device signature is the final authorization.</p>
+  <pre id="receipt" hidden></pre>
+</main><script type="module" src="machine-evaluation.js?v=1"></script></body>
+</html>
