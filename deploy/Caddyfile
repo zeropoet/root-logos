@@ -14,6 +14,9 @@ rootlogos.com, www.rootlogos.com {
   root * /var/www/root-logos
   file_server
 
+  @agent_entry path /agent.json
+  header @agent_entry Link "<https://rootlogos.com/assets/root-logos-presence-mark.svg>; rel=\"icon\"; type=\"image/svg+xml\""
+
   header {
     Strict-Transport-Security "max-age=31536000; includeSubDomains"
     X-Content-Type-Options "nosniff"
