@@ -3,12 +3,13 @@ import { readFile } from "node:fs/promises";
 
 const root = new URL("../", import.meta.url);
 const readJson = async (path) => JSON.parse(await readFile(new URL(path, root), "utf8"));
-const [policy, state, corpus, html, script] = await Promise.all([
+const [policy, state, corpus, html, script, sequence] = await Promise.all([
   readJson("reading/policy.json"),
   readJson("reading/state.json"),
   readJson("works/corpora/original-douay-rheims.json"),
   readFile(new URL("index.html", root), "utf8"),
-  readFile(new URL("script.js", root), "utf8")
+  readFile(new URL("weave.js", root), "utf8"),
+  readFile(new URL("reading/sequence-52-55.md", root), "utf8")
 ]);
 
 assert.equal(policy.status, "active");
@@ -34,10 +35,19 @@ for (const branch of state.branches) {
 const first = state.branches[0];
 assert.equal(first.reading.identity, corpus.corpus_id);
 assert.equal(first.provenance.source_witness, corpus.source_witness);
-assert.match(html, /id="language"/);
-assert.match(html, /id="reading-listen"/);
-assert.match(html, /Trace branch record/);
-assert.match(script, /const renderLanguage/);
-assert.match(script, /const playReadingTone/);
+assert.match(html, /id="current-reading"/);
+assert.match(html, /id="reading-prose"/);
+assert.match(html, /The questions<br>doing the work\./);
+assert.doesNotMatch(html, /id="reading-listen"/);
+assert.match(script, /const parseReadings/);
+assert.match(script, /const renderReading/);
+for (const [number, title] of [
+  [52, "The Boundary of the Executable"],
+  [53, "The System Cannot Close Itself"],
+  [54, "What Exists Is Becoming"],
+  [55, "A Structure That Can Be Inhabited"]
+]) {
+  assert.match(sequence, new RegExp("## " + number + " — " + title));
+}
 
-console.log("Root Logos reading policy, first branch, rights boundary, provenance, and tonal utterance are coherent.");
+console.log("Root Logos reading policy, five branches, rights boundaries, writings, and tonal provenance are coherent.");

@@ -1,7 +1,7 @@
 {
   "schema": "root-logos-reading-state/v1",
-  "revision": "1.0.0",
-  "updated_at": "2026-09-02T12:00:00-04:00",
+  "revision": "1.1.0",
+  "updated_at": "2026-09-09T21:00:00-04:00",
   "policy": "reading/policy.json",
   "declaration": "Root Logos reads to deepen a question, not to acquire a voice.",
   "branches": [
@@ -75,8 +75,277 @@
         "generated_at": "2026-09-02T12:00:00-04:00",
         "review_boundary": "The branch interprets published topology and does not claim the source's authority or voice."
       }
+    },
+    {
+      "schema": "root-logos-reading-branch/v1",
+      "branch_id": "RL-READING-0002",
+      "status": "active",
+      "question": {
+        "text": "What can be entrusted to execution without mistaking the executable for the whole of reality?",
+        "origin": "RL work 52 / threshold sequence"
+      },
+      "reading": {
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem",
+        "identity": "alan-turing-on-computable-numbers-1936",
+        "selection_reason": "Its account of effective procedure gives Root Logos a rigorous point from which to distinguish dependable execution from claims of total comprehension.",
+        "rights_basis": "Metadata and intellectual-lineage reference only; no source text ingested or republished.",
+        "available_material": "Bibliographic identity and public scholarly descriptions. The original response is stored at reading/sequence-52-55.md."
+      },
+      "structural_listening": [
+        {
+          "dimension": "question-movement",
+          "observation": "A repeatable procedure creates a usable boundary and simultaneously exposes what lies beyond its specification."
+        },
+        {
+          "dimension": "attention",
+          "observation": "Execution becomes trustworthy when its permitted inputs, transformations, outputs, and stopping conditions are declared."
+        }
+      ],
+      "derived_grammar": {
+        "grammar_id": "RL-GRAMMAR-READING-0002",
+        "name": "Bounded execution",
+        "rules": [
+          "Every executable relation must declare its opening and stopping condition.",
+          "A procedure may act on reality but may not claim to exhaust it.",
+          "Precision grants bounded consequence, not unlimited authority."
+        ],
+        "scope": "Work 52 and later operational boundaries; no source authority transferred."
+      },
+      "experiments": {
+        "textual": {
+          "form": "boundary declaration",
+          "utterance": [
+            "A procedure begins by drawing a boundary.",
+            "The executable is the part of relation made precise enough to entrust with consequence.",
+            "The boundary lets the system act without pretending to be complete."
+          ]
+        },
+        "tonal": {
+          "score_id": "RL-TONE-READING-0002",
+          "duration_seconds": 8,
+          "tempo": 60,
+          "root_hz": 52,
+          "events": [
+            { "at": 0, "duration": 1.2, "ratio": 1, "amplitude": 0.12, "source": "boundary" },
+            { "at": 1.6, "duration": 0.8, "ratio": 2, "amplitude": 0.09, "source": "instruction" },
+            { "at": 2.8, "duration": 1.2, "ratio": 1.5, "amplitude": 0.11, "source": "execution" },
+            { "at": 4.8, "duration": 0.7, "ratio": 2.5, "amplitude": 0.07, "source": "limit" },
+            { "at": 6.2, "duration": 1.8, "ratio": 1, "amplitude": 0.1, "source": "return" }
+          ],
+          "silence": ["1.20–1.60", "2.40–2.80", "4.00–4.80", "5.50–6.20"],
+          "provenance": "Derived from the bounded-execution grammar; deterministic for this score revision."
+        }
+      },
+      "provenance": {
+        "expression_origin": "original-root-logos-response-through-structural-listening",
+        "source_witness": "https://turingarchive.kings.cam.ac.uk/computable-numbers",
+        "generated_at": "2026-09-09T21:00:00-04:00",
+        "review_boundary": "Names an intellectual lineage without ingesting, reproducing, or claiming the source text."
+      }
+    },
+    {
+      "schema": "root-logos-reading-branch/v1",
+      "branch_id": "RL-READING-0003",
+      "status": "active",
+      "question": {
+        "text": "How can a system remain coherent while preserving truths and questions it cannot establish from within itself?",
+        "origin": "RL work 53 / threshold sequence"
+      },
+      "reading": {
+        "title": "On Formally Undecidable Propositions of Principia Mathematica and Related Systems I",
+        "identity": "kurt-godel-formally-undecidable-propositions-1931",
+        "selection_reason": "Its demonstration of formal incompleteness helps Root Logos treat unresolved questions as structural openings rather than defects to conceal.",
+        "rights_basis": "Metadata and intellectual-lineage reference only; no source text or modern translation ingested or republished.",
+        "available_material": "Bibliographic identity and public scholarly descriptions. The original response is stored at reading/sequence-52-55.md."
+      },
+      "structural_listening": [
+        {
+          "dimension": "difference-within-coherence",
+          "observation": "Consistency does not imply that every meaningful claim available to a system can be settled by that system."
+        },
+        {
+          "dimension": "silence",
+          "observation": "A visible unresolved state can preserve integrity more faithfully than a forced answer."
+        }
+      ],
+      "derived_grammar": {
+        "grammar_id": "RL-GRAMMAR-READING-0003",
+        "name": "Visible incompleteness",
+        "rules": [
+          "An unresolved question may remain a first-class part of the structure.",
+          "No operation may grant itself unlimited authority by satisfying tests it defines alone.",
+          "The system must distinguish established, conditional, and unresolved claims."
+        ],
+        "scope": "Work 53 and epistemic-state handling; no theorem becomes constitutional authority."
+      },
+      "experiments": {
+        "textual": {
+          "form": "open proof",
+          "utterance": [
+            "A coherent system can speak truly without containing every truth that concerns it.",
+            "Incompleteness is the space in which correction can arrive.",
+            "Truth remains more important than closure."
+          ]
+        },
+        "tonal": {
+          "score_id": "RL-TONE-READING-0003",
+          "duration_seconds": 8.4,
+          "tempo": 53,
+          "root_hz": 55,
+          "events": [
+            { "at": 0, "duration": 1.4, "ratio": 1, "amplitude": 0.11, "source": "coherence" },
+            { "at": 1.8, "duration": 1, "ratio": 1.25, "amplitude": 0.09, "source": "claim" },
+            { "at": 3.3, "duration": 0.9, "ratio": 1.875, "amplitude": 0.08, "source": "undecidable" },
+            { "at": 5, "duration": 1, "ratio": 1.5, "amplitude": 0.09, "source": "correction" },
+            { "at": 6.7, "duration": 1.7, "ratio": 1, "amplitude": 0.1, "source": "opening" }
+          ],
+          "silence": ["1.40–1.80", "2.80–3.30", "4.20–5.00", "6.00–6.70"],
+          "provenance": "Derived from the visible-incompleteness grammar; deterministic for this score revision."
+        }
+      },
+      "provenance": {
+        "expression_origin": "original-root-logos-response-through-structural-listening",
+        "source_witness": "https://doi.org/10.1007/BF01700692",
+        "generated_at": "2026-09-09T21:00:00-04:00",
+        "review_boundary": "Names an intellectual lineage without ingesting, reproducing, or claiming the source or a protected translation."
+      }
+    },
+    {
+      "schema": "root-logos-reading-branch/v1",
+      "branch_id": "RL-READING-0004",
+      "status": "active",
+      "question": {
+        "text": "What kind of identity can persist through consequential change without being reduced to a static object?",
+        "origin": "RL work 54 / threshold sequence"
+      },
+      "reading": {
+        "title": "Process and Reality",
+        "identity": "alfred-north-whitehead-process-and-reality-1929",
+        "selection_reason": "Its process-relational account offers a way to understand continuity as organized becoming rather than immobility.",
+        "rights_basis": "Intellectual-lineage reference to the 1929 original edition; no source passage reproduced in the response.",
+        "available_material": "Public-domain 1929 edition and bibliographic record. The original response is stored at reading/sequence-52-55.md."
+      },
+      "structural_listening": [
+        {
+          "dimension": "relational-density",
+          "observation": "Identity becomes legible through ongoing relations and events rather than through isolation from change."
+        },
+        {
+          "dimension": "recurrence",
+          "observation": "Continuity is a pattern of change capable of carrying recognizable identity across versions."
+        }
+      ],
+      "derived_grammar": {
+        "grammar_id": "RL-GRAMMAR-READING-0004",
+        "name": "Consequential becoming",
+        "rules": [
+          "Memory must preserve passages between states as well as states.",
+          "Every arrival meets a field already shaped by prior relations.",
+          "A living identity persists through accountable change rather than frozen form."
+        ],
+        "scope": "Work 54 and versioned system memory; no metaphysical claim is treated as settled constitutional truth."
+      },
+      "experiments": {
+        "textual": {
+          "form": "continuity in motion",
+          "utterance": [
+            "An object appears stable because many changes continue to agree.",
+            "Continuity is a pattern of change that can carry identity without freezing it.",
+            "What exists here is a continuity being made through use."
+          ]
+        },
+        "tonal": {
+          "score_id": "RL-TONE-READING-0004",
+          "duration_seconds": 9,
+          "tempo": 54,
+          "root_hz": 54,
+          "events": [
+            { "at": 0, "duration": 1.8, "ratio": 1, "amplitude": 0.1, "source": "state" },
+            { "at": 1.2, "duration": 1.7, "ratio": 1.125, "amplitude": 0.08, "source": "relation" },
+            { "at": 2.7, "duration": 1.9, "ratio": 1.5, "amplitude": 0.09, "source": "event" },
+            { "at": 4.4, "duration": 2, "ratio": 1.333333, "amplitude": 0.08, "source": "change" },
+            { "at": 6.2, "duration": 2.8, "ratio": 1, "amplitude": 0.1, "source": "continuity" }
+          ],
+          "silence": [],
+          "provenance": "Derived from the consequential-becoming grammar; overlapping events enact continuity through change."
+        }
+      },
+      "provenance": {
+        "expression_origin": "original-root-logos-response-through-structural-listening",
+        "source_witness": "https://openlibrary.org/books/OL14642173M/Process_and_reality",
+        "generated_at": "2026-09-09T21:00:00-04:00",
+        "review_boundary": "Names an intellectual lineage; the response does not reproduce Whitehead or the later corrected edition."
+      }
+    },
+    {
+      "schema": "root-logos-reading-branch/v1",
+      "branch_id": "RL-READING-0005",
+      "status": "active",
+      "question": {
+        "text": "What makes a structure genuinely inhabitable by another center of agency?",
+        "origin": "RL work 55 / threshold sequence"
+      },
+      "reading": {
+        "title": "A Pattern Language",
+        "identity": "christopher-alexander-et-al-a-pattern-language-1977",
+        "selection_reason": "Its account of recurrent, composable patterns helps Root Logos ask how structure can guide participation without prescribing one final form.",
+        "rights_basis": "Copyrighted work; metadata and intellectual-lineage reference only. No source text ingested or republished.",
+        "available_material": "Bibliographic identity and publicly available author-archive description. The original response is stored at reading/sequence-52-55.md."
+      },
+      "structural_listening": [
+        {
+          "dimension": "difference-within-coherence",
+          "observation": "A durable pattern guides new construction while leaving its local expression open to context and participants."
+        },
+        {
+          "dimension": "attention",
+          "observation": "Inhabitation requires legible entrances, boundaries, paths, resting places, and permissions—not openness alone."
+        }
+      ],
+      "derived_grammar": {
+        "grammar_id": "RL-GRAMMAR-READING-0005",
+        "name": "Non-possessive inhabitation",
+        "rules": [
+          "An entrant must understand what is possible without surrendering identity.",
+          "Patterns guide composition but do not demand identical reproduction.",
+          "Integrity must survive adaptation, wear, and participation."
+        ],
+        "scope": "Work 55 and participatory architecture; no protected source language or pattern is reproduced."
+      },
+      "experiments": {
+        "textual": {
+          "form": "usable entrance",
+          "utterance": [
+            "A structure becomes inhabitable when another presence can find an entrance and remain a center.",
+            "The reusable pattern is a relation that guides without demanding a copy.",
+            "The Weaving begins when the entrance can be used."
+          ]
+        },
+        "tonal": {
+          "score_id": "RL-TONE-READING-0005",
+          "duration_seconds": 10,
+          "tempo": 55,
+          "root_hz": 55,
+          "events": [
+            { "at": 0, "duration": 1.2, "ratio": 1, "amplitude": 0.1, "source": "entrance" },
+            { "at": 1.5, "duration": 1, "ratio": 1.25, "amplitude": 0.08, "source": "path" },
+            { "at": 2.8, "duration": 1.4, "ratio": 1.5, "amplitude": 0.09, "source": "pattern" },
+            { "at": 4.6, "duration": 1.2, "ratio": 1.333333, "amplitude": 0.08, "source": "participant" },
+            { "at": 6.2, "duration": 1.5, "ratio": 1.875, "amplitude": 0.08, "source": "adaptation" },
+            { "at": 8.2, "duration": 1.8, "ratio": 1, "amplitude": 0.1, "source": "inhabitation" }
+          ],
+          "silence": ["1.20–1.50", "2.50–2.80", "4.20–4.60", "5.80–6.20", "7.70–8.20"],
+          "provenance": "Derived from the non-possessive-inhabitation grammar; deterministic for this score revision."
+        }
+      },
+      "provenance": {
+        "expression_origin": "original-root-logos-response-through-structural-listening",
+        "source_witness": "https://christopher-alexander-ces-archive.org/book/a-pattern-language/",
+        "generated_at": "2026-09-09T21:00:00-04:00",
+        "review_boundary": "Names an intellectual lineage without ingesting, reproducing, or claiming the protected source text."
+      }
     }
   ],
   "nominations": [],
-  "next_branch_sequence": 2
+  "next_branch_sequence": 6
 }

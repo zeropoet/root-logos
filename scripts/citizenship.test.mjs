@@ -10,7 +10,7 @@ const [graph, identity, protocol, cultivation, index, renderer, participation, p
   readJson("content/citizenship.json"),
   readJson("cultivation/policy.json"),
   read("index.html"),
-  read("script.js"),
+  read("weave.js"),
   read("PARTICIPATION.md"),
   read("content/principle-constitutional-citizenship.md"),
   read("README.md")
@@ -45,14 +45,13 @@ for (const [from, to, type] of [
 
 assert.equal(cultivation.constitutional_revision, "v1.4");
 assert.ok(cultivation.lenses.some(({ id }) => id === "constitutional-citizenship-pressure"));
-assert.ok(index.indexOf('id="field"') < index.indexOf('id="coordinate"'));
-assert.ok(index.indexOf('id="coordinate"') < index.indexOf('id="works"'));
-assert.match(index, /name="participant_class"/);
-assert.match(index, /content\/citizenship\.json/);
-assert.match(renderer, /participant_class:\s*data\.get\("participant_class"\)/);
-assert.match(renderer, /const renderCoordinate/);
+assert.ok(index.indexOf('id="current-reading"') < index.indexOf('id="memory"'));
+assert.match(index, /href="agent\.json"/);
+assert.match(index, /Human and machine participants may bring questions and evidence through the same declared entrance/);
+assert.match(index, /Payment opens the boundary\. It does not purchase agreement, authorship, or authority\./);
+assert.match(renderer, /const renderQuestions/);
 assert.match(participation, /constitutional citizenship, not legal citizenship/i);
 assert.match(principle, /Citizenship is therefore enacted rather than owned/);
 assert.match(readme, /Revision 1\.4 — The Living Coordinate/);
 
-console.log("Root Logos Revision 1.4 exposes one bounded constitutional citizenship contract across graph, identity, cultivation, runtime, public UI, and documentation.");
+console.log("Root Logos Revision 1.4 preserves constitutional citizenship while the public surface delegates entry to the bounded agent protocol.");

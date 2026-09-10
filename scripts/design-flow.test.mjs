@@ -10,7 +10,7 @@ const [module, archive, registry, graph, policy] = await Promise.all([
   readJson("content/attractor-policy.json")
 ]);
 const [publicRenderer, releaseTimer, releaseService] = await Promise.all([
-  readFile(new URL("../script.js", import.meta.url), "utf8"),
+  readFile(new URL("../weave.js", import.meta.url), "utf8"),
   readFile(new URL("../deploy/root-logos-attractor.timer", import.meta.url), "utf8"),
   readFile(new URL("../deploy/root-logos-attractor.service", import.meta.url), "utf8")
 ]);

@@ -83,22 +83,22 @@ assert.equal(validated.registry.sources.find(({ id }) => id === "foldforge").pub
 assert.equal(validated.registry.sources.find(({ id }) => id === "x").public_url, "https://x.com/rootlogos");
 assert.equal(validated.registry.sources.find(({ id }) => id === "telos").public_url, "https://telos.zeropoet.xyz/");
 assert.equal(validated.registry.sources.find(({ id }) => id === "sovereign-standard").public_url, "https://sovereignstandard.co");
-assert.match(publicIndex, /class="footer-tea" href="https:\/\/sovereignstandard\.co"/);
-assert.doesNotMatch(publicIndex, /class="footer-tea" href="https:\/\/sovereignstandard\.co\/purchase\.html/);
-assert.match(publicIndex, /<body class="archive-open" id="top">/);
+assert.doesNotMatch(publicIndex, /sovereignstandard\.co\/purchase\.html/);
+assert.match(publicIndex, /<main id="top">/);
 assert.ok(
-  publicIndex.indexOf('id="field"') < publicIndex.indexOf('id="works"'),
-  "Every homepage viewport must begin with the Constitutional Field."
+  publicIndex.indexOf('id="current-reading"') < publicIndex.indexOf('id="memory"'),
+  "Every homepage must place the current reading before the accumulated memory."
 );
 assert.doesNotMatch(publicIndex, /id="living-object-canvas"/);
 assert.doesNotMatch(publicIndex, /src="living-object\.js/);
-assert.match(publicIndex, /class="footer-object-link" href="https:\/\/presence\.rootlogos\.com\/"/);
+assert.match(publicIndex, /href="agent\.json"/);
+assert.match(publicIndex, /href="https:\/\/telos\.zeropoet\.xyz\/"/);
+assert.match(publicIndex, /href="https:\/\/ovel\.zeropoet\.xyz\/"/);
 assert.doesNotMatch(publicIndex, /class="footer-system-link"/);
 assert.match(livingPresencePage, /data-living-presence-standalone/);
 assert.match(livingPresencePage, /data-source-base="https:\/\/rootlogos\.com\/"/);
 assert.match(livingPresencePage, /id="living-object-canvas"/);
 assert.match(livingPresencePage, /src="https:\/\/rootlogos\.com\/living-object\.js/);
-assert.match(publicIndex, /<body class="archive-open" id="top">/);
 assert.match(livingPresencePage, /data-archive-url="https:\/\/rootlogos\.com\/#top"/);
 assert.match(livingPresencePage, /href="https:\/\/rootlogos\.com\/#top">Return to Root Logos/);
 assert.match(livingPresencePage, /The Living Presence/);

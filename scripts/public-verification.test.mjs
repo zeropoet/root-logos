@@ -1,124 +1,40 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
-const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
-const [index, renderer, styles, registry, worksIndex, libraryComposition, frameManifest, ornamentManifest, withdrawals] = await Promise.all([
+const read = (path) => readFile(new URL("../" + path, import.meta.url), "utf8");
+const [index, renderer, styles, readingState, cultivationState, fragments] = await Promise.all([
   read("index.html"),
-  read("script.js"),
-  read("styles.css"),
-  read("sources/registry.json").then(JSON.parse),
-  read("works/index.json").then(JSON.parse),
-  read("works/library-composition.json").then(JSON.parse),
-  read("assets/library-first-frames/manifest.json").then(JSON.parse),
-  read("works/ornament-of-abhidharma-e125ae67/manifest.json").then(JSON.parse),
-  read("works/withdrawals.json").then(JSON.parse)
+  read("weave.js"),
+  read("weave.css"),
+  read("reading/state.json").then(JSON.parse),
+  read("cultivation/state.json").then(JSON.parse),
+  read("content/attractor-packets.json").then(JSON.parse)
 ]);
-const graph = JSON.parse(await read("content/constitutional-graph.json"));
-const exports = JSON.parse(await read("content/export-packets.json"));
 
-assert.ok(index.indexOf('id="coordinate"') < index.indexOf('id="verify"'));
-assert.ok(index.indexOf('id="verify"') < index.indexOf('id="works"'));
-for (const id of [
-  "verification-source-list", "verify-source-witness", "propagation-events",
-  "proposal-stack"
-]) assert.match(index, new RegExp(`id="${id}"`), `${id} is not exposed on the public surface.`);
-
-assert.doesNotMatch(index, /github\.com\/zeropoet\/root-logos\/blob\/main\/PARTICIPATION\.md/);
-assert.match(renderer, /const renderVerification/);
-assert.match(renderer, /const propagationEvents/);
-assert.match(renderer, /app\.propagationExpanded \? 48 : 8/);
-assert.match(index, /id="propagation-toggle"/);
-assert.doesNotMatch(index, /data-module="02\.03">Browser-verifiable integrity|id="run-public-verification"|id="public-verification-results"/);
-assert.doesNotMatch(renderer, /const publicIntegrityChecks|const runPublicVerification/);
-assert.match(renderer, /publishedSourceRecords/);
-assert.match(await read("works.js"), /<small>\$\{escapeHtml\(work\.kind\)\}<\/small>/);
-assert.doesNotMatch(await read("works.js"), /work\.kind\}\s*\/\s*\$\{work\.editions/);
-assert.match(styles, /\.verification-ledger-layout/);
-assert.match(styles, /\.propagation-column-head/);
-assert.equal(graph.meta.interfaceVersion, "1.6.0");
-assert.ok(graph.nodes.some(({ id }) => id === "public-verification-observatory"));
-assert.ok(graph.edges.some(({ from, to }) => from === "root-logos" && to === "public-verification-observatory"));
-assert.equal(exports.at(-1).export_id, "RL-EXPORT-0022");
-assert.equal(exports.at(-1).revision_entry.version, "1.6.0");
-assert.ok(worksIndex.works.some(({ work_id, title }) => work_id === "mutual-aid-a-factor-of-evolution-84650682" && title === "Mutual Aid: A Factor of Evolution"));
-assert.ok(worksIndex.works.some(({ work_id, title, library_order: order }) =>
-  work_id === "sonnets-and-madrigals-of-michelangelo-buonarroti-f025a25b"
-  && title === "Sonnets and Madrigals of Michelangelo Buonarroti"
-  && order === 49));
-assert.ok(worksIndex.works.some(({ work_id, title, library_order: order }) =>
-  work_id === "the-ripple-protocol-consensus-algorithm-e523dc58"
-  && title === "The Ripple Protocol Consensus Algorithm"
-  && order === 50));
-assert.ok(worksIndex.works.some(({ work_id, title, library_order: order }) =>
-  work_id === "ethereum-a-next-generation-smart-contract-and-decentralized-application-platform-ac9d4017"
-  && title === "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform"
-  && order === 51));
-assert.equal(libraryComposition.measures.works, 51);
-assert.equal(libraryComposition.measures.relations, 151);
-assert.equal(withdrawals.measures.withdrawals, 13);
-assert.equal(withdrawals.measures.active_coherent_works_after_withdrawal, 43);
-assert.ok(withdrawals.withdrawals.every(({ work_id: workId }) =>
-  !worksIndex.works.some(({ work_id: activeWorkId }) => activeWorkId === workId)));
-assert.ok(withdrawals.withdrawals.every(({ work_id: workId }) =>
-  !frameManifest.archive.some(({ work_id: framedWorkId }) => framedWorkId === workId)));
-assert.equal(frameManifest.schema, "root-logos-library-first-frames/v5");
-assert.deepEqual(
-  frameManifest.frames.map(({ order }) => order),
-  Array.from({ length: 51 }, (_, index) => index + 1)
-);
-assert.ok(frameManifest.frames.every(({ file, order, svg_file: svgFile }) => {
-  const prefix = String(order).padStart(2, "0");
-  return file.startsWith(`assets/library-first-frames/${prefix}-`)
-    && svgFile.startsWith(`assets/library-first-frames/${prefix}-`);
-}));
-assert.equal(frameManifest.archive.filter(({ work_id }) => work_id === ornamentManifest.work_id).length, 2);
-assert.equal(ornamentManifest.source_retained, false);
-assert.equal(ornamentManifest.source, null);
-assert.match(
-  ornamentManifest.current_edition,
-  new RegExp(`^${ornamentManifest.work_id}--v1\\.4-foldforge-[a-f0-9]{10}$`)
-);
-assert.match(styles, /h1, h2, h3, h4,[\s\S]*?text-transform:\s*uppercase;/);
-assert.doesNotMatch(index, /Latest autonomous inquiry|id="latest-cycle"|id="cycle-drawer"/);
-assert.match(index, /A constitution <em>held in relation\.<\/em>/);
-assert.match(index, /Many works, one field\./);
-assert.doesNotMatch(index, /id="state"|id="latest-cycle"|id="cycle-drawer"/);
-assert.equal((index.match(/id="verification-source-list"/g) || []).length, 1);
-assert.match(index, /href="#narrative" data-space="narrative"><span>02<\/span>Narrative/);
-assert.match(index, /href="#language" data-space="language"><span>03<\/span>Language/);
-assert.match(index, /href="#coordinate" data-space="coordinate"><span>04<\/span>Coordinate/);
-assert.match(index, /href="#intake" data-space="intake"><span>07<\/span>Membrane/);
-assert.match(index, /The conversation remains open\./);
-assert.ok(index.indexOf('class="library-guide"') < index.indexOf('class="library-shell"'), "06.00 must stand outside and above the Living Library instrument.");
-assert.match(renderer, /card\.addEventListener\("pointerenter", select\)/);
-assert.match(renderer, /card\.addEventListener\("click", select\)/);
-assert.match(renderer, /card\.setAttribute\("aria-pressed", String\(selected\)\)/);
-assert.match(styles, /one object, one typographic axis/i);
-assert.match(styles, /body\.archive-open \.field-header h1 em,[\s\S]*?margin-left:0;/);
-assert.match(index, /<nav class="primary-nav"[\s\S]*?<div class="system-presence"[\s\S]*?<\/nav>/);
-assert.doesNotMatch(index, /id="header-detail"|id="archive-runtime"|id="archive-works"/);
-assert.match(index, /id="archive-inquiry-reach">No scored proposal</);
-assert.match(renderer, /Latest proposal \$\{Math\.round\(/);
-assert.match(renderer, /\/24 · \$\{disposition\}/);
-assert.doesNotMatch(renderer, /gateValues|Inquiry reach|reachLabel/);
-assert.match(styles, /body\.archive-open \.library-shell \{[\s\S]*?inset:390px/);
-assert.match(styles, /\.works-archive \{[^}]*display:grid;[^}]*grid-template-rows:auto auto minmax\(0,1fr\);[^}]*min-height:0;[^}]*overflow:hidden;/);
-assert.match(styles, /#work-list \{[^}]*min-height:0;[^}]*max-height:none;[^}]*overflow-y:auto;[^}]*overscroll-behavior:contain;/);
-assert.doesNotMatch(styles, /#work-list \{[^}]*max-height:calc\(100svh/);
-assert.match(styles, /body\.archive-open \.observation-instrument \{[\s\S]*?width:min\(1500px,100%\)/);
-assert.match(styles, /body\.archive-open \.observation-instrument > header \{[\s\S]*?padding-right:0;[\s\S]*?padding-left:0;/);
-assert.match(styles, /\.observation-instrument > header h3 \{[^}]*overflow-wrap: normal;[^}]*word-break: normal;/);
-assert.match(styles, /body\.archive-open \.observation-instrument > header > p:last-child \{[\s\S]*?padding-right:clamp/);
-assert.match(styles, /body\.archive-open \.work-reading \{ padding:26px 0 42px 26px; \}/);
-assert.doesNotMatch(index, /Relational observatory|Semantic memory|id="observatory-canvas"|id="memory-ledger"/);
-assert.match(index, /data-module="05\.30">Adversarial review/);
-assert.doesNotMatch(index, /Witnessed Relations|Design Flow Ledger/);
-for (const [id, order] of [["field", 1], ["narrative", 2], ["language", 3], ["coordinate", 4], ["verify", 5], ["works", 6], ["intake", 7]]) {
-  assert.match(styles, new RegExp(`body\\.archive-open #${id} \\{ order: ${order}; \\}`), `${id} does not preserve the public encounter order.`);
+const publicOrder = ["current-reading", "questions", "fragments", "memory"].map((id) => index.indexOf('id="' + id + '"'));
+assert.deepEqual([...publicOrder].sort((a, b) => a - b), publicOrder);
+for (const id of ["reading-prose", "question-list", "fragment-list", "branch-count", "cycle-count", "thinking-state"]) {
+  assert.match(index, new RegExp('id="' + id + '"'));
 }
 
-for (const source of registry.sources) {
-  assert.match(renderer, new RegExp(`${source.id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`), `${source.id} has no public verification mapping.`);
-}
+assert.match(index, /A living publication/);
+assert.match(index, /It reads to deepen a question/);
+assert.match(index, /Payment opens the boundary\. It does not purchase agreement, authorship, or authority\./);
+assert.match(index, /href="agent\.json"/);
+assert.match(index, /https:\/\/record\.zeropoet\.xyz\//);
+assert.match(index, /The related systems remain independently governed/);
+assert.doesNotMatch(index, /field-canvas|library-shell|observatory-canvas|source-field-rings|living-object/);
+assert.doesNotMatch(index, /Hear this branch|>Listen<|id="reading-listen"/i);
 
-console.log("PASS public input inspection, propagation lineage, and adversarial review are published without requiring repository navigation.");
+assert.match(renderer, /reading\/sequence-52-55\.md/);
+assert.match(renderer, /reading\/state\.json/);
+assert.match(renderer, /content\/attractor-packets\.json/);
+assert.match(renderer, /cultivation\/state\.json/);
+assert.match(renderer, /cache:\s*"no-store"/);
+assert.equal(readingState.branches.length, 5);
+assert.equal(cultivationState.history.length, 226);
+assert.ok(fragments.packets.some((packet) => packet.publication?.status === "published"));
+assert.match(styles, /overflow-x:hidden/);
+assert.match(styles, /@media\(max-width:780px\)/);
+
+console.log("PASS Root Logos publishes reading, questions, fragments, memory, and a bounded agent entrance without restoring the retired visual surface.");
