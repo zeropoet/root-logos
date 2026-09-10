@@ -99,7 +99,8 @@ assert.match(livingPresencePage, /data-source-base="https:\/\/rootlogos\.com\/"/
 assert.match(livingPresencePage, /id="living-object-canvas"/);
 assert.match(livingPresencePage, /src="https:\/\/rootlogos\.com\/living-object\.js/);
 assert.match(livingPresencePage, /data-archive-url="https:\/\/rootlogos\.com\/#top"/);
-assert.match(livingPresencePage, /href="https:\/\/rootlogos\.com\/#top">Return to Root Logos/);
+assert.doesNotMatch(livingPresencePage, /Return to Root Logos/);
+assert.match(livingPresencePage, /root-logos-presence-mark-white\.svg/);
 assert.match(livingPresencePage, /The Living Presence/);
 assert.match(legacyLivingObjectPage, /https:\/\/presence\.zeropoet\.xyz\//);
 assert.doesNotMatch(legacyLivingObjectPage, /id="living-object-canvas"/);
