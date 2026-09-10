@@ -181,7 +181,7 @@ The living system may continue changing slowly. The Living Presence always
 presents its latest state when deliberately opened from the quiet footer link;
 earlier states remain recoverable through repository history until a dedicated
 version archive exists. Its canonical address is
-`https://presence.rootlogos.com/`. The subdomain is a gathered projection of
+`https://presence.zeropoet.xyz/`. The subdomain is a gathered projection of
 this same repository, authority, data, runtime, and voice—not a second product,
 identity, or memory. `https://rootlogos.com/living-object.html` remains only as
 a compatibility redirect from the experience's former public name and address.
@@ -2216,7 +2216,7 @@ node -e "const fs=require('fs'); const g=JSON.parse(fs.readFileSync('content/con
 
 ## Publishing
 
-`rootlogos.com`, `www.rootlogos.com`, `presence.rootlogos.com`, and
+`rootlogos.com`, `www.rootlogos.com`, `presence.zeropoet.xyz`, and
 `runtime.rootlogos.com` are served from the Root Logos Lightsail instance through
 Caddy. GitHub is the off-server source backup and manual recovery surface, not
 the production host or scheduler.

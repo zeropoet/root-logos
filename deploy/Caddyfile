@@ -22,17 +22,19 @@ rootlogos.com, www.rootlogos.com {
   @agent_entry path /agent.json
   header @agent_entry Link "<https://rootlogos.com/assets/root-logos-presence-mark.svg>; rel=\"icon\"; type=\"image/svg+xml\""
 
+  @presence_origin header_regexp Origin ^https://(presence\.rootlogos\.com|presence\.zeropoet\.xyz)$
+  header @presence_origin Access-Control-Allow-Origin "{http.request.header.Origin}"
+  header @presence_origin Vary "Origin"
+
   header {
     Strict-Transport-Security "max-age=31536000; includeSubDomains"
     X-Content-Type-Options "nosniff"
     X-Frame-Options "DENY"
     Referrer-Policy "no-referrer"
-    Access-Control-Allow-Origin "https://presence.rootlogos.com"
-    Vary "Origin"
   }
 }
 
-presence.rootlogos.com {
+presence.rootlogos.com, presence.zeropoet.xyz {
   encode zstd gzip
 
   @presence path /

@@ -92,8 +92,7 @@ assert.ok(
 assert.doesNotMatch(publicIndex, /id="living-object-canvas"/);
 assert.doesNotMatch(publicIndex, /src="living-object\.js/);
 assert.match(publicIndex, /href="agent\.json"/);
-assert.match(publicIndex, /href="https:\/\/telos\.zeropoet\.xyz\/"/);
-assert.match(publicIndex, /href="https:\/\/ovel\.zeropoet\.xyz\/"/);
+assert.doesNotMatch(publicIndex, /href="https:\/\/(?:telos|ovel)\.zeropoet\.xyz\/"/);
 assert.doesNotMatch(publicIndex, /class="footer-system-link"/);
 assert.match(livingPresencePage, /data-living-presence-standalone/);
 assert.match(livingPresencePage, /data-source-base="https:\/\/rootlogos\.com\/"/);
@@ -102,12 +101,13 @@ assert.match(livingPresencePage, /src="https:\/\/rootlogos\.com\/living-object\.
 assert.match(livingPresencePage, /data-archive-url="https:\/\/rootlogos\.com\/#top"/);
 assert.match(livingPresencePage, /href="https:\/\/rootlogos\.com\/#top">Return to Root Logos/);
 assert.match(livingPresencePage, /The Living Presence/);
-assert.match(legacyLivingObjectPage, /https:\/\/presence\.rootlogos\.com\//);
+assert.match(legacyLivingObjectPage, /https:\/\/presence\.zeropoet\.xyz\//);
 assert.doesNotMatch(legacyLivingObjectPage, /id="living-object-canvas"/);
 assert.match(caddyConfig, /presence\.rootlogos\.com/);
 assert.match(caddyConfig, /root \* \/opt\/root-logos/);
 assert.match(caddyConfig, /rewrite \* \/presence\.html/);
-assert.match(caddyConfig, /Access-Control-Allow-Origin "https:\/\/presence\.rootlogos\.com"/);
+assert.match(caddyConfig, /presence\\\.zeropoet\\\.xyz/);
+assert.match(caddyConfig, /Access-Control-Allow-Origin "\{http\.request\.header\.Origin\}"/);
 assert.equal(validated.registry.sources.find(({ id }) => id === "foldportrait").public_url, "https://foldportrait.zeropoet.xyz/");
 const telosWitness = validated.publicWitnesses.find(({ source_id }) => source_id === "telos");
 assert.equal(telosWitness.work_relations.length, 0);

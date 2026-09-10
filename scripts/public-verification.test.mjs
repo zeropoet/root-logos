@@ -21,8 +21,7 @@ assert.match(index, /A living publication/);
 assert.match(index, /It reads to deepen a question/);
 assert.match(index, /Payment opens the boundary\. It does not purchase agreement, authorship, or authority\./);
 assert.match(index, /href="agent\.json"/);
-assert.match(index, /https:\/\/record\.zeropoet\.xyz\//);
-assert.match(index, /The related systems remain independently governed/);
+assert.doesNotMatch(index, /Related systems|The Record \/ sound|Telos \/ system relation|Ovel \/ temporal field|zeropoet \/ studio/i);
 assert.doesNotMatch(index, /field-canvas|library-shell|observatory-canvas|source-field-rings|living-object/);
 assert.doesNotMatch(index, /Hear this branch|>Listen<|id="reading-listen"/i);
 

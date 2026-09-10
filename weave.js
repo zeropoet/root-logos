@@ -1,11 +1,4 @@
 const byId = (id) => document.getElementById(id);
-const fieldDestinations = { ArrowLeft: "https://telos.zeropoet.xyz/", ArrowRight: "https://ovel.zeropoet.xyz/" };
-addEventListener("keydown", (event) => {
-  if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey || event.target.closest("a,button,input,textarea,select,[contenteditable]")) return;
-  if (!fieldDestinations[event.key]) return;
-  event.preventDefault();
-  location.assign(fieldDestinations[event.key]);
-}, true);
 const getJson = async (url) => {
   const response = await fetch(url, { cache: "no-store" });
   if (!response.ok) throw new Error(url + " returned " + response.status);

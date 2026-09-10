@@ -8,12 +8,15 @@
       #living-object-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
       .presence-load-mask { position: absolute; inset: 0; overflow: hidden; background: #000; }
       .presence-load-cascade { width: 100%; height: 100%; }
+      .presence-identity { position: fixed; z-index: 20; top: clamp(10px,3vw,34px); left: clamp(10px,3vw,34px); display: grid; place-items: center; width: 48px; height: 48px; opacity: .34; transition: opacity .2s ease; }
+      .presence-identity:hover, .presence-identity:focus-visible { opacity: 1; }
+      .presence-identity img { display: block; width: 48px; height: 48px; border-radius: 50%; }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Root Logos — Living Presence</title>
     <meta name="description" content="The Living Presence: Root Logos gathered as one visual, relational, and resonant presence.">
     <meta name="theme-color" content="#000000">
-    <link rel="canonical" href="https://presence.rootlogos.com/">
+    <link rel="canonical" href="https://presence.zeropoet.xyz/">
     <link rel="icon" href="https://rootlogos.com/assets/root-logos-presence-mark.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="https://rootlogos.com/assets/root-logos-presence-mark.png">
     <link rel="preconnect" href="https://rootlogos.com" crossorigin>
@@ -22,6 +25,7 @@
   </head>
   <body class="object-open" data-living-presence-standalone data-source-base="https://rootlogos.com/" data-archive-url="https://rootlogos.com/#top">
     <a class="skip-link" href="https://rootlogos.com/#top">Return to Root Logos</a>
+    <a class="presence-identity" href="https://zeropoet.xyz/" aria-label="Return to Zeropoet"><img src="https://rootlogos.com/assets/root-logos-presence-mark.svg" alt=""></a>
 
     <main id="main">
       <section class="object-space" id="object" data-space-name="Presence" aria-labelledby="presence-title">
