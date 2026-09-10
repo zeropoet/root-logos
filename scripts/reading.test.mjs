@@ -17,6 +17,8 @@ assert.deepEqual(policy.sequence, ["question", "selected-reading", "structural-l
 assert.ok(policy.admission.full_ingestion_allowed_when.includes("public-domain"));
 assert.ok(policy.admission.metadata_only_when.includes("copyrighted-without-ingestion-authority"));
 assert.ok(policy.admission.prohibited.some((rule) => rule.includes("living author")));
+assert.match(policy.publication_ethos.declaration, /does not offer ownership/);
+assert.match(policy.publication_ethos.future_work, /refusing possession/);
 
 assert.equal(state.next_branch_sequence, state.branches.length + 1);
 assert.equal(new Set(state.branches.map(({ branch_id }) => branch_id)).size, state.branches.length);
@@ -37,10 +39,14 @@ assert.equal(first.reading.identity, corpus.corpus_id);
 assert.equal(first.provenance.source_witness, corpus.source_witness);
 assert.match(html, /id="current-reading"/);
 assert.match(html, /id="reading-prose"/);
+assert.match(html, /id="reading-voices"/);
+assert.match(html, /id="reading-voice"/);
 assert.match(html, /The questions<br>doing the work\./);
-assert.doesNotMatch(html, /id="reading-listen"/);
 assert.match(script, /const parseReadings/);
 assert.match(script, /const renderReading/);
+assert.match(script, /const renderReadingVoices/);
+assert.match(script, /const playReadingTone/);
+assert.match(sequence, /preservation records continuity, not possession/);
 for (const [number, title] of [
   [52, "The Boundary of the Executable"],
   [53, "The System Cannot Close Itself"],

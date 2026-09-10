@@ -13,6 +13,86 @@ const lineage = {
   54: "Listening after Alfred North Whitehead for the relation between identity, event, and becoming.",
   55: "Listening after Christopher Alexander and collaborators for the relation between recurrent structure and inhabitation."
 };
+const readingBranches = { 52: "RL-READING-0002", 53: "RL-READING-0003", 54: "RL-READING-0004", 55: "RL-READING-0005" };
+let readingState;
+let audioContext;
+let activeTone;
+
+const setToneButtons = (branchId = "") => {
+  document.querySelectorAll("[data-tone-branch]").forEach((button) => {
+    const active = button.dataset.toneBranch === branchId;
+    button.classList.toggle("is-playing", active);
+    button.setAttribute("aria-pressed", String(active));
+    button.textContent = active ? "Stop voice" : (button.id === "reading-voice" ? "Hear this writing’s voice" : "Hear voice");
+  });
+  const status = byId("reading-voice-state");
+  if (status) status.textContent = branchId
+    ? "The voice is sounding from its canonical Reading score."
+    : "The tonal score is derived from this writing’s weighted relational state.";
+};
+
+const stopReadingTone = () => {
+  if (activeTone) {
+    window.clearTimeout(activeTone.timer);
+    activeTone.oscillators.forEach((oscillator) => {
+      try { oscillator.stop(); } catch {}
+    });
+    activeTone = undefined;
+  }
+  setToneButtons();
+};
+
+const playReadingTone = async (branchId) => {
+  if (activeTone?.branchId === branchId) return stopReadingTone();
+  stopReadingTone();
+  const branch = readingState?.branches.find((candidate) => candidate.branch_id === branchId);
+  const score = branch?.experiments?.tonal;
+  if (!score) return;
+  audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+  await audioContext.resume();
+  const now = audioContext.currentTime + 0.04;
+  const master = audioContext.createGain();
+  const compressor = audioContext.createDynamicsCompressor();
+  master.gain.setValueAtTime(0.72, now);
+  master.connect(compressor).connect(audioContext.destination);
+  const oscillators = score.events.map((event, index) => {
+    const oscillator = audioContext.createOscillator();
+    const filter = audioContext.createBiquadFilter();
+    const envelope = audioContext.createGain();
+    const start = now + event.at;
+    const end = start + event.duration;
+    oscillator.type = ["sine", "triangle", "sine"][index % 3];
+    oscillator.frequency.setValueAtTime(score.root_hz * event.ratio * 2, start);
+    filter.type = "lowpass";
+    filter.frequency.setValueAtTime(720 + index * 110, start);
+    envelope.gain.setValueAtTime(0.0001, start);
+    envelope.gain.exponentialRampToValueAtTime(Math.max(0.001, event.amplitude), start + Math.min(0.18, event.duration * 0.22));
+    envelope.gain.exponentialRampToValueAtTime(0.0001, end);
+    oscillator.connect(filter).connect(envelope).connect(master);
+    oscillator.start(start);
+    oscillator.stop(end + 0.03);
+    return oscillator;
+  });
+  const timer = window.setTimeout(() => {
+    if (activeTone?.branchId === branchId) {
+      activeTone = undefined;
+      setToneButtons();
+    }
+  }, (score.duration_seconds + 0.1) * 1000);
+  activeTone = { branchId, oscillators, timer };
+  setToneButtons(branchId);
+};
+
+const bindToneButton = (button) => button.addEventListener("click", () => playReadingTone(button.dataset.toneBranch));
+
+const renderReadingVoices = (state) => {
+  readingState = state;
+  byId("reading-voices").innerHTML = state.branches.map((branch) => {
+    const score = branch.experiments.tonal;
+    return `<li><div><span>${escapeHtml(branch.branch_id)}</span><h4>${escapeHtml(branch.derived_grammar.name)}</h4><p>${escapeHtml(branch.reading.title)}</p></div><div class="voice-provenance"><span>${escapeHtml(score.score_id)}</span><span>${escapeHtml(score.duration_seconds)} seconds · ${escapeHtml(score.events.length)} relations</span><button type="button" data-tone-branch="${escapeHtml(branch.branch_id)}" aria-pressed="false">Hear voice</button></div></li>`;
+  }).join("");
+  document.querySelectorAll("#reading-voices [data-tone-branch]").forEach(bindToneButton);
+};
 
 const parseReadings = (markdown) => {
   const readings = {};
@@ -34,6 +114,9 @@ const renderReading = (reading) => {
   byId("reading-number").textContent = "Work " + reading.number;
   byId("reading-title").textContent = reading.title;
   byId("reading-lineage").textContent = lineage[reading.number];
+  const voiceButton = byId("reading-voice");
+  voiceButton.dataset.toneBranch = readingBranches[reading.number];
+  if (activeTone?.branchId !== voiceButton.dataset.toneBranch) setToneButtons(activeTone?.branchId);
   byId("reading-prose").innerHTML = reading.paragraphs.map((paragraph) => {
     return "<p>" + escapeHtml(paragraph).replace(/\*([^*]+)\*/g, "<em>$1</em>") + "</p>";
   }).join("");
@@ -87,9 +170,11 @@ const init = async () => {
     getJson("cultivation/state.json")
   ]);
   renderQuestions(results[0]);
+  renderReadingVoices(results[0]);
   renderFragments(results[1]);
   renderThinking(results[2]);
   await loadReadings();
+  bindToneButton(byId("reading-voice"));
 };
 
 init().catch((error) => {

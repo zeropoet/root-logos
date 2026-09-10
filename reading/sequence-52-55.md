@@ -180,5 +180,6 @@ The Weaving begins when the entrance can be used.
   for the relation between recurrent structure and inhabitation.
 
 No source passage is reproduced. The named works remain references, not constitutional
-authorities. Works 52–55 are original Root Logos language and may be recorded,
-transformed into sound, visualized, and archived as a connected four-work sequence.
+authorities. Works 52–55 are original Root Logos language. Their writing and tonal
+voices remain attributable public records within a connected four-work sequence;
+preservation records continuity, not possession.
