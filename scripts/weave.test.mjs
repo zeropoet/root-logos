@@ -25,6 +25,8 @@ for (const relation of system.relations) {
 }
 if (!system.nodes.some(node => node.id === "field-notation" && node.status === "preserved")) throw new Error("Field Notation must remain a preserved source");
 if (!system.nodes.some(node => node.id === "telos" && node.kind === "keeper")) throw new Error("Telos keeper boundary is missing");
+if (system.language_method?.sequence?.join("→") !== "reading-and-fragments→foldkernel-weighted-relations→derived-grammar→root-logos-language") throw new Error("Root Logos language method must preserve its causal sequence");
+if (system.language_method?.parallel_product !== "tonal-arrangement" || !system.language_method?.boundary?.includes("not the cause")) throw new Error("Tonal arrangement must remain a parallel product of the weighted state");
 const projectionKinds = new Set(system.relations.filter(relation => relation.from === "living-object").map(relation => relation.kind));
 for (const required of ["participates-through", "perceives-through", "remembers-through", "is-heard-through"]) {
   if (!projectionKinds.has(required)) throw new Error(`Living Object projection missing: ${required}`);
