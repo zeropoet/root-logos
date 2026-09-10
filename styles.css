@@ -406,6 +406,8 @@ body.archive-open #intake { order: 7; }
   position:absolute;
   inset:0;
   z-index:2;
+  display:grid;
+  place-items:center;
   overflow:hidden;
   pointer-events:none;
   background:#000;
@@ -422,10 +424,14 @@ body.archive-open #intake { order: 7; }
   height:min(68vw,680px);
   background:radial-gradient(circle,rgba(255,255,255,.025),rgba(41,119,255,.018) 26%,rgba(255,47,28,.012) 44%,transparent 70%);
   filter:blur(28px);
-  opacity:.74;
+  opacity:.36;
   transform:translate(-50%,-50%);
 }
-.presence-load-cascade { position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%; }
+.presence-load-mark { position:relative;z-index:1;display:block;width:64px;height:64px;animation:presence-breathe 3.2s ease-in-out infinite; }
+@keyframes presence-breathe {
+  0%,100% { opacity:.3;transform:scale(.94); }
+  50% { opacity:.82;transform:scale(1.06); }
+}
 .object-render-ready .presence-load-mask { opacity:0;visibility:hidden; }
 .object-void {
   position:absolute;

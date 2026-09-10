@@ -6,8 +6,10 @@
       html, body, main, .object-space { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
       .object-space { position: relative; }
       #living-object-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-      .presence-load-mask { position: absolute; inset: 0; overflow: hidden; background: #000; }
-      .presence-load-cascade { width: 100%; height: 100%; }
+      .presence-load-mask { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; background: #000; }
+      .presence-load-mark { display: block; width: 64px; height: 64px; animation: presence-breathe 3.2s ease-in-out infinite; }
+      @keyframes presence-breathe { 0%,100% { opacity: .3; transform: scale(.94); } 50% { opacity: .82; transform: scale(1.06); } }
+      @media (prefers-reduced-motion: reduce) { .presence-load-mark { animation: none; opacity: .62; } }
       .presence-identity { position: fixed; z-index: 20; top: clamp(10px,3vw,34px); left: clamp(10px,3vw,34px); display: grid; place-items: center; width: 48px; height: 48px; opacity: .34; transition: opacity .2s ease; }
       .presence-identity:hover, .presence-identity:focus-visible { opacity: 1; }
       .presence-identity img { display: block; width: 48px; height: 48px; object-fit: contain; }
@@ -21,7 +23,7 @@
     <link rel="apple-touch-icon" href="https://rootlogos.com/assets/root-logos-presence-mark.png">
     <link rel="preconnect" href="https://rootlogos.com" crossorigin>
     <link rel="preload" href="https://rootlogos.com/living-object.js?v=2.77-front-face-drag" as="script">
-    <link rel="stylesheet" href="https://rootlogos.com/styles.css?v=2.45-cascade-presence">
+    <link rel="stylesheet" href="https://rootlogos.com/styles.css?v=2.46-breathing-presence">
   </head>
   <body class="object-open" data-living-presence-standalone data-source-base="https://rootlogos.com/" data-archive-url="https://rootlogos.com/#top">
     <a class="presence-identity" href="https://zeropoet.xyz/" aria-label="Return to Zeropoet"><img src="https://rootlogos.com/assets/root-logos-presence-mark-white.svg" alt=""></a>
@@ -30,67 +32,7 @@
       <section class="object-space" id="object" data-space-name="Presence" aria-labelledby="presence-title">
         <canvas id="living-object-canvas" tabindex="0" aria-label="The Living Presence: Root Logos gathered as a rotatable three-dimensional, data-derived form composed from constitutional lineage and completed works."></canvas>
         <div class="object-void" aria-hidden="true"></div>
-        <div class="presence-load-mask" aria-hidden="true"><canvas class="presence-load-cascade"></canvas></div>
-        <script>
-          (() => {
-            const canvas = document.querySelector(".presence-load-cascade");
-            const context = canvas.getContext("2d", { alpha: false });
-            const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-            const branches = [];
-            let seed = 173;
-            const random = () => ((seed = Math.imul(seed, 1664525) + 1013904223 >>> 0) / 4294967296);
-            const spine = Array.from({ length: 24 }, (_, index) => ({ x: 0, y: .78 - index * .027 }));
-            for (let index = 1; index < spine.length; index += 1) branches.push([spine[index - 1], spine[index]]);
-            spine.slice(4).forEach((anchor, index) => {
-              const count = 1 + (index % 3 === 0 ? 2 : 0);
-              for (let branch = 0; branch < count; branch += 1) {
-                const direction = (branch % 2 ? 1 : -1) * (index % 2 ? 1 : -1);
-                const reach = .035 + random() * .115;
-                const joint = { x: anchor.x + direction * reach * .42, y: anchor.y - .014 + (random() - .5) * .035 };
-                const leaf = { x: anchor.x + direction * reach, y: anchor.y - .025 + (random() - .5) * .07 };
-                branches.push([anchor, joint], [joint, leaf]);
-                if (index > 7 && index % 2 === 0) branches.push([leaf, { x: leaf.x + direction * reach * .38, y: leaf.y + (random() - .5) * .055 }]);
-              }
-            });
-            const started = performance.now();
-            const resize = () => {
-              const ratio = Math.min(devicePixelRatio || 1, 1.5);
-              const width = Math.max(1, Math.round(canvas.clientWidth * ratio));
-              const height = Math.max(1, Math.round(canvas.clientHeight * ratio));
-              if (canvas.width !== width || canvas.height !== height) { canvas.width = width; canvas.height = height; }
-              return { width, height };
-            };
-            const frame = (now) => {
-              const { width, height } = resize();
-              context.fillStyle = "#000";
-              context.fillRect(0, 0, width, height);
-              const elapsed = now - started;
-              const progress = reduced ? 1 : Math.min(1, elapsed / 1750);
-              const visible = Math.max(1, Math.floor(branches.length * progress));
-              const scale = Math.min(width, height) * .92;
-              const ox = width * .5;
-              const oy = height * .08;
-              context.lineWidth = Math.max(.65, Math.min(1, devicePixelRatio || 1));
-              context.lineCap = "round";
-              for (let index = 0; index < visible; index += 1) {
-                const [from, to] = branches[index];
-                const wake = Math.max(0, 1 - (visible - index) / 16);
-                const spectral = Math.sin(index * 2.17 + elapsed * .0018);
-                context.strokeStyle = `rgba(${spectral > .45 ? 156 : 235},${spectral < -.45 ? 174 : 235},235,${.1 + wake * .52})`;
-                context.beginPath();
-                context.moveTo(ox + from.x * scale, oy + from.y * scale);
-                context.lineTo(ox + to.x * scale, oy + to.y * scale);
-                context.stroke();
-                if (index === visible - 1 || index % 5 === 0) {
-                  context.fillStyle = `rgba(255,255,255,${.22 + wake * .72})`;
-                  context.fillRect(Math.round(ox + to.x * scale), Math.round(oy + to.y * scale), 1, 1);
-                }
-              }
-              if (!document.body.classList.contains("object-render-ready")) requestAnimationFrame(frame);
-            };
-            requestAnimationFrame(frame);
-          })();
-        </script>
+        <div class="presence-load-mask" aria-hidden="true"><img class="presence-load-mark" src="https://rootlogos.com/assets/root-logos-presence-mark-white.svg" alt=""></div>
         <header class="object-identity">
           <p class="coordinate" data-module="∞">The Living Presence</p>
           <h1 id="presence-title">Root<br>Logos</h1>
