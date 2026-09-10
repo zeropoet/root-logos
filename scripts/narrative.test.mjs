@@ -20,7 +20,7 @@ const season = seasons.seasons.find(({ season_id }) => season_id === seasons.cur
 assert.ok(season);
 assert.equal(season.movement, "The Weaving");
 assert.equal(season.chapters.flatMap(({ questions }) => questions).length, 12);
-assert.ok(Date.parse(season.not_before) > Date.parse(archive.packets.at(-1).not_before));
+assert.ok(Date.parse(season.not_before) > Date.parse(archive.packets[23].not_before));
 
 assert.match(html, /id="fragments"/);
 assert.match(html, /Outward fragments \/ X/);

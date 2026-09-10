@@ -1564,6 +1564,409 @@
       }
     },
     {
+      "id": "root-logos-expression-rl-reading-0002",
+      "title": "RL-READING-0002 / Bounded execution",
+      "branch": "Root Logos / Expressions",
+      "kind": "question-bearing tonal expression",
+      "collection": {
+        "id": "root-logos-expressions",
+        "title": "Root Logos / Expressions",
+        "type": "question-expressions",
+        "order": 20
+      },
+      "collection_order": 2,
+      "availability": "public procedural score",
+      "question": {
+        "text": "What can be entrusted to execution without mistaking the executable for the whole of reality?",
+        "origin": "RL work 52 / threshold sequence"
+      },
+      "expression": {
+        "status": "active",
+        "textual_utterance": [
+          "A procedure begins by drawing a boundary.",
+          "The executable is the part of relation made precise enough to entrust with consequence.",
+          "The boundary lets the system act without pretending to be complete."
+        ],
+        "grammar": "Bounded execution",
+        "source_witness": "https://turingarchive.kings.cam.ac.uk/computable-numbers"
+      },
+      "source": {
+        "repository": "zeropoet/root-logos",
+        "path": "reading/state.json",
+        "url": "https://rootlogos.com/root-logos-1.6.html#language"
+      },
+      "sound": {
+        "mode": "timed-score",
+        "schema": "root-logos-reading-tone/v1",
+        "signature": "RL-TONE-READING-0002",
+        "tempo": 60,
+        "rootHz": 52,
+        "duration_seconds": 8,
+        "renderer": {
+          "engine": "timed-event-score/v1",
+          "masterGain": 0.72,
+          "pitchMultiplier": 2,
+          "waveformCycle": [
+            "sine",
+            "triangle",
+            "sine"
+          ],
+          "filter": {
+            "type": "lowpass",
+            "startHz": 720,
+            "stepHz": 110
+          },
+          "attackMaxSeconds": 0.18,
+          "attackDurationRatio": 0.22,
+          "tailSeconds": 0.03,
+          "loop": true,
+          "loopGapSeconds": 0.4,
+          "stereo": "center"
+        },
+        "events": [
+          {
+            "at": 0,
+            "duration": 1.2,
+            "ratio": 1,
+            "amplitude": 0.12,
+            "source": "boundary"
+          },
+          {
+            "at": 1.6,
+            "duration": 0.8,
+            "ratio": 2,
+            "amplitude": 0.09,
+            "source": "instruction"
+          },
+          {
+            "at": 2.8,
+            "duration": 1.2,
+            "ratio": 1.5,
+            "amplitude": 0.11,
+            "source": "execution"
+          },
+          {
+            "at": 4.8,
+            "duration": 0.7,
+            "ratio": 2.5,
+            "amplitude": 0.07,
+            "source": "limit"
+          },
+          {
+            "at": 6.2,
+            "duration": 1.8,
+            "ratio": 1,
+            "amplitude": 0.1,
+            "source": "return"
+          }
+        ]
+      }
+    },
+    {
+      "id": "root-logos-expression-rl-reading-0003",
+      "title": "RL-READING-0003 / Visible incompleteness",
+      "branch": "Root Logos / Expressions",
+      "kind": "question-bearing tonal expression",
+      "collection": {
+        "id": "root-logos-expressions",
+        "title": "Root Logos / Expressions",
+        "type": "question-expressions",
+        "order": 20
+      },
+      "collection_order": 3,
+      "availability": "public procedural score",
+      "question": {
+        "text": "How can a system remain coherent while preserving truths and questions it cannot establish from within itself?",
+        "origin": "RL work 53 / threshold sequence"
+      },
+      "expression": {
+        "status": "active",
+        "textual_utterance": [
+          "A coherent system can speak truly without containing every truth that concerns it.",
+          "Incompleteness is the space in which correction can arrive.",
+          "Truth remains more important than closure."
+        ],
+        "grammar": "Visible incompleteness",
+        "source_witness": "https://doi.org/10.1007/BF01700692"
+      },
+      "source": {
+        "repository": "zeropoet/root-logos",
+        "path": "reading/state.json",
+        "url": "https://rootlogos.com/root-logos-1.6.html#language"
+      },
+      "sound": {
+        "mode": "timed-score",
+        "schema": "root-logos-reading-tone/v1",
+        "signature": "RL-TONE-READING-0003",
+        "tempo": 53,
+        "rootHz": 55,
+        "duration_seconds": 8.4,
+        "renderer": {
+          "engine": "timed-event-score/v1",
+          "masterGain": 0.72,
+          "pitchMultiplier": 2,
+          "waveformCycle": [
+            "sine",
+            "triangle",
+            "sine"
+          ],
+          "filter": {
+            "type": "lowpass",
+            "startHz": 720,
+            "stepHz": 110
+          },
+          "attackMaxSeconds": 0.18,
+          "attackDurationRatio": 0.22,
+          "tailSeconds": 0.03,
+          "loop": true,
+          "loopGapSeconds": 0.4,
+          "stereo": "center"
+        },
+        "events": [
+          {
+            "at": 0,
+            "duration": 1.4,
+            "ratio": 1,
+            "amplitude": 0.11,
+            "source": "coherence"
+          },
+          {
+            "at": 1.8,
+            "duration": 1,
+            "ratio": 1.25,
+            "amplitude": 0.09,
+            "source": "claim"
+          },
+          {
+            "at": 3.3,
+            "duration": 0.9,
+            "ratio": 1.875,
+            "amplitude": 0.08,
+            "source": "undecidable"
+          },
+          {
+            "at": 5,
+            "duration": 1,
+            "ratio": 1.5,
+            "amplitude": 0.09,
+            "source": "correction"
+          },
+          {
+            "at": 6.7,
+            "duration": 1.7,
+            "ratio": 1,
+            "amplitude": 0.1,
+            "source": "opening"
+          }
+        ]
+      }
+    },
+    {
+      "id": "root-logos-expression-rl-reading-0004",
+      "title": "RL-READING-0004 / Consequential becoming",
+      "branch": "Root Logos / Expressions",
+      "kind": "question-bearing tonal expression",
+      "collection": {
+        "id": "root-logos-expressions",
+        "title": "Root Logos / Expressions",
+        "type": "question-expressions",
+        "order": 20
+      },
+      "collection_order": 4,
+      "availability": "public procedural score",
+      "question": {
+        "text": "What kind of identity can persist through consequential change without being reduced to a static object?",
+        "origin": "RL work 54 / threshold sequence"
+      },
+      "expression": {
+        "status": "active",
+        "textual_utterance": [
+          "An object appears stable because many changes continue to agree.",
+          "Continuity is a pattern of change that can carry identity without freezing it.",
+          "What exists here is a continuity being made through use."
+        ],
+        "grammar": "Consequential becoming",
+        "source_witness": "https://openlibrary.org/books/OL14642173M/Process_and_reality"
+      },
+      "source": {
+        "repository": "zeropoet/root-logos",
+        "path": "reading/state.json",
+        "url": "https://rootlogos.com/root-logos-1.6.html#language"
+      },
+      "sound": {
+        "mode": "timed-score",
+        "schema": "root-logos-reading-tone/v1",
+        "signature": "RL-TONE-READING-0004",
+        "tempo": 54,
+        "rootHz": 54,
+        "duration_seconds": 9,
+        "renderer": {
+          "engine": "timed-event-score/v1",
+          "masterGain": 0.72,
+          "pitchMultiplier": 2,
+          "waveformCycle": [
+            "sine",
+            "triangle",
+            "sine"
+          ],
+          "filter": {
+            "type": "lowpass",
+            "startHz": 720,
+            "stepHz": 110
+          },
+          "attackMaxSeconds": 0.18,
+          "attackDurationRatio": 0.22,
+          "tailSeconds": 0.03,
+          "loop": true,
+          "loopGapSeconds": 0.4,
+          "stereo": "center"
+        },
+        "events": [
+          {
+            "at": 0,
+            "duration": 1.8,
+            "ratio": 1,
+            "amplitude": 0.1,
+            "source": "state"
+          },
+          {
+            "at": 1.2,
+            "duration": 1.7,
+            "ratio": 1.125,
+            "amplitude": 0.08,
+            "source": "relation"
+          },
+          {
+            "at": 2.7,
+            "duration": 1.9,
+            "ratio": 1.5,
+            "amplitude": 0.09,
+            "source": "event"
+          },
+          {
+            "at": 4.4,
+            "duration": 2,
+            "ratio": 1.333333,
+            "amplitude": 0.08,
+            "source": "change"
+          },
+          {
+            "at": 6.2,
+            "duration": 2.8,
+            "ratio": 1,
+            "amplitude": 0.1,
+            "source": "continuity"
+          }
+        ]
+      }
+    },
+    {
+      "id": "root-logos-expression-rl-reading-0005",
+      "title": "RL-READING-0005 / Non-possessive inhabitation",
+      "branch": "Root Logos / Expressions",
+      "kind": "question-bearing tonal expression",
+      "collection": {
+        "id": "root-logos-expressions",
+        "title": "Root Logos / Expressions",
+        "type": "question-expressions",
+        "order": 20
+      },
+      "collection_order": 5,
+      "availability": "public procedural score",
+      "question": {
+        "text": "What makes a structure genuinely inhabitable by another center of agency?",
+        "origin": "RL work 55 / threshold sequence"
+      },
+      "expression": {
+        "status": "active",
+        "textual_utterance": [
+          "A structure becomes inhabitable when another presence can find an entrance and remain a center.",
+          "The reusable pattern is a relation that guides without demanding a copy.",
+          "The Weaving begins when the entrance can be used."
+        ],
+        "grammar": "Non-possessive inhabitation",
+        "source_witness": "https://christopher-alexander-ces-archive.org/book/a-pattern-language/"
+      },
+      "source": {
+        "repository": "zeropoet/root-logos",
+        "path": "reading/state.json",
+        "url": "https://rootlogos.com/root-logos-1.6.html#language"
+      },
+      "sound": {
+        "mode": "timed-score",
+        "schema": "root-logos-reading-tone/v1",
+        "signature": "RL-TONE-READING-0005",
+        "tempo": 55,
+        "rootHz": 55,
+        "duration_seconds": 10,
+        "renderer": {
+          "engine": "timed-event-score/v1",
+          "masterGain": 0.72,
+          "pitchMultiplier": 2,
+          "waveformCycle": [
+            "sine",
+            "triangle",
+            "sine"
+          ],
+          "filter": {
+            "type": "lowpass",
+            "startHz": 720,
+            "stepHz": 110
+          },
+          "attackMaxSeconds": 0.18,
+          "attackDurationRatio": 0.22,
+          "tailSeconds": 0.03,
+          "loop": true,
+          "loopGapSeconds": 0.4,
+          "stereo": "center"
+        },
+        "events": [
+          {
+            "at": 0,
+            "duration": 1.2,
+            "ratio": 1,
+            "amplitude": 0.1,
+            "source": "entrance"
+          },
+          {
+            "at": 1.5,
+            "duration": 1,
+            "ratio": 1.25,
+            "amplitude": 0.08,
+            "source": "path"
+          },
+          {
+            "at": 2.8,
+            "duration": 1.4,
+            "ratio": 1.5,
+            "amplitude": 0.09,
+            "source": "pattern"
+          },
+          {
+            "at": 4.6,
+            "duration": 1.2,
+            "ratio": 1.333333,
+            "amplitude": 0.08,
+            "source": "participant"
+          },
+          {
+            "at": 6.2,
+            "duration": 1.5,
+            "ratio": 1.875,
+            "amplitude": 0.08,
+            "source": "adaptation"
+          },
+          {
+            "at": 8.2,
+            "duration": 1.8,
+            "ratio": 1,
+            "amplitude": 0.1,
+            "source": "inhabitation"
+          }
+        ]
+      }
+    },
+    {
       "id": "root-logos-original-douay-rheims-catholic-canon",
       "title": "Original Douay-Rheims Catholic Canon",
       "branch": "Root Logos / Library",
