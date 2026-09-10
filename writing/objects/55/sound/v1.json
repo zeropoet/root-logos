@@ -1,0 +1,68 @@
+{
+  "schema": "root-logos-writing-sound/v1",
+  "work_number": 55,
+  "branch_id": "RL-READING-0005",
+  "score": {
+    "score_id": "RL-TONE-READING-0005",
+    "duration_seconds": 10,
+    "tempo": 55,
+    "root_hz": 55,
+    "events": [
+      {
+        "at": 0,
+        "duration": 1.2,
+        "ratio": 1,
+        "amplitude": 0.1,
+        "source": "entrance"
+      },
+      {
+        "at": 1.5,
+        "duration": 1,
+        "ratio": 1.25,
+        "amplitude": 0.08,
+        "source": "path"
+      },
+      {
+        "at": 2.8,
+        "duration": 1.4,
+        "ratio": 1.5,
+        "amplitude": 0.09,
+        "source": "pattern"
+      },
+      {
+        "at": 4.6,
+        "duration": 1.2,
+        "ratio": 1.333333,
+        "amplitude": 0.08,
+        "source": "participant"
+      },
+      {
+        "at": 6.2,
+        "duration": 1.5,
+        "ratio": 1.875,
+        "amplitude": 0.08,
+        "source": "adaptation"
+      },
+      {
+        "at": 8.2,
+        "duration": 1.8,
+        "ratio": 1,
+        "amplitude": 0.1,
+        "source": "inhabitation"
+      }
+    ],
+    "silence": [
+      "1.20–1.50",
+      "2.50–2.80",
+      "4.20–4.60",
+      "5.80–6.20",
+      "7.70–8.20"
+    ],
+    "provenance": "Derived from the non-possessive-inhabitation grammar; deterministic for this score revision."
+  },
+  "renderer": {
+    "engine": "root-logos-reading-tone/v1",
+    "stereo": "center"
+  },
+  "evolution_boundary": "The canonical initial tone remains witnessed; later sound states are append-only and need not alter geometry."
+}

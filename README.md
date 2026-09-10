@@ -69,6 +69,37 @@ may deepen Root Logos without becoming its authority, disappearing into an
 unattributed synthesis, or being used to imitate a living author. The public
 contract and first active branch live in [`reading/`](reading/README.md).
 
+## Writing objects and optional receipts
+
+Root Logos writings may now resolve as durable living objects without depending
+on a token or owner. The writing creates a deterministic three-dimensional point
+cloud from its language and canonical tonal score. Its geometry and sound retain
+separate append-only version histories, while each object also contributes an
+addressable position to the accumulating shared writing body.
+
+An Ethereum mint, when deliberately made, is a receipt for the first observable
+frame. It fixes what entered, when, and through which witnesses; it does not own,
+freeze, or operate the writing. A collector may therefore buy the receipt while
+Root Logos continues to read the writing, evolve its geometry, and revise its
+sound under public version history. Reading and playback never require ownership.
+
+The initial sequence is generated from works 52–55:
+
+```sh
+npm run writing:objects
+npm run writing:check-objects
+```
+
+[`writing/objects/index.json`](writing/objects/index.json) is the numbered public
+registry. Each `writing/objects/NN/` directory separates `receipt/`, `geometry/`,
+`sound/`, `current.json`, and `versions.json`. The receipt remains explicitly
+`unminted` until a real contract, token ID, and transaction witness exist.
+
+`writing/object.html?work=52` resolves an individual living object by following
+its current geometry and sound pointers. `writing/object.html?body=shared`
+renders the larger writing body without collapsing the addressability of the
+works inside it.
+
 ## Telos relation
 
 Telos is the final caretaker, keeper, cross-system interpreter, and digital

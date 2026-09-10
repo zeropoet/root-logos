@@ -1,0 +1,60 @@
+{
+  "schema": "root-logos-writing-sound/v1",
+  "work_number": 53,
+  "branch_id": "RL-READING-0003",
+  "score": {
+    "score_id": "RL-TONE-READING-0003",
+    "duration_seconds": 8.4,
+    "tempo": 53,
+    "root_hz": 55,
+    "events": [
+      {
+        "at": 0,
+        "duration": 1.4,
+        "ratio": 1,
+        "amplitude": 0.11,
+        "source": "coherence"
+      },
+      {
+        "at": 1.8,
+        "duration": 1,
+        "ratio": 1.25,
+        "amplitude": 0.09,
+        "source": "claim"
+      },
+      {
+        "at": 3.3,
+        "duration": 0.9,
+        "ratio": 1.875,
+        "amplitude": 0.08,
+        "source": "undecidable"
+      },
+      {
+        "at": 5,
+        "duration": 1,
+        "ratio": 1.5,
+        "amplitude": 0.09,
+        "source": "correction"
+      },
+      {
+        "at": 6.7,
+        "duration": 1.7,
+        "ratio": 1,
+        "amplitude": 0.1,
+        "source": "opening"
+      }
+    ],
+    "silence": [
+      "1.40–1.80",
+      "2.80–3.30",
+      "4.20–5.00",
+      "6.00–6.70"
+    ],
+    "provenance": "Derived from the visible-incompleteness grammar; deterministic for this score revision."
+  },
+  "renderer": {
+    "engine": "root-logos-reading-tone/v1",
+    "stereo": "center"
+  },
+  "evolution_boundary": "The canonical initial tone remains witnessed; later sound states are append-only and need not alter geometry."
+}

@@ -15,6 +15,7 @@ const lineage = {
 };
 const readingBranches = { 52: "RL-READING-0002", 53: "RL-READING-0003", 54: "RL-READING-0004", 55: "RL-READING-0005" };
 let readingState;
+let readingDocuments = {};
 let audioContext;
 let activeTone;
 
@@ -116,10 +117,42 @@ const renderReading = (reading) => {
   });
 };
 
+const setWritingView = (view) => {
+  const showGrid = view === "grid";
+  byId("writing-reading-view").hidden = showGrid;
+  byId("writing-grid-view").hidden = !showGrid;
+  document.querySelectorAll("[data-writing-view]").forEach((button) => {
+    const active = button.dataset.writingView === view;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+};
+
+const renderWritingGrid = (registry) => {
+  const grid = byId("writing-grid-view");
+  grid.innerHTML = registry.works.map((work) => `
+    <article class="writing-grid-card">
+      <button type="button" data-grid-reading="${escapeHtml(work.work_number)}" aria-label="Read work ${escapeHtml(work.work_number)}, ${escapeHtml(work.title)}">
+        <span class="writing-grid-frame"><img src="${escapeHtml(work.first_frame)}" alt="Root Logos work ${escapeHtml(work.work_number)} first-frame point cloud"></span>
+        <span class="writing-grid-meta"><i>${String(work.work_number).padStart(2, "0")}</i><b>${escapeHtml(work.title)}</b></span>
+        <span class="writing-grid-state">${escapeHtml(work.mint_status === "unminted" ? "Unminted receipt" : work.mint_status)} · ${escapeHtml(work.point_count)} points</span>
+      </button>
+      <div class="writing-grid-links"><a href="${escapeHtml(work.viewer)}">Living object ↗</a><a href="${escapeHtml(work.receipt)}">Receipt ↗</a></div>
+    </article>`).join("");
+  grid.querySelectorAll("[data-grid-reading]").forEach((button) => {
+    button.addEventListener("click", () => {
+      renderReading(readingDocuments[button.dataset.gridReading]);
+      setWritingView("reading");
+      byId("reading-room-title").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+};
+
 const loadReadings = async () => {
   const response = await fetch("reading/sequence-52-55.md", { cache: "no-store" });
   if (!response.ok) throw new Error("The current reading could not be resolved.");
   const readings = parseReadings(await response.text());
+  readingDocuments = readings;
   renderReading(readings["52"]);
   document.querySelectorAll("[data-reading]").forEach((button) => {
     button.addEventListener("click", () => renderReading(readings[button.dataset.reading]));
@@ -158,14 +191,19 @@ const init = async () => {
   const results = await Promise.all([
     getJson("reading/state.json"),
     getJson("content/attractor-packets.json"),
-    getJson("cultivation/state.json")
+    getJson("cultivation/state.json"),
+    getJson("writing/objects/index.json")
   ]);
   readingState = results[0];
   renderQuestions(results[0]);
   renderFragments(results[1]);
   renderThinking(results[2]);
   await loadReadings();
+  renderWritingGrid(results[3]);
   bindToneButton(byId("reading-voice"));
+  document.querySelectorAll("[data-writing-view]").forEach((button) => {
+    button.addEventListener("click", () => setWritingView(button.dataset.writingView));
+  });
 };
 
 init().catch((error) => {

@@ -14,8 +14,8 @@
   <link rel="icon" href="assets/root-logos-mark.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="alternate" type="application/json" href="agent.json" title="Root Logos machine entrance">
-  <link rel="stylesheet" href="weave.css?v=2.0.5">
-  <script type="module" src="weave.js?v=2.1.1"></script>
+  <link rel="stylesheet" href="weave.css?v=2.1.0">
+  <script type="module" src="weave.js?v=2.2.0"></script>
 </head>
 <body>
   <a class="skip-link" href="#current-reading">Go to the current reading</a>
@@ -60,7 +60,14 @@
           <p>Four unresolved positions become one movement. These are not reproductions of formative texts. They are original Root Logos responses with their intellectual lineage kept visible.</p>
         </div>
       </header>
-      <div class="reading-layout">
+      <div class="writing-view-bar">
+        <p>The first frame may become a receipt. The writing, living geometry, and evolving sound remain readable and independently versioned whether or not it is owned.</p>
+        <div class="writing-view-switch" role="group" aria-label="Writing view">
+          <button type="button" class="is-active" data-writing-view="reading" aria-pressed="true">Reading</button>
+          <button type="button" data-writing-view="grid" aria-pressed="false">Grid</button>
+        </div>
+      </div>
+      <div class="reading-layout" id="writing-reading-view">
         <nav class="reading-index" aria-label="Threshold readings">
           <button type="button" class="is-active" data-reading="52"><span>52</span><b>The Boundary of the Executable</b><i>Execution</i></button>
           <button type="button" data-reading="53"><span>53</span><b>The System Cannot Close Itself</b><i>Incompleteness</i></button>
@@ -80,6 +87,10 @@
           </footer>
         </article>
       </div>
+      <div class="writing-grid" id="writing-grid-view" hidden aria-live="polite">
+        <p class="loading">Resolving the writing objects.</p>
+      </div>
+      <a class="shared-writing-link" href="writing/object.html?body=shared">Enter the shared writing body ↗</a>
     </section>
 
     <section id="questions" aria-labelledby="questions-title">
