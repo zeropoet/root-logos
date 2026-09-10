@@ -100,6 +100,15 @@ its current geometry and sound pointers. `writing/object.html?body=shared`
 renders the larger writing body without collapsing the addressability of the
 works inside it.
 
+The shared body is a navigable spherical sound record. Root Logos interprets
+its witnessed FoldKernel projection as a reproducible application weight:
+60% semantic similarity, 30% tonal affinity, and 10% sequence adjacency.
+Those weights determine the proximity of writing regions. A visitor's position
+inside the body continuously mixes the current canonical voices of the nearest
+regions; the mix remains centered rather than using stereo imbalance as a
+navigation cue. This interpretation is owned by Root Logos and does not claim
+that FoldKernel itself assigns semantic meaning.
+
 ## Telos relation
 
 Telos is the final caretaker, keeper, cross-system interpreter, and digital
