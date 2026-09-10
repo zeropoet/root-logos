@@ -28,6 +28,14 @@ relation, and cultural work. Direct source records remain available for
 verification, and neither the studio sources nor Telos become Root Logos's
 constitutional authority.
 
+## Root Logos 2.0 — The Weaving
+
+Version `2.0.0` marks the point at which Root Logos no longer presents
+FoldKernel as an adjacent mechanism: its public publication fulfills the kernel
+through attributable reading, questioning, writing, memory, refusal, and
+accountable participation. The earlier `1.6` chamber experience remains a
+historical stage; the present surface is the living publication it enabled.
+
 ## Narrative and Language Chambers
 
 Version `1.6.0` organizes the public experience as seven legible chambers:
