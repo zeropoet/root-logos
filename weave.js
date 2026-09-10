@@ -85,15 +85,6 @@ const playReadingTone = async (branchId) => {
 
 const bindToneButton = (button) => button.addEventListener("click", () => playReadingTone(button.dataset.toneBranch));
 
-const renderReadingVoices = (state) => {
-  readingState = state;
-  byId("reading-voices").innerHTML = state.branches.map((branch) => {
-    const score = branch.experiments.tonal;
-    return `<li><div><span>${escapeHtml(branch.branch_id)}</span><h4>${escapeHtml(branch.derived_grammar.name)}</h4><p>${escapeHtml(branch.reading.title)}</p></div><div class="voice-provenance"><span>${escapeHtml(score.score_id)}</span><span>${escapeHtml(score.duration_seconds)} seconds · ${escapeHtml(score.events.length)} relations</span><button type="button" data-tone-branch="${escapeHtml(branch.branch_id)}" aria-pressed="false">Hear voice</button></div></li>`;
-  }).join("");
-  document.querySelectorAll("#reading-voices [data-tone-branch]").forEach(bindToneButton);
-};
-
 const parseReadings = (markdown) => {
   const readings = {};
   markdown.split(/\n## (?=\d{2} — )/).slice(1).forEach((block) => {
@@ -169,8 +160,8 @@ const init = async () => {
     getJson("content/attractor-packets.json"),
     getJson("cultivation/state.json")
   ]);
+  readingState = results[0];
   renderQuestions(results[0]);
-  renderReadingVoices(results[0]);
   renderFragments(results[1]);
   renderThinking(results[2]);
   await loadReadings();

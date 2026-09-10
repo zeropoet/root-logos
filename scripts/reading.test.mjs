@@ -39,12 +39,11 @@ assert.equal(first.reading.identity, corpus.corpus_id);
 assert.equal(first.provenance.source_witness, corpus.source_witness);
 assert.match(html, /id="current-reading"/);
 assert.match(html, /id="reading-prose"/);
-assert.match(html, /id="reading-voices"/);
 assert.match(html, /id="reading-voice"/);
+assert.doesNotMatch(html, /id="reading-voices"/);
 assert.match(html, /The questions<br>doing the work\./);
 assert.match(script, /const parseReadings/);
 assert.match(script, /const renderReading/);
-assert.match(script, /const renderReadingVoices/);
 assert.match(script, /const playReadingTone/);
 assert.match(sequence, /preservation records continuity, not possession/);
 for (const [number, title] of [
