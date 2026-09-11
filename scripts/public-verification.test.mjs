@@ -17,6 +17,7 @@ assert.match(index, /awaiting the next relation/);
 assert.ok(index.indexOf("awaiting the next relation") < index.indexOf('id="writing-stream"'), "The live prompt must precede the newest writing");
 assert.match(index, /href="agent\.json"/);
 assert.match(index, /href="https:\/\/folio\.rootlogos\.com\/"/);
+assert.match(index, /href="https:\/\/x\.com\/rootlogos"/);
 assert.doesNotMatch(index, /Related systems|The Record \/ sound|Telos \/ system relation|Ovel \/ temporal field|zeropoet \/ studio/i);
 assert.doesNotMatch(index, /field-canvas|library-shell|observatory-canvas|source-field-rings|living-object/);
 assert.doesNotMatch(index, /Hear this branch|>Listen<|id="reading-listen"/i);
