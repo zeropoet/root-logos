@@ -11,30 +11,27 @@ const [index, renderer, styles, readingState, cultivationState, fragments] = awa
   read("content/attractor-packets.json").then(JSON.parse)
 ]);
 
-const publicOrder = ["current-reading", "questions", "fragments", "memory"].map((id) => index.indexOf('id="' + id + '"'));
-assert.deepEqual([...publicOrder].sort((a, b) => a - b), publicOrder);
-for (const id of ["reading-prose", "question-list", "fragment-list", "branch-count", "cycle-count", "thinking-state"]) {
-  assert.match(index, new RegExp('id="' + id + '"'));
-}
-
-assert.match(index, /A living publication/);
-assert.match(index, /It reads to deepen a question/);
-assert.match(index, /Payment opens the boundary\. It does not purchase agreement, authorship, or authority\./);
+assert.match(index, /id="writing-stream"/);
+assert.match(index, /id="stream-state"/);
+assert.match(index, /awaiting the next relation/);
 assert.match(index, /href="agent\.json"/);
+assert.match(index, /href="https:\/\/folio\.rootlogos\.com\/"/);
 assert.doesNotMatch(index, /Related systems|The Record \/ sound|Telos \/ system relation|Ovel \/ temporal field|zeropoet \/ studio/i);
 assert.doesNotMatch(index, /field-canvas|library-shell|observatory-canvas|source-field-rings|living-object/);
 assert.doesNotMatch(index, /Hear this branch|>Listen<|id="reading-listen"/i);
+assert.doesNotMatch(index, /id="(?:questions|fragments|memory)"/);
 
-assert.match(renderer, /reading\/sequence-52-55\.md/);
-assert.match(renderer, /reading\/state\.json/);
-assert.match(renderer, /content\/attractor-packets\.json/);
-assert.match(renderer, /cultivation\/state\.json/);
+assert.match(renderer, /writing\/objects\/index\.json/);
+assert.match(renderer, /books\/catalog\.json/);
+assert.match(renderer, /work\.current/);
+assert.match(renderer, /aria-expanded/);
+assert.match(renderer, /Read in Folio/);
 assert.match(renderer, /cache:\s*"no-store"/);
 assert.equal(readingState.branches.length, 5);
 assert.ok(cultivationState.history.length >= 228);
 assert.equal(Number(cultivationState.history.at(-1).cultivation_id.split("-").at(-1)), cultivationState.history.length);
 assert.ok(fragments.packets.some((packet) => packet.publication?.status === "published"));
 assert.match(styles, /overflow-x:hidden/);
-assert.match(styles, /@media\(max-width:780px\)/);
+assert.match(styles, /@media\(max-width:720px\)/);
 
-console.log("PASS Root Logos publishes reading, questions, fragments, memory, and a bounded agent entrance without restoring the retired visual surface.");
+console.log("PASS Root Logos publishes one uninterrupted writing stream, delegates durable reading to Folio, and retains a bounded agent entrance.");

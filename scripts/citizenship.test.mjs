@@ -45,13 +45,14 @@ for (const [from, to, type] of [
 
 assert.equal(cultivation.constitutional_revision, "v1.4");
 assert.ok(cultivation.lenses.some(({ id }) => id === "constitutional-citizenship-pressure"));
-assert.ok(index.indexOf('id="current-reading"') < index.indexOf('id="memory"'));
+assert.match(index, /id="writing-stream"/);
 assert.match(index, /href="agent\.json"/);
-assert.match(index, /Human and machine participants may bring questions and evidence through the same declared entrance/);
-assert.match(index, /Payment opens the boundary\. It does not purchase agreement, authorship, or authority\./);
-assert.match(renderer, /const renderQuestions/);
+assert.match(index, /https:\/\/folio\.rootlogos\.com/);
+assert.doesNotMatch(index, /Human and machine participants may bring questions and evidence through the same declared entrance/);
+assert.match(renderer, /writing\/objects\/index\.json/);
+assert.match(renderer, /aria-expanded/);
 assert.match(participation, /constitutional citizenship, not legal citizenship/i);
 assert.match(principle, /Citizenship is therefore enacted rather than owned/);
 assert.match(readme, /Revision 1\.4 — The Living Coordinate/);
 
-console.log("Root Logos Revision 1.4 preserves constitutional citizenship while the public surface delegates entry to the bounded agent protocol.");
+console.log("Root Logos preserves constitutional citizenship while its lean public stream delegates machine entry and archival reading.");

@@ -85,10 +85,8 @@ assert.equal(validated.registry.sources.find(({ id }) => id === "telos").public_
 assert.equal(validated.registry.sources.find(({ id }) => id === "sovereign-standard").public_url, "https://sovereignstandard.co");
 assert.doesNotMatch(publicIndex, /sovereignstandard\.co\/purchase\.html/);
 assert.match(publicIndex, /<main id="top">/);
-assert.ok(
-  publicIndex.indexOf('id="current-reading"') < publicIndex.indexOf('id="memory"'),
-  "Every homepage must place the current reading before the accumulated memory."
-);
+assert.match(publicIndex, /id="writing-stream"/, "The homepage must publish the continuous writing stream.");
+assert.match(publicIndex, /https:\/\/folio\.rootlogos\.com\//, "The homepage must delegate durable reading to Folio.");
 assert.doesNotMatch(publicIndex, /id="living-object-canvas"/);
 assert.doesNotMatch(publicIndex, /src="living-object\.js/);
 assert.match(publicIndex, /href="agent\.json"/);

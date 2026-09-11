@@ -37,14 +37,12 @@ for (const branch of state.branches) {
 const first = state.branches[0];
 assert.equal(first.reading.identity, corpus.corpus_id);
 assert.equal(first.provenance.source_witness, corpus.source_witness);
-assert.match(html, /id="current-reading"/);
-assert.match(html, /id="reading-prose"/);
-assert.match(html, /id="reading-voice"/);
-assert.doesNotMatch(html, /id="reading-voices"/);
-assert.match(html, /The questions<br>doing the work\./);
-assert.match(script, /const parseReadings/);
-assert.match(script, /const renderReading/);
-assert.match(script, /const playReadingTone/);
+assert.match(html, /id="writing-stream"/);
+assert.match(html, /https:\/\/folio\.rootlogos\.com\//);
+assert.doesNotMatch(html, /id="reading-voices?"/);
+assert.match(script, /const parseWriting/);
+assert.match(script, /const renderStream/);
+assert.match(script, /writing\/objects\/index\.json/);
 assert.match(sequence, /preservation records continuity, not possession/);
 for (const [number, title] of [
   [52, "The Boundary of the Executable"],

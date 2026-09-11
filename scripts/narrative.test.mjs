@@ -22,10 +22,9 @@ assert.equal(season.movement, "The Weaving");
 assert.equal(season.chapters.flatMap(({ questions }) => questions).length, 12);
 assert.ok(Date.parse(season.not_before) > Date.parse(archive.packets[23].not_before));
 
-assert.match(html, /id="fragments"/);
-assert.match(html, /Outward fragments \/ X/);
-assert.match(html, /Each becomes prior memory for what follows/);
-assert.match(renderer, /publication\?\.status === "published"/);
-assert.match(renderer, /\.slice\(-8\)\.reverse\(\)/);
+assert.match(html, /id="writing-stream"/);
+assert.doesNotMatch(html, /id="fragments"/);
+assert.match(renderer, /writing\/objects\/index\.json/);
+assert.match(renderer, /\.slice\(\)\.reverse\(\)/);
 
-console.log("Root Logos narrative policy and the Weaving-era fragment surface are coherent.");
+console.log("Root Logos narrative policy remains coherent beneath the uninterrupted writing surface.");
