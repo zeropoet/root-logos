@@ -128,10 +128,8 @@ const writeOrCheck = async (path, value) => {
 };
 
 const readingState = JSON.parse(await readFile(join(root, "reading", "state.json"), "utf8"));
-const foldKernelProjection = JSON.parse(await readFile(join(root, "content", "foldkernel-projection.json"), "utf8"));
 const readings = parseReadings(await readFile(join(root, "reading", "sequence-52-55.md"), "utf8"));
 const records = [];
-const bodies = [];
 
 for (const number of numbers) {
   const reading = readings[number];
@@ -149,17 +147,34 @@ for (const number of numbers) {
   };
   const soundContent = canonical(sound);
   const frame = renderFirstFrame(geometry);
+  const base = join(outputRoot, String(number));
+  await writeOrCheck(join(base, "receipt", `RL-Writings-${number}.svg`), frame);
+  const mintImagePath = join(base, "receipt", `RL-Writings-${number}.jpg`);
+  const mintImage = await readFile(mintImagePath).catch(() => {
+    throw new Error(`Missing JPEG mint companion: ${mintImagePath}`);
+  });
   const writingWitness = sha256(`${reading.title}\n${reading.prose.join("\n\n")}`);
   const geometryWitness = sha256(geometryContent);
   const soundWitness = sha256(soundContent);
   const frameWitness = sha256(frame);
-  const base = join(outputRoot, String(number));
   const receipt = {
     schema: "root-logos-writing-receipt/v1",
     work_number: number,
     title: reading.title,
     mint: { status: "unminted", token_id: null, contract: null, transaction: null },
-    first_frame: { path: `writing/objects/${number}/receipt/RL-Writings-${number}.svg`, sha256: frameWitness, width: 1200, height: 1200 },
+    first_frame: {
+      path: `writing/objects/${number}/receipt/RL-Writings-${number}.svg`,
+      sha256: frameWitness,
+      width: 1200,
+      height: 1200,
+      mint_image: {
+        path: `writing/objects/${number}/receipt/RL-Writings-${number}.jpg`,
+        sha256: sha256(mintImage),
+        width: 1200,
+        height: 1200,
+        media_type: "image/jpeg"
+      }
+    },
     witnesses: { writing: writingWitness, geometry_v1: geometryWitness, sound_v1: soundWitness },
     resolver: `https://folio.rootlogos.com/?work=${number}`,
     state_resolver: `https://rootlogos.com/writing/objects/${number}/current.json`,
@@ -174,7 +189,6 @@ for (const number of numbers) {
     receipt: `writing/objects/${number}/receipt/receipt.json`,
     geometry: `writing/objects/${number}/geometry/v1.json`,
     sound: `writing/objects/${number}/sound/v1.json`,
-    shared_body: "writing/objects/shared-body.json",
     viewer: `https://folio.rootlogos.com/?work=${number}`,
     update_policy: "Geometry and sound advance independently through witnessed, append-only versions."
   };
@@ -186,7 +200,6 @@ for (const number of numbers) {
   };
   await writeOrCheck(join(base, "geometry", "v1.json"), geometry);
   await writeOrCheck(join(base, "sound", "v1.json"), sound);
-  await writeOrCheck(join(base, "receipt", `RL-Writings-${number}.svg`), frame);
   await writeOrCheck(join(base, "receipt", "receipt.json"), receipt);
   await writeOrCheck(join(base, "current.json"), current);
   await writeOrCheck(join(base, "versions.json"), versions);
@@ -197,99 +210,14 @@ for (const number of numbers) {
     branch_id: branch.branch_id,
     mint_status: "unminted",
     first_frame: receipt.first_frame.path,
+    mint_image: receipt.first_frame.mint_image.path,
     receipt: current.receipt,
     current: `writing/objects/${number}/current.json`,
     viewer: `https://folio.rootlogos.com/?work=${number}`,
     point_count: geometry.points.length,
     writing_witness: writingWitness
   });
-  bodies.push({ number, geometry, sound });
 }
-
-const cosineSimilarity = (left, right) => {
-  const leftWords = new Map(left.geometry.points.filter(({ source }) => source === "writing").map(({ token, mass }) => [token, mass]));
-  const rightWords = new Map(right.geometry.points.filter(({ source }) => source === "writing").map(({ token, mass }) => [token, mass]));
-  const terms = new Set([...leftWords.keys(), ...rightWords.keys()]);
-  let dot = 0, leftNorm = 0, rightNorm = 0;
-  terms.forEach((term) => {
-    const a = leftWords.get(term) || 0;
-    const b = rightWords.get(term) || 0;
-    dot += a * b; leftNorm += a * a; rightNorm += b * b;
-  });
-  return leftNorm && rightNorm ? dot / Math.sqrt(leftNorm * rightNorm) : 0;
-};
-
-const tonalSimilarity = (left, right) => {
-  const leftFrequencies = left.sound.score.events.map(({ ratio }) => left.sound.score.root_hz * ratio);
-  const rightFrequencies = right.sound.score.events.map(({ ratio }) => right.sound.score.root_hz * ratio);
-  const affinity = leftFrequencies.map((frequency) => {
-    const distance = Math.min(...rightFrequencies.map((candidate) => Math.abs(Math.log2(frequency / candidate))));
-    return Math.exp(-distance * 4);
-  });
-  return affinity.reduce((sum, value) => sum + value, 0) / affinity.length;
-};
-
-const correlations = [];
-for (let leftIndex = 0; leftIndex < bodies.length; leftIndex += 1) {
-  for (let rightIndex = leftIndex + 1; rightIndex < bodies.length; rightIndex += 1) {
-    const left = bodies[leftIndex];
-    const right = bodies[rightIndex];
-    const semantic = cosineSimilarity(left, right);
-    const tonal = tonalSimilarity(left, right);
-    const sequence = Math.abs(left.number - right.number) === 1 ? 1 : 0;
-    correlations.push({
-      from: left.number,
-      to: right.number,
-      semantic: round(semantic),
-      tonal: round(tonal),
-      sequence: round(sequence),
-      weight: round(Math.min(1, semantic * .6 + tonal * .3 + sequence * .1))
-    });
-  }
-}
-
-const initialCenters = [
-  { x: .577, y: .577, z: .577 }, { x: -.577, y: -.577, z: .577 },
-  { x: -.577, y: .577, z: -.577 }, { x: .577, y: -.577, z: -.577 }
-];
-const centers = bodies.map((body, index) => ({ work_number: body.number, ...initialCenters[index] }));
-for (let iteration = 0; iteration < 320; iteration += 1) {
-  const shifts = centers.map(() => ({ x: 0, y: 0, z: 0 }));
-  correlations.forEach(({ from, to, weight }) => {
-    const leftIndex = centers.findIndex(({ work_number }) => work_number === from);
-    const rightIndex = centers.findIndex(({ work_number }) => work_number === to);
-    const left = centers[leftIndex], right = centers[rightIndex];
-    const dx = right.x - left.x, dy = right.y - left.y, dz = right.z - left.z;
-    const distance = Math.max(.001, Math.hypot(dx, dy, dz));
-    const target = 1.85 - weight * .85;
-    const force = (distance - target) * .018;
-    shifts[leftIndex].x += dx / distance * force; shifts[leftIndex].y += dy / distance * force; shifts[leftIndex].z += dz / distance * force;
-    shifts[rightIndex].x -= dx / distance * force; shifts[rightIndex].y -= dy / distance * force; shifts[rightIndex].z -= dz / distance * force;
-  });
-  centers.forEach((center, index) => {
-    center.x += shifts[index].x; center.y += shifts[index].y; center.z += shifts[index].z;
-  });
-  const centroid = centers.reduce((sum, center) => ({ x: sum.x + center.x, y: sum.y + center.y, z: sum.z + center.z }), { x: 0, y: 0, z: 0 });
-  centroid.x /= centers.length; centroid.y /= centers.length; centroid.z /= centers.length;
-  centers.forEach((center) => {
-    center.x -= centroid.x; center.y -= centroid.y; center.z -= centroid.z;
-    const length = Math.max(.001, Math.hypot(center.x, center.y, center.z));
-    center.x = center.x / length * 1.55; center.y = center.y / length * 1.55; center.z = center.z / length * 1.55;
-  });
-}
-centers.forEach((center) => { center.x = round(center.x); center.y = round(center.y); center.z = round(center.z); });
-
-const sharedPoints = bodies.flatMap((body) => {
-  const center = centers.find(({ work_number }) => work_number === body.number);
-  return body.geometry.points.map((point) => ({
-    ...point,
-    id: `${body.number}:${point.id}`,
-    work_number: body.number,
-    x: round(center.x + point.x * .42),
-    y: round(center.y + point.y * .42),
-    z: round(center.z + point.z * .42)
-  }));
-});
 
 const index = {
   schema: "root-logos-writing-objects/v1",
@@ -298,25 +226,5 @@ const index = {
   order: "work-number-ascending",
   works: records
 };
-const sharedBody = {
-  schema: "root-logos-writing-shared-body/v1",
-  renderer: "root-logos-spatial-writing-record/v1",
-  topology: "weighted-spherical",
-  foldkernel_projection_witness: foldKernelProjection.projection_witness,
-  weight_interpretation: {
-    owner: "Root Logos",
-    boundary: "FoldKernel witnesses the canonical projection; Root Logos interprets semantic, tonal, and sequence relations as navigational weights.",
-    formula: "0.60 semantic cosine + 0.30 tonal affinity + 0.10 adjacent sequence"
-  },
-  work_numbers: numbers,
-  point_count: sharedPoints.length,
-  centers,
-  correlations,
-  points: sharedPoints,
-  relations: correlations.map(({ from, to, weight }) => ({ from: `${from}:tone-001`, to: `${to}:tone-001`, relation: "weighted-writing-correlation", weight })),
-  evolution_boundary: "Individual writing objects remain addressable. This body may evolve without rewriting their receipts."
-};
-
 await writeOrCheck(join(outputRoot, "index.json"), index);
-await writeOrCheck(join(outputRoot, "shared-body.json"), sharedBody);
-console.log(`${check ? "Verified" : "Generated"} ${records.length} writing objects / ${sharedPoints.length} shared points.`);
+console.log(`${check ? "Verified" : "Generated"} ${records.length} independent writing objects.`);

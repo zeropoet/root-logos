@@ -74,8 +74,8 @@ contract and first active branch live in [`reading/`](reading/README.md).
 Root Logos writings may now resolve as durable living objects without depending
 on a token or owner. The writing creates a deterministic three-dimensional point
 cloud from its language and canonical tonal score. Its geometry and sound retain
-separate append-only version histories, while each object also contributes an
-addressable position to the accumulating shared writing body.
+separate append-only version histories. The relational body assembled from these
+writings belongs to Folio rather than the Root Logos public surface.
 
 Each Root Logos writing is minted as a receipt for its first observable
 frame. It fixes what entered, when, and through which witnesses; it does not own,
@@ -96,15 +96,13 @@ registry. Each `writing/objects/NN/` directory separates `receipt/`, `geometry/`
 pending in machine-readable metadata until its real contract, token ID, and
 transaction witness have been recorded. Every first-frame asset follows the
 canonical `RL-Writings-NN.svg` convention (for example, `RL-Writings-52.svg`).
+Every SVG has a 1200×1200 JPEG mint companion beside it using the same basename
+(for example, `RL-Writings-52.jpg`). The SVG remains the canonical vector frame;
+the receipt records a separate digest for the portable JPEG used by mint surfaces.
 
-`writing/object.html?work=52` resolves an individual living object by following
-its current geometry and sound pointers. `writing/object.html?body=shared`
-renders the larger writing body without collapsing the addressability of the
-works inside it.
-
-The shared body is a navigable spherical sound record. Root Logos interprets
-its witnessed FoldKernel projection as a reproducible application weight:
-60% semantic similarity, 30% tonal affinity, and 10% sequence adjacency.
+Folio resolves each living object and derives the larger navigable writing field
+without collapsing the addressability of the works inside it. Root Logos remains
+responsible for reading, questioning, and documenting emergent writings.
 Those weights determine the proximity of writing regions. A visitor's position
 inside the body continuously mixes the current canonical voices of the nearest
 regions; the mix remains centered rather than using stereo imbalance as a
