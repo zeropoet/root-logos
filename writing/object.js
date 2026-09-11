@@ -13,6 +13,9 @@ let dragging = false;
 let pointer = { x: 0, y: 0 };
 let dragDistance = 0;
 const camera = { x: 0, y: 0, z: 4.6 };
+const lookTarget = { x: 0, y: 0, z: 0 };
+let projectedCenters = [];
+let projectedPoints = [];
 const keys = new Set();
 let previousTime = 0;
 let audioContext;
@@ -45,25 +48,37 @@ const rotate = (point) => {
 };
 
 const cameraProjection = (point) => {
+  const fx = lookTarget.x - camera.x, fy = lookTarget.y - camera.y, fz = lookTarget.z - camera.z;
+  const forwardLength = Math.max(.001, Math.hypot(fx, fy, fz));
+  const forward = { x: fx / forwardLength, y: fy / forwardLength, z: fz / forwardLength };
+  const rightLength = Math.max(.001, Math.hypot(-forward.z, forward.x));
+  const right = { x: -forward.z / rightLength, y: 0, z: forward.x / rightLength };
+  const up = { x: -right.z * forward.y, y: right.z * forward.x - right.x * forward.z, z: right.x * forward.y };
   const dx = point.x - camera.x, dy = point.y - camera.y, dz = point.z - camera.z;
-  const cy = Math.cos(rotationY), sy = Math.sin(rotationY);
-  const cx = Math.cos(rotationX), sx = Math.sin(rotationX);
-  const x1 = dx * cy - dz * sy;
-  const z1 = dx * sy + dz * cy;
-  return { x: x1, y: dy * cx - z1 * sx, z: dy * sx + z1 * cx };
+  return {
+    x: dx * right.x + dy * right.y + dz * right.z,
+    y: dx * up.x + dy * up.y + dz * up.z,
+    z: -(dx * forward.x + dy * forward.y + dz * forward.z)
+  };
 };
 
 const moveCamera = (elapsed) => {
   if (!sharedMode) return;
   const speed = Math.min(.045, elapsed * .00115);
-  const forwardX = -Math.sin(rotationY), forwardZ = -Math.cos(rotationY);
-  const rightX = Math.cos(rotationY), rightZ = -Math.sin(rotationY);
-  if (keys.has("ArrowUp") || keys.has("KeyW")) { camera.x += forwardX * speed; camera.z += forwardZ * speed; }
-  if (keys.has("ArrowDown") || keys.has("KeyS")) { camera.x -= forwardX * speed; camera.z -= forwardZ * speed; }
-  if (keys.has("ArrowLeft") || keys.has("KeyA")) { camera.x -= rightX * speed; camera.z -= rightZ * speed; }
-  if (keys.has("ArrowRight") || keys.has("KeyD")) { camera.x += rightX * speed; camera.z += rightZ * speed; }
-  if (keys.has("KeyQ")) camera.y -= speed;
-  if (keys.has("KeyE")) camera.y += speed;
+  const dx = lookTarget.x - camera.x, dy = lookTarget.y - camera.y, dz = lookTarget.z - camera.z;
+  const length = Math.max(.001, Math.hypot(dx, dy, dz));
+  const forward = { x: dx / length, y: dy / length, z: dz / length };
+  const rightLength = Math.max(.001, Math.hypot(-forward.z, forward.x));
+  const right = { x: -forward.z / rightLength, z: forward.x / rightLength };
+  if (keys.has("ArrowUp") || keys.has("KeyW")) {
+    camera.x += forward.x * speed; camera.y += forward.y * speed; camera.z += forward.z * speed;
+    if (length < .7) { lookTarget.x += forward.x * speed; lookTarget.y += forward.y * speed; lookTarget.z += forward.z * speed; }
+  }
+  if (keys.has("ArrowDown") || keys.has("KeyS")) { camera.x -= forward.x * speed; camera.y -= forward.y * speed; camera.z -= forward.z * speed; }
+  if (keys.has("ArrowLeft") || keys.has("KeyA")) { camera.x -= right.x * speed; camera.z -= right.z * speed; lookTarget.x -= right.x * speed; lookTarget.z -= right.z * speed; }
+  if (keys.has("ArrowRight") || keys.has("KeyD")) { camera.x += right.x * speed; camera.z += right.z * speed; lookTarget.x += right.x * speed; lookTarget.z += right.z * speed; }
+  if (keys.has("KeyQ")) { camera.y -= speed; lookTarget.y -= speed; }
+  if (keys.has("KeyE")) { camera.y += speed; lookTarget.y += speed; }
   const radius = Math.hypot(camera.x, camera.y, camera.z);
   if (radius > 7) { camera.x *= 7 / radius; camera.y *= 7 / radius; camera.z *= 7 / radius; }
 };
@@ -79,12 +94,13 @@ const updateSpatialMix = () => {
       const relation = voice.correlations.find(({ from, to }) => (from === voice.workNumber && to === candidate.workNumber) || (to === voice.workNumber && from === candidate.workNumber));
       return sum + (proximity[candidateIndex] / total) * (relation?.weight || 0) * .28;
     }, 0);
-    voice.mix = Math.min(.62, direct * .78 + related);
+    voice.mix = Math.min(.62, Math.max(.025, direct * .78 + related));
     if (voice.gain && audioContext) voice.gain.gain.setTargetAtTime(mixActive ? voice.mix : 0, audioContext.currentTime, .08);
   });
-  const nearest = [...soundField].sort((a, b) => b.mix - a.mix).slice(0, 2);
-  document.getElementById("work-label").textContent = nearest.length > 1
-    ? `Blend: ${nearest[0].workNumber} ${Math.round(nearest[0].mix * 100)}% / ${nearest[1].workNumber} ${Math.round(nearest[1].mix * 100)}% · ${points.length} points`
+  const participants = [...soundField].sort((a, b) => b.mix - a.mix);
+  const mixTotal = participants.reduce((sum, voice) => sum + voice.mix, 0) || 1;
+  document.getElementById("work-label").textContent = participants.length
+    ? `All voices · ${participants.map((voice) => `${voice.workNumber} ${Math.round(voice.mix / mixTotal * 100)}%`).join(" / ")}`
     : `${points.length} points`;
 };
 
@@ -109,6 +125,15 @@ const draw = (time) => {
     const perspective = (sharedMode ? 3.8 : 3.2) / depth;
     projected.set(point.id, { x: width / 2 + turned.x * scaleBase * perspective, y: height / 2 - turned.y * scaleBase * perspective, depth, perspective, point });
   });
+  projectedPoints = [...projected.values()];
+  if (sharedMode && soundField.length) {
+    projectedCenters = soundField.map((voice) => {
+      const turned = cameraProjection(voice.center);
+      const depth = -turned.z;
+      const perspective = depth > .08 ? 3.8 / depth : 0;
+      return { voice, x: width / 2 + turned.x * scaleBase * perspective, y: height / 2 - turned.y * scaleBase * perspective, visible: depth > .08 };
+    });
+  }
   context.lineWidth = .65;
   edges.forEach((edge) => {
     const from = projected.get(edge.from);
@@ -244,22 +269,49 @@ const load = async () => {
   document.getElementById("sound").addEventListener("click", playSound);
 };
 
-canvas.addEventListener("pointerdown", (event) => { dragging = true; dragDistance = 0; pointer = { x: event.clientX, y: event.clientY }; canvas.setPointerCapture(event.pointerId); });
-canvas.addEventListener("pointermove", (event) => { if (!dragging) return; const dx = event.clientX - pointer.x, dy = event.clientY - pointer.y; dragDistance += Math.hypot(dx, dy); targetY += dx * .0024; targetX = Math.max(-1.15, Math.min(1.15, targetX + dy * .0024)); pointer = { x: event.clientX, y: event.clientY }; });
+canvas.addEventListener("pointerdown", (event) => {
+  dragging = true; dragDistance = 0; pointer = { x: event.clientX, y: event.clientY };
+  if (sharedMode) {
+    const selected = projectedCenters.filter(({ visible }) => visible).sort((left, right) => Math.hypot(left.x - event.clientX, left.y - event.clientY) - Math.hypot(right.x - event.clientX, right.y - event.clientY))[0];
+    if (selected && Math.hypot(selected.x - event.clientX, selected.y - event.clientY) < 130) {
+      Object.assign(lookTarget, selected.voice.center);
+    } else {
+      const node = projectedPoints.sort((left, right) => Math.hypot(left.x - event.clientX, left.y - event.clientY) - Math.hypot(right.x - event.clientX, right.y - event.clientY))[0];
+      if (node && Math.hypot(node.x - event.clientX, node.y - event.clientY) < 70) Object.assign(lookTarget, node.point);
+    }
+  }
+  canvas.setPointerCapture(event.pointerId);
+});
+canvas.addEventListener("pointermove", (event) => {
+  if (!dragging) return;
+  const dx = event.clientX - pointer.x, dy = event.clientY - pointer.y;
+  dragDistance += Math.hypot(dx, dy);
+  if (sharedMode) {
+    const offset = { x: camera.x - lookTarget.x, y: camera.y - lookTarget.y, z: camera.z - lookTarget.z };
+    const radius = Math.max(.35, Math.hypot(offset.x, offset.y, offset.z));
+    const yaw = Math.atan2(offset.x, offset.z) - dx * .0032;
+    let pitch = Math.asin(Math.max(-1, Math.min(1, offset.y / radius))) + dy * .0032;
+    pitch = Math.max(-1.35, Math.min(1.35, pitch));
+    camera.x = lookTarget.x + Math.sin(yaw) * Math.cos(pitch) * radius;
+    camera.y = lookTarget.y + Math.sin(pitch) * radius;
+    camera.z = lookTarget.z + Math.cos(yaw) * Math.cos(pitch) * radius;
+  } else {
+    targetY += dx * .0024;
+    targetX = Math.max(-1.15, Math.min(1.15, targetX + dy * .0024));
+  }
+  pointer = { x: event.clientX, y: event.clientY };
+});
 canvas.addEventListener("pointerup", () => {
   dragging = false;
-  if (sharedMode && dragDistance < 7) {
-    camera.x += -Math.sin(rotationY) * .28;
-    camera.z += -Math.cos(rotationY) * .28;
-  }
 });
 canvas.addEventListener("pointercancel", () => { dragging = false; });
 canvas.addEventListener("wheel", (event) => {
   if (!sharedMode) return;
   event.preventDefault();
   const amount = Math.max(-.18, Math.min(.18, event.deltaY * .0015));
-  camera.x += -Math.sin(rotationY) * amount;
-  camera.z += -Math.cos(rotationY) * amount;
+  const dx = lookTarget.x - camera.x, dy = lookTarget.y - camera.y, dz = lookTarget.z - camera.z;
+  const length = Math.max(.001, Math.hypot(dx, dy, dz));
+  camera.x += dx / length * amount; camera.y += dy / length * amount; camera.z += dz / length * amount;
 }, { passive: false });
 addEventListener("keydown", (event) => {
   if (!sharedMode || !["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "KeyW", "KeyA", "KeyS", "KeyD", "KeyQ", "KeyE"].includes(event.code)) return;
@@ -276,6 +328,7 @@ document.querySelectorAll("[data-move]").forEach((button) => {
 });
 document.querySelector("[data-reset-view]").addEventListener("click", () => {
   camera.x = 0; camera.y = 0; camera.z = 4.6;
+  lookTarget.x = 0; lookTarget.y = 0; lookTarget.z = 0;
   targetX = 0; targetY = 0;
 });
 addEventListener("resize", resize);
