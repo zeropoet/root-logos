@@ -39,6 +39,9 @@ jobs:
             node scripts/cultivate.mjs cycle
           fi
 
+      - name: Synchronize foundational inquiry memory
+        run: node scripts/inquiry-ledger.mjs
+
       - name: Validate cultivation lineage
         run: node scripts/cultivate.mjs validate
 
@@ -53,7 +56,7 @@ jobs:
         run: |
           git config user.name "root-logos-cultivator[bot]"
           git config user.email "root-logos-cultivator[bot]@users.noreply.github.com"
-          git add cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json sources/sovereign-standard.snapshot.json sources/foldportrait.snapshot.json
+          git add cultivation/state.json cultivation/memory.json cultivation/cycles content/constitutional-graph.json inquiry sources/sovereign-standard.snapshot.json sources/foldportrait.snapshot.json
           if git diff --cached --quiet; then
             echo "No cultivation state changed."
             echo "changed=false" >> "$GITHUB_OUTPUT"

@@ -1,0 +1,72 @@
+{
+  "schema": "root-logos-inquiry-history/v1",
+  "inquiry_id": "question-consciousness-fundamental",
+  "events": [
+    {
+      "kind": "constitutional-question-preserved",
+      "source": "content/constitutional-graph.json",
+      "status": "unresolved",
+      "statement": "Is consciousness fundamental?"
+    },
+    {
+      "kind": "question-pressure",
+      "first_cycle": "RL-CULTIVATE-0002",
+      "last_cycle": "RL-CULTIVATE-0002",
+      "considerations": 1,
+      "disposition": "awaiting-human-review",
+      "claim": "Is consciousness fundamental? has 0 explicit relations; its low integration makes it a candidate for disciplined investigation.",
+      "proposed_question": null,
+      "related_nodes": [],
+      "evidence_hash": "6b27a3807d06c82750e8ed58bd79dc5441b68c05b967a66dc3d7be0760b6a84d",
+      "policy_hash": "c448f8e75185f80072d54ea96a8c7f7b601263eaa3706139b39815114f65cb20"
+    },
+    {
+      "kind": "question-pressure",
+      "first_cycle": "RL-CULTIVATE-0003",
+      "last_cycle": "RL-CULTIVATE-0005",
+      "considerations": 2,
+      "disposition": "implemented",
+      "claim": "Is consciousness fundamental? has 0 explicit relations; Consciousness, Knowing, Knowing and the Experience of Time provide the strongest existing constitutional pressure for investigation.",
+      "proposed_question": null,
+      "related_nodes": [
+        "consciousness",
+        "knowing",
+        "logos-1"
+      ],
+      "evidence_hash": "bbf3f03b8613d7804d68d6eba317900acc83e4b5bf277e5766045130aeb5940a",
+      "policy_hash": "cd599288ae0bc7189db614b558ba19eb8ebc0f182feb72621706cb5a825ab925"
+    },
+    {
+      "kind": "question-pressure",
+      "first_cycle": "RL-CULTIVATE-0022",
+      "last_cycle": "RL-CULTIVATE-0112",
+      "considerations": 17,
+      "disposition": "autonomously-rejected",
+      "claim": "Is consciousness fundamental? has 2 explicit relations; Knowing and the Experience of Time, Intelligence Requires a Higher Reference, Root Logos provide the strongest existing constitutional pressure for investigation.",
+      "proposed_question": null,
+      "related_nodes": [
+        "logos-1",
+        "principle-higher-reference",
+        "root-logos"
+      ],
+      "evidence_hash": "3593df2b80c765a4dd571851cb2e620a689ffd33a268a529265b8c14e47181d6",
+      "policy_hash": "ef86aa94315a9856c009856a96d08b29653748780c53be097f18569bb09254d9"
+    },
+    {
+      "kind": "generative-compression",
+      "first_cycle": "RL-CULTIVATE-0206",
+      "last_cycle": "RL-CULTIVATE-0206",
+      "considerations": 2,
+      "disposition": "autonomously-rejected",
+      "claim": "consciousness + knowing recurs across 4 constitutional nodes and may indicate a smaller generative composition rather than repeated declaration.",
+      "proposed_question": "Can consciousness and knowing be composed as a primitive relation that regenerates these 4 appearances without collapsing their differences?",
+      "related_nodes": [
+        "logos-1",
+        "knowing",
+        "consciousness"
+      ],
+      "evidence_hash": "afa706370718ca10041753361e7d68f3171f71379950f95301be0efea2f5e44a",
+      "policy_hash": "a1b23423f4dd7ebae365ca4d65517befe5d990587cf2189107edb9bd9f404e0c"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "root-logos-inquiry-index/v1",
+  "purpose": "Preserve the progress of Root Logos' foundational inquiries as later fruits exceed their original scope without competing with the public reading and writing surface.",
+  "public_interface": false,
+  "synchronization": {
+    "sources": [
+      "content/constitutional-graph.json",
+      "cultivation/memory.json"
+    ],
+    "command": "npm run inquiry:sync",
+    "enforcement": "npm test fails when the ledger is stale; the cultivation workflow regenerates it whenever canonical inquiry state changes."
+  },
+  "inquiries": [
+    {
+      "inquiry_id": "question-consciousness-fundamental",
+      "title": "Is consciousness fundamental?",
+      "status": "unresolved",
+      "answer_state": "not-settled",
+      "direct_relation_count": 2,
+      "cultivation_finding_count": 4,
+      "current": "inquiry/consciousness-fundamental/current.json",
+      "witness": "sha256:181a6cc2637f0f6ad7dcfaba4943ce6f253fe3a4876a47c50e92bcca5826f8db"
+    },
+    {
+      "inquiry_id": "question-post-institutional",
+      "title": "Can civilization become post-institutional?",
+      "status": "unresolved",
+      "answer_state": "not-settled",
+      "direct_relation_count": 2,
+      "cultivation_finding_count": 2,
+      "current": "inquiry/post-institutional/current.json",
+      "witness": "sha256:ce4298e0c941eb59693063a6bd1983a98fdb9130bf9527ef3d1618094a0b16c3"
+    },
+    {
+      "inquiry_id": "question-ai-citizenship",
+      "title": "What recognition could legitimate machine citizenship require?",
+      "status": "unresolved",
+      "answer_state": "not-settled",
+      "direct_relation_count": 3,
+      "cultivation_finding_count": 2,
+      "current": "inquiry/machine-citizenship/current.json",
+      "witness": "sha256:08f2a9f6aa03d398d30b3f75e15fe51e975ac86059233ee1de8c4dca6c80f399"
+    },
+    {
+      "inquiry_id": "question-topology-wisdom",
+      "title": "What is the topology of wisdom?",
+      "status": "unresolved",
+      "answer_state": "not-settled",
+      "direct_relation_count": 3,
+      "cultivation_finding_count": 3,
+      "current": "inquiry/topology-wisdom/current.json",
+      "witness": "sha256:5e1c99bec4c14eaaa7748845feaa81f3ca0f88d3660d2b7d724accd28d68bd17"
+    }
+  ]
+}
