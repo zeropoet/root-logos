@@ -14,6 +14,7 @@ const [index, renderer, styles, readingState, cultivationState, fragments] = awa
 assert.match(index, /id="writing-stream"/);
 assert.match(index, /id="stream-state"/);
 assert.match(index, /awaiting the next relation/);
+assert.ok(index.indexOf("awaiting the next relation") < index.indexOf('id="writing-stream"'), "The live prompt must precede the newest writing");
 assert.match(index, /href="agent\.json"/);
 assert.match(index, /href="https:\/\/folio\.rootlogos\.com\/"/);
 assert.doesNotMatch(index, /Related systems|The Record \/ sound|Telos \/ system relation|Ovel \/ temporal field|zeropoet \/ studio/i);
