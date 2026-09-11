@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#050505">
   <title>Writing Object — Root Logos</title>
   <link rel="icon" href="../assets/root-logos-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="object.css?v=1.1.0">
+  <link rel="stylesheet" href="object.css?v=1.2.0">
 </head>
 <body>
   <main>
@@ -25,8 +25,15 @@
       <a id="receipt" href="#" hidden>Inspect receipt ↗</a>
       <a id="shared" href="object.html?body=shared">Shared body ↗</a>
     </nav>
+    <div class="field-controls" id="field-controls" hidden aria-label="Move through the writing field">
+      <button type="button" data-move="ArrowUp" aria-label="Move forward">↑</button>
+      <button type="button" data-move="ArrowLeft" aria-label="Move left">←</button>
+      <button type="button" data-reset-view aria-label="Return to the whole sphere">○</button>
+      <button type="button" data-move="ArrowRight" aria-label="Move right">→</button>
+      <button type="button" data-move="ArrowDown" aria-label="Move backward">↓</button>
+    </div>
     <p class="gesture">Drag to turn · the object remains current beyond its first frame</p>
   </main>
-  <script src="object.js?v=1.1.0"></script>
+  <script src="object.js?v=1.2.1"></script>
 </body>
 </html>

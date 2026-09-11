@@ -55,7 +55,7 @@ const cameraProjection = (point) => {
 
 const moveCamera = (elapsed) => {
   if (!sharedMode) return;
-  const speed = Math.min(.065, elapsed * .000055);
+  const speed = Math.min(.045, elapsed * .00115);
   const forwardX = -Math.sin(rotationY), forwardZ = -Math.cos(rotationY);
   const rightX = Math.cos(rotationY), rightZ = -Math.sin(rotationY);
   if (keys.has("ArrowUp") || keys.has("KeyW")) { camera.x += forwardX * speed; camera.z += forwardZ * speed; }
@@ -84,7 +84,7 @@ const updateSpatialMix = () => {
   });
   const nearest = [...soundField].sort((a, b) => b.mix - a.mix).slice(0, 2);
   document.getElementById("work-label").textContent = nearest.length > 1
-    ? `Nearest: ${nearest[0].workNumber} / ${nearest[1].workNumber} · ${points.length} points`
+    ? `Blend: ${nearest[0].workNumber} ${Math.round(nearest[0].mix * 100)}% / ${nearest[1].workNumber} ${Math.round(nearest[1].mix * 100)}% · ${points.length} points`
     : `${points.length} points`;
 };
 
@@ -222,10 +222,11 @@ const load = async () => {
     soundButton.hidden = false;
     soundButton.textContent = "Enter spatial record";
     soundButton.addEventListener("click", playSoundField);
+    document.getElementById("field-controls").hidden = false;
     document.getElementById("shared").hidden = true;
     document.querySelector(".gesture").textContent = matchMedia("(pointer: coarse)").matches
-      ? "Drag to look · tap to move into the field"
-      : "Drag to look · arrows or W A S D to move · Q E for depth";
+      ? "Drag to turn · tap or use arrows to move"
+      : "Drag to turn · wheel or arrows to move · center resets";
     return;
   }
   const current = await getJson(`objects/${workNumber}/current.json`);
@@ -244,7 +245,7 @@ const load = async () => {
 };
 
 canvas.addEventListener("pointerdown", (event) => { dragging = true; dragDistance = 0; pointer = { x: event.clientX, y: event.clientY }; canvas.setPointerCapture(event.pointerId); });
-canvas.addEventListener("pointermove", (event) => { if (!dragging) return; const dx = event.clientX - pointer.x, dy = event.clientY - pointer.y; dragDistance += Math.hypot(dx, dy); targetY += dx * .006; targetX += dy * .006; pointer = { x: event.clientX, y: event.clientY }; });
+canvas.addEventListener("pointermove", (event) => { if (!dragging) return; const dx = event.clientX - pointer.x, dy = event.clientY - pointer.y; dragDistance += Math.hypot(dx, dy); targetY += dx * .0024; targetX = Math.max(-1.15, Math.min(1.15, targetX + dy * .0024)); pointer = { x: event.clientX, y: event.clientY }; });
 canvas.addEventListener("pointerup", () => {
   dragging = false;
   if (sharedMode && dragDistance < 7) {
@@ -256,7 +257,7 @@ canvas.addEventListener("pointercancel", () => { dragging = false; });
 canvas.addEventListener("wheel", (event) => {
   if (!sharedMode) return;
   event.preventDefault();
-  const amount = Math.sign(event.deltaY) * .22;
+  const amount = Math.max(-.18, Math.min(.18, event.deltaY * .0015));
   camera.x += -Math.sin(rotationY) * amount;
   camera.z += -Math.cos(rotationY) * amount;
 }, { passive: false });
@@ -265,6 +266,18 @@ addEventListener("keydown", (event) => {
   event.preventDefault(); keys.add(event.code);
 });
 addEventListener("keyup", (event) => keys.delete(event.code));
+document.querySelectorAll("[data-move]").forEach((button) => {
+  const begin = (event) => { event.preventDefault(); keys.add(button.dataset.move); button.classList.add("is-held"); };
+  const end = () => { keys.delete(button.dataset.move); button.classList.remove("is-held"); };
+  button.addEventListener("pointerdown", begin);
+  button.addEventListener("pointerup", end);
+  button.addEventListener("pointercancel", end);
+  button.addEventListener("pointerleave", end);
+});
+document.querySelector("[data-reset-view]").addEventListener("click", () => {
+  camera.x = 0; camera.y = 0; camera.z = 4.6;
+  targetX = 0; targetY = 0;
+});
 addEventListener("resize", resize);
 resize();
 requestAnimationFrame(draw);
