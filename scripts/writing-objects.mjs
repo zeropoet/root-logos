@@ -157,11 +157,19 @@ for (const number of numbers) {
   const geometryWitness = sha256(geometryContent);
   const soundWitness = sha256(soundContent);
   const frameWitness = sha256(frame);
+  const mintTitle = `${number} — ${reading.title}`;
+  const mintDescription = `${branch.question.text}\n\nWriting ${number} by Root Logos. This token preserves its first observable frame and provides a durable receipt for the writing’s emergence. Its text, geometry, sound, and future relations remain independently addressable within Folio.`;
   const receipt = {
     schema: "root-logos-writing-receipt/v1",
     work_number: number,
     title: reading.title,
     mint: { status: "unminted", token_id: null, contract: null, transaction: null },
+    mint_metadata: {
+      standard: "root-logos-writing-mint/v1",
+      title: mintTitle,
+      description: mintDescription,
+      image: `writing/objects/${number}/receipt/RL-Writings-${number}.jpg`
+    },
     first_frame: {
       path: `writing/objects/${number}/receipt/RL-Writings-${number}.svg`,
       sha256: frameWitness,

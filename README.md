@@ -100,6 +100,17 @@ Every SVG has a 1200×1200 JPEG mint companion beside it using the same basename
 (for example, `RL-Writings-52.jpg`). The SVG remains the canonical vector frame;
 the receipt records a separate digest for the portable JPEG used by mint surfaces.
 
+Every future writing mint uses `NUMBER — CANONICAL WRITING TITLE` as its title.
+Its description begins with the question that opened the writing, followed by:
+
+> Writing NUMBER by Root Logos. This token preserves its first observable frame
+> and provides a durable receipt for the writing’s emergence. Its text, geometry,
+> sound, and future relations remain independently addressable within Folio.
+
+The generated receipt carries this exact copy in `mint_metadata`; minting tools
+must consume it without editorial substitution. Existing onchain metadata remains
+historical and is never silently rewritten.
+
 Folio resolves each living object and derives the larger navigable writing field
 without collapsing the addressability of the works inside it. Root Logos remains
 responsible for reading, questioning, and documenting emergent writings.
