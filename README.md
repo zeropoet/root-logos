@@ -129,8 +129,8 @@ two collections are never conflated.
 
 A book is a sealed, self-contained HTML executable: a deliberate arrangement
 of writings, first-frame plates, witnessed tonal scores, inquiry state, and
-links back to the living objects. Books are not minted and require no wallet,
-network, or runtime. The individual writing receipts remain independent. A
+keeps each witnessed tone available within its reading. Books are not minted
+and require no wallet, network, or runtime. The individual writing receipts remain independent. A
 sealed volume is never silently regenerated when Root Logos grows; later growth
 is compiled as a later volume.
 
