@@ -3,10 +3,15 @@
   "work_number": 55,
   "title": "A Structure That Can Be Inhabited",
   "mint": {
-    "status": "unminted",
-    "token_id": null,
-    "contract": null,
-    "transaction": null
+    "status": "minted",
+    "network": "Ethereum mainnet",
+    "chain_id": 1,
+    "contract": "0xDC1573090788837Ca959A1DA884080D0193Eb44D",
+    "token_id": "4",
+    "transaction": null,
+    "metadata_uri": "https://arweave.net/qaZ6Hx6Lgrsqv8gre3sM9Z9iBes4dVbOAz6Ub-nXoo0/3",
+    "image_uri": "https://arweave.net/lVcxJXNJvlUUvzSiRnv_6YP7p8sxwlmtK30o3IXS_Z8",
+    "explorer": "https://etherscan.io/nft/0xDC1573090788837Ca959A1DA884080D0193Eb44D/4"
   },
   "mint_metadata": {
     "standard": "root-logos-writing-mint/v1",
@@ -32,7 +37,8 @@
     "geometry_v1": "79691e0703311d7c90b37d6edf45a847cbfc023b3f2ec73cf781b854fdb7b480",
     "sound_v1": "69c221112b57d3061853fc9d06c88731342bcc1d5e77deb7a27afaf57c40b953"
   },
-  "resolver": "https://folio.rootlogos.com/?work=55",
+  "resolver": "https://rootlogos.com/?work=55",
+  "field_resolver": "https://folio.rootlogos.com/?work=55",
   "state_resolver": "https://rootlogos.com/writing/objects/55/current.json",
   "principle": "The receipt fixes the work's first observable frame. It does not own or freeze the living work."
 }

@@ -48,12 +48,12 @@ const statusLabel = (work, volume) => {
 const renderStream = async (registry, catalog) => {
   const works = await Promise.all(registry.works.slice().reverse().map(async (work) => {
     const current = await getJson(work.current);
-    const markdown = await getText(current.writing);
+    const [markdown, receipt] = await Promise.all([getText(current.writing), getJson(current.receipt)]);
     const volume = catalog.volumes.find((candidate) => candidate.work_numbers.includes(work.work_number));
-    return { work, volume, prose: parseWriting(markdown, work.work_number) };
+    return { work, volume, receipt, prose: parseWriting(markdown, work.work_number) };
   }));
 
-  byId("writing-stream").innerHTML = works.map(({ work, volume, prose }, index) => `
+  byId("writing-stream").innerHTML = works.map(({ work, volume, receipt, prose }, index) => `
     <article class="writing-entry${index === 0 ? " is-current" : ""}" data-work="${work.work_number}">
       <button class="writing-command" type="button" aria-expanded="false" aria-controls="writing-${work.work_number}">
         <span class="prompt" aria-hidden="true">›</span>
@@ -67,7 +67,7 @@ const renderStream = async (registry, catalog) => {
         <div class="prose">${prose}</div>
         <footer>
           <span>${work.point_count} witnessed points</span>
-          <a href="${escapeHtml(work.viewer)}">Read in Folio <span aria-hidden="true">↗</span></a>
+          ${receipt.mint?.status === "minted" ? `<a href="${escapeHtml(receipt.mint.explorer)}" target="_blank" rel="noreferrer">Receipt ${String(receipt.mint.token_id).padStart(2, "0")} <span aria-hidden="true">↗</span></a>` : ""}
         </footer>
       </div>
     </article>`).join("");
@@ -81,6 +81,12 @@ const renderStream = async (registry, catalog) => {
       button.querySelector(".open-state").textContent = expanded ? "+" : "−";
     });
   });
+  const requested = new URLSearchParams(location.search).get("work");
+  const requestedButton = requested && document.querySelector(`[data-work="${CSS.escape(requested)}"] .writing-command`);
+  if (requestedButton) {
+    requestedButton.click();
+    requestedButton.scrollIntoView({ block: "start" });
+  }
   byId("stream-state").textContent = `${registry.works.length} writings / ${catalog.volumes.length} volume${catalog.volumes.length === 1 ? "" : "s"} / live`;
 };
 

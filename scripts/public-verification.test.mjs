@@ -25,7 +25,9 @@ assert.match(renderer, /writing\/objects\/index\.json/);
 assert.match(renderer, /books\/catalog\.json/);
 assert.match(renderer, /work\.current/);
 assert.match(renderer, /aria-expanded/);
-assert.match(renderer, /Read in Folio/);
+assert.match(renderer, /receipt\.mint\.explorer/);
+assert.match(renderer, /new URLSearchParams\(location\.search\)\.get\("work"\)/);
+assert.doesNotMatch(renderer, /Read in Folio/);
 assert.match(renderer, /cache:\s*"no-store"/);
 assert.equal(readingState.branches.length, 5);
 assert.ok(cultivationState.history.length >= 228);
@@ -34,4 +36,4 @@ assert.ok(fragments.packets.some((packet) => packet.publication?.status === "pub
 assert.match(styles, /overflow-x:hidden/);
 assert.match(styles, /@media\(max-width:720px\)/);
 
-console.log("PASS Root Logos publishes one uninterrupted writing stream, delegates durable reading to Folio, and retains a bounded agent entrance.");
+console.log("PASS Root Logos publishes the canonical writing stream, links its Ethereum receipts, and delegates spatial sound to Folio.");

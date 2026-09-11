@@ -129,6 +129,7 @@ const writeOrCheck = async (path, value) => {
 
 const readingState = JSON.parse(await readFile(join(root, "reading", "state.json"), "utf8"));
 const readings = parseReadings(await readFile(join(root, "reading", "sequence-52-55.md"), "utf8"));
+const ethereumReceipts = JSON.parse(await readFile(join(root, "writing", "ethereum-receipts.json"), "utf8"));
 const records = [];
 
 for (const number of numbers) {
@@ -159,11 +160,24 @@ for (const number of numbers) {
   const frameWitness = sha256(frame);
   const mintTitle = `${number} — ${reading.title}`;
   const mintDescription = `${branch.question.text}\n\nWriting ${number} by Root Logos. This token preserves its first observable frame and provides a durable receipt for the writing’s emergence. Its text, geometry, sound, and future relations remain independently addressable within Folio.`;
+  const token = ethereumReceipts.works[String(number)];
+  const contract = ethereumReceipts.collection.contract;
+  if (!token) throw new Error(`Writing ${number} has no Ethereum receipt mapping`);
   const receipt = {
     schema: "root-logos-writing-receipt/v1",
     work_number: number,
     title: reading.title,
-    mint: { status: "unminted", token_id: null, contract: null, transaction: null },
+    mint: {
+      status: "minted",
+      network: ethereumReceipts.network.name,
+      chain_id: ethereumReceipts.network.chain_id,
+      contract,
+      token_id: token.token_id,
+      transaction: null,
+      metadata_uri: token.metadata_uri,
+      image_uri: token.image_uri,
+      explorer: `https://etherscan.io/nft/${contract}/${token.token_id}`
+    },
     mint_metadata: {
       standard: "root-logos-writing-mint/v1",
       title: mintTitle,
@@ -184,7 +198,8 @@ for (const number of numbers) {
       }
     },
     witnesses: { writing: writingWitness, geometry_v1: geometryWitness, sound_v1: soundWitness },
-    resolver: `https://folio.rootlogos.com/?work=${number}`,
+    resolver: `https://rootlogos.com/?work=${number}`,
+    field_resolver: `https://folio.rootlogos.com/?work=${number}`,
     state_resolver: `https://rootlogos.com/writing/objects/${number}/current.json`,
     principle: "The receipt fixes the work's first observable frame. It does not own or freeze the living work."
   };
@@ -197,7 +212,8 @@ for (const number of numbers) {
     receipt: `writing/objects/${number}/receipt/receipt.json`,
     geometry: `writing/objects/${number}/geometry/v1.json`,
     sound: `writing/objects/${number}/sound/v1.json`,
-    viewer: `https://folio.rootlogos.com/?work=${number}`,
+    viewer: `https://rootlogos.com/?work=${number}`,
+    field_viewer: `https://folio.rootlogos.com/?work=${number}`,
     update_policy: "Geometry and sound advance independently through witnessed, append-only versions."
   };
   const versions = {
@@ -216,12 +232,13 @@ for (const number of numbers) {
     title: reading.title,
     question: branch.question.text,
     branch_id: branch.branch_id,
-    mint_status: "unminted",
+    mint_status: "minted",
     first_frame: receipt.first_frame.path,
     mint_image: receipt.first_frame.mint_image.path,
     receipt: current.receipt,
     current: `writing/objects/${number}/current.json`,
-    viewer: `https://folio.rootlogos.com/?work=${number}`,
+    viewer: `https://rootlogos.com/?work=${number}`,
+    field_viewer: `https://folio.rootlogos.com/?work=${number}`,
     point_count: geometry.points.length,
     writing_witness: writingWitness
   });
