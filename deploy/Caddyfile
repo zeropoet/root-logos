@@ -12,11 +12,6 @@ runtime.rootlogos.com {
 rootlogos.com, www.rootlogos.com {
   encode zstd gzip
   root * /var/www/root-logos
-  @agent_browser {
-    path /agent.json
-    header Accept *text/html*
-  }
-  rewrite @agent_browser /agent-entry.html
   file_server
 
   @agent_entry path /agent.json

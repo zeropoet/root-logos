@@ -38,7 +38,7 @@ if (agentCall.schema !== "root-logos-agent-call/v1" || agentCall.status !== "ope
 if (!agentCall.submission?.url?.endsWith("/v1/participation") || agentCall.submission.amount !== "0.05") throw new Error("Agent call must resolve the paid participation boundary");
 if (!agentCall.admission?.criteria?.length || !agentCall.submission?.observationFormat?.length) throw new Error("Agent call must expose evidence and admission requirements");
 if (!caddyConfig.includes('@agent_entry path /agent.json') || !caddyConfig.includes('root-logos-presence-mark.svg')) throw new Error("Agent entry must emit the Presence favicon header");
-if (!caddyConfig.includes('rewrite @agent_browser /agent-entry.html')) throw new Error("Browser navigation to agent.json must preserve the machine presentation");
+if (caddyConfig.includes('rewrite @agent_browser') || caddyConfig.includes('/agent-entry.html')) throw new Error("Agent entry must remain canonical JSON for every client");
 const mappedNodeIds = new Set(system.nodes.map(({ id }) => id));
 for (const repository of telosWitness.system_mapping.repositories) {
   if (!mappedNodeIds.has(repository.id)) throw new Error(`Public field is missing mapped Telos repository: ${repository.id}`);
