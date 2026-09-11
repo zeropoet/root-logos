@@ -191,19 +191,14 @@ const init = async () => {
   const results = await Promise.all([
     getJson("reading/state.json"),
     getJson("content/attractor-packets.json"),
-    getJson("cultivation/state.json"),
-    getJson("writing/objects/index.json")
+    getJson("cultivation/state.json")
   ]);
   readingState = results[0];
   renderQuestions(results[0]);
   renderFragments(results[1]);
   renderThinking(results[2]);
   await loadReadings();
-  renderWritingGrid(results[3]);
   bindToneButton(byId("reading-voice"));
-  document.querySelectorAll("[data-writing-view]").forEach((button) => {
-    button.addEventListener("click", () => setWritingView(button.dataset.writingView));
-  });
 };
 
 init().catch((error) => {

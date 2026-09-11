@@ -161,7 +161,7 @@ for (const number of numbers) {
     mint: { status: "unminted", token_id: null, contract: null, transaction: null },
     first_frame: { path: `writing/objects/${number}/receipt/first-frame.svg`, sha256: frameWitness, width: 1200, height: 1200 },
     witnesses: { writing: writingWitness, geometry_v1: geometryWitness, sound_v1: soundWitness },
-    resolver: `https://rootlogos.com/writing/object.html?work=${number}`,
+    resolver: `https://folio.rootlogos.com/?work=${number}`,
     state_resolver: `https://rootlogos.com/writing/objects/${number}/current.json`,
     principle: "The receipt fixes the work's first observable frame. It does not own or freeze the living work."
   };
@@ -175,7 +175,7 @@ for (const number of numbers) {
     geometry: `writing/objects/${number}/geometry/v1.json`,
     sound: `writing/objects/${number}/sound/v1.json`,
     shared_body: "writing/objects/shared-body.json",
-    viewer: `writing/object.html?work=${number}`,
+    viewer: `https://folio.rootlogos.com/?work=${number}`,
     update_policy: "Geometry and sound advance independently through witnessed, append-only versions."
   };
   const versions = {
@@ -199,7 +199,7 @@ for (const number of numbers) {
     first_frame: receipt.first_frame.path,
     receipt: current.receipt,
     current: `writing/objects/${number}/current.json`,
-    viewer: `writing/object.html?work=${number}`,
+    viewer: `https://folio.rootlogos.com/?work=${number}`,
     point_count: geometry.points.length,
     writing_witness: writingWitness
   });
