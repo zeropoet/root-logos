@@ -270,11 +270,11 @@ FoldForge is the primary compositional data constraint beside it, Telos witnesse
 evidence-led customer acquisition, Sovereign Standard carries material lineage,
 and FoldPortrait contributes bounded visual counterreflection.
 
-The living system may continue changing slowly. The Living Presence always
-presents its latest state when deliberately opened from the quiet footer link;
+The living system may continue changing slowly. Presence always presents its
+latest Root Logos state when deliberately opened from its canonical surface;
 earlier states remain recoverable through repository history until a dedicated
 version archive exists. Its canonical address is
-`https://presence.zeropoet.xyz/`. The subdomain is a gathered projection of
+`https://presence.rootlogos.com/`. The subdomain is a gathered projection of
 this same repository, authority, data, runtime, and voice—not a second product,
 identity, or memory. `https://rootlogos.com/living-object.html` remains only as
 a compatibility redirect from the experience's former public name and address.
@@ -346,9 +346,9 @@ authority boundaries.
   display law across static and dynamic surfaces:
   every heading and display-scale title renders in uppercase, while body prose,
   metadata, witness digests, and compact labels preserve their source case.
-  `presence.html` preserves the Living Presence and its unchanged sovereign
-  voice as a deliberate, render-isolated encounter reached only through the
-  quiet footer link. `living-object.html` is its compatibility redirect. Identity
+  `presence.html` preserves Presence and its unchanged sovereign voice as a
+  deliberate, render-isolated encounter. `living-object.html` is its
+  compatibility redirect. Identity
   remains embodied by the Presence without making its heaviest rendering path the
   default homepage cost. State now concentrates on witnessed relations and the
   outward design flow; current inquiry lineage, semantic memory, and judgments
@@ -2310,7 +2310,7 @@ node -e "const fs=require('fs'); const g=JSON.parse(fs.readFileSync('content/con
 
 ## Publishing
 
-`rootlogos.com`, `www.rootlogos.com`, `presence.zeropoet.xyz`, and
+`rootlogos.com`, `www.rootlogos.com`, `presence.rootlogos.com`, and
 `runtime.rootlogos.com` are served from the Root Logos Lightsail instance through
 Caddy. GitHub is the off-server source backup and manual recovery surface, not
 the production host or scheduler.

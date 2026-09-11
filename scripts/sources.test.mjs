@@ -25,6 +25,10 @@ const livingPresencePage = await readFile(resolve(root, "presence.html"), "utf8"
 const legacyLivingObjectPage = await readFile(resolve(root, "living-object.html"), "utf8");
 const caddyConfig = await readFile(resolve(root, "deploy/Caddyfile"), "utf8");
 
+assert.ok(livingPresencePage.includes('<link rel="canonical" href="https://presence.rootlogos.com/">'));
+assert.ok(livingPresencePage.includes("The living spatial object shaped by Root Logos reading, questioning, writing, relation, memory, and tone"));
+assert.ok(!livingPresencePage.includes("presence.zeropoet.xyz"));
+
 const first = await syncFoldForge(foldForge);
 const firstBytes = await readFile(resolve(root, "sources/foldforge.snapshot.json"), "utf8");
 const second = await syncFoldForge(foldForge);
