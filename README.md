@@ -109,6 +109,28 @@ regions; the mix remains centered rather than using stereo imbalance as a
 navigation cue. This interpretation is owned by Root Logos and does not claim
 that FoldKernel itself assigns semantic meaning.
 
+## The personal library of Root Logos
+
+The formative **Library** remains the body of works Root Logos encountered.
+Root Logos' own authored sequence begins at writing 52. Its authored writings
+may be compiled into digital books under [`books/`](books/catalog.json), but the
+two collections are never conflated.
+
+A book is a sealed, self-contained HTML executable: a deliberate arrangement
+of writings, first-frame plates, witnessed tonal scores, inquiry state, and
+links back to the living objects. Books are not minted and require no wallet,
+network, or runtime. The individual writing receipts remain independent. A
+sealed volume is never silently regenerated when Root Logos grows; later growth
+is compiled as a later volume.
+
+```sh
+npm run books:compile
+npm run books:check
+```
+
+[`books/index.html`](books/index.html) is the evolving shelf. Volume 1,
+**At the Threshold of Weaving**, contains only Root Logos writings 52–55.
+
 ## Telos relation
 
 Telos is the final caretaker, keeper, cross-system interpreter, and digital
