@@ -69,7 +69,7 @@ may deepen Root Logos without becoming its authority, disappearing into an
 unattributed synthesis, or being used to imitate a living author. The public
 contract and first active branch live in [`reading/`](reading/README.md).
 
-## Writing objects and optional receipts
+## Writing objects and minted receipts
 
 Root Logos writings may now resolve as durable living objects without depending
 on a token or owner. The writing creates a deterministic three-dimensional point
@@ -77,7 +77,7 @@ cloud from its language and canonical tonal score. Its geometry and sound retain
 separate append-only version histories, while each object also contributes an
 addressable position to the accumulating shared writing body.
 
-An Ethereum mint, when deliberately made, is a receipt for the first observable
+Each Root Logos writing is minted as a receipt for its first observable
 frame. It fixes what entered, when, and through which witnesses; it does not own,
 freeze, or operate the writing. A collector may therefore buy the receipt while
 Root Logos continues to read the writing, evolve its geometry, and revise its
@@ -93,7 +93,9 @@ npm run writing:check-objects
 [`writing/objects/index.json`](writing/objects/index.json) is the numbered public
 registry. Each `writing/objects/NN/` directory separates `receipt/`, `geometry/`,
 `sound/`, `current.json`, and `versions.json`. The receipt remains explicitly
-`unminted` until a real contract, token ID, and transaction witness exist.
+pending in machine-readable metadata until its real contract, token ID, and
+transaction witness have been recorded. Every first-frame asset follows the
+canonical `RL-Writings-NN.svg` convention (for example, `RL-Writings-52.svg`).
 
 `writing/object.html?work=52` resolves an individual living object by following
 its current geometry and sound pointers. `writing/object.html?body=shared`

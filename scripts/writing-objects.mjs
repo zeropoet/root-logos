@@ -159,7 +159,7 @@ for (const number of numbers) {
     work_number: number,
     title: reading.title,
     mint: { status: "unminted", token_id: null, contract: null, transaction: null },
-    first_frame: { path: `writing/objects/${number}/receipt/first-frame.svg`, sha256: frameWitness, width: 1200, height: 1200 },
+    first_frame: { path: `writing/objects/${number}/receipt/RL-Writings-${number}.svg`, sha256: frameWitness, width: 1200, height: 1200 },
     witnesses: { writing: writingWitness, geometry_v1: geometryWitness, sound_v1: soundWitness },
     resolver: `https://folio.rootlogos.com/?work=${number}`,
     state_resolver: `https://rootlogos.com/writing/objects/${number}/current.json`,
@@ -186,7 +186,7 @@ for (const number of numbers) {
   };
   await writeOrCheck(join(base, "geometry", "v1.json"), geometry);
   await writeOrCheck(join(base, "sound", "v1.json"), sound);
-  await writeOrCheck(join(base, "receipt", "first-frame.svg"), frame);
+  await writeOrCheck(join(base, "receipt", `RL-Writings-${number}.svg`), frame);
   await writeOrCheck(join(base, "receipt", "receipt.json"), receipt);
   await writeOrCheck(join(base, "current.json"), current);
   await writeOrCheck(join(base, "versions.json"), versions);
