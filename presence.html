@@ -7,9 +7,9 @@
       .object-space { position: relative; }
       #living-object-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
       .presence-load-mask { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; background: #000; }
-      .presence-load-mark { display: block; width: 64px; height: 64px; animation: presence-breathe 3.2s ease-in-out infinite; }
+      .presence-load-dot { position: relative; z-index: 1; display: block; width: 8px; height: 8px; border-radius: 50%; background: #e6251f; animation: presence-breathe 3.2s ease-in-out infinite; }
       @keyframes presence-breathe { 0%,100% { opacity: .3; transform: scale(.94); } 50% { opacity: .82; transform: scale(1.06); } }
-      @media (prefers-reduced-motion: reduce) { .presence-load-mark { animation: none; opacity: .62; } }
+      @media (prefers-reduced-motion: reduce) { .presence-load-dot { animation: none; opacity: .62; } }
       .presence-identity { position: fixed; z-index: 20; top: clamp(10px,3vw,34px); left: clamp(10px,3vw,34px); display: grid; place-items: center; width: 48px; height: 48px; opacity: .34; transition: opacity .2s ease; }
       .presence-identity:hover, .presence-identity:focus-visible { opacity: 1; }
       .presence-identity img { display: block; width: 52px; height: 52px; max-width: none; object-fit: contain; }
@@ -34,7 +34,7 @@
       <section class="object-space" id="object" data-space-name="Presence" aria-labelledby="presence-title">
         <canvas id="living-object-canvas" tabindex="0" aria-label="Presence: a rotatable three-dimensional form shaped by Root Logos reading, questioning, writing, relation, memory, and tone."></canvas>
         <div class="object-void" aria-hidden="true"></div>
-        <div class="presence-load-mask" aria-hidden="true"><img class="presence-load-mark" src="https://rootlogos.com/assets/root-logos-presence-mark-white.svg" alt=""></div>
+        <div class="presence-load-mask" aria-hidden="true"><span class="presence-load-dot"></span></div>
         <header class="object-identity">
           <p class="coordinate" data-module="∞">The Living Presence</p>
           <h1 id="presence-title">Root<br>Logos</h1>
