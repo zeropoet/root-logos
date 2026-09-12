@@ -72,6 +72,8 @@
   let fallbackVolume = 0;
   let fallbackFadeFrame = 0;
   let sovereignMaster = null;
+  const soundButton = document.querySelector("#presence-sound");
+  let soundEnabled = !soundButton;
   let libraryVoiceActive = false;
   let libraryVoiceUnderlay = false;
   const sovereignWhisperLevel = 0.072;
@@ -92,6 +94,8 @@
     fallbackFadeFrame = requestAnimationFrame(frame);
   };
   const setSovereignVoiceActive = (active, transitionSeconds = active ? .55 : .3, underLibrary = false) => {
+    active = active && soundEnabled;
+    underLibrary = underLibrary && soundEnabled;
     libraryVoiceActive = !active;
     libraryVoiceUnderlay = underLibrary;
     const foreground = active
@@ -106,13 +110,32 @@
       sovereignMaster.gain.setValueAtTime(Math.max(.0001, sovereignMaster.gain.value), now);
       const target = active ? sovereignWhisperLevel : underLibrary ? sovereignWhisperLevel * .34 : .0001;
       sovereignMaster.gain.exponentialRampToValueAtTime(target, now + transitionSeconds);
+      if (!active && !underLibrary) sovereignMaster.gain.setValueAtTime(0, now + transitionSeconds + .01);
     }
     fadeFallbackVoice(active || underLibrary, transitionSeconds, underLibrary ? .34 : 1);
   };
   const ensureVoiceAwake = () => {
+    if (!soundEnabled) return;
     if (sovereignAudio?.state !== "running") sovereignAudio?.resume().catch(() => {});
     if (!libraryVoiceActive && fallbackAudio?.paused) fallbackAudio.play().catch(() => {});
   };
+  soundButton?.addEventListener("click", async () => {
+    soundButton.disabled = true;
+    try {
+      const next = !soundEnabled;
+      if (next && sovereignAudio) await sovereignAudio.resume();
+      soundEnabled = next;
+      setSovereignVoiceActive(next);
+      if (next) ensureVoiceAwake();
+      soundButton.setAttribute("aria-pressed", String(next));
+      soundButton.setAttribute("aria-label", next ? "Silence" : "Listen");
+      soundButton.querySelector("b").textContent = next ? "Silence" : "Listen";
+    } catch (error) {
+      console.error("Unable to start Presence audio", error);
+    } finally {
+      soundButton.disabled = false;
+    }
+  });
   addEventListener("rootlogos:library-voice-start", () => {
     setSovereignVoiceActive(false, .42, true);
   });
@@ -1817,7 +1840,7 @@
     const root = 38 + (cycles % 12);
     sovereignMaster = master;
     master.gain.value = libraryVoiceActive
-      ? libraryVoiceUnderlay ? sovereignWhisperLevel * .34 : 0.0001
+      ? libraryVoiceUnderlay ? sovereignWhisperLevel * .34 : 0
       : sovereignWhisperLevel;
     highpass.type = "highpass";
     highpass.frequency.value = 28;
